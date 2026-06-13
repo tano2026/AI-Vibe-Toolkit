@@ -2,58 +2,58 @@
 
 ---
 
-## 🔌 MCPs
+## 🔌 MCPs (8 cái)
 
-| # | Tên | Loại | File | Script | Video | Ngày thêm |
-|---|-----|------|------|--------|-------|-----------|
-| 1 | Context7 | Coding | ✅ | ✅ | ⏳ | 06/2025 |
-| 2 | Sequential Thinking | Coding | ✅ | ⏳ | ⏳ | 06/2025 |
-| 3 | Playwright | Coding | ✅ | ⏳ | ⏳ | 06/2025 |
-| 4 | Firecrawl | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
-| 5 | Crawl4AI | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
-| 6 | Brave Search | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
+| # | Tên | Nhóm | File | Script | Video |
+|---|-----|------|------|--------|-------|
+| 1 | Context7 | Coding | ✅ | ✅ | ⏳ |
+| 2 | Sequential Thinking | Coding | ✅ | ⏳ | ⏳ |
+| 3 | Playwright | Coding | ✅ | ⏳ | ⏳ |
+| 4 | Firecrawl | Research | ✅ | ✅ | ⏳ |
+| 5 | Crawl4AI | Research | ✅ | ✅ | ⏳ |
+| 6 | Brave Search | Research | ✅ | ✅ | ⏳ |
+| 7 | GitHub MCP | Automation | ✅ | ⏳ | ⏳ |
+| 8 | Filesystem | Automation | ✅ | ⏳ | ⏳ |
 
 ---
 
-## 🧠 Skills
+## 🧠 Skills (3 cái)
 
-| # | Tên | File | Script | Video | Ngày thêm |
-|---|-----|------|--------|-------|-----------|
-| 1 | *(đang cập nhật)* | | | | |
+| # | Tên | File | Script | Video |
+|---|-----|------|--------|-------|
+| 1 | Research Agent | ✅ | ⏳ | ⏳ |
+| 2 | Content Creator | ✅ | ⏳ | ⏳ |
+| 3 | Vibe Coder Assistant | ✅ | ⏳ | ⏳ |
 
 ---
 
 ## 📦 Repos
 
-| # | Tên | File | Script | Video | Ngày thêm |
-|---|-----|------|--------|-------|-----------|
-| 1 | *(đang cập nhật)* | | | | |
+| # | Tên | File | Script | Video |
+|---|-----|------|--------|-------|
+| 1 | *(đang cập nhật)* | | | |
 
 ---
 
-## 🗓️ Lịch đăng content
+## 🎬 Content Scripts (4 ready)
 
 | # | Tên video | Platform | Status |
 |---|-----------|----------|--------|
-| 1 | Context7 MCP — AI hết bịa code | TikTok | ⏳ Ready |
-| 2 | Brave Search — Claude tự search Google | TikTok | 📝 Cần script |
-| 3 | Firecrawl — Cào web bằng AI | TikTok | 📝 Cần script |
-| 4 | Crawl4AI — Cào web free không giới hạn | TikTok | 📝 Cần script |
+| 1 | Context7 — AI hết bịa code | TikTok | ✅ Ready |
+| 2 | Brave Search — Claude tự search | TikTok | ✅ Ready |
+| 3 | Firecrawl — Paste link Claude đọc | TikTok | ✅ Ready |
+| 4 | Crawl4AI — Cào web free vô hạn | TikTok | ✅ Ready |
 
 ---
 
 ## 📌 Legend
-- ✅ Xong
-- ⏳ Ready / Đang làm  
-- 📝 Cần làm
+- ✅ Xong / Ready
+- ⏳ Đang làm / Cần làm
 - 🚫 Skip
 
 ---
 
 ## 💡 Inbox
-
 - [ ] ...
-
----
 
 *Cập nhật: 06/2025*
