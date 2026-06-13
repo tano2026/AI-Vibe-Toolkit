@@ -1,14 +1,14 @@
 # 📊 Kho Theo Dõi — AI Vibe Toolkit
 
-> File này track tất cả nội dung trong kho + status sản xuất content
-
 ---
 
 ## 🔌 MCPs
 
 | # | Tên | File | Script | Video | Ngày thêm |
 |---|-----|------|--------|-------|-----------|
-| 1 | *(đang cập nhật)* | ⏳ | ⏳ | ⏳ | - |
+| 1 | Context7 | ✅ | ✅ | ⏳ | 06/2025 |
+| 2 | Sequential Thinking | ✅ | ⏳ | ⏳ | 06/2025 |
+| 3 | Playwright | ✅ | ⏳ | ⏳ | 06/2025 |
 
 ---
 
@@ -16,7 +16,7 @@
 
 | # | Tên | File | Script | Video | Ngày thêm |
 |---|-----|------|--------|-------|-----------|
-| 1 | *(đang cập nhật)* | ⏳ | ⏳ | ⏳ | - |
+| 1 | *(đang cập nhật)* | | | | |
 
 ---
 
@@ -24,23 +24,24 @@
 
 | # | Tên | File | Script | Video | Ngày thêm |
 |---|-----|------|--------|-------|-----------|
-| 1 | *(đang cập nhật)* | ⏳ | ⏳ | ⏳ | - |
+| 1 | *(đang cập nhật)* | | | | |
 
 ---
 
 ## 🗓️ Lịch đăng content
 
-| Tuần | Chủ đề | Platform | Status |
-|------|--------|----------|--------|
-| Tuần 1 | *(TBD)* | TikTok | ⏳ |
+| # | Tên video | Platform | Status | Ngày đăng |
+|---|-----------|----------|--------|-----------|
+| 1 | Context7 MCP — AI hết bịa code | TikTok | ⏳ Ready | - |
+| 2 | Sequential Thinking MCP | TikTok | 📝 Cần script | - |
+| 3 | Playwright MCP | TikTok | 📝 Cần script | - |
 
 ---
 
 ## 📌 Legend
-
 - ✅ Xong
-- ⏳ Đang làm
-- 📝 Draft
+- ⏳ Đang làm / Ready
+- 📝 Draft / Cần làm
 - 🚫 Skip
 
 ---
@@ -50,8 +51,7 @@
 > Mày quẳng link/ý tưởng vào đây, tao xử lý dần
 
 - [ ] ...
-- [ ] ...
 
 ---
 
-*Cập nhật lần cuối: 2025*
+*Cập nhật: 06/2025*
