@@ -154,3 +154,11 @@
 | # | Video | Status |
 |---|-------|--------|
 | 18 | Decision Tree — Thuật toán AI mày dùng mỗi ngày | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 7)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 22 | DiffusionGemma — Google 4x faster LLM (10/6/2026) | ✅ | ⏳ |
