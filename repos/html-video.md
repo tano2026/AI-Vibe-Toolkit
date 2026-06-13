@@ -1,85 +1,120 @@
-# html-video — Dán Link GitHub Vào, AI Nhả Ra Video MP4
+# html-video (nexu-io) — AI Agent Viết HTML, Mày Nhận MP4
 
-> 1.6k stars chỉ sau 10 ngày. Paste link GitHub repo hoặc bài blog → agent viết storyboard → render MP4 local. Không cloud, không phí render, 21 templates.
-
----
-
-## 📌 Thông tin cơ bản
-
-| | |
-|--|--|
-| **GitHub** | [nexu-io/html-video](https://github.com/nexu-io/html-video) ⭐ 1,600+ (10 ngày) |
-| **Engine** | HyperFrames (fully wired) |
-| **Templates** | 21 templates sẵn |
-| **Dùng với** | Claude Code, Cursor, Codex, Gemini CLI, OpenCode |
-| **Free** | ✅ Apache 2.0, không tính phí per-render |
-| **Yêu cầu** | Node.js 22+, FFmpeg |
+**GitHub:** https://github.com/nexu-io/html-video
+**Stars:** ~346 | **Forks:** 12 | **License:** Apache 2.0
+**Tác giả:** nexu-io (Open Design team)
+**Dùng với:** Claude Code, Cursor, Codex, Gemini CLI, Windsurf, Grok, Qwen...
 
 ---
 
-## 🎯 html-video vs HyperFrames
+## Concept Đơn Giản Nhưng Mạnh
 
-Tao đã thêm HyperFrames vào kho — html-video là **layer trên HyperFrames:**
+Thay vì kéo thả timeline trong Premiere hay CapCut — mày mô tả video bằng ngôn ngữ tự nhiên, hoặc paste link GitHub repo / bài viết, AI agent viết HTML + CSS + JS tạo animation, rồi render ra MP4 thật trên máy mày.
 
-| | HyperFrames | html-video |
-|--|-------------|------------|
-| Làm gì | Render HTML → MP4 | **Paste link → AI tạo video** |
-| Input | Mày viết HTML | Link URL / repo GitHub |
-| AI tự làm | Không | ✅ Có — storyboard + render |
-| Templates | ít | 21 templates |
+```
+Mày: "Tạo video giải thích DiffusionGemma của Google"
+→ Agent fetch GitHub repo hoặc tìm thông tin
+→ Agent viết HTML multi-frame có animation
+→ html-video render từng frame
+→ Ghép thành MP4 thật — có audio nếu cần
+```
 
-→ **html-video dễ hơn, tự động hơn**
+Không có server. Không có per-render fee. Chạy local hoàn toàn.
 
 ---
 
-## ⚡ Setup và dùng
+## 3 Kiểu Input
+
+**1. GitHub repo link:**
+```bash
+# Agent tự fetch README + structure + top-level files
+"Tạo video giải thích repo này: github.com/google/magika"
+→ Video "explain this open-source project" tự động
+```
+
+**2. URL / bài viết:**
+```bash
+"Tạo video tóm tắt bài này: [URL]"
+→ Agent đọc content → tạo video
+```
+
+**3. Prompt thuần:**
+```bash
+"Tạo video 30 giây về cách Decision Tree hoạt động"
+→ Agent tự viết content + animation
+```
+
+---
+
+## 21 Templates Sẵn Có
+
+| Template | Dùng cho |
+|----------|---------|
+| `frame-data-chart-nyt` | Data viz style NYT — line chart có annotation |
+| `frame-code-explainer` | Giải thích code step-by-step |
+| `frame-product-launch` | Product announcement |
+| `frame-timeline` | Timeline events |
+| `frame-comparison` | So sánh A vs B |
+| `frame-stats-dashboard` | Dashboard metrics |
+| + 15 templates khác | ... |
+
+Mỗi template là **animated single-file HTML** — agent fill content vào, render ra MP4.
+
+---
+
+## Cài & Dùng
 
 ```bash
-# Cài
-pnpm install && html-video studio
+git clone https://github.com/nexu-io/html-video
+cd html-video
+npm install
 
-# Trong Claude Code:
-"Tạo video từ repo này: github.com/tano2026/AI-Vibe-Toolkit"
-→ Agent đọc repo
-→ Tự viết storyboard
-→ Tự render MP4
+# Với Claude Code
+npx skills add nexu-io/html-video
+
+# Mô tả video
+"Create a 60-second explainer video about browser-use library"
+```
+
+**Render engines hỗ trợ:**
+- Puppeteer (default, local)
+- Playwright
+- Remotion (nếu đã cài)
+
+---
+
+## AI Soundtrack
+
+```bash
+# Thêm nhạc nền tự động
+"Create video with ambient background music"
+→ AI generate soundtrack phù hợp với tone video
 ```
 
 ---
 
-## 💡 Use cases cho kênh của mày
+## Workflow Cho Content Creator
 
+Kết hợp với pipeline của mày:
 ```
-Paste link vào Claude Code:
-"Tạo video 60 giây giới thiệu OpenClaw
- từ github.com/openclaw/openclaw
- Style: dark tech, text animation"
-
-→ Agent đọc README
-→ Tự tạo script từ content repo
-→ Render MP4 local
-→ Video review repo xong
+GitHub repo hay → html-video agent → MP4 video giải thích
+→ CapCut thêm sub tiếng Việt → TikTok/YouTube
 ```
 
----
-
-## 🔗 Hay kết hợp với
-
-- **Scripts trong kho** — feed script .md → html-video render MP4
-- **HyperFrames** — html-video dùng HyperFrames làm engine
+Thay thế bước quay screen record + voiceover cho video giải thích repo — AI làm hết.
 
 ---
 
-## 📊 Đánh giá
+## Đánh Giá Cá Nhân
 
-| Tiêu chí | Điểm |
-|----------|------|
-| Dễ dùng hơn HyperFrames | ⭐⭐⭐⭐⭐ |
-| Tự động hóa pipeline | ⭐⭐⭐⭐⭐ |
-| 10 ngày 1.6k stars | ⭐⭐⭐⭐⭐ |
+html-video là thứ tao đang thử nghiệm cho pipeline video. Ý tưởng cốt lõi rất hay: thay vì giải thích repo bằng cách quay màn hình, để AI tạo motion graphics giải thích luôn.
 
-**Tóm lại:** Đây là bước upgrade sau HyperFrames — không cần viết HTML, chỉ cần paste link. Với kênh của mày, đây là cách nhanh nhất để tạo video review repos.
+346 stars là còn nhỏ nhưng đây là project của nexu-io — team đứng sau open-design (64k stars) và html-anything (6.2k stars). Quality và maintenance đáng tin.
+
+Điểm trừ: template library còn ít, output MP4 chưa đẹp bằng Remotion. Nhưng zero per-render fee và không cần biết React là lợi thế lớn.
+
+**Rating: 7.5/10** — tiềm năng cao, ecosystem còn đang grow.
 
 ---
 
-*Thêm vào kho: 06/2025 | Nguồn: github.com/nexu-io/html-video*
+*Nguồn: github.com/nexu-io/html-video | Cập nhật: tháng 6/2026*
