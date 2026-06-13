@@ -141,3 +141,16 @@
 | # | Tên | File | Script |
 |---|-----|------|--------|
 | 21 | supertonic (5.3k ⭐) — TTS local 31 ngôn ngữ | ✅ | ⏳ |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 6)
+
+### Skills
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 6 | ML Concepts Explainer (chipmastervn style) | ✅ | - |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 18 | Decision Tree — Thuật toán AI mày dùng mỗi ngày | ✅ Ready |
