@@ -97,3 +97,16 @@
 | 14 | mattpocock/skills — 109k stars | ✅ Ready |
 | 15 | last30days — Google không có | ✅ Ready |
 | 16 | Mem0 — AI agent mọc ký ức | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 2)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 17 | marketingskills (31.9k ⭐) | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 17 | marketingskills — 43 skill biến AI thành CMO | ✅ Ready |
