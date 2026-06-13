@@ -17,6 +17,14 @@
 
 ---
 
+## 📦 Repos (1 cái)
+
+| # | Tên | File | Script | Video |
+|---|-----|------|--------|-------|
+| 1 | Superpowers | ✅ | ✅ | ⏳ |
+
+---
+
 ## 🧠 Skills (3 cái)
 
 | # | Tên | File | Script | Video |
@@ -27,33 +35,21 @@
 
 ---
 
-## 📦 Repos
+## 🎬 Scripts sẵn sàng quay (5 videos)
 
-| # | Tên | File | Script | Video |
-|---|-----|------|--------|-------|
-| 1 | *(đang cập nhật)* | | | |
-
----
-
-## 🎬 Content Scripts (4 ready)
-
-| # | Tên video | Platform | Status |
-|---|-----------|----------|--------|
+| # | Video | Platform | Status |
+|---|-------|----------|--------|
 | 1 | Context7 — AI hết bịa code | TikTok | ✅ Ready |
 | 2 | Brave Search — Claude tự search | TikTok | ✅ Ready |
 | 3 | Firecrawl — Paste link Claude đọc | TikTok | ✅ Ready |
 | 4 | Crawl4AI — Cào web free vô hạn | TikTok | ✅ Ready |
+| 5 | Superpowers — Plugin 150k stars | TikTok | ✅ Ready |
 
 ---
 
 ## 📌 Legend
 - ✅ Xong / Ready
-- ⏳ Đang làm / Cần làm
+- ⏳ Cần làm
 - 🚫 Skip
-
----
-
-## 💡 Inbox
-- [ ] ...
 
 *Cập nhật: 06/2025*
