@@ -153,3 +153,20 @@
 **Scripts sẵn sàng quay: 32 videos**
 **Việc tiếp theo: BẮT ĐẦU QUAY**
 
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 11)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 23 | html-video (nexu-io) — paste link → MP4 | ~346 | ✅ | ✅ |
+| 24 | Remotion — React → video MP4 | 49.9k⭐ | ✅ | ✅ |
+| 25 | Plannotator — review plan AI trên browser | ~6k⭐ | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 33 | html-video — paste link GitHub nhận MP4 | ✅ Ready |
+| 34 | Remotion — viết React, nhận video MP4 | ✅ Ready |
+| 35 | Plannotator — đừng approve plan AI mù quáng | ✅ Ready |
