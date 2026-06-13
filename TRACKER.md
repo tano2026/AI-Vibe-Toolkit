@@ -174,3 +174,20 @@
 | 21 | html-anything — Canva $0 dùng agent mày đã có | ✅ Ready |
 | 22 | Supertonic — TTS local thay ElevenLabs $0/tháng | ✅ Ready |
 | 23 | DiffusionGemma — Google thay đổi cách LLM sinh text | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 9 — Fill MCPs + TurboVec)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 12 | TurboVec — RAG 31GB→4GB faster than FAISS | ✅ | ✅ |
+
+### Scripts fill (MCPs)
+| # | Video | Status |
+|---|-------|--------|
+| 24 | Sequential Thinking MCP — Bắt AI nghĩ trước khi làm | ✅ Ready |
+| 25 | Playwright MCP — Claude tự test web | ✅ Ready |
+| 26 | GitHub MCP — Claude tự commit, tạo PR | ✅ Ready |
+| 27 | Filesystem MCP — Claude đọc file không copy paste | ✅ Ready |
+| 28 | TurboVec — RAG 10M docs từ 31GB xuống 4GB | ✅ Ready |
