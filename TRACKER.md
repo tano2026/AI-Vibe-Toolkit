@@ -78,3 +78,22 @@
 ---
 
 *Cập nhật: 06/2025*
+
+---
+## 🆕 Batch mới thêm (06/2025)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 13 | HyperFrames | ✅ | ✅ |
+| 14 | mattpocock/skills | ✅ | ✅ |
+| 15 | last30days | ✅ | ✅ |
+| 16 | Mem0 | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 13 | HyperFrames — Không cần CapCut | ✅ Ready |
+| 14 | mattpocock/skills — 109k stars | ✅ Ready |
+| 15 | last30days — Google không có | ✅ Ready |
+| 16 | Mem0 — AI agent mọc ký ức | ✅ Ready |
