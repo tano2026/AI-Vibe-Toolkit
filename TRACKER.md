@@ -110,3 +110,16 @@
 | # | Video | Status |
 |---|-------|--------|
 | 17 | marketingskills — 43 skill biến AI thành CMO | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 3)
+
+### Skills
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 5 | AI Content Writing (6 prompts) | ✅ | ⏳ |
+
+### Stacks
+| # | Tên | File |
+|---|-----|------|
+| 1 | AI Content Stack Việt | ✅ |
