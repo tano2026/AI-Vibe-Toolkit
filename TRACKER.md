@@ -27,6 +27,7 @@
 | 4 | LMCache | ✅ | ✅ | ⏳ |
 | 5 | AiToEarn | ✅ | ✅ | ⏳ |
 | 6 | TurboVec | ⏳ | ⏳ | ⏳ |
+| 7 | sc-datav (3D Dashboard) | ✅ | ✅ | ⏳ |
 
 ---
 
@@ -50,6 +51,7 @@
 | 4 | Crawl4AI — Cào web free vô hạn | TikTok | ✅ Ready |
 | 5 | Superpowers — Plugin 150k stars | TikTok | ✅ Ready |
 | 6 | Top 5 GitHub Trending (format slide) | TikTok | ✅ Ready |
+| 7 | sc-datav — Dashboard 3D như trong phim | TikTok | ✅ Ready |
 
 ---
 
