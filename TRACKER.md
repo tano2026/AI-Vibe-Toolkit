@@ -17,11 +17,16 @@
 
 ---
 
-## 📦 Repos (1 cái)
+## 📦 Repos (6 cái)
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
 | 1 | Superpowers | ✅ | ✅ | ⏳ |
+| 2 | Agent Skills (addyosmani) | ✅ | ✅ | ⏳ |
+| 3 | System Prompts Leaked | ✅ | ✅ | ⏳ |
+| 4 | LMCache | ✅ | ✅ | ⏳ |
+| 5 | AiToEarn | ✅ | ✅ | ⏳ |
+| 6 | TurboVec | ⏳ | ⏳ | ⏳ |
 
 ---
 
@@ -35,7 +40,7 @@
 
 ---
 
-## 🎬 Scripts sẵn sàng quay (5 videos)
+## 🎬 Scripts sẵn sàng quay (6 videos)
 
 | # | Video | Platform | Status |
 |---|-------|----------|--------|
@@ -44,6 +49,7 @@
 | 3 | Firecrawl — Paste link Claude đọc | TikTok | ✅ Ready |
 | 4 | Crawl4AI — Cào web free vô hạn | TikTok | ✅ Ready |
 | 5 | Superpowers — Plugin 150k stars | TikTok | ✅ Ready |
+| 6 | Top 5 GitHub Trending (format slide) | TikTok | ✅ Ready |
 
 ---
 
