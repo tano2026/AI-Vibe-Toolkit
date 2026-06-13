@@ -1,68 +1,127 @@
 # 📊 Kho Theo Dõi — AI Vibe Toolkit
+*Cập nhật: tháng 6/2026*
 
 ---
 
-## 🔌 MCPs (8 cái)
-
-| # | Tên | Nhóm | File | Script | Video |
-|---|-----|------|------|--------|-------|
-| 1 | Context7 | Coding | ✅ | ✅ | ⏳ |
-| 2 | Sequential Thinking | Coding | ✅ | ⏳ | ⏳ |
-| 3 | Playwright | Coding | ✅ | ⏳ | ⏳ |
-| 4 | Firecrawl | Research | ✅ | ✅ | ⏳ |
-| 5 | Crawl4AI | Research | ✅ | ✅ | ⏳ |
-| 6 | Brave Search | Research | ✅ | ✅ | ⏳ |
-| 7 | GitHub MCP | Automation | ✅ | ⏳ | ⏳ |
-| 8 | Filesystem | Automation | ✅ | ⏳ | ⏳ |
-
----
-
-## 📦 Repos (12 cái)
+## 🔌 MCPs — 13 cái
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
-| 1 | Superpowers | ✅ | ✅ | ⏳ |
-| 2 | Agent Skills | ✅ | ✅ | ⏳ |
-| 3 | System Prompts Leaked | ✅ | ✅ | ⏳ |
-| 4 | LMCache | ✅ | ✅ | ⏳ |
-| 5 | AiToEarn | ✅ | ✅ | ⏳ |
-| 6 | sc-datav (3D Dashboard) | ✅ | ✅ | ⏳ |
-| 7 | OpenClaw | ✅ | ✅ | ⏳ |
-| 8 | nanochat (Karpathy) | ✅ | ✅ | ⏳ |
-| 9 | Bumblebee | ✅ | ✅ | ⏳ |
-| 10 | n8n-claw | ✅ | ✅ | ⏳ |
-| 11 | Vibe Coding Roadmap | ✅ | ✅ | ⏳ |
-| 12 | TurboVec | ⏳ | ⏳ | ⏳ |
+| 1 | Context7 | ✅ | ✅ | ⏳ |
+| 2 | Sequential Thinking | ✅ | ✅ | ⏳ |
+| 3 | Playwright | ✅ | ✅ | ⏳ |
+| 4 | Firecrawl | ✅ | ✅ | ⏳ |
+| 5 | Crawl4AI | ✅ | ✅ | ⏳ |
+| 6 | Brave Search | ✅ | ✅ | ⏳ |
+| 7 | GitHub MCP | ✅ | ✅ | ⏳ |
+| 8 | Filesystem | ✅ | ✅ | ⏳ |
+| 9 | NotebookLM (PleasePrompto) 2.7k⭐ | ✅ | ✅ | ⏳ |
+| 10 | NotebookLM (roomi-fields) REST+Docker | ✅ | ✅ | ⏳ |
+| 11 | NotebookLM Secure (Pantheon) | ✅ | ✅ | ⏳ |
+| 12 | NotebookLM 2026 (Python) | ✅ | ✅ | ⏳ |
+| 13 | NotebookLM Server (auto-update) | ✅ | ✅ | ⏳ |
 
 ---
 
-## 🧠 Skills (4 cái)
+## 📦 Repos — 22 cái
+
+| # | Tên | Stars | File | Script | Video |
+|---|-----|-------|------|--------|-------|
+| 1 | Superpowers | 150k⭐ | ✅ | ✅ | ⏳ |
+| 2 | Agent Skills | 109k⭐ | ✅ | ✅ | ⏳ |
+| 3 | System Prompts Leaked | - | ✅ | ✅ | ⏳ |
+| 4 | LMCache | - | ✅ | ✅ | ⏳ |
+| 5 | AiToEarn | - | ✅ | ✅ | ⏳ |
+| 6 | sc-datav (3D Dashboard) | - | ✅ | ✅ | ⏳ |
+| 7 | OpenClaw | 210k⭐ | ✅ | ✅ | ⏳ |
+| 8 | nanochat (Karpathy) | - | ✅ | ✅ | ⏳ |
+| 9 | Bumblebee | - | ✅ | ✅ | ⏳ |
+| 10 | n8n-claw | - | ✅ | ✅ | ⏳ |
+| 11 | Vibe Coding Roadmap | - | ✅ | ✅ | ⏳ |
+| 12 | TurboVec | ~6k⭐ | ✅ | ✅ | ⏳ |
+| 13 | HyperFrames | - | ✅ | ✅ | ⏳ |
+| 14 | mattpocock/skills | 109k⭐ | ✅ | ✅ | ⏳ |
+| 15 | last30days | - | ✅ | ✅ | ⏳ |
+| 16 | Mem0 | - | ✅ | ✅ | ⏳ |
+| 17 | marketingskills | 31.9k⭐ | ✅ | ✅ | ⏳ |
+| 18 | google/magika | 15.2k⭐ | ✅ | ✅ | ⏳ |
+| 19 | browser-use | 95k⭐ | ✅ | ✅ | ⏳ |
+| 20 | html-anything | 6.2k⭐ | ✅ | ✅ | ⏳ |
+| 21 | supertonic | 5.3k⭐ | ✅ | ✅ | ⏳ |
+| 22 | DiffusionGemma | - | ✅ | ✅ | ⏳ |
+
+---
+
+## 🧠 Skills — 6 cái
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
-| 1 | Research Agent | ✅ | ⏳ | ⏳ |
-| 2 | Content Creator | ✅ | ⏳ | ⏳ |
-| 3 | Vibe Coder Assistant | ✅ | ⏳ | ⏳ |
+| 1 | Research Agent | ✅ | ✅ | ⏳ |
+| 2 | Content Creator | ✅ | ✅ | ⏳ |
+| 3 | Vibe Coder Assistant | ✅ | ✅ | ⏳ |
 | 4 | Auto Research Trending | ✅ | - | - |
+| 5 | AI Content Writing (6 prompts) | ✅ | - | - |
+| 6 | ML Concepts Explainer | ✅ | - | - |
 
 ---
 
-## 🎬 Scripts sẵn sàng quay (12 videos)
+## 📦 Stacks — 1 cái
 
-| # | Video | Hook | Status |
-|---|-------|------|--------|
-| 01 | Context7 — AI hết bịa code | "Claude viết code dùng API không tồn tại" | ✅ Ready |
-| 02 | Brave Search — Claude tự search | "Claude không biết chuyện hôm nay" | ✅ Ready |
-| 03 | Firecrawl — Paste link Claude đọc | "Để Claude đọc website đối thủ trong 30s" | ✅ Ready |
-| 04 | Crawl4AI — Cào web free vô hạn | "63k stars, free không giới hạn" | ✅ Ready |
-| 05 | Superpowers — Plugin 150k stars | "Plugin này có 150k stars trong 6 tháng" | ✅ Ready |
-| 06 | Top 5 GitHub Trending | "AI tiến hóa điên rồ — top 5 tuần này" | ✅ Ready |
-| 07 | sc-datav — Dashboard 3D | "Dashboard 3D như trong phim — 3 lệnh" | ✅ Ready |
-| 08 | OpenClaw — AI agent 210k stars | "Nhanh nhất lịch sử GitHub" | ✅ Ready |
-| 09 | Bumblebee — Scan MCP an toàn | "160 packages bị hack tháng 5/2026" | ✅ Ready |
-| 10 | n8n-claw — Agent tự vận hành | "AI agent 24/7 — setup 5 phút" | ✅ Ready |
-| 11 | nanochat — Train AI với $15 | "Train ChatGPT với $15" | ✅ Ready |
-| 12 | Vibe Coding Roadmap | "Không biết code — bắt đầu từ đây" | ✅ Ready |
+| # | Tên | File |
+|---|-----|------|
+| 1 | AI Content Stack Việt | ✅ |
+
+---
+
+## 🎬 Scripts sẵn sàng quay — 32 videos
+
+### MCPs (8 scripts)
+| # | Video | Hook |
+|---|-------|------|
+| 01 | Context7 — AI hết bịa code | "Claude viết code dùng API không tồn tại" |
+| 02 | Brave Search — Claude tự search | "Claude không biết chuyện hôm nay" |
+| 03 | Firecrawl — Paste link Claude đọc | "Để Claude đọc website đối thủ trong 30s" |
+| 04 | Crawl4AI — Cào web free vô hạn | "63k stars, free không giới hạn" |
+| 24 | Sequential Thinking — Bắt AI nghĩ trước | "AI nhảy vào làm luôn rồi sai" |
+| 25 | Playwright — Claude tự test web | "Test web bằng tay mãi à?" |
+| 26 | GitHub MCP — Tự commit, tạo PR | "Phần nhàm nhất của vibe coding" |
+| 27 | Filesystem — Đọc file không copy paste | "Copy paste file vào Claude mãi rồi à?" |
+
+### NotebookLM Ecosystem (1 script cover cả 5)
+| # | Video | Hook |
+|---|-------|------|
+| 29 | NotebookLM MCP — Zero hallucination | "Claude bịa từ tài liệu của mày?" |
+
+### Repos (19 scripts)
+| # | Video | Hook |
+|---|-------|------|
+| 05 | Superpowers — Plugin 150k stars | "Plugin này có 150k stars trong 6 tháng" |
+| 06 | Top 5 GitHub Trending | "AI tiến hóa điên rồ — top 5 tuần này" |
+| 07 | sc-datav — Dashboard 3D | "Dashboard 3D như trong phim — 3 lệnh" |
+| 08 | OpenClaw — AI agent 210k stars | "Nhanh nhất lịch sử GitHub" |
+| 09 | Bumblebee — Scan MCP an toàn | "160 packages bị hack tháng 5/2026" |
+| 10 | n8n-claw — Agent tự vận hành | "AI agent 24/7 — setup 5 phút" |
+| 11 | nanochat — Train AI với $15 | "Train ChatGPT với $15" |
+| 12 | Vibe Coding Roadmap | "Không biết code — bắt đầu từ đây" |
+| 13 | HyperFrames — Không cần CapCut | "AI viết HTML thay vì kéo timeline" |
+| 14 | mattpocock/skills — 109k stars | "109k stars trong 6 tháng" |
+| 15 | last30days — Google không có | "Tìm repo trending Google không index" |
+| 16 | Mem0 — AI agent mọc ký ức | "AI agent không quên như người thật" |
+| 17 | marketingskills — 43 skill AI marketing | "AI agent không biết marketing?" |
+| 19 | Magika — Google scan Gmail | "Google dùng cái này scan Gmail" |
+| 20 | browser-use — Nói với browser | "Script Selenium gãy lần thứ 5" |
+| 21 | html-anything — Canva $0 | "Đang trả $20/tháng Canva?" |
+| 22 | Supertonic — TTS local $0 | "ElevenLabs $22/tháng → $0" |
+| 23 | DiffusionGemma — LLM mới | "Google thay đổi cách LLM hoạt động" |
+| 28 | TurboVec — RAG 31GB→4GB | "RAG pipeline cần 31GB RAM?" |
+
+### Skills (4 scripts)
+| # | Video | Hook |
+|---|-------|------|
+| 18 | Decision Tree — Thuật toán AI | "Mày dùng cái này mỗi sáng mà không biết" |
+| 30 | Research Agent — Intern 24/7 | "Research mất cả buổi → 3 phút" |
+| 31 | Content Creator — 1 idea × 10 formats | "1 ý tưởng → 10 loại content cùng lúc" |
+| 32 | Vibe Coder Assistant — Pair programmer | "Sợ hỏi Claude câu ngố?" |
 
 ---
 
@@ -70,141 +129,27 @@
 
 | Tuần | Video | Lý do |
 |------|-------|-------|
-| Tuần 1 | #12 Vibe Coding Roadmap | Hook rộng — mọi beginner đều cần |
-| Tuần 2 | #01 Context7 | MCP cơ bản nhất |
-| Tuần 3 | #08 OpenClaw | Trend hot nhất |
-| Tuần 4 | #06 Top 5 GitHub | Format dễ làm, dễ viral |
+| 1 | #12 Vibe Coding Roadmap | Hook rộng nhất — mọi beginner đều cần |
+| 2 | #01 Context7 | MCP cơ bản, dễ demo nhất |
+| 3 | #08 OpenClaw | Trend hot, số stars gây sốc |
+| 4 | #32 Vibe Coder Assistant | Emotional hook mạnh |
+| 5 | #29 NotebookLM MCP | Cover cả ecosystem trong 1 video |
+| 6 | #19 Magika | Google credibility + security angle |
+| 7 | #23 DiffusionGemma | News hook — vừa ra 10/6/2026 |
+| 8 | #20 browser-use | Demo ấn tượng nhất — browser tự chạy |
 
 ---
 
-*Cập nhật: 06/2025*
+## 📊 Tổng kết
 
----
-## 🆕 Batch mới thêm (06/2025)
+| Loại | Tổng | File ✅ | Script ✅ | Video ✅ |
+|------|------|---------|----------|---------|
+| MCPs | 13 | 13 | 13 | 0 |
+| Repos | 22 | 22 | 22 | 0 |
+| Skills | 6 | 6 | 4 | 0 |
+| Stacks | 1 | 1 | - | 0 |
+| **Total** | **42** | **42** | **39** | **0** |
 
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 13 | HyperFrames | ✅ | ✅ |
-| 14 | mattpocock/skills | ✅ | ✅ |
-| 15 | last30days | ✅ | ✅ |
-| 16 | Mem0 | ✅ | ✅ |
+**Scripts sẵn sàng quay: 32 videos**
+**Việc tiếp theo: BẮT ĐẦU QUAY**
 
-### Scripts thêm
-| # | Video | Status |
-|---|-------|--------|
-| 13 | HyperFrames — Không cần CapCut | ✅ Ready |
-| 14 | mattpocock/skills — 109k stars | ✅ Ready |
-| 15 | last30days — Google không có | ✅ Ready |
-| 16 | Mem0 — AI agent mọc ký ức | ✅ Ready |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 2)
-
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 17 | marketingskills (31.9k ⭐) | ✅ | ✅ |
-
-### Scripts thêm
-| # | Video | Status |
-|---|-------|--------|
-| 17 | marketingskills — 43 skill biến AI thành CMO | ✅ Ready |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 3)
-
-### Skills
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 5 | AI Content Writing (6 prompts) | ✅ | ⏳ |
-
-### Stacks
-| # | Tên | File |
-|---|-----|------|
-| 1 | AI Content Stack Việt | ✅ |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 4)
-
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 18 | google/magika (15.2k ⭐) | ✅ | ⏳ |
-| 19 | browser-use (95k ⭐) | ✅ | ⏳ |
-| 20 | html-anything (6.2k ⭐) | ✅ | ⏳ |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 5)
-
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 21 | supertonic (5.3k ⭐) — TTS local 31 ngôn ngữ | ✅ | ⏳ |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 6)
-
-### Skills
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 6 | ML Concepts Explainer (chipmastervn style) | ✅ | - |
-
-### Scripts thêm
-| # | Video | Status |
-|---|-------|--------|
-| 18 | Decision Tree — Thuật toán AI mày dùng mỗi ngày | ✅ Ready |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 7)
-
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 22 | DiffusionGemma — Google 4x faster LLM (10/6/2026) | ✅ | ⏳ |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 8 — Fill scripts)
-
-### Scripts fill
-| # | Video | Status |
-|---|-------|--------|
-| 19 | Magika — Google scan Gmail bằng cái này | ✅ Ready |
-| 20 | browser-use — Nói chuyện với browser thay vì viết selector | ✅ Ready |
-| 21 | html-anything — Canva $0 dùng agent mày đã có | ✅ Ready |
-| 22 | Supertonic — TTS local thay ElevenLabs $0/tháng | ✅ Ready |
-| 23 | DiffusionGemma — Google thay đổi cách LLM sinh text | ✅ Ready |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 9 — Fill MCPs + TurboVec)
-
-### Repos
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 12 | TurboVec — RAG 31GB→4GB faster than FAISS | ✅ | ✅ |
-
-### Scripts fill (MCPs)
-| # | Video | Status |
-|---|-------|--------|
-| 24 | Sequential Thinking MCP — Bắt AI nghĩ trước khi làm | ✅ Ready |
-| 25 | Playwright MCP — Claude tự test web | ✅ Ready |
-| 26 | GitHub MCP — Claude tự commit, tạo PR | ✅ Ready |
-| 27 | Filesystem MCP — Claude đọc file không copy paste | ✅ Ready |
-| 28 | TurboVec — RAG 10M docs từ 31GB xuống 4GB | ✅ Ready |
-
----
-## 🆕 Batch mới thêm (06/2026 - lần 10 — NotebookLM MCP Ecosystem)
-
-### MCPs — NotebookLM Ecosystem (5 repos)
-| # | Tên | File | Script |
-|---|-----|------|--------|
-| 9 | notebooklm-mcp (PleasePrompto) — 2.7k⭐ easiest | ✅ | ✅ |
-| 10 | notebooklm-mcp (roomi-fields) — HTTP REST + Docker | ✅ | ✅ |
-| 11 | notebooklm-mcp-secure (Pantheon) — enterprise security | ✅ | ✅ |
-| 12 | notebooklm-mcp-2026 (julianoczkowski) — Python | ✅ | ✅ |
-| 13 | notebooklm-mcp-server (moodRobotics) — auto-update | ✅ | ✅ |
-
-### Scripts thêm
-| # | Video | Status |
-|---|-------|--------|
-| 29 | NotebookLM MCP — Claude hỏi NotebookLM, không hallucinate | ✅ Ready |
