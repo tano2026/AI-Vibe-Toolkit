@@ -123,3 +123,13 @@
 | # | Tên | File |
 |---|-----|------|
 | 1 | AI Content Stack Việt | ✅ |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 4)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 18 | google/magika (15.2k ⭐) | ✅ | ⏳ |
+| 19 | browser-use (95k ⭐) | ✅ | ⏳ |
+| 20 | html-anything (6.2k ⭐) | ✅ | ⏳ |
