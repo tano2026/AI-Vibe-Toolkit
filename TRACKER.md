@@ -4,11 +4,14 @@
 
 ## 🔌 MCPs
 
-| # | Tên | File | Script | Video | Ngày thêm |
-|---|-----|------|--------|-------|-----------|
-| 1 | Context7 | ✅ | ✅ | ⏳ | 06/2025 |
-| 2 | Sequential Thinking | ✅ | ⏳ | ⏳ | 06/2025 |
-| 3 | Playwright | ✅ | ⏳ | ⏳ | 06/2025 |
+| # | Tên | Loại | File | Script | Video | Ngày thêm |
+|---|-----|------|------|--------|-------|-----------|
+| 1 | Context7 | Coding | ✅ | ✅ | ⏳ | 06/2025 |
+| 2 | Sequential Thinking | Coding | ✅ | ⏳ | ⏳ | 06/2025 |
+| 3 | Playwright | Coding | ✅ | ⏳ | ⏳ | 06/2025 |
+| 4 | Firecrawl | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
+| 5 | Crawl4AI | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
+| 6 | Brave Search | Research & Cào data | ✅ | ⏳ | ⏳ | 06/2025 |
 
 ---
 
@@ -30,25 +33,24 @@
 
 ## 🗓️ Lịch đăng content
 
-| # | Tên video | Platform | Status | Ngày đăng |
-|---|-----------|----------|--------|-----------|
-| 1 | Context7 MCP — AI hết bịa code | TikTok | ⏳ Ready | - |
-| 2 | Sequential Thinking MCP | TikTok | 📝 Cần script | - |
-| 3 | Playwright MCP | TikTok | 📝 Cần script | - |
+| # | Tên video | Platform | Status |
+|---|-----------|----------|--------|
+| 1 | Context7 MCP — AI hết bịa code | TikTok | ⏳ Ready |
+| 2 | Brave Search — Claude tự search Google | TikTok | 📝 Cần script |
+| 3 | Firecrawl — Cào web bằng AI | TikTok | 📝 Cần script |
+| 4 | Crawl4AI — Cào web free không giới hạn | TikTok | 📝 Cần script |
 
 ---
 
 ## 📌 Legend
 - ✅ Xong
-- ⏳ Đang làm / Ready
-- 📝 Draft / Cần làm
+- ⏳ Ready / Đang làm  
+- 📝 Cần làm
 - 🚫 Skip
 
 ---
 
-## 💡 Inbox — Ý tưởng chưa xử lý
-
-> Mày quẳng link/ý tưởng vào đây, tao xử lý dần
+## 💡 Inbox
 
 - [ ] ...
 
