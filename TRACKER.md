@@ -162,3 +162,15 @@
 | # | Tên | File | Script |
 |---|-----|------|--------|
 | 22 | DiffusionGemma — Google 4x faster LLM (10/6/2026) | ✅ | ⏳ |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 8 — Fill scripts)
+
+### Scripts fill
+| # | Video | Status |
+|---|-------|--------|
+| 19 | Magika — Google scan Gmail bằng cái này | ✅ Ready |
+| 20 | browser-use — Nói chuyện với browser thay vì viết selector | ✅ Ready |
+| 21 | html-anything — Canva $0 dùng agent mày đã có | ✅ Ready |
+| 22 | Supertonic — TTS local thay ElevenLabs $0/tháng | ✅ Ready |
+| 23 | DiffusionGemma — Google thay đổi cách LLM sinh text | ✅ Ready |
