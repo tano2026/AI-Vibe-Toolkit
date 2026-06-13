@@ -133,3 +133,11 @@
 | 18 | google/magika (15.2k ⭐) | ✅ | ⏳ |
 | 19 | browser-use (95k ⭐) | ✅ | ⏳ |
 | 20 | html-anything (6.2k ⭐) | ✅ | ⏳ |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 5)
+
+### Repos
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 21 | supertonic (5.3k ⭐) — TTS local 31 ngôn ngữ | ✅ | ⏳ |
