@@ -17,47 +17,64 @@
 
 ---
 
-## 📦 Repos (6 cái)
+## 📦 Repos (12 cái)
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
 | 1 | Superpowers | ✅ | ✅ | ⏳ |
-| 2 | Agent Skills (addyosmani) | ✅ | ✅ | ⏳ |
+| 2 | Agent Skills | ✅ | ✅ | ⏳ |
 | 3 | System Prompts Leaked | ✅ | ✅ | ⏳ |
 | 4 | LMCache | ✅ | ✅ | ⏳ |
 | 5 | AiToEarn | ✅ | ✅ | ⏳ |
-| 6 | TurboVec | ⏳ | ⏳ | ⏳ |
-| 7 | sc-datav (3D Dashboard) | ✅ | ✅ | ⏳ |
+| 6 | sc-datav (3D Dashboard) | ✅ | ✅ | ⏳ |
+| 7 | OpenClaw | ✅ | ✅ | ⏳ |
+| 8 | nanochat (Karpathy) | ✅ | ✅ | ⏳ |
+| 9 | Bumblebee | ✅ | ✅ | ⏳ |
+| 10 | n8n-claw | ✅ | ✅ | ⏳ |
+| 11 | Vibe Coding Roadmap | ✅ | ✅ | ⏳ |
+| 12 | TurboVec | ⏳ | ⏳ | ⏳ |
 
 ---
 
-## 🧠 Skills (3 cái)
+## 🧠 Skills (4 cái)
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
 | 1 | Research Agent | ✅ | ⏳ | ⏳ |
 | 2 | Content Creator | ✅ | ⏳ | ⏳ |
 | 3 | Vibe Coder Assistant | ✅ | ⏳ | ⏳ |
+| 4 | Auto Research Trending | ✅ | - | - |
 
 ---
 
-## 🎬 Scripts sẵn sàng quay (6 videos)
+## 🎬 Scripts sẵn sàng quay (12 videos)
 
-| # | Video | Platform | Status |
-|---|-------|----------|--------|
-| 1 | Context7 — AI hết bịa code | TikTok | ✅ Ready |
-| 2 | Brave Search — Claude tự search | TikTok | ✅ Ready |
-| 3 | Firecrawl — Paste link Claude đọc | TikTok | ✅ Ready |
-| 4 | Crawl4AI — Cào web free vô hạn | TikTok | ✅ Ready |
-| 5 | Superpowers — Plugin 150k stars | TikTok | ✅ Ready |
-| 6 | Top 5 GitHub Trending (format slide) | TikTok | ✅ Ready |
-| 7 | sc-datav — Dashboard 3D như trong phim | TikTok | ✅ Ready |
+| # | Video | Hook | Status |
+|---|-------|------|--------|
+| 01 | Context7 — AI hết bịa code | "Claude viết code dùng API không tồn tại" | ✅ Ready |
+| 02 | Brave Search — Claude tự search | "Claude không biết chuyện hôm nay" | ✅ Ready |
+| 03 | Firecrawl — Paste link Claude đọc | "Để Claude đọc website đối thủ trong 30s" | ✅ Ready |
+| 04 | Crawl4AI — Cào web free vô hạn | "63k stars, free không giới hạn" | ✅ Ready |
+| 05 | Superpowers — Plugin 150k stars | "Plugin này có 150k stars trong 6 tháng" | ✅ Ready |
+| 06 | Top 5 GitHub Trending | "AI tiến hóa điên rồ — top 5 tuần này" | ✅ Ready |
+| 07 | sc-datav — Dashboard 3D | "Dashboard 3D như trong phim — 3 lệnh" | ✅ Ready |
+| 08 | OpenClaw — AI agent 210k stars | "Nhanh nhất lịch sử GitHub" | ✅ Ready |
+| 09 | Bumblebee — Scan MCP an toàn | "160 packages bị hack tháng 5/2026" | ✅ Ready |
+| 10 | n8n-claw — Agent tự vận hành | "AI agent 24/7 — setup 5 phút" | ✅ Ready |
+| 11 | nanochat — Train AI với $15 | "Train ChatGPT với $15" | ✅ Ready |
+| 12 | Vibe Coding Roadmap | "Không biết code — bắt đầu từ đây" | ✅ Ready |
 
 ---
 
-## 📌 Legend
-- ✅ Xong / Ready
-- ⏳ Cần làm
-- 🚫 Skip
+## 📅 Lịch đăng gợi ý
+
+| Tuần | Video | Lý do |
+|------|-------|-------|
+| Tuần 1 | #12 Vibe Coding Roadmap | Hook rộng — mọi beginner đều cần |
+| Tuần 2 | #01 Context7 | MCP cơ bản nhất |
+| Tuần 3 | #08 OpenClaw | Trend hot nhất |
+| Tuần 4 | #06 Top 5 GitHub | Format dễ làm, dễ viral |
+
+---
 
 *Cập nhật: 06/2025*
