@@ -191,3 +191,20 @@
 | 26 | GitHub MCP — Claude tự commit, tạo PR | ✅ Ready |
 | 27 | Filesystem MCP — Claude đọc file không copy paste | ✅ Ready |
 | 28 | TurboVec — RAG 10M docs từ 31GB xuống 4GB | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 10 — NotebookLM MCP Ecosystem)
+
+### MCPs — NotebookLM Ecosystem (5 repos)
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 9 | notebooklm-mcp (PleasePrompto) — 2.7k⭐ easiest | ✅ | ✅ |
+| 10 | notebooklm-mcp (roomi-fields) — HTTP REST + Docker | ✅ | ✅ |
+| 11 | notebooklm-mcp-secure (Pantheon) — enterprise security | ✅ | ✅ |
+| 12 | notebooklm-mcp-2026 (julianoczkowski) — Python | ✅ | ✅ |
+| 13 | notebooklm-mcp-server (moodRobotics) — auto-update | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 29 | NotebookLM MCP — Claude hỏi NotebookLM, không hallucinate | ✅ Ready |
