@@ -403,3 +403,37 @@ spec-driven-development, test-driven-development, using-agent-skills
 | 26 | lmcache-skill.md | lmcache 8.6k⭐ | Concept + setup vLLM + savings table |
 
 **Tổng skills trong kho: 26+ (chưa tính subfolders)**
+
+---
+## 🆕 Skills Batch Cuối (06/2026 - lần 29) — 19 Skills Mới
+
+Hoàn thành coverage 100% cho tất cả repos trong kho!
+
+| File | Repo | Nội dung chính |
+|------|------|---------------|
+| 500-ai-agents-projects-skill.md | 32.4k⭐ | Decision tree chọn framework + 5 agents hay nhất |
+| aitoearn-skill.md | yikart | 4 content modes + pipeline |
+| bumblebee-skill.md | Perplexity | Scan checklist + rule of thumb |
+| claude-code-skills-list-skill.md | community | Top 20 skills rating table |
+| diffusiongemma-skill.md | Google | Code + cost comparison table |
+| html-video-skill.md | nexu-io | Prompt templates + pipeline video |
+| hyperframes-skill.md | HeyGen | Workflow + so sánh html-video |
+| last30days-skill.md | 34k⭐ | Use cases cho AI Vibe Toolkit |
+| nanochat-skill.md | Karpathy | Chi phí thực tế + khi nào dùng |
+| remotion-skill.md | 49.9k⭐ | Component code + workflow |
+| sc-datav-skill.md | Three.js | Feed data + export thumbnail |
+| supertonic-skill.md | 5.3k⭐ | CLI + so sánh ElevenLabs |
+| turbovec-skill.md | ~6k⭐ | Drop-in FAISS + RAG pipeline |
+| vibe-coding-roadmap-skill.md | kamranahmedse | 4 giai đoạn + stack gợi ý |
+| mattpocock-skills-skill.md | 109k⭐ | 3 TypeScript patterns + CLAUDE.md |
+| deep-research-skills-skill.md | hint-shu | Tier selection guide + token budget |
+| agent-research-skills-academic-skill.md | 132⭐ | 31 commands + adapt cho non-academic |
+| web-research-mcp-skill.md | mrvarmazyar | Setup + token comparison table |
+| x-research-skill-skill.md | 1146⭐ | Use cases kho + cost transparency |
+
+### Tổng kho tháng 6/2026 (HOÀN CHỈNH)
+- 📦 Repos: 36
+- 🧠 Skills files: 47+ (chưa tính subfolders agent-skills/, taste-skill/)
+- 🔌 MCPs: 13
+- 🎬 Scripts: 41
+- 🏗️ Stack: 1
