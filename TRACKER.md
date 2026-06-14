@@ -545,3 +545,23 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | skills/free-image-video-stack.md | Decision tree, quick commands, workflow $0 hoàn chỉnh |
 
 **Tổng MCPs: 27 | Skills: 85+ | Repos: 37 | Scripts: 43**
+
+---
+## 🆕 Batch từ ảnh TikTok (06/2026 - lần 36)
+
+### Repos mới
+| # | Tên | Stars | Highlights |
+|---|-----|-------|-----------|
+| 38 | motrix-next (AnInsomniacy) | 7.8k⭐ | Download manager rebuild: Tauri 2, 20MB, BitTorrent, browser extension |
+| 39 | ai-shorts-generator-pipeline | - | Pipeline concept: Claude+Playwright+FFmpeg → 2 MP4 formats |
+
+### Scripts
+| # | File | Nội dung |
+|---|------|---------|
+| 44 | script-video-44-motrix-next.md | Hook: Motrix bị abandon → rebuilt |
+| 45 | script-video-45-ai-shorts-pipeline.md | Hook: 1 lệnh → YouTube + TikTok MP4 |
+
+### Note: html-video
+- html-video đã có: repos/html-video.md + script #17 + script #33
+
+**Kho: 39 repos | 27 MCPs | 85+ skills | 45 scripts**
