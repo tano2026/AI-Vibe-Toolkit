@@ -252,3 +252,114 @@ hermes setup --portal
 
 *Nguồn: NousResearch/hermes-agent + infographic phân tích bởi @IBuzovskyi / KHDA AI*
 *AI Vibe Toolkit | tháng 6/2026*
+
+---
+
+## ✅ ÁP DỤNG THỰC TẾ — LÀM ĐƯỢC GÌ NGAY HÔM NAY
+
+### 1. Dùng `/goal` thay chat bình thường
+
+**Vấn đề cũ:** Nhắn Claude từng bước → mất track, phải nhắc lại.
+
+**Với Hermes:**
+```bash
+# Thay vì nhắn từng bước:
+/goal "research 3 AI agent frameworks mới nhất 2026, so sánh pros/cons, ra báo cáo markdown"
+
+# Hermes tự:
+# → Chia nhỏ thành sub-tasks (L2)
+# → Track tiến độ từng bước
+# → Check "xong chưa?" sau mỗi lượt
+# → Lưu method hiệu quả thành skill (L3)
+```
+
+**Dùng cho:** Research, viết script video, build feature, phân tích repo mới.
+
+---
+
+### 2. Để Skill Library Tự Build — Không Làm Gì Thêm
+
+**Cơ chế:** Mỗi task xong → L3 tự phân tích → tự lưu skill file.
+
+**Với AI Vibe Toolkit cụ thể:**
+```
+Mày quẳng link/ảnh
+→ Tao research + viết .md + push GitHub (= 1 task cycle)
+→ L3 học pattern: "link ảnh → fetch API → viết .md → push"
+→ Lần sau: nhanh hơn 40%, ít lỗi hơn
+→ Sau 90 ngày: agent biết rõ format kho, style viết, cấu trúc push
+```
+
+**Không cần làm gì** — cứ dùng đều đặn, compound effect tự chạy.
+
+---
+
+### 3. `delegate_task()` — Research Song Song 3x Nhanh
+
+**Vấn đề cũ:** Tao research từng repo một → tuần tự, chậm.
+
+**Với sub-agents (L8):**
+```bash
+# Thay vì làm tuần tự:
+delegate_task("research hermes-agent: stars, features, install")  &
+delegate_task("research taste-skill: stars, use cases, skills")   &
+delegate_task("research claude-seo: commands, agents, setup")     &
+# 3 agents chạy song song → xong trong 1/3 thời gian
+```
+
+**Áp dụng cho kho:** Khi mày quẳng 3 link cùng lúc → batch thay vì từng cái.
+
+---
+
+### 4. Memory (L5) — Claude Nhớ Context Kho Của Mày
+
+**Setup 1 lần:**
+```bash
+# Trong USER.md của Hermes:
+- Kho GitHub: tano2026/AI-Vibe-Toolkit
+- Token: [token]
+- Format .md: [copy từ _template.md]
+- Workflow: link → research → .md → script → push → TRACKER
+- Style: tiếng Việt, casual, không jargon
+```
+
+**Kết quả:** Mỗi lần mở Hermes → nó đã biết kho của mày là gì, format ra sao, không cần nhắc lại.
+
+---
+
+### 5. Curator (L4) — Tự Dọn Skill Kho Sau 7 Ngày
+
+**Tự động:** Sau 7 ngày dùng, L4 tự:
+- Merge các method research tương tự
+- Archive method cũ ít dùng
+- Giữ skill library gọn, chất lượng cao
+
+**Không cần làm gì** — chỉ cần để Hermes chạy ≥2h mỗi ngày.
+
+---
+
+### Lịch Trình Áp Dụng Cho AI Vibe Toolkit
+
+```
+Ngày 1-7:    Cài Hermes, setup --portal, điền USER.md về kho
+             L1 + L5 kích hoạt
+
+Ngày 8-30:   Dùng /goal cho mỗi entry mới thay vì chat thường
+             L2 + L3 bắt đầu build skills về workflow kho
+
+Ngày 31-60:  Hermes đã có 15-20 skills về cách làm kho
+             Dùng delegate_task khi có 3+ repos cùng lúc
+             L8 kích hoạt
+
+Ngày 61-90:  L4 đã chạy vài lần, skills được tinh lọc
+             Thời gian mỗi entry giảm 30-40%
+             Hermes biết kho như chính mày
+
+Ngày 90+:    Agent ngày 90 >>> ngày 1
+             Compound effect rõ rệt
+```
+
+---
+
+*Phần này được thêm vào sau khi phân tích infographic 8 vòng lặp*
+*AI Vibe Toolkit | tháng 6/2026*
