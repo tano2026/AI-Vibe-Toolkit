@@ -367,3 +367,19 @@ observability-and-instrumentation, performance-optimization, planning-and-task-b
 security-and-hardening, shipping-and-launch, source-driven-development,
 spec-driven-development, test-driven-development, using-agent-skills
 + INDEX.md hướng dẫn dùng nhanh
+
+---
+## 🆕 Research & Token-Optimization batch (06/2026 - lần 27)
+
+### Repos mới — Research & Search
+| # | Tên | Stars | Điểm nổi bật |
+|---|-----|-------|-------------|
+| 31 | web-research-mcp (mrvarmazyar) | 8⭐ | 99% ít token hơn raw HTML — TinyFish+Groq pipeline |
+| 32 | deep-research-skills (hint-shu) | 2⭐ | Research ladder L0→L5, 10s→60min, Firecrawl+Tavily+Exa |
+| 33 | agent-research-skills-academic (lingzhi227) | 132⭐ | 31 skills cho academic research pipeline đầy đủ |
+| 34 | x-research-skill (rohunvora) | 1146⭐ | X/Twitter research agent, engagement sort, watchlists |
+
+### Skills mới
+| # | File | Nội dung |
+|---|------|---------|
+| 14 | skills/token-efficient-research.md | Cheat sheet tổng hợp: nguyên tắc tối ưu token, tool stack theo use case, so sánh cost, 4 prompt templates, workflow cho kho |
