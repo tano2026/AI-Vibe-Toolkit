@@ -503,3 +503,26 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | skills/social-media-stack.md | - | Guide tổng hợp: workflow từ tool mới → published, prompt templates |
 
 **MCPs tổng: 22 | Skills: 54+ | Repos: 37 | Scripts: 43**
+
+---
+## 🆕 Skills gốc lấy về dùng (06/2026 - lần 34) — 28 files
+
+### skills/viral-hooks/ (2 files)
+- SKILL.md — main skill paste vào Claude
+- hooks-database.md — **100 hook formulas đầy đủ** 10 triggers
+
+### skills/youtube-marketing/ (1 file)
+- SKILL.md — 21 commands YouTube full
+
+### skills/affiliate-skills/ (16 files)
+- SKILL.md + CLAUDE.md — main entry
+- 14 sub-skills gốc: trending-scout, niche-finder, competitor-spy,
+  tiktok-writer, viral-post, twitter-thread, comparison-post, listicle,
+  social-scheduler, email-drip, landing-page, performance-report,
+  content-repurposer, paid-ad-copy
+
+### skills/claude-ads/ (9 files)
+- ads-audit, ads-meta, ads-google, ads-tiktok, ads-youtube,
+  ads-creative, ads-competitor, ads-budget, ads-create
+
+**Tổng kho skills: 80+ files across all folders**
