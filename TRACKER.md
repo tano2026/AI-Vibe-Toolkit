@@ -273,3 +273,21 @@
 **Nội dung skill:**
 - 7 sections: Personality, TypeScript, Testing, CSS/Tailwind, Docs, PR Review Agents (5 loại), CLAUDE.md template
 - Dùng được ngay: copy vào CLAUDE.md / .cursorrules / .windsurfrules
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 20)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 30 | taste-skill (Leonxlnx) — Anti-Slop Frontend Framework | 43.3k⭐ | ✅ | ✅ |
+
+### Skills
+| # | Tên | File | Nguồn |
+|---|-----|------|-------|
+| 10 | taste-skill-frontend (4 SKILL.md files gốc) | ✅ | Leonxlnx/taste-skill |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 41 | Taste-Skill — Bắt AI làm UI có gu thay vì boilerplate | ✅ Ready |
