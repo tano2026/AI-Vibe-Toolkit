@@ -330,3 +330,11 @@
 
 ### Tổng kho hiện tại (rà soát 06/2026)
 - MCPs: 13 | Repos: 30 | Skills: 14 (incl. taste-skill subfolder) | Stack: 1 | Scripts: 41
+
+---
+## 🆕 Skill update (06/2026 - lần 24)
+
+### Skills mới
+| # | File | Mô tả |
+|---|------|-------|
+| 13 | skills/hermes-agent-deep-dive.md | 8 vòng lặp chi tiết kỹ thuật: cơ chế, số liệu, compound effect, tips dùng hiệu quả |
