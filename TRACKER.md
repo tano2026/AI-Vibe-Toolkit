@@ -462,3 +462,23 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | Script #43 | script-video-43-agent-skills.md | agent-skills — Hook: Google Chrome Lead public skills cá nhân |
 
 **Kho: 37 repos | 48+ skills | 43 scripts**
+
+---
+## 🆕 Digital Marketing + Image/Video + Automation MCPs (06/2026 - lần 32)
+
+### MCPs mới — 5 cái
+| File | Tool | Highlights |
+|------|------|-----------|
+| mcps/comfyui-mcp.md | artokun/comfyui-mcp 152⭐ | 88 tools, 16 skills, 11 commands, 4 agents — best local image/video |
+| mcps/fal-mcp.md | enescanguven/fal-mcp | 600+ models cloud: image+video+audio+music, no GPU |
+| mcps/hubspot-mcp.md | ZLeventer/hubspot-mcp | 33 tools: contacts, deals, marketing emails, workflows |
+| mcps/n8n-workflow-builder-mcp.md | salacoste 226⭐ | Build n8n workflows bằng ngôn ngữ thường |
+| mcps/make-mcp.md | tommyevening/makemcp | Make.com 3,260 apps: discover + build + deploy |
+
+### Skills mới — 2 guides tổng hợp
+| File | Nội dung |
+|------|---------|
+| skills/image-video-gen-mcp-guide.md | So sánh fal vs comfyui, prompt templates thumbnails/videos/products |
+| skills/marketing-automation-mcp-guide.md | Stack theo budget, commands dùng ngay, full marketing workflow |
+
+**MCPs tổng: 18 | Skills: 50+ | Repos: 37 | Scripts: 43**
