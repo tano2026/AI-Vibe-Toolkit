@@ -191,3 +191,11 @@
 | # | Tên | File | Script |
 |---|-----|------|--------|
 | 8 | NotebookLM Slide Commands (8 prompts) | ✅ | - |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 14)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 26 | Hermes Agent (NousResearch) — AI OS 8 loops | 188k⭐ | ✅ | ⏳ |
