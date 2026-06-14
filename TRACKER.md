@@ -261,3 +261,15 @@
 | # | Video | Status |
 |---|-------|--------|
 | 40 | Continue — 33k stars vừa chết nhưng concept .continue/ folder không chết | ✅ Ready |
+
+---
+## 🆕 Skill thêm (06/2026 - lần 19)
+
+### Skills
+| # | Tên | File | Nguồn |
+|---|-----|------|-------|
+| 9 | AI Coding Rules (distilled từ Continue) | ✅ | continuedev/continue .continue/rules/ + agents/ |
+
+**Nội dung skill:**
+- 7 sections: Personality, TypeScript, Testing, CSS/Tailwind, Docs, PR Review Agents (5 loại), CLAUDE.md template
+- Dùng được ngay: copy vào CLAUDE.md / .cursorrules / .windsurfrules
