@@ -565,3 +565,24 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 - html-video đã có: repos/html-video.md + script #17 + script #33
 
 **Kho: 39 repos | 27 MCPs | 85+ skills | 45 scripts**
+
+---
+## 🆕 Claude Code Routines — Feature Chính Thức Anthropic (06/2026 - lần 37)
+
+⚡ QUAN TRỌNG: Feature release 15/4/2026, nhiều người chưa biết
+
+### Files
+| Type | File | Nội dung |
+|------|------|---------|
+| MCP/Feature | mcps/claude-routines.md | Full docs: setup, pricing, triggers, 15 routines hay nhất, template chuẩn |
+| Skill | skills/claude-routines-templates.md | 6 prompt templates copy-paste: morning brief, PR review, metrics, ROAS, content ideas, SEO |
+| Script | content/script-video-46-claude-routines.md | Hook: "Viết 1 lần. Chạy mãi mãi." |
+
+### Key Info
+- URL: claude.ai/code/routines
+- Release: 15/4/2026
+- Pro ($20): 5 runs/ngày | Max: 15/ngày | Team: 25/ngày
+- Triggers: scheduled cron, API webhook, GitHub events
+- Chạy trên Anthropic cloud, không cần máy bật
+
+**Kho: 39 repos | 28 MCPs | 86+ skills | 46 scripts**
