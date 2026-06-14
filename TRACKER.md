@@ -526,3 +526,22 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
   ads-creative, ads-competitor, ads-budget, ads-create
 
 **Tổng kho skills: 80+ files across all folders**
+
+---
+## 🆕 Free Image & Video Tools (06/2026 - lần 35)
+
+### MCPs mới — Free $0
+| File | Tool | Free Tier |
+|------|------|-----------|
+| mcps/pollinations-mcp.md | pollinations.ai | ✅ Unlimited FREE, no API key — image+video+audio |
+| mcps/mcp-video-gen.md | kevinten-ai | ✅ CogVideoX unlimited free + 6 other providers |
+| mcps/stable-diffusion-mcp.md | Ichigo3766 39⭐ | ✅ Local free sau khi setup SD WebUI |
+| mcps/wangp-kaggle.md | kayas881 | ✅ T4 GPU 30h/tuần free từ Kaggle |
+| mcps/framecraft.md | vaddisrinivas | ✅ HTML→MP4, $0, no GPU |
+
+### Skills mới
+| File | Nội dung |
+|------|---------|
+| skills/free-image-video-stack.md | Decision tree, quick commands, workflow $0 hoàn chỉnh |
+
+**Tổng MCPs: 27 | Skills: 85+ | Repos: 37 | Scripts: 43**
