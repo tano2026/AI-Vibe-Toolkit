@@ -246,3 +246,43 @@ Context7 + Brave Search + Firecrawl = 80% use cases
 *AI Vibe Toolkit | Master Skill Index*
 *github.com/tano2026/AI-Vibe-Toolkit*
 *Cập nhật: tháng 6/2026*
+
+---
+
+## 🤖 HERMES AGENT — WORKFLOW CHO AI VIBE TOOLKIT
+
+> Xem chi tiết: `skills/hermes-agent-deep-dive.md`
+
+### Setup 1 lần (15 phút):
+```bash
+# Cài Hermes
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+hermes setup --portal
+
+# Điền USER.md — context về kho
+# ~/.hermes/USER.md:
+# - Kho: github.com/tano2026/AI-Vibe-Toolkit
+# - Workflow: link → research → .md → script → push → TRACKER
+# - Style: tiếng Việt, casual, có ví dụ thực tế
+# - Format: xem _template.md trong kho
+```
+
+### Dùng hàng ngày:
+```bash
+# Thay chat thường → dùng /goal
+/goal "research [repo/tool mới], viết .md và script video, push lên kho"
+
+# Batch 3 repos cùng lúc
+delegate_task("research repo A") &
+delegate_task("research repo B") &
+delegate_task("research repo C") &
+```
+
+### Lịch trình compound:
+- **Ngày 1-7:** Setup, L1+L5 chạy
+- **Ngày 8-30:** /goal cho mọi entry → L3 build skills về kho
+- **Ngày 31-60:** 15-20 skills tích lũy → dùng delegate_task
+- **Ngày 90+:** Agent biết kho như chính mày, nhanh hơn 40%
+
+---
+*MASTER-INDEX cập nhật: tháng 6/2026*
