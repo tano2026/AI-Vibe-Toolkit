@@ -199,3 +199,11 @@
 | # | Tên | Stars | File | Script |
 |---|-----|-------|------|--------|
 | 26 | Hermes Agent (NousResearch) — AI OS 8 loops | 188k⭐ | ✅ | ⏳ |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 14)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 26 | Hermes Agent (NousResearch) — 8-loop AI OS | 188k⭐ | ✅ | ⏳ |
