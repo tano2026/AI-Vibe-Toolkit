@@ -586,3 +586,19 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 - Chạy trên Anthropic cloud, không cần máy bật
 
 **Kho: 39 repos | 28 MCPs | 86+ skills | 46 scripts**
+
+---
+## 🆕 Ecosystem Config Files (06/2026 - lần 38)
+
+### /configs/ folder mới — 6 files
+
+| File | Dùng cho |
+|------|---------|
+| configs/hermes-USER.md | Copy → ~/.hermes/USER.md — context đầy đủ về kho + workflow |
+| configs/hermes-MEMORY.md | Copy → ~/.hermes/MEMORY.md — long-term memory, skills đã học |
+| configs/openclaw-config.md | 6 workflows: morning scan, add-repo, write-script, ROAS, SEO, content calendar |
+| configs/antigravity-setup.md | Cài toàn bộ ecosystem 1 lần, deploy guide |
+| configs/CLAUDE-md-vibe-coder.md | CLAUDE.md template cho mỗi project vibe coding mới |
+| configs/ecosystem-guide.md | Bản đồ phối hợp bộ tứ: Claude+Hermes+OpenClaw+Antigravity |
+
+**Setup checklist:** ecosystem-guide.md → Bước 1-7
