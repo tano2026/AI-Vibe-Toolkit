@@ -222,3 +222,16 @@
 | # | Video | Status |
 |---|-------|--------|
 | 37 | Hermes Agent — AI agent càng dùng càng thông minh | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 16)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 27 | 500-AI-Agents-Projects (ashishpatel26) | 32.4k⭐ | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 38 | 500-AI-Agents-Projects — 500 AI agent có code thật theo ngành | ✅ Ready |
