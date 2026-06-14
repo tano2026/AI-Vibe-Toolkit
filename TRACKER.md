@@ -183,3 +183,11 @@
 | # | Video | Status |
 |---|-------|--------|
 | 36 | Voice Profile — Biến Claude thành phiên bản đỉnh cao của mày | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 13)
+
+### Skills
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 8 | NotebookLM Slide Commands (8 prompts) | ✅ | - |
