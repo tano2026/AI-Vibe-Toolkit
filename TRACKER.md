@@ -453,3 +453,12 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | Script | content/script-video-42-agency-agents.md | Hook: "1 AI cho mọi thứ là sai lầm" |
 
 **Kho: 37 repos | 48+ skills | 42 scripts**
+
+---
+## 🆕 Script bổ sung (06/2026 - lần 31)
+
+| # | File | Nội dung |
+|---|------|---------|
+| Script #43 | script-video-43-agent-skills.md | agent-skills — Hook: Google Chrome Lead public skills cá nhân |
+
+**Kho: 37 repos | 48+ skills | 43 scripts**
