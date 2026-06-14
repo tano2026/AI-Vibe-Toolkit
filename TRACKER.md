@@ -291,3 +291,21 @@
 | # | Video | Status |
 |---|-------|--------|
 | 41 | Taste-Skill — Bắt AI làm UI có gu thay vì boilerplate | ✅ Ready |
+
+---
+## 🆕 Skill update (06/2026 - lần 21)
+
+### Skills — taste-skill folder (10 files gốc đầy đủ)
+| File | Chars | Nội dung |
+|------|-------|---------|
+| skills/taste-skill/taste-skill.md | 87k | Main v2 — full content |
+| skills/taste-skill/taste-skill-v1.md | 21k | V1 stable |
+| skills/taste-skill/redesign-skill.md | 15k | Fix UI cũ |
+| skills/taste-skill/soft-skill.md | 10.5k | Agency tier |
+| skills/taste-skill/minimalist-skill.md | 8k | Notion/Linear |
+| skills/taste-skill/brutalist-skill.md | 8.5k | Experimental |
+| skills/taste-skill/gpt-tasteskill.md | 8k | GPT/Codex strict |
+| skills/taste-skill/stitch-skill.md | 12k | Google Stitch |
+| skills/taste-skill/image-to-code-skill.md | 36k | Image→code |
+| skills/taste-skill/output-skill.md | 2.5k | Fix truncate |
+| skills/taste-skill/INDEX.md | - | Hướng dẫn dùng nhanh |
