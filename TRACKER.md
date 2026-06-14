@@ -383,3 +383,23 @@ spec-driven-development, test-driven-development, using-agent-skills
 | # | File | Nội dung |
 |---|------|---------|
 | 14 | skills/token-efficient-research.md | Cheat sheet tổng hợp: nguyên tắc tối ưu token, tool stack theo use case, so sánh cost, 4 prompt templates, workflow cho kho |
+
+---
+## 🆕 Skills Batch (06/2026 - lần 28) — 12 Skills Mới
+
+| # | File | Repo gốc | Nội dung |
+|---|------|---------|---------|
+| 15 | browser-use-skill.md | browser-use 95k⭐ | Code + 5 use cases + tips token |
+| 16 | mem0-skill.md | mem0 48k⭐ | 3-dòng code + tích hợp Claude + self-hosted |
+| 17 | superpowers-skill.md | superpowers 150k⭐ | Cài + commands + kết hợp agent-skills |
+| 18 | openclaw-skill.md | openclaw 210k⭐ | 4 workflows + kết hợp Hermes |
+| 19 | n8n-claw-skill.md | n8n-claw | Setup + 5 templates + so sánh |
+| 20 | marketingskills-skill.md | marketingskills 31.9k⭐ | 43 lệnh theo nhóm + full workflow |
+| 21 | system-prompts-skill.md | system-prompts | 5 patterns học được + apply vào CLAUDE.md |
+| 22 | plannotator-skill.md | plannotator 6k⭐ | Workflow + shortcuts + khi nào dùng |
+| 23 | api-mega-list-skill.md | api-mega-list 6k⭐ | Top APIs free + search workflow |
+| 24 | html-anything-skill.md | html-anything 6.2k⭐ | 5 use cases + so sánh Canva |
+| 25 | magika-skill.md | magika 15.2k⭐ | Python code + CLI + tích hợp workflow |
+| 26 | lmcache-skill.md | lmcache 8.6k⭐ | Concept + setup vLLM + savings table |
+
+**Tổng skills trong kho: 26+ (chưa tính subfolders)**
