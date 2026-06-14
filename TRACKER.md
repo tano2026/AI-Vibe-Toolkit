@@ -482,3 +482,24 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | skills/marketing-automation-mcp-guide.md | Stack theo budget, commands dùng ngay, full marketing workflow |
 
 **MCPs tổng: 18 | Skills: 50+ | Repos: 37 | Scripts: 43**
+
+---
+## 🆕 Social Media Stack — Facebook/YouTube/TikTok (06/2026 - lần 33)
+
+### MCPs mới
+| File | Tool | Stars | Highlights |
+|------|------|-------|-----------|
+| mcps/claude-ads.md | AgriciDaniel/claude-ads | 6033⭐ | 250+ checks: Google/Meta/TikTok/YouTube/LinkedIn ads audit 10-15 phút |
+| mcps/meta-mcp-server.md | oliverames/meta-mcp-server | 15⭐ | 200+ tools: Facebook Pages, Instagram, Threads, Ads Manager |
+| mcps/buffer-mcp.md | jakemeany523/buffer-mcp | - | Schedule social posts: X, LinkedIn, Facebook, Instagram, TikTok |
+| mcps/poppify.md | Poppify/poppify-claude-plugin | - | Ảnh → TikTok/Reels/Shorts $0.06/reel, 50 free seeds |
+
+### Skills mới
+| File | Stars | Nội dung |
+|------|-------|---------|
+| skills/affiliate-skills.md | 460⭐ | 52 skills affiliate marketing 8 stages flywheel |
+| skills/viral-hooks-skill.md | 54⭐ | 100 hook formulas 10 psychology triggers TikTok/Reels/Shorts |
+| skills/youtube-marketing-skills.md | 14⭐ | 21 commands: keyword, SEO, analytics, content calendar |
+| skills/social-media-stack.md | - | Guide tổng hợp: workflow từ tool mới → published, prompt templates |
+
+**MCPs tổng: 22 | Skills: 54+ | Repos: 37 | Scripts: 43**
