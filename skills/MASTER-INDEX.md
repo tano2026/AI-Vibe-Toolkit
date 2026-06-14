@@ -286,3 +286,36 @@ delegate_task("research repo C") &
 
 ---
 *MASTER-INDEX cập nhật: tháng 6/2026*
+
+
+---
+
+## 🆕 SKILLS BATCH MỚI — THÁNG 6/2026
+
+### Category: AI Agents & Automation
+| Skill | Dùng khi |
+|-------|---------|
+| `browser-use-skill.md` | Cần AI điều khiển browser — điền form, scrape có auth, social automation |
+| `openclaw-skill.md` | Chạy AI agent 24/7, kết nối Telegram/Discord/WhatsApp |
+| `n8n-claw-skill.md` | Muốn visual workflow không cần terminal |
+| `mem0-skill.md` | Thêm memory vào AI agent, cross-session, multi-user |
+
+### Category: Dev Tools & Quality
+| Skill | Dùng khi |
+|-------|---------|
+| `superpowers-skill.md` | Bắt Claude Code think trước code, test-driven |
+| `plannotator-skill.md` | Review plan AI trên browser trước khi approve |
+| `system-prompts-skill.md` | Học patterns từ system prompts Claude Code, Cursor, Devin |
+| `magika-skill.md` | Detect file type chính xác bằng AI (Google tech) |
+| `lmcache-skill.md` | Cache LLM context khi self-host, giảm 40-70% latency |
+
+### Category: Marketing & Content
+| Skill | Dùng khi |
+|-------|---------|
+| `marketingskills-skill.md` | 43 lệnh marketing: blog, ads, email, competitor analysis |
+| `html-anything-skill.md` | Biến markdown/CSV/JSON thành HTML card đẹp, $0 |
+
+### Category: Resources
+| Skill | Dùng khi |
+|-------|---------|
+| `api-mega-list-skill.md` | Tìm API trước khi build — 6000+ APIs, nhiều free |
