@@ -235,3 +235,16 @@
 | # | Video | Status |
 |---|-------|--------|
 | 38 | 500-AI-Agents-Projects — 500 AI agent có code thật theo ngành | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 17)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 28 | claude-seo (AgriciDaniel) — 25 lệnh SEO cho Claude Code | 8.8k⭐ | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 39 | Claude SEO — 18 agent audit site song song, 1 lệnh | ✅ Ready |
