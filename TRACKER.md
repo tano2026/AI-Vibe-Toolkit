@@ -248,3 +248,16 @@
 | # | Video | Status |
 |---|-------|--------|
 | 39 | Claude SEO — 18 agent audit site song song, 1 lệnh | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 18)
+
+### Repos
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 29 | continue (continuedev) — Coding agent OSS, đã discontinued | 33.7k⭐ | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 40 | Continue — 33k stars vừa chết nhưng concept .continue/ folder không chết | ✅ Ready |
