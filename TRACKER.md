@@ -338,3 +338,12 @@
 | # | File | Mô tả |
 |---|------|-------|
 | 13 | skills/hermes-agent-deep-dive.md | 8 vòng lặp chi tiết kỹ thuật: cơ chế, số liệu, compound effect, tips dùng hiệu quả |
+
+---
+## 🆕 Update (06/2026 - lần 25)
+
+### Files updated
+| File | Update |
+|------|--------|
+| `skills/hermes-agent-deep-dive.md` | Thêm section "Áp Dụng Thực Tế" — 5 cách dùng cụ thể + lịch trình 90 ngày cho AI Vibe Toolkit |
+| `skills/MASTER-INDEX.md` | Thêm Hermes workflow section — setup + daily use + compound schedule |
