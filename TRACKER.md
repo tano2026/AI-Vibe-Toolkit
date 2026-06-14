@@ -170,3 +170,16 @@
 | 33 | html-video — paste link GitHub nhận MP4 | ✅ Ready |
 | 34 | Remotion — viết React, nhận video MP4 | ✅ Ready |
 | 35 | Plannotator — đừng approve plan AI mù quáng | ✅ Ready |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 12)
+
+### Skills
+| # | Tên | File | Script |
+|---|-----|------|--------|
+| 7 | Voice Profile Builder (AI Leaders VN) | ✅ | ✅ |
+
+### Scripts thêm
+| # | Video | Status |
+|---|-------|--------|
+| 36 | Voice Profile — Biến Claude thành phiên bản đỉnh cao của mày | ✅ Ready |
