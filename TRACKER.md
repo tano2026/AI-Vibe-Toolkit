@@ -318,3 +318,15 @@
 |---|------|---------|---------|
 | 11 | skills/claude-seo-commands.md | 25 lệnh /seo full reference + quick decision guide | Claude Code SEO workflow |
 | 12 | skills/continue-dot-continue-folder.md | Rules + Agents + Prompts gốc từ continuedev/continue | CLAUDE.md / .cursorrules template |
+
+---
+## 🆕 Master Skill & Template (06/2026 - lần 23)
+
+### Files mới
+| File | Mô tả |
+|------|-------|
+| `skills/MASTER-INDEX.md` | Bản đồ toàn bộ kho — tra cứu nhanh theo situation, full danh sách MCPs/Repos/Skills/Scripts |
+| `skills/CLAUDE-MD-TEMPLATE.md` | CLAUDE.md template dùng ngay cho project mới — behavior rules + code rules + anti-slop UI |
+
+### Tổng kho hiện tại (rà soát 06/2026)
+- MCPs: 13 | Repos: 30 | Skills: 14 (incl. taste-skill subfolder) | Stack: 1 | Scripts: 41
