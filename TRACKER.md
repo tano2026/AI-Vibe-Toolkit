@@ -309,3 +309,12 @@
 | skills/taste-skill/image-to-code-skill.md | 36k | Image→code |
 | skills/taste-skill/output-skill.md | 2.5k | Fix truncate |
 | skills/taste-skill/INDEX.md | - | Hướng dẫn dùng nhanh |
+
+---
+## 🆕 Skills lấy về dùng (06/2026 - lần 22)
+
+### Skills mới
+| # | File | Nội dung | Dùng cho |
+|---|------|---------|---------|
+| 11 | skills/claude-seo-commands.md | 25 lệnh /seo full reference + quick decision guide | Claude Code SEO workflow |
+| 12 | skills/continue-dot-continue-folder.md | Rules + Agents + Prompts gốc từ continuedev/continue | CLAUDE.md / .cursorrules template |
