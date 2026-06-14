@@ -437,3 +437,19 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 - 🔌 MCPs: 13
 - 🎬 Scripts: 41
 - 🏗️ Stack: 1
+
+---
+## 🆕 agency-agents (06/2026 - lần 30)
+
+### Repo mới
+| # | Tên | Stars | Highlights |
+|---|-----|-------|-----------|
+| 37 | agency-agents (msitarzewski) | 113k⭐ | 220 agents, 17 divisions, 87 contributors, MIT |
+
+### Skills & Scripts
+| Type | File | Nội dung |
+|------|------|---------|
+| Skill | skills/agency-agents-skill.md | Quick reference 220 agents, activate syntax, top 10 cho AI Vibe Toolkit |
+| Script | content/script-video-42-agency-agents.md | Hook: "1 AI cho mọi thứ là sai lầm" |
+
+**Kho: 37 repos | 48+ skills | 42 scripts**
