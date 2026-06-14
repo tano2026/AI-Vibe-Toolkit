@@ -622,3 +622,23 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | 47 | script-video-47-ke-toan-ai.md | Hook: "Kế toán 2 tiếng → AI 20 giây" |
 
 **MCPs: 29 | Skills: 87+ | Scripts: 47**
+
+---
+## 🆕 Accounting Stack — GitHub Research (06/2026 - lần 40)
+
+### MCPs mới
+| File | Tool | Highlights |
+|------|------|-----------|
+| mcps/jaz-ai-mcp.md | teamtinvio/jaz-ai 4⭐ | 289 tools, 16 IFRS recipes, 13 calculators, 12 close playbooks |
+| mcps/cloud-accounting-mcps.md | Xero+Wave+FreshBooks+Stripe | 4 cloud accounting MCPs trong 1 file |
+
+### Skills mới
+| File | Tool | Highlights |
+|------|------|-----------|
+| skills/accounting-skills-cynco.md | cynco-labs 10⭐ | 8-phase pipeline: OCR→reconcile→journal→P&L→tax→QC→output |
+| skills/worker-k-accounting.md | WeiKhjan 1⭐ | Excel+Word+PDF+Bank Rec+Research cho accounting firms |
+| skills/recite-receipt-scanner.md | rivradev 2⭐ | Scan hóa đơn/biên lai → CSV ledger tự động |
+| skills/invoice-extractor.md | Viprasol-Tech | Extract hóa đơn → validated JSON, math check |
+| skills/accounting-stack-guide.md | Tổng hợp | Decision tree, full workflow, prompts copy-paste |
+
+**MCPs: 31 | Skills: 94+ | Repos: 41 | Scripts: 47**
