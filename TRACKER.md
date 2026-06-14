@@ -602,3 +602,23 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | configs/ecosystem-guide.md | Bản đồ phối hợp bộ tứ: Claude+Hermes+OpenClaw+Antigravity |
 
 **Setup checklist:** ecosystem-guide.md → Bước 1-7
+
+---
+## 🆕 Kế Toán AI Automation (06/2026 - lần 39)
+
+### MCPs mới
+| File | Tool | Highlights |
+|------|------|-----------|
+| mcps/google-workspace-mcp.md | evolsb 25⭐ | Gmail+Drive+Sheets+Docs+Calendar cho Claude Code |
+
+### Skills mới
+| File | Nội dung |
+|------|---------|
+| skills/ke-toan-automation.md | 4 prompts + Python script: phân loại sao kê, chuỗi hóa đơn→Drive→Sheets, logic thuế, báo cáo tổng hợp |
+
+### Scripts
+| # | File | Nội dung |
+|---|------|---------|
+| 47 | script-video-47-ke-toan-ai.md | Hook: "Kế toán 2 tiếng → AI 20 giây" |
+
+**MCPs: 29 | Skills: 87+ | Scripts: 47**
