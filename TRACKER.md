@@ -215,3 +215,10 @@
 | # | Tên | Stars | File | Script |
 |---|-----|-------|------|--------|
 | 26 | hermes-agent (NousResearch) — 8-loop AI OS | 188k⭐ | ✅ | ⏳ |
+
+---
+## 🆕 Script #37 thêm (06/2026 - lần 15)
+
+| # | Video | Status |
+|---|-------|--------|
+| 37 | Hermes Agent — AI agent càng dùng càng thông minh | ✅ Ready |
