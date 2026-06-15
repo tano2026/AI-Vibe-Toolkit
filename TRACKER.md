@@ -642,3 +642,33 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | skills/accounting-stack-guide.md | Tổng hợp | Decision tree, full workflow, prompts copy-paste |
 
 **MCPs: 31 | Skills: 94+ | Repos: 41 | Scripts: 47**
+
+---
+## 🆕 W23 GitHub Trending Batch (06/2026 - lần 41)
+
+### Check từ ảnh TikTok
+- browser-use: ✅ ĐÃ CÓ
+- headroom: ❌ → thêm vào
+- markitdown: ❌ → thêm vào
+- MoneyPrinterTurbo: ❌ → thêm vào
+- ECC: ❌ → thêm vào
+- TradingAgents: ❌ → thêm vào
+
+### Repos mới (5 cái)
+| # | Repo | Stars | Highlights |
+|---|------|-------|-----------|
+| 42 | headroom (chopratejas) | 27.5k⭐ | Token compression 60-95%, library+proxy+MCP |
+| 43 | markitdown (Microsoft) | 153k⭐ | PDF/Word/Excel/Audio → Markdown, #1 W23 |
+| 44 | MoneyPrinterTurbo (harry0703) | 87.8k⭐ | Auto video từ topic, TTS+footage+subtitles |
+| 45 | ECC (affaan-m) | 215k⭐ | Agent OS: Skills+Instincts+Memory, multi-tool |
+| 46 | TradingAgents (TauricResearch) | 86k⭐ | 7 AI agents trading, LangGraph, paper trading |
+
+### Scripts
+| # | File | Hook |
+|---|------|------|
+| 48 | headroom | "95% token là rác — fix 1 lệnh" |
+| 49 | markitdown | "#1 trending — Microsoft convert mọi file" |
+| 50 | ECC | "215k stars — OS cho AI coding agents" |
+| 51 | TradingAgents | "7 AI tranh luận trước khi mua/bán" |
+
+**Kho: 46 repos | 31 MCPs | 94+ skills | 51 scripts**
