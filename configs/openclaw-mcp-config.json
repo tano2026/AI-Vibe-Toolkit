@@ -1,0 +1,65 @@
+{
+  "comment": "OpenClaw MCP Config cho AI Vibe Toolkit",
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "description": "Docs up-to-date, không bịa API"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "[YOUR_BRAVE_API_KEY]"
+      },
+      "description": "Search web real-time"
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "@mendable/firecrawl-mcp-server"],
+      "env": {
+        "FIRECRAWL_API_KEY": "[YOUR_FIRECRAWL_KEY]"
+      },
+      "description": "Đọc website từ link"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-github"],
+      "env": {
+        "GITHUB_TOKEN": "[YOUR_GITHUB_TOKEN]"
+      },
+      "description": "Push repos, đọc code"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-sequential-thinking"],
+      "description": "Suy nghĩ trước khi làm"
+    },
+    "pollinations": {
+      "command": "npx",
+      "args": ["-y", "pollinations-mcp"],
+      "description": "Image + video FREE không cần API key"
+    },
+    "google-workspace": {
+      "command": "node",
+      "args": ["/path/to/claude-code-google-workspace/index.js"],
+      "env": {
+        "GWS_ACCOUNT": "[YOUR_GMAIL]"
+      },
+      "description": "Gmail + Drive + Sheets + Docs"
+    },
+    "jaz-ai": {
+      "url": "https://mcp.jaz.ai/mcp",
+      "description": "289 tools kế toán - kết nối cloud"
+    },
+    "n8n": {
+      "command": "npx",
+      "args": ["-y", "@kernel.salacoste/n8n-workflow-builder"],
+      "env": {
+        "N8N_HOST": "http://localhost:5678",
+        "N8N_API_KEY": "[YOUR_N8N_KEY]"
+      },
+      "description": "Build n8n workflows bằng tiếng thường"
+    }
+  }
+}
