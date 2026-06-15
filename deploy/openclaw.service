@@ -1,0 +1,23 @@
+[Unit]
+Description=OpenClaw AI Assistant Gateway
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/ai-vibe-toolkit
+EnvironmentFile=/home/YOUR_USERNAME/ai-vibe-toolkit/.env
+ExecStart=/usr/local/bin/openclaw start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=openclaw
+
+# Resource limits (4-8GB RAM VPS)
+MemoryLimit=2G
+CPUQuota=150%
+
+[Install]
+WantedBy=multi-user.target
