@@ -749,3 +749,22 @@ Lấy toàn bộ 262 skills từ affaan-m/ECC về kho.
 2. Chạy: bash configs/sync-to-openclaw.sh
 3. openclaw skills list → verify
 4. Nhắn Telegram để test
+
+---
+## 🆕 VPS Deployment Files (06/2026 - lần 46)
+
+### /deploy/ folder — 6 files
+| File | Dùng cho |
+|------|---------|
+| deploy/setup-vps.sh | Master script — chạy 1 lần, setup toàn bộ |
+| deploy/env.example | Template env variables, copy → .env |
+| deploy/pm2.config.js | PM2 process manager: openclaw + hermes + auto-sync |
+| deploy/auto-sync.sh | Tự pull kho + sync skills mỗi 6h |
+| deploy/commands.md | Quick reference: SSH, daily ops, troubleshooting |
+| deploy/openclaw.service | Systemd service alternative cho PM2 |
+
+### Cách deploy:
+```bash
+ssh root@YOUR_VPS_IP
+curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deploy/setup-vps.sh | bash
+```
