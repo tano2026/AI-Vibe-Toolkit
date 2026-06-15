@@ -672,3 +672,24 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | 51 | TradingAgents | "7 AI tranh luận trước khi mua/bán" |
 
 **Kho: 46 repos | 31 MCPs | 94+ skills | 51 scripts**
+
+---
+## 🆕 W23 Skills & Configs Lấy Về (06/2026 - lần 42)
+
+### skills/ecc/ (32 files)
+- 24 SKILL.md priority: agentic-os, content-engine, crosspost, social-publisher, deep-research, seo, frontend-patterns, token-budget-advisor, plan-orchestrate, tdd-workflow, git-workflow...
+- 5 agents: architect, code-reviewer, chief-of-staff, code-architect, a11y-architect
+- Configs: CLAUDE.md, AGENTS.md, mcp-servers.json
+- INDEX.md hướng dẫn dùng
+
+### skills/headroom/ (2 files)
+- hermes-plugin.md — headroom tích hợp với Hermes Agent
+- openclaw-plugin.md — headroom tích hợp với OpenClaw
+
+### mcps/
+- markitdown-mcp.md — MCP server cho MarkItDown
+
+### skills/
+- moneyprinterturbo-config.md — config template đầy đủ
+
+**Tổng kho: 46 repos | 31 MCPs | 130+ skills | 51 scripts**
