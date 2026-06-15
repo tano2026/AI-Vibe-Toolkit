@@ -693,3 +693,18 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 - moneyprinterturbo-config.md — config template đầy đủ
 
 **Tổng kho: 46 repos | 31 MCPs | 130+ skills | 51 scripts**
+
+---
+## 🆕 GitHub Trending 15/06/2026 (lần 43)
+
+| Repo | Stars | Action |
+|------|-------|--------|
+| addyosmani/agent-skills | — | ✅ CÓ RỒI |
+| mvanhorn/last30days-skill | 42k⭐ | ✅ CÓ RỒI |
+| pewdiepie-archdaemon/odysseus | 71k⭐ | ✅ Thêm #47 |
+| apple/container | 37k⭐ | ✅ Thêm #48 |
+| Panniantong/Agent-Reach | 29k⭐ | ✅ Thêm #49 |
+
+Scripts: #52 odysseus | #53 apple-container | #54 agent-reach
+
+**Kho: 49 repos | 32 MCPs | 130+ skills | 54 scripts**
