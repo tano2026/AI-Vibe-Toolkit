@@ -732,3 +732,20 @@ Lấy toàn bộ 262 skills từ affaan-m/ECC về kho.
 - và 100+ categories khác
 
 **Kho: 49 repos | 32 MCPs | 262+ ECC skills + 100+ skills khác | 54 scripts**
+
+---
+## 🆕 OpenClaw Integration Config (06/2026 - lần 45)
+
+### /configs/ — 4 files mới
+| File | Dùng cho |
+|------|---------|
+| configs/openclaw-full-setup.md | Guide 9 bước đưa toàn bộ kho vào OpenClaw |
+| configs/openclaw-ai-vibe-skill.md | SKILL.md đúng format OpenClaw cho AI Vibe Toolkit |
+| configs/sync-to-openclaw.sh | Script bash tự động sync 400+ skills vào OpenClaw |
+| configs/openclaw-mcp-config.json | MCP config đúng format OpenClaw (9 MCPs priority) |
+
+### Cách dùng:
+1. Clone kho về local
+2. Chạy: bash configs/sync-to-openclaw.sh
+3. openclaw skills list → verify
+4. Nhắn Telegram để test
