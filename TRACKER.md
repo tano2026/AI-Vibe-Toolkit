@@ -786,3 +786,12 @@ curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deplo
 | VAULT/triage.md | Decision rules + assignment matrix |
 
 **Kho: 49 repos | 34 MCPs | 407 skills | 59 scripts | VAULT system**
+
+---
+## 🆕 Agent-Reach Skill (06/2026 - lần 48)
+
+| File | Nội dung |
+|------|---------|
+| skills/agent-reach-skill.md | Pattern chuẩn: thu thập trước→filter→analyze sau, 3 rules tối ưu token, 4 use cases cụ thể cho AI Vibe Toolkit |
+
+**Key insight:** Agent-Reach = $0 scrape. Chỉ tốn token khi feed vào Claude. Filter trước → tiết kiệm 80-95% token.
