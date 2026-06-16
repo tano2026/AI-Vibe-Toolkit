@@ -795,3 +795,15 @@ curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deplo
 | skills/agent-reach-skill.md | Pattern chuẩn: thu thập trước→filter→analyze sau, 3 rules tối ưu token, 4 use cases cụ thể cho AI Vibe Toolkit |
 
 **Key insight:** Agent-Reach = $0 scrape. Chỉ tốn token khi feed vào Claude. Filter trước → tiết kiệm 80-95% token.
+
+---
+## 🆕 DeerFlow + SD3 Medium (06/2026 - lần 49)
+
+| # | Repo | Stars | Highlights |
+|---|------|-------|-----------|
+| 50 | bytedance/deer-flow | 71k⭐ | Super agent: sub-agents+memory+sandbox+extensible skills |
+| 51 | stable-diffusion-3-medium | — | SD3 Medium free — best image model, text rendering, commercial ok |
+
+Scripts: #55 deerflow | #56 sd3-medium
+
+**Kho: 51 repos | 34 MCPs | 409 skills | 61 scripts**
