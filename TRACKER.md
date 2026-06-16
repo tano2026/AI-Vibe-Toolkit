@@ -768,3 +768,21 @@ Lấy toàn bộ 262 skills từ affaan-m/ECC về kho.
 ssh root@YOUR_VPS_IP
 curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deploy/setup-vps.sh | bash
 ```
+
+---
+## 🆕 SAMS Loop Engineering + VAULT (06/2026 - lần 47)
+
+### Phân tích & Tài liệu hóa
+| File | Nội dung |
+|------|---------|
+| skills/sams-loop-engineering.md | Framework phân tích đầy đủ: 6 components, mapping với kho, 3 loop templates, cost control |
+
+### /VAULT/ folder — Memory backbone cho SAMS loops
+| File | Role |
+|------|------|
+| VAULT/status.md | System health snapshot (kho stats, agent status, active loops) |
+| VAULT/next-up.md | Việc cần làm tiếp theo (High/Medium/Low priority) |
+| VAULT/done-log.md | Log những gì đã hoàn thành |
+| VAULT/triage.md | Decision rules + assignment matrix |
+
+**Kho: 49 repos | 34 MCPs | 407 skills | 59 scripts | VAULT system**
