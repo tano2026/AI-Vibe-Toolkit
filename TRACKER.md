@@ -807,3 +807,26 @@ curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deplo
 Scripts: #55 deerflow | #56 sd3-medium
 
 **Kho: 51 repos | 34 MCPs | 409 skills | 61 scripts**
+
+---
+## 🆕 Google Skills + Insights Batch (06/2026 - lần 50)
+
+### Repos mới
+| # | Repo | Stars | Highlights |
+|---|------|-------|-----------|
+| 52 | google/skills | 13.7k⭐ | 20+ official Google Agent Skills: BigQuery, Firebase, Gemini API, GKE, Cloud Run... |
+
+### Skills mới (insights)
+| File | Nội dung |
+|------|---------|
+| skills/markdown-output-insight.md | Markdown phá hoại AI output: 3 fixes, khi nào dùng/không dùng |
+| skills/sakana-7b-livecodebench.md | 7B vượt GPT-5: orchestration beats scale, local model strategy |
+| skills/loop-engineering-addy.md | Addy Osmani: loop engineering vs manual prompting, 3 levels |
+| skills/google-skills/[10 files] | Google skills gốc: bigquery, firebase, cloud-run, gemini-api... |
+
+### Scripts
+| # | File | Hook |
+|---|------|------|
+| 57 | google-skills | "Google chính thức vào cuộc Agent Skills — theo chuẩn Anthropic" |
+
+**Kho: 52 repos | 34 MCPs | 423+ skills | 62 scripts**
