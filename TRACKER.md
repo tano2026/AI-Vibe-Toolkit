@@ -830,3 +830,23 @@ Scripts: #55 deerflow | #56 sd3-medium
 | 57 | google-skills | "Google chính thức vào cuộc Agent Skills — theo chuẩn Anthropic" |
 
 **Kho: 52 repos | 34 MCPs | 423+ skills | 62 scripts**
+
+---
+## 🆕 CodeGraph — Code Knowledge Graph MCP (06/2026 - lần 51)
+
+### MCPs mới
+| File | Tool | Stars | Highlights |
+|------|------|-------|-----------|
+| mcps/codegraph.md | colbymchenry/codegraph | 43k⭐ | Pre-indexed code knowledge graph qua MCP — benchmark thật: 81% fewer tool calls, 64% fewer tokens trên VS Code repo |
+
+### Scripts
+| # | File | Hook |
+|---|------|------|
+| 58 | script-video-58-codegraph.md | "Agent đọc cả codebase chỉ để sửa 5 dòng — fix bằng 1 lệnh" |
+
+### Note: đã check trùng lặp từ báo cáo input
+- perplexityai/bumblebee → ĐÃ CÓ SẴN (repos/bumblebee.md + script gốc, skill riêng ở lần 29) — không viết lại
+- mvanhorn/last30days-skill → ĐÃ CÓ SẴN (repos/last30days.md + script gốc, đã note trùng ở lần 43) — không viết lại
+- colbymchenry/codegraph → MỚI, đã verify trực tiếp trên GitHub (43k stars, MIT, release v0.9.9) trước khi viết
+
+**Kho: 52 repos | 35 MCPs | 423+ skills | 58 scripts**
