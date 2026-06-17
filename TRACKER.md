@@ -850,3 +850,28 @@ Scripts: #55 deerflow | #56 sd3-medium
 - colbymchenry/codegraph → MỚI, đã verify trực tiếp trên GitHub (43k stars, MIT, release v0.9.9) trước khi viết
 
 **Kho: 52 repos | 35 MCPs | 423+ skills | 58 scripts**
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 52) — Claude Code Skills nổi tiếng
+
+### Skills mới
+| # | Tên | Stars | File | Nguồn |
+|---|-----|-------|------|-------|
+| - | Caveman — nói kiểu người tiền sử, cắt 65% token | 74k⭐ | skills/caveman.md | JuliusBrussee/caveman |
+| - | Claude-Mem — trí nhớ dài hạn cho Claude Code | 83k⭐ | skills/claude-mem.md | thedotmack/claude-mem |
+| - | Humanizer — xóa dấu vết AI viết, 33 patterns | 24.7k⭐ | skills/humanizer.md | blader/humanizer |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 59 | script-video-59-caveman.md | "Claude trả lời 1200 token. Skill này cắt còn 300." |
+| 60 | script-video-60-claude-mem.md | "Claude Code quên hết mỗi lần tắt máy. Plugin này fix luôn." |
+| 61 | script-video-61-humanizer.md | "Sếp hỏi 'cái này AI viết hả?' — skill này fix luôn." |
+
+### Note: trùng lặp đã check trước khi viết
+Input gốc từ ảnh TikTok có 5 plugin (CAVEMAN, claude-mem, TASTE-SKILL, HUMANIZER, MARKETINGSKILLS). Sau khi research GitHub stars để chọn bản uy tín nhất cho mỗi tên (do tên trùng nhiều repo khác nhau), phát hiện:
+- **taste-skill** (Leonxlnx) → ĐÃ CÓ SẴN trong kho từ lần 20/21 (repos/taste-skill.md + skills/taste-skill-frontend.md + subfolder đầy đủ) — không viết lại.
+- **marketingskills** (coreyhaines31) → ĐÃ CÓ SẴN trong kho từ lần 17/28 (repos/marketingskills + skills/marketingskills-skill.md) — không viết lại.
+- 3 cái còn lại (caveman, claude-mem, humanizer) → MỚI, đã verify star count qua GitHub API trước khi viết để chọn đúng repo uy tín nhất trong các bản trùng tên (vd humanizer: blader/humanizer 24.7k⭐ chọn thay vì Aboudjem/humanizer-skill chỉ 84⭐).
+
+**Kho: 52 repos | 35 MCPs | 426+ skills | 61 scripts**
