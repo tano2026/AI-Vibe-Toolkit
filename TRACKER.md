@@ -902,3 +902,44 @@ Input gốc là 2 list lớn (YouTube MCP/automation tools + TikTok automation t
 - Nhiều repo khác trong list (BotTuber, yt-videos-list, tubescrape, vidilearn, Open-Dispatch, AxiBot, auto-shorts, autotok, n8n-nodes-upload-post, tiktok-automated-video-generator...) chưa verify — để dành cho batch sau nếu cần, tránh tốn token research/viết tất cả 1 lượt.
 
 **Kho: 53 repos | 36 MCPs | 426+ skills | 63 scripts**
+
+---
+## 🆕 Eastern Astrology Batch — Tử Vi/Bát Tự (06/2026 - lần 54)
+
+### Repos mới
+| # | Tên | Stars | Highlights |
+|---|-----|-------|-----------|
+| 54 | iztro (SylarLong) | 3,830⭐ | Lib JS/TS tính lá số Tử Vi, output sẵn 6 ngôn ngữ gồm tiếng Việt, MIT |
+| 55 | ziwei-doushu (Renhuai123) | 2,490⭐ | Web app Next.js đầy đủ + dataset 518,400 lá số mẫu, free thương mại (ghi nguồn) |
+
+### MCPs mới
+| File | Tool | Stars | Highlights |
+|------|------|-------|-----------|
+| mcps/taibu-mcp.md | hhszzzz/taibu | 241⭐ | 15 tools luận giải Á Đông (bát tự/tử vi/lục hào/mai hoa/kỳ môn/tarot...), license hybrid MIT(core+mcp)/AGPL(web) |
+
+### Skills mới
+| File | Tool | Stars | Highlights |
+|------|------|-------|-----------|
+| skills/bazi-ziwei-skill.md | dzcmemory-web/bazi-ziwei-skill | 317⭐ | SKILL.md cross-agent (Claude/Hermes/OpenClaw), tách tính toán khỏi LLM, render poster HTML thủy mặc |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 64 | script-video-64-iztro.md | "Tử vi tiếng Việt không cần dịch 1 chữ Hán nào?" |
+| 65 | script-video-65-ziwei-doushu.md | "518 nghìn lá số free, dùng thương mại luôn được?" |
+| 66 | script-video-66-taibu-mcp.md | "15 hệ luận giải Á Đông gói trong 1 dòng config?" |
+| 67 | script-video-67-bazi-ziwei-skill.md | "Claude tự tính bát tự hay sai ngày trụ — fix luôn." |
+
+### Note: verify trước khi viết + đánh giá áp dụng được
+Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) dán từ chat khác. Số liệu lần này khá chính xác (khác hẳn batch YouTube/TikTok trước), verify qua GitHub API:
+- ziwei-doushu, MingLi-Bench, manseryeok (yhj1024) → số star khớp gần như chính xác 100% so với list gốc.
+- **stem-branch** → list gốc ghi nhầm là Python, thực tế là `h4x0r/stem-branch` viết bằng **TypeScript**, 7⭐, đã sửa lại đúng.
+- **iztro** → list gốc ghi "⭐?" không rõ, thực tế là repo MẠNH NHẤT trong nhóm (3,830⭐) — tìm thêm sâu hơn list gốc, phát hiện hỗ trợ sẵn tiếng Việt native, đẩy lên thành lựa chọn ưu tiên #1.
+- Tìm thêm 2 cái KHÔNG có trong list gốc nhưng giá trị cao hơn cho mục đích AI Vibe Toolkit: **taibu-mcp** (MCP) và **bazi-ziwei-skill** (Skill, tương thích thẳng Hermes/OpenClaw).
+
+### Quyết định không viết full entry (đánh giá "không áp dụng được" trực tiếp)
+- **MingLi-Bench** (1,839⭐) → là benchmark đánh giá LLM đoán Bát Tự/Tử Vi, không phải tool để build sản phẩm — không phù hợp mục đích build app/content của kho.
+- **manseryeok** (yhj1024, 26⭐) → tính Saju theo lịch Hàn Quốc, khác hệ với Tử Vi/Bát Tự Việt Nam (dùng theo hệ Trung Hoa) — không trực tiếp áp dụng cho thị trường VN.
+- **h4x0r/stem-branch** (7⭐) → quá nhỏ/non, chỉ là lib tính can chi cấp thấp, iztro/ziwei-doushu đã có API cấp cao hơn sẵn — không cần thiết viết riêng.
+
+**Kho: 55 repos | 37 MCPs | 427+ skills | 67 scripts**
