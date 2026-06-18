@@ -875,3 +875,30 @@ Input gốc từ ảnh TikTok có 5 plugin (CAVEMAN, claude-mem, TASTE-SKILL, HU
 - 3 cái còn lại (caveman, claude-mem, humanizer) → MỚI, đã verify star count qua GitHub API trước khi viết để chọn đúng repo uy tín nhất trong các bản trùng tên (vd humanizer: blader/humanizer 24.7k⭐ chọn thay vì Aboudjem/humanizer-skill chỉ 84⭐).
 
 **Kho: 52 repos | 35 MCPs | 426+ skills | 61 scripts**
+
+---
+## 🆕 YouTube + TikTok Batch (06/2026 - lần 53)
+
+### MCPs mới
+| File | Tool | Stars | Highlights |
+|------|------|-------|-----------|
+| mcps/mcp-youtube.md | anaisbetts/mcp-youtube | 529⭐ | Transcript YouTube qua yt-dlp, không cần API key, gắn Claude 5 dòng JSON |
+
+### Repos mới
+| # | Tên | Stars | Highlights |
+|---|-----|-------|-----------|
+| 53 | TikTokAutoUploader (haziq-exe) | 273⭐ | Auto upload/schedule TikTok, né captcha, Phantomwright stealth, PyPI sẵn |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 62 | script-video-62-mcp-youtube.md | "Xem video 20 phút chỉ để lấy 1 ý? Bỏ luôn." |
+| 63 | script-video-63-tiktokautouploader.md | "Pipeline auto mà vẫn tự tay đăng TikTok? Sai rồi." |
+
+### Note: check trùng lặp trước khi viết
+Input gốc là 2 list lớn (YouTube MCP/automation tools + TikTok automation tools) từ chat dán vào. Đã verify từng repo qua GitHub API trước khi quyết định viết:
+- **Agent-Reach** (Panniantong) → ĐÃ CÓ SẴN trong kho từ lần 43/48 (repos/agent-reach.md + script #54 + skills/agent-reach-skill.md) — không viết lại, chỉ xác nhận lại đúng repo gốc.
+- **microsoft/mcp** → loại bỏ, đây là catalog MCP nội bộ Microsoft (Azure/M365), không liên quan YouTube dù bị gắn nhầm trong list gốc.
+- Nhiều repo khác trong list (BotTuber, yt-videos-list, tubescrape, vidilearn, Open-Dispatch, AxiBot, auto-shorts, autotok, n8n-nodes-upload-post, tiktok-automated-video-generator...) chưa verify — để dành cho batch sau nếu cần, tránh tốn token research/viết tất cả 1 lượt.
+
+**Kho: 53 repos | 36 MCPs | 426+ skills | 63 scripts**
