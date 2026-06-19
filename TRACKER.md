@@ -943,3 +943,32 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 - **h4x0r/stem-branch** (7⭐) → quá nhỏ/non, chỉ là lib tính can chi cấp thấp, iztro/ziwei-doushu đã có API cấp cao hơn sẵn — không cần thiết viết riêng.
 
 **Kho: 55 repos | 37 MCPs | 427+ skills | 67 scripts**
+
+---
+## 🆕 Trending AI Concepts Batch (06/2026 - lần 55)
+
+### Skills mới
+| File | Concept | Độ nóng | Highlights |
+|------|---------|---------|-----------|
+| skills/harness-engineering.md | Harness Engineering | 🔥🔥🔥 | Xu hướng AI 2026, OpenAI đặt tên Feb 2026, "Agent = Model + Harness", 88% AI project fail vì thiếu harness |
+
+### Stacks mới
+| File | Tool | Funding | Highlights |
+|------|------|---------|-----------|
+| stacks/ploy-ai.md | Ploy AI (ploy.ai) | $27M seed | GA ngày 17/6/2026, founder CTO Webflow 12 năm, First Round + YC, AI agent tự chạy toàn bộ marketing website |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 68 | script-video-68-harness-engineering.md | "88% AI project fail — đây là lý do" |
+| 69 | script-video-69-ploy-ai.md | "CTO Webflow vừa raise 27M để AI cướp việc team marketing" |
+
+### Nguồn input
+3 ảnh chụp TikTok feed: @DevXin (Harness Engineering trend video) + @CDR Easy AI (Ploy startup news)
+
+### Note: phân loại entry
+- **Harness Engineering** → không có GitHub repo cụ thể, là methodology/framework → phân loại /skills/ (kiến thức áp dụng được ngay)
+- **Ploy** → không open source, SaaS commercial → phân loại /stacks/ (tool trong marketing stack của vibe coder)
+- Cả 2 đều cực kỳ fresh: Harness Engineering được đặt tên chính thức Feb 2026, Ploy GA ngày 17/6/2026 (2 ngày trước batch này)
+
+**Kho: 55 repos | 37 MCPs | 428+ skills | 69 scripts | 1 stack**
