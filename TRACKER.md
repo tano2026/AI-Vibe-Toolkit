@@ -972,3 +972,23 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 - Cả 2 đều cực kỳ fresh: Harness Engineering được đặt tên chính thức Feb 2026, Ploy GA ngày 17/6/2026 (2 ngày trước batch này)
 
 **Kho: 55 repos | 37 MCPs | 428+ skills | 69 scripts | 1 stack**
+
+---
+
+## Lần 56 — 2026-06-20
+
+### Repos mới
+| Loại | Tên | File | Script |
+|------|-----|------|--------|
+| Repo | BillionMail | /repos/billionmail.md | /content/script-video-billionmail.md |
+| Repo | UI-TARS-desktop + Agent TARS | /repos/ui-tars-desktop.md | /content/script-video-ui-tars-desktop.md |
+| Repo | 9router | /repos/9router.md | /content/script-video-9router.md |
+| Repo | RuView | /repos/ruview.md | /content/script-video-ruview.md |
+
+### Skills mới
+| Loại | Tên | File |
+|------|-----|------|
+| Skill | Humanizer | /skills/humanizer.md |
+| Skill | Prompt-Master | /skills/prompt-master.md |
+| Skill | Fact-Checker | /skills/fact-checker.md |
+| Skill | Grill Me | /skills/grill-me.md |
