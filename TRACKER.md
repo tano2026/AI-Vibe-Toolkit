@@ -1000,3 +1000,4 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 75 | Repo | Remotion Superpowers | /repos/remotion-superpowers.md | Đã push | /content/script-video-75-remotion-superpowers.md | 2026-06-21 |
 | 76 | MCP | MiniMax MCP | /mcps/minimax-mcp.md | Đã push | /content/script-video-76-minimax-mcp.md | 2026-06-21 |
 | 77 | Repo | Toonflow | /repos/toonflow.md | Đã push | /content/script-video-77-toonflow.md | 2026-06-21 |
+| 78 | Repo | OpenMontage | /repos/openmontage.md | Đã push | /content/script-video-78-openmontage.md | 2026-06-21 |
