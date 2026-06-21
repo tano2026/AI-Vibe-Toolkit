@@ -997,3 +997,6 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 72 | Skill | UI/UX Pro Max Skill | /skills/ui-ux-pro-max.md | Đã push | /content/script-video-72-ui-ux-pro-max.md | 2026-06-21 |
 | 73 | Skill | Understand Anything | /skills/understand-anything.md | Đã push | /content/script-video-73-understand-anything.md | 2026-06-21 |
 | 74 | Skill | Career Ops | /skills/career-ops.md | Đã push | /content/script-video-74-career-ops.md | 2026-06-21 |
+| 75 | Repo | Remotion Superpowers | /repos/remotion-superpowers.md | Đã push | /content/script-video-75-remotion-superpowers.md | 2026-06-21 |
+| 76 | MCP | MiniMax MCP | /mcps/minimax-mcp.md | Đã push | /content/script-video-76-minimax-mcp.md | 2026-06-21 |
+| 77 | Repo | Toonflow | /repos/toonflow.md | Đã push | /content/script-video-77-toonflow.md | 2026-06-21 |
