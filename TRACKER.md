@@ -992,3 +992,8 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | Skill | Prompt-Master | /skills/prompt-master.md |
 | Skill | Fact-Checker | /skills/fact-checker.md |
 | Skill | Grill Me | /skills/grill-me.md |
+| 70 | Skill | Anthropic Skills | /skills/anthropic-skills.md | Đã push | /content/script-video-70-anthropic-skills.md | 2026-06-21 |
+| 71 | Skill | GStack (Garry Tan) | /skills/gstack.md | Đã push | /content/script-video-71-gstack.md | 2026-06-21 |
+| 72 | Skill | UI/UX Pro Max Skill | /skills/ui-ux-pro-max.md | Đã push | /content/script-video-72-ui-ux-pro-max.md | 2026-06-21 |
+| 73 | Skill | Understand Anything | /skills/understand-anything.md | Đã push | /content/script-video-73-understand-anything.md | 2026-06-21 |
+| 74 | Skill | Career Ops | /skills/career-ops.md | Đã push | /content/script-video-74-career-ops.md | 2026-06-21 |
