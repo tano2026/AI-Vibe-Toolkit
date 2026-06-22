@@ -1001,3 +1001,18 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 76 | MCP | MiniMax MCP | /mcps/minimax-mcp.md | Đã push | /content/script-video-76-minimax-mcp.md | 2026-06-21 |
 | 77 | Repo | Toonflow | /repos/toonflow.md | Đã push | /content/script-video-77-toonflow.md | 2026-06-21 |
 | 78 | Repo | OpenMontage | /repos/openmontage.md | Đã push | /content/script-video-78-openmontage.md | 2026-06-21 |
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 57)
+
+### Repos mới
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 56 | shortcast (mutonby) — video dài → 3–6 Shorts viral, 100% on-device | 334⭐ | ✅ | ✅ |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 79 | script-video-79-shortcast.md | "1 video dài → 5 Shorts. Không cần CapCut. Không cần cloud." |
+
+**Kho: 56 repos | 37 MCPs | 428+ skills | 79 scripts**
