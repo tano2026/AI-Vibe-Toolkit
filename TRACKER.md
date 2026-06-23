@@ -1072,3 +1072,12 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 84 | script-video-84-5kynang-claude.md | "5 kỹ năng dùng Claude mà không trường đại học nào dạy — nhưng thị trường đang trả tiền cho." |
 
 **Kho: 65 repos | 37 MCPs | 82 skills | 84 scripts**
+
+---
+
+## 🤖 Agents — 1 cái
+
+| # | Tên | Thư mục | Skills | MCPs | Trạng thái | Ngày thêm |
+|---|-----|---------|--------|------|------------|-----------|
+| 1 | Research Analytics Pro | agents/research-analytics-pro/ | 7 skills | Firecrawl, Brave, MarkItDown, x-research | Đã push | 2026-06 |
+
