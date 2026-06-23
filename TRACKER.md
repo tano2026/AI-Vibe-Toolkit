@@ -1042,3 +1042,18 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 - 4 entries mới: NarratoAI, TimesFM, codebase-memory-mcp, iptv-org/iptv
 
 **Kho: 59 repos | 38 MCPs | 428+ skills | 83 scripts**
+
+---
+## 🆕 agents (lần 59)
+
+### Repos mới
+| Tên | File | Highlights |
+|------|------|-----------|
+| agents | repos/agents-wshobson.md | Hệ sinh thái marketplace plugin tác nhân AI khổng lồ cho các trợ lý mã hóa, giúp tự động hóa và chuyên biệt hóa các tác vụ phát triển. |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 92 | script-video-92-agents-wshobson.md | "Biến các trợ lý AI của bạn thành một đội ngũ siêu lập trình viên với `wshobson/agents`!" |
+
+**Kho: 65 repos | 37 MCPs | 81 skills | 92 scripts**
