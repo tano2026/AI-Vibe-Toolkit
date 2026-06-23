@@ -1016,3 +1016,29 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 79 | script-video-79-shortcast.md | "1 video dài → 5 Shorts. Không cần CapCut. Không cần cloud." |
 
 **Kho: 56 repos | 37 MCPs | 428+ skills | 79 scripts**
+
+---
+## 🆕 Batch mới thêm (06/2026 - lần 58)
+
+### Repos/MCPs mới
+| # | Tên | Stars | File | Script |
+|---|-----|-------|------|--------|
+| 57 | NarratoAI (linyqh) — video dài → recap AI tự động, commentary + cắt ghép | 9.9k⭐ | ✅ /repos/narratoai.md | ✅ script-80 |
+| 58 | Google TimesFM — foundation model dự báo chuỗi thời gian, zero-shot | 25.1k⭐ | ✅ /repos/google-timesfm.md | ✅ script-81 |
+| 38 | codebase-memory-mcp (DeusData) — index codebase thành knowledge graph cho AI | 11.6k⭐ | ✅ /mcps/codebase-memory-mcp.md | ✅ script-82 |
+| 59 | iptv-org/iptv — danh bạ IPTV công khai 127k stars, hàng chục nghìn kênh TV | 127.5k⭐ | ✅ /repos/iptv-org-iptv.md | ✅ script-83 |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 80 | script-video-80-narratoai.md | "1 video dài 30 phút → clip 3 phút có lời bình, không cần edit một giây nào." |
+| 81 | script-video-81-google-timesfm.md | "Google vừa thả model AI đọc dữ liệu quá khứ để đoán tương lai — 25 nghìn sao chỉ trong vài tháng." |
+| 82 | script-video-82-codebase-memory-mcp.md | "AI hay quên cấu trúc project lớn? MCP này giải quyết luôn — 11 nghìn sao trên GitHub." |
+| 83 | script-video-83-iptv-org-iptv.md | "127 nghìn sao. Hàng chục nghìn kênh TV từ khắp thế giới. Miễn phí. Mở hoàn toàn." |
+
+### Nguồn input
+5 ảnh chụp TikTok feed: @2phutAInews (NarratoAI) + @QuangCoder (GitHub Trending Weekly top 5-1)
+- Agent-Reach (#1 trending) đã có trong kho → skip
+- 4 entries mới: NarratoAI, TimesFM, codebase-memory-mcp, iptv-org/iptv
+
+**Kho: 59 repos | 38 MCPs | 428+ skills | 83 scripts**
