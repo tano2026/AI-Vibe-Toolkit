@@ -1057,3 +1057,18 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 92 | script-video-92-agents-wshobson.md | "Biến các trợ lý AI của bạn thành một đội ngũ siêu lập trình viên với `wshobson/agents`!" |
 
 **Kho: 65 repos | 37 MCPs | 81 skills | 92 scripts**
+
+---
+## 🆕 5kynang-claude (lần 60)
+
+### Skills mới
+| Tên | File | Highlights |
+|------|------|-----------||
+| 5 Kỹ Năng Claude | skills/5kynang-claude-skill.md | Framework 5 vai trò dùng Claude kiếm tiền: Vibe Coder, Ghost Voice, Niche Architect, Pattern Hunter, Conversion Engineer. Có full prompt cho từng kỹ năng. |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 84 | script-video-84-5kynang-claude.md | "5 kỹ năng dùng Claude mà không trường đại học nào dạy — nhưng thị trường đang trả tiền cho." |
+
+**Kho: 65 repos | 37 MCPs | 82 skills | 84 scripts**
