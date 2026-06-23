@@ -62,6 +62,8 @@
 | 4 | Auto Research Trending | ✅ | - | - |
 | 5 | AI Content Writing (6 prompts) | ✅ | - | - |
 | 6 | ML Concepts Explainer | ✅ | - | - |
+| 7 | Agentic Factory (meta-skill) | skills/agentic-factory/SKILL.md | - | - |
+
 
 ---
 
