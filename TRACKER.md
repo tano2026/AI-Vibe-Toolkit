@@ -1085,3 +1085,31 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 |---|-----|---------|--------|------|------------|-----------|
 | 1 | Research Analytics Pro | agents/research-analytics-pro/ | 7 skills | Firecrawl, Brave, MarkItDown, x-research | Đã push | 2026-06 |
 
+
+---
+
+## 🎙️ TTS & Video Generation Batch (lần 61)
+
+### Repos mới
+| Tên | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| OmniVoice Studio | repos/omnivoice-studio.md | 7,500+ | ElevenLabs alternative local, voice clone, dubbing, dictation — miễn phí |
+| ChatTTS | repos/chattts.md | 39,500+ | TTS đàm thoại tự nhiên, hỗ trợ [laugh] [uv_break] prosody control |
+| F5-TTS | repos/f5-tts.md | 14,800+ | Voice clone chỉ cần 3 giây audio mẫu, Flow Matching |
+| Kokoro-82M | repos/kokoro-82m.md | 7,600+ | TTS model 300MB, chạy CPU không cần GPU |
+| DS2API | repos/ds2api.md | 4,700+ | Biến tài khoản web DeepSeek thành OpenAI-compatible API |
+| VectCutAPI | repos/vectcutapi.md | 2,000+ | Gọi CapCut API xuất phụ đề SRT tự động, tốt cho tiếng Việt |
+| ViMax | repos/vimax.md | 10,600+ | Agentic video generation: Director + Screenwriter + Producer + Generator |
+
+### Scripts thêm
+| # | File | Hook |
+|---|------|------|
+| 96 | script-video-96-omnivoice-studio.md | "Mày đang trả tiền ElevenLabs mỗi tháng? Dừng lại. Có tool miễn phí làm được y chang." |
+| 97 | script-video-97-chattts.md | "AI cười được. AI ngập ngừng được. AI thở dài được. Và nó miễn phí." |
+| 98 | script-video-98-f5-tts.md | "3 giây audio. Đủ để clone giọng bất kỳ ai. Miễn phí." |
+| 99 | script-video-99-kokoro-82m.md | "Model TTS nhỏ hơn một bộ phim HD. Nhưng giọng đọc thì không tưởng." |
+| 100 | script-video-100-ds2api.md | "DeepSeek API hết quota? Tool này biến tài khoản web thành API không giới hạn." |
+| 101 | script-video-101-vectcutapi.md | "20 video cần phụ đề tiếng Việt. Làm tự động trong 10 phút. Không mở CapCut một lần nào." |
+| 102 | script-video-102-vimax.md | "Nhập một câu. AI tự viết kịch bản, tự đạo diễn, tự xuất video hoàn chỉnh." |
+
+**Kho: 72 repos | 37 MCPs | 82 skills | 102 scripts**
