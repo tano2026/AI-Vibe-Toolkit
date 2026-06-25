@@ -52,7 +52,7 @@
 
 ---
 
-## 🧠 Skills — 6 cái
+## 🧠 Skills — 8 cái
 
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
@@ -63,6 +63,7 @@
 | 5 | AI Content Writing (6 prompts) | ✅ | - | - |
 | 6 | ML Concepts Explainer | ✅ | - | - |
 | 7 | Agentic Factory (meta-skill) | skills/agentic-factory/SKILL.md | - | - |
+| 8 | Personal Branding Creator | skills/personal-branding-creator.md | ✅ | ⏳ |
 
 
 ---
@@ -117,13 +118,14 @@
 | 23 | DiffusionGemma — LLM mới | "Google thay đổi cách LLM hoạt động" |
 | 28 | TurboVec — RAG 31GB→4GB | "RAG pipeline cần 31GB RAM?" |
 
-### Skills (4 scripts)
+### Skills (5 scripts)
 | # | Video | Hook |
 |---|-------|------|
 | 18 | Decision Tree — Thuật toán AI | "Mày dùng cái này mỗi sáng mà không biết" |
 | 30 | Research Agent — Intern 24/7 | "Research mất cả buổi → 3 phút" |
 | 31 | Content Creator — 1 idea × 10 formats | "1 ý tưởng → 10 loại content cùng lúc" |
 | 32 | Vibe Coder Assistant — Pair programmer | "Sợ hỏi Claude câu ngố?" |
+| 33 | Branding Creator — Tự động nhân hiệu | "Tự tạo kịch bản triệu view, bài viết FB" |
 
 ---
 
@@ -148,11 +150,11 @@
 |------|------|---------|----------|---------|
 | MCPs | 13 | 13 | 13 | 0 |
 | Repos | 22 | 22 | 22 | 0 |
-| Skills | 6 | 6 | 4 | 0 |
+| Skills | 8 | 8 | 5 | 0 |
 | Stacks | 1 | 1 | - | 0 |
-| **Total** | **42** | **42** | **39** | **0** |
+| **Total** | **44** | **44** | **40** | **0** |
 
-**Scripts sẵn sàng quay: 32 videos**
+**Scripts sẵn sàng quay: 33 videos**
 **Việc tiếp theo: BẮT ĐẦU QUAY**
 
 
