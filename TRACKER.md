@@ -1167,3 +1167,16 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 112 | script-video-112-trek.md | WanderLog co phi. TREK mien phi, self-host, real-time collab. |
 
 **Kho: 84 repos | 37 MCPs | 82 skills | 112 scripts | 2 agents**
+
+
+---
+
+## Tool moi - Resona (lan 64)
+
+| Ten | File | Loai | Highlights |
+|-----|------|------|-----------|
+| Resona | skills/resona.md | Skill/Tool | TTS tieng Viet native, long tieng video built-in, API 17K/thang |
+
+Script: script-video-113-resona.md — Hook: "ElevenLabs 550K/thang. Startup VN nay lam y chang, gia 17K."
+
+**Kho: 84 repos | 37 MCPs | 83 skills | 113 scripts | 2 agents**
