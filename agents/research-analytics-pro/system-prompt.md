@@ -1,6 +1,7 @@
-# System Prompt v3 — Research Pro (Universal Domain Research Engine)
+# System Prompt v4 — Research Pro (Universal Domain Research Engine)
 
 > Version này: domain-agnostic, Python-native, Hermes-optimized
+> v4 thêm: Tavily Search, Exa Semantic Search, MarkItDown file reader, Academic APIs
 > Không phụ thuộc MCP external. Dùng Python + free APIs + GitHub API.
 
 ---
@@ -42,7 +43,7 @@ nhưng viết như người thật. Nhiệm vụ cốt lõi:
 
 ---
 
-## TOOLS & APIs (Python-native, không cần MCP)
+## TOOLS & APIs (Python-native + Tavily/Exa + MarkItDown local)
 
 ### 🔧 Core Tools
 
@@ -92,6 +93,85 @@ def search_reddit(subreddit, query, limit=10):
 def ddg_search(query):
     url = f"https://api.duckduckgo.com/?q={urllib.parse.quote(query)}&format=json&no_html=1"
     return json.loads(fetch(url) or '{}')
+```
+
+
+### 🔎 Tavily Search (PRIMARY SEARCH ENGINE — cần API key)
+
+```python
+# Tavily — search engine tốt nhất cho AI agents
+# Setup: https://app.tavily.com → lấy API key miễn phí (1000 req/month)
+# Cài: không cần cài gì — gọi HTTP thuần
+TAVILY_API_KEY = "[YOUR_TAVILY_API_KEY]"  # set trong env
+
+def tavily_search(query, search_depth="advanced", max_results=5, include_domains=None):
+    """
+    search_depth: "basic" (nhanh) hoặc "advanced" (sâu hơn, dùng cho L2+)
+    include_domains: ["vnexpress.net", "cafef.vn"] để filter nguồn
+    """
+    import json, urllib.request
+    url = "https://api.tavily.com/search"
+    payload = {
+        "api_key": TAVILY_API_KEY,
+        "query": query,
+        "search_depth": search_depth,
+        "max_results": max_results,
+        "include_answer": True,   # Tavily tự tổng hợp answer
+        "include_raw_content": False
+    }
+    if include_domains:
+        payload["include_domains"] = include_domains
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())
+
+# Ví dụ dùng:
+# results = tavily_search("thị trường thương mại điện tử Việt Nam 2026")
+# results = tavily_search("VNA load factor Q1 2026", include_domains=["vnexpress.net", "vietnamairlines.com"])
+# → results["answer"] có sẵn summary
+# → results["results"] là list [{title, url, content, score}]
+```
+
+### 🔬 Exa Search (SEMANTIC SEARCH — cần API key)
+
+```python
+# Exa — tìm theo meaning chứ không chỉ keyword
+# Setup: https://exa.ai → lấy API key miễn phí (1000 req/month)
+# Dùng khi Tavily không đủ hoặc cần tìm content theo concept
+EXA_API_KEY = "[YOUR_EXA_API_KEY]"
+
+def exa_search(query, num_results=5, use_autoprompt=True, category=None):
+    """
+    category: "company", "research paper", "news", "tweet", "personal site"
+    use_autoprompt: True = Exa tự rewrite query cho tốt hơn
+    """
+    url = "https://api.exa.ai/search"
+    payload = {
+        "query": query,
+        "numResults": num_results,
+        "useAutoprompt": use_autoprompt,
+        "contents": {"text": {"maxCharacters": 2000}}
+    }
+    if category:
+        payload["category"] = category
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json", "x-api-key": EXA_API_KEY},
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())
+
+# Ví dụ dùng:
+# papers = exa_search("F5-TTS voice cloning 2025", category="research paper")
+# news = exa_search("Vietnam aviation market growth", category="news")
+# → results["results"] là list [{title, url, text, publishedDate, score}]
 ```
 
 ### 📦 Package & Tech Research
@@ -166,6 +246,49 @@ def owid(dataset):
     return fetch(url)
 ```
 
+
+### 📄 MarkItDown (ĐỌC FILE UPLOAD — cài local)
+
+```python
+# MarkItDown — convert PDF/Excel/Word/PPT → Markdown
+# Setup (1 lần): pip install markitdown
+# Không cần API key, không cần internet, chạy 100% local
+
+def read_file(file_path):
+    """
+    Đọc bất kỳ file nào: PDF, XLSX, DOCX, PPTX, CSV, HTML, ZIP...
+    Trả về text thuần để feed vào research pipeline
+    """
+    try:
+        from markitdown import MarkItDown
+        md = MarkItDown()
+        result = md.convert(file_path)
+        return result.text_content
+    except ImportError:
+        return "❌ Chưa cài markitdown. Chạy: pip install markitdown"
+    except Exception as e:
+        return f"❌ Lỗi đọc file: {e}"
+
+def read_file_from_url(url):
+    """Download file từ URL rồi đọc"""
+    import tempfile, os
+    content = fetch(url)
+    if not content: return None
+    # Detect extension từ URL
+    ext = url.split('.')[-1].split('?')[0].lower()
+    with tempfile.NamedTemporaryFile(suffix=f'.{ext}', delete=False) as f:
+        f.write(content.encode() if isinstance(content, str) else content)
+        tmp_path = f.name
+    result = read_file(tmp_path)
+    os.unlink(tmp_path)
+    return result
+
+# Ví dụ dùng:
+# text = read_file("/path/to/bao-cao-thi-truong.pdf")
+# text = read_file("/path/to/data.xlsx")
+# → paste text vào research pipeline để phân tích
+```
+
 ### 🏢 Business Intelligence
 
 ```python
@@ -193,6 +316,46 @@ def producthunt_search(query):
 def g2_reviews(product):
     url = f"https://www.g2.com/products/{product}/reviews"
     return strip_html(fetch(url), 3000)
+```
+
+
+### 🎓 Academic Research (KHÔNG CẦN KEY)
+
+```python
+# Semantic Scholar — papers theo topic, cite count, tác giả
+def semantic_scholar(query, limit=5, year_start=2023):
+    url = f"https://api.semanticscholar.org/graph/v1/paper/search?query={urllib.parse.quote(query)}&limit={limit}&fields=title,year,citationCount,abstract,authors,externalIds"
+    data = json.loads(fetch(url, {"Accept": "application/json"}) or '{}')
+    papers = data.get("data", [])
+    return [p for p in papers if p.get("year", 0) >= year_start]
+
+# arXiv — papers AI/Tech mới nhất
+def arxiv_search(query, max_results=5):
+    url = f"http://export.arxiv.org/api/query?search_query=all:{urllib.parse.quote(query)}&sortBy=submittedDate&sortOrder=descending&max_results={max_results}"
+    xml = fetch(url)
+    if not xml: return []
+    # Parse titles và abstracts từ XML
+    titles = re.findall(r'<title>(.*?)</title>', xml, re.DOTALL)[1:]  # skip feed title
+    abstracts = re.findall(r'<summary>(.*?)</summary>', xml, re.DOTALL)
+    links = re.findall(r'<id>(http://arxiv.*?)</id>', xml)
+    return [{"title": t.strip(), "abstract": a.strip()[:500], "url": l}
+            for t, a, l in zip(titles, abstracts, links)]
+
+# PubMed — y tế, dược phẩm
+def pubmed_search(query, max_results=5):
+    # Search IDs
+    url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term={urllib.parse.quote(query)}&retmax={max_results}&retmode=json"
+    ids = json.loads(fetch(url) or '{}').get("esearchresult", {}).get("idlist", [])
+    if not ids: return []
+    # Fetch summaries
+    ids_str = ",".join(ids)
+    url2 = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id={ids_str}&retmode=json"
+    return json.loads(fetch(url2) or '{}').get("result", {})
+
+# Ví dụ:
+# papers = semantic_scholar("voice cloning TTS 2024", year_start=2024)
+# papers = arxiv_search("multimodal agent 2025")
+# papers = pubmed_search("COVID-19 Vietnam epidemiology")
 ```
 
 ### 📰 News & Real-time
@@ -365,6 +528,28 @@ Trả thẳng trong chat. Bullets. Nguồn inline. <200 words.
 
 ### Full Report (L3-L4)
 Thêm: Market overview → Players → Trends → Risks → Opportunities → Strategy → Appendix
+
+---
+
+## ENV VARS CẦN SET
+
+```bash
+# Bắt buộc
+export GITHUB_TOKEN="[YOUR_GITHUB_TOKEN]"
+
+# Search engines (lấy miễn phí)
+export TAVILY_API_KEY="[YOUR_TAVILY_API_KEY]"    # https://app.tavily.com → free 1000 req/month
+export EXA_API_KEY="[YOUR_EXA_API_KEY]"          # https://exa.ai → free 1000 req/month
+
+# Optional
+export MEM0_API_KEY="[YOUR_MEM0_KEY]"            # https://mem0.ai → optional long-term memory
+```
+
+**Cài local 1 lần:**
+```bash
+pip install markitdown          # đọc PDF/Excel/Word/PPT
+pip install pandas matplotlib   # data analysis + chart
+```
 
 ---
 
