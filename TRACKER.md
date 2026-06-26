@@ -1180,3 +1180,17 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 Script: script-video-113-resona.md — Hook: "ElevenLabs 550K/thang. Startup VN nay lam y chang, gia 17K."
 
 **Kho: 84 repos | 37 MCPs | 83 skills | 113 scripts | 2 agents**
+
+
+---
+
+## Tool moi - Seedance 2.5 (lan 65)
+
+| Ten | File | Stars/Status | Highlights |
+|-----|------|-------------|-----------|
+| Seedance 2.5 | repos/seedance-2-5.md | Enterprise Beta | ByteDance AI video: 30s native 4K, 50 ref inputs, launch July 2026 |
+
+Script: script-video-114-seedance-2-5.md
+Hook: "Sora da chet. Runway dang chet. ByteDance vua announce cai nay — 30 giay, 4K, 50 reference inputs."
+
+**Kho: 85 repos | 37 MCPs | 83 skills | 114 scripts | 2 agents**
