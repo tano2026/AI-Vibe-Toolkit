@@ -1,126 +1,95 @@
-# Hermes Agent — MEMORY.md Template v2
+# Hermes Agent — MEMORY.md v3 (Research Pro Universal)
 
 **Copy vào:** `~/.hermes/MEMORY.md`
-**Mục đích:** Long-term context — Hermes đọc file này mỗi phiên
-**Cập nhật:** 2026-06
+**Cập nhật:** 2026-06-26
 
 ---
 
 ```markdown
-# Long-term Memory
+# Long-term Memory — Research Pro
+
+## Chủ nhân
+Nobitano (Nguyễn Ngọc Tân) — content creator AI, vibe coder, digital marketer
+Brands: ABTRIP, Tano, Wonder Mart
+Đặt vé thực tế: dùng Playwright trên abtrip.vn, KHÔNG dùng test environment
 
 ## Kho AI Vibe Toolkit
-
-### Stats hiện tại
-- Repos: 74 | MCPs: 37 | Skills: 82 | Scripts: 102 | Stacks: 3
 - GitHub: https://github.com/tano2026/AI-Vibe-Toolkit
 - Token: [YOUR_GITHUB_TOKEN]
+- Stats: Repos: 74 | MCPs: 37 | Skills: 82 | Scripts: 102
+- Duplicate check: Fetch TRACKER.md trước khi thêm entry mới
+- Script tiếp theo: đếm /content/ folder → hiện đến 102 → tiếp là 103
 
-### Repos đã có — KHÔNG thêm lại:
-Fetch TRACKER.md trước khi research bất kỳ entry mới.
-URL: https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/TRACKER.md
+## Skills Đang Có (AI-Vibe-Toolkit)
+- agentic-factory
+- deep-research-skills-skill (L0-L5)
+- agent-research-skills-academic-skill
+- token-efficient-research
+- marketingskills-skill (43 skills)
+- x-research-skill-skill
+- affiliate-skills (52 skills)
+- youtube-marketing-skills (21 lệnh)
+- fact-checker
+- scholar-evaluation
 
-### Script số tiếp theo:
-Fetch content/ folder → đếm files → +1 (hiện tại đã có đến script-102)
+## Tools Hàng không
+- searchflights / bookflight / getliveflightstatus / getliveairportboard / getaircraftlayout
 
-## Environment — Tools Có Thể Dùng
+## Airline Fees 2026
+- VNA: đổi 600k-1.2M + fare diff | hoàn 600k-2M | hành lý 20-23kg
+- VJ: đổi 0-860k + fare diff | SkyBoss refundable | thêm hành lý từ 100k
+- QH: đổi 550k-1.1M + fare diff | hoàn 550k-1.6M | 20kg included
+- VU: đổi từ 300k + fare diff | tùy điều kiện vé | 20kg included
+
+## Environment — Tools
 
 ### ✅ HOẠT ĐỘNG
-- Python urllib.request / requests → fetch URL bất kỳ
-- GitHub API → token đã có, full read/write access
-- Free APIs: Wikipedia, HackerNews Algolia, npm registry, PyPI, Reddit public JSON
-- Code execution: pandas, numpy, json, re, base64, time
-- File I/O: đọc/ghi file local
+- Python urllib.request → fetch URL bất kỳ
+- GitHub REST API (token sẵn)
+- Free APIs: Wikipedia, HN Algolia, Reddit JSON, DDG, npm, PyPI, World Bank, Exchange Rate
+- Flight APIs (defaultapi): searchflights, bookflight, getliveflightstatus...
+- Code execution: pandas, numpy, matplotlib, json, re
 
 ### ❌ KHÔNG DÙNG ĐƯỢC
-- Brave Search MCP → không mount được
-- Firecrawl MCP → không mount được
-- YouTube Data API → cần OAuth credentials.json
-- Meta Ads API → cần Business token
-- Google Analytics → cần OAuth
-- Bất kỳ MCP nào cần npx/node process riêng
+- Brave Search MCP / Firecrawl MCP (cần npx external)
+- YouTube Data API (cần OAuth)
+- Meta Ads API (cần Business token)
+- Google Analytics (cần OAuth)
 
 ### 🔄 WORKAROUND
-- Thay Brave Search → scrape Google Search HTML hoặc dùng HN Algolia
-- Thay Firecrawl → urllib.request + regex extract text
-- Thay YouTube API → scrape channel page HTML + SocialBlade
-- Thay Meta Ads → user cung cấp screenshot/export thủ công
+- Thay web search → HN Algolia + DDG API + Google News RSS + scrape thẳng
+- Thay YouTube API → scrape channel HTML public + SocialBlade
+- Thay Meta Ads → user export thủ công rồi paste
+- Thay Firecrawl → urllib + regex strip_html
 
-## Research Workflow (Python-native)
-
-### Khi research GitHub repo:
+## Push GitHub Pattern
 ```python
 import urllib.request, json, base64
-
 TOKEN = "[YOUR_GITHUB_TOKEN]"
-headers = {"Authorization": f"token {TOKEN}"}
+REPO = "tano2026/AI-Vibe-Toolkit"
 
-# 1. Metadata
-url = f"https://api.github.com/repos/{owner}/{repo}"
-# 2. README
-url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/README.md"
-# 3. Releases
-url = f"https://api.github.com/repos/{owner}/{repo}/releases?per_page=5"
-# 4. Search
-url = f"https://api.github.com/search/repositories?q={query}&sort=stars&per_page=10"
+def push_file(path, content, msg):
+    url = f"https://api.github.com/repos/{REPO}/contents/{path}"
+    headers = {"Authorization": f"token {TOKEN}", "Content-Type": "application/json"}
+    req = urllib.request.Request(url, headers={"Authorization": f"token {TOKEN}"})
+    sha = None
+    try:
+        with urllib.request.urlopen(req) as r:
+            sha = json.loads(r.read()).get('sha')
+    except: pass
+    data = {"message": msg, "content": base64.b64encode(content.encode()).decode()}
+    if sha: data["sha"] = sha
+    req = urllib.request.Request(url, data=json.dumps(data).encode(), headers=headers, method="PUT")
+    with urllib.request.urlopen(req) as r:
+        return json.loads(r.read())['commit']['sha'][:7]
 ```
-
-### Khi research market/trend:
-```python
-# HackerNews (community signal)
-url = f"https://hn.algolia.com/api/v1/search?query={query}&tags=story&hitsPerPage=10"
-
-# Wikipedia (background)
-url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{topic}"
-
-# Reddit (practitioner opinions)
-url = f"https://www.reddit.com/r/MachineLearning/search.json?q={query}&sort=top&limit=10"
-headers_reddit = {"User-Agent": "research-bot/1.0"}
-
-# npm stats
-url = f"https://registry.npmjs.org/{package}"
-
-# PyPI
-url = f"https://pypi.org/pypi/{package}/json"
-```
-
-### Khi push lên GitHub:
-```python
-# LUÔN GET SHA trước khi PUT (file đã tồn tại)
-url = f"https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/{path}"
-r = urllib.request.urlopen(urllib.request.Request(url, headers={"Authorization": f"token {TOKEN}"}))
-existing = json.loads(r.read())
-sha = existing.get('sha')  # None nếu file mới
-
-payload = {
-    "message": f"add: {path}",
-    "content": base64.b64encode(content.encode()).decode()
-}
-if sha:
-    payload["sha"] = sha
-
-req = urllib.request.Request(url, data=json.dumps(payload).encode(),
-    headers={"Authorization": f"token {TOKEN}", "Content-Type": "application/json"},
-    method="PUT")
-urllib.request.urlopen(req)
-```
-
-## Content Channel
-
-### Hook templates hay nhất:
-- "[X]k stars — [feature độc đáo nhất]"
-- "Tool này làm [Y] mà [tool cũ] không làm được"
-- "Cài 1 lần, dùng mãi mãi — và miễn phí"
-- "[Con số ấn tượng]. [Giải pháp]. [Miễn phí/local]."
-
-### Format script: hook 3s → pain → solution → demo → CTA
 
 ## Quy Tắc Quan Trọng
-
-1. KHÔNG bịa số liệu — luôn fetch thật từ API
-2. Luôn update TRACKER.md sau mỗi batch push
-3. Không nói "không làm được" trước khi thử ≥3 approach khác
-4. Batch 3+ repos cùng lúc để tiết kiệm time
-5. time.sleep(0.7) giữa các GitHub API calls để tránh rate limit
-6. Duplicate check TRƯỚC khi research — fetch TRACKER.md
+1. KHÔNG bịa số — luôn fetch thật
+2. KHÔNG nói "không làm được" trước khi thử ≥3 approach
+3. Luôn update TRACKER.md sau push
+4. time.sleep(0.7) giữa GitHub API calls
+5. Batch 3+ repos song song khi thêm vào kho
+6. Output ưu tiên: bảng Markdown > bullets > prose
+7. Đặt vé thật: Playwright trên abtrip.vn — không dùng test API
 ```
