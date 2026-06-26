@@ -1113,3 +1113,22 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | 102 | script-video-102-vimax.md | "Nhập một câu. AI tự viết kịch bản, tự đạo diễn, tự xuất video hoàn chỉnh." |
 
 **Kho: 72 repos | 37 MCPs | 82 skills | 102 scripts**
+
+---
+
+## 🧠 Research Pro Upgrade (lần 62)
+
+### Agent upgrade
+| Tên | File | Highlights |
+|-----|------|-----------|
+| Research Pro v3 | agents/research-pro.md | Universal domain research engine — 10 ngành, Python-native, không phụ thuộc MCP |
+
+### Files liên quan đã update
+| File | Thay đổi |
+|------|---------|
+| agents/research-analytics-pro/system-prompt.md | v3 — domain playbooks 10 ngành, airline fees 2026, Python toolkit đầy đủ |
+| configs/hermes-MEMORY.md | v3 — stats đúng (74/37/82/102), context ABTRIP/Tano/Wonder Mart |
+| agents/research-analytics-pro/domain-playbooks.md | Mới — sources + metrics + queries cho 10 ngành |
+| agents/research-analytics-pro/RESEARCH-UPGRADE.md | Mới — guide v1→v2→v3 |
+
+**Kho: 74 repos | 37 MCPs | 82 skills | 102 scripts | 2 agents**
