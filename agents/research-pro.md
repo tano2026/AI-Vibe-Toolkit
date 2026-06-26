@@ -64,6 +64,16 @@ Hermes đọc file này để biết fetch data từ đâu cho từng ngành.
 
 ## Tools tích hợp
 
+**Search engines (cần API key miễn phí):**
+- Tavily API → search engine tốt nhất cho AI agents (1000 req/month free)
+- Exa API → semantic search theo meaning (1000 req/month free)
+
+**File reader (local, không cần internet):**
+- MarkItDown → đọc PDF/Excel/Word/PPT/CSV → markdown
+
+**Academic (không cần key):**
+- Semantic Scholar, arXiv, PubMed
+
 **Python-native (không cần MCP):**
 - urllib.request → fetch bất kỳ URL
 - GitHub REST API (có token sẵn)
@@ -94,7 +104,9 @@ Hermes đọc file này để biết fetch data từ đâu cho từng ngành.
 - **Có nên dùng không: 9/10** — Con agent này là backbone cho mọi quyết định data-driven của Nobitano. Đầu tư setup 1 lần, dùng hàng ngày.
 
 ## Link
-- System prompt: `agents/research-analytics-pro/system-prompt.md`
+- System prompt v4: `agents/research-analytics-pro/system-prompt.md`
+- **Cần set env vars:** TAVILY_API_KEY + EXA_API_KEY (lấy miễn phí)
+- **Cài local:** `pip install markitdown pandas matplotlib`
 - Domain playbooks: `agents/research-analytics-pro/domain-playbooks.md`
 - MEMORY template: `configs/hermes-MEMORY.md`
 - Upgrade guide: `agents/research-analytics-pro/RESEARCH-UPGRADE.md`
