@@ -1,109 +1,58 @@
-# OpenMontage — Hệ Thống Sản Xuất Video AI Agent Đầu Tiên Thế Giới
+# OpenMontage — GitHub Repo
 
 ## TL;DR
-7.4K stars, 12 pipeline, 52 tools, 500+ agent skills — biến Claude Code (hoặc Cursor/Copilot) thành studio video production đầy đủ. Mô tả bằng tiếng thường, agent tự lo toàn bộ: research, script, hình ảnh, voiceover, nhạc, caption, render. Video Pixar-style 60 giây tốn $1.33.
+Hệ thống production video agentic đầu tiên mã nguồn mở. 12 pipeline, 52 tools, 500+ agent skill — biến AI coding assistant (Claude, Cursor, Copilot) thành cả một studio sản xuất video hoàn chỉnh. 22K stars và đang tăng nhanh.
 
-## Tool này dùng để làm gì
-OpenMontage không phải tool "animate vài ảnh rồi gọi là video". Nó là hệ thống agent thật sự với 12 pipeline riêng biệt:
+## Repo này dùng để làm gì
+Thay vì dùng riêng lẻ: ElevenLabs cho voice, Stable Diffusion cho ảnh, FFmpeg để ghép — OpenMontage gộp tất cả thành pipeline agentic. Mày nói một câu, nó tự:
+- Viết script
+- Tạo voiceover (ElevenLabs, local TTS)
+- Generate ảnh/clip (Flux, Stable Diffusion, Remotion)
+- Ghép video hoàn chỉnh (FFmpeg)
 
-- **Animated short** — phim hoạt hình kiểu Pixar/Ghibli từ script (dùng Kling v3, FLUX)
-- **Documentary montage** — ghép real footage từ stock, không cần narration
-- **Product ad** — quảng cáo sản phẩm chỉ cần 1 API key OpenAI ($0.69/video)
-- **Explainer** — video giải thích concept với animation
-- **Cinematic trailer** — trailer phim sci-fi với Veo-generated clips
-- ...và 7 pipeline khác
-
-Agent tự động làm:
-1. Research topic bằng live web search
-2. Viết script + scene plan
-3. Generate hình ảnh / video clip (FLUX, Kling, Veo, gpt-image-1...)
-4. Voiceover (ElevenLabs, Google Chirp3-HD, OpenAI TTS, hoặc Piper TTS miễn phí)
-5. Nhạc nền tự tìm royalty-free hoặc gen Suno
-6. Caption word-by-word kiểu TikTok (WhisperX)
-7. Render file hoàn chỉnh qua Remotion + FFmpeg
-8. Self-review: ffprobe validation, frame sampling, audio check trước khi xong
-
-Dùng được với: Claude Code, Cursor, Copilot, Windsurf, Codex, OpenClaw.
+12 pipeline có sẵn: faceless video, explainer, social clip, documentary style, v.v.
 
 ## Setup từng bước
 ```bash
-# Prerequisites: Python 3.10+, FFmpeg, Node.js 18+, 1 AI coding assistant
-
-# Bước 1: Clone và setup
-git clone https://github.com/calesthio/OpenMontage.git
+# 1. Clone repo
+git clone https://github.com/calesthio/OpenMontage
 cd OpenMontage
-make setup
-# (Nếu không có make: pip install -r requirements.txt && cd remotion-composer && npm install && cd ..)
 
-# Bước 2: Config API keys trong .env
-cp .env.example .env
-# Thêm key vào — mọi key đều optional, thêm cái nào có cái đó:
+# 2. Cài dependencies
+pip install -r requirements.txt
 
-# Image/video:  FAL_KEY (FLUX + Kling + Veo qua fal.ai)
-# Stock media:  PEXELS_API_KEY, PIXABAY_API_KEY (miễn phí)
-# Music:        SUNO_API_KEY hoặc ELEVENLABS_API_KEY
-# Voice:        ELEVENLABS_API_KEY hoặc OPENAI_API_KEY
-# Chỉ cần 1 key là đã chạy được pipeline cơ bản
+# 3. Config API keys trong .env
+ELEVENLABS_API_KEY=your_key
+OPENAI_API_KEY=your_key  # hoặc ANTHROPIC_API_KEY
+STABILITY_API_KEY=your_key  # nếu dùng Stable Diffusion
 
-# Bước 3: Mở project trong Claude Code (hoặc Cursor)
-# Gõ prompt mô tả video muốn làm
+# 4. Chạy pipeline đầu tiên
+python run.py --pipeline faceless_shorts --prompt "Top 5 AI tools năm 2026"
+
+# 5. Hoặc paste URL video mày thích → clone style
+python run.py --clone-style https://youtube.com/watch?v=xxx
 ```
-
-**Key tối thiểu để bắt đầu:**
-- Chỉ có `OPENAI_API_KEY` → đủ làm product ad pipeline ($0.69/video)
-- Thêm `FAL_KEY` → unlock Kling v3 animated shorts ($1.33/video Pixar-style)
-- Thêm `PEXELS_API_KEY` (miễn phí) → real footage documentary
 
 ## Ví dụ thực tế
-**Video 1 — Pixar-style animated short:**
-```
-"THE LAST BANANA" — chuối cô đơn kết bạn với kiwi
-Pipeline: Kling v3 (6 clips) + Google Chirp3-HD narration + piano nhạc nền + TikTok captions + Remotion
-Chi phí: $1.33
-```
+**Input:** `python run.py --pipeline faceless_shorts --prompt "Cách dùng Claude Code để code không cần gõ phím"`
 
-**Video 2 — Product ad:**
-```
-"VOID — Neural Interface" — quảng cáo thiết bị AI
-Pipeline: gpt-image-1 (4 ảnh) + OpenAI TTS + nhạc royalty-free auto + WhisperX subtitles
-Chi phí: $0.69 — chỉ cần 1 API key OpenAI
-```
-
-**Video 3 — Ghibli anime:**
-```
-"Afternoon in Candyland" — cô bé trong thế giới kẹo
-Pipeline: 12 FLUX images + Ken Burns motion + sparkle particles + ambient music
-Chi phí: $0.15 — không cần video gen, chỉ cần FLUX images
-```
-
-**Với content không lộ mặt của mày:**
-```
-"Làm video 60s về top 3 Claude Code tools tuần này.
-Style: animated explainer, giọng nam trẻ, nhạc lo-fi, caption TikTok, format 9:16"
-→ Agent research → script → generate → render → file xong
-```
-
-Hoặc clone từ video có sẵn:
-```
-"Here's a TikTok I love [paste link]. 
-Make me something like this, but about AI tools for Vietnamese developers."
-```
+**Output (trong ~5-10 phút):**
+- Script 60 giây tự động viết
+- Voiceover ElevenLabs với giọng đã chọn
+- 8-10 clip/ảnh minh họa auto-generate
+- Video ghép hoàn chỉnh có sub, transition, background music
 
 ## Lưu ý / Lỗi thường gặp
-- Windows: nếu `npm install` báo `ERR_INVALID_ARG_TYPE` → dùng `npx --yes npm install`
-- Không có `make` → chạy thủ công từng lệnh trong README
-- Mỗi pipeline có cost khác nhau — đọc pipeline manifest trước khi chạy
-- Video gen async (Kling, Veo) — agent poll kết quả, cần đợi vài phút
-- Self-review chạy tự động trước khi xong — nếu fail thì agent tự fix lại
-- Tốt nhất khi dùng với Claude Code (có AGENT_GUIDE.md riêng cho agentic flow)
+- Cần GPU nếu chạy local Stable Diffusion — không có GPU thì dùng API (tốn tiền hơn)
+- ElevenLabs free tier có giới hạn ký tự — cần plan trả phí để làm video dài
+- FFmpeg phải cài sẵn trong system: `brew install ffmpeg` (Mac) hoặc `apt install ffmpeg` (Linux)
+- `.env` không được commit lên GitHub — thêm vào `.gitignore` ngay
 
 ## Đánh giá cá nhân
-- **Điểm mạnh:** Đây là cái gần "fully automated content factory" nhất hiện tại. 12 pipeline cover mọi style video. Chi phí cực thấp ($0.15-$1.33/video). Self-review loop là điểm cộng lớn — output chất lượng hơn hẳn so với gen thẳng. Remotion + FFmpeg render thật sự, không fake
-- **Điểm yếu:** Setup cần nhiều prerequisite (Python + Node + FFmpeg + AI assistant). Nhiều pipeline và tool có thể overwhelm lúc đầu. Vẫn cần hiểu cơ bản về agentic workflow để dùng hiệu quả
-- **Có nên dùng không:** 9.5/10 — đây là tool quan trọng nhất cho content factory tự động. Nếu mày đang nghĩ đến việc scale content, OpenMontage là infrastructure cần build trước. Priority cao hơn cả Remotion Superpowers vì scope lớn hơn nhiều
+- Điểm mạnh: All-in-one thật sự; 12 pipeline đa dạng; mã nguồn mở hoàn toàn; tích hợp được với workflow hiện tại
+- Điểm yếu: Setup phức tạp hơn tool SaaS; chất lượng video phụ thuộc vào API keys mày dùng; tài liệu còn thiếu một số pipeline
+- Có nên dùng không: **8.5/10** — Nếu mày làm content faceless và muốn tự động hóa pipeline, đây là repo đáng nhất hiện tại
 
 ## Link
 - Repo: https://github.com/calesthio/OpenMontage
-- YouTube demos: https://www.youtube.com/@OpenMontage
-- X/Twitter: https://x.com/calesthioailabs
-- Agent Guide: https://github.com/calesthio/OpenMontage/blob/main/AGENT_GUIDE.md
+- Topics: agent, claude, elevenlabs, ffmpeg, flux, remotion, video-generation
