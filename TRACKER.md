@@ -1132,3 +1132,38 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 | agents/research-analytics-pro/RESEARCH-UPGRADE.md | Mới — guide v1→v2→v3 |
 
 **Kho: 74 repos | 37 MCPs | 82 skills | 102 scripts | 2 agents**
+
+
+---
+
+## GitHub Trending Batch (lan 63)
+
+### Repos moi
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| DESIGN.md | repos/design-md.md | 19,200+ | Chuan file cho AI agent doc design system - Google Labs |
+| OpenMontage | repos/openmontage.md | 22,000+ | Agentic video production: 12 pipeline, 52 tools, 500+ skills |
+| AI Berkshire | repos/ai-berkshire.md | 1,800+ | Value investing framework Claude Code - +69% 2024 thuc chien |
+| OpenSEO | repos/open-seo.md | 2,500+ | Alternative Semrush/Ahrefs mo nguon mo, MCP cho AI agent |
+| gstack | repos/gstack.md | 115,800+ | Setup Claude Code chinh xac cua CEO YC - 23 tools, 6 agent roles |
+| Agent Toolkit for AWS | repos/agent-toolkit-for-aws.md | 1,100+ | Official AWS MCP servers + skills cho AI agent |
+| Page Agent | repos/page-agent.md | 19,800+ | JS in-page GUI agent Alibaba - control web bang ngon ngu tu nhien |
+| Anthropic Cybersecurity Skills | repos/anthropic-cybersecurity-skills.md | 21,200+ | 817 security skills, 29 domains, MITRE/NIST mapped |
+| MediaCrawler | repos/mediacrawler.md | 52,700+ | Scrape XHS/Douyin/Bilibili/Weibo - tool nghien cuu trend CN |
+| TREK | repos/trek.md | 6,600+ | Self-hosted trip planner - alternative WanderLog cho travel brand |
+
+### Scripts them
+| # | File | Hook |
+|---|------|------|
+| 103 | script-video-103-design-md.md | May phai giai thich mau brand cho AI bao nhieu lan roi? |
+| 104 | script-video-104-openmontage.md | 500 agent skills. 12 pipeline video. Mien phi hoan toan. |
+| 105 | script-video-105-ai-berkshire.md | +69% nam 2024. +66% nam 2025. Day la framework AI dau tu. |
+| 106 | script-video-106-open-seo.md | Ahrefs $99/thang. Tool nay: $0. Va AI agent cua may dung duoc luon. |
+| 107 | script-video-107-gstack.md | CEO Y Combinator khong go code tu thang 12. Day la exact setup - 115K stars. |
+| 108 | script-video-108-agent-toolkit-aws.md | Deploy Lambda, tao S3 bucket, config IAM - bang mot cau prompt. |
+| 109 | script-video-109-page-agent.md | Dieu khien bat ky web app nao bang cau noi. Khong can Playwright. |
+| 110 | script-video-110-cybersecurity-skills.md | 817 skill bao mat. Mapped voi MITRE ATT&CK. |
+| 111 | script-video-111-mediacrawler.md | Trend TikTok VN xuat phat tu XHS 2-4 tuan truoc. Bat trend som hon. |
+| 112 | script-video-112-trek.md | WanderLog co phi. TREK mien phi, self-host, real-time collab. |
+
+**Kho: 84 repos | 37 MCPs | 82 skills | 112 scripts | 2 agents**
