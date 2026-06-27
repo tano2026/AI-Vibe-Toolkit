@@ -1194,3 +1194,24 @@ Script: script-video-114-seedance-2-5.md
 Hook: "Sora da chet. Runway dang chet. ByteDance vua announce cai nay — 30 giay, 4K, 50 reference inputs."
 
 **Kho: 85 repos | 37 MCPs | 83 skills | 114 scripts | 2 agents**
+
+
+---
+
+## Batch 10 Open Source AI Tools (lan 66)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Langflow | repos/langflow.md | 150,114 | Visual AI workflow builder, keo tha build agent |
+| Open WebUI | repos/open-webui.md | 143,143 | ChatGPT UI cho Ollama local, self-hosted |
+| Supabase | repos/supabase.md | 104,877 | Firebase alternative: Postgres + Auth + Storage |
+| Stirling PDF | repos/stirling-pdf.md | 84,578 | #1 PDF tool GitHub, 50+ tinh nang, self-hosted |
+| Coolify | repos/coolify.md | 57,442 | Self-hosted PaaS thay Vercel/Heroku, deploy tren VPS |
+| OpenHands | repos/openhands.md | 78,436 | AI autonomous coding agent, thay Devin $500/thang |
+| Maxun | repos/maxun.md | 16,007 | No-code web scraping, record va tao robot |
+| Dify | repos/dify.md | 146,680 | Production AI app platform, LLMOps monitoring |
+
+Scripts: 115 (Langflow) → 122 (Dify)
+Da co trong kho (skip): browser-use, crawl4ai
+
+**Kho: 93 repos | 37 MCPs | 83 skills | 122 scripts | 2 agents**
