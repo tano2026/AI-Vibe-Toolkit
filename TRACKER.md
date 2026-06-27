@@ -1215,3 +1215,20 @@ Scripts: 115 (Langflow) → 122 (Dify)
 Da co trong kho (skip): browser-use, crawl4ai
 
 **Kho: 93 repos | 37 MCPs | 83 skills | 122 scripts | 2 agents**
+
+
+---
+
+## Batch tu anh (lan 67)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| ainovel-cli | repos/ainovel-cli.md | 1,103 | Multi-agent Go CLI viet web novel tu dong |
+| Public APIs | repos/public-apis.md | 444,496 | Top 5 GitHub moi thoi dai - 1500+ free API |
+| VibeVoice | skills/vibevoice.md | N/A | Windows TTS offline mien phi, doc 90 phut |
+| Sherpa Vietnamese ASR | skills/sherpa-vietnamese-asr.md | N/A | Nhan dang giong Viet offline, MIT, Windows |
+
+Scripts: 123 (ainovel-cli) -> 126 (sherpa-asr)
+Da co (skip): 10 open source tools, ai-berkshire, 9router, seedance-2-5
+
+**Kho: 95 repos | 37 MCPs | 85 skills | 126 scripts | 2 agents**
