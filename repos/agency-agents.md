@@ -1,158 +1,119 @@
-# agency-agents — 220 AI Agents Theo 17 Phòng Ban, Cài 1 Lệnh (113k⭐)
+# agency-agents — GitHub Repo
 
-**GitHub:** https://github.com/msitarzewski/agency-agents
-**Stars:** 113k⭐ | **Forks:** 18.4k | **License:** MIT
-**Tác giả:** msitarzewski + 87 contributors | **Tạo:** 10/2025
-**Active:** update hàng ngày, commit 5 ngày trước
+## TL;DR
+232 AI agent chuyen biet to chuc thanh 16 phong ban — Engineering, Marketing, Sales, Design, Paid Media, QA, Customer Support... Cai 1 lenh vao Claude Code, Cursor, OpenClaw, Antigravity. 117K stars, 19K forks, dang tang cuc nhanh. Repo trending nong nhat 2 tuan qua.
 
----
+## Repo nay dung de lam gi
+Thay vi dung 1 AI lam tat ca (viet code cung Claude, marketing cung Claude, SEO cung Claude) — agency-agents cung cap doi ngu AI chuyen mon hoa nhu mot cong ty that:
 
-## Đây Là Gì
+**12+ phong ban, 232 agents (va dang tang):**
+- Engineering: Frontend Dev, Backend Architect, AI Engineer, DevOps, Mobile Builder, Rapid Prototyper
+- Marketing: TikTok Strategist, Content Creator, Growth Hacker, Xiaohongshu Specialist, Twitter Engager
+- Sales: Outbound Strategist, Deal Strategist, Pipeline Analyst, Sales Coach
+- Paid Media: PPC Campaign Strategist, Ad Creative Strategist, Tracking Specialist
+- Design: UI Designer, Brand Guardian, Image Prompt Engineer, Whimsy Injector
+- QA, Customer Support, Product, Legal, Finance, Spatial Computing, Game Dev...
 
-"Văn phòng AI hoàn chỉnh trong 1 cú click" — 220 AI agents được thiết kế như nhân viên chuyên nghiệp thật: có personality, workflow riêng, deliverables cụ thể.
+Moi agent co: vai tro rieng, quy trinh lam viec rieng, tieu chi danh gia rieng, biet phoi hop voi agent khac.
 
-**Không phải generic prompt.** Mỗi agent:
-- Personality riêng (voice, communication style)
-- Workflow cụ thể (processes, steps)
-- Deliverables đo được (real code, reports, outcomes)
-- Battle-tested qua community 87 contributors
+## Setup tung buoc
 
----
-
-## 17 Phòng Ban — 220 Agents
-
-| Division | Agents | Highlights |
-|----------|--------|-----------|
-| **Engineering** | 33 | Frontend Dev, Backend Architect, AI Engineer, DevOps, Code Reviewer, SRE, Prompt Engineer... |
-| **Marketing** | 36 | Content Strategist, SEO Specialist, Social Media Manager, Email Marketer, Reddit Ninja... |
-| **Specialized** | 53 | Whimsy Injector, Reality Checker, và nhiều role cực kỳ niche |
-| **GIS** | 13 | Spatial Data Analyst, Map Design Specialist, GIS Developer... |
-| **Security** | 10 | Penetration Tester, Security Auditor, Threat Modeler... |
-| **Sales** | 9 | Lead Gen Specialist, SDR, Account Executive, Closer... |
-| **Design** | 9 | UI/UX Designer, Brand Identity, Persona Specialist... |
-| **Testing** | 8 | QA Engineer, Performance Tester, Accessibility Auditor... |
-| **Project Mgmt** | 7 | Scrum Master, Meeting Notes Specialist, Risk Manager... |
-| **Paid Media** | 7 | Google Ads, Meta Ads, Performance Marketer... |
-| **Support** | 6 | Customer Success, Technical Support, Escalation Manager... |
-| **Spatial Computing** | 6 | AR/VR Developer, Spatial UI Designer... |
-| **Finance** | 5 | Financial Analyst, Budget Planner, CFO Assistant... |
-| **Product** | 5 | Product Manager, User Researcher, Roadmap Planner... |
-| **Game Development** | 5 | Game Designer, Level Designer, Narrative Writer... |
-| **Academic** | 5 | Research Assistant, Literature Reviewer, Thesis Writer... |
-| **Strategy** | 3 | Business Strategist, Competitive Analyst, OKR Coach |
-
----
-
-## Cài Đặt
-
+**Claude Code (cach nhanh nhat):**
 ```bash
+# Clone repo
 git clone https://github.com/msitarzewski/agency-agents
 cd agency-agents
 
-# Option 1: Claude Code (recommended)
+# Cai tat ca agents
 ./scripts/install.sh --tool claude-code
+# -> Copy het vao ~/.claude/agents/
 
-# Option 2: Chọn division cụ thể
-./scripts/install.sh --tool claude-code --division engineering,security
+# Hoac chi cai 1 phong ban
+cp marketing/*.md ~/.claude/agents/
 
-# Option 3: Chọn agent cụ thể
-./scripts/install.sh --tool cursor --agent frontend-developer,ui-designer
-
-# Option 4: Tool khác
-./scripts/install.sh --tool cursor
-./scripts/install.sh --tool antigravity
-./scripts/install.sh --tool gemini-cli
-./scripts/install.sh --tool openclaw
-./scripts/install.sh --tool windsurf
-./scripts/install.sh --tool codex
-
-# Xem danh sách teams
-./scripts/install.sh --list teams
-
-# Dry run trước
-./scripts/install.sh --tool claude-code --division engineering --dry-run
+# Dung trong Claude Code session
+# "Activate TikTok Strategist and help me plan content for next week"
+# "Use Growth Hacker to analyze our acquisition funnel"
 ```
 
----
-
-## Cách Activate Agent
-
+**OpenClaw (Hermes ecosystem):**
 ```bash
-# Trong Claude Code sau khi cài
-"Activate Frontend Developer mode và help me build a React dashboard"
-"Switch to Security Auditor và review this authentication code"
-"Activate Content Strategist và create a content plan for my SaaS"
-"Use Reddit Community Ninja và draft a post about this tool"
+# Script rieng cho OpenClaw
+./scripts/install.sh --tool openclaw
+# -> Moi agent tro thanh workspace voi SOUL.md, AGENTS.md, IDENTITY.md
+# -> Tu dong register neu openclaw CLI co san
 ```
 
----
-
-## Agents Hay Nhất Theo Use Case
-
-### Cho Vibe Coders
-- 🎨 **Frontend Developer** — React/Vue, pixel-perfect UI
-- ⚡ **Rapid Prototyper** — POC nhanh, MVP trong 1 ngày
-- 🔧 **Minimal Change Engineer** — Fix exactly what's asked, no scope creep
-- 🧭 **Codebase Onboarding Engineer** — Hiểu repo mới nhanh
-- 🧬 **Prompt Engineer** — Tối ưu prompts cho AI tasks
-
-### Cho Content & Marketing
-- 📝 **Content Strategist** — Full content strategy
-- 🎯 **SEO Specialist** — Technical + on-page SEO
-- 🎭 **Reddit Community Ninja** — Reddit posts không bị spam
-- 💌 **Email Marketer** — Email sequence, nurture flows
-- ✨ **Whimsy Injector** — Add personality vào content khô khan
-
-### Cho Business
-- 💰 **Lead Generation Specialist** — Outbound prospecting
-- 📊 **Financial Analyst** — P&L, forecasting, unit economics
-- 🎯 **Product Manager** — PRD, roadmap, prioritization
-- 🛡️ **Security Auditor** — Code + infra security review
-- 📋 **Meeting Notes Specialist** — Transform raw notes → action items
-
----
-
-## Format Agent File
-
-Mỗi agent là 1 file `.md` với structure:
-```yaml
----
-name: Agent Name
-description: What this agent does
-color: cyan
-emoji: 🎯
-vibe: One-line personality
----
-
-# Agent Personality
-[Identity, expertise, communication style]
-
-# Core Mission
-[What this agent delivers]
-
-# Workflow
-[Step-by-step process]
-
-# Deliverables
-[Concrete outputs with examples]
-
-# Success Metrics
-[How to know if it worked]
+**Cursor:**
+```bash
+./scripts/install.sh --tool cursor
+# -> Agent compile thanh .cursorrules
+# Dung: "@tiktok-strategist review this content calendar"
 ```
 
----
+**Antigravity / Gemini CLI / OpenCode / Aider / Windsurf:**
+```bash
+./scripts/convert.sh --tool [ten-tool]
+./scripts/install.sh --tool [ten-tool]
+```
 
-## Đánh Giá Cá Nhân
+## Agents hay dung nhat cho moi nguoi (chon nhanh)
 
-113k stars, 18.4k forks, 87 contributors, active đến hôm nay — đây là community project lớn nhất trong category AI agents-as-personas.
+**Content Creator (Tano/AI Vibe Toolkit):**
+- TikTok Strategist: Viral content, algorithm optimization
+- Content Creator: Multi-platform content, editorial calendars
+- Growth Hacker: User acquisition, viral loops
+- Instagram Curator: Visual storytelling, community building
 
-Điểm tao thấy thực dụng nhất: **Minimal Change Engineer** ("fix only what's asked") và **Whimsy Injector** ("add personality"). Hai cái này giải quyết 2 vấn đề phổ biến nhất với AI coding/content.
+**ABTRIP (Travel brand):**
+- Social Media Strategist: Cross-platform campaigns
+- Xiaohongshu Specialist: Lifestyle content, trend-driven (theo doi XHS truoc TikTok VN)
+- Offer & Lead Gen Strategist: Tour package offers, lead magnets
 
-Điểm đặc biệt: **220 agents** nhưng mỗi cái đều có personality thật, không phải template copy-paste. Marketing division có 36 agents — từ Google Ads đến Reddit Ninja — đủ cover mọi channel.
+**Wonder Mart (E-commerce):**
+- PPC Campaign Strategist: Google/Facebook Ads optimization
+- App Store Optimizer: ASO, discoverability
+- Paid Social Strategist: Meta, TikTok ads
 
-**Rating: 9/10** — Install engineering + marketing + security là cover 80% daily tasks.
+**Hermes/OpenClaw agent ecosystem:**
+- AI Engineer: ML models, AI integration
+- Backend Architect: API design, scalability
+- DevOps Automator: CI/CD, cloud ops
+- Autonomous Optimization Architect: LLM routing, cost optimization
 
----
-*Nguồn: github.com/msitarzewski/agency-agents*
-*Stars: 113k⭐ (tháng 6/2026) | MIT | 220 agents | 17 divisions*
-*Cập nhật: tháng 6/2026*
+## Vi du thuc te
+**Build content calendar cho ABTRIP bang 3 agents phoi hop:**
+
+```
+# Session 1 - Research
+"Activate Xiaohongshu Specialist. Analyze top travel content trends on XHS this week."
+
+# Session 2 - Strategy
+"Activate TikTok Strategist. Based on these XHS trends, create a 2-week TikTok content calendar for ABTRIP targeting Gen Z travelers."
+
+# Session 3 - Copy
+"Activate Content Creator. Write 5 TikTok scripts from this calendar, hook-first format, ElevenLabs-ready."
+```
+
+3 agent, 3 session, ra noi dung chuan chuyen gia. Khac voi nhoi tat ca vao 1 prompt dai.
+
+## Luu y / Loi thuong gap
+- 232 agents = overwhelming neu cai het — chon 10-15 agent relevant nhat, khong cai ca bo
+- Agent md file chi la system prompt — chat luong output van phu thuoc vao model dang dung
+- Community dang contribute them lien tuc — pull moi tuan de co agent moi
+- Mot so agent chuyen cho startup US (Reddit Builder, App Store Optimizer) — can adapt cho thi truong VN
+- OpenClaw integration la cai dac biet trong repo nay — hiem repo nao ho tro OpenClaw officially
+
+## Danh gia ca nhan
+- Diem manh: 117K stars = community lon, nhieu nguoi dang dung va contribute; setup 1 lenh; ho tro moi tool coding; MIT license; OpenClaw integration chinh thuc
+- Diem yeu: 232 agents co the qua nhieu, gay confusion khi chon; chat luong agent khong dong deu (community contribute); mot so agent qua specific cho context US/global
+- Co nen dung khong: **9.5/10** — Must-install ngay cho bat ky ai dung Claude Code. Day la setup nhanh nhat de co doi ngu AI chuyen mon. Chon 10-15 agent phu hop, bo sung vao Claude Code/OpenClaw, dung ngay.
+
+## Agent dac biet cho he sinh thai cua tao
+Repo nay co **OpenClaw integration chinh thuc** — hiem gap. Script tu dong tao workspace cho tung agent trong OpenClaw. Khi Hermes nhan task, OpenClaw co the route sang dung agent chuyen mon thay vi dung 1 general LLM.
+
+## Link
+- Repo: https://github.com/msitarzewski/agency-agents
+- Stars: 117,465 (tinh den 29/6/2026)
+- License: MIT
+- Topics: claude-code, cursor, ai-agents, multi-agent, openclaw
