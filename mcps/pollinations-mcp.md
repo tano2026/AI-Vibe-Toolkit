@@ -125,3 +125,45 @@ pollinations-mcp
 
 *Nguồn: atiaeno/pollinations-mcp + Tolerable/pollinations-claude-code*
 *pollinations.ai — FREE, no API key | tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, urllib.parse
+
+def pollinations_image(prompt, width=1024, height=1024, model="flux"):
+    """Tạo ảnh free, không cần API key"""
+    p = urllib.parse.quote(prompt)
+    url = f"https://image.pollinations.ai/prompt/{p}?width={width}&height={height}&model={model}&nologo=true"
+    # Download ảnh
+    urllib.request.urlretrieve(url, "output.png")
+    return url  # hoặc return path
+
+def pollinations_text(prompt, model="openai"):
+    """Generate text free, không cần API key"""
+    payload = json.dumps({"messages": [{"role": "user", "content": prompt}],
+                          "model": model}).encode()
+    req = urllib.request.Request(
+        "https://text.pollinations.ai/openai",
+        data=payload, headers={"Content-Type": "application/json"})
+    return urllib.request.urlopen(req).read().decode()
+
+import json
+# Dùng: url = pollinations_image("a beautiful sunset in Vietnam")
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y pollinations-mcp
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy — free public API, không cần key
+```
+> ⚠️ Hoàn toàn free, không cần API key. Rate limit thoải mái.
