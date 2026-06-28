@@ -71,3 +71,53 @@ with open('merged.pdf', 'wb') as out:
 ## Link
 - Repo: https://github.com/Stirling-Tools/Stirling-PDF
 - Docs: https://stirlingtools.com/docs
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+STIRLING_URL = "http://localhost:8080"  # sau khi deploy
+
+def pdf_merge(file_paths, output="merged.pdf"):
+    """Merge nhiều PDF thành 1"""
+    # Stirling PDF dùng multipart form — dùng requests library dễ hơn
+    import requests
+    files = [("fileInput", open(p, "rb")) for p in file_paths]
+    r = requests.post(f"{STIRLING_URL}/api/v1/general/merge-pdfs", files=files)
+    with open(output, "wb") as f:
+        f.write(r.content)
+    return output
+
+def pdf_compress(file_path, output="compressed.pdf"):
+    import requests
+    with open(file_path, "rb") as f:
+        r = requests.post(f"{STIRLING_URL}/api/v1/general/compress-pdf",
+                         files={"fileInput": f}, data={"optimizeLevel": 3})
+    with open(output, "wb") as f2:
+        f2.write(r.content)
+    return output
+
+# Antigravity cần: pip install requests (nếu chưa có)
+# Các endpoint khác: /split-pdf, /rotate-pdf, /pdf-to-word, /word-to-pdf
+```
+
+### OpenClaw
+```bash
+# Gọi REST API — không cần MCP
+```
+
+### Antigravity
+```bash
+docker run -d -p 8080:8080 \
+  --name stirling-pdf \
+  -v stirling_data:/configs \
+  frooodle/s-pdf:latest
+# Verify: curl http://localhost:8080/api/v1/info
+```
+> ⚠️ Self-hosted hoàn toàn, không cần API key. Free unlimited.
