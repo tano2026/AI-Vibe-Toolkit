@@ -220,3 +220,9 @@ BRAVE_API_KEY=
 FIRECRAWL_API_KEY=
 TAVILY_API_KEY=
 ```
+
+---
+
+## Xem thêm
+
+**`agents/OPENCLAW-TOOLKIT.md`** — Danh sách đầy đủ tất cả npm/ClawHub tools trong kho, nhóm theo category, kèm lệnh cài ngay. Đọc file này thay vì fetch từng file .md riêng lẻ.
