@@ -60,3 +60,44 @@ sf.write("output.wav", wavs[0], 24000)
 - Repo: https://github.com/2noise/ChatTTS
 - Stars: 39,500+
 - Demo: có WebUI tại `examples/web/webui.py`
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Sau khi Antigravity deploy, gọi local API
+TTS_URL = "http://localhost:9966"
+
+def tts_generate(text, output_file="output.wav", **kwargs):
+    payload = json.dumps({"text": text, **kwargs}).encode()
+    req = urllib.request.Request(
+        f"{TTS_URL}/tts", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    audio = urllib.request.urlopen(req).read()
+    with open(output_file, "wb") as f:
+        f.write(audio)
+    return output_file
+
+# Dùng trong content factory:
+# audio_file = tts_generate("Xin chào, đây là video về AI tools")
+# → ghép vào video pipeline
+```
+
+### OpenClaw
+```bash
+# Local service — không cần npm
+```
+
+### Antigravity
+```bash
+ChatTTSChatTTS
+# Chạy server:
+python3 -m ChatTTS --server --port 9966
+# Verify: curl http://localhost:9966/health
+```
+> ⚠️ Port 9966. Dùng cho Vietnamese TTS trong content factory pipeline.
