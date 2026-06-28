@@ -107,3 +107,42 @@ Vấn đề trước đây: muốn cho LLM đọc PDF/Word/Excel phải dùng nh
 
 ---
 *Nguồn: github.com/microsoft/markitdown | 153k⭐ | MIT | Microsoft | tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+# Antigravity phải cài trước: pip install markitdown
+from markitdown import MarkItDown
+
+md = MarkItDown()
+
+def read_file(path_or_url):
+    """Đọc PDF/DOCX/XLSX/PPTX/HTML → markdown"""
+    result = md.convert(path_or_url)
+    return result.text_content
+
+# Examples:
+# text = read_file("/path/to/report.pdf")
+# text = read_file("https://example.com/document.pdf")
+# text = read_file("/path/to/data.xlsx")
+# text = read_file("/path/to/slides.pptx")
+#
+# Sau đó pass text vào LLM để phân tích
+```
+
+### OpenClaw
+```bash
+npx -y markitdown-mcp
+```
+
+### Antigravity
+```bash
+pip install markitdown
+# Test: python3 -c "from markitdown import MarkItDown; print('OK')"
+```
+> ⚠️ No API key. Đọc được PDF scanned nếu cài thêm: pip install markitdown[all]
