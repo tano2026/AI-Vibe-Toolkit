@@ -67,3 +67,38 @@ from lmcache.integration.vllm import LMCacheVLLMConnector
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/LMCache/LMCache*
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+SERVICE_URL = "http://localhost:8000"
+
+def call_api(endpoint, data):
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{SERVICE_URL}/{endpoint}", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Đọc README repo để biết endpoints cụ thể
+# Antigravity deploy trước, Hermes gọi sau
+```
+
+### OpenClaw
+```bash
+# Gọi local API — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/[repo]
+cd [repo] && pip install -r requirements.txt
+cp .env.example .env && python3 main.py
+```
+> ⚠️ LLM caching layer — giảm API costs
