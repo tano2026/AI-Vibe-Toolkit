@@ -223,6 +223,125 @@ TAVILY_API_KEY=
 
 ---
 
+---
+
+## Agency Agents — Đội ngũ AI chuyên môn hóa
+
+**Repo:** `msitarzewski/agency-agents` (117K stars) — 232 agent, 16 phòng ban, OpenClaw integration chính thức.
+
+### Cài một lần, dùng mãi
+
+```bash
+# Clone agency-agents về VPS
+git clone https://github.com/msitarzewski/agency-agents ~/agency-agents
+cd ~/agency-agents
+
+# Cài cho OpenClaw (tạo workspace cho từng agent)
+./scripts/install.sh --tool openclaw
+# → Mỗi agent thành workspace riêng trong ~/.openclaw/agency-agents/
+# → Mỗi workspace có: SOUL.md, AGENTS.md, IDENTITY.md
+
+# Cài cho Claude Code (nếu cần sync)
+./scripts/install.sh --tool claude-code
+```
+
+### Cách mày route task sang đúng agent
+
+Thay vì delegate task marketing chung chung sang Hermes — mày kích hoạt agent chuyên môn trước:
+
+```javascript
+// Mapping task → agent chuyên môn
+const AGENT_ROUTER = {
+  // Content & Marketing
+  "tiktok":        "marketing/tiktok-strategist",
+  "content":       "marketing/content-creator",
+  "growth":        "marketing/growth-hacker",
+  "instagram":     "marketing/instagram-curator",
+  "xiaohongshu":   "marketing/xiaohongshu-specialist",
+  "social":        "marketing/social-media-strategist",
+
+  // Sales & Ads
+  "ads":           "paid-media/ppc-campaign-strategist",
+  "facebook_ads":  "paid-media/paid-social-strategist",
+  "tracking":      "paid-media/tracking-measurement-specialist",
+  "outreach":      "sales/outbound-strategist",
+  "lead_gen":      "sales/offer-lead-gen-strategist",
+
+  // Engineering
+  "frontend":      "engineering/frontend-developer",
+  "backend":       "engineering/backend-architect",
+  "devops":        "engineering/devops-automator",
+  "ai_feature":    "engineering/ai-engineer",
+  "prototype":     "engineering/rapid-prototyper",
+  "llm_cost":      "engineering/autonomous-optimization-architect",
+
+  // Design
+  "ui":            "design/ui-designer",
+  "brand":         "design/brand-guardian",
+  "image_prompt":  "design/image-prompt-engineer",
+};
+
+function routeToAgent(taskType) {
+  const agentPath = AGENT_ROUTER[taskType];
+  if (!agentPath) return null;
+  const agentFile = `${process.env.HOME}/agency-agents/${agentPath}.md`;
+  return require("fs").readFileSync(agentFile, "utf8");
+}
+```
+
+### Format kích hoạt agent khi delegate sang Hermes
+
+```
+[HERMES TASK - AGENT: tiktok-strategist]
+Task: Lên content calendar 2 tuần cho ABTRIP TikTok
+Input: Brand = ABTRIP travel, Target = Gen Z 18-28, Platform = TikTok VN
+Context: [paste nội dung file marketing/tiktok-strategist.md]
+Output cần: 14 post ideas, mỗi post có hook + format + CTA
+Priority: normal
+```
+
+### Agents hay nhất cho từng brand
+
+**Tano / AI Vibe Toolkit (content factory):**
+```
+marketing/tiktok-strategist       → Script viral TikTok
+marketing/content-creator          → Editorial calendar, copywriting
+marketing/growth-hacker            → Viral loops, acquisition funnel
+marketing/xiaohongshu-specialist   → Research trend XHS trước khi vào VN
+```
+
+**ABTRIP (travel):**
+```
+marketing/social-media-strategist  → Cross-platform campaign
+sales/offer-lead-gen-strategist    → Tour package offer, lead magnet
+paid-media/paid-social-strategist  → Meta/TikTok ads cho tour
+design/visual-storyteller          → Travel content visual narrative
+```
+
+**Wonder Mart (e-commerce):**
+```
+paid-media/ppc-campaign-strategist → Google Shopping, Performance Max
+paid-media/ad-creative-strategist  → RSA copy, Meta creative
+sales/outbound-strategist          → B2B outreach cho supplier
+engineering/rapid-prototyper       → Quick feature prototype
+```
+
+**Hermes ecosystem (internal):**
+```
+engineering/ai-engineer                        → ML integration, AI feature
+engineering/autonomous-optimization-architect  → LLM routing, cost guard
+engineering/devops-automator                   → CI/CD, cloud ops
+```
+
+### Update agent khi repo có thêm mới
+
+```bash
+# Chạy định kỳ (cron hàng tuần)
+cd ~/agency-agents && git pull && ./scripts/install.sh --tool openclaw
+# → Tự nhận agent mới từ community contribute
+```
+
+
 ## Xem thêm
 
 **`agents/OPENCLAW-TOOLKIT.md`** — Danh sách đầy đủ tất cả npm/ClawHub tools trong kho, nhóm theo category, kèm lệnh cài ngay. Đọc file này thay vì fetch từng file .md riêng lẻ.
