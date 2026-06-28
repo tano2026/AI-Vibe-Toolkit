@@ -102,3 +102,58 @@ npm install -g @kernel.salacoste/n8n-workflow-builder
 ---
 
 *Nguồn: github.com/salacoste/mcp-n8n-workflow-builder | 226⭐ | MIT | tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json
+
+N8N_URL = "http://localhost:5678"  # sau khi Antigravity deploy
+
+def n8n_trigger_workflow(workflow_id, data, api_key):
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{N8N_URL}/api/v1/workflows/{workflow_id}/activate",
+        data=payload,
+        headers={"X-N8N-API-KEY": api_key, "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def n8n_webhook(webhook_path, data):
+    """Trigger workflow qua webhook (không cần API key)"""
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{N8N_URL}/webhook/{webhook_path}",
+        data=payload, headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def n8n_list_workflows(api_key):
+    req = urllib.request.Request(
+        f"{N8N_URL}/api/v1/workflows",
+        headers={"X-N8N-API-KEY": api_key}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["data"]
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y n8n-mcp
+# Set N8N_API_URL và N8N_API_KEY trong env
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Deploy n8n:
+docker run -d --name n8n -p 5678:5678 \
+  -e N8N_BASIC_AUTH_ACTIVE=true \
+  -v n8n_data:/home/node/.n8n \
+  n8nio/n8n
+# Sau đó lấy API key từ n8n UI → Settings → API
+```
+> ⚠️ Antigravity deploy Docker trước. Hermes gọi webhook không cần API key.
