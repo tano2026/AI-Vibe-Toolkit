@@ -54,3 +54,49 @@ Không viết một dòng Python.
 - Repo: https://github.com/langflow-ai/langflow
 - Docs: https://docs.langflow.org
 - Cloud: https://langflow.new
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+LANGFLOW_URL = "http://localhost:7860"
+
+def langflow_run_flow(flow_id, inputs, tweaks=None):
+    payload = {"input_value": inputs.get("input", ""),
+               "input_type": "chat", "output_type": "chat",
+               "tweaks": tweaks or {}}
+    req = urllib.request.Request(
+        f"{LANGFLOW_URL}/api/v1/run/{flow_id}?stream=false",
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["outputs"][0]["outputs"][0]["results"]["message"]["text"]
+
+def langflow_list_flows():
+    req = urllib.request.Request(f"{LANGFLOW_URL}/api/v1/flows/")
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"id": f["id"], "name": f["name"]} for f in r]
+
+# Dùng: answer = langflow_run_flow("flow-uuid", {"input": "Phân tích thị trường AI VN"})
+```
+
+### OpenClaw
+```bash
+# Gọi API — không cần MCP
+```
+
+### Antigravity
+```bash
+pip install langflow
+python -m langflow run --host 0.0.0.0 --port 7860
+# Hoặc Docker:
+docker run -d -p 7860:7860 logspace/langflow:latest
+```
+> ⚠️ Antigravity deploy → Hermes trigger flows đã build sẵn trong Langflow UI.
