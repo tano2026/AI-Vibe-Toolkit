@@ -118,3 +118,53 @@ Khi tao paste code bị lỗi:
 ---
 
 *Thêm vào kho: 06/2025*
+
+---
+
+## 🤖 Hermes — Cách dùng skill này
+
+**Use case:** assist coding tasks khi chủ cần
+
+```python
+import urllib.request, json, base64
+
+def fetch_skill(skill_file, token="[GITHUB_TOKEN]"):
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/skills/{skill_file}",
+        headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
+    )
+    data = json.loads(urllib.request.urlopen(req).read())
+    return base64.b64decode(data["content"]).decode()
+
+# Bước 1: Fetch skill này về
+skill_prompt = fetch_skill("vibe-coder-assistant.md")
+
+# Bước 2: Extract phần "Prompt Template" hoặc "Nội dung skill"
+# (tìm block code đầu tiên sau header ## Prompt)
+import re
+match = re.search(r'```\n([\s\S]+?)\n```', skill_prompt)
+prompt = match.group(1) if match else skill_prompt
+
+# Bước 3: Nhúng vào LLM call
+def call_with_skill(user_input, system_prompt):
+    # Gọi Claude/DeepSeek với skill làm system prompt
+    payload = json.dumps({
+        "model": "claude-3-5-sonnet-20241022",
+        "max_tokens": 2000,
+        "system": system_prompt,
+        "messages": [{"role": "user", "content": user_input}]
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages", data=payload,
+        headers={"x-api-key": "[ANTHROPIC_KEY]",
+                 "anthropic-version": "2023-06-01",
+                 "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["content"][0]["text"]
+
+# Dùng:
+# result = call_with_skill("Phân tích thị trường AI tools VN 2026", prompt)
+```
+
+> Skills không cần cài gì — fetch về, nhúng làm system prompt, gọi LLM.
