@@ -70,3 +70,44 @@ sf.write("output.wav", audio, 24000)
 - Repo: https://github.com/hexgrad/kokoro
 - Model: https://huggingface.co/hexgrad/Kokoro-82M
 - Stars: 7,600+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Sau khi Antigravity deploy, gọi local API
+TTS_URL = "http://localhost:8880"
+
+def tts_generate(text, output_file="output.wav", **kwargs):
+    payload = json.dumps({"text": text, **kwargs}).encode()
+    req = urllib.request.Request(
+        f"{TTS_URL}/tts", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    audio = urllib.request.urlopen(req).read()
+    with open(output_file, "wb") as f:
+        f.write(audio)
+    return output_file
+
+# Dùng trong content factory:
+# audio_file = tts_generate("Xin chào, đây là video về AI tools")
+# → ghép vào video pipeline
+```
+
+### OpenClaw
+```bash
+# Local service — không cần npm
+```
+
+### Antigravity
+```bash
+kokoro-onnxkokoro-onnx
+# Chạy server:
+python3 -m kokoro_onnx --server --port 8880
+# Verify: curl http://localhost:8880/health
+```
+> ⚠️ Port 8880. Dùng cho Vietnamese TTS trong content factory pipeline.
