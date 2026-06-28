@@ -58,3 +58,47 @@ Chi phí: $10/tháng VPS thay vì $50-100/tháng cho từng service riêng lẻ.
 - Repo: https://github.com/coollabsio/coolify
 - Docs: https://coolify.io/docs
 - Website: https://coolify.io
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+COOLIFY_URL = "http://localhost:8000"  # hoặc domain Coolify
+COOLIFY_TOKEN = "[COOLIFY_API_TOKEN]"  # Settings → API Tokens
+HEADERS_C = {"Authorization": f"Bearer {COOLIFY_TOKEN}", "Content-Type": "application/json"}
+
+def list_apps():
+    req = urllib.request.Request(f"{COOLIFY_URL}/api/v1/applications", headers=HEADERS_C)
+    return json.loads(urllib.request.urlopen(req).read())
+
+def deploy_app(app_uuid):
+    """Trigger redeploy một app"""
+    req = urllib.request.Request(
+        f"{COOLIFY_URL}/api/v1/applications/{app_uuid}/deploy",
+        data=b"{}", headers=HEADERS_C, method="POST"
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def get_app_logs(app_uuid):
+    req = urllib.request.Request(
+        f"{COOLIFY_URL}/api/v1/applications/{app_uuid}/logs", headers=HEADERS_C)
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Hermes có thể trigger deploy tự động sau khi push code!
+```
+
+### OpenClaw
+```bash
+# Gọi API — không cần MCP
+```
+
+### Antigravity
+```bash
+curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+# Mở: http://[VPS-IP]:8000 → setup → lấy API token
+```
+> ⚠️ Antigravity install Coolify lên VPS → Hermes có thể trigger deploy programmatically.
