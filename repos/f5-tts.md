@@ -66,3 +66,44 @@ f5-tts_infer-gradio
 - Repo: https://github.com/SWivid/F5-TTS
 - Stars: 14,800+
 - Paper: "F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching"
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Sau khi Antigravity deploy, gọi local API
+TTS_URL = "http://localhost:7860"
+
+def tts_generate(text, output_file="output.wav", **kwargs):
+    payload = json.dumps({"text": text, **kwargs}).encode()
+    req = urllib.request.Request(
+        f"{TTS_URL}/tts", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    audio = urllib.request.urlopen(req).read()
+    with open(output_file, "wb") as f:
+        f.write(audio)
+    return output_file
+
+# Dùng trong content factory:
+# audio_file = tts_generate("Xin chào, đây là video về AI tools")
+# → ghép vào video pipeline
+```
+
+### OpenClaw
+```bash
+# Local service — không cần npm
+```
+
+### Antigravity
+```bash
+f5-ttsf5-tts
+# Chạy server:
+python3 -m f5_tts --server --port 7860
+# Verify: curl http://localhost:7860/health
+```
+> ⚠️ Port 7860. Dùng cho Vietnamese TTS trong content factory pipeline.
