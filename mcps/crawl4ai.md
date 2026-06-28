@@ -95,3 +95,54 @@ Prompt ví dụ:
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/unclecode/crawl4ai*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Option A: Nếu Antigravity đã deploy self-hosted
+CRAWL4AI_URL = "http://localhost:11235"
+
+def crawl4ai_scrape(url, server_url=CRAWL4AI_URL):
+    payload = json.dumps({"urls": [url], "crawler_params": {
+        "headless": True, "verbose": False
+    }, "extra": {"word_count_threshold": 10}}).encode()
+    req = urllib.request.Request(
+        f"{server_url}/crawl", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["results"][0]["markdown"]["raw_markdown"]
+
+# Option B: Python SDK trực tiếp (nếu Antigravity pip install)
+# from crawl4ai import AsyncWebCrawler
+# async with AsyncWebCrawler() as crawler:
+#     result = await crawler.arun(url="https://example.com")
+#     print(result.markdown)
+
+# Dùng: markdown = crawl4ai_scrape("https://techcrunch.com/ai")
+```
+
+### OpenClaw
+```bash
+npx -y @unclecode/crawl4ai-mcp
+```
+
+### Antigravity
+```bash
+# Self-host (Docker):
+docker pull unclecode/crawl4ai:latest
+docker run -d -p 11235:11235 --name crawl4ai unclecode/crawl4ai:latest
+# Verify: curl http://localhost:11235/health
+
+# Hoặc pip install:
+pip install crawl4ai
+crawl4ai-setup
+```
+> ⚠️ Antigravity deploy Docker → Hermes gọi localhost:11235. Free unlimited.
