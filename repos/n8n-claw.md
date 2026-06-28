@@ -92,3 +92,55 @@ Nhắn Telegram bot:
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/freddy-schuetz/n8n-claw*
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+N8N_URL = "http://localhost:5678"
+N8N_KEY = "[N8N_API_KEY]"  # Settings → n8n API → Create API key
+
+def trigger_webhook(webhook_id, data):
+    """Trigger workflow qua webhook — không cần API key"""
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{N8N_URL}/webhook/{webhook_id}", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def list_workflows():
+    req = urllib.request.Request(
+        f"{N8N_URL}/api/v1/workflows",
+        headers={"X-N8N-API-KEY": N8N_KEY}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["data"]
+
+def activate_workflow(wf_id):
+    req = urllib.request.Request(
+        f"{N8N_URL}/api/v1/workflows/{wf_id}/activate",
+        data=b"{}", headers={"X-N8N-API-KEY": N8N_KEY}, method="POST"
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Pattern: Hermes trigger webhook → n8n xử lý workflow phức tạp → trả kết quả
+```
+
+### OpenClaw
+```bash
+# n8n có UI riêng — OpenClaw không cần cài gì thêm
+```
+
+### Antigravity
+```bash
+# Script setup từ n8n-claw repo:
+git clone https://github.com/freddy-schuetz/n8n-claw
+cd n8n-claw && cp .env.example .env && nano .env
+docker compose up -d
+# Mở: http://localhost:5678
+```
+> ⚠️ Hermes trigger webhook, n8n xử lý workflow, kết quả trả về JSON.
