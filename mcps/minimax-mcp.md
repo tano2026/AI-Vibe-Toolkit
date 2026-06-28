@@ -81,3 +81,49 @@ Prompt: "chill lo-fi beats, calm, for study content"
 - Repo: https://github.com/MiniMax-AI/MiniMax-MCP
 - API platform: https://www.minimax.io/platform
 - Docs: https://www.minimax.io/docs
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+def minimax_tts(text, voice_id="male-qn-qingse", api_key=None, group_id=None):
+    payload = json.dumps({
+        "model": "speech-01-turbo", "text": text,
+        "voice_setting": {"voice_id": voice_id, "speed": 1.0, "vol": 1.0, "pitch": 0},
+        "audio_setting": {"sample_rate": 32000, "bitrate": 128000, "format": "mp3"}
+    }).encode()
+    req = urllib.request.Request(
+        f"https://api.minimax.chat/v1/t2a_v2?GroupId={group_id}",
+        data=payload,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    # Decode audio từ hex
+    audio_hex = r["data"]["audio"]
+    with open("output.mp3", "wb") as f:
+        f.write(bytes.fromhex(audio_hex))
+    return "output.mp3"
+
+# Vietnamese voices: female-shaonv, male-qn-qingse, presenter_female
+# Dùng: minimax_tts("Xin chào", voice_id="female-shaonv",
+#            api_key=os.environ["MINIMAX_API_KEY"], group_id=os.environ["MINIMAX_GROUP_ID"])
+```
+
+### OpenClaw
+```bash
+npx -y @modelcontextprotocol/server-minimax
+# Set MINIMAX_API_KEY + MINIMAX_GROUP_ID
+```
+
+### Antigravity
+```bash
+# Không cần deploy — cloud API
+# Lấy key: platform.minimax.io
+```
+> ⚠️ Có tiếng Việt. TTS tốt thay thế ElevenLabs. Free credits khi signup.
