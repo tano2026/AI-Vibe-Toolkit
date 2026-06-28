@@ -115,3 +115,52 @@ npm install -g @oliverames/meta-mcp-server
 
 ---
 *Nguồn: github.com/oliverames/meta-mcp-server | 15⭐ | MIT | 200+ tools | tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json, urllib.parse
+
+def meta_get_insights(page_id, metric, access_token, period="day"):
+    url = (f"https://graph.facebook.com/v19.0/{page_id}/insights"
+           f"?metric={metric}&period={period}&access_token={access_token}")
+    req = urllib.request.Request(url)
+    return json.loads(urllib.request.urlopen(req).read())["data"]
+
+def meta_create_post(page_id, message, access_token):
+    payload = urllib.parse.urlencode({
+        "message": message, "access_token": access_token
+    }).encode()
+    req = urllib.request.Request(
+        f"https://graph.facebook.com/v19.0/{page_id}/feed",
+        data=payload, method="POST"
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def meta_get_ad_insights(ad_account_id, access_token, fields="spend,impressions,clicks,ctr"):
+    url = (f"https://graph.facebook.com/v19.0/act_{ad_account_id}/insights"
+           f"?fields={fields}&date_preset=last_7d&access_token={access_token}")
+    req = urllib.request.Request(url)
+    return json.loads(urllib.request.urlopen(req).read())["data"]
+
+# Dùng: insights = meta_get_insights("PAGE_ID", "page_views_total",
+#            os.environ["META_ACCESS_TOKEN"])
+```
+
+### OpenClaw
+```bash
+npx -y meta-mcp-server
+# Set META_ACCESS_TOKEN + META_AD_ACCOUNT_ID
+```
+
+### Antigravity
+```bash
+# Không cần deploy
+# Lấy token: developers.facebook.com → Graph API Explorer
+```
+> ⚠️ Cần Facebook App + Page Access Token. Dùng cho ABTRIP page insights.
