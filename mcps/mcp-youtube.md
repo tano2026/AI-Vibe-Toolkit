@@ -48,3 +48,49 @@ Gõ: `Summarize the YouTube video https://youtu.be/xxxxx`
 - Repo: https://github.com/anaisbetts/mcp-youtube
 - Docs: README trong repo (ngắn, kèm issues là đủ hiểu hết)
 - MCP installer của cùng tác giả: https://github.com/anaisbetts/mcp-installer
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json, urllib.parse
+
+def youtube_search(query, api_key, max_results=10):
+    q = urllib.parse.quote(query)
+    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&q={q}&maxResults={max_results}&type=video&key={api_key}"
+    req = urllib.request.Request(url)
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"title": x["snippet"]["title"],
+             "videoId": x["id"]["videoId"],
+             "url": f"https://youtube.com/watch?v={x['id']['videoId']}",
+             "desc": x["snippet"]["description"][:200]} for x in r["items"]]
+
+def youtube_video_stats(video_id, api_key):
+    url = f"https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id={video_id}&key={api_key}"
+    req = urllib.request.Request(url)
+    r = json.loads(urllib.request.urlopen(req).read())
+    item = r["items"][0]
+    return {"title": item["snippet"]["title"],
+            "views": item["statistics"]["viewCount"],
+            "likes": item["statistics"]["likeCount"],
+            "comments": item["statistics"]["commentCount"]}
+
+# Dùng: results = youtube_search("AI tools 2026", os.environ["YOUTUBE_API_KEY"])
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y @modelcontextprotocol/server-youtube
+# Set YOUTUBE_API_KEY trong env
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy — Google API public
+# Lấy key: console.cloud.google.com → YouTube Data API v3
+```
+> ⚠️ Free 10,000 units/ngày. 1 search = 100 units. Đủ cho ~100 search/ngày.
