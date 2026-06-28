@@ -103,3 +103,39 @@ Brave Search tìm links → Firecrawl cào nội dung → Claude tổng hợp b�
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: modelcontextprotocol/servers (official Anthropic)*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json, urllib.parse
+
+def brave_search(query, api_key, count=5):
+    q = urllib.parse.quote(query)
+    req = urllib.request.Request(
+        f"https://api.search.brave.com/res/v1/web/search?q={q}&count={count}",
+        headers={"Accept": "application/json", "X-Subscription-Token": api_key}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"title": x["title"], "url": x["url"],
+             "desc": x.get("description","")} for x in r["web"]["results"]]
+
+# Dùng: results = brave_search("AI tools 2026", os.environ["BRAVE_API_KEY"])
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y @modelcontextprotocol/server-brave-search
+# Set BRAVE_API_KEY trong env
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy — cloud API
+# Set env: BRAVE_API_KEY=BSA-xxx
+```
+> ⚠️ Free 2000 req/tháng. Lấy key: brave.com/search/api
