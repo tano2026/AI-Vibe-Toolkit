@@ -64,3 +64,49 @@ Gửi được 50k-100k email/ngày tùy cấu hình VPS và reputation của IP
 - Repo: https://github.com/Billionmail/BillionMail
 - Website: https://billionmail.com
 - Discord: https://discord.gg/asfXzBUhZr
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+BMAIL_URL = "http://localhost:8080"
+BMAIL_KEY = "[BILLIONMAIL_API_KEY]"
+
+def send_campaign_email(to_list, subject, html_content, from_name="Nobitano"):
+    payload = json.dumps({
+        "recipients": to_list,
+        "subject": subject,
+        "html": html_content,
+        "from_name": from_name
+    }).encode()
+    req = urllib.request.Request(
+        f"{BMAIL_URL}/api/v1/campaigns/send", data=payload,
+        headers={"Authorization": f"Bearer {BMAIL_KEY}", "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def get_campaign_stats(campaign_id):
+    req = urllib.request.Request(
+        f"{BMAIL_URL}/api/v1/campaigns/{campaign_id}/stats",
+        headers={"Authorization": f"Bearer {BMAIL_KEY}"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+# Web UI — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/nicholasgasior/billionmail
+cd billionmail && cp .env.example .env
+docker compose up -d
+# Mở: http://localhost:8080
+```
+> ⚠️ Self-hosted email marketing. Hermes gửi bulk email campaign tự động.
