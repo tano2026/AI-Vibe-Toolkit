@@ -1272,3 +1272,19 @@ Hook: "117K star trong 2 tuan. 232 AI agent. Cai 1 lenh — co ngay mot cong ty 
 Note: Co OpenClaw integration chinh thuc — hiem gap, lien quan truc tiep den he sinh thai agent
 
 **Kho: 96 repos | 37 MCPs | 86 skills | 128 scripts | 2 agents**
+
+
+---
+
+## Tool moi - OmniRoute (lan 70)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| OmniRoute | repos/omniroute.md | 7,100 | Free AI gateway: 231 providers, 1.6B token/thang, RTK+Caveman compression, Antigravity integration chinh thuc |
+
+Script: script-video-129-omniroute.md
+Hook: "1.6 ty token mien phi moi thang. 231 provider. 1 endpoint. Cai 2 phut."
+
+Ung dung: Hermes + OpenClaw tro tat ca goi LLM qua OmniRoute → 1.6B token free/thang, auto fallback, zero downtime
+
+**Kho: 97 repos | 37 MCPs | 86 skills | 129 scripts | 2 agents**
