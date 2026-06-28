@@ -1240,3 +1240,19 @@ Da co (skip): 10 open source tools, ai-berkshire, 9router, seedance-2-5
 | # | Tên | File | Script | Video |
 |---|-----|------|--------|-------|
 | 2 | SaaS Stack 2026 | ✅ | ✅ | ⏳ |
+
+
+---
+
+## Tool moi - freeLLM (lan 68)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| freeLLM | skills/freellm.md | 121 | 224 free LLM API tu 25 providers, so sanh rate limit/context, one-click config |
+
+Script: script-video-127-freellm.md
+Hook: "224 AI model mien phi. 25 providers. Khong can credit card. Tat ca trong 1 trang."
+
+Ung dung cho agent: Hermes switch model theo task (Gemini fast, Groq reasoning, NVIDIA coding)
+
+**Kho: 95 repos | 37 MCPs | 86 skills | 127 scripts | 2 agents**
