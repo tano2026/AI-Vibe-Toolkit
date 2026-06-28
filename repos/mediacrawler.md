@@ -72,3 +72,48 @@ Phân tích 200 posts → biết ngay format nào đang viral, hashtag nào tren
 ## Link
 - Repo: https://github.com/NanmiCoder/MediaCrawler
 - Docs: Xem README với hướng dẫn chi tiết từng platform
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+# Antigravity cài: pip install playwright && playwright install
+# MediaCrawler cần cookies từ từng platform
+
+import subprocess, json
+
+def crawl_xhs(keywords, max_notes=20, cookies_path="xhs_cookies.json"):
+    """Crawl Xiaohongshu (RED) — nếu target Chinese market"""
+    result = subprocess.run(
+        ["python3", "main.py", "--platform", "xhs",
+         "--keywords", keywords, "--max", str(max_notes)],
+        capture_output=True, text=True, cwd="/path/to/mediacrawler"
+    )
+    return result.stdout
+
+def crawl_tiktok(keywords, max_videos=20):
+    result = subprocess.run(
+        ["python3", "main.py", "--platform", "tiktok",
+         "--keywords", keywords, "--max", str(max_videos)],
+        capture_output=True, text=True, cwd="/path/to/mediacrawler"
+    )
+    return result.stdout
+
+# Platform hỗ trợ: xhs, weibo, bilibili, douyin, tiktok, zhihu, youtube
+```
+
+### OpenClaw
+```bash
+# Python CLI — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/NanmiCoder/MediaCrawler
+cd MediaCrawler && pip install -r requirements.txt
+playwright install chromium
+cp config/base_config.py.example config/base_config.py
+```
+> ⚠️ Cần cookies từng platform. Dùng cho competitive research social media.
