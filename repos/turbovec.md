@@ -182,3 +182,48 @@ Cho local RAG pipeline dưới 10M documents — đây là lựa chọn tốt nh
 *Nguồn: github.com/RyanCodrai/turbovec*
 *TurboQuant paper: arXiv:2504.19874 — ICLR 2026*
 *Cập nhật: tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+QDRANT_URL = "http://localhost:6333"  # TurboVec dùng Qdrant backend
+
+def vec_upsert(collection, id, vector, payload=None):
+    data = json.dumps({"points": [{"id": id, "vector": vector, "payload": payload or {}}]}).encode()
+    req = urllib.request.Request(
+        f"{QDRANT_URL}/collections/{collection}/points",
+        data=data, headers={"Content-Type": "application/json"}, method="PUT"
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def vec_search(collection, query_vector, top_k=5, filters=None):
+    payload = {"vector": query_vector, "limit": top_k, "with_payload": True}
+    if filters:
+        payload["filter"] = filters
+    data = json.dumps(payload).encode()
+    req = urllib.request.Request(
+        f"{QDRANT_URL}/collections/{collection}/points/search",
+        data=data, headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["result"]
+
+# Use case: lưu embeddings của content kho, search semantic
+```
+
+### OpenClaw
+```bash
+# REST API — không cần npm
+```
+
+### Antigravity
+```bash
+docker run -d -p 6333:6333 -p 6334:6334 \
+  -v qdrant_storage:/qdrant/storage \
+  --name qdrant qdrant/qdrant
+```
+> ⚠️ Vector DB cho semantic search. Hermes tìm content tương tự trong kho.
