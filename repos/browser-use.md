@@ -125,3 +125,48 @@ Nhưng đừng nghĩ nó replace Playwright hoàn toàn. Với task cần precis
 
 *Nguồn: github.com/browser-use/browser-use*
 *Cập nhật: tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+# Antigravity phải cài trước: pip install browser-use playwright
+# playwright install chromium
+
+import asyncio
+from browser_use import Agent
+from langchain_anthropic import ChatAnthropic
+
+async def browser_task(task_description, api_key):
+    agent = Agent(
+        task=task_description,
+        llm=ChatAnthropic(model="claude-3-5-sonnet-20241022", api_key=api_key)
+    )
+    result = await agent.run()
+    return result
+
+# Dùng:
+# result = asyncio.run(browser_task(
+#     "Vào firecrawl.dev, lấy giá các gói subscription",
+#     api_key=os.environ["ANTHROPIC_API_KEY"]
+# ))
+#
+# ⚠️ Cần display (browser). Trên VPS cần Xvfb hoặc dùng headless mode.
+```
+
+### OpenClaw
+```bash
+# Có ClawHub skill — /skill search browser-use
+```
+
+### Antigravity
+```bash
+pip install browser-use langchain-anthropic
+playwright install chromium
+# Nếu VPS không có display:
+apt-get install -y xvfb
+export DISPLAY=:99 && Xvfb :99 &
+```
+> ⚠️ Cần display server trên VPS headless. Antigravity setup Xvfb trước.
