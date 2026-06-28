@@ -62,3 +62,52 @@ Không cần backend engineer.
 - Repo: https://github.com/langgenius/dify
 - Docs: https://docs.dify.ai
 - Cloud: https://cloud.dify.ai
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+DIFY_URL = "http://localhost"  # sau khi Antigravity deploy
+DIFY_API_KEY = "[DIFY_APP_API_KEY]"  # lấy từ Dify UI
+
+def dify_chat(message, conversation_id=None, user="hermes"):
+    payload = {"inputs": {}, "query": message, "response_mode": "blocking", "user": user}
+    if conversation_id:
+        payload["conversation_id"] = conversation_id
+    req = urllib.request.Request(
+        f"{DIFY_URL}/v1/chat-messages",
+        data=json.dumps(payload).encode(),
+        headers={"Authorization": f"Bearer {DIFY_API_KEY}", "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["answer"], r.get("conversation_id")
+
+def dify_workflow_run(inputs, user="hermes"):
+    payload = {"inputs": inputs, "response_mode": "blocking", "user": user}
+    req = urllib.request.Request(
+        f"{DIFY_URL}/v1/workflows/run",
+        data=json.dumps(payload).encode(),
+        headers={"Authorization": f"Bearer {DIFY_API_KEY}", "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["data"]["outputs"]
+```
+
+### OpenClaw
+```bash
+# Gọi Dify API trực tiếp — không cần MCP
+```
+
+### Antigravity
+```bash
+git clone https://github.com/langgenius/dify
+cd dify/docker && cp .env.example .env
+docker compose up -d
+# Mở: http://localhost → tạo App → lấy API key
+```
+> ⚠️ Antigravity deploy Docker. Hermes gọi API để trigger workflows Dify đã build sẵn.
