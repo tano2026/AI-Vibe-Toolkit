@@ -58,3 +58,43 @@ Không viết một dòng code.
 ## Link
 - Repo: https://github.com/getmaxun/maxun
 - Docs: https://docs.maxun.dev
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+MAXUN_URL = "http://localhost:8080"
+
+def maxun_run_robot(robot_id, input_data=None):
+    """Chạy robot scraping đã train sẵn"""
+    payload = json.dumps(input_data or {}).encode()
+    req = urllib.request.Request(
+        f"{MAXUN_URL}/api/robots/{robot_id}/run",
+        data=payload, headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+def maxun_list_robots():
+    req = urllib.request.Request(f"{MAXUN_URL}/api/robots")
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Workflow: Human train robot qua UI → Hermes chạy robot tự động theo schedule
+```
+
+### OpenClaw
+```bash
+# Web UI — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/getmaxun/maxun
+cd maxun && cp .env.example .env && nano .env
+docker compose up -d
+# Mở: http://localhost:8080
+```
+> ⚠️ Human train scraper qua UI 1 lần. Sau đó Hermes chạy tự động.
