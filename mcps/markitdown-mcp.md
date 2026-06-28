@@ -140,3 +140,41 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+# MarkItDown — đọc PDF/Excel/Word/PPT → markdown
+# Antigravity cần cài trước: pip install markitdown
+
+from markitdown import MarkItDown
+
+md = MarkItDown()
+
+# Đọc file local
+result = md.convert("document.pdf")
+print(result.text_content)
+
+# Đọc từ URL
+result = md.convert("https://example.com/report.pdf")
+print(result.text_content)
+
+# Các format hỗ trợ: PDF, DOCX, XLSX, PPTX, HTML, CSV, JSON, XML, ZIP
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y markitdown-mcp
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+pip install markitdown
+# Verify: python3 -c 'from markitdown import MarkItDown; print("OK")'
+```
+> ⚠️ Không cần API key. Antigravity phải pip install trước khi Hermes dùng được.
