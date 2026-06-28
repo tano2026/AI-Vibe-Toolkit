@@ -104,3 +104,53 @@ run_model "fal-ai/flux-pro" --prompt "..." --params {...}
 ---
 
 *Nguồn: github.com/enescanguven/fal-mcp | fal.ai 600+ models | tháng 6/2026*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json
+
+def fal_generate_image(prompt, model="fal-ai/flux/schnell", api_key=None):
+    """Generate ảnh qua fal.ai API"""
+    payload = json.dumps({"prompt": prompt}).encode()
+    req = urllib.request.Request(
+        f"https://fal.run/{model}",
+        data=payload,
+        headers={"Authorization": f"Key {api_key}",
+                 "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["images"][0]["url"]  # URL ảnh đã generate
+
+def fal_text_to_speech(text, voice="af_bella", api_key=None):
+    payload = json.dumps({"input": text, "voice": voice}).encode()
+    req = urllib.request.Request(
+        "https://fal.run/fal-ai/kokoro/american-english",
+        data=payload,
+        headers={"Authorization": f"Key {api_key}",
+                 "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["audio"]["url"]
+
+# Dùng: img_url = fal_generate_image("sunset Vietnam", api_key=os.environ["FAL_KEY"])
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+# Gọi thẳng API — không cần MCP
+# pip install fal-client (nếu muốn SDK)
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy
+# Set env: FAL_KEY=xxx
+# Lấy key: fal.ai/dashboard
+```
+> ⚠️ Pay-per-use. Flux Schnell rất rẻ (~$0.003/ảnh). Có free credits khi signup.
