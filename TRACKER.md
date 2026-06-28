@@ -1232,3 +1232,11 @@ Scripts: 123 (ainovel-cli) -> 126 (sherpa-asr)
 Da co (skip): 10 open source tools, ai-berkshire, 9router, seedance-2-5
 
 **Kho: 95 repos | 37 MCPs | 85 skills | 126 scripts | 2 agents**
+
+---
+
+## 📦 Stacks — cập nhật
+
+| # | Tên | File | Script | Video |
+|---|-----|------|--------|-------|
+| 2 | SaaS Stack 2026 | ✅ | ✅ | ⏳ |
