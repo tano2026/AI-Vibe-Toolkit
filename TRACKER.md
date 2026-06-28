@@ -1256,3 +1256,19 @@ Hook: "224 AI model mien phi. 25 providers. Khong can credit card. Tat ca trong 
 Ung dung cho agent: Hermes switch model theo task (Gemini fast, Groq reasoning, NVIDIA coding)
 
 **Kho: 95 repos | 37 MCPs | 86 skills | 127 scripts | 2 agents**
+
+
+---
+
+## Tool moi - agency-agents (lan 69)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| agency-agents | repos/agency-agents.md | 117,465 | 232 AI agents, 16 phong ban, OpenClaw integration chinh thuc, MIT |
+
+Script: script-video-128-agency-agents.md
+Hook: "117K star trong 2 tuan. 232 AI agent. Cai 1 lenh — co ngay mot cong ty AI."
+
+Note: Co OpenClaw integration chinh thuc — hiem gap, lien quan truc tiep den he sinh thai agent
+
+**Kho: 96 repos | 37 MCPs | 86 skills | 128 scripts | 2 agents**
