@@ -51,3 +51,50 @@ Chi phí: $0/tháng API (dùng local model), chỉ tốn VPS.
 ## Link
 - Repo: https://github.com/open-webui/open-webui
 - Docs: https://docs.openwebui.com
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+OPENWEBUI_URL = "http://localhost:3000"
+OPENWEBUI_TOKEN = "[OPENWEBUI_API_KEY]"  # lấy từ Settings → Account → API Keys
+
+def chat(message, model="llama3.2", system_prompt=None):
+    msgs = []
+    if system_prompt:
+        msgs.append({"role": "system", "content": system_prompt})
+    msgs.append({"role": "user", "content": message})
+    payload = json.dumps({"model": model, "messages": msgs, "stream": False}).encode()
+    req = urllib.request.Request(
+        f"{OPENWEBUI_URL}/api/chat/completions", data=payload,
+        headers={"Authorization": f"Bearer {OPENWEBUI_TOKEN}", "Content-Type": "application/json"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["choices"][0]["message"]["content"]
+
+def list_models():
+    req = urllib.request.Request(f"{OPENWEBUI_URL}/api/models",
+        headers={"Authorization": f"Bearer {OPENWEBUI_TOKEN}"})
+    return [m["id"] for m in json.loads(urllib.request.urlopen(req).read())["data"]]
+
+# Dùng: answer = chat("Phân tích thị trường AI VN", model="deepseek-r1:7b")
+```
+
+### OpenClaw
+```bash
+# Docker pull đã có UI, không cần npm
+```
+
+### Antigravity
+```bash
+docker run -d -p 3000:3000 \
+  -v open-webui:/app/backend/data \
+  --add-host=host.docker.internal:host-gateway \
+  --name open-webui ghcr.io/open-webui/open-webui:main
+# Mở: http://localhost:3000 → đăng ký → lấy API key
+```
+> ⚠️ Cần Ollama chạy trước hoặc kết nối OpenAI API.
