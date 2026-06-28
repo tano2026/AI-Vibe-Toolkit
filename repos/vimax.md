@@ -65,3 +65,39 @@ video.save("output.mp4")
 - Repo: https://github.com/HKUDS/ViMax
 - Stars: 10,600+
 - Paper: "ViMax: Agentic Video Generation (Director, Screenwriter, Producer, and Video Generator All-in-One)"
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Gọi local API sau khi Antigravity deploy
+API_URL = "http://localhost:8000"
+
+def process_video(input_path, operation, params=None):
+    payload = json.dumps({"input": input_path, "operation": operation,
+                          "params": params or {}}).encode()
+    req = urllib.request.Request(
+        f"{API_URL}/api/process", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Check README của repo để biết endpoints cụ thể
+```
+
+### OpenClaw
+```bash
+# Gọi API — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/[repo-url]
+cd [repo] && pip install -r requirements.txt
+python3 main.py --host 0.0.0.0 --port 8000
+```
+> ⚠️ Đọc README repo để biết endpoints chính xác trước khi deploy.
