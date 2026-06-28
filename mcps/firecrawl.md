@@ -103,3 +103,47 @@ Nâng cao hơn:
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/firecrawl/firecrawl-mcp-server*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json
+
+def firecrawl_scrape(url, api_key):
+    payload = json.dumps({"url": url, "formats": ["markdown"]}).encode()
+    req = urllib.request.Request(
+        "https://api.firecrawl.dev/v1/scrape", data=payload,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["data"]["markdown"]
+
+def firecrawl_crawl(url, api_key, limit=10):
+    payload = json.dumps({"url": url, "limit": limit,
+        "scrapeOptions": {"formats": ["markdown"]}}).encode()
+    req = urllib.request.Request(
+        "https://api.firecrawl.dev/v1/crawl", data=payload,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Dùng: api_key = os.environ["FIRECRAWL_API_KEY"]
+# markdown = firecrawl_scrape("https://example.com", api_key)
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y firecrawl-mcp
+# hoặc: /skill install firecrawl
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy — dùng cloud API
+# Set env: FIRECRAWL_API_KEY=fc-xxx
+```
+> ⚠️ Free 500 req/tháng. Lấy key: firecrawl.dev
