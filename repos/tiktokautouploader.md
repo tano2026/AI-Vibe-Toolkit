@@ -74,3 +74,45 @@ ffmpeg -f concat -safe 0 -i concat.txt -c copy final.mp4
 - Repo: https://github.com/haziq-exe/TikTokAutoUploader
 - Docs: https://github.com/haziq-exe/TikTokAutoUploader/blob/main/Documentation.md
 - PyPI: https://pypi.org/project/tiktokautouploader/
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+# Antigravity phải cài trước: pip install tiktok-uploader
+# Cần TikTok session cookies — lấy từ browser
+
+from tiktok_uploader.upload import upload_videos
+
+def upload_to_tiktok(video_path, title, tags=None, cookies="cookies.txt"):
+    """Upload video lên TikTok tự động"""
+    videos = [{
+        "path": video_path,
+        "description": title + " " + " ".join([f"#{t}" for t in (tags or [])])
+    }]
+    upload_videos(videos=videos, cookies=cookies, headless=True)
+    return f"Uploaded: {video_path}"
+
+# Workflow content factory:
+# 1. Tạo video (HyperFrames/Remotion)
+# 2. Hermes gọi upload_to_tiktok() → lên TikTok tự động
+# 3. Báo chủ qua Telegram
+
+# Lấy cookies: đăng nhập TikTok trên browser → export cookies → lưu cookies.txt
+```
+
+### OpenClaw
+```bash
+# CLI tool — không cần npm config
+```
+
+### Antigravity
+```bash
+pip install tiktok-uploader
+# Export cookies từ browser (dùng EditThisCookie extension):
+# Chrome → TikTok đã login → Export → lưu tiktok_cookies.txt
+playwright install chromium  # cần cho upload
+```
+> ⚠️ Đây là mảnh ghép cuối content factory: video xong → tự upload TikTok.
