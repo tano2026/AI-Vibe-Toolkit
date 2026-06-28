@@ -104,3 +104,55 @@ Mem0 kết hợp 3 loại storage:
 ---
 
 *Thêm vào kho: 06/2025 | Phát hiện qua: @DevAtlas TikTok | Nguồn: github.com/mem0ai/mem0*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+# Option A: Cloud API
+MEM0_API_KEY = "[MEM0_API_KEY]"
+MEM0_URL = "https://api.mem0.ai/v1"
+
+def mem0_add(content, user_id="tano", api_key=MEM0_API_KEY):
+    payload = json.dumps({"messages": [{"role": "user", "content": content}],
+                          "user_id": user_id}).encode()
+    req = urllib.request.Request(f"{MEM0_URL}/memories/", data=payload,
+        headers={"Authorization": f"Token {api_key}", "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+
+def mem0_search(query, user_id="tano", api_key=MEM0_API_KEY):
+    payload = json.dumps({"query": query, "user_id": user_id}).encode()
+    req = urllib.request.Request(f"{MEM0_URL}/memories/search/", data=payload,
+        headers={"Authorization": f"Token {api_key}", "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+
+def mem0_get_all(user_id="tano", api_key=MEM0_API_KEY):
+    req = urllib.request.Request(f"{MEM0_URL}/memories/?user_id={user_id}",
+        headers={"Authorization": f"Token {api_key}"})
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Dùng: mem0_add("Nobitano thích output ngắn gọn, tiếng Việt casual")
+# memories = mem0_search("style viết")
+```
+
+### OpenClaw
+```bash
+# Dùng qua Hermes delegate
+# hoặc: npm install mem0ai
+```
+
+### Antigravity
+```bash
+# Self-host với Docker:
+docker run -d -p 8000:8000 \
+  -e OPENAI_API_KEY=$OPENAI_API_KEY \
+  --name mem0 mem0ai/mem0:latest
+# Sau đó dùng MEM0_URL=http://localhost:8000
+```
+> ⚠️ Cloud free tier có giới hạn. Self-host free unlimited nhưng cần OpenAI key.
