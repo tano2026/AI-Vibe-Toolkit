@@ -1,47 +1,29 @@
-# /agents — Hướng dẫn cho AI Agents
+# /agents — Hệ thống AI Agents
 
-Folder này chứa instruction riêng cho từng agent trong hệ thống.
+## 3 agents trong hệ thống
 
-## Agents trong hệ thống
+| Agent | Instruction | Runtime | Kênh |
+|-------|-------------|---------|------|
+| **Hermes** | `HERMES-PLAYBOOK.md` | Python trong OpenClaw | Telegram |
+| **OpenClaw** | `OPENCLAW-PLAYBOOK.md` | Node.js 22+ | Telegram / WhatsApp |
+| **Antigravity** | `ANTIGRAVITY-PLAYBOOK.md` | Shell/SSH trên VPS | Manual / webhook |
 
-| Agent | File | Vai trò | Runtime |
-|-------|------|---------|---------|
-| Hermes | HERMES-GUIDE.md | Research, xử lý task, gọi API | Python trong OpenClaw |
-| OpenClaw | OPENCLAW-GUIDE.md | Orchestrator chính, browser, Telegram gateway | Node.js 22+ |
-| Antigravity | ANTIGRAVITY-GUIDE.md | Install, deploy, maintain VPS | Shell/SSH |
-| Research Pro | research-pro.md | Analyst chuyên sâu (sub-agent của Hermes) | Python |
+## Sub-agents
+- `research-pro.md` — Research Pro, chạy trong Hermes
+- `research-analytics-pro/` — System prompt + domain playbooks cho Research Pro
 
-## Phân công
+## Luồng phân công
 
 ```
-Nhận lệnh từ chủ (Telegram)
-    ↓
-OpenClaw — điều phối
-    ├── Task Python/API → Hermes
-    ├── Task deploy/install → Antigravity
-    ├── Task browser/UI → OpenClaw tự xử
-    └── Task research phức tạp → Hermes → Research Pro
+Chủ nhắn Telegram
+      ↓
+OpenClaw nhận, phân loại
+      ├── Browser / UI / WhatsApp  → OpenClaw tự làm
+      ├── Python / API / data      → Hermes
+      ├── Deploy / install / VPS   → Antigravity
+      └── Viết .md, thêm kho      → Báo chủ → Claude làm
 ```
 
-## Fetch kho (Python — Hermes dùng)
+## Entry point của kho
 
-```python
-import urllib.request, json, base64
-
-def fetch_kho(path, token="[YOUR_GITHUB_TOKEN]"):
-    req = urllib.request.Request(
-        f"https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/{path}",
-        headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
-    )
-    data = json.loads(urllib.request.urlopen(req).read())
-    return base64.b64decode(data["content"]).decode("utf-8")
-
-# Examples
-tracker = fetch_kho("TRACKER.md")
-guide = fetch_kho("agents/HERMES-GUIDE.md")
-firecrawl = fetch_kho("mcps/firecrawl.md")
-```
-
-## Claude (tao) dùng kho thế nào
-
-Claude gọi thẳng GitHub API trong mỗi session — không download về local. Kho là shared knowledge base, mỗi agent đọc theo cách riêng của mình phù hợp với runtime.
+`/KHO-INDEX.md` — đọc file này đầu tiên trước khi fetch bất cứ thứ gì.
