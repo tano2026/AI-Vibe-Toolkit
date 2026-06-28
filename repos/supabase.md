@@ -74,3 +74,61 @@ Auth + database + realtime — 3 dòng config, không cần backend server riên
 - Repo: https://github.com/supabase/supabase
 - Docs: https://supabase.com/docs
 - Dashboard: https://supabase.com
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity.
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+SUPABASE_URL = "[SUPABASE_URL]"  # https://xxx.supabase.co
+SUPABASE_KEY = "[SUPABASE_ANON_KEY]"
+HEADERS_SB = {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}",
+              "Content-Type": "application/json"}
+
+def sb_select(table, filters="", limit=100):
+    f = f"?{filters}&limit={limit}" if filters else f"?limit={limit}"
+    req = urllib.request.Request(f"{SUPABASE_URL}/rest/v1/{table}{f}", headers=HEADERS_SB)
+    return json.loads(urllib.request.urlopen(req).read())
+
+def sb_insert(table, data):
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(f"{SUPABASE_URL}/rest/v1/{table}", data=payload,
+        headers={**HEADERS_SB, "Prefer": "return=representation"}, method="POST")
+    return json.loads(urllib.request.urlopen(req).read())
+
+def sb_update(table, data, filter_col, filter_val):
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/{table}?{filter_col}=eq.{filter_val}",
+        data=payload, headers=HEADERS_SB, method="PATCH")
+    return json.loads(urllib.request.urlopen(req).read())
+
+def sb_delete(table, filter_col, filter_val):
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/{table}?{filter_col}=eq.{filter_val}",
+        headers=HEADERS_SB, method="DELETE")
+    urllib.request.urlopen(req)
+
+# Dùng: rows = sb_select("tools", "status=eq.active")
+```
+
+### OpenClaw
+```bash
+# Dùng Supabase JS SDK:
+npm install @supabase/supabase-js
+```
+
+### Antigravity
+```bash
+# Self-host Supabase:
+git clone https://github.com/supabase/supabase
+cd supabase/docker && cp .env.example .env
+docker compose up -d
+# Mở: http://localhost:8000
+```
+> ⚠️ Dùng cloud miễn phí cho projects nhỏ. Self-host khi cần privacy.
