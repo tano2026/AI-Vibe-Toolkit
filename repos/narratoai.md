@@ -54,3 +54,38 @@ Input: Video YouTube 45 phút về "Cách dùng Claude Code từ A-Z"
 ## Link
 - Repo: https://github.com/linyqh/NarratoAI
 - Docs: xem README trong repo
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+SERVICE_URL = "http://localhost:7860"
+
+def call_api(endpoint, data):
+    payload = json.dumps(data).encode()
+    req = urllib.request.Request(
+        f"{SERVICE_URL}/{endpoint}", data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Đọc README repo để biết endpoints cụ thể
+# Antigravity deploy trước, Hermes gọi sau
+```
+
+### OpenClaw
+```bash
+# Gọi local API — không cần npm
+```
+
+### Antigravity
+```bash
+git clone https://github.com/[repo]
+cd [repo] && pip install -r requirements.txt
+cp .env.example .env && python3 main.py
+```
+> ⚠️ AI narration/TTS tool
