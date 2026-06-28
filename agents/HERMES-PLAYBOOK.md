@@ -229,12 +229,133 @@ def tts(text, voice="female-shaonv", save_as="tts.mp3"):
 
 ---
 
+---
+
+## OmniRoute — LLM miễn phí 1.6B token/tháng
+
+OmniRoute là local proxy gom 231 provider thành 1 endpoint OpenAI-compatible.
+Thay vì gọi thẳng Anthropic API (tốn tiền) → gọi qua OmniRoute (miễn phí).
+
+**Khi nào dùng OmniRoute vs Anthropic trực tiếp:**
+- Task thông thường (research, viết content, phân tích) → **OmniRoute**
+- Task cần Claude cụ thể (skill phức tạp, reasoning sâu) → **Anthropic trực tiếp**
+
+### Config OmniRoute trong Hermes
+
+```python
+import urllib.request, json, os
+
+# OmniRoute endpoint (phải chạy trước: npm install -g omniroute && omniroute)
+OMNIROUTE_URL = os.environ.get("OMNIROUTE_URL", "http://localhost:20128/v1")
+
+# Model alias thông minh — OmniRoute tự chọn provider tốt nhất
+MODELS = {
+    "fast":       "auto/chat:fast",      # Gemini Flash, Groq Llama → nhanh nhất
+    "coding":     "auto/coding:fast",    # Kimi K2, DeepSeek Coder → code
+    "reasoning":  "auto/reasoning:pro",  # DeepSeek R1, Groq → suy luận
+    "long":       "auto/long-context",   # Minimax M3, Gemini → file lớn 1M ctx
+    "cheap":      "auto",                # OmniRoute tự quyết định rẻ nhất
+}
+
+def call_omniroute(prompt, task_type="fast", system=None, max_tokens=2000):
+    model = MODELS.get(task_type, "auto")
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+
+    payload = json.dumps({
+        "model": model,
+        "messages": messages,
+        "max_tokens": max_tokens
+    }).encode()
+
+    req = urllib.request.Request(
+        f"{OMNIROUTE_URL}/chat/completions",
+        data=payload,
+        headers={
+            "Authorization": "Bearer omniroute",
+            "Content-Type": "application/json"
+        }
+    )
+    r = json.loads(urllib.request.urlopen(req, timeout=30).read())
+    return r["choices"][0]["message"]["content"]
+
+# Ví dụ dùng:
+# result = call_omniroute("Tóm tắt bài này", task_type="fast")
+# code   = call_omniroute("Fix bug này", task_type="coding")
+# report = call_omniroute("Phân tích thị trường", task_type="reasoning")
+```
+
+### Fallback pattern — dùng OmniRoute trước, Anthropic sau
+
+```python
+def call_llm(prompt, task_type="fast", system=None, max_tokens=2000):
+    # Ưu tiên OmniRoute (miễn phí)
+    try:
+        return call_omniroute(prompt, task_type, system, max_tokens)
+    except Exception as e:
+        # Fallback về Anthropic nếu OmniRoute down
+        print(f"[OmniRoute failed: {e}] → fallback Anthropic")
+        return call_anthropic(prompt, system, max_tokens)
+
+def call_anthropic(prompt, system=None, max_tokens=2000):
+    messages = [{"role": "user", "content": prompt}]
+    body = {"model": "claude-sonnet-4-6", "max_tokens": max_tokens,
+            "messages": messages}
+    if system:
+        body["system"] = system
+    payload = json.dumps(body).encode()
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=payload,
+        headers={"x-api-key": os.environ["ANTHROPIC_API_KEY"],
+                 "anthropic-version": "2023-06-01",
+                 "Content-Type": "application/json"}
+    )
+    return json.loads(urllib.request.urlopen(req).read())["content"][0]["text"]
+```
+
+### Free token mỗi tháng qua OmniRoute
+
+| Provider | Token/tháng | Task phù hợp |
+|----------|-------------|--------------|
+| Mistral | 1,000M | Research, writing |
+| Groq | 117M | Reasoning nhanh, coding |
+| Gemini Flash | 60M | Long context, chat |
+| Cerebras | 30M | Inference nhanh |
+| Cloudflare | 30M | Task nhẹ |
+| SambaNova | 30M | General |
+| SiliconFlow | No-cap | Backup |
+| **Tổng** | **~1.6B** | |
+
+### Env var cần thêm
+
+```bash
+OMNIROUTE_URL=http://localhost:20128/v1  # nếu chạy local
+# Hoặc nếu deploy trên VPS riêng:
+# OMNIROUTE_URL=http://YOUR_VPS_IP:20128/v1
+```
+
+### Cài OmniRoute (Antigravity làm 1 lần)
+
+```bash
+# Nhờ Antigravity chạy trên VPS:
+npm install -g omniroute
+omniroute &  # chạy nền
+# Hoặc dùng pm2:
+pm2 start "omniroute" --name omniroute
+pm2 save
+```
+
+
 ## Env vars cần có
 
 ```bash
 # Bắt buộc
 GITHUB_TOKEN=[GITHUB_TOKEN]
 ANTHROPIC_API_KEY=
+OMNIROUTE_URL=http://localhost:20128/v1  # OmniRoute local proxy
 
 # Search/Scrape (free tier đủ dùng)
 BRAVE_API_KEY=          # brave.com/search/api — 2000 req/month free
