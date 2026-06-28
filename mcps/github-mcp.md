@@ -93,3 +93,55 @@ Vibe coding xong → phải tự tạo commit message, tạo PR, viết descript
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/github/github-mcp-server*
+
+---
+
+## 🤖 Agent Integration
+
+> Section này dành cho Hermes/OpenClaw/Antigravity — không phải cho human đọc.
+
+### Hermes (Python — gọi thẳng, không cần MCP)
+```python
+import urllib.request, json, base64
+
+GITHUB_TOKEN = "[GITHUB_TOKEN]"
+REPO = "tano2026/AI-Vibe-Toolkit"
+HEADERS = {"Authorization": f"token {GITHUB_TOKEN}",
+           "Accept": "application/vnd.github.v3+json"}
+
+def gh_get(path):
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{REPO}/contents/{path}", headers=HEADERS)
+    data = json.loads(urllib.request.urlopen(req).read())
+    return base64.b64decode(data["content"]).decode(), data["sha"]
+
+def gh_push(path, content, commit_msg):
+    safe = content.replace(GITHUB_TOKEN, "[GITHUB_TOKEN]")
+    _, sha = gh_get(path)
+    payload = json.dumps({"message": commit_msg, "sha": sha,
+        "content": base64.b64encode(safe.encode()).decode()}).encode()
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{REPO}/contents/{path}",
+        data=payload, headers={**HEADERS, "Content-Type": "application/json"}, method="PUT")
+    urllib.request.urlopen(req)
+
+def gh_search(query, token=GITHUB_TOKEN):
+    import urllib.parse
+    req = urllib.request.Request(
+        f"https://api.github.com/search/repositories?q={urllib.parse.quote(query)}&sort=stars&per_page=5",
+        headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"})
+    return json.loads(urllib.request.urlopen(req).read())["items"]
+```
+
+### OpenClaw (npm/ClawHub)
+```bash
+npx -y @modelcontextprotocol/server-github
+# Set GITHUB_TOKEN trong env
+```
+
+### Antigravity (deploy nếu cần self-host)
+```bash
+# Không cần deploy — GitHub REST API public
+# Set env: GITHUB_TOKEN=[GITHUB_TOKEN]
+```
+
