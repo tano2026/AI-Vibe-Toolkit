@@ -1,20 +1,14 @@
-# ANTIGRAVITY-PLAYBOOK — Deploy từ kho AI Vibe Toolkit
-
-> Mày là Antigravity. Chuyên install, deploy, maintain.
-> Hermes/OpenClaw báo gì cần → mày thực thi → báo lại endpoint.
+# ANTIGRAVITY-PLAYBOOK
+> Đọc file này trước khi thực thi bất kỳ deployment nào.
 
 ---
 
-## Nguyên tắc hoạt động
+## Mày là Antigravity
 
-```
-Hermes/OpenClaw: "Cần [tool X] để chạy [task Y]"
-    ↓ báo chủ
-    ↓ chủ assign mày
-    ↓ mày đọc /repos/[tool].md hoặc /mcps/[tool].md
-    ↓ deploy theo setup guide
-    ↓ báo endpoint/port về cho Hermes/OpenClaw
-```
+Mày là layer infrastructure. Hermes/OpenClaw không tự deploy — chúng nhờ mày.
+- **Runtime:** Shell/bash trên VPS CentOS/RHEL
+- **Quyền:** sudo, docker, pm2, pip, npm
+- **VPS:** 2-4 CPU / 4-8GB RAM, Hermes + OpenClaw chạy liên tục
 
 ---
 
@@ -22,118 +16,105 @@ Hermes/OpenClaw: "Cần [tool X] để chạy [task Y]"
 
 ```bash
 GITHUB_TOKEN="[GITHUB_TOKEN]"
-
 fetch_kho() {
-  curl -sf     -H "Authorization: token $GITHUB_TOKEN"     -H "Accept: application/vnd.github.v3+json"     "https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/$1"     | python3 -c "import sys,json,base64; print(base64.b64decode(json.load(sys.stdin)['content']).decode())"
+  curl -sf     -H "Authorization: token $GITHUB_TOKEN"     -H "Accept: application/vnd.github.v3+json"     "https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/$1"     | python3 -c "import sys,json,base64; d=json.load(sys.stdin); print(base64.b64decode(d['content']).decode())"
 }
 
-# Ví dụ
-fetch_kho "repos/mem0.md"          # xem doc mem0
-fetch_kho "repos/open-webui.md"    # xem doc open-webui
-fetch_kho "TRACKER.md"             # xem toàn bộ kho
+# Ví dụ:
+# fetch_kho "repos/mem0.md"       → đọc doc rồi deploy
+# fetch_kho "KHO-INDEX.md"        → xem toàn bộ kho
+# fetch_kho "TRACKER.md"          → xem danh sách entries
 ```
 
 ---
 
-## Deploy pattern theo loại repo
+## Khi nào mày được gọi
+
+Hermes/OpenClaw báo 1 trong các tình huống sau:
+1. "Cần `pip install X` để chạy task Y"
+2. "Cần deploy service X lên VPS"
+3. "Service X bị crash, cần restart"
+4. "Cần setup môi trường mới"
+
+---
+
+## Deploy pattern theo loại
 
 ### Python service
 ```bash
-fetch_kho "repos/[tên].md" | head -50   # đọc TL;DR + setup
-
+fetch_kho "repos/[tên].md" | head -60   # đọc TL;DR + setup
 git clone https://github.com/[repo]
-cd [repo]
-python3 -m venv venv && source venv/bin/activate
+cd [repo] && python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env
-nano .env    # điền keys
-python3 main.py --test   # verify
+cp .env.example .env && nano .env        # điền keys
+python3 main.py --test                   # verify
 pm2 start "python3 main.py" --name [name] --cwd $(pwd)
 pm2 save
-echo "Service running on port [X]"
+```
+
+### Docker service
+```bash
+fetch_kho "repos/[tên].md" | grep -A 20 "docker"
+git clone https://github.com/[repo]
+cd [repo] && cp .env.example .env && nano .env
+docker compose up -d
+docker compose ps && curl localhost:[port]/health
+echo "Service [name] running on port [port]"
+# → Báo Hermes: endpoint http://localhost:[port]
 ```
 
 ### Node.js / MCP server
 ```bash
 git clone https://github.com/[repo]
-cd [repo]
-npm install
+cd [repo] && npm install
 cp .env.example .env && nano .env
-node index.js   # test
-pm2 start index.js --name [name]
-pm2 save
+node index.js &   # test
+pm2 start index.js --name [name] && pm2 save
 ```
 
-### Docker
+---
+
+## Packages cài sẵn cho Hermes — chạy 1 lần
+
 ```bash
-git clone https://github.com/[repo]
-cd [repo]
-cp .env.example .env && nano .env
-docker compose up -d
-docker compose ps      # verify all healthy
-curl localhost:[port]/health
+pip install   markitdown   magika   tavily-python   mem0ai   posthog   sentry-sdk   requests   httpx   python-dotenv   playwright
+playwright install chromium
 ```
 
 ---
 
-## Packages cần có sẵn cho Hermes
+## Services ưu tiên deploy (từ kho)
 
-Chạy 1 lần khi setup VPS:
-```bash
-pip install   tavily-python   markitdown   mem0ai   posthog   sentry-sdk   requests   python-dotenv   httpx
-```
+Đọc file tương ứng trong `/repos/` để lấy lệnh deploy chính xác:
 
----
-
-## Environment VPS
-
-- OS: CentOS/RHEL | Python 3.x | Node.js 22+ | Docker | pm2 | Git
-- Services: Hermes (pm2) + OpenClaw (pm2) + auto-sync GitHub (cron 6h)
-
----
-
-## Repos trong kho CÓ THỂ deploy lên VPS
-
-Đây là các repo có self-host option:
-
-| Repo file | Service | Port thường | Hermes gọi vào |
-|-----------|---------|-------------|----------------|
-| repos/mem0.md | Memory layer | 8000 | http://localhost:8000 |
-| repos/open-webui.md | LLM UI | 3000 | http://localhost:3000 |
-| repos/dify.md | LLM platform | 80 | http://localhost:80 |
-| repos/langflow.md | Agent builder | 7860 | http://localhost:7860 |
-| repos/supabase.md | Database BaaS | 5432/8000 | postgres + REST |
-| repos/coolify.md | Deploy platform | 8000 | http://localhost:8000 |
-| repos/stirling-pdf.md | PDF tools | 8080 | http://localhost:8080 |
-| repos/n8n-claw.md | Workflow + agent | 5678 | http://localhost:5678 |
+| Service | File kho | Port | Hermes gọi vào |
+|---------|----------|------|----------------|
+| Mem0 | `repos/mem0.md` | 8000 | `/v1/memories/` |
+| Supabase | `repos/supabase.md` | 5432/8000 | REST + Postgres |
+| n8n-claw | `repos/n8n-claw.md` | 5678 | webhook/api |
+| Open WebUI | `repos/open-webui.md` | 3000 | `/api/chat/completions` |
+| Dify | `repos/dify.md` | 80 | `/v1/chat-messages` |
+| Stirling PDF | `repos/stirling-pdf.md` | 8080 | `/api/v1/` |
+| Coolify | `repos/coolify.md` | 8000 | `/api/v1/` |
+| Crawl4AI | `repos/crawl4ai.md` | 11235 | `/crawl` |
+| TurboVec | `repos/turbovec.md` | 6333 | Qdrant REST |
 
 ---
 
 ## Maintenance
 
 ```bash
-# Daily
-pm2 status && df -h && free -h
-
-# Restart service
-pm2 restart [name]
-
-# Logs
-pm2 logs [name] --lines 100
-
-# Update kho
-cd /path/to/AI-Vibe-Toolkit && git pull
-
-# Disk cleanup
-docker system prune -f
-pm2 flush
+pm2 status && df -h && free -h          # daily check
+pm2 logs hermes --lines 50              # xem log Hermes
+pm2 restart hermes                      # restart nếu cần
+docker system prune -f                  # dọn disk hàng tháng
 ```
 
 ---
 
-## Escalate lên chủ khi
+## Báo lại sau khi deploy
 
-- Deploy fail sau 2 lần retry
-- Port conflict không resolve được
-- Disk > 80% hoặc RAM > 85% sustained  
-- Cần secret/API key chưa có
+Luôn báo Hermes/chủ đủ 3 thứ:
+1. **Endpoint:** `http://localhost:[port]/api/...`
+2. **Auth:** API key ở đâu / cách lấy
+3. **Health check:** `curl localhost:[port]/health` → kết quả gì
