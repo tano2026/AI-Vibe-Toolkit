@@ -225,6 +225,89 @@ TAVILY_API_KEY=
 
 ---
 
+---
+
+## Paperclip — Lop quan ly phia tren OpenClaw
+
+Paperclip la platform quan ly doi AI agent (`paperclipai/paperclip`, 72K stars).
+Trong stack cua Nobitano: **Paperclip giao task cho OpenClaw**, OpenClaw orchestrate Hermes.
+
+```
+Nobitano dat muc tieu
+    ↓
+Paperclip (quan ly, ngan sach, governance)
+    ↓
+OpenClaw (nhan task tu Paperclip, orchestrate)
+    ↓
+Hermes (thuc thi Python)
+```
+
+### Khi OpenClaw nhan task tu Paperclip
+
+Task tu Paperclip co format dac biet:
+```json
+{
+  "source": "paperclip",
+  "company": "ABTRIP AI Operations",
+  "goal": "Tang 300% booking online",
+  "task": "Viet 5 script TikTok cho tuan nay",
+  "agent_role": "Content Creator",
+  "budget_remaining": "$42.50",
+  "deadline": "2026-07-06"
+}
+```
+
+**OpenClaw xu ly task tu Paperclip:**
+```javascript
+// Nhan dang task den tu Paperclip
+function isPaperclipTask(task) {
+  return task.source === "paperclip";
+}
+
+// Xu ly va bao cao lai
+async function handlePaperclipTask(task) {
+  // 1. Route sang agent chuyen mon (agency-agents)
+  const agentSkill = routeToAgent(task.agent_role);
+
+  // 2. Giao Hermes thuc thi
+  const result = await delegateToHermes({
+    skill: agentSkill,
+    prompt: task.task,
+    context: task
+  });
+
+  // 3. Bao cao lai Paperclip
+  await reportToPaperclip(task.id, result);
+
+  return result;
+}
+```
+
+### Endpoint OpenClaw phai expose cho Paperclip
+
+```javascript
+// Paperclip goi endpoint nay de giao task
+app.post("/paperclip/task", async (req, res) => {
+  const task = req.body;
+  const result = await handlePaperclipTask(task);
+  res.json({ status: "completed", result });
+});
+
+// Paperclip poll endpoint nay de xem trang thai
+app.get("/paperclip/status/:taskId", (req, res) => {
+  res.json(getTaskStatus(req.params.taskId));
+});
+```
+
+### Config trong Paperclip dashboard
+
+```
+Settings → Integrations → OpenClaw
+Endpoint: http://localhost:YOUR_OPENCLAW_PORT
+Auth: Bearer YOUR_OPENCLAW_TOKEN
+```
+
+
 ## Agency Agents — Đội ngũ AI chuyên môn hóa
 
 **Repo:** `msitarzewski/agency-agents` (117K stars) — 232 agent, 16 phòng ban, OpenClaw integration chính thức.
