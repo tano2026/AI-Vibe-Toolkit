@@ -1288,3 +1288,19 @@ Hook: "1.6 ty token mien phi moi thang. 231 provider. 1 endpoint. Cai 2 phut."
 Ung dung: Hermes + OpenClaw tro tat ca goi LLM qua OmniRoute → 1.6B token free/thang, auto fallback, zero downtime
 
 **Kho: 97 repos | 37 MCPs | 86 skills | 129 scripts | 2 agents**
+
+
+---
+
+## Tool moi - Paperclip (lan 71)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Paperclip | repos/paperclip.md | 71,936 | AI agent company platform — org chart, budget, governance, OpenClaw integration chinh thuc |
+
+Script: script-video-130-paperclip.md
+Hook: "OpenClaw la nhan vien AI. Paperclip la cong ty quan ly nhung nhan vien do. 72K stars."
+
+Vi tri trong stack: Nobitano → Paperclip → OpenClaw → Hermes → agency-agents → OmniRoute
+
+**Kho: 98 repos | 37 MCPs | 86 skills | 130 scripts | 2 agents**
