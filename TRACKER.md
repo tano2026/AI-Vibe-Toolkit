@@ -1304,3 +1304,18 @@ Hook: "OpenClaw la nhan vien AI. Paperclip la cong ty quan ly nhung nhan vien do
 Vi tri trong stack: Nobitano → Paperclip → OpenClaw → Hermes → agency-agents → OmniRoute
 
 **Kho: 98 repos | 37 MCPs | 86 skills | 130 scripts | 2 agents**
+
+
+---
+
+## Batch Harness Engineering (lan 72)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| learn-harness-engineering | repos/learn-harness-engineering.md | 9,356 | Khoa hoc 12 bai, 6 project, tieng Viet, harness-creator skill |
+| awesome-harness-engineering | repos/awesome-harness-engineering.md | 3,373 | Curated tools + guides cho Harness Engineering |
+
+Script: script-video-131-learn-harness-engineering.md
+Da tao: agents/HERMES-AGENTS.md — production harness chinh thuc cho Hermes
+
+**Kho: 100 repos | 37 MCPs | 86 skills | 131 scripts | 3 agents**
