@@ -1335,3 +1335,17 @@ Scripts: 132 (Chatwoot), 133 (awesome-selfhosted)
 Deploy guide ABTRIP co trong chatwoot.md: Docker + WAHA WhatsApp + Captain AI qua OmniRoute
 
 **Kho: 103 repos | 37 MCPs | 86 skills | 133 scripts | 3 agents**
+
+
+---
+
+## Tool moi - AI-auto-generate-video (lan 74)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| AI-auto-generate-video | repos/ai-auto-generate-video.md | 77 | Bai viet -> video 9:16 trong 1 lenh, OmniVoice + HyperFrames + FFmpeg, Claude Code skill |
+
+Script: script-video-134-ai-auto-generate-video.md
+Pipeline thuc te de tu dong hoa content cua kho - thay ElevenLabs bang OmniVoice/Resona
+
+**Kho: 104 repos | 37 MCPs | 86 skills | 134 scripts | 3 agents**
