@@ -1319,3 +1319,20 @@ Script: script-video-131-learn-harness-engineering.md
 Da tao: agents/HERMES-AGENTS.md — production harness chinh thuc cho Hermes
 
 **Kho: 100 repos | 37 MCPs | 86 skills | 131 scripts | 3 agents**
+
+
+---
+
+## Tool moi - FreeLLMAPI (lan 73)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| FreeLLMAPI | repos/freellmapi.md | 14,100 | Proxy free gom 16+ LLM provider, ~1.7B token/thang, auto failover 20 lan, OpenAI-compatible, Docker 1 lenh |
+
+Script: script-video-132-freellmapi.md
+Hook: "1.7 ty token mien phi moi thang. 16 provider. 1 endpoint. Cai 30 giay."
+
+Vi tri trong stack: Claude Code / Cursor / Hermes → FreeLLMAPI:3001 → [Groq / Gemini / Cerebras / Mistral / GitHub Models...]
+Ket hop: FreeLLMAPI lam provider phu trong OmniRoute fallback chain → tang tong free token len >3B/thang
+
+**Kho: 101 repos | 37 MCPs | 86 skills | 132 scripts | 3 agents**
