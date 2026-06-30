@@ -1349,3 +1349,19 @@ Script: script-video-134-ai-auto-generate-video.md
 Pipeline thuc te de tu dong hoa content cua kho - thay ElevenLabs bang OmniVoice/Resona
 
 **Kho: 104 repos | 37 MCPs | 86 skills | 134 scripts | 3 agents**
+
+
+---
+
+## Batch lan 75 - Spec Kit + Strix + OmniShow
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| GitHub Spec Kit | repos/spec-kit.md | 116,611 | Official GitHub - Spec-Driven Development, het vibe coding mo ho |
+| Strix | repos/strix.md | 27,780 | AI pentest agent tu hack tu va, tich hop CI/CD |
+| OmniShow | repos/omnishow.md | 436 | ByteDance ICML 2026 - video human-object interaction, research-only |
+
+Scripts: 135 (Spec Kit), 136 (Strix)
+Note: OmniShow chua production-ready, theo doi them truoc khi lam content
+
+**Kho: 107 repos | 37 MCPs | 86 skills | 136 scripts | 3 agents**
