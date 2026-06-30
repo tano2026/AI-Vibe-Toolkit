@@ -1319,3 +1319,19 @@ Script: script-video-131-learn-harness-engineering.md
 Da tao: agents/HERMES-AGENTS.md — production harness chinh thuc cho Hermes
 
 **Kho: 100 repos | 37 MCPs | 86 skills | 131 scripts | 3 agents**
+
+
+---
+
+## Batch lan 73 - Chatwoot + awesome-selfhosted
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Chatwoot | repos/chatwoot.md | 33,734 | Customer support platform - thay Intercom/Zendesk, MIT, Captain AI, omnichannel |
+| awesome-selfhosted | repos/awesome-selfhosted.md | 301,787 | Top 10 GitHub moi thoi dai - 2000+ self-host software |
+
+Scripts: 132 (Chatwoot), 133 (awesome-selfhosted)
+
+Deploy guide ABTRIP co trong chatwoot.md: Docker + WAHA WhatsApp + Captain AI qua OmniRoute
+
+**Kho: 103 repos | 37 MCPs | 86 skills | 133 scripts | 3 agents**
