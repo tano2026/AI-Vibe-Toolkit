@@ -1365,3 +1365,19 @@ Scripts: 135 (Spec Kit), 136 (Strix)
 Note: OmniShow chua production-ready, theo doi them truoc khi lam content
 
 **Kho: 107 repos | 37 MCPs | 86 skills | 136 scripts | 3 agents**
+
+
+---
+
+## Batch lan 76 - capcut-tts-api + Vibe-Trading
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| capcut-tts-api | repos/capcut-tts-api.md | 177 | CapCut TTS/STT API Python client, tac gia VN, giong BV074 |
+| Vibe-Trading | repos/vibe-trading.md | 15,916 | Multi-agent AI trading, VNSTOCK, Shadow Account, MCP server |
+
+Scripts: 137 (capcut-tts-api), 138 (vibe-trading)
+Da co (skip): gstack, open-seo, headroom, bumblebee, ponytail
+GStack update: 117,296 stars (tang tu 115K)
+
+**Kho: 109 repos | 37 MCPs | 86 skills | 138 scripts | 3 agents**
