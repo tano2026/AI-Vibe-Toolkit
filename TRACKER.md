@@ -1381,3 +1381,4 @@ Da co (skip): gstack, open-seo, headroom, bumblebee, ponytail
 GStack update: 117,296 stars (tang tu 115K)
 
 **Kho: 109 repos | 37 MCPs | 86 skills | 138 scripts | 3 agents**
+| - | Repo | DeepSeek-Reasonix | /repos/deepseek-reasonix.md | Đã push | /content/script-video-deepseek-reasonix.md | 2026-07-01 |
