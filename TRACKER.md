@@ -1382,3 +1382,21 @@ GStack update: 117,296 stars (tang tu 115K)
 
 **Kho: 109 repos | 37 MCPs | 86 skills | 138 scripts | 3 agents**
 | - | Repo | DeepSeek-Reasonix | /repos/deepseek-reasonix.md | Đã push | /content/script-video-deepseek-reasonix.md | 2026-07-01 |
+
+
+---
+
+## Batch lan 77 - Firecrawl + Airweave + Opik + Ollama (tu 16 must-know AI GitHub repos 2026)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Firecrawl | repos/firecrawl.md | 141,000 | Web -> markdown sach cho LLM, co Agent endpoint tu tim URL, MCP+CLI san |
+| Airweave | repos/airweave.md | 5,700 | Context retrieval layer, sync 50+ nguon data, YC-backed |
+| Opik | repos/opik.md | 12,500 | Trace + eval + monitor agent, LLM-as-judge, 1 decorator setup |
+| Ollama | repos/ollama.md | 172,000 | Chay LLM local 1 lenh, OpenAI-compatible API, tich hop chinh thuc voi OpenClaw |
+
+Scripts: 139 (Firecrawl), 140 (Airweave), 141 (Opik), 142 (Ollama)
+Muc dich: nang cap Research Pro v4 (Firecrawl scrape + Airweave context sync + Opik chong bia so) va them Ollama lam fallback local cho Hermes khi OmniRoute loi.
+Note: Airweave stack nang (Postgres+Vespa+Temporal+Redis) - hoan lai trien khai thuc te den khi giai quyet xong RAM constraint VPS (cung van de voi Chatwoot).
+
+**Kho: 113 repos | 37 MCPs | 86 skills | 142 scripts | 3 agents**
