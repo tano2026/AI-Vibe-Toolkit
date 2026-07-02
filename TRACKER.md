@@ -1400,3 +1400,18 @@ Muc dich: nang cap Research Pro v4 (Firecrawl scrape + Airweave context sync + O
 Note: Airweave stack nang (Postgres+Vespa+Temporal+Redis) - hoan lai trien khai thuc te den khi giai quyet xong RAM constraint VPS (cung van de voi Chatwoot).
 
 **Kho: 113 repos | 37 MCPs | 86 skills | 142 scripts | 3 agents**
+
+
+---
+
+## Tool moi - Tavily MCP (lan 78, nang cap Research Pro)
+
+| Ten | File | Highlights |
+|-----|------|-----------|
+| Tavily MCP | mcps/tavily-mcp.md | AI-native search API, 1000 credit/thang free, search+extract+crawl+map, dung song song Firecrawl de doi chieu cheo cho Research Pro Lop 1 |
+
+Script: 143 (tavily-mcp)
+Note: da co Firecrawl trong kho lam viec tuong tu - Tavily chi nen dung nhu nguon search THU 2 de cross-check, khong thay the. Benchmark doc lap xep Tavily thap hon Firecrawl.
+Da co san (skip, khong duplicate): markitdown-mcp.md, markitdown.md (repo), mem0.md (repo) - deu da co tu truoc, khong can them.
+
+**Kho: 113 repos | 38 MCPs | 86 skills | 143 scripts | 3 agents**
