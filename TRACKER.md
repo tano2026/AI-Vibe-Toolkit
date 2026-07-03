@@ -1452,3 +1452,19 @@ Gop research-pro-system-prompt.md (v3) + research-pro-v4-mega.md thanh 1 file du
 skills/research-pro-final.md. Xoa 2 file cu, tranh trung lap trong kho.
 
 **Kho: 113 repos | 38 MCPs | 87 skills | 144 scripts | 3 agents**
+
+
+---
+
+## Batch trending repos (lan 82) - 03/07/2026
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Caveman | repos/caveman.md | ~81.700 | Claude Code skill nen output AI 65-75%, giu nguyen ky thuat, 40+ agent ho tro |
+| Career-Ops | repos/career-ops.md | ~57.000 | AI cham diem offer viec lam A-F, 14 skill mode, tac gia dung that de lay viec |
+| crustc | repos/crustc.md | ~160 | rustc dich sang C - khong lien quan content automation, chi ghi nhan |
+
+Script: 145 (caveman), 146 (career-ops). crustc KHONG viet script - khong co ung dung thuc te cho business.
+Skip trung lap: page-agent.md, strix.md (da co san trong kho tu truoc).
+
+**Kho: 116 repos | 38 MCPs | 87 skills | 146 scripts | 3 agents**
