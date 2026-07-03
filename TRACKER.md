@@ -1429,3 +1429,16 @@ Script: 144 (research-pro-system-prompt)
 Note: la system prompt de dan vao Project Instructions rieng cua Research Pro, khong phai tool co API.
 
 **Kho: 113 repos | 38 MCPs | 87 skills | 144 scripts | 3 agents**
+
+
+---
+
+## Skill moi - Research Pro v4 Mega (lan 80) - hop nhat Research + Data Analyst
+
+| Ten | File | Highlights |
+|-----|------|-----------|
+| Research Pro v4 Mega | skills/research-pro-v4-mega.md | Hop nhat ky luat viet bao cao v3 (gan nhan FACT/UOC TINH) + nang luc Data Analyst that (pandas/thong ke/visualize bang code execution, khong chi mo ta so bang loi) |
+
+Note: bo sung Lop 0 "Data Reality Check" - phan biet ro so tu tinh tu raw data (confidence cao) vs so copy tu nguon thu cap (confidence thap hon).
+
+**Kho: 113 repos | 38 MCPs | 88 skills | 144 scripts | 3 agents**
