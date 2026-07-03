@@ -1415,3 +1415,17 @@ Note: da co Firecrawl trong kho lam viec tuong tu - Tavily chi nen dung nhu nguo
 Da co san (skip, khong duplicate): markitdown-mcp.md, markitdown.md (repo), mem0.md (repo) - deu da co tu truoc, khong can them.
 
 **Kho: 113 repos | 38 MCPs | 86 skills | 143 scripts | 3 agents**
+
+
+---
+
+## Skill moi - Research Pro System Prompt (lan 79)
+
+| Ten | File | Highlights |
+|-----|------|-----------|
+| Research Pro System Prompt | skills/research-pro-system-prompt.md | Dan tu pattern 2 bao cao mau chat luong cao - gan nhan FACT/UOC TINH/GIA THUYET tung cau, khong bia so, lo cong thuc tinh, khung 8 khoi da domain |
+
+Script: 144 (research-pro-system-prompt)
+Note: la system prompt de dan vao Project Instructions rieng cua Research Pro, khong phai tool co API.
+
+**Kho: 113 repos | 38 MCPs | 85 skills | 144 scripts | 3 agents**
