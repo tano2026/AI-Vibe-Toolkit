@@ -1428,4 +1428,4 @@ Da co san (skip, khong duplicate): markitdown-mcp.md, markitdown.md (repo), mem0
 Script: 144 (research-pro-system-prompt)
 Note: la system prompt de dan vao Project Instructions rieng cua Research Pro, khong phai tool co API.
 
-**Kho: 113 repos | 38 MCPs | 85 skills | 144 scripts | 3 agents**
+**Kho: 113 repos | 38 MCPs | 87 skills | 144 scripts | 3 agents**
