@@ -1442,3 +1442,13 @@ Note: la system prompt de dan vao Project Instructions rieng cua Research Pro, k
 Note: bo sung Lop 0 "Data Reality Check" - phan biet ro so tu tinh tu raw data (confidence cao) vs so copy tu nguon thu cap (confidence thap hon).
 
 **Kho: 113 repos | 38 MCPs | 88 skills | 144 scripts | 3 agents**
+
+
+---
+
+## Hop nhat skill (lan 81) - Research Pro Final
+
+Gop research-pro-system-prompt.md (v3) + research-pro-v4-mega.md thanh 1 file duy nhat:
+skills/research-pro-final.md. Xoa 2 file cu, tranh trung lap trong kho.
+
+**Kho: 113 repos | 38 MCPs | 87 skills | 144 scripts | 3 agents**
