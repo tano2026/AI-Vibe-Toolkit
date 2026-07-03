@@ -80,3 +80,18 @@ npx caveman --with-init
 cd caveman-compress && python3 -m scripts /path/to/CLAUDE.md
 ```
 > ⚠️ Test trên 1 file backup trước — sub-skill compress OVERWRITE file gốc (có backup .original.md tự động nhưng vẫn nên cẩn thận với file quan trọng như HERMES-PLAYBOOK.md).
+
+
+## 🧪 Test thực tế trên kho (03/07/2026)
+
+Đã test nén `agents/HERMES-PLAYBOOK.md` (13.647 ký tự, ~70% là code Python) bằng đúng
+quy tắc caveman-compress (không đụng code block, chỉ nén prose/mô tả). Kết quả: **chỉ giảm
+3.2%**, KHÔNG đạt 65-75% như quảng cáo.
+
+Lý do: con số 65-75% đo trên văn phong dài dòng kiểu "Sure! I'd be happy to help you with
+that...". File playbook của kho đã terse sẵn (gạch đầu dòng, ít chữ đệm) + phần lớn là code
+không được phép nén → ít chỗ để cắt.
+
+**Kết luận cập nhật:** Caveman hợp với file/chat có nhiều PROSE DÀI DÒNG (trả lời chat, tài
+liệu giải thích nhiều chữ) — KHÔNG hợp với file code-reference đã terse như HERMES-PLAYBOOK.
+Đừng kỳ vọng con số marketing áp dụng đều cho mọi loại file.
