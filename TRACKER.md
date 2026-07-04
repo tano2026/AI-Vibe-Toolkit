@@ -1495,3 +1495,18 @@ Note quan trong: CubeSandbox can KVM support tren VPS - PHAI kiem tra `lsmod | g
 | Sales CEO — B2B Sales & Business Strategy Agent | agents/sales-ceo/ | Orchestrator + 3 skill mới (negotiation-deal-structuring, ceo-decision-lens, gtm-strategy), tận dụng sales-playbook/revenue-intelligence/market-research/competitor-research/business-guru/finance-billing-ops/council/hubspot-mcp có sẵn trong kho. Guardrail: read-only, không tự gửi/ghi. |
 
 **Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 4 agent packages**
+
+---
+## Batch mới thêm (07/2026) — Agent package: Infra Ops Agent + Plugin note cho Sales CEO
+
+### Agents (package mới trong /agents/)
+| Ten | Path | Ghi chu |
+|---|---|---|
+| Infra Ops Agent | agents/infra-ops-agent/ | Chuyen van hanh VPS Tencent Cloud cho Hermes/OpenClaw/Antigravity - deploy/debug/security/cost. Tai dung skill co san trong kho (deployment-patterns, security-review, security-scan, terminal-ops, openclaw-ops, enterprise-agent-ops, automation-audit-ops, cost-tracking, architecture-decision-records, mcp-server-patterns) + 2 skill moi (destructive-command-guardrail, tencent-vps-capacity-cost). Guardrail cung: KHONG tu SSH/exec, chi Antigravity moi co quyen thuc thi tren VPS thuc. |
+
+### Bo sung file cho package cu
+| File | Ghi chu |
+|---|---|
+| agents/sales-ceo/PLUGIN-INTEGRATION.md | Note plugin/MCP co san trong Claude session (khong nam trong kho, Hermes/OpenClaw khong doc duoc) co the nang cap Sales CEO: sales:*, finance:*, small-business:*, Similarweb/Gmail/Google Drive da connect. |
+
+**Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 5 agent packages (research-pro, research-analytics-pro, smb-ai-team, sales-ceo, infra-ops-agent) + 3 core VPS playbook (Hermes/OpenClaw/Antigravity)**
