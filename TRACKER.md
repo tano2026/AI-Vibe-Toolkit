@@ -1510,3 +1510,20 @@ Note quan trong: CubeSandbox can KVM support tren VPS - PHAI kiem tra `lsmod | g
 | agents/sales-ceo/PLUGIN-INTEGRATION.md | Note plugin/MCP co san trong Claude session (khong nam trong kho, Hermes/OpenClaw khong doc duoc) co the nang cap Sales CEO: sales:*, finance:*, small-business:*, Similarweb/Gmail/Google Drive da connect. |
 
 **Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 5 agent packages (research-pro, research-analytics-pro, smb-ai-team, sales-ceo, infra-ops-agent) + 3 core VPS playbook (Hermes/OpenClaw/Antigravity)**
+
+---
+## Batch mới thêm (07/2026) — Lam sales-ceo + infra-ops-agent thanh "agentic" thuc
+
+Van de: 2 agent package (sales-ceo, infra-ops-agent) truoc do chi la tai lieu tinh
+trong kho, chua co gi tu dong load/chay. Da vien:
+
+| File update | Thay doi |
+|---|---|
+| agents/OPENCLAW-PLAYBOOK.md | Them section "Domain Agent Router" — match keyword -> fetch system-prompt cua domain agent lam context truoc khi goi LLM. Them guardrail enforcement o CODE (khong chi prompt): tool ghi/gui (hubspot write, gmail send, ssh exec) luon phai qua notifyNobitano cho confirm truoc. |
+| agents/HERMES-PLAYBOOK.md | Them 2 sub-agent moi (Sales CEO, Infra Ops Agent) theo dung pattern "Research Pro" da co san. Ghi ro Hermes KHONG duoc tu cho minh quyen SSH/exec du dang "dong vai" Infra Ops Agent. |
+
+Con thieu (chua lam duoc, can Antigravity/Nobitano):
+- hubspot-mcp moi co doc, CHUA cai thuc tren VPS
+- Deal/pipeline state chua co noi luu (can Google Sheets/Airtable, khong ghi vao kho GitHub)
+
+**Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 5 agent packages + 3 core VPS playbook (da co Domain Agent Router)**
