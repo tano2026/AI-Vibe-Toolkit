@@ -1468,3 +1468,20 @@ Script: 145 (caveman), 146 (career-ops). crustc KHONG viet script - khong co ung
 Skip trung lap: page-agent.md, strix.md (da co san trong kho tu truoc).
 
 **Kho: 116 repos | 38 MCPs | 87 skills | 146 scripts | 3 agents**
+
+
+---
+
+## Batch 78 - Graphify + CubeSandbox (tu 5 repo trending GitHub 04/07/2026)
+
+| Ten | File | Stars | Highlights |
+|-----|------|-------|-----------|
+| Graphify | repos/graphify.md | 76,100 | Bien code/docs/SQL/anh/video thanh knowledge graph, giam 71.5x token/query, native support Hermes/OpenClaw/Antigravity |
+| CubeSandbox | repos/cubesandbox.md | 6,500 | Sandbox KVM MicroVM cho AI agent, khoi dong <60ms, <5MB RAM, tuong thich E2B SDK, production-tested tai Tencent Cloud |
+
+Scripts: 143 (Graphify), 144 (CubeSandbox)
+Da co san trong 5 repo trending: agency-agents (co roi), claude-code (co roi), caveman (co roi) - chi Graphify + CubeSandbox la moi.
+Muc dich: Graphify de he thong hoa kho AI-Vibe-Toolkit thanh graph truy van duoc (thay grep/doc file rai); CubeSandbox de Hermes chay code AI sinh ra an toan, tach biet khoi OpenClaw runtime chinh.
+Note quan trong: CubeSandbox can KVM support tren VPS - PHAI kiem tra `lsmod | grep kvm` truoc khi trien khai thuc te, chua deploy.
+
+**Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 3 agents**
