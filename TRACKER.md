@@ -1485,3 +1485,13 @@ Muc dich: Graphify de he thong hoa kho AI-Vibe-Toolkit thanh graph truy van duoc
 Note quan trong: CubeSandbox can KVM support tren VPS - PHAI kiem tra `lsmod | grep kvm` truoc khi trien khai thuc te, chua deploy.
 
 **Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 3 agents**
+
+---
+## Batch mới thêm (07/2026) — Agent package: Sales CEO (B2B)
+
+### Agents (package mới trong /agents/)
+| Tên | Path | Ghi chú |
+|---|---|---|
+| Sales CEO — B2B Sales & Business Strategy Agent | agents/sales-ceo/ | Orchestrator + 3 skill mới (negotiation-deal-structuring, ceo-decision-lens, gtm-strategy), tận dụng sales-playbook/revenue-intelligence/market-research/competitor-research/business-guru/finance-billing-ops/council/hubspot-mcp có sẵn trong kho. Guardrail: read-only, không tự gửi/ghi. |
+
+**Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 4 agent packages**
