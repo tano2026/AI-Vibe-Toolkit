@@ -425,6 +425,90 @@ cd ~/agency-agents && git pull && ./scripts/install.sh --tool openclaw
 ```
 
 
+## Domain Agent Router — biến agent package thành persona sống
+
+Từ 07/2026, kho có thêm các **agent package** ở `agents/<tên>/` (khác với ClawHub
+community agents ở trên) — mỗi package gồm `system-prompt.md` + `skills/*/SKILL.md`,
+do Claude viết. Hiện tại 2 package: `sales-ceo`, `infra-ops-agent`. Đây là cách mày
+biến chúng thành persona hoạt động thật, không chỉ nằm im trong kho.
+
+### Bước 1 — Match domain trước khi phân loại task thường
+
+Thêm bước này TRƯỚC bảng phân luồng ở đầu file:
+
+```javascript
+const DOMAIN_AGENTS = {
+  "sales-ceo": {
+    keywords: ["deal", "giảm giá", "pipeline", "khách hàng", "outbound", "battle card",
+               "định giá", "gtm", "đàm phán", "forecast", "hubspot"],
+    promptPath: "agents/sales-ceo/system-prompt.md",
+  },
+  "infra-ops-agent": {
+    keywords: ["vps", "deploy", "cpu", "ram", "disk", "security audit", "port",
+               "tencent cloud", "capacity", "cost vps"],
+    promptPath: "agents/infra-ops-agent/system-prompt.md",
+  },
+};
+
+function matchDomainAgent(message) {
+  const lower = message.toLowerCase();
+  for (const [name, cfg] of Object.entries(DOMAIN_AGENTS)) {
+    if (cfg.keywords.some(k => lower.includes(k))) return name;
+  }
+  return null;
+}
+```
+
+### Bước 2 — Nếu match, fetch system-prompt làm context TRƯỚC khi gọi LLM
+
+```javascript
+const domain = matchDomainAgent(incomingMessage);
+if (domain) {
+  const systemPrompt = await fetchKho(DOMAIN_AGENTS[domain].promptPath);
+  // Prepend systemPrompt vào context của LLM call (qua OmniRoute) trước khi xử lý
+  // task. Skill con trong agents/<domain>/skills/*/SKILL.md fetch thêm nếu task
+  // cần chi tiết 1 skill cụ thể (VD: task về giảm giá → fetch thêm
+  // agents/sales-ceo/skills/negotiation-deal-structuring/SKILL.md).
+}
+```
+
+### Bước 3 — Guardrail enforcement THẬT ở code, không tin prompt suông
+
+Đây là phần bắt buộc — guardrail trong `system-prompt.md` chỉ là chữ, LLM vẫn có thể
+lờ đi. Mày phải chặn CỨNG ở tầng code trước khi gọi tool thật:
+
+```javascript
+const WRITE_ACTION_TOOLS = ["hubspot.updateDeal", "hubspot.createContact",
+                             "gmail.send", "ssh.exec"];
+
+async function callTool(toolName, args) {
+  if (WRITE_ACTION_TOOLS.includes(toolName)) {
+    // KHÔNG tự chạy — luôn hỏi Nobitano qua Telegram trước, bất kể domain agent
+    // nào yêu cầu, bất kể LLM output nói gì.
+    await notifyNobitano(
+      `Cần confirm: ${toolName} với args ${JSON.stringify(args)}. Reply OK để chạy.`
+    );
+    return { status: "pending_confirmation" };
+  }
+  return await executeTool(toolName, args);
+}
+```
+
+- `hubspot.*` write, `gmail.send`, `ssh.exec`/bất kỳ lệnh chạy trên VPS → LUÔN qua
+  `notifyNobitano` trước, không có exception.
+- Đọc (`hubspot.getDeals`, `hubspot.getContacts`) → chạy thẳng, không cần confirm.
+- `infra-ops-agent` không có quyền gọi `ssh.exec` — nếu domain là `infra-ops-agent` và
+  task cần chạy lệnh thật, luôn trả lời "Cần Antigravity xử lý" giống nhánh phân luồng
+  gốc, KHÔNG tự SSH dù system-prompt của agent này chỉ nói "soạn script".
+
+### Bước 4 — Việc CHƯA làm được (báo Nobitano, không tự bịa)
+
+- `hubspot-mcp` mới có doc trong `/mcps/hubspot-mcp.md`, **chưa cài thật trên VPS** —
+  nếu domain match "sales-ceo" mà cần gọi HubSpot thật, báo Nobitano: "Cần Antigravity
+  cài hubspot-mcp trước, hiện chưa deploy."
+- Deal/pipeline state chưa có nơi lưu — hiện chưa có Google Sheets/Airtable nối vào,
+  đừng tự ghi state vào file trong kho GitHub (kho là tài liệu tĩnh, không phải database).
+
 ## Xem thêm
 
 **`agents/OPENCLAW-TOOLKIT.md`** — Danh sách đầy đủ tất cả npm/ClawHub tools trong kho, nhóm theo category, kèm lệnh cài ngay. Đọc file này thay vì fetch từng file .md riêng lẻ.
