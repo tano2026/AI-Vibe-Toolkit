@@ -145,3 +145,34 @@ npx -y @modelcontextprotocol/server-github
 # Set env: GITHUB_TOKEN=[GITHUB_TOKEN]
 ```
 
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def github_search_repos(query, sort="stars", n=5):
+    req = urllib.request.Request(
+        f"https://api.github.com/search/repositories?q={query}&sort={sort}&per_page={n}",
+        headers={"Accept": "application/vnd.github.v3+json",
+                 "Authorization": f"token {os.environ.get('GITHUB_TOKEN','')}"}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"name": x["full_name"], "stars": x["stargazers_count"],
+             "desc": x.get("description","")} for x in r["items"]]
+```
+
+### OpenClaw
+```bash
+npx -y @modelcontextprotocol/server-github
+```
+
+### Antigravity
+```bash
+echo 'GITHUB_TOKEN=your_token_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Không dùng chung token với token push kho AI-Vibe-Toolkit — tạo token riêng scope read-only để tránh rủi ro.
