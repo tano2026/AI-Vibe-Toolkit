@@ -59,3 +59,11 @@ Cho personal use — overkill. Cho team hoặc tài liệu nhạy cảm — đâ
 ---
 
 *Nguồn: github.com/Pantheon-Security/notebooklm-mcp-secure | Cập nhật: tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — cần browser session/tài khoản Google, không có REST
+API. Route sang OpenClaw nếu cần dùng.
