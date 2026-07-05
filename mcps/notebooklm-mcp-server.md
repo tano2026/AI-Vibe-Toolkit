@@ -64,3 +64,15 @@ Phù hợp nhất: VS Code users muốn setup 1 lần rồi quên.
 ---
 
 *Nguồn: github.com/moodRobotics/notebooklm-mcp-server | Cập nhật: tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — cần browser session/tài khoản Google, không có REST
+API. Route sang OpenClaw nếu cần dùng.
+
+**Lưu ý thêm:** kho hiện có 5 bản NotebookLM MCP khác nhau (2026, pleaseprompto,
+roomifields, secure, server) từ 5 tác giả khác nhau — nên cân nhắc gộp lại chỉ giữ 1-2
+bản tốt nhất, tránh trùng lặp không cần thiết trong kho.
