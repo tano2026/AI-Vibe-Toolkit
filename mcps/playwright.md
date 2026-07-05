@@ -93,3 +93,21 @@ Prompt ví dụ:
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/microsoft/playwright-mcp*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng trực tiếp cho Hermes** — cần browser + display, Hermes không có.
+**→ Route sang OpenClaw** (đã ghi trong bảng "Route sang OpenClaw" của HERMES-PLAYBOOK.md).
+
+### OpenClaw
+```bash
+npx -y @playwright/mcp
+```
+
+### Antigravity
+```bash
+npx playwright install chromium  # cai browser headless tren VPS cho OpenClaw dung
+```
