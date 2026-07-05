@@ -102,3 +102,30 @@ npm install && npm run build
 ---
 
 *Nguồn: github.com/tommyevening/makemcp | MIT | 3,260 apps | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+def trigger_make_webhook(webhook_url, payload):
+    data = json.dumps(payload).encode()
+    req = urllib.request.Request(webhook_url, data=data,
+        headers={"Content-Type": "application/json"})
+    return urllib.request.urlopen(req).read().decode()
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/tommyevening/makemcp.git
+```
+
+### Antigravity
+```bash
+# Khong can deploy gi - Make.com la cloud service, chi can Webhook URL tu scenario
+```
+> ⚠️ Mỗi Make scenario có Webhook URL riêng — Hermes cần biết đúng URL của scenario cụ thể muốn trigger, không có URL chung cho mọi automation.
