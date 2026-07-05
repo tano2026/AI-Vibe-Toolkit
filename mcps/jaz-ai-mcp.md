@@ -129,3 +129,15 @@ Jaz AI tương thích với **Juan Accounting** (juan.ac) — cùng API surface.
 ---
 
 *Nguồn: github.com/teamtinvio/jaz-ai | 4⭐ | MIT | 289 tools | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ Phức tạp hơn REST thường** — đây là remote MCP server (`https://mcp.jaz.ai/mcp`)
+dùng giao thức MCP JSON-RPC + OAuth qua tài khoản Jaz, không phải REST API đơn giản có
+thể gọi bằng vài dòng `urllib.request`. Muốn Hermes dùng 289 tool kế toán này cần viết
+MCP client JSON-RPC thật (phức tạp hơn nhiều so với các tool REST khác trong kho) —
+chưa làm vì chưa rõ nhu cầu thật (Nobitano không làm kế toán, có thể chỉ hữu ích nếu mở
+rộng sang dịch vụ kế toán cho SMB AI Team sau này).
