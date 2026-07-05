@@ -462,3 +462,43 @@ fix ticket này trước khi làm gì khác — mọi tool khác trong bảng tr
 **Câu hỏi còn treo, cần Nobitano xác nhận:**
 - `.hermes/skills/` có 504 skills — có cần catalog vào kho GitHub (viết .md theo
   template) hay để riêng vì đặc thù ticketing/ECC không cần share công khai?
+
+
+---
+
+## 🚩 Ghi chú thực tế về mcp-abtrip-server.py / flight_mcp.py (03/07/2026)
+
+Hermes cung cấp nội dung 2 file này qua Telegram. Claude KHÔNG tự verify được (không có
+quyền VPS) — ghi nhận nguyên trạng + flag các điểm cần Antigravity/Nobitano xác nhận
+trước khi coi là production-ready:
+
+**⚠️ Xung đột port:** `mcp-abtrip-server.py` khai `port=8080` — nhưng báo cáo VPS trước
+đó ghi `ticketing-agent` (uvicorn) đã chiếm port 8080. 2 service không bind được cùng
+port. Cần Antigravity xác nhận cái nào đang thực sự chạy, đổi port 1 trong 2.
+
+**⚠️ Code chưa hoàn chỉnh:** hàm `query_db(...)` trong `mcp-abtrip-server.py` chưa có
+định nghĩa/import — nhiều khả năng đây là snippet minh họa, chưa phải bản chạy thật.
+Không dùng đoạn này làm chuẩn để tích hợp cho tới khi xác nhận lại.
+
+**⚠️ Không có auth:** route `/search_flights` không có API key/token check — nếu expose
+ra `0.0.0.0` thật, cần thêm xác thực trước khi để Hermes hoặc bất kỳ ai gọi từ ngoài.
+
+**Endpoint tham chiếu (chưa xác nhận hoàn chỉnh):**
+```
+GET  http://localhost:8080/search_flights   → mcp-abtrip-server.py (Flask)
+POST https://api.abtrip.vn/check            → flight_mcp.py, cần ABTRIP_API_KEY env
+```
+
+**Cách Hermes gọi sau khi có tool HTTP fetch (xem ticket ANTIGRAVITY-PLAYBOOK.md) VÀ
+sau khi 3 vấn đề trên được xác nhận/sửa:**
+```python
+def check_flight_availability(flight_code):
+    payload = json.dumps({"flight": flight_code}).encode()
+    req = urllib.request.Request(
+        "https://api.abtrip.vn/check", data=payload,
+        headers={"Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+**Chưa nên coi đây là "đã đồng bộ xong"** — chỉ là ghi nhận thông tin thô, còn 3 vấn đề
+cần người có quyền VPS thật (Antigravity/Nobitano) xác nhận trực tiếp trên máy.
