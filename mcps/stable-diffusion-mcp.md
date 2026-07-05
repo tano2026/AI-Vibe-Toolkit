@@ -109,3 +109,13 @@ Không có GPU → Pollinations (cloud free, nhanh).
 ---
 
 *Nguồn: github.com/Ichigo3766/image-gen-mcp | 39⭐ | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho VPS hiện tại** — cần GPU để chạy Stable Diffusion, VPS hiện tại
+không có GPU. Dùng Pollinations (`mcps/pollinations-mcp.md`) hoặc Fal.ai
+(`mcps/fal-mcp.md`) thay thế — cả 2 đều đã có Agent Integration cho Hermes, không cần GPU
+tự host.
