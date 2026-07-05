@@ -90,3 +90,11 @@ Chọn roomi-fields khi cần: n8n automation, Docker CI/CD, generate audio/vide
 ---
 
 *Nguồn: github.com/roomi-fields/notebooklm-mcp | Cập nhật: tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — cần browser session/tài khoản Google, không có REST
+API. Route sang OpenClaw nếu cần dùng.
