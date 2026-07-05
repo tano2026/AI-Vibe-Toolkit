@@ -157,3 +157,33 @@ docker run -d --name n8n -p 5678:5678 \
 # Sau đó lấy API key từ n8n UI → Settings → API
 ```
 > ⚠️ Antigravity deploy Docker trước. Hermes gọi webhook không cần API key.
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+def trigger_n8n_webhook(webhook_url, payload):
+    data = json.dumps(payload).encode()
+    req = urllib.request.Request(webhook_url, data=data,
+        headers={"Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+
+# Vi du: trigger_n8n_webhook("http://localhost:5678/webhook/abc123", {"task": "research"})
+```
+
+### OpenClaw
+```bash
+npx -y n8n-workflow-builder-mcp
+```
+
+### Antigravity
+```bash
+# n8n da chay tren VPS port 5678, khong can cai them
+pm2 status n8n  # verify dang chay
+```
+> ⚠️ Webhook URL khác nhau theo từng workflow — Hermes cần biết đúng URL của workflow cụ thể muốn trigger, không có URL chung.
