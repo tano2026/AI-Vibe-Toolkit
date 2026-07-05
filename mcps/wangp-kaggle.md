@@ -99,3 +99,13 @@ Thứ 7: Generate thêm nếu cần
 ---
 
 *Nguồn: github.com/kayas881/WanGP-Kaggle | FREE T4 GPU | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng trực tiếp cho Hermes trên VPS** — tool này chạy trên Kaggle Notebook
+(dùng GPU T4 miễn phí của Kaggle), không chạy trên VPS của Nobitano. Muốn Hermes trigger
+được, cần dùng Kaggle API (`kaggle kernels push`/`kaggle kernels output`) — chưa có sẵn
+trong kho, cần research riêng nếu muốn tích hợp.
