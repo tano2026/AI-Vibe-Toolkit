@@ -74,6 +74,10 @@ TRACKER.md     Danh sách tất cả entries
 | Detect loại file | Magika (local) | `repos/magika.md` |
 | Process PDF | Stirling PDF API | `repos/stirling-pdf.md` |
 | Upload TikTok | tiktokautouploader | `repos/tiktokautouploader.md` |
+| Search chuyến bay ABTRIP | `mcp-abtrip-server.py` (local, OpenClaw/workspace/) | gọi trực tiếp qua HTTP local, không qua kho |
+| Quản lý booking/PNR | `flight_mcp.py` (local, OpenClaw/workspace/) | gọi trực tiếp qua HTTP local, không qua kho |
+| Reply Telegram đặt vé | `bot2-giacat-claw/bot2.py` (@Giacat_Claw_bot) | không thuộc kho — script riêng ABTRIP |
+| Research theo brand voice client | ECC research ops | `ECC/ecc-brand-voice.md` (local, không sync GitHub) |
 
 ### ⏩ Route sang OpenClaw
 
@@ -420,3 +424,41 @@ Khi task là vận hành VPS/deploy/security/cost hạ tầng → kích hoạt I
 - Mọi lệnh có tính phá hủy (rm -rf, DROP, kill -9, iptables -F...) xuất hiện trong plan
   → phải theo format cảnh báo trong `destructive-command-guardrail/SKILL.md`, không đưa
   thẳng vào script "chạy liền".
+
+
+---
+
+## 🛫 Hệ thống Ticketing ABTRIP — hạ tầng riêng, KHÔNG qua kho GitHub
+
+VPS có 1 nhánh riêng cho ABTRIP (travel booking), tách biệt khỏi kho AI-Vibe-Toolkit:
+
+```
+/home/ubuntu/
+├── bot2-giacat-claw/bot2.py         # Telegram bot đặt vé (@Giacat_Claw_bot)
+├── OpenClaw/workspace/
+│   ├── mcp-abtrip-server.py         # Flight search API
+│   └── flight_mcp.py                # Ticketing/PNR manager
+└── ECC/                              # Enterprise Content Creation (client work)
+    ├── ecc-brand-voice.md            # Tone chuẩn theo từng client
+    └── ecc-research-ops/             # Auto research riêng cho content agency
+```
+
+**Quan trọng:** các file này KHÔNG nằm trong `tano2026/AI-Vibe-Toolkit` — không fetch
+qua `fetch()` GitHub API. Đây là code local trên VPS, Hermes gọi trực tiếp qua
+filesystem/HTTP local (nếu có tool cho phép).
+
+**Chuyên môn áp dụng khi làm task ticketing (IATA/Amadeus/GDS):**
+- PNR, xuất/đổi/hoàn vé, EMD, ancillary services → theo chuẩn IATA + chính sách
+  từng hãng (VNA/VJ/QH/VU — xem bảng phí trong `agents/research-analytics-pro/`)
+- Quy định nhập cảnh (Timatic) → LUÔN web search xác minh, không trả lời từ trí nhớ
+  (visa/passport rule đổi liên tục)
+- BSP settlement, thanh toán hãng → hỏi lại nếu cần xử lý tiền thật, không tự quyết
+
+**Ticket đang chờ Antigravity xử lý:** Hermes hiện thiếu tool HTTP fetch generic
+(xem mục "🎫 TICKET" trong `agents/ANTIGRAVITY-PLAYBOOK.md`) — nếu chưa fix, Hermes
+CHƯA gọi được cả kho GitHub lẫn `mcp-abtrip-server.py`/`flight_mcp.py` local. Ưu tiên
+fix ticket này trước khi làm gì khác — mọi tool khác trong bảng trên đều phụ thuộc nó.
+
+**Câu hỏi còn treo, cần Nobitano xác nhận:**
+- `.hermes/skills/` có 504 skills — có cần catalog vào kho GitHub (viết .md theo
+  template) hay để riêng vì đặc thù ticketing/ECC không cần share công khai?
