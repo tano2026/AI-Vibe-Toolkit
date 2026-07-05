@@ -178,3 +178,31 @@ pip install markitdown
 # Verify: python3 -c 'from markitdown import MarkItDown; print("OK")'
 ```
 > ⚠️ Không cần API key. Antigravity phải pip install trước khi Hermes dùng được.
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+# markitdown la pip package, khong phai REST API - chay local
+# pip install markitdown --break-system-packages
+from markitdown import MarkItDown
+
+def convert_to_markdown(file_path):
+    md = MarkItDown()
+    result = md.convert(file_path)
+    return result.text_content
+```
+
+### OpenClaw
+```bash
+npx -y markitdown-mcp
+```
+
+### Antigravity
+```bash
+pip install markitdown --break-system-packages
+```
+> ⚠️ Chạy local, không cần API key — chỉ cần cài đúng package trên VPS.
