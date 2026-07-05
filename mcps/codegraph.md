@@ -87,3 +87,27 @@ Benchmark chính chủ trên repo VS Code (~10k file): 4 tool call thay vì 21, 
 ---
 
 *Thêm vào kho: 06/2026 | Nguồn: github.com/colbymchenry/codegraph*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ Cần shell/subprocess access mà Hermes hiện chưa có** (xem ticket trong
+ANTIGRAVITY-PLAYBOOK.md). codegraph chạy như CLI tool local index code — Hermes cần
+quyền chạy subprocess để gọi được, không phải REST API thuần.
+
+### Hermes (Python) — CHỈ dùng được SAU KHI có quyền subprocess
+```python
+import subprocess
+
+def codegraph_query(question, repo_path="."):
+    result = subprocess.run(["codegraph", "query", question],
+        cwd=repo_path, capture_output=True, text=True)
+    return result.stdout
+```
+
+### Antigravity
+```bash
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+```
