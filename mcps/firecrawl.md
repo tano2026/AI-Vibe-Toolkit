@@ -147,3 +147,32 @@ npx -y firecrawl-mcp
 # Set env: FIRECRAWL_API_KEY=fc-xxx
 ```
 > ⚠️ Free 500 req/tháng. Lấy key: firecrawl.dev
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def firecrawl(url):
+    payload = json.dumps({"url": url, "formats": ["markdown"]}).encode()
+    req = urllib.request.Request("https://api.firecrawl.dev/v1/scrape",
+        data=payload,
+        headers={"Authorization": f"Bearer {os.environ['FIRECRAWL_API_KEY']}",
+                 "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())["data"]["markdown"]
+```
+
+### OpenClaw
+```bash
+npx -y firecrawl-mcp
+```
+
+### Antigravity
+```bash
+echo 'FIRECRAWL_API_KEY=your_key_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Free tier 500 req/tháng — ưu tiên dùng cho trang JS-heavy, dùng urllib thường cho trang tĩnh để tiết kiệm quota.
