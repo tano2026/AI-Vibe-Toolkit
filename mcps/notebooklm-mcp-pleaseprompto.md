@@ -81,3 +81,12 @@ npx notebooklm-mcp@latest auth  # auth Google lần đầu
 ---
 
 *Nguồn: github.com/PleasePrompto/notebooklm-mcp | Cập nhật: tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — tương tự các bản NotebookLM MCP khác, cần browser
+session/tài khoản Google đăng nhập, không có REST API để gọi trực tiếp. Route sang
+OpenClaw nếu cần.
