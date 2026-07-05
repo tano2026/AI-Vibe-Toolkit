@@ -99,3 +99,13 @@ Claude Ads: **10-15 phút**, score 0-100, prioritized action plan.
 
 ---
 *Nguồn: github.com/AgriciDaniel/claude-ads | 6033⭐ | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes.** Đây là slash-command plugin chạy BÊN TRONG Claude Code CLI
+(`/plugin marketplace add` + `/ads audit`) — không có HTTP API độc lập để gọi từ ngoài.
+Chỉ dùng được khi ai đó ngồi tương tác trực tiếp với Claude Code, không phải thứ Hermes
+gọi tự động qua code.
