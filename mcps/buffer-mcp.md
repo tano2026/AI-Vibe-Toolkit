@@ -75,3 +75,37 @@ Schedule: Stagger 15 phút, bắt đầu 9am"
 
 ---
 *Nguồn: github.com/jakemeany523/buffer-mcp | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def buffer_schedule_post(text, profile_ids, scheduled_at=None):
+    payload = json.dumps({
+        "text": text, "profile_ids": profile_ids,
+        "scheduled_at": scheduled_at  # ISO 8601, None = ngay
+    }).encode()
+    req = urllib.request.Request("https://graph.buffer.com/1/updates/create",
+        data=payload,
+        headers={"Authorization": f"Bearer {os.environ['BUFFER_ACCESS_TOKEN']}",
+                 "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/jakemeany523/buffer-mcp
+cd buffer-mcp && pip install mcp httpx pydantic
+export BUFFER_ACCESS_TOKEN="your-token"
+```
+
+### Antigravity
+```bash
+echo 'BUFFER_ACCESS_TOKEN=your_token_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Lấy token tại buffer.com → Settings → Apps and Integrations → Create App.
