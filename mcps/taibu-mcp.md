@@ -48,3 +48,14 @@ Dùng cho content: feed kết quả structured data này vào prompt khác để
 - MCP npm: https://www.npmjs.com/package/taibu-mcp
 - Core npm: https://www.npmjs.com/package/taibu-core
 - Demo online: https://www.mingai.fun
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ Không có REST API đơn giản** — chạy qua MCP protocol (npx) hoặc core engine
+Node.js (`taibu-core`), Hermes là Python nên không import trực tiếp được. Muốn dùng
+cần tự host bản web app (`docker compose up`, port 3000) rồi tự map API — chưa rõ
+endpoint thật của bản self-host, cần đọc source code repo trước khi viết tích hợp
+chính xác, không đoán bừa.
