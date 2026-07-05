@@ -97,3 +97,11 @@ Optional: AI voiceover
 
 ---
 *Nguồn: github.com/Poppify/poppify-claude-plugin | MIT | poppify.ai | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — đây là Claude Code plugin (theo tên repo
+`poppify-claude-plugin`), chạy bên trong Claude Code CLI, không có REST API độc lập.
