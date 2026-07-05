@@ -145,3 +145,32 @@ export STRIPE_SECRET_KEY="sk_live_..."
 ---
 
 *AI Vibe Toolkit | Cloud Accounting MCPs | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def xero_get_invoices(access_token, tenant_id):
+    req = urllib.request.Request("https://api.xero.com/api.xro/2.0/Invoices",
+        headers={"Authorization": f"Bearer {access_token}",
+                 "Xero-tenant-id": tenant_id, "Accept": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/wyre-technology/xero-mcp
+# Setup Xero OAuth: developer.xero.com → Create App
+```
+
+### Antigravity
+```bash
+echo 'XERO_CLIENT_ID=your_id' >> /home/ubuntu/.hermes/.env
+echo 'XERO_CLIENT_SECRET=your_secret' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Xero dùng OAuth2 flow đầy đủ (authorization code + refresh token) — access_token hết hạn 30 phút, Hermes cần logic tự refresh, không chỉ set token tĩnh 1 lần.
