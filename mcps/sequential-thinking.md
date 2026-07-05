@@ -91,3 +91,14 @@ Claude sẽ output ra:
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: modelcontextprotocol/servers (official Anthropic)*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng kiểu "gọi API" cho Hermes** — đây là MCP cấu trúc lại QUÁ TRÌNH SUY
+LUẬN của chính Claude khi dùng (không phải service ngoài để gọi). Hermes dùng LLM khác
+(qua OmniRoute/Anthropic API trực tiếp) không "cài" tool này vào được theo cách MCP
+thường — nếu muốn Hermes suy luận có cấu trúc tương tự, viết logic step-by-step ngay
+trong prompt gọi LLM, không cần tool riêng.
