@@ -156,3 +156,48 @@ async function httpFetch({ url, method = "GET", headers = {}, body = null }) {
 trả về JSON thật (không còn báo lỗi thiếu tool) → xong.
 
 **Status:** Chờ Antigravity xử lý. Claude không có quyền VPS để tự làm việc này.
+
+
+---
+
+## 🎫 TICKET UPDATE (05/07/2026) — Chi tiết kỹ thuật fetch_url + cảnh báo
+
+**Khuyến nghị đã xác nhận:** KHÔNG route qua OpenClaw cho việc fetch URL đơn giản —
+phức tạp hóa không cần thiết (2 process Node.js + Python gọi chéo cho 1 GET request).
+Thêm trực tiếp 1 hàm `fetch_url(url, max_length)` vào registry `default_api` của
+chính Hermes (cùng cơ chế đang dùng để đăng ký `search_flights`/`book_flight`).
+
+```python
+def fetch_url(url: str, max_length: int = 5000) -> str:
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": "Hermes/1.0"})
+    content = urllib.request.urlopen(req, timeout=10).read().decode("utf-8", errors="ignore")
+    return content[:max_length]
+```
+
+Antigravity cần tự xác định framework Hermes dùng để định nghĩa `default_api`
+(OpenAI tool-calling / LangChain / tự viết) — Claude không có quyền xem code gốc
+Hermes nên không biết chính xác cơ chế, không đoán bừa.
+
+**Alternative nếu muốn dùng MCP chuẩn:** `npx -y @modelcontextprotocol/server-fetch`
+(official Anthropic) — nhưng vẫn cần wire vào default_api schema của Hermes, không
+tự động expose chỉ vì cài package.
+
+---
+
+## ⚠️ CẢNH BÁO: Hermes tự bịa thông tin khi được hỏi về kho (05/07/2026)
+
+Phát hiện qua Telegram: khi hỏi Hermes "kho có skill gì", nó tự liệt kê 12 skill —
+**6/12 KHÔNG TỒN TẠI** trong kho GitHub thật (ecc-brand-voice, competitor-spy,
+market-trends, antigravity-deploy, cron-manager, finance-forex, legal-doc-check —
+đều là bịa, nghe hợp lý nhưng không có thật). Hermes cũng tự claim "OpenClaw có 163
+skills" — chưa verify, cùng pattern nghi vấn.
+
+**Nguyên nhân:** Hermes không có tool fetch thật (đúng ticket ở trên) nên không thể
+tự kiểm tra kho — khi được hỏi, nó generate câu trả lời NGHE hợp lý dựa trên pattern
+(không phải data thật).
+
+**Hành động cần:** Sau khi fix `fetch_url`, TEST LẠI bằng câu hỏi có đáp án biết
+trước (vd "liệt kê chính xác tên các file trong /skills/") để xác nhận nó đang đọc
+thật, không phải tiếp tục bịa. Trước khi fix xong, KHÔNG tin bất kỳ câu trả lời nào
+của Hermes về nội dung kho — luôn hỏi Claude (có GitHub API thật) để verify.
