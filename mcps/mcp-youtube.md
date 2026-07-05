@@ -94,3 +94,33 @@ npx -y @modelcontextprotocol/server-youtube
 # Lấy key: console.cloud.google.com → YouTube Data API v3
 ```
 > ⚠️ Free 10,000 units/ngày. 1 search = 100 units. Đủ cho ~100 search/ngày.
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def youtube_search(query, n=5):
+    req = urllib.request.Request(
+        f"https://www.googleapis.com/youtube/v3/search"
+        f"?part=snippet&q={query}&maxResults={n}&key={os.environ['YOUTUBE_API_KEY']}"
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"title": x["snippet"]["title"],
+             "videoId": x["id"].get("videoId","")} for x in r["items"]]
+```
+
+### OpenClaw
+```bash
+npx -y mcp-youtube
+```
+
+### Antigravity
+```bash
+echo 'YOUTUBE_API_KEY=your_key_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Quota free 10.000 unit/ngày — mỗi search tốn 100 unit, tối đa ~100 search/ngày.
