@@ -119,3 +119,36 @@ gws auth login
 ---
 
 *Nguồn: github.com/evolsb/claude-code-google-workspace | 25⭐ | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+def gmail_send(access_token, raw_message_base64):
+    payload = json.dumps({"raw": raw_message_base64}).encode()
+    req = urllib.request.Request(
+        "https://gmail.googleapis.com/gmail/v1/users/me/messages/send",
+        data=payload,
+        headers={"Authorization": f"Bearer {access_token}",
+                 "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/evolsb/claude-code-google-workspace
+# Setup OAuth2 (1 lần) qua Google Cloud Console
+```
+
+### Antigravity
+```bash
+echo 'GOOGLE_CLIENT_ID=your_id' >> /home/ubuntu/.hermes/.env
+echo 'GOOGLE_CLIENT_SECRET=your_secret' >> /home/ubuntu/.hermes/.env
+echo 'GOOGLE_REFRESH_TOKEN=your_refresh_token' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ access_token hết hạn 1 giờ — Hermes cần logic tự refresh bằng refresh_token, phức tạp hơn API key tĩnh nhiều.
