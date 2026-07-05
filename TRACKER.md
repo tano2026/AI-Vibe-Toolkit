@@ -1546,3 +1546,25 @@ agents/research-pro.md (doc tong quan Hermes vs Research Pro truc tiep) giu nguy
 khong doi.
 
 **Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
+
+
+---
+
+## Vá kỹ thuật (lần 84) — Agent Integration cho Hermes
+
+**Phát hiện:** Audit 41 file /mcps/ → chỉ 7 có section Agent Integration chuẩn (34 thiếu),
+kể cả các tool Hermes được hứa dùng trực tiếp trong HERMES-PLAYBOOK.md.
+
+**Đã vá 8 file ưu tiên cao nhất** (đều đang ở bảng "Mày làm trực tiếp" của Hermes):
+brave-search.md, firecrawl.md, markitdown-mcp.md, github-mcp.md, pollinations-mcp.md,
+mcp-youtube.md, fal-mcp.md, n8n-workflow-builder-mcp.md — mỗi file thêm code Python
+gọi thẳng REST API (không qua MCP protocol), đúng runtime Hermes.
+
+**Còn tồn (26 file MCP + kiểm tra thêm /repos, /skills)**: buffer-mcp, claude-ads,
+claude-routines, cloud-accounting-mcps, codebase-memory-mcp, codegraph, comfyui-mcp,
+context7, filesystem, framecraft, google-workspace-mcp, hubspot-mcp, jaz-ai-mcp,
+make-mcp, mcp-video-gen, notebooklm-mcp (5 bản), playwright, poppify,
+sequential-thinking, stable-diffusion-mcp, taibu-mcp, wangp-kaggle — chưa vá,
+độ ưu tiên thấp hơn vì không nằm trong bảng task trực tiếp của Hermes.
+
+**Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
