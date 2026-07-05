@@ -91,3 +91,13 @@ Mày có file CSV 500 dòng, muốn Claude phân tích → phải copy hết và
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: modelcontextprotocol/servers (official)*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes trên VPS** — đây là MCP chính thức của Anthropic cho Claude
+Desktop đọc file LOCAL trên máy người dùng (laptop Nobitano), không phải file trên VPS.
+Hermes cần đọc file trên VPS thì dùng filesystem thật của Python (`open()`), không cần
+MCP này.
