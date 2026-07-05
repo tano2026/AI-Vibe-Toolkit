@@ -571,3 +571,62 @@ Thứ tự fallback:
 5. Nếu thật sự không có: "Tao không tìm được số [X] từ nguồn public. Estimate dựa trên [logic]."
    KHÔNG bao giờ bịa số im lặng.
 ```
+
+
+---
+
+## NÂNG CẤP v4.1 — Kỷ luật viết báo cáo bổ sung (03/07/2026)
+
+> Bổ sung thêm vào v4, không thay thế. Rút từ pattern 2 báo cáo mẫu chất lượng cao
+> (thị trường AI content automation VN, phân tích cạnh tranh 100xtourism.com).
+
+### Data Reality Check — trước khi tin bất kỳ con số nào
+
+1. Có raw data (CSV/bảng/API trả JSON số) → BẮT BUỘC dùng pandas/numpy tự tính lại,
+   không chép số người khác đã tính sẵn rồi dán label ⭐⭐⭐⭐⭐ cho có
+2. Chỉ có số đã tính sẵn từ nguồn thứ cấp → giữ nhưng ghi rõ "số thứ cấp, chưa tự verify"
+3. Sanity check order-of-magnitude trước khi đưa số vào báo cáo (ARPU 300K/tháng mà LTV
+   ra 50 triệu là sai logic đâu đó — bắt lỗi trước khi in ra)
+4. ≥3 điểm dữ liệu → chạy thống kê mô tả (mean/median/range), không chỉ nêu 1 số mơ hồ
+5. ≥4 điểm dữ liệu theo thời gian/danh mục → vẽ chart (matplotlib), không mô tả xu hướng
+   bằng chữ dài dòng
+
+### Công thức phải lộ ra, không giấu hộp đen
+
+Mọi số ước tính (TAM/SAM/SOM, doanh thu đối thủ, CAC/LTV...) viết kèm cách tính:
+```
+TAM ~250-400 triệu USD/năm = 1,5-3 triệu đơn vị × chi bình quân 2-4 triệu VNĐ/năm
+```
+Không viết tắt "TAM ước 250-400 triệu USD" rồi dừng — người đọc phải verify lại được.
+
+### Version diff qua Mem0 — không research lại từ đầu
+
+Trước khi research → check Mem0 xem đã làm chưa. Nếu có bản cũ:
+- Nêu rõ bản cũ kết luận gì, SAI/THIẾU ở đâu (nếu phát hiện ra), bản mới khác gì
+- Chỉ research phần DELTA nếu bản cũ vẫn còn giá trị phần lớn
+
+### Debate pattern — cho câu hỏi rủi ro cao/quyết định đầu tư
+
+Không tự 1 mình soi 3 góc rồi kết luận luôn. Tự đóng vai 2 phe đối lập (bull/bear,
+ủng hộ/phản đối), mỗi phe đưa lập luận + bằng chứng riêng, rồi mới tổng hợp — giảm
+confirmation bias của chính mình.
+
+### "Không nên bắt chước" — bắt buộc khi phân tích đối thủ/case study
+
+Ngoài "nên học gì từ đối thủ X", luôn có mục riêng: cái gì KHÔNG nên copy + lý do.
+Case study $1M ARR của công ty khác không tự động áp dụng được cho quy mô/giai đoạn khác.
+
+### Bảng tin cậy THEO TỪNG PHẦN ở cuối báo cáo (Full Report L3-L4)
+
+Thay vì 1 confidence chung ở đầu brief, thêm bảng cuối báo cáo dài:
+
+| Phần | Độ tin cậy | Lý do |
+|---|---|---|
+| Giá/pricing công khai | Cao | Niêm yết trực tiếp |
+| Doanh thu đối thủ | Thấp | Suy đoán từ traction tự công bố |
+
+### Validate list — ưu tiên theo chi phí/giá trị, không liệt kê phẳng
+
+Cuối Full Report thêm mục "Việc cần làm để validate" — xếp theo (giá trị thông tin
+thu được)/(chi phí+thời gian bỏ ra), rẻ nhất+giá trị nhất lên đầu. Không liệt kê ngang
+hàng "cần nghiên cứu thêm A, B, C".
