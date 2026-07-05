@@ -167,3 +167,31 @@ npx -y pollinations-mcp
 # Không cần deploy — free public API, không cần key
 ```
 > ⚠️ Hoàn toàn free, không cần API key. Rate limit thoải mái.
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, urllib.parse
+
+def gen_image(prompt, w=1024, h=1024, save_as="output.png"):
+    p = urllib.parse.quote(prompt)
+    urllib.request.urlretrieve(
+        f"https://image.pollinations.ai/prompt/{p}?width={w}&height={h}&nologo=true",
+        save_as)
+    return save_as
+```
+
+### OpenClaw
+```bash
+npx -y pollinations-mcp
+```
+
+### Antigravity
+```bash
+# Khong can API key - hoan toan free
+```
+> ⚠️ Free, không cần key — nhưng chất lượng thấp hơn Fal.ai/Stable Diffusion, chỉ hợp draft nhanh.
