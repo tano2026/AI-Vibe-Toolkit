@@ -109,3 +109,38 @@ npm install && npm run build
 ---
 
 *Nguồn: github.com/ZLeventer/hubspot-mcp | 33 tools | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def hubspot_get_contacts(limit=10):
+    req = urllib.request.Request(
+        f"https://api.hubapi.com/crm/v3/objects/contacts?limit={limit}",
+        headers={"Authorization": f"Bearer {os.environ['HUBSPOT_TOKEN']}"})
+    return json.loads(urllib.request.urlopen(req).read())
+
+def hubspot_create_contact(email, firstname=""):
+    payload = json.dumps({"properties": {"email": email, "firstname": firstname}}).encode()
+    req = urllib.request.Request("https://api.hubapi.com/crm/v3/objects/contacts",
+        data=payload,
+        headers={"Authorization": f"Bearer {os.environ['HUBSPOT_TOKEN']}",
+                 "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/ZLeventer/hubspot-mcp
+```
+
+### Antigravity
+```bash
+echo 'HUBSPOT_TOKEN=your_private_app_token' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Dùng Private App Token (HubSpot Settings → Integrations → Private Apps), không dùng API key cũ đã deprecated.
