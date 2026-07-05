@@ -48,3 +48,12 @@ Feature set đơn giản nhất — chỉ 4 tools cơ bản. Nhưng nếu mày l
 ---
 
 *Nguồn: github.com/julianoczkowski/notebooklm-mcp-2026 | Cập nhật: tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes** — NotebookLM tự động hóa qua trình duyệt/tài khoản Google
+đăng nhập, không có REST API công khai. Cần browser session thật → route sang OpenClaw
+nếu cần dùng, không phải Hermes.
