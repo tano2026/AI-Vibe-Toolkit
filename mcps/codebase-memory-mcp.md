@@ -60,3 +60,18 @@ Sau khi dùng codebase-memory-mcp:
 - Repo: https://github.com/DeusData/codebase-memory-mcp
 - Docs: xem README trong repo
 - MCP registry: https://mcp.so/server/codebase-memory-mcp
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ Cần shell/subprocess access mà Hermes hiện chưa có** (xem ticket trong
+ANTIGRAVITY-PLAYBOOK.md) — tool index code local vào SQLite, gọi qua CLI/MCP protocol,
+không phải REST API đơn giản.
+
+### Antigravity (setup trước, chờ Hermes có quyền subprocess)
+```bash
+# Xem huong dan cai dat that trong README goc cua repo
+git clone <repo-url-trong-file-nay>
+```
