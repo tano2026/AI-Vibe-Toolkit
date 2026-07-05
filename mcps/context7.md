@@ -88,3 +88,32 @@ Claude sẽ tự động lấy docs Next.js version mới nhất trước khi tr
 ---
 
 *Thêm vào kho: 06/2025 | Nguồn: github.com/upstash/context7*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json
+
+def context7_get_docs(library_id, topic=""):
+    url = f"https://context7.com/api/v1/{library_id}"
+    if topic:
+        url += f"?topic={topic}"
+    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    return urllib.request.urlopen(req).read().decode()
+```
+
+### OpenClaw
+```bash
+npx -y @upstash/context7-mcp
+```
+
+### Antigravity
+```bash
+# Free tier khong can key, rate limit thap hon ban co key
+echo 'CONTEXT7_API_KEY=your_key_here' >> /home/ubuntu/.hermes/.env  # optional, tang rate limit
+```
+> ⚠️ Chủ yếu để lấy docs thư viện code mới nhất — hữu ích khi Hermes viết code dùng library có version mới sau training cutoff.
