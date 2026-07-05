@@ -139,3 +139,36 @@ npx -y @modelcontextprotocol/server-brave-search
 # Set env: BRAVE_API_KEY=BSA-xxx
 ```
 > ⚠️ Free 2000 req/tháng. Lấy key: brave.com/search/api
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, urllib.parse, os
+
+def brave_search(query, n=5):
+    req = urllib.request.Request(
+        f"https://api.search.brave.com/res/v1/web/search"
+        f"?q={urllib.parse.quote(query)}&count={n}",
+        headers={"Accept": "application/json",
+                 "X-Subscription-Token": os.environ["BRAVE_API_KEY"]}
+    )
+    r = json.loads(urllib.request.urlopen(req).read())
+    return [{"title": x["title"], "url": x["url"],
+             "desc": x.get("description","")} for x in r["web"]["results"]]
+```
+
+### OpenClaw
+```bash
+# Neu OpenClaw ho tro MCP protocol truc tiep, dung goi MCP server thay HTTP thuan
+npx -y @brave/brave-search-mcp-server
+```
+
+### Antigravity
+```bash
+echo 'BRAVE_API_KEY=your_key_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Free tier 2000 req/tháng — Hermes nên cache kết quả nếu search lặp lại nhiều.
