@@ -154,3 +154,33 @@ def fal_text_to_speech(text, voice="af_bella", api_key=None):
 # Lấy key: fal.ai/dashboard
 ```
 > ⚠️ Pay-per-use. Flux Schnell rất rẻ (~$0.003/ảnh). Có free credits khi signup.
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def fal_generate_image(prompt, model="fal-ai/flux/schnell"):
+    payload = json.dumps({"prompt": prompt}).encode()
+    req = urllib.request.Request(f"https://fal.run/{model}",
+        data=payload,
+        headers={"Authorization": f"Key {os.environ['FAL_KEY']}",
+                 "Content-Type": "application/json"})
+    r = json.loads(urllib.request.urlopen(req).read())
+    return r["images"][0]["url"]
+```
+
+### OpenClaw
+```bash
+npx -y fal-mcp
+```
+
+### Antigravity
+```bash
+echo 'FAL_KEY=your_key_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Trả phí theo request — check giá model cụ thể trước khi để Hermes gọi tự động lặp lại.
