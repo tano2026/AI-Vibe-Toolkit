@@ -1527,3 +1527,22 @@ Con thieu (chua lam duoc, can Antigravity/Nobitano):
 - Deal/pipeline state chua co noi luu (can Google Sheets/Airtable, khong ghi vao kho GitHub)
 
 **Kho: 115 repos | 37 MCPs | 86 skills | 144 scripts | 5 agent packages + 3 core VPS playbook (da co Domain Agent Router)**
+
+
+---
+
+## Sua loi + gop skill (lan 83)
+
+Phat hien: skills/research-pro-final.md (tao hom nay) TRUNG LAP va SAI MOI TRUONG voi
+agents/research-analytics-pro/system-prompt.md (v4, da co san, Python-native dung HTTP
+thuan cho Tavily/Exa/MarkItDown - KHONG qua MCP, dung chuan Hermes khong mount duoc MCP).
+
+Da sua: gop ky luat viet bao cao moi (Data Reality Check, cong thuc lo ra, version diff
+Mem0, debate pattern, khong nen bat chuoc, bang tin cay theo phan, validate list uu tien)
+vao THANG system-prompt.md v4 thanh v4.1. Xoa skills/research-pro-final.md de tranh
+trung lap + sai lech moi truong.
+
+agents/research-pro.md (doc tong quan Hermes vs Research Pro truc tiep) giu nguyen,
+khong doi.
+
+**Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
