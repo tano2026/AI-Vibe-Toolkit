@@ -123,3 +123,24 @@ Claude Code plugin + MCP server cho ComfyUI — generate images và video, chỉ
 ---
 
 *Nguồn: github.com/artokun/comfyui-mcp | 152⭐ | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho VPS hiện tại** — ComfyUI cần GPU để render ảnh/video, VPS hiện tại
+của Nobitano chỉ có 2-4 CPU / 4-8GB RAM, không có GPU. Chỉ dùng được nếu tách 1 VPS/máy
+riêng có GPU rồi trỏ `COMFYUI_URL` tới đó.
+
+### Hermes (Python) — CHỈ dùng được nếu có ComfyUI server GPU riêng
+```python
+import urllib.request, json, os
+
+def comfyui_generate(workflow_json, comfyui_url=None):
+    url = comfyui_url or os.environ.get("COMFYUI_URL", "http://127.0.0.1:8188")
+    payload = json.dumps({"prompt": workflow_json}).encode()
+    req = urllib.request.Request(f"{url}/prompt", data=payload,
+        headers={"Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
