@@ -118,3 +118,41 @@ Luôn báo Hermes/chủ đủ 3 thứ:
 1. **Endpoint:** `http://localhost:[port]/api/...`
 2. **Auth:** API key ở đâu / cách lấy
 3. **Health check:** `curl localhost:[port]/health` → kết quả gì
+
+
+---
+
+## 🎫 TICKET — Hermes thiếu tool HTTP fetch generic (03/07/2026)
+
+**Vấn đề phát hiện:** `HERMES-PLAYBOOK.md` giả định Hermes có thể tự chạy
+`urllib.request` tùy ý (Python runtime tự do). Thực tế: Hermes chỉ có bộ tool cố định
+đăng ký sẵn trong `default_api` — KHÔNG có quyền chạy code Python tùy ý hoặc gọi HTTP
+request generic. Hermes tự báo lỗi: "không có `fetch_file_from_repository` trong
+default_api".
+
+**Hệ quả:** Mọi code mẫu trong kho (GitHub API fetch, Tavily/Brave search, Firecrawl,
+gửi email Resend...) mà Hermes "đọc" được nhưng KHÔNG "chạy" được — vì thiếu tool nền.
+
+**Cần làm (mày quyết cách implement, đây chỉ là yêu cầu chức năng):**
+
+Đăng ký 1 tool mới cho Hermes trong OpenClaw config, tối thiểu 2 việc:
+1. Nhận `url` (string) + optional `method`/`headers`/`body`
+2. Trả về response body (text) — để Hermes tự parse JSON/base64 tiếp theo logic
+   trong HERMES-PLAYBOOK.md
+
+Gợi ý implementation (Node.js, vì OpenClaw runtime là Node 22+):
+```javascript
+// vi du dang ky tool trong OpenClaw cho Hermes goi
+async function httpFetch({ url, method = "GET", headers = {}, body = null }) {
+  const res = await fetch(url, { method, headers, body });
+  const text = await res.text();
+  return { status: res.status, body: text };
+}
+// dang ky tool nay vao default_api cua Hermes voi ten "http_fetch" hoac "fetch_url"
+```
+
+**Verify sau khi thêm:** báo Nobitano nhắn Hermes qua Telegram — "fetch thử
+`https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/TRACKER.md`" — nếu
+trả về JSON thật (không còn báo lỗi thiếu tool) → xong.
+
+**Status:** Chờ Antigravity xử lý. Claude không có quyền VPS để tự làm việc này.
