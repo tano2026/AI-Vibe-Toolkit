@@ -98,3 +98,33 @@ ffmpeg -i background.mp4 -i voice.wav -i thumbnail.jpg   -map 0:v -map 1:a final
 ---
 
 *Nguồn: github.com/kevinten-ai/mcp-video-gen | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+import urllib.request, json, os
+
+def zhipuai_generate_video(prompt, save_as="video.mp4"):
+    payload = json.dumps({"model": "cogvideox", "prompt": prompt}).encode()
+    req = urllib.request.Request("https://open.bigmodel.cn/api/paas/v4/videos/generations",
+        data=payload,
+        headers={"Authorization": f"Bearer {os.environ['ZHIPUAI_API_KEY']}",
+                 "Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req).read())
+```
+
+### OpenClaw
+```bash
+git clone https://github.com/kevinten-ai/mcp-video-gen
+pip install -r requirements.txt
+```
+
+### Antigravity
+```bash
+echo 'ZHIPUAI_API_KEY=your_key_here' >> /home/ubuntu/.hermes/.env
+```
+> ⚠️ Video generation là async — API trả job ID, cần poll endpoint riêng để lấy kết quả, không trả video ngay trong 1 request.
