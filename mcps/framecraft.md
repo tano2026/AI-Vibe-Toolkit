@@ -96,3 +96,21 @@ framecraft render --width 1920 --height 1080  # YouTube horizontal
 ---
 
 *Nguồn: github.com/vaddisrinivas/framecraft | MIT | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ Cần cả subprocess access VÀ Playwright/Chromium** — framecraft render video từ
+HTML qua Playwright (browser), không phải REST API. Hermes hiện thiếu quyền subprocess
+(xem ticket ANTIGRAVITY-PLAYBOOK.md) — cần fix đó trước, rồi mới tính tới việc gọi CLI
+này. Nếu ưu tiên video-from-HTML, xem xét HyperFrames đã research trước (đơn giản hơn,
+không cần Playwright).
+
+### Antigravity (setup trước, chờ Hermes có subprocess)
+```bash
+git clone https://github.com/vaddisrinivas/framecraft
+cd framecraft && pip install -r requirements.txt
+playwright install chromium
+```
