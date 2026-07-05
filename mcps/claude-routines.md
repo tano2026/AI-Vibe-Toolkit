@@ -236,3 +236,13 @@ Else: log vào Google Sheets silently
 ---
 *Feature chính thức Anthropic | Release 15/4/2026 | claude.ai/code/routines*
 *AI Vibe Toolkit | tháng 6/2026*
+
+
+---
+
+## 🤖 Agent Integration
+
+**⚠️ KHÔNG áp dụng cho Hermes.** Đây là tính năng CLOUD của chính Anthropic (Claude Code
+Routines) — chạy trên server Anthropic, cấu hình qua claude.ai UI, không self-host được,
+không có API để Hermes gọi. Thực ra đây là một GIẢI PHÁP THAY THẾ cho vai trò của Hermes
+(automation không cần VPS) — không phải tool Hermes tích hợp thêm.
