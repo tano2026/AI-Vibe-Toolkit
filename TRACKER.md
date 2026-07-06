@@ -1568,3 +1568,20 @@ sequential-thinking, stable-diffusion-mcp, taibu-mcp, wangp-kaggle — chưa vá
 độ ưu tiên thấp hơn vì không nằm trong bảng task trực tiếp của Hermes.
 
 **Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
+
+
+---
+
+## Research Pro v4.2 + subagent reference (lan 85)
+
+Nobitano xac nhan: he thong THAT chi co Claude.ai Project + Hermes (Python, default_api
+co dinh) + OpenClaw (Node.js) - KHONG co Claude Code CLI voi Glob/Grep/Write.
+
+Da luu agents/research-analytics-pro/subagents/market-research-analyst.md (nguyen ban,
+tham khao) - XAC NHAN khong chay duoc truc tiep trong he thong hien tai.
+
+Da dich 2 ky thuat gia tri nhat sang Python/web_search that, gop vao system-prompt.md
+(v4.1 -> v4.2): blocking rule (tu choi lam viec neu thieu thi truong/pham vi dia ly),
+domain-age check qua RDAP + Wayback Machine (khong can API key).
+
+**Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
