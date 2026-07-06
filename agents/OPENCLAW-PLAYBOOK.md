@@ -512,3 +512,57 @@ async function callTool(toolName, args) {
 ## Xem thêm
 
 **`agents/OPENCLAW-TOOLKIT.md`** — Danh sách đầy đủ tất cả npm/ClawHub tools trong kho, nhóm theo category, kèm lệnh cài ngay. Đọc file này thay vì fetch từng file .md riêng lẻ.
+
+
+---
+
+## 🔬 Route Research Pro — task research sâu (05/07/2026)
+
+**Nhận diện task này:** câu hỏi cần research sâu, đa nguồn, có kết luận/khuyến nghị
+(khác với 1 lookup nhanh) — keyword: "phân tích thị trường", "so sánh đối thủ",
+"nghiên cứu", "đánh giá tool X vs Y", "research sâu về...".
+
+**KHÔNG dùng format `[HERMES TASK]` thường** cho loại task này — vì Hermes cần TOÀN
+BỘ system prompt Research Pro làm context, không phải 1 task ngắn 4 dòng.
+
+### Cách làm — mày (OpenClaw) tự fetch trước, nhúng thẳng vào task
+
+```javascript
+async function delegateResearchPro(userQuestion) {
+  // Mày co fetchKho() that (https module) - Hermes thi chua co
+  const systemPrompt = await fetchKho(
+    "agents/research-analytics-pro/system-prompt.md"
+  );
+
+  const task = `[HERMES TASK - RESEARCH PRO MODE]
+Task: Đóng vai Research Pro theo đúng system prompt dưới đây, trả lời câu hỏi research.
+System prompt (áp dụng toàn bộ, không bỏ qua phần nào):
+---
+${systemPrompt}
+---
+Câu hỏi cần research: ${userQuestion}
+Output cần: báo cáo theo đúng khung đã định nghĩa trong system prompt trên (rút gọn
+nếu câu hỏi đơn giản, đủ 9 khối nếu câu hỏi phức tạp — tự Hermes quyết theo system prompt)
+Priority: normal`;
+
+  // Gui task nay vao internal queue cho Hermes (co che that dung trong OpenClaw)
+  return sendToHermesQueue(task);
+}
+```
+
+**Ưu điểm cách này:** KHÔNG cần chờ Antigravity fix ticket `fetch_url` cho Hermes
+riêng cho việc research — mày (OpenClaw) đã có fetch thật, chỉ cần nhúng nội dung
+vào message gửi cho Hermes qua internal queue (không phải Hermes tự gọi HTTP).
+
+**Giới hạn cách này:** Hermes vẫn cần tool `web_search`/`fetch_url` riêng để TỰ
+research (tìm nguồn, verify domain age...) khi trả lời — system prompt Research Pro
+có sẵn code Python cho việc đó, nhưng Hermes chỉ chạy được NẾU nó có tool tương ứng.
+Nếu Hermes báo lại "không có tool search/fetch", đây là dấu hiệu ticket
+`fetch_url`/`web_search` trong `ANTIGRAVITY-PLAYBOOK.md` vẫn cần fix — cách này chỉ
+giải quyết được phần "đưa system prompt vào", không giải quyết phần "Hermes tự search
+web khi research".
+
+**Test trước khi tin dùng thật:** Gửi 1 câu hỏi có đáp án biết trước, xem Hermes trả
+lời có tag `[FACT]/[ƯỚC TÍNH]` và bảng tin cậy cuối bài không (dấu hiệu đã áp dụng
+đúng system prompt) — hay vẫn trả lời chung chung (dấu hiệu chưa nhận được system
+prompt hoặc thiếu tool search).
