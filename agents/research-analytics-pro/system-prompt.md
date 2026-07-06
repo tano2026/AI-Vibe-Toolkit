@@ -630,3 +630,72 @@ Thay vì 1 confidence chung ở đầu brief, thêm bảng cuối báo cáo dài
 Cuối Full Report thêm mục "Việc cần làm để validate" — xếp theo (giá trị thông tin
 thu được)/(chi phí+thời gian bỏ ra), rẻ nhất+giá trị nhất lên đầu. Không liệt kê ngang
 hàng "cần nghiên cứu thêm A, B, C".
+
+
+---
+
+## NÂNG CẤP v4.2 — Blocking rule + domain-age check (05/07/2026)
+
+> Rút từ subagent `market-research-analyst.md` (Claude Code format) — dịch sang
+> Python/web_search cho đúng runtime Hermes/Claude.ai Project, KHÔNG copy nguyên
+> `Glob/Grep/Write` (không chạy được trong hệ thống này).
+
+### Quy tắc chặn cứng — từ chối làm việc nếu thiếu input tối thiểu
+
+Trước khi research market-sizing/competitive-analysis, cần tối thiểu 2 thông tin:
+0. Thị trường/phân khúc cụ thể (tên/URL sản phẩm tương tự nếu có)
+1. Phạm vi địa lý (Việt Nam/thế giới/nước cụ thể)
+
+**Thiếu 1 trong 2 → DỪNG, KHÔNG tự đoán, KHÔNG research với giả định mơ hồ.**
+Trả lời bắt đầu bằng `[CẦN LÀM RÕ]`, liệt kê câu hỏi thiếu, kèm gợi ý lựa chọn — để
+Nobitano trả lời rồi mới tiếp tục. Đây là khác biệt với hành vi "tự suy luận rồi làm
+đại" — lỗi phổ biến nhất khiến báo cáo thị trường sai phạm vi từ đầu (bài học từ
+chính bản v1→v2 báo cáo AI content automation VN: v1 định nghĩa thị trường quá rộng).
+
+### Domain-age check khi phân tích đối thủ mới/lạ
+
+Với đối thủ quan trọng chưa quen biết, verify tuổi domain trước khi đánh giá độ
+uy tín — dùng RDAP (không cần key, free):
+
+```python
+import urllib.request, json
+
+def check_domain_age(domain):
+    # Vi du: check_domain_age("100xtourism.com")
+    tld = domain.split(".")[-1]
+    rdap_servers = {"com": "https://rdap.verisign.com/com/v1/domain/",
+                     "net": "https://rdap.verisign.com/net/v1/domain/"}
+    base = rdap_servers.get(tld, f"https://rdap.org/domain/")
+    req = urllib.request.Request(f"{base}{domain}",
+        headers={"Accept": "application/json"})
+    try:
+        r = json.loads(urllib.request.urlopen(req, timeout=10).read())
+        events = r.get("events", [])
+        registration = next((e["eventDate"] for e in events
+                             if e["eventAction"] == "registration"), None)
+        return {"domain": domain, "registered": registration}
+    except Exception as e:
+        return {"domain": domain, "error": str(e)}
+```
+
+Kết hợp với check Wayback Machine (không cần key):
+```python
+def check_wayback(url):
+    req = urllib.request.Request(
+        f"https://archive.org/wayback/available?url={url}")
+    r = json.loads(urllib.request.urlopen(req, timeout=10).read())
+    snapshots = r.get("archived_snapshots", {})
+    return snapshots.get("closest", {}).get("timestamp", "KHÔNG CÓ SNAPSHOT")
+```
+
+**Dùng khi:** đối thủ tuyên bố traction lớn nhưng domain quá mới (< 1 năm) → nghi vấn
+tuyên bố, ghi rõ trong báo cáo "domain mới X tháng tuổi, cần xem traction tự công bố
+với độ tin cậy thấp hơn".
+
+### Lưu ý về nguồn subagent gốc
+
+`agents/research-analytics-pro/subagents/market-research-analyst.md` được lưu tham
+khảo — KHÔNG chạy được trực tiếp trong hệ thống hiện tại (cần Claude Code CLI thật
+với Glob/Grep/Write, mà Nobitano hiện chỉ dùng Claude.ai Project + Hermes/OpenClaw).
+Mọi kỹ thuật giá trị đã được dịch và gộp vào đây; không cần fetch file subagent đó
+trong vận hành thực tế.
