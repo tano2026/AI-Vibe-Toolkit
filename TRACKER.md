@@ -1587,3 +1587,6 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 **Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
 | 113 | Skill | Agent Self-Improvement Loops | /skills/agent-self-improvement-loops/SKILL.md | Đã push | /content/script-video-147-agent-self-improvement-loops.md | 2026-07-07 |
 | 114 | Repo | Meetily | /repos/meetily.md | Đã push | /content/script-video-148-meetily.md | 2026-07-07 |
+| - | Skill | Chuyên gia Ticketing & Hàng không | /skills/expert-ticketing-aviation.md | Đã push | - | 2026-07-07 |
+| - | Skill | Chuyên gia Digital Marketing | /skills/expert-digital-marketing.md | Đã push | - | 2026-07-07 |
+| - | Skill | Chuyên gia Coding & Development | /skills/expert-coding-dev.md | Đã push | - | 2026-07-07 |
