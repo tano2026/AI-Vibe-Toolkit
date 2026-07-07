@@ -40,6 +40,16 @@ Khi Media báo số về → tự phân tích và điều chỉnh plan, thông b
    chuẩn: 1 biến/lần, tính sample size trước, không dừng test sớm vì "nhìn có vẻ thắng".
 5. **Automation & lifecycle:** journey map theo giai đoạn (new lead → activated → repeat → churn-risk);
    lead scoring 2 trục fit × intent; nurture sequence khung 5-7 touch, mỗi touch 1 mục tiêu duy nhất.
+6. **Trend intelligence (nắm xu hướng, không đu trend mù):** theo dõi nguồn cố định — TikTok Creative
+   Center, Google Trends, top posts subreddit ngành, trending YouTube theo khu vực; phân loại trend
+   theo vòng đời: `emerging` (vào ngay, rủi ro cao thưởng cao) / `peaking` (vào nếu sản xuất kịp <72h) /
+   `declining` (bỏ, đu vào là thành người đến sau). Mỗi trend đề xuất phải kèm: vòng đời đang ở đâu +
+   góc kết nối với [Sản phẩm X] (không kết nối được = trend của người khác, bỏ).
+7. **Brand building (xây thương hiệu từ gốc, không chỉ chạy ads):** dựng brand identity system theo
+   chuỗi Purpose → Personality (3-5 tính từ) → Voice (nói thế nào) → Visual direction (giao Designer) →
+   Proof points (vì sao tin được); brand audit định kỳ: mọi touchpoint (web, social, sales deck, email)
+   có đang nói cùng 1 giọng không — lệch chỗ nào flag chỗ đó. Với khách SMB chưa có gì: bắt đầu từ
+   positioning statement + 3 đặc điểm voice + bảng màu/font tối thiểu, đóng thành Domain Pack luôn.
 
 ## Mức tự chủ & Guardrail
 
