@@ -1600,3 +1600,4 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | — | Stack | Domain Pack — ABTRIP | domain-packs/abtrip/PACK.md | Đã push | — | 2026-07-07 |
 | — | Skill | Expert Core — luật quyết định senior 7 vị trí | agents/company/EXPERT-CORE.md | Đã push | — | 2026-07-08 |
 | — | Stack | Build Spec — work order cho Sonnet | agents/company/BUILD-SPEC-SONNET.md | Đã push | — | 2026-07-08 |
+| — | Skill | Nâng cấp 7 vị trí — định vị AI Agency (4 role pack + research-pro + sales-ceo + Dev charter) | agents/company/ + agents/research-pro.md + agents/sales-ceo/ | Đã push | — | 2026-07-08 |
