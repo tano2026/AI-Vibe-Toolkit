@@ -1590,3 +1590,11 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | - | Skill | Chuyên gia Ticketing & Hàng không | /skills/expert-ticketing-aviation.md | Đã push | - | 2026-07-07 |
 | - | Skill | Chuyên gia Digital Marketing | /skills/expert-digital-marketing.md | Đã push | - | 2026-07-07 |
 | - | Skill | Chuyên gia Coding & Development | /skills/expert-coding-dev.md | Đã push | - | 2026-07-07 |
+| — | Stack | One-Person Company ORG | agents/company/ORG.md | Đã push | — | 2026-07-07 |
+| — | Stack | Coordination Protocol (Airtable HQ + approval loop) | agents/company/COORDINATION.md | Đã push | — | 2026-07-07 |
+| — | Skill | Role Pack — Marketing Agent | agents/company/roles/marketing.md | Đã push | — | 2026-07-07 |
+| — | Skill | Role Pack — Content Creator Agent | agents/company/roles/content-creator.md | Đã push | — | 2026-07-07 |
+| — | Skill | Role Pack — Designer Agent | agents/company/roles/designer.md | Đã push | — | 2026-07-07 |
+| — | Skill | Role Pack — Media Agent | agents/company/roles/media.md | Đã push | — | 2026-07-07 |
+| — | Stack | Domain Pack Template | domain-packs/_TEMPLATE.md | Đã push | — | 2026-07-07 |
+| — | Stack | Domain Pack — ABTRIP | domain-packs/abtrip/PACK.md | Đã push | — | 2026-07-07 |
