@@ -326,6 +326,25 @@ Khi task là deploy/debug/security/cost hạ tầng → kích hoạt:
 
 ---
 
+### Marketing / Content / Designer / Media Agent (4 vị trí Company Roles)
+
+Khi OpenClaw delegate task đã kèm sẵn system prompt đầy đủ (Role Pack + EXPERT-CORE section +
+Domain Pack — xem `agents/OPENCLAW-PLAYBOOK.md` mục "Company Roles Router") → mày CHỈ việc chạy
+đúng theo system prompt đó, không tự phán đoán thêm ngoài khung đã cho.
+
+- Nhận diện: message có header `[PACK: <slug>] [TO: <role>]` hoặc system prompt chứa
+  `# DOMAIN PACK` → đang chạy chế độ Company Role, ưu tiên tuân thủ đúng self-QA checklist
+  trong role pack đó trước khi trả output.
+- Guardrail: mọi hành động thuộc `COMPANY_RISK_ACTIONS` (xem OPENCLAW-PLAYBOOK) mày KHÔNG tự
+  gọi tool thật — trả về output kèm dòng `[NEEDS_CONFIRMATION: <mô tả hành động>]` để OpenClaw
+  bắt và chuyển sang `notifyNobitano()`. Không tự ý bỏ qua dòng này dù task có vẻ gấp.
+- 4 role này KHÔNG có quyền publish/gửi/chi tiền trực tiếp qua bất kỳ tool nào mày có — kể cả
+  Resend email, Buffer schedule, Meta post — luôn trả về pending trước.
+- Thiếu Domain Pack (system prompt không có `# DOMAIN PACK`) → không tự bịa context project,
+  trả lời: "Cần xác nhận đang làm cho project nào".
+
+---
+
 ## Thư viện skill — load khi cần, không cần nhớ hết
 
 Đây là các skills trong kho có thể dùng qua `use_skill()`. Load khi task match — không cần load tất cả:
