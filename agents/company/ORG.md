@@ -7,10 +7,14 @@
 
 ## TL;DR
 
-CEO (Nobitano, con người duy nhất) + 7 vị trí chuyên trách. Nhưng 7 vị trí KHÔNG phải 7 agent deploy riêng —
-là **7 Role Pack** (file định danh + skill + guardrail) được nạp vào 3 runtime đang chạy sẵn:
-Hermes (thực thi Python), OpenClaw (điều phối + Telegram + browser), Antigravity (hạ tầng VPS).
-Thêm project mới → cắm Domain Pack, không xây agent mới.
+**Công ty = AI Agency** cung cấp giải pháp và ứng dụng AI cho doanh nghiệp vừa-nhỏ và cá nhân.
+CEO (Nobitano, con người duy nhất) + 7 vị trí chuyên trách với KIẾN THỨC NỀN CHUNG (domain-agnostic).
+ABTRIP/An Bình, Tano, Wonder Mart chỉ là các JOB/project chạy trên hạ tầng này — không phải hạ tầng.
+Nhận project/ngành mới → cắm Domain Pack chuyên ngành, lõi agent không đổi.
+
+7 vị trí KHÔNG phải 7 agent deploy riêng — là **7 Role Pack** (file định danh + skill + guardrail)
+được nạp vào 3 runtime đang chạy sẵn: Hermes (thực thi Python), OpenClaw (điều phối + Telegram +
+browser), Antigravity (hạ tầng VPS).
 
 ---
 
@@ -87,6 +91,21 @@ Cơ chế duyệt chi tiết: xem `agents/company/COORDINATION.md`.
 - Template: `domain-packs/_TEMPLATE.md`. Pack mẫu thật: `domain-packs/abtrip/PACK.md`.
 - **Quy tắc sắt:** mọi delegation message PHẢI mở đầu bằng `[PACK: <slug>]`. Agent chỉ được đọc đúng pack đó trong phiên. Đổi project giữa phiên → phải nêu lại header pack mới. Không có header → agent hỏi lại 1 câu duy nhất rồi mới chạy.
 - Ví dụ trong mọi role pack đều dùng placeholder `[Sản phẩm X]` / `[Ngành Y]` — pack mới cắm vào là chạy.
+
+---
+
+---
+
+## Charter Dev & Automation (nâng cấp 07/2026)
+
+Dev là vị trí xương sống của agency — sản phẩm bán cho khách CHÍNH LÀ thứ Dev build. Charter 4 mảng:
+
+1. **Xây công cụ:** tool nội bộ cho 6 vị trí kia + tool đóng gói bán cho khách SMB (chatbot, automation, agent). Mọi tool build cho khách → trước hết chạy thử nội bộ trên 1 job của mình (ABTRIP/Wonder Mart là sandbox thật).
+2. **Tối ưu hệ thống:** giữ 3 runtime khỏe (pm2, disk, RAM); xử lý ticket treo trước khi nhận việc mới — ticket tồn >7 ngày phải escalate CEO.
+3. **Tối ưu chi phí token (P&L trực tiếp của agency):** routing qua OmniRoute theo bảng MODELS (fast/coding/reasoning/long/cheap) — Anthropic direct CHỈ cho task cần chất lượng đỉnh; nén context (skill `caveman` trong kho nén 65-75%); cache kết quả research/fetch lặp lại; log token usage theo task để biết job nào đang đốt tiền. Mục tiêu: >80% khối lượng chạy trên free tier (~1.6B token/tháng OmniRoute).
+4. **Automation:** quy tắc 3 lần — việc gì lặp ≥3 lần thì automation hóa (n8n cho workflow, cron cho định kỳ, script cho batch). Mỗi automation mới có: owner, log, cách tắt khẩn cấp.
+
+Áp luật deploy/debug/credential trong `EXPERT-CORE.md` section ⑤.
 
 ---
 
