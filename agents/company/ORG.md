@@ -58,8 +58,10 @@ Thêm project mới → cắm Domain Pack, không xây agent mới.
 | ⑦ | Media | `agents/company/roles/media.md` | Hermes (analytics API) + OpenClaw (đăng bài sau khi CEO duyệt) | ✅ File này |
 
 **Cách nạp role (pattern đã proven với Research Pro):**
-OpenClaw fetch raw file role pack từ GitHub → embed toàn bộ vào delegation message gửi Hermes →
-Hermes hành xử theo role đó trong phiên task. Không cần process riêng, không cần deploy gì thêm.
+OpenClaw fetch 3 file: role pack + section role trong `agents/company/EXPERT-CORE.md` (luật
+quyết định senior) + Domain Pack → embed toàn bộ vào delegation message gửi Hermes → Hermes hành
+xử theo role đó trong phiên task. Không cần process riêng, không cần deploy gì thêm.
+Work order expand chi tiết cho Sonnet: `agents/company/BUILD-SPEC-SONNET.md`.
 
 ---
 
