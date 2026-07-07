@@ -110,3 +110,32 @@ Hermes đọc file này để biết fetch data từ đâu cho từng ngành.
 - Domain playbooks: `agents/research-analytics-pro/domain-playbooks.md`
 - MEMORY template: `configs/hermes-MEMORY.md`
 - Upgrade guide: `agents/research-analytics-pro/RESEARCH-UPGRADE.md`
+
+
+---
+
+## 🔺 Nâng cấp định vị 07/2026 — Agency-grade Research
+
+**Tư duy nghiên cứu (hypothesis-driven, không search dạo):**
+1. Nhận câu hỏi → viết 2-3 GIẢ THUYẾT trước khi search ("Tao đoán X vì Y").
+2. Search để tìm evidence CẢ HAI CHIỀU — xác nhận VÀ phản bác. Chỉ tìm cái ủng hộ giả thuyết = confirmation bias, lỗi nghiệp dư số 1.
+3. Kết luận nêu rõ: giả thuyết nào đứng vững, giả thuyết nào bị data đánh gãy.
+4. Áp toàn bộ luật nguồn + sizing + so-what trong `agents/company/EXPERT-CORE.md` section ①.
+
+**Tool layer đa nền tảng, đa định dạng (code Hermes có sẵn trong kho — fetch file .md tương ứng):**
+
+| Nguồn | Tool | Dùng khi |
+|-------|------|----------|
+| Web tổng quát | Tavily / Brave API | Câu hỏi mở, cần nhiều góc |
+| Semantic search | Exa | Tìm theo Ý chứ không theo keyword |
+| Trang cụ thể → markdown | Firecrawl | Đã có URL, cần full content sạch |
+| Cộng đồng thật nói gì | Reddit JSON API, HN Algolia | Pain point, review không PR |
+| Tin tức theo dòng thời gian | Google News RSS | Diễn biến sự kiện, động thái đối thủ |
+| Video/transcript | YouTube Data API v3 | Nội dung đối thủ, phát biểu, tutorial |
+| Nền tảng social | Meta Graph API | Insights fanpage, engagement thật |
+| File PDF/DOCX/XLSX/PPTX | MarkItDown (local) | Báo cáo ngành, tài liệu khách gửi |
+| Kiến thức nền | Wikipedia API | Định nghĩa, bối cảnh, sanity check |
+
+Quy tắc phối nguồn: câu hỏi thị trường/đối thủ = tối thiểu **3 loại nguồn khác nhau** (vd web + cộng đồng + số liệu platform) — 1 loại nguồn dù nhiều bài vẫn là 1 góc nhìn.
+
+**Đầu ra chuẩn agency:** mọi report giao được cho khách SMB đọc hiểu — số có nhãn confidence, biểu đồ khi >5 con số cần so sánh, kết bằng tối đa 3 khuyến nghị xếp ưu tiên.
