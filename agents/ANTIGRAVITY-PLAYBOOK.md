@@ -201,3 +201,81 @@ tự kiểm tra kho — khi được hỏi, nó generate câu trả lời NGHE h
 trước (vd "liệt kê chính xác tên các file trong /skills/") để xác nhận nó đang đọc
 thật, không phải tiếp tục bịa. Trước khi fix xong, KHÔNG tin bất kỳ câu trả lời nào
 của Hermes về nội dung kho — luôn hỏi Claude (có GitHub API thật) để verify.
+
+
+---
+
+## 🎫 TICKET (07/07/2026) — State storage layer cho tầng "Trí nhớ" (Airtable)
+
+**Bối cảnh:** Skill mới `skills/agent-self-improvement-loops/SKILL.md` chấm điểm Hermes
+1/5 ở tầng Trí nhớ — mỗi lần chạy là tabula rasa, không nhớ lỗi/lesson từ lần trước.
+Đây là gap lớn nhất trong 5 tầng, ưu tiên fix TRƯỚC các gap khác (Kế hoạch, Khám phá)
+vì các tầng đó phụ thuộc vào có trí nhớ trước đã.
+
+**Quyết định:** Dùng **Airtable** (không dùng Sheets) — vì retrieve theo `task_type`
+cần filter nhanh, Airtable filter theo field có sẵn, khỏi tự parse row như Sheets.
+
+### Schema Airtable — base tên `hermes-memory`, table `reflections`
+
+| Field name   | Type           | Ghi chú |
+|---|---|---|
+| `task_type`  | Single line text | vd "fetch_github", "search_flights", "skill_lookup" |
+| `outcome`    | Single select (`success` / `fail`) | |
+| `lesson`     | Long text      | 1-3 câu rút ra, KHÔNG phải raw log/transcript |
+| `created_at` | Date (ISO)     | tự set khi ghi |
+| `task_ref`   | Single line text (optional) | id/link tới task gốc nếu cần trace lại |
+
+### Việc Antigravity cần làm
+
+1. Tạo Airtable base `hermes-memory` + table `reflections` theo schema trên.
+2. Tạo Personal Access Token (PAT) scope `data.records:read` + `data.records:write`
+   chỉ trên base này — KHÔNG dùng token full-account.
+3. Set env var trên VPS: `AIRTABLE_PAT`, `AIRTABLE_BASE_ID`.
+4. Đăng ký 2 hàm vào `default_api` của Hermes (cùng cơ chế `fetch_url` ở ticket trước):
+
+```python
+import urllib.request, json, os, datetime
+
+AIRTABLE_BASE = os.environ["AIRTABLE_BASE_ID"]
+AIRTABLE_PAT = os.environ["AIRTABLE_PAT"]
+TABLE = "reflections"
+
+def log_reflection(task_type: str, outcome: str, lesson: str, task_ref: str = "") -> str:
+    """Ghi 1 reflection sau khi task xong. outcome: 'success' hoac 'fail'."""
+    url = f"https://api.airtable.com/v0/{AIRTABLE_BASE}/{TABLE}"
+    payload = {"fields": {
+        "task_type": task_type, "outcome": outcome, "lesson": lesson,
+        "created_at": datetime.datetime.utcnow().isoformat(), "task_ref": task_ref,
+    }}
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(),
+        headers={"Authorization": f"Bearer {AIRTABLE_PAT}",
+                 "Content-Type": "application/json"}, method="POST")
+    return urllib.request.urlopen(req).read().decode()
+
+def retrieve_lessons(task_type: str, limit: int = 5) -> list:
+    """Keo lai lesson gan nhat cung task_type, moi khi bat dau task cung loai."""
+    formula = f"{{task_type}}='{task_type}'"
+    url = (f"https://api.airtable.com/v0/{AIRTABLE_BASE}/{TABLE}"
+           f"?filterByFormula={urllib.parse.quote(formula)}"
+           f"&sort[0][field]=created_at&sort[0][direction]=desc&maxRecords={limit}")
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {AIRTABLE_PAT}"})
+    data = json.loads(urllib.request.urlopen(req).read())
+    return [r["fields"].get("lesson", "") for r in data.get("records", [])]
+```
+
+5. Wiring vào task loop của Hermes (Antigravity xác nhận đúng chỗ hook trong code gốc,
+   Claude không có quyền xem source Hermes nên không đoán vị trí chính xác):
+   - Đầu mỗi task → gọi `retrieve_lessons(task_type)` → prepend vào context/prompt
+   - Cuối mỗi task → gọi `log_reflection(task_type, outcome, lesson, task_ref)`
+
+**Validation gate (bắt buộc, không bỏ qua):** Chỉ ghi `lesson` khi nó thật sự khác/mới
+so với 5 lesson gần nhất cùng `task_type` (tránh spam trùng lặp làm phình bảng vô ích).
+Không cần cơ chế auto-revert phức tạp ở bản đầu — review thủ công qua Airtable UI mỗi
+tuần là đủ ở quy mô hiện tại.
+
+**Verify sau khi deploy:** báo Nobitano nhắn Hermes 2 lần cùng 1 loại lỗi (vd cố ý gọi
+sai 1 API) — lần 2 phải thấy Hermes tự nhắc lại lesson từ lần 1 trong response.
+
+**Status:** Chờ Antigravity xử lý. Blocker cho toàn bộ tầng Trí nhớ/Kế hoạch/Khám phá
+trong `skills/agent-self-improvement-loops/SKILL.md`.
+
