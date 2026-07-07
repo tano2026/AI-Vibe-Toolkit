@@ -509,6 +509,132 @@ async function callTool(toolName, args) {
 - Deal/pipeline state chưa có nơi lưu — hiện chưa có Google Sheets/Airtable nối vào,
   đừng tự ghi state vào file trong kho GitHub (kho là tài liệu tĩnh, không phải database).
 
+## 🏢 Company Roles Router — 4 vị trí mới (Marketing/Content/Designer/Media) — 08/07/2026
+
+Mở rộng `DOMAIN_AGENTS` ở "Domain Agent Router" phía trên với 4 role pack mới trong
+`agents/company/roles/`. Cùng cơ chế y hệt sales-ceo/infra-ops-agent — không thêm hạ tầng mới.
+
+### Bước 0 — Domain Pack PHẢI có trước khi match role
+
+Khác với sales-ceo/infra-ops-agent (không cần context project), 4 role này BẮT BUỘC biết đang
+làm cho project/brand nào — vì skill của chúng (brand voice, design token, budget trần...) khác
+nhau theo từng project. Trước khi match role, check message có nhắc brand không:
+
+```javascript
+const KNOWN_PACKS = { "abtrip": "domain-packs/abtrip/PACK.md",
+                       "tano": "domain-packs/tano/PACK.md",
+                       "wonder mart": "domain-packs/wonder-mart/PACK.md" };
+
+function matchPack(message) {
+  const lower = message.toLowerCase();
+  for (const [name, path] of Object.entries(KNOWN_PACKS)) {
+    if (lower.includes(name)) return path;
+  }
+  return null; // không rõ project → hỏi lại 1 câu, không đoán
+}
+```
+
+### Bước 1 — Thêm 4 role vào DOMAIN_AGENTS
+
+```javascript
+Object.assign(DOMAIN_AGENTS, {
+  "marketing": {
+    keywords: ["chiến lược marketing", "campaign", "quảng cáo", "ads", "seo", "positioning",
+               "budget ads", "kpi", "a/b test", "funnel", "target khách hàng"],
+    promptPath: "agents/company/roles/marketing.md",
+    expertCoreSection: "②", // trích section này trong EXPERT-CORE.md khi nhúng
+  },
+  "content-creator": {
+    keywords: ["viết content", "script video", "caption", "copy", "bài viết", "hook",
+               "content calendar", "viết bài"],
+    promptPath: "agents/company/roles/content-creator.md",
+    expertCoreSection: "④",
+  },
+  "designer": {
+    keywords: ["thiết kế", "design", "banner", "visual", "poster", "thumbnail", "layout",
+               "màu thương hiệu", "font"],
+    promptPath: "agents/company/roles/designer.md",
+    expertCoreSection: "⑥",
+  },
+  "media": {
+    keywords: ["dựng video", "đăng bài", "lịch đăng", "hiệu suất video", "retention",
+               "engagement", "reach", "cắt video"],
+    promptPath: "agents/company/roles/media.md",
+    expertCoreSection: "⑦",
+  },
+});
+```
+
+### Bước 2 — Nhúng cả 3 tầng: Role Pack + EXPERT-CORE section + Domain Pack
+
+```javascript
+async function buildCompanyRoleContext(roleName, message) {
+  const cfg = DOMAIN_AGENTS[roleName];
+  const rolePack = await fetchKho(cfg.promptPath);
+  const expertCoreFull = await fetchKho("agents/company/EXPERT-CORE.md");
+  // Cắt đúng section role mình trong EXPERT-CORE (khớp heading "## <số thứ tự> <TÊN VỊ TRÍ>")
+  const expertSection = extractSection(expertCoreFull, cfg.expertCoreSection);
+
+  const packPath = matchPack(message);
+  if (!packPath) {
+    return { needsPack: true }; // → hỏi lại: "Đây là project nào? (abtrip/tano/wonder mart)"
+  }
+  const pack = await fetchKho(packPath);
+
+  return {
+    systemPrompt: `${rolePack}\n\n---\n\n${expertSection}\n\n---\n\n# DOMAIN PACK\n${pack}`,
+  };
+}
+
+function extractSection(md, marker) {
+  const re = new RegExp(`## ${marker}[\\s\\S]+?(?=\\n## [①②③④⑤⑥⑦]|$)`);
+  const m = md.match(re);
+  return m ? m[0] : md; // fallback: nhúng cả file nếu regex miss
+}
+```
+
+### Bước 3 — Guardrail: mở rộng WRITE_ACTION_TOOLS + risk theo role
+
+Ma trận tự chủ đã định nghĩa trong `agents/company/ORG.md` — chặn ở code y như đã làm với
+`hubspot.*`/`gmail.send`, KHÔNG tin role tự giác:
+
+```javascript
+const COMPANY_RISK_ACTIONS = {
+  "marketing": ["ads.spend", "ads.publishCampaign", "pricing.changePublic"],
+  "sales":     ["email.sendToCustomer", "message.sendToCustomer", "pricing.quote"],
+  "content":   ["publish.public"],
+  "designer":  ["asset.useExternalUnlicensed"], // thực ra luôn cấm, không có "duyệt"
+  "media":     ["post.publishAnyChannel"],
+  "dev":       ["prod.deploy", "prod.deleteData", "credential.rotate"],
+};
+
+async function callTool(toolName, args, roleName) {
+  const riskList = COMPANY_RISK_ACTIONS[roleName] || [];
+  if (riskList.includes(toolName)) {
+    await notifyNobitano(
+      `⚠️ [${roleName}] xin duyệt: ${toolName} — ${JSON.stringify(args)}. Reply OK để chạy, NO để huỷ.`
+    );
+    return { status: "pending_confirmation" };
+  }
+  return await executeTool(toolName, args);
+}
+```
+
+Dùng lại nguyên `notifyNobitano()` đã có sẵn cho sales-ceo — không cần Airtable/state layer mới.
+Nếu sau này cần track nhiều task chạy song song (>1 project cùng lúc) mới cần nâng cấp lên bảng
+theo dõi thật (Airtable/Sheets) — chưa cần cho quy mô hiện tại.
+
+### Bước 4 — Test khô trước khi tin dùng thật
+
+Gửi thử: *"Marketing ơi, lên plan launch cho ABTRIP tháng tới"* → kỳ vọng:
+1. Match role `marketing` qua keyword "plan launch"... nếu miss keyword, bổ sung vào list Bước 1.
+2. Match pack `abtrip` qua tên brand trong câu.
+3. Hermes trả lời có cấu trúc đúng khung role pack (mục tiêu đo được → chiến lược → budget split →
+   KPI tree...) — không trả lời chung chung là dấu hiệu chưa nhúng đúng system prompt.
+4. Nếu plan có đề xuất chi tiền → phải thấy `pending_confirmation`, KHÔNG tự chạy thẳng.
+
+---
+
 ## Xem thêm
 
 **`agents/OPENCLAW-TOOLKIT.md`** — Danh sách đầy đủ tất cả npm/ClawHub tools trong kho, nhóm theo category, kèm lệnh cài ngay. Đọc file này thay vì fetch từng file .md riêng lẻ.
