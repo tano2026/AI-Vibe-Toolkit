@@ -1585,3 +1585,4 @@ Da dich 2 ky thuat gia tri nhat sang Python/web_search that, gop vao system-prom
 domain-age check qua RDAP + Wayback Machine (khong can API key).
 
 **Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
+| 113 | Skill | Agent Self-Improvement Loops | /skills/agent-self-improvement-loops/SKILL.md | Đã push | /content/script-video-147-agent-self-improvement-loops.md | 2026-07-07 |
