@@ -15,7 +15,7 @@ Mày là layer infrastructure. Hermes/OpenClaw không tự deploy — chúng nh�
 ## Fetch kho (bash)
 
 ```bash
-GITHUB_TOKEN="[GITHUB_TOKEN]"
+GITHUB_TOKEN="[READONLY_TOKEN]"  # fine-grained read-only — xem ticket 08/07/2026 bên dưới
 fetch_kho() {
   curl -sf     -H "Authorization: token $GITHUB_TOKEN"     -H "Accept: application/vnd.github.v3+json"     "https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/$1"     | python3 -c "import sys,json,base64; d=json.load(sys.stdin); print(base64.b64decode(d['content']).decode())"
 }
@@ -279,3 +279,58 @@ sai 1 API) — lần 2 phải thấy Hermes tự nhắc lại lesson từ lần 
 **Status:** Chờ Antigravity xử lý. Blocker cho toàn bộ tầng Trí nhớ/Kế hoạch/Khám phá
 trong `skills/agent-self-improvement-loops/SKILL.md`.
 
+---
+
+## 🎫 TICKET (08/07/2026) — Repo chuyển PRIVATE: cấp token read-only cho toàn bộ agents
+
+**Bối cảnh:** `tano2026/AI-Vibe-Toolkit` đã chuyển từ public sang private. Mọi fetch
+không có token giờ ăn 404 — Hermes/OpenClaw/Antigravity sẽ mù kho nếu không fix ngay.
+Đây là ticket ƯU TIÊN CAO, blocker cho mọi hoạt động đọc kho.
+
+**Token mới:** Nobitano đã tạo fine-grained PAT **read-only** (dạng `github_pat_...`),
+scope: chỉ repo AI-Vibe-Toolkit, permission: Contents Read-only. Token write cũ
+(`ghp_...`) chỉ Claude giữ để push kho — KHÔNG đưa token write cho bất kỳ agent nào.
+
+**Token thật KHÔNG nằm trong file này** (kho private nhưng nguyên tắc vẫn giữ:
+không token nào nằm trong .md). Nobitano sẽ gửi token qua Telegram khi mày chạy ticket.
+
+### Việc cần làm
+
+**1. OpenClaw — set env qua pm2 (đây cũng là ticket GITHUB_TOKEN còn treo từ trước):**
+```bash
+# Cách chuẩn: sửa ecosystem.config.js, thêm vào block env của openclaw:
+#   env: { GITHUB_TOKEN: "<token Nobitano gửi>" }
+pm2 restart openclaw --update-env
+
+# Hoặc nhanh:
+pm2 set openclaw:GITHUB_TOKEN <token>
+pm2 restart openclaw --update-env
+```
+
+**2. Hermes — đảm bảo env GITHUB_TOKEN có trong process Hermes:**
+Hermes chạy trong OpenClaw nên thường kế thừa env của OpenClaw. Verify bằng cách
+nhắn Hermes qua Telegram: "chạy `import os; print('GITHUB_TOKEN' in os.environ)`".
+Nếu False → set riêng cho process Hermes cùng cơ chế pm2 như trên.
+
+**3. Antigravity (chính mày) — set vào shell env:**
+```bash
+echo 'export GITHUB_TOKEN="<token>"' >> ~/.bashrc && source ~/.bashrc
+```
+
+### Verify sau khi xong (bắt buộc cả 3)
+```bash
+# Phải trả về nội dung file, không phải 404:
+curl -sf -H "Authorization: token $GITHUB_TOKEN" \
+     -H "Accept: application/vnd.github.raw" \
+     https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/KHO-INDEX.md | head -5
+```
+- Antigravity: chạy curl trên trực tiếp
+- OpenClaw: fetch KHO-INDEX.md qua code, confirm không 404
+- Hermes: nhắn Telegram bảo nó fetch KHO-INDEX.md, phải trả về nội dung
+
+**Lưu ý an ninh:**
+- Token read-only lộ cũng chỉ đọc được 1 repo — nhưng vẫn không ghi vào file/log nào.
+- Nếu thấy bất kỳ chỗ nào trong code agent còn gọi `raw.githubusercontent.com` trực tiếp
+  không kèm header token → sửa sang Contents API + token.
+
+**Status:** Chờ Antigravity xử lý. Blocker toàn hệ thống đọc kho.
