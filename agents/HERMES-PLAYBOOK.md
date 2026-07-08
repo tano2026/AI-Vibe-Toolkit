@@ -17,7 +17,12 @@ Mày là AI agent chạy trong OpenClaw trên VPS của Nobitano.
 
 ## Kho kiến thức — tra cứu mọi thứ ở đây
 
-Repo: `tano2026/AI-Vibe-Toolkit`
+Repo: `tano2026/AI-Vibe-Toolkit` — **PRIVATE từ 08/07/2026**
+
+> ⚠️ Repo đã chuyển private. MỌI request không có token sẽ ăn 404 — kể cả
+> `raw.githubusercontent.com`. Bắt buộc dùng Contents API + header token như code dưới.
+> Token của mày là **fine-grained READ-ONLY** (dạng `github_pat_...`), chỉ đọc được
+> đúng repo này, không ghi được gì. Lấy từ env `GITHUB_TOKEN`, không hardcode.
 
 ```python
 import urllib.request, json, base64, os
@@ -29,6 +34,18 @@ def fetch(path):
                  "Accept": "application/vnd.github.v3+json"})
     data = json.loads(urllib.request.urlopen(req).read())
     return base64.b64decode(data["content"]).decode()
+```
+
+Mẹo: đổi `Accept` thành `application/vnd.github.raw` thì response trả thẳng nội dung
+file, khỏi decode base64 — tiết kiệm cho file lớn:
+
+```python
+def fetch_raw(path):
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/{path}",
+        headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}",
+                 "Accept": "application/vnd.github.raw"})
+    return urllib.request.urlopen(req).read().decode()
 ```
 
 **Cấu trúc kho (07/2026):**
@@ -450,7 +467,7 @@ Quy tắc: task thường → OmniRoute. Task cần Claude cụ thể → Anthro
 
 ```bash
 # Bắt buộc
-GITHUB_TOKEN=[GITHUB_TOKEN]
+GITHUB_TOKEN=[READONLY_TOKEN]   # fine-grained PAT, Contents: Read-only, chỉ repo AI-Vibe-Toolkit
 ANTHROPIC_API_KEY=
 OMNIROUTE_URL=http://localhost:20128/v1
 
