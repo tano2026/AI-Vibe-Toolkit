@@ -1602,3 +1602,4 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | — | Stack | Build Spec — work order cho Sonnet | agents/company/BUILD-SPEC-SONNET.md | Đã push | — | 2026-07-08 |
 | — | Skill | Nâng cấp 7 vị trí — định vị AI Agency (4 role pack + research-pro + sales-ceo + Dev charter) | agents/company/ + agents/research-pro.md + agents/sales-ceo/ | Đã push | — | 2026-07-08 |
 | 115 | MCP | TikHub | /mcps/tikhub.md | Đã push | /content/script-video-149-tikhub.md | 2026-07-08 |
+| 115 | Repo | ai-job-search | /repos/ai-job-search.md | Đã push | /content/script-video-149-ai-job-search.md | 2026-07-08 |
