@@ -1604,3 +1604,4 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | 115 | MCP | TikHub | /mcps/tikhub.md | Đã push | /content/script-video-149-tikhub.md | 2026-07-08 |
 | 115 | Repo | ai-job-search | /repos/ai-job-search.md | Đã push | /content/script-video-149-ai-job-search.md | 2026-07-08 |
 | 116 | Repo | claude-video | /repos/claude-video.md | Đã push | /content/script-video-150-claude-video.md | 2026-07-08 |
+| 117 | Agent | Research Pro system-prompt v4.3 (merge khung 8 phần) | /agents/research-analytics-pro/system-prompt.md | Đã push | — | 2026-07-09 |
