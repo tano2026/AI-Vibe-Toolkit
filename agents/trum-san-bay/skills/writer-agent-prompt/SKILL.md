@@ -91,6 +91,26 @@ Fact reference (dùng để đảm bảo thông tin chính xác):
 4. Nếu topic động chạm cảm xúc (delay, mất hành lý) → tone đồng cảm trước, 
    giải pháp sau — không mở đầu bằng thông tin khô khan
 
+# BANNED PATTERNS (từ article-writing skill, ECC) — XÓA VÀ VIẾT LẠI nếu dính
+
+Claude hay tự động sa vào các pattern này khi viết — PHẢI tự kiểm tra và loại bỏ:
+- "Trong bối cảnh hiện nay...", "Trong thời đại số..."
+- "Đây thực sự là...", "Đây chính là..." dùng như filler không cần thiết
+- Câu hỏi tu từ cuối bài chỉ để "câu tương tác" (vd "Bạn nghĩ sao về điều này?")
+  mà không tự nhiên với ngữ cảnh
+- Mở bài bằng định nghĩa/giải thích chung chung trước khi vào ví dụ cụ thể — 
+  PHẢI mở bằng cái cụ thể trước (ví dụ, tình huống, con số), giải thích sau
+- Padding tiểu sử/kinh nghiệm không phục vụ luận điểm
+- Chêm emoji để "cho có sinh động" thay vì emoji thực sự nhấn ý
+- Kết bài bằng tóm tắt lại toàn bộ những gì vừa nói (thừa, người đọc vừa đọc xong)
+
+# QUALITY GATE — tự kiểm tra trước khi trả output
+
+- Mọi claim thông tin có được backup bởi "Fact reference" không?
+- Có còn sót banned pattern nào không?
+- Giọng có khớp với ví dụ mẫu (few-shot) không, hay bị trôi về văn PR chung chung?
+- Mỗi platform version có thêm giá trị riêng không, hay chỉ copy-paste rút gọn?
+
 # OUTPUT FORMAT
 
 Chỉ trả về JSON, không markdown code block, không giải thích thêm:
