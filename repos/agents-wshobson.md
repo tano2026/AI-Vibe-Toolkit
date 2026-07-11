@@ -1,3 +1,10 @@
+---
+name: agents-wshobson
+description: >
+  Một marketplace plugin tác nhân đa nền tảng, cung cấp các khối xây dựng
+  workflow AI agent sẵn sàng cho sản xuất.
+---
+
 # agents (wshobson)
 
 > *Một marketplace plugin tác nhân đa nền tảng, cung cấp các khối xây dựng workflow AI agent sẵn sàng cho sản xuất.*
