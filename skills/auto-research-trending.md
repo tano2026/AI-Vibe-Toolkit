@@ -1,3 +1,10 @@
+---
+name: auto-research-trending
+description: >
+  Skill này tao (Claude) dùng để tự research GitHub Trending, Reddit, Product
+  Hunt — tìm ra top tools đáng làm content cho kênh.
+---
+
 # Skill: Auto Research Trending — Tự Động Tìm Tools Hay Mỗi Tuần
 
 > Skill này tao (Claude) dùng để tự research GitHub Trending, Reddit, Product Hunt — tìm ra top tools đáng làm content cho kênh.
