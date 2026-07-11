@@ -1,3 +1,10 @@
+---
+name: claude-md-template
+description: >
+  Copy file này vào root của project → Claude sẽ hiểu context và hành xử
+  đúng. Chỉnh sửa phần [TRONG NGOẶC] theo project của mày.
+---
+
 # AI Vibe Toolkit — CLAUDE.md Template
 
 > Copy file này vào root của project → Claude sẽ hiểu context và hành xử đúng.
