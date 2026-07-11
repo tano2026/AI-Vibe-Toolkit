@@ -1,3 +1,10 @@
+---
+name: plannotator
+description: >
+  Stars: 6k License: MIT (local plugin) / Hosted (Workspaces - waitlist) Tác
+  giả: backnotprop
+---
+
 # Plannotator — Review Plan Của AI Agent Trên Browser Trước Khi Approve
 
 **GitHub:** https://github.com/backnotprop/plannotator
