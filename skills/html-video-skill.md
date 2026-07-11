@@ -1,3 +1,10 @@
+---
+name: html-video-skill
+description: >
+  Repo: github.com/nexu-io/html-video Apache 2.0 nexu-io Dùng với: Claude
+  Code, Cursor, Codex, Gemini CLI
+---
+
 # html-video — AI Viết HTML, Mày Nhận MP4 (~346⭐)
 
 **Repo:** github.com/nexu-io/html-video | Apache 2.0 | nexu-io
