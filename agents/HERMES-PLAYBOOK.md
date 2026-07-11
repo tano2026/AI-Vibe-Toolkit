@@ -1,3 +1,10 @@
+---
+name: hermes-playbook
+description: >
+  Dán toàn bộ file này vào Project Instructions của Hermes. Cập nhật: 07/2026
+  — v2.0
+---
+
 # HERMES-PLAYBOOK
 > Dán toàn bộ file này vào Project Instructions của Hermes.
 > Cập nhật: 07/2026 — v2.0
