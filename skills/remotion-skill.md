@@ -1,3 +1,10 @@
+---
+name: remotion-skill
+description: >
+  Repo: github.com/remotion-dev/remotion Remotion License* Stars: 49.9k npm:
+  900k installs/tháng
+---
+
 # Remotion — Video Bằng React + Render Ra MP4 (49.9k⭐)
 
 **Repo:** github.com/remotion-dev/remotion | Remotion License*
