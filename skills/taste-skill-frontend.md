@@ -1,3 +1,9 @@
+---
+name: taste-skill-frontend
+description: >
+  Landing page, portfolio, redesign
+---
+
 # taste-skill — Bộ SKILL.md Files Gốc (Anti-Slop Frontend)
 
 **Nguồn:** github.com/Leonxlnx/taste-skill (43.3k⭐)
