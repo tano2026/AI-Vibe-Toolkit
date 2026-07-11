@@ -1,3 +1,10 @@
+---
+name: fal-mcp
+description: >
+  GitHub: https://github.com/enescanguven/fal-mcp fal.ai: 600+ models
+  License: MIT Không cần GPU
+---
+
 # fal-mcp — 600+ AI Models: Image, Video, Audio, Music (Cloud, No GPU)
 
 **GitHub:** https://github.com/enescanguven/fal-mcp
