@@ -1,3 +1,11 @@
+---
+name: openclaw-toolkit
+description: >
+  File này dành riêng cho OpenClaw. Đọc 1 lần, không cần fetch từng file .md
+  riêng. Tổng hợp toàn bộ npm/ClawHub tools trong kho — nhóm theo category,
+  kèm lệnh cài ngay.
+---
+
 # OPENCLAW-TOOLKIT
 > File này dành riêng cho OpenClaw. Đọc 1 lần, không cần fetch từng file .md riêng.
 > Tổng hợp toàn bộ npm/ClawHub tools trong kho — nhóm theo category, kèm lệnh cài ngay.
