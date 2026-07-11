@@ -1,3 +1,12 @@
+---
+name: resona
+description: >
+  Startup VN (CTCP Công nghệ Resona) làm TTS tiếng Việt chất lượng cao + lồng
+  tiếng video trực tiếp trong app. Đang Soft Launch giảm 50%. Có API từ gói
+  Starter 17K/tháng. Thay thế ElevenLabs cho content tiếng Việt — giọng tự
+  nhiên hơn, giá rẻ hơn nhiều.
+---
+
 # Resona — TTS & Lồng Tiếng Video AI Tiếng Việt
 
 ## TL;DR
