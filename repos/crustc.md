@@ -1,3 +1,12 @@
+---
+name: crustc
+description: >
+  Dự án dịch toàn bộ trình biên dịch (viết bằng Rust) sang ngôn ngữ C. Dự án
+  hệ thống/compiler thuần túy, không liên quan AI — 160 sao, nằm trong list
+  trending do độ độc lạ (dịch cả 1 compiler lớn sang ngôn ngữ khác) chứ không
+  phải vì ứng dụng thực tế cho content automation.
+---
+
 # crustc — GitHub Repo
 
 ## TL;DR
