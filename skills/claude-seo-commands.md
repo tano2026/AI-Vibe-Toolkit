@@ -1,3 +1,9 @@
+---
+name: claude-seo-commands
+description: >
+  Nguồn: github.com/AgriciDaniel/claude-seo (8.8k⭐) MIT Cài: →
+---
+
 # claude-seo — Cheat Sheet 25 Lệnh /seo (Dùng Ngay Trong Claude Code)
 
 **Nguồn:** github.com/AgriciDaniel/claude-seo (8.8k⭐) | MIT
