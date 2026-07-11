@@ -1,3 +1,11 @@
+---
+name: kokoro-82m
+description: >
+  Model TTS chỉ 82 triệu parameters, nặng 300MB — chạy được trên laptop bình
+  thường không cần GPU xịn. Chất lượng vượt xa các model lớn hơn gấp 10 lần
+  kích thước.
+---
+
 # Kokoro-82M — GitHub Repo
 
 ## TL;DR
