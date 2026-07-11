@@ -1,3 +1,9 @@
+---
+name: moneyprinterturbo-config
+description: >
+  video_source = "pexels" "pexels" or "pixabay" hide_config = false
+---
+
 # MoneyPrinterTurbo — Config Template
 
 ```toml
