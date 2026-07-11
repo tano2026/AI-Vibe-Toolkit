@@ -1,3 +1,9 @@
+---
+name: ai-coding-rules-from-continue
+description: >
+  CLAUDE.md, .cursorrules, hoặc bất kỳ AI coding assistant nào
+---
+
 # AI Coding Rules — Bộ Rules Cho Claude Code / Cursor (Lấy Từ Continue)
 
 **Nguồn gốc:** Distilled từ `.continue/rules/` và `.continue/agents/` của continuedev/continue (33.7k⭐)
