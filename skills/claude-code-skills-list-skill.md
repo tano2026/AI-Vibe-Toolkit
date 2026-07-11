@@ -1,3 +1,9 @@
+---
+name: claude-code-skills-list-skill
+description: >
+  Reference nhanh 20 skills hay nhất cho Claude Code
+---
+
 # 20 Claude Code Skills Tốt Nhất — Quick Reference
 
 **Nguồn:** @shivanividri + community tổng hợp
