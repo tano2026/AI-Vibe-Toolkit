@@ -1,3 +1,10 @@
+---
+name: content-creator
+description: >
+  Paste 1 chủ đề vào → Claude tạo script TikTok, caption, thumbnail idea,
+  tweet, email — tất cả cùng lúc.
+---
+
 # Skill: Content Creator — Từ 1 Ý Tưởng Ra 10 Loại Content
 
 > Paste 1 chủ đề vào → Claude tạo script TikTok, caption, thumbnail idea, tweet, email — tất cả cùng lúc.
