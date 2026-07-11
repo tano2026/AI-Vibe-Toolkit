@@ -1,3 +1,13 @@
+---
+name: career-ops
+description: >
+  Hệ thống tìm việc tự động chạy trên Claude Code (và Codex/Gemini/OpenCode)
+  — chấm điểm A-F cho từng offer theo 10 tiêu chí, tự quét 45+ portal tuyển
+  dụng, tự sinh CV/cover letter tối ưu ATS dạng PDF, có dashboard Go riêng.
+  Tác giả dùng chính nó đánh giá 740+ offer và lấy được vị trí Head of
+  Applied AI. 57k+ sao.
+---
+
 # Career-Ops — GitHub Repo
 
 ## TL;DR
