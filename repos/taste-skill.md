@@ -1,3 +1,15 @@
+---
+name: taste-skill
+description: >
+  Bộ Agent Skills — files hướng dẫn AI (Claude Code, Cursor, Codex) tạo UI có
+  gu thay vì UI boilerplate nhàm chán. Vấn đề cụ thể: Mày nhờ AI làm landing
+  page → nó ra trang xanh dương + Inter font + gradient hero + card shadow
+  kiểu mặc định. Nhìn giống hệt 10 triệu trang khác trên internet.
+  taste-skill fix cái đó. Cài skill vào → AI đọc brief của mày trước, suy ra
+  design direction phù hợp, rồi mới viết code — với typography, spacing,
+  motion đúng level.
+---
+
 # taste-skill — Anti-Slop Frontend Framework Cho AI Agent
 
 **GitHub:** https://github.com/Leonxlnx/taste-skill
