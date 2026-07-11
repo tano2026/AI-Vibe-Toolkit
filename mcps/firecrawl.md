@@ -1,3 +1,9 @@
+---
+name: firecrawl
+description: >
+  Scrape bất kỳ website nào → text sạch cho AI đọc và phân tích
+---
+
 # Firecrawl MCP — Cào Web Sạch, AI Đọc Được Ngay
 
 > Paste link vào — Claude tự cào nội dung, chuyển thành text sạch, phân tích luôn. Không cần biết code scraping.
