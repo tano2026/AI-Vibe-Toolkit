@@ -1,3 +1,9 @@
+---
+name: html-anything
+description: >
+  Stars: 6.2k License: Apache 2.0 Tác giả: nexu-io team Ra mắt: tháng 5/2026
+---
+
 # html-anything — Biến Markdown thành HTML đẹp bằng AI, $0 API key
 
 **GitHub:** https://github.com/nexu-io/html-anything
