@@ -1,3 +1,11 @@
+---
+name: ds2api
+description: >
+  Biến tài khoản web DeepSeek thành API endpoint chuẩn OpenAI format — bypass
+  giới hạn API chính thức, dùng được với mọi tool support OpenAI API. 4,700+
+  sao GitHub.
+---
+
 # DS2API — GitHub Repo
 
 ## TL;DR
