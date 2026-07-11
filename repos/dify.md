@@ -1,3 +1,12 @@
+---
+name: dify
+description: >
+  Production-ready platform build AI app và agent workflow — kết hợp RAG,
+  LLM, tool calling, monitoring trong một platform hoàn chỉnh. 146.7K stars,
+  top 5 repo AI trên GitHub. Dùng khi mày cần deploy AI app cho khách hàng
+  thật, không chỉ prototype.
+---
+
 # Dify — GitHub Repo
 
 ## TL;DR
