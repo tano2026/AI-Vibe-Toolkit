@@ -1,3 +1,9 @@
+---
+name: last30days-skill
+description: >
+  Repo: github.com/last30days/last30days MIT Stars: 34k 1 GitHub Trending
+---
+
 # last30days — Signal Thật Từ Người Thật, Không Bị Google Biên Tập (34k⭐)
 
 **Repo:** github.com/last30days/last30days | MIT
