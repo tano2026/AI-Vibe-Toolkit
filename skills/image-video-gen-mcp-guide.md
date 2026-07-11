@@ -1,3 +1,9 @@
+---
+name: image-video-gen-mcp-guide
+description: >
+  Tổng hợp: comfyui-mcp + fal-mcp Cập nhật: tháng 6/2026
+---
+
 # Image & Video Generation — MCP Guide Dùng Ngay
 
 **Tổng hợp:** comfyui-mcp + fal-mcp
