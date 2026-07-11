@@ -1,3 +1,11 @@
+---
+name: maxun
+description: >
+  No-code web scraping platform mã nguồn mở — record thao tác trên browser,
+  nó tự tạo robot scrape. 16K stars. Không cần biết code để scrape bất kỳ
+  website nào.
+---
+
 # Maxun — GitHub Repo
 
 ## TL;DR
