@@ -1,3 +1,11 @@
+---
+name: vimax
+description: >
+  Agent AI tạo video hoàn chỉnh từ đầu đến cuối: tự viết kịch bản, tự đạo
+  diễn, tự sản xuất và generate video — 10,600+ sao GitHub. Không cần quay
+  phim, không cần diễn viên.
+---
+
 # ViMax — GitHub Repo
 
 ## TL;DR
