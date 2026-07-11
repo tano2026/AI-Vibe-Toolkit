@@ -1,3 +1,12 @@
+---
+name: freellm
+description: >
+  Thu muc tong hop 224+ LLM API mien phi tu 25 nha cung cap (Google, Groq,
+  NVIDIA NIM, Cloudflare, Mistral, SambaNova...) — so sanh rate limit,
+  context window, one-click config cho Claude Code, Cursor, Hermes va moi
+  OpenAI-compatible tool. Khong can credit card. freellm.net
+---
+
 # freeLLM — Tool / Website
 
 ## TL;DR
