@@ -1,3 +1,9 @@
+---
+name: filesystem
+description: >
+  Claude đọc, viết, tìm kiếm files trên máy tính của mày
+---
+
 # Filesystem MCP — Claude Đọc Và Ghi File Trên Máy Mày
 
 > Cho Claude quyền đọc/ghi file trên máy tính — nó có thể xử lý docs, CSV, code files mà không cần mày copy paste.
