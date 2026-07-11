@@ -1,3 +1,12 @@
+---
+name: ploy-ai
+description: >
+  AI agent tự chạy toàn bộ marketing của website mày: thiết kế landing page,
+  viết copy, chạy campaign, tối ưu performance, sync data về CRM — không cần
+  team marketing. Raise $27M seed từ First Round + YC, vừa GA ngày 17/6/2026.
+  Founder: CTO đồng sáng lập Webflow (12 năm).
+---
+
 # Ploy AI — Stack / Tool
 
 ## TL;DR
