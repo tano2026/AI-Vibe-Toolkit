@@ -361,11 +361,198 @@ def enforce_pipeline_gate(content_id, current_step, record_fields):
     return True
 
 
-def publish_post_safe(airtable_record_id):
+# === PER-PLATFORM PUBLISHERS — mỗi hàm trả (success: bool, response: dict, error_code) ===
+# Theo đúng contract của safe_api_call trong skills/api-error-handler/SKILL.md
+
+RETRYABLE_ERRORS = {
+    "facebook": [4, 32],
+    "instagram": [4, 32],
+    "tiktok": ["rate_limit_exceeded", "spam_risk_too_many_posts"],
+    "youtube": [503],
+}
+
+
+def _retry_call(platform, fn, max_retries=3, base_backoff=5):
+    """
+    Wrapper retry cho MỌI publish call — theo bảng lỗi trong api-error-handler.
+    fn phải trả về (success, response, error_code).
+    """
+    attempt = 0
+    while attempt < max_retries:
+        success, response, error_code = fn()
+        if success:
+            return {"status": "success", "response": response}
+
+        retryable = RETRYABLE_ERRORS.get(platform, [])
+        if error_code in retryable:
+            _time.sleep(base_backoff * (5 ** attempt))
+            attempt += 1
+            continue
+        return {"status": "failed", "error_code": error_code, "response": response}
+
+    return {"status": "failed_after_retries", "error_code": error_code}
+
+
+def _publish_facebook(fields):
+    def call():
+        result = api_call(
+            f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/photos", "POST",
+            {"message": fields.get("caption_fb"), "url": fields.get("asset_path")},
+            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        if result.get("id"):
+            return True, result, None
+        err = result.get("error", {})
+        return False, result, err.get("code")
+    return _retry_call("facebook", call)
+
+
+def _publish_instagram(fields):
+    def call():
+        container = api_call(
+            f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media", "POST",
+            {"image_url": fields.get("asset_path"), "caption": fields.get("caption_ig")},
+            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        if not container.get("id"):
+            err = container.get("error", {})
+            return False, container, err.get("code")
+        _time.sleep(2)
+        publish = api_call(
+            f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media_publish", "POST",
+            {"creation_id": container["id"]},
+            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        if publish.get("id"):
+            return True, publish, None
+        err = publish.get("error", {})
+        return False, publish, err.get("code")
+    return _retry_call("instagram", call)
+
+
+def _publish_tiktok(fields):
+    """
+    TikTok Content Posting API — flow 2 bước: init upload (lấy upload_url),
+    sau đó publish. Dùng PULL_FROM_URL nếu video đã có URL public (vd host
+    trên VPS qua nginx), tránh phải upload multipart bằng urllib thuần.
+    """
+    def call():
+        video_url = fields.get("video_path_public_url")  # URL public trỏ tới file mp4 trên VPS
+        if not video_url:
+            return False, {"error": "missing video_path_public_url"}, "video_format_invalid"
+
+        init_payload = {
+            "post_info": {
+                "title": fields.get("caption_tiktok", "")[:150],
+                "privacy_level": "PUBLIC_TO_EVERYONE",
+                "disable_duet": False,
+                "disable_comment": False,
+                "disable_stitch": False,
+            },
+            "source_info": {
+                "source": "PULL_FROM_URL",
+                "video_url": video_url
+            }
+        }
+        result = api_call(
+            "https://open.tiktokapis.com/v2/post/publish/video/init/", "POST",
+            init_payload,
+            {"Authorization": f"Bearer {TIKTOK_ACCESS_TOKEN}", "Content-Type": "application/json; charset=UTF-8"}
+        )
+        error = result.get("error", {})
+        if error.get("code") and error["code"] != "ok":
+            return False, result, error["code"]
+        publish_id = result.get("data", {}).get("publish_id")
+        if publish_id:
+            return True, {"publish_id": publish_id}, None
+        return False, result, "unknown_error"
+    return _retry_call("tiktok", call)
+
+
+def _publish_youtube(fields):
+    """
+    YouTube Data API v3 — resumable upload, thuần urllib (Hermes constraint:
+    không pip install thư viện ngoài). 2 bước: khởi tạo session resumable
+    (metadata), rồi PUT file bytes.
+    """
+    def call():
+        video_path = fields.get("video_local_path")
+        if not video_path or not os.path.exists(video_path):
+            return False, {"error": "video file not found"}, 400
+
+        metadata = {
+            "snippet": {
+                "title": fields.get("youtube_title", "")[:100],
+                "description": fields.get("youtube_description", ""),
+                "categoryId": "19"  # Travel & Events
+            },
+            "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}
+        }
+
+        access_token = os.environ.get("YOUTUBE_ACCESS_TOKEN")  # refreshed riêng qua OAuth flow
+        init_req = urllib.request.Request(
+            "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
+            data=json.dumps(metadata).encode(),
+            headers={
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/json; charset=UTF-8",
+                "X-Upload-Content-Type": "video/mp4"
+            },
+            method="POST"
+        )
+        try:
+            init_res = urllib.request.urlopen(init_req)
+            upload_url = init_res.headers.get("Location")
+        except urllib.error.HTTPError as e:
+            return False, {"error": e.read().decode()}, e.code
+
+        with open(video_path, "rb") as f:
+            video_bytes = f.read()
+
+        upload_req = urllib.request.Request(
+            upload_url, data=video_bytes,
+            headers={"Content-Type": "video/mp4", "Content-Length": str(len(video_bytes))},
+            method="PUT"
+        )
+        try:
+            upload_res = json.loads(urllib.request.urlopen(upload_req).read())
+            if upload_res.get("id"):
+                return True, upload_res, None
+            return False, upload_res, "unknown_error"
+        except urllib.error.HTTPError as e:
+            return False, {"error": e.read().decode()}, e.code
+
+    return _retry_call("youtube", call)
+
+
+# Map platform -> (publisher_fn, required_field_check)
+PLATFORM_PUBLISHERS = {
+    "facebook": _publish_facebook,
+    "instagram": _publish_instagram,
+    "tiktok": _publish_tiktok,
+    "youtube": _publish_youtube,
+}
+
+ERROR_MESSAGES = {
+    190: "Token Facebook/Instagram hết hạn — cần refresh ngay",
+    200: "Thiếu permission trên Meta App",
+    368: "Nội dung bị Facebook flag — cần review thủ công",
+    "access_token_invalid": "Token TikTok hết hạn — cần re-auth",
+    "video_format_invalid": "Video TikTok lỗi format/thiếu URL public",
+    401: "Token YouTube hết hạn — cần refresh OAuth",
+    403: "YouTube hết quota API hôm nay hoặc thiếu permission",
+}
+
+
+def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
     """
     Bản publish_post() có harness đầy đủ: gate check + idempotency (không
-    đăng trùng platform đã đăng nếu retry sau crash) + progress persistence.
+    đăng trùng platform đã đăng nếu retry sau crash) + progress persistence
+    + retry theo bảng lỗi từng platform + alert khi cần người xử lý.
     THAY THẾ publish_post() gốc — dùng hàm này trong handle_command().
+
+    Chỉ publish lên platform nào CÓ credential set trong env — cho phép
+    launch dần (vd chỉ Facebook trước, thêm TikTok sau) mà không sửa code.
     """
     url = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/content_queue/{airtable_record_id}"
     headers = {"Authorization": f"Bearer {AIRTABLE_API_KEY}"}
@@ -375,51 +562,78 @@ def publish_post_safe(airtable_record_id):
     # GATE — chặn cứng nếu chưa APPROVED, dù ai gọi hàm này từ đâu
     enforce_pipeline_gate(airtable_record_id, "publish", fields)
 
+    # Chỉ đăng platform nào đã cấu hình credential (tránh lỗi thừa khi launch dần)
+    configured_platforms = []
+    if FB_ACCESS_TOKEN and FB_PAGE_ID:
+        configured_platforms.append("facebook")
+    if FB_ACCESS_TOKEN and IG_USER_ID:
+        configured_platforms.append("instagram")
+    if TIKTOK_ACCESS_TOKEN:
+        configured_platforms.append("tiktok")
+    if os.environ.get("YOUTUBE_ACCESS_TOKEN"):
+        configured_platforms.append("youtube")
+
     # Idempotency — check đã đăng platform nào rồi (từ progress.json)
     state = _load_state().get(airtable_record_id, {})
     already_posted = state.get("extra", {}).get("posted_platforms", [])
+    already_failed = state.get("extra", {}).get("failed_platforms", {})
 
-    save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
+    save_state(airtable_record_id, "publish", "in_progress",
+               {"posted_platforms": already_posted, "failed_platforms": already_failed})
 
     post_ids = {}
+    newly_failed = {}
 
-    if "facebook" not in already_posted:
-        fb_result = api_call(
-            f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/photos", "POST",
-            {"message": fields.get("caption_fb"), "url": fields.get("asset_path")},
-            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
-        )
-        if fb_result.get("id"):
-            post_ids["facebook"] = fb_result["id"]
-            already_posted.append("facebook")
-            save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
-        _time.sleep(1)
+    for platform in configured_platforms:
+        if platform in already_posted:
+            continue  # đã đăng rồi, skip — tránh đăng trùng khi retry sau crash
 
-    if "instagram" not in already_posted:
-        ig_container = api_call(
-            f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media", "POST",
-            {"image_url": fields.get("asset_path"), "caption": fields.get("caption_ig")},
-            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
-        )
-        if ig_container.get("id"):
-            _time.sleep(2)
-            ig_publish = api_call(
-                f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media_publish", "POST",
-                {"creation_id": ig_container["id"]},
-                {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
-            )
-            if ig_publish.get("id"):
-                post_ids["instagram"] = ig_publish["id"]
-                already_posted.append("instagram")
-                save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
+        publisher_fn = PLATFORM_PUBLISHERS[platform]
+        result = publisher_fn(fields)
 
-    all_done = len(already_posted) >= 2  # điều chỉnh theo số platform thật cấu hình
-    final_status = "success" if all_done else "failed"
-    save_state(airtable_record_id, "publish", final_status, {"posted_platforms": already_posted})
+        if result["status"] == "success":
+            post_id = result["response"].get("id") or result["response"].get("publish_id")
+            post_ids[platform] = post_id
+            already_posted.append(platform)
+            save_state(airtable_record_id, "publish", "in_progress",
+                       {"posted_platforms": already_posted, "failed_platforms": already_failed})
+        else:
+            error_code = result.get("error_code")
+            message = ERROR_MESSAGES.get(error_code, f"Lỗi không xác định: {error_code}")
+            newly_failed[platform] = message
+            already_failed[platform] = message
+            if telegram_alert_fn:
+                telegram_alert_fn(
+                    f"🔴 Publish FAILED — {platform} — {airtable_record_id}\n"
+                    f"Lỗi: {message}\nCần xử lý thủ công."
+                )
+
+        _time.sleep(1)  # tránh burst request liên tiếp giữa các platform
+
+    all_done = len(already_posted) == len(configured_platforms)
+    final_status = "success" if all_done else ("partial" if already_posted else "failed")
+    save_state(airtable_record_id, "publish", final_status,
+               {"posted_platforms": already_posted, "failed_platforms": already_failed})
 
     airtable_update("content_queue", airtable_record_id, {
         "status": "POSTED" if all_done else "PARTIAL_FAIL",
-        "post_ids": json.dumps(post_ids)
+        "post_ids": json.dumps(post_ids),
+        "publish_errors": json.dumps(already_failed) if already_failed else ""
     })
 
-    return {"status": final_status, "post_ids": post_ids, "already_posted": already_posted}
+    if telegram_alert_fn:
+        if all_done:
+            telegram_alert_fn(f"✅ {airtable_record_id}: đã đăng thành công {len(already_posted)} platform")
+        else:
+            telegram_alert_fn(
+                f"⚠️ {airtable_record_id}: {len(already_posted)}/{len(configured_platforms)} platform "
+                f"thành công, {len(newly_failed)} lỗi mới — check chi tiết ở trên"
+            )
+
+    return {
+        "status": final_status,
+        "post_ids": post_ids,
+        "posted_platforms": already_posted,
+        "failed_platforms": already_failed
+    }
+
