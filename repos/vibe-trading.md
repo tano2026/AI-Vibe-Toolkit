@@ -1,3 +1,13 @@
+---
+name: vibe-trading
+description: >
+  Personal AI trading agent — "one command empowers your agent with
+  comprehensive trading capabilities." 15.9K stars, HKUDS (Hong Kong
+  University), Python+FastAPI+React, MIT license. Multi-agent: ban phan tich,
+  ban quant, ban quan tri rui ro. MCP server co san. Dang trending manh (3
+  thang dat 14.9K stars).
+---
+
 # Vibe-Trading — GitHub Repo
 
 ## TL;DR
