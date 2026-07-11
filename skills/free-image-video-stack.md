@@ -1,3 +1,10 @@
+---
+name: free-image-video-stack
+description: >
+  Tổng hợp: Pollinations MCP + CogVideoX + WanGP Kaggle + framecraft + SD
+  WebUI + Supertonic Cập nhật: tháng 6/2026
+---
+
 # Free Image & Video Stack — $0 Hoàn Toàn
 
 **Tổng hợp:** Pollinations MCP + CogVideoX + WanGP Kaggle + framecraft + SD WebUI + Supertonic
