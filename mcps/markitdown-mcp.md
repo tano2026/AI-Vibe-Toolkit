@@ -1,3 +1,15 @@
+---
+name: markitdown-mcp
+description: >
+  !IMPORTANT] The MarkItDown-MCP package is meant for local use, with local
+  trusted agents. In particular, when running the MCP server with Streamable
+  HTTP or SSE, it binds to by default, and is not exposed to other machines
+  on the network or Internet. In this configuration, it is meant to be a
+  direct alternative to the STDIO transport, which may be more convenient in
+  some cases. DO NOT bind the server to other interfaces unless you
+  understand the [security implications of doing so.
+---
+
 # MarkItDown-MCP
 
 > [!IMPORTANT]
