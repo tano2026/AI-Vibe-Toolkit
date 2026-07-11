@@ -1,3 +1,10 @@
+---
+name: api-mega-list-skill
+description: >
+  Repo: github.com/cporter202/API-mega-list Nội dung: 6,000+ APIs
+  categorized, nhiều cái free
+---
+
 # api-mega-list — Tìm API Trước Khi Build Tool (~6k⭐)
 
 **Repo:** github.com/cporter202/API-mega-list
