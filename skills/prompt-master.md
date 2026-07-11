@@ -1,3 +1,10 @@
+---
+name: prompt-master
+description: >
+  - "Viết prompt cho tao để AI làm X" - "Prompt này sao không ra đúng ý, fix
+  giúp" - "Tạo system prompt cho AI assistant của tao"
+---
+
 # Prompt-Master — Skill
 
 ## TL;DR
