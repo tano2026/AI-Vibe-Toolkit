@@ -1,3 +1,10 @@
+---
+name: nanochat
+description: >
+  Andrej Karpathy — cha đẻ "vibe coding" — viết toàn bộ pipeline train LLM từ
+  đầu trong 8k dòng code đọc được. Train ChatGPT của mày với $15-100.
+---
+
 # nanochat (Karpathy) — Tự Train AI Của Riêng Mày Với $100
 
 > Andrej Karpathy — cha đẻ "vibe coding" — viết toàn bộ pipeline train LLM từ đầu trong 8k dòng code đọc được. Train ChatGPT của mày với $15-100.
