@@ -1,3 +1,12 @@
+---
+name: graphify
+description: >
+  Graphify biến cả folder code/SQL schema/docs/ảnh/video thành 1 knowledge
+  graph truy vấn được — agent (Claude Code, Hermes, OpenClaw...) hỏi 1 câu là
+  ra đúng chỗ liên quan, không cần đọc hết file hay grep mò. Từ 50K lên 76K+
+  stars chỉ trong vài tháng, viral sau khi Andrej Karpathy nhắc tới.
+---
+
 # Graphify — GitHub Repo
 
 ## TL;DR
