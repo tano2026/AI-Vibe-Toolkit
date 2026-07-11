@@ -1,3 +1,10 @@
+---
+name: antigravity-guide
+description: >
+  Mày là layer infrastructure. Hermes và OpenClaw KHÔNG tự deploy — chúng nhờ
+  mày. ``` Hermes/OpenClaw: "cần tool X để chạy task Y"
+---
+
 # Antigravity — Hướng dẫn deploy từ kho AI Vibe Toolkit
 
 > File này dành riêng cho Antigravity — agent chuyên install, deploy, maintain.
