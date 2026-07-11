@@ -1,3 +1,10 @@
+---
+name: codebase-memory-mcp
+description: >
+  MCP server 11.5k sao giúp AI nhớ toàn bộ cấu trúc codebase của mày — index
+  code thành knowledge graph, AI hỏi đâu biết đó, dùng ít token hơn 10 lần.
+---
+
 # codebase-memory-mcp — MCP Server
 
 ## TL;DR
