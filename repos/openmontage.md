@@ -1,3 +1,12 @@
+---
+name: openmontage
+description: >
+  Hệ thống production video agentic đầu tiên mã nguồn mở. 12 pipeline, 52
+  tools, 500+ agent skill — biến AI coding assistant (Claude, Cursor,
+  Copilot) thành cả một studio sản xuất video hoàn chỉnh. 22K stars và đang
+  tăng nhanh.
+---
+
 # OpenMontage — GitHub Repo
 
 ## TL;DR
