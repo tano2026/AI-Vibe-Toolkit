@@ -1,3 +1,10 @@
+---
+name: mcp-youtube
+description: >
+  MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán
+  link — không cần YouTube API key, chỉ cần yt-dlp cài local.
+---
+
 # YouTube MCP (mcp-youtube) — MCP Server
 
 ## TL;DR
