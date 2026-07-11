@@ -1,3 +1,9 @@
+---
+name: plannotator-skill
+description: >
+  Repo: github.com/backnotprop/plannotator MIT Website: plannotator.ai
+---
+
 # plannotator — Review Plan AI Trên Browser Trước Khi Approve (~6k⭐)
 
 **Repo:** github.com/backnotprop/plannotator | MIT
