@@ -1,3 +1,9 @@
+---
+name: codegraph
+description: >
+  Cho AI coding agent 1 index sẵn của codebase, đỡ phải tự grep/glob dò file
+---
+
 # CodeGraph — Index Code Local Cho AI Agent Đọc Đúng File
 
 > Đồ thị tri thức code chạy 100% local, nối vào Claude Code/Cursor/Codex qua MCP để agent đọc đúng file cần thay vì quét lan man.
