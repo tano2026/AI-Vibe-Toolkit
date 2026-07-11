@@ -1,3 +1,10 @@
+---
+name: marketingskills
+description: >
+  Stars: 31.9k Forks: 5.3k License: MIT Tác giả: Corey Haines Version: v2.3.0
+  (tháng 5/2026)
+---
+
 # marketingskills — 43 skill marketing biến AI agent thành CMO thực thụ
 
 **GitHub:** https://github.com/coreyhaines31/marketingskills
