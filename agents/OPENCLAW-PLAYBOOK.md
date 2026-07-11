@@ -1,3 +1,10 @@
+---
+name: openclaw-playbook
+description: >
+  Dán toàn bộ file này vào Project Instructions của OpenClaw. Sau khi đọc
+  xong → không cần fetch lại, đã có đủ để hoạt động.
+---
+
 # OPENCLAW-PLAYBOOK
 > Dán toàn bộ file này vào Project Instructions của OpenClaw.
 > Sau khi đọc xong → không cần fetch lại, đã có đủ để hoạt động.
