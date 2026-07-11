@@ -1,3 +1,11 @@
+---
+name: omnivoice-studio
+description: >
+  Ứng dụng desktop mã nguồn mở thay thế ElevenLabs chạy hoàn toàn offline:
+  clone giọng, thiết kế giọng nói, lồng tiếng và đọc chính tả — không cần trả
+  phí tháng, không cần internet.
+---
+
 # OmniVoice Studio — GitHub Repo
 
 ## TL;DR
