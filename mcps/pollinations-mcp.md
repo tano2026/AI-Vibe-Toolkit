@@ -1,3 +1,10 @@
+---
+name: pollinations-mcp
+description: >
+  GitHub: https://github.com/atiaeno/pollinations-mcp npm: pollinations-mcp
+  License: ISC
+---
+
 # pollinations-mcp — Image/Video/Audio FREE, Không Cần API Key
 
 **GitHub:** https://github.com/atiaeno/pollinations-mcp
