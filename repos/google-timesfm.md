@@ -1,3 +1,11 @@
+---
+name: google-timesfm
+description: >
+  Model dự báo chuỗi thời gian (time-series forecasting) do Google Research
+  phát triển, 25k sao. Đọc dữ liệu quá khứ để dự đoán tương lai — không cần
+  train lại từ đầu.
+---
+
 # Google TimesFM — GitHub Repo
 
 ## TL;DR
