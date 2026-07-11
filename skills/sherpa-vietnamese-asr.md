@@ -1,3 +1,12 @@
+---
+name: sherpa-vietnamese-asr
+description: >
+  Nhan dang giong noi tieng Viet offline cho Windows — chay CPU-only, khong
+  can GPU, khong gui am thanh ra internet. Python 3.10+, License MIT, phien
+  ban 2.6.3. Tool duy nhat hien tai nhan dang tieng Viet offline chat luong
+  tot tren Windows.
+---
+
 # Sherpa Vietnamese ASR — Tool
 
 ## TL;DR
