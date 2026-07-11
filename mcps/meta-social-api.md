@@ -1,3 +1,11 @@
+---
+name: meta-social-api
+description: >
+  Official Meta API — post content lên FB/IG/Threads, lấy insights, quản lý
+  comment. 1 access token dùng được cho cả 3 platform. Hermes gọi thẳng REST
+  API, không cần SDK.
+---
+
 # Meta Graph API — Facebook, Instagram, Threads
 
 ## TL;DR
