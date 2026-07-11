@@ -1,3 +1,10 @@
+---
+name: html-video
+description: >
+  Stars: 346 Forks: 12 License: Apache 2.0 Tác giả: nexu-io (Open Design
+  team)
+---
+
 # html-video (nexu-io) — AI Agent Viết HTML, Mày Nhận MP4
 
 **GitHub:** https://github.com/nexu-io/html-video
