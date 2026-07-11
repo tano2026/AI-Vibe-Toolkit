@@ -1,3 +1,11 @@
+---
+name: gstack
+description: >
+  Bộ 25 skill Claude Code từ Garry Tan — CEO Y Combinator. Biến một người
+  thành cả team: có CEO review, Designer, Eng Manager, Release Manager, QA.
+  110K+ stars, đang là setup được copy nhiều nhất trên GitHub.
+---
+
 # GStack — Setup Claude Code Của CEO Y Combinator
 
 ## TL;DR
