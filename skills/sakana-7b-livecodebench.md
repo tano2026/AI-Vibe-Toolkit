@@ -1,3 +1,9 @@
+---
+name: sakana-7b-livecodebench
+description: >
+  Paper: arXiv:2512.04388 By: Sakana AI Nguồn: @ainius.net tháng 6/2026
+---
+
 # 7B Vượt GPT-5 Trên LiveCodeBench — Sakana AI Research Note
 
 **Paper:** arXiv:2512.04388 | **By:** Sakana AI
