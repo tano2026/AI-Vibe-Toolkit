@@ -1,3 +1,10 @@
+---
+name: markdown-output-insight
+description: >
+  Nguồn: Kỹ sư Anthropic (DevAtlas tổng hợp) tháng 6/2026 Loại: Insight/Best
+  Practice — không phải repo
+---
+
 # Markdown Đang Phá Hoại Output AI — Insight Từ Anthropic Engineer
 
 **Nguồn:** Kỹ sư Anthropic (DevAtlas tổng hợp) | tháng 6/2026
