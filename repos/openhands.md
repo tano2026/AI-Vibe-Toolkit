@@ -1,3 +1,11 @@
+---
+name: openhands
+description: >
+  AI Software Engineer agent mã nguồn mở — giao task, nó tự code, test,
+  debug, deploy. 78.4K stars. Thay thế Devin (tool AI coding trả phí
+  $500/tháng) hoàn toàn free và self-hostable.
+---
+
 # OpenHands — GitHub Repo
 
 ## TL;DR
