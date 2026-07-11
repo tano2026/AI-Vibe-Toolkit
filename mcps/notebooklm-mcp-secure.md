@@ -1,3 +1,10 @@
+---
+name: notebooklm-mcp-secure
+description: >
+  GitHub: https://github.com/Pantheon-Security/notebooklm-mcp-secure License:
+  MIT Tác giả: Pantheon Security
+---
+
 # notebooklm-mcp-secure — NotebookLM MCP Enterprise Security + Gemini API
 
 **GitHub:** https://github.com/Pantheon-Security/notebooklm-mcp-secure
