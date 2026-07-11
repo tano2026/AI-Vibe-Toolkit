@@ -1,3 +1,11 @@
+---
+name: n8n-claw
+description: >
+  OpenClaw nhưng chạy bằng n8n — visual workflow, không cần terminal,
+  self-hosted, kết nối Telegram/Slack, có memory và sub-agents. 1 script
+  setup xong.
+---
+
 # n8n-claw — Build AI Agent Tự Vận Hành Bằng n8n, 1 Lệnh Setup
 
 > OpenClaw nhưng chạy bằng n8n — visual workflow, không cần terminal, self-hosted, kết nối Telegram/Slack, có memory và sub-agents. 1 script setup xong.
