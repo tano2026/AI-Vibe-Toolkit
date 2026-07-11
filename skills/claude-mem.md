@@ -1,3 +1,12 @@
+---
+name: claude-mem
+description: >
+  Dùng khi mày làm 1 project dài hơi qua nhiều session (debug kéo dài nhiều
+  ngày, refactor lớn, dự án doanh nghiệp có nhiều ngữ cảnh riêng) và chán
+  cảnh mỗi lần mở Claude Code mới phải copy-paste lại bối cảnh. Không cần
+  dùng cho task ngắn 1 lần là xong — overhead setup không đáng.
+---
+
 # Claude-Mem — Prompt Template / System Prompt
 
 ## TL;DR
