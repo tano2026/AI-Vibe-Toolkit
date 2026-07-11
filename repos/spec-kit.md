@@ -1,3 +1,11 @@
+---
+name: spec-kit
+description: >
+  Toolkit chinh thuc cua GitHub day Spec-Driven Development — giai phap cho
+  van de "vibe coding" lam AI code loi lien tuc. 116.6K stars, MIT license.
+  Thay vi mo ta mo ho, viet spec ro rang truoc → AI code dung ngay tu dau.
+---
+
 # GitHub Spec Kit — GitHub Repo
 
 ## TL;DR
