@@ -1,3 +1,9 @@
+---
+name: sequential-thinking
+description: >
+  Bắt AI chia nhỏ bài toán, suy nghĩ có cấu trúc trước khi làm
+---
+
 # Sequential Thinking — Bắt AI Suy Nghĩ Trước Khi Làm
 
 > AI hay nhảy vào code luôn rồi sai? MCP này bắt nó lên kế hoạch từng bước trước — như senior dev ngồi nghĩ trước khi gõ.
