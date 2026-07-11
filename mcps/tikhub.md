@@ -1,3 +1,12 @@
+---
+name: tikhub
+description: >
+  Một API key duy nhất để lấy data real-time từ 16+ mạng xã hội (TikTok,
+  Douyin, Instagram, YouTube, Twitter/X, Xiaohongshu, Threads, Reddit...) —
+  1000+ endpoints REST + 990+ MCP tools cho AI agent. Trả tiền theo request,
+  không gói tháng.
+---
+
 # TikHub — MCP Server
 
 ## TL;DR
