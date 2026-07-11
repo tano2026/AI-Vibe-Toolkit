@@ -1,3 +1,10 @@
+---
+name: agent-reach
+description: >
+  Cho phép AI agents đọc content từ internet mà không cần API keys. Giải
+  quyết bài toán authentication và rate limiting cho web scraping.
+---
+
 # Agent-Reach — Cho AI Đọc Twitter/LinkedIn Không Cần API Key (29k⭐)
 
 **GitHub:** https://github.com/Panniantong/Agent-Reach
