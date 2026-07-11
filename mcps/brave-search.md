@@ -1,3 +1,9 @@
+---
+name: brave-search
+description: >
+  Claude tự search web real-time để trả lời câu hỏi mới nhất
+---
+
 # Brave Search MCP — Cho Claude Tự Search Google
 
 > Thay vì mày search Google rồi copy paste vào Claude — cài cái này là Claude tự search và trả lời luôn.
