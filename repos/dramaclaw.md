@@ -1,3 +1,12 @@
+---
+name: dramaclaw
+description: >
+  Xưởng phim AI mã nguồn mở: đưa vào manuscript (tiểu thuyết/kịch bản) → tự
+  động ra phim ngắn hoàn chỉnh — từ phân tích nhân vật, vẽ storyboard, lồng
+  tiếng đến cắt ghép video. Chạy local bằng Docker, không cần GPU, không cần
+  studio. 924 stars, v1.0.5, đang active phát triển.
+---
+
 # DramaClaw — GitHub Repo
 
 ## TL;DR
