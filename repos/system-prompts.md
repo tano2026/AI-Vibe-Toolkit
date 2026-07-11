@@ -1,3 +1,10 @@
+---
+name: system-prompts
+description: >
+  Repo này leak system prompts của 30+ AI tools — Claude Code, Cursor, Devin,
+  Lovable, Replit, v0... Xem bên trong AI được dạy gì.
+---
+
 # System Prompts Leaked — Xem Claude Code, Cursor, Devin Được Lập Trình Thế Nào
 
 > Repo này leak system prompts của 30+ AI tools — Claude Code, Cursor, Devin, Lovable, Replit, v0... Xem bên trong AI được dạy gì.
