@@ -72,10 +72,26 @@ pm2 cron gọi `orchestrator.py weekly` mỗi thứ 2 7h sáng — không phải
 từng agent rời rạc. Comment pipeline (`run_comment_pipeline`) cần
 `fetch_comments_fn` implement riêng theo từng platform API, gọi mỗi 2h.
 
-**Trạng thái thật:** Logic điều phối đã có và compile sạch, NHƯNG:
-- `run_visual_agent_image()` mới trả prompt, chưa tự gọi image gen API cụ thể — 
-  cần chọn dịch vụ (Kling/Runway/Pollinations...) và nối vào
-- Brand Check trong pipeline hiện là bước bỏ qua tạm (chưa có asset thật để 
-  validate màu/logo) — cần nối sau khi có ảnh/video thật
-- `fetch_comments_fn` là tham số phải tự viết theo từng platform, chưa có 
-  sẵn trong repo
+**Trạng thái thật (đã cập nhật):**
+- ✅ `run_visual_agent_image()` giờ gọi Pollinations thật (free, tier anonymous), 
+  tải ảnh về `/opt/trum-san-bay/assets/` — không còn chỉ trả prompt suông
+- ✅ `fetch_all_comments()` đã code đủ 4 platform (Facebook, Instagram Graph API; 
+  TikTok qua Apify Comment Scraper; YouTube Data API v3) — dùng làm 
+  `fetch_comments_fn` cho `run_comment_pipeline()`
+- ⚠️ Brand Check chạy nhưng **ảnh từ Pollinations chưa có logo/watermark tự động** 
+  — pipeline flag `brand_check_issues` trong Airtable thay vì chặn cứng, cần 
+  code thêm bước overlay logo (ffmpeg/PIL) trước khi coi là "brand compliant" thật
+- ⚠️ Pollinations đang chuyển sang gateway mới có Pollen credit (2026) — endpoint 
+  free dùng ở đây là bản cũ, có thể cần đăng ký `POLLINATIONS_API_KEY` free tại 
+  enter.pollinations.ai nếu gặp lỗi 401/429 thường xuyên
+- ⚠️ Toàn bộ code compile sạch nhưng CHƯA chạy với credential thật — bước 
+  tiếp theo là Phase 5 trong `deploy-checklist.md`
+
+## Chạy thử nhanh (sau khi có đủ credential)
+
+```bash
+cd /opt/trum-san-bay
+python3 orchestrator.py weekly     # full pipeline: research -> ideation -> writer -> visual -> brand check
+python3 orchestrator.py comments   # fetch + classify + draft reply comment mới
+python3 orchestrator.py token_check  # health check token, tự refresh nếu cần
+```
