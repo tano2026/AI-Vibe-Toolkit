@@ -1,3 +1,9 @@
+---
+name: crawl4ai
+description: >
+  Scrape web không giới hạn, chuyển thành Markdown cho AI đọc
+---
+
 # Crawl4AI MCP — Cào Web Free Không Giới Hạn
 
 > Giống Firecrawl nhưng **hoàn toàn free, không giới hạn** — tự host trên máy mày. Dành cho ai cào nhiều mà không muốn trả tiền.
