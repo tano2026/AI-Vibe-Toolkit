@@ -1,3 +1,11 @@
+---
+name: ui-tars-desktop
+description: >
+  Hai dự án trong một repo của ByteDance: Agent TARS (AI agent duyệt web qua
+  terminal/web UI) và UI-TARS-desktop (app desktop điều khiển GUI máy tính).
+  37K+ sao. Không bị lock vào một model duy nhất.
+---
+
 # UI-TARS-desktop (Agent TARS) — GitHub Repo
 
 ## TL;DR
