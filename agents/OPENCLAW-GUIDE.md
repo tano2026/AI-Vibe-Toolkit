@@ -1,3 +1,9 @@
+---
+name: openclaw-guide
+description: >
+  File này dành riêng cho OpenClaw runtime.
+---
+
 # OpenClaw — Hướng dẫn dùng kho AI Vibe Toolkit
 
 > File này dành riêng cho OpenClaw runtime.
