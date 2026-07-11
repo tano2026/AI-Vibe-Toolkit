@@ -1,3 +1,10 @@
+---
+name: wangp-kaggle
+description: >
+  GitHub: https://github.com/kayas881/WanGP-Kaggle Stars: 10⭐ GPU: Tesla T4
+  15GB (FREE từ Kaggle)
+---
+
 # WanGP Kaggle — Video AI Miễn Phí Dùng T4 GPU Của Kaggle
 
 **GitHub:** https://github.com/kayas881/WanGP-Kaggle
