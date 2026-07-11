@@ -1,3 +1,9 @@
+---
+name: notebooklm-slide-commands
+description: >
+  Nguồn: @louisthanhbinh Dạng: Prompt Templates — dùng với NotebookLM
+---
+
 # NotebookLM Slide Commands — 8 Câu Lệnh Làm Slide Xịn Trong 5 Phút
 
 **Nguồn:** @louisthanhbinh
