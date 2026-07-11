@@ -266,17 +266,18 @@ def run_writer_agent(brief):
 
 def run_visual_agent_image(topic, image_prompt_context, content_id=None, width=1080, height=1080):
     """
-    Viết prompt gen ảnh (tier=cheap) RỒI tự gọi Pollinations để vẽ thật,
-    tải file về /opt/trum-san-bay/assets/. Free, không cần API key ở tier
-    anonymous — nhưng có rate limit, nên có retry nhẹ.
+    Viết prompt gen ảnh (tier=cheap) RỒI gọi Gemini image generation
+    (model gemini-2.5-flash-image, tên thường gọi "Nano Banana") để vẽ thật,
+    tải file về /opt/trum-san-bay/assets/. Free trong hạn mức Google AI Studio
+    free tier — cần GEMINI_API_KEY (lấy free tại aistudio.google.com/apikey).
 
-    LƯU Ý (đọc kỹ): Pollinations đã chuyển sang gateway mới gen.pollinations.ai
-    với hệ thống Pollen credit từ đầu 2026. Endpoint image.pollinations.ai/prompt
-    dùng ở đây là bản cũ, vẫn chạy ở tier anonymous nhưng KHÔNG đảm bảo ổn định
-    lâu dài — nếu thấy lỗi 401/429 thường xuyên, cần đăng ký API key free tại
-    enter.pollinations.ai và thêm header Authorization: Bearer <key>.
+    Đổi từ Pollinations sang Gemini vì: (1) mày đã có sẵn key Gemini dùng
+    chung với llm-router tier="balanced", (2) free tier Gemini ổn định hơn
+    endpoint anonymous của Pollinations, (3) chất lượng ảnh photorealistic
+    tốt hơn cho use case sân bay thật (ít lỗi tay/mặt hơn Flux free tier).
     """
-    import urllib.parse
+    import base64
+    import urllib.request
 
     prompt_gen = f"""
 Viết 1 prompt gen ảnh tiếng Anh cho: "{topic}" — context: {image_prompt_context}
@@ -286,30 +287,49 @@ Chỉ trả prompt string, không giải thích.
 """
     image_prompt = llm_call(prompt_gen, tier="cheap", max_tokens=300).strip()
 
-    encoded = urllib.parse.quote(image_prompt)
-    pollinations_key = os.environ.get("POLLINATIONS_API_KEY")  # optional, None nếu chưa đăng ký
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    if not gemini_key:
+        return {"error": "Thiếu GEMINI_API_KEY — lấy free tại aistudio.google.com/apikey", "prompt": image_prompt}
 
-    params = {
-        "width": width, "height": height, "nologo": "true",
-        "model": "flux", "seed": str(int(time.time()) % 999999999)
+    url = (
+        "https://generativelanguage.googleapis.com/v1beta/models/"
+        f"gemini-2.5-flash-image:generateContent?key={gemini_key}"
+    )
+    payload = {
+        "contents": [{
+            "parts": [{"text": f"{image_prompt}. Aspect ratio {width}:{height}, high quality, photorealistic."}]
+        }],
+        "generationConfig": {"responseModalities": ["IMAGE"]}
     }
-    query = "&".join(f"{k}={v}" for k, v in params.items())
-    url = f"https://image.pollinations.ai/prompt/{encoded}?{query}"
 
-    import urllib.request
-    headers = {}
-    if pollinations_key:
-        headers["Authorization"] = f"Bearer {pollinations_key}"
-
+    img_bytes = None
     for attempt in range(3):
         try:
-            req = urllib.request.Request(url, headers=headers)
-            img_bytes = urllib.request.urlopen(req, timeout=60).read()
+            req = urllib.request.Request(
+                url, data=json.dumps(payload).encode(),
+                headers={"Content-Type": "application/json"}, method="POST"
+            )
+            result = json.loads(urllib.request.urlopen(req, timeout=60).read())
+
+            parts = result.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+            image_b64 = next((p["inlineData"]["data"] for p in parts if "inlineData" in p), None)
+            if not image_b64:
+                return {"error": f"Gemini không trả về ảnh: {json.dumps(result)[:300]}", "prompt": image_prompt}
+            img_bytes = base64.b64decode(image_b64)
             break
+        except urllib.error.HTTPError as e:
+            error_body = e.read().decode()
+            if e.code == 429:  # rate limit — retry với backoff
+                time.sleep(5 * (attempt + 1))
+                continue
+            return {"error": f"Gemini HTTP {e.code}: {error_body[:300]}", "prompt": image_prompt}
         except Exception as e:
             if attempt == 2:
-                return {"error": f"Pollinations gen thất bại sau 3 lần: {e}", "prompt": image_prompt}
+                return {"error": f"Gemini gen thất bại sau 3 lần: {e}", "prompt": image_prompt}
             time.sleep(3 * (attempt + 1))
+
+    if img_bytes is None:
+        return {"error": "Gemini rate limit — hết 3 lần retry", "prompt": image_prompt}
 
     cid = content_id or f"img_{int(time.time())}"
     save_path = f"/opt/trum-san-bay/assets/{cid}.jpg"
