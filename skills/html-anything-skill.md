@@ -1,3 +1,10 @@
+---
+name: html-anything-skill
+description: >
+  Repo: github.com/nexu-io/html-anything Apache 2.0 Stars: 6.2k Built in 3
+  ngày 15,000 dòng code
+---
+
 # html-anything — Biến Mọi Thứ Thành HTML Đẹp, $0 (6.2k⭐)
 
 **Repo:** github.com/nexu-io/html-anything | Apache 2.0
