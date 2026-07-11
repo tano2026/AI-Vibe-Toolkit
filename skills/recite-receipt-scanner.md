@@ -1,3 +1,10 @@
+---
+name: recite-receipt-scanner
+description: >
+  GitHub: https://github.com/rivradev/recite-agent-skill Stars: 2⭐ License:
+  MIT
+---
+
 # Recite — AI Scan Hóa Đơn, Chứng Từ → Bookkeeping Tự Động (2⭐)
 
 **GitHub:** https://github.com/rivradev/recite-agent-skill
