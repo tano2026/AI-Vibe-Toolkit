@@ -1,3 +1,10 @@
+---
+name: web-research-mcp
+description: >
+  Stars: 8⭐ (mới, concept cực kỳ hay) License: Go MIT Tác giả: mrvarmazyar
+  Tạo: 2026
+---
+
 # web-research — Token-Efficient Research MCP (99% Ít Token Hơn)
 
 **GitHub:** https://github.com/mrvarmazyar/web-research
