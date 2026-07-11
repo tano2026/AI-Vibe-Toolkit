@@ -3,6 +3,7 @@ Trùm Sân Bay — Content Pipeline Agent
 Chạy qua Hermes, nhận lệnh từ OpenClaw qua Telegram
 """
 import urllib.request
+import urllib.parse
 import json
 import base64
 import time
@@ -466,7 +467,7 @@ def _publish_tiktok(fields):
         result = api_call(
             "https://open.tiktokapis.com/v2/post/publish/video/init/", "POST",
             init_payload,
-            {"Authorization": f"Bearer {TIKTOK_ACCESS_TOKEN}", "Content-Type": "application/json; charset=UTF-8"}
+            {"Authorization": f"Bearer {get_tiktok_access_token()}", "Content-Type": "application/json; charset=UTF-8"}
         )
         error = result.get("error", {})
         if error.get("code") and error["code"] != "ok":
@@ -498,7 +499,7 @@ def _publish_youtube(fields):
             "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}
         }
 
-        access_token = os.environ.get("YOUTUBE_ACCESS_TOKEN")  # refreshed riêng qua OAuth flow
+        access_token = get_youtube_access_token()  # tự refresh nếu gần hết hạn
         init_req = urllib.request.Request(
             "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
             data=json.dumps(metadata).encode(),
@@ -577,9 +578,9 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
         configured_platforms.append("facebook")
     if FB_ACCESS_TOKEN and IG_USER_ID:
         configured_platforms.append("instagram")
-    if TIKTOK_ACCESS_TOKEN:
+    if os.environ.get("TIKTOK_REFRESH_TOKEN"):
         configured_platforms.append("tiktok")
-    if os.environ.get("YOUTUBE_ACCESS_TOKEN"):
+    if os.environ.get("YOUTUBE_REFRESH_TOKEN"):
         configured_platforms.append("youtube")
 
     # Idempotency — check đã đăng platform nào rồi (từ progress.json)
@@ -646,3 +647,177 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
         "failed_platforms": already_failed
     }
 
+
+# === TOKEN REFRESH — YouTube + TikTok (access token sống ngắn, phải tự refresh) ===
+# Facebook long-lived token sống 60 ngày, không cần refresh tự động —
+# chỉ cần cảnh báo trước hạn (đã có trong check_token_health bên dưới).
+
+TOKEN_CACHE_FILE = "/opt/trum-san-bay/state/tokens.json"
+
+
+def _load_token_cache():
+    if not os.path.exists(TOKEN_CACHE_FILE):
+        return {}
+    with open(TOKEN_CACHE_FILE) as f:
+        return json.load(f)
+
+
+@_with_state_lock
+def _save_token_cache(platform, access_token, expires_at):
+    cache = _load_token_cache()
+    cache[platform] = {"access_token": access_token, "expires_at": expires_at}
+    os.makedirs(os.path.dirname(TOKEN_CACHE_FILE), exist_ok=True)
+    with open(TOKEN_CACHE_FILE, "w") as f:
+        json.dump(cache, f, indent=2)
+
+
+def get_youtube_access_token():
+    """
+    YouTube access token sống 1h — refresh tự động bằng refresh_token
+    (refresh_token sống dài hạn, lấy 1 lần qua OAuth flow thủ công lúc setup).
+    Gọi hàm này TRƯỚC MỌI lần publish YouTube, không dùng env var tĩnh nữa.
+    """
+    cache = _load_token_cache()
+    cached = cache.get("youtube")
+
+    # Còn hạn ít nhất 5 phút thì dùng lại, không refresh liên tục vô ích
+    if cached and cached["expires_at"] > time.time() + 300:
+        return cached["access_token"]
+
+    refresh_token = os.environ.get("YOUTUBE_REFRESH_TOKEN")
+    client_id = os.environ.get("YOUTUBE_CLIENT_ID")
+    client_secret = os.environ.get("YOUTUBE_CLIENT_SECRET")
+
+    if not refresh_token:
+        raise TokenRefreshError(
+            "youtube",
+            "Thiếu YOUTUBE_REFRESH_TOKEN — cần chạy OAuth flow thủ công 1 lần "
+            "để lấy refresh_token (xem mcp-setup.md mục 5)"
+        )
+
+    payload = urllib.parse.urlencode({
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "refresh_token": refresh_token,
+        "grant_type": "refresh_token"
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://oauth2.googleapis.com/token", data=payload, method="POST",
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+    try:
+        result = json.loads(urllib.request.urlopen(req, timeout=15).read())
+    except urllib.error.HTTPError as e:
+        raise TokenRefreshError("youtube", f"Refresh thất bại: {e.read().decode()}")
+
+    access_token = result["access_token"]
+    expires_in = result.get("expires_in", 3600)
+    _save_token_cache("youtube", access_token, time.time() + expires_in)
+    return access_token
+
+
+def get_tiktok_access_token():
+    """
+    TikTok access token thường sống 24h, refresh_token sống ~365 ngày.
+    Cùng pattern: cache local, refresh khi gần hết hạn.
+    """
+    cache = _load_token_cache()
+    cached = cache.get("tiktok")
+
+    if cached and cached["expires_at"] > time.time() + 600:
+        return cached["access_token"]
+
+    refresh_token = os.environ.get("TIKTOK_REFRESH_TOKEN")
+    client_key = os.environ.get("TIKTOK_CLIENT_KEY")
+    client_secret = os.environ.get("TIKTOK_CLIENT_SECRET")
+
+    if not refresh_token:
+        raise TokenRefreshError(
+            "tiktok",
+            "Thiếu TIKTOK_REFRESH_TOKEN — cần chạy OAuth flow thủ công 1 lần "
+            "để lấy refresh_token (xem mcp-setup.md mục 4)"
+        )
+
+    payload = urllib.parse.urlencode({
+        "client_key": client_key,
+        "client_secret": client_secret,
+        "refresh_token": refresh_token,
+        "grant_type": "refresh_token"
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://open.tiktokapis.com/v2/oauth/token/", data=payload, method="POST",
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+    try:
+        result = json.loads(urllib.request.urlopen(req, timeout=15).read())
+    except urllib.error.HTTPError as e:
+        raise TokenRefreshError("tiktok", f"Refresh thất bại: {e.read().decode()}")
+
+    access_token = result["access_token"]
+    expires_in = result.get("expires_in", 86400)
+    new_refresh_token = result.get("refresh_token")  # TikTok đôi khi rotate refresh_token
+    _save_token_cache("tiktok", access_token, time.time() + expires_in)
+
+    if new_refresh_token and new_refresh_token != refresh_token:
+        # Refresh token mới — CẢNH BÁO, cần người cập nhật env var, không tự
+        # ghi đè env process đang chạy (pm2 restart mới áp dụng được)
+        _save_token_cache("tiktok_new_refresh_token_pending", new_refresh_token, time.time() + 31536000)
+
+    return access_token
+
+
+class TokenRefreshError(Exception):
+    def __init__(self, platform, message):
+        self.platform = platform
+        self.message = message
+        super().__init__(f"[{platform}] {message}")
+
+
+def check_all_tokens_health(telegram_alert_fn=None):
+    """
+    Cron hàng ngày — chủ động check + refresh trước khi hết hạn, thay vì
+    đợi publish fail mới biết. Cũng check Facebook long-lived token (không
+    tự refresh được, chỉ cảnh báo).
+    """
+    issues = []
+
+    # Facebook — không refresh tự động, chỉ cảnh báo trước 3 ngày
+    if FB_ACCESS_TOKEN:
+        fb_url = (f"https://graph.facebook.com/debug_token?"
+                   f"input_token={FB_ACCESS_TOKEN}&access_token={FB_ACCESS_TOKEN}")
+        try:
+            data = json.loads(urllib.request.urlopen(fb_url, timeout=15).read())
+            expires_at = data.get("data", {}).get("expires_at", 0)
+            days_left = (expires_at - time.time()) / 86400
+            if days_left < 3:
+                issues.append(f"⚠️ Facebook token còn {int(days_left)} ngày — cần refresh thủ công")
+        except Exception:
+            issues.append("❌ Không check được Facebook token")
+
+    # YouTube — thử refresh chủ động
+    if os.environ.get("YOUTUBE_REFRESH_TOKEN"):
+        try:
+            get_youtube_access_token()
+        except TokenRefreshError as e:
+            issues.append(f"🔴 YouTube: {e.message}")
+
+    # TikTok — thử refresh chủ động
+    if os.environ.get("TIKTOK_REFRESH_TOKEN"):
+        try:
+            get_tiktok_access_token()
+        except TokenRefreshError as e:
+            issues.append(f"🔴 TikTok: {e.message}")
+        # Check nếu có refresh_token mới cần người cập nhật env
+        cache = _load_token_cache()
+        if "tiktok_new_refresh_token_pending" in cache:
+            issues.append(
+                "⚠️ TikTok đã rotate refresh_token mới — cần cập nhật "
+                "TIKTOK_REFRESH_TOKEN trong pm2 env (xem state/tokens.json)"
+            )
+
+    if issues and telegram_alert_fn:
+        telegram_alert_fn("🔑 Token health check:\n" + "\n".join(issues))
+
+    return issues
