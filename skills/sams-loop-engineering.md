@@ -1,3 +1,10 @@
+---
+name: sams-loop-engineering
+description: >
+  Nguồn: Axial Studio Carousel 10 slides Concept: "Stop prompting agents.
+  Start designing loops."
+---
+
 # SAMS — Loop Engineering Framework (Axial Studio)
 
 **Nguồn:** Axial Studio | Carousel 10 slides
