@@ -1,3 +1,11 @@
+---
+name: langflow
+description: >
+  Visual builder để tạo AI agent và workflow — kéo thả component, không cần
+  code. 150K stars, một trong những repo AI phổ biến nhất GitHub. Thay thế
+  n8n nhưng chuyên sâu về AI pipeline hơn.
+---
+
 # Langflow — GitHub Repo
 
 ## TL;DR
