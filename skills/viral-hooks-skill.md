@@ -1,3 +1,10 @@
+---
+name: viral-hooks-skill
+description: >
+  GitHub: https://github.com/rediumvex/viral-hooks-skill Stars: 54⭐ License:
+  MIT Dùng với: Claude Code
+---
+
 # viral-hooks — 100 Hook Formulas Cho TikTok/Reels/YouTube Shorts (54⭐)
 
 **GitHub:** https://github.com/rediumvex/viral-hooks-skill
