@@ -1,3 +1,10 @@
+---
+name: mattpocock-skills-skill
+description: >
+  Repo: github.com/mattpocock/skills MIT Tác giả: Matt Pocock — Total
+  TypeScript creator
+---
+
 # mattpocock/skills — Giảm 75% Token, Claude Code Kỷ Luật Hơn (109k⭐)
 
 **Repo:** github.com/mattpocock/skills | MIT
