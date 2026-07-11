@@ -252,9 +252,15 @@ Cron 1 tháng/lần: /tsb audit-facts
 
 ## Việc còn phải làm để harness hoàn chỉnh
 
-1. `enforce_pipeline_gate()` cần được nhúng vào **mọi** hàm trong `agent.py`, hiện mới có ở dạng thiết kế — cần code hóa thật vào `agent.py`
-2. `progress.json` chưa có cơ chế lock file khi nhiều process ghi đồng thời (race condition nếu Hermes chạy 2 instance) — cần thêm file lock
-3. Chưa có dashboard xem `progress.json` trực quan — hiện phải đọc JSON tay
+1. ~~`enforce_pipeline_gate()` cần được code hóa vào `agent.py`~~ ✅ Đã xong — 
+   `publish_post_safe()` trong `agent.py` gọi gate check trước khi publish
+2. ~~`progress.json` chưa có file lock~~ ✅ Đã xong — `_with_state_lock()` dùng 
+   `fcntl.flock` chống race condition khi 2 process cùng ghi
+3. Chưa có dashboard xem `progress.json` trực quan — hiện phải đọc JSON tay 
+   (còn nợ, độ ưu tiên thấp — không chặn vận hành)
+4. **Mới phát sinh:** `publish_post_safe()` mới code cứng 2 platform (Facebook, 
+   Instagram) để demo pattern — cần mở rộng thêm TikTok + YouTube theo cùng 
+   pattern idempotent trước khi go-live thật
 
 ---
 
