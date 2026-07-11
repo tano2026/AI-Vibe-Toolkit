@@ -1,3 +1,12 @@
+---
+name: mediacrawler
+description: >
+  Crawler mạng xã hội Trung Quốc mã nguồn mở — scrape Xiaohongshu (Red Note),
+  Douyin, Kuaishou, Bilibili, Weibo, Zhihu. 52.7K stars, 1 trong những tool
+  scraping popular nhất GitHub. Cực thiết thực cho marketer nghiên cứu trend
+  Trung Quốc.
+---
+
 # MediaCrawler — GitHub Repo
 
 ## TL;DR
