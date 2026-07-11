@@ -1,3 +1,10 @@
+---
+name: billionmail
+description: >
+  Platform email marketing self-hosted hoàn chỉnh: mail server + newsletter +
+  campaign — không tốn phí subscription hàng tháng. 15K+ sao, đang tăng mạnh.
+---
+
 # BillionMail — GitHub Repo
 
 ## TL;DR
