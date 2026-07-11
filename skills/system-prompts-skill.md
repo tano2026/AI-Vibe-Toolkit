@@ -1,3 +1,10 @@
+---
+name: system-prompts-skill
+description: >
+  Repo: github.com/x1xhlol/system-prompts-and-models-of-ai-tools Nội dung:
+  30+ system prompts leaked từ Claude Code, Cursor, Devin, Lovable, v0...
+---
+
 # system-prompts — Học Từ System Prompts Của AI Tools Lớn
 
 **Repo:** github.com/x1xhlol/system-prompts-and-models-of-ai-tools
