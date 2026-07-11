@@ -1,3 +1,10 @@
+---
+name: notebooklm-mcp-server
+description: >
+  GitHub: https://github.com/moodRobotics/notebooklm-mcp-server License: MIT
+  Language: TypeScript
+---
+
 # notebooklm-mcp-server — Auto-Update, VS Code Native, Zero Maintenance
 
 **GitHub:** https://github.com/moodRobotics/notebooklm-mcp-server
