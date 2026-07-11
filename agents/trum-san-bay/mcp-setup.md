@@ -317,3 +317,22 @@ pm2 start /opt/trum-san-bay/dashboard/dashboard_server.py --name tsb-dashboard -
 ```
 
 Xem trạng thái pipeline trực quan tại `http://<vps-ip>:8899` — không bắt buộc nhưng giúp debug nhanh hơn nhiều so với đọc `progress.json` bằng tay.
+
+
+---
+
+## 12. Gemini API — Gen ảnh (thay Pollinations)
+
+```
+Free tại: aistudio.google.com/apikey — không cần thẻ tín dụng
+Model dùng: gemini-2.5-flash-image ("Nano Banana") — nằm trong free tier
+Rate limit free tier: khoảng 15 request/phút, đủ dùng cho nhịp content hiện tại
+```
+
+```bash
+# Set env
+GEMINI_API_KEY=AIzaSyxxxxxxxxxxxxx
+```
+
+> Dùng chung key này cho cả `llm-router` tier="balanced" (text, Gemini Flash) 
+> và gen ảnh (`gemini-2.5-flash-image`) — 1 key, 2 việc, đỡ phải quản lý nhiều credential.
