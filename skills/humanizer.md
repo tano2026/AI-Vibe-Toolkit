@@ -1,3 +1,10 @@
+---
+name: humanizer
+description: >
+  - "Bài này nghe như AI quá, viết lại cho tự nhiên hơn" - "Humanize bài này
+  cho tao" - Muốn bypass AI content detector (Originality.ai, GPTZero...)
+---
+
 # Humanizer — Skill
 
 ## TL;DR
