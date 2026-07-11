@@ -1,3 +1,11 @@
+---
+name: firecrawl
+description: >
+  Firecrawl là API biến bất kỳ website nào thành markdown/JSON sạch, sẵn sàng
+  nhét vào LLM — không cần tự viết selector, không cần lo JS render hay chống
+  bot. 141K+ stars, dùng bởi hầu hết agent framework lớn hiện nay.
+---
+
 # Firecrawl — GitHub Repo
 
 ## TL;DR
