@@ -1,3 +1,12 @@
+---
+name: learn-harness-engineering
+description: >
+  Khoa hoc project-based day tu 0 den 1 ve Harness Engineering cho AI coding
+  agent — 12 bai giang, 6 project, 14 ngon ngu (co tieng Viet). 9.3K stars.
+  Tong hop tu tai lieu chinh thuc cua OpenAI va Anthropic. Skill tu dong sinh
+  production harness cho du an cua may trong vai phut.
+---
+
 # learn-harness-engineering — GitHub Repo
 
 ## TL;DR
