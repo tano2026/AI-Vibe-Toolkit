@@ -1,3 +1,10 @@
+---
+name: n8n-workflow-builder-mcp
+description: >
+  GitHub: https://github.com/salacoste/mcp-n8n-workflow-builder Stars: 226⭐
+  License: MIT npm: @kernel.salacoste/n8n-workflow-builder
+---
+
 # mcp-n8n-workflow-builder — Tạo n8n Workflows Bằng Ngôn Ngữ Thường (226⭐)
 
 **GitHub:** https://github.com/salacoste/mcp-n8n-workflow-builder
