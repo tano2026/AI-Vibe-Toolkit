@@ -1,3 +1,10 @@
+---
+name: meta-mcp-server
+description: >
+  GitHub: https://github.com/oliverames/meta-mcp-server Stars: 15⭐ License:
+  MIT npm: @oliverames/meta-mcp-server
+---
+
 # meta-mcp-server — 200+ Tools Facebook/Instagram/Threads/Ads (15⭐)
 
 **GitHub:** https://github.com/oliverames/meta-mcp-server
