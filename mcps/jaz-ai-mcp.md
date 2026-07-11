@@ -1,3 +1,10 @@
+---
+name: jaz-ai-mcp
+description: >
+  GitHub: https://github.com/teamtinvio/jaz-ai MCP Remote:
+  https://mcp.jaz.ai/mcp (cloud, không cần cài)
+---
+
 # Jaz AI — 289 Tools Kế Toán, IFRS, 13 Calculators (4⭐)
 
 **GitHub:** https://github.com/teamtinvio/jaz-ai
