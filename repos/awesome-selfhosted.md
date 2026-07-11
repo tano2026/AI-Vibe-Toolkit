@@ -1,3 +1,13 @@
+---
+name: awesome-selfhosted
+description: >
+  Danh sach tong hop 2000+ phan mem self-host mien phi — 301K stars, top 10
+  GitHub moi thoi dai. Phan loai theo 100+ danh muc: Analytics, Automation,
+  Bookmarks, CMS, CRM, Customer Support, E-commerce, Finance, Media,
+  Note-taking, Project Management... Bookmark bat buoc cho bat ky ai build
+  tren VPS.
+---
+
 # awesome-selfhosted — GitHub Repo
 
 ## TL;DR
