@@ -1,3 +1,10 @@
+---
+name: hermes-agent
+description: >
+  Stars: 188k+ (7 tuần đạt 95k, hiện 188k và tăng tiếp) License: MIT Tác giả:
+  Nous Research Version: v0.16.0
+---
+
 # Hermes Agent — AI Agent Tự Học, Tự Cải Tiến, Càng Dùng Càng Thông Minh
 
 **GitHub:** https://github.com/NousResearch/hermes-agent
