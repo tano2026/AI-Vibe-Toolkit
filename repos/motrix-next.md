@@ -1,3 +1,11 @@
+---
+name: motrix-next
+description: >
+  Download manager đầy đủ tính năng — rebuild hoàn toàn từ Motrix gốc (bị
+  abandoned 2023). Tại sao dùng thay IDM hay download bình thường: -
+  Multi-protocol: HTTP, FTP, ED2K, BitTorrent, Magnet, .torrent
+---
+
 # Motrix Next — Download Manager Rebuilt From Scratch (7.8k⭐)
 
 **GitHub:** https://github.com/AnInsomniacy/motrix-next
