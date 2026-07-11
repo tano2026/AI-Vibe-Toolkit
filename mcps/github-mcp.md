@@ -1,3 +1,9 @@
+---
+name: github-mcp
+description: >
+  Claude thao tác GitHub: commit, PR, issues, branches
+---
+
 # GitHub MCP — Claude Quản Lý Code Repo Cho Mày
 
 > Tạo branch, commit, tạo PR, đọc issues — Claude làm hết, mày không cần mở GitHub.
