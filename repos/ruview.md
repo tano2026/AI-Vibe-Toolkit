@@ -1,3 +1,11 @@
+---
+name: ruview
+description: >
+  Biến WiFi thường thành hệ thống "nhìn xuyên tường": detect người, đo nhịp
+  thở/tim, track chuyển động — không cần camera, không cần wearable. Chỉ cần
+  WiFi + ESP32. 74K+ sao.
+---
+
 # RuView — GitHub Repo
 
 ## TL;DR
