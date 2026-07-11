@@ -1,3 +1,12 @@
+---
+name: agentic-loop-optimizer
+description: >
+  - Agent đang chạy loop nhưng tốn token nhiều, output không cải thiện sau
+  vài vòng - Muốn thiết kế loop từ đầu, cần chọn đúng pattern (sequential /
+  reactive / autonomous) - Cần thêm exit condition, cost cap, hoặc human gate
+  vào loop hiện tại
+---
+
 # Agentic Loop Optimizer — Skill
 
 ## TL;DR
