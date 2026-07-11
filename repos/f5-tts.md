@@ -1,3 +1,11 @@
+---
+name: f5-tts
+description: >
+  Clone giọng chỉ cần 3 giây audio mẫu, dùng kiến trúc Flow Matching mới nhất
+  — 14,800+ sao GitHub. Giọng clone tự nhiên hơn hẳn các model cũ, chạy local
+  hoàn toàn.
+---
+
 # F5-TTS — GitHub Repo
 
 ## TL;DR
