@@ -1,3 +1,10 @@
+---
+name: grill-me
+description: >
+  - "Grill me về topic X" - "Hỏi khó tao đi về [chủ đề]" - "Tao muốn prep cho
+  interview/presentation"
+---
+
 # Grill Me — Skill
 
 ## TL;DR
