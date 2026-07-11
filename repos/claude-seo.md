@@ -1,3 +1,13 @@
+---
+name: claude-seo
+description: >
+  Plugin open-source cho Claude Code — biến Claude thành một đội audit SEO
+  chạy song song. Cài 2 lệnh → gõ → 18 agent chuyên gia chạy đồng thời, quét
+  toàn bộ website, cho ra action plan ưu tiên trong vài phút. Không phải
+  dashboard đầy số. Không phải report PDF vô nghĩa. Mỗi khuyến nghị đều có:
+  lý do tại sao, dependency, và cách kiểm tra xem fix có hiệu quả không.
+---
+
 # claude-seo — Plugin Biến Claude Code Thành Đội Audit SEO 18 Chuyên Gia
 
 **GitHub:** https://github.com/AgriciDaniel/claude-seo
