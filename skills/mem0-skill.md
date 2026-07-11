@@ -1,3 +1,10 @@
+---
+name: mem0-skill
+description: >
+  Repo: github.com/mem0ai/mem0 MIT YC-backed $24M Series A Dùng với: Python,
+  Node.js, bất kỳ LLM nào
+---
+
 # mem0 — Skill Thêm Memory Vào AI Agent (48k⭐)
 
 **Repo:** github.com/mem0ai/mem0 | MIT | YC-backed | $24M Series A
