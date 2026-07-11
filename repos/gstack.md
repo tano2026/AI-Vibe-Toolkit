@@ -1,3 +1,12 @@
+---
+name: gstack
+description: >
+  Setup Claude Code CHÍNH XÁC của Garry Tan (CEO Y Combinator) — 23 tools
+  đóng vai CEO, Designer, Eng Manager, QA, Doc Engineer. 115K stars — repo
+  trending 1 toàn GitHub. Đây là bộ MCP + skill setup được chia sẻ nhiều nhất
+  2026.
+---
+
 # gstack — GitHub Repo
 
 ## TL;DR
