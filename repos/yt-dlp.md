@@ -1,3 +1,12 @@
+---
+name: yt-dlp
+description: >
+  174k stars — downloader video/audio mạnh nhất hiện tại. Hỗ trợ 1000+
+  website: YouTube, TikTok, Instagram, Facebook, Twitter/X, Twitch... Hermes
+  dùng để extract metadata, download video để xử lý tiếp, research competitor
+  content.
+---
+
 # yt-dlp — Download & Extract Info Mọi Platform
 
 ## TL;DR
