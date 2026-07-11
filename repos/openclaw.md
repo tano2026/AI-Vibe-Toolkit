@@ -1,3 +1,11 @@
+---
+name: openclaw
+description: >
+  210k GitHub stars — nhanh nhất lịch sử GitHub. AI agent tự vận hành trên
+  máy mày, kết nối WhatsApp/Telegram/Slack, tự browse web, tự chạy code,
+  không cần cloud.
+---
+
 # OpenClaw — AI Agent Cá Nhân Chạy Trên Máy Mày, 24/7
 
 > 210k GitHub stars — nhanh nhất lịch sử GitHub. AI agent tự vận hành trên máy mày, kết nối WhatsApp/Telegram/Slack, tự browse web, tự chạy code, không cần cloud.
