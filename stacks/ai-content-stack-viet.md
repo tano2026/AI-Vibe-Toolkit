@@ -1,3 +1,10 @@
+---
+name: ai-content-stack-viet
+description: >
+  Use case: Tạo content marketing chuyên nghiệp với AI — từ ý tưởng đến đăng
+  bài Target: Founder, marketer, creator không có team content
+---
+
 # AI Content Stack — Workflow Viết Content Hoàn Chỉnh Cho Người Việt
 
 **Use case:** Tạo content marketing chuyên nghiệp với AI — từ ý tưởng đến đăng bài
