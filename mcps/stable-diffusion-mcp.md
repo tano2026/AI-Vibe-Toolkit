@@ -1,3 +1,9 @@
+---
+name: stable-diffusion-mcp
+description: >
+  GitHub: https://github.com/Ichigo3766/image-gen-mcp Stars: 39⭐ License: MIT
+---
+
 # stable-diffusion-mcp — Image AI Local, $0 Mãi Mãi (GPU Cần Thiết)
 
 **GitHub:** https://github.com/Ichigo3766/image-gen-mcp
