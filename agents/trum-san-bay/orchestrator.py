@@ -262,19 +262,60 @@ def run_writer_agent(brief):
 # ④ VISUAL AGENT — image prompt + HyperFrames video (KHÔNG dùng SceneWorks nữa)
 # ============================================================
 
-def run_visual_agent_image(topic, image_prompt_context):
+def run_visual_agent_image(topic, image_prompt_context, content_id=None, width=1080, height=1080):
     """
-    Viết prompt gen ảnh (tier=cheap) rồi trả về prompt string.
-    LƯU Ý: hàm gen ảnh thật (gọi image gen API) cần được config riêng
-    theo dịch vụ mày chọn — đây chỉ trả prompt đã tối ưu, không tự vẽ.
+    Viết prompt gen ảnh (tier=cheap) RỒI tự gọi Pollinations để vẽ thật,
+    tải file về /opt/trum-san-bay/assets/. Free, không cần API key ở tier
+    anonymous — nhưng có rate limit, nên có retry nhẹ.
+
+    LƯU Ý (đọc kỹ): Pollinations đã chuyển sang gateway mới gen.pollinations.ai
+    với hệ thống Pollen credit từ đầu 2026. Endpoint image.pollinations.ai/prompt
+    dùng ở đây là bản cũ, vẫn chạy ở tier anonymous nhưng KHÔNG đảm bảo ổn định
+    lâu dài — nếu thấy lỗi 401/429 thường xuyên, cần đăng ký API key free tại
+    enter.pollinations.ai và thêm header Authorization: Bearer <key>.
     """
-    prompt = f"""
+    import urllib.parse
+
+    prompt_gen = f"""
 Viết 1 prompt gen ảnh tiếng Anh cho: "{topic}" — context: {image_prompt_context}
 Bối cảnh: sân bay Việt Nam, photorealistic, tránh text trên biển báo,
 tránh close-up mặt người, có negative space overlay text.
 Chỉ trả prompt string, không giải thích.
 """
-    return llm_call(prompt, tier="cheap", max_tokens=300)
+    image_prompt = llm_call(prompt_gen, tier="cheap", max_tokens=300).strip()
+
+    encoded = urllib.parse.quote(image_prompt)
+    pollinations_key = os.environ.get("POLLINATIONS_API_KEY")  # optional, None nếu chưa đăng ký
+
+    params = {
+        "width": width, "height": height, "nologo": "true",
+        "model": "flux", "seed": str(int(time.time()) % 999999999)
+    }
+    query = "&".join(f"{k}={v}" for k, v in params.items())
+    url = f"https://image.pollinations.ai/prompt/{encoded}?{query}"
+
+    import urllib.request
+    headers = {}
+    if pollinations_key:
+        headers["Authorization"] = f"Bearer {pollinations_key}"
+
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            img_bytes = urllib.request.urlopen(req, timeout=60).read()
+            break
+        except Exception as e:
+            if attempt == 2:
+                return {"error": f"Pollinations gen thất bại sau 3 lần: {e}", "prompt": image_prompt}
+            time.sleep(3 * (attempt + 1))
+
+    cid = content_id or f"img_{int(time.time())}"
+    save_path = f"/opt/trum-san-bay/assets/{cid}.jpg"
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    with open(save_path, "wb") as f:
+        f.write(img_bytes)
+
+    return {"prompt": image_prompt, "image_path": save_path}
 
 
 def run_visual_agent_video(content_id, hook, bullets, cta, duration=55):
