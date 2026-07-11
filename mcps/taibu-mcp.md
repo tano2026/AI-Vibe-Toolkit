@@ -1,3 +1,11 @@
+---
+name: taibu-mcp
+description: >
+  MCP server tổng hợp 15 công cụ luận giải: Bát Tự, Tử Vi, Lục Hào, Mai Hoa,
+  Kỳ Môn, Đại Lục Nhâm, Tarot, lịch vạn niên... gắn vào Claude là dùng được
+  ngay, không cần build gì. 241⭐.
+---
+
 # Taibu MCP (太卜) — MCP Server
 
 ## TL;DR
