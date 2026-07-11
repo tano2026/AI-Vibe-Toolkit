@@ -1,3 +1,11 @@
+---
+name: omnishow
+description: >
+  Model video generation cua ByteDance, paper duoc accept tai ICML 2026 — tao
+  video tuong tac nhan vat-vat the (human-object interaction). 436 stars, con
+  moi va academic-focused, chua phai production tool.
+---
+
 # OmniShow — GitHub Repo
 
 ## TL;DR
