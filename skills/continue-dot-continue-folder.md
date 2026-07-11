@@ -1,3 +1,9 @@
+---
+name: continue-dot-continue-folder
+description: >
+  CLAUDE.md / .cursorrules / .windsurfrules / Copilot instructions
+---
+
 # continue — .continue/ Folder Pattern: Rules, Agents & Prompts Gốc
 
 **Nguồn:** github.com/continuedev/continue (33.7k⭐) | Apache 2.0
