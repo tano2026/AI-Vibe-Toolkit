@@ -1,3 +1,11 @@
+---
+name: ollama
+description: >
+  Ollama là runtime chạy LLM local trên máy/VPS của mày bằng 1 lệnh duy nhất
+  — không cần API, không tốn token, không lộ data ra ngoài. 172K+ stars, MIT
+  license, đã trở thành chuẩn de facto cho local LLM.
+---
+
 # Ollama — GitHub Repo
 
 ## TL;DR
