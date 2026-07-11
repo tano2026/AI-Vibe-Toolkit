@@ -1,3 +1,10 @@
+---
+name: web-research-mcp-skill
+description: >
+  Repo: github.com/mrvarmazyar/web-research Go MIT Stack: TinyFish + Groq
+  Llama 3.1 8B
+---
+
 # web-research MCP — 99% Ít Token Hơn Raw HTML
 
 **Repo:** github.com/mrvarmazyar/web-research | Go | MIT
