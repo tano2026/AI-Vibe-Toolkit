@@ -1,3 +1,11 @@
+---
+name: stirling-pdf
+description: >
+  Thay vì dùng ILovePDF, SmallPDF (upload file lên server họ, tốn tiền, có
+  giới hạn) — Stirling PDF chạy hoàn toàn local hoặc trên VPS của mày: -
+  Merge nhiều PDF thành một - Split PDF theo trang
+---
+
 # Stirling PDF — GitHub Repo
 
 ## TL;DR
