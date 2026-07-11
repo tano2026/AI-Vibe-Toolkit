@@ -1,3 +1,9 @@
+---
+name: 500-ai-agents-projects-skill
+description: >
+  Tìm idea + code mẫu AI agent theo ngành
+---
+
 # 500-AI-Agents-Projects — Skill Tìm Use Case + Code Mẫu (32.4k⭐)
 
 **Repo:** github.com/ashishpatel26/500-AI-Agents-Projects | MIT
