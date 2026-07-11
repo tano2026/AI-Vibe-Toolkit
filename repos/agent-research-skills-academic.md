@@ -1,3 +1,12 @@
+---
+name: agent-research-skills-academic
+description: >
+  31 skills cover toàn bộ academic research paper lifecycle — từ literature
+  search đến slide generation. Extracted từ 17 GitHub repos nghiên cứu
+  LLM-agent-driven research automation. Dùng cho: Researcher, PhD student,
+  technical writer cần AI hỗ trợ toàn bộ research pipeline.
+---
+
 # agent-research-skills — 31 Skills Cho Academic Research Pipeline
 
 **GitHub:** https://github.com/lingzhi227/agent-research-skills
