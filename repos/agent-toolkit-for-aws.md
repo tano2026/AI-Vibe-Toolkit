@@ -1,3 +1,11 @@
+---
+name: agent-toolkit-for-aws
+description: >
+  Bộ MCP servers + skills + plugins chính thức của AWS — giúp AI agent build,
+  deploy, và manage ứng dụng trên AWS. Official từ Amazon, không phải
+  third-party. 1.1K stars nhưng đây là tool enterprise-grade.
+---
+
 # Agent Toolkit for AWS — GitHub Repo
 
 ## TL;DR
