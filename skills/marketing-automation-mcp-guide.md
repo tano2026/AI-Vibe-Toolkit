@@ -1,3 +1,9 @@
+---
+name: marketing-automation-mcp-guide
+description: >
+  Tổng hợp: HubSpot MCP + n8n MCP + Make MCP Cập nhật: tháng 6/2026
+---
+
 # Marketing Automation — MCP Stack Guide
 
 **Tổng hợp:** HubSpot MCP + n8n MCP + Make MCP
