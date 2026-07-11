@@ -1,3 +1,11 @@
+---
+name: vibevoice
+description: >
+  TTS (Text-to-Speech) cua Windows — open-source, chay offline hoan toan, doc
+  duoc noi dung dai (podcast 90 phut). 4 giong co san, nghe tu nhien. Khong
+  can API key, khong can internet, khong mat tien.
+---
+
 # VibeVoice — Tool / App
 
 ## TL;DR
