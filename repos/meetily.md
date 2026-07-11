@@ -1,3 +1,12 @@
+---
+name: meetily
+description: >
+  Trợ lý ghi chú họp AI chạy 100% local (Rust + Tauri), không gửi audio lên
+  cloud. Đang trending mạnh trên GitHub (19k star), hợp cho ai cần note
+  meeting mà không muốn data rời máy — kiểu tư vấn, luật, hoặc đơn giản là
+  không tin cloud tool.
+---
+
 # Meetily (Zackriya-Solutions/meetily) — GitHub Repo
 
 ## TL;DR
