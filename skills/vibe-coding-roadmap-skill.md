@@ -1,3 +1,9 @@
+---
+name: vibe-coding-roadmap-skill
+description: >
+  Reference khi hướng dẫn người mới, check progress cá nhân
+---
+
 # Vibe Coding Roadmap — Lộ Trình Từ Zero Đến Build Product
 
 **Nguồn:** kamranahmedse/developer-roadmap (Vibe Coding section)
