@@ -1,3 +1,11 @@
+---
+name: ui-ux-pro-max
+description: >
+  Skill 94K+ stars biến Claude thành "design director" chuyên nghiệp. Có 161
+  reasoning rules về design và 67 UI styles — Claude sẽ build UI đẹp thật sự
+  thay vì boilerplate nhàm chán.
+---
+
 # UI/UX Pro Max Skill — Biến Claude Thành Design Director
 
 ## TL;DR
