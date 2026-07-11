@@ -1,3 +1,10 @@
+---
+name: supertonic
+description: >
+  Stars: 5.3k Forks: 528 License: MIT (code) + OpenRAIL-M (model) Tác giả:
+  Supertone Inc. (Seoul, $39.4M raised)
+---
+
 # Supertonic — TTS local siêu nhanh, 31 ngôn ngữ, không cần GPU, không cần API
 
 **GitHub:** https://github.com/supertone-inc/supertonic
