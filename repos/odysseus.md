@@ -1,3 +1,10 @@
+---
+name: odysseus
+description: >
+  Stars: 71k⭐ License: MIT Monthly: +8.1k stars Tagline: "Local-first,
+  privacy-first AI workspace — no trojan"
+---
+
 # Odysseus — Self-Hosted AI Workspace Thay ChatGPT/Claude (71k⭐)
 
 **GitHub:** https://github.com/pewdiepie-archdaemon/odysseus
