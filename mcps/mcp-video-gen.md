@@ -1,3 +1,10 @@
+---
+name: mcp-video-gen
+description: >
+  GitHub: https://github.com/kevinten-ai/mcp-video-gen Stars: 2⭐ License: MIT
+  Version: 1.2.0
+---
+
 # mcp-video-gen — Video AI Miễn Phí: CogVideoX Unlimited + 6 Providers
 
 **GitHub:** https://github.com/kevinten-ai/mcp-video-gen
