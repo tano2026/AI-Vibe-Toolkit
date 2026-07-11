@@ -1,3 +1,11 @@
+---
+name: 9router
+description: >
+  AI gateway miễn phí: kết nối Claude Code, Cursor, Cline, Copilot... với 40+
+  AI providers và 100+ models. Tự động fallback, tiết kiệm 20-40% token. 18K+
+  sao. Có README tiếng Việt.
+---
+
 # 9router — GitHub Repo
 
 ## TL;DR
