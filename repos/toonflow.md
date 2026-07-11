@@ -1,3 +1,12 @@
+---
+name: toonflow
+description: >
+  Desktop app 10K+ stars biến script/tiểu thuyết thành animated short drama
+  tự động. AI viết kịch bản, tạo storyboard, generate character và video.
+  Cross-platform, deploy nhẹ. Hướng đi khác với content không lộ mặt: thay
+  screen record bằng hoạt hình AI.
+---
+
 # Toonflow — Script Thành Phim Hoạt Hình Ngắn Tự Động
 
 ## TL;DR
