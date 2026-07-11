@@ -1,3 +1,12 @@
+---
+name: saas-stack-2026
+description: >
+  Bộ tổng hợp công nghệ đầy đủ nhất để build SaaS từ zero — cover Frontend,
+  Backend, Database, Auth, Payments, Email, Storage, Deployment, Analytics,
+  Monitoring và DevOps. Được thiết kế bởi cộng đồng dev Việt, format
+  infographic tiếng Việt dễ hiểu.
+---
+
 # SaaS Stack 2026 — GitHub Repo / Infographic Series
 
 ## TL;DR
