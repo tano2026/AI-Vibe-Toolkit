@@ -1,3 +1,11 @@
+---
+name: youtube-upload
+description: >
+  Official Google API cho YouTube — upload video, lấy analytics, quản lý
+  comment, search. Dùng được với Hermes bằng Python thuần, không cần thư viện
+  nặng.
+---
+
 # YouTube Data API v3 — Upload, Analytics, Management
 
 ## TL;DR
