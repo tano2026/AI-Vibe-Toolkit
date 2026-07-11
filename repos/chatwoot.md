@@ -1,3 +1,13 @@
+---
+name: chatwoot
+description: >
+  Platform cham soc khach hang mo nguon mo — thay the Intercom, Zendesk,
+  Freshdesk. 33.7K stars, MIT license. Gop tat ca kenh (live chat, email,
+  WhatsApp, Facebook, Instagram, Telegram, Zalo) vao 1 inbox duy nhat. Co AI
+  agent "Captain" tu tra loi tu dong. Self-host tren VPS, data hoan toan cua
+  may.
+---
+
 # Chatwoot — GitHub Repo
 
 ## TL;DR
