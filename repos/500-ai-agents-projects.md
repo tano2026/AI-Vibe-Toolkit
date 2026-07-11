@@ -1,3 +1,11 @@
+---
+name: 500-ai-agents-projects
+description: >
+  Bộ sưu tập lớn nhất hiện tại về AI agent projects — 500+ use case thực tế,
+  có code chạy được, phân loại theo ngành và theo framework. Không phải danh
+  sách link khô khan. Mỗi entry có: - Mô tả rõ làm gì
+---
+
 # 500-AI-Agents-Projects — Bộ Sưu Tập 500+ AI Agent Có Code Thật, Chia Theo Ngành
 
 **GitHub:** https://github.com/ashishpatel26/500-AI-Agents-Projects
