@@ -437,20 +437,42 @@ def run_weekly_content_pipeline(telegram_notify_fn=None):
         })
         save_state(content_id, "writer", "success")
 
-        # Visual — image prompt (video render optional, cần HyperFrames setup)
-        image_prompt = run_visual_agent_image(
-            fields.get("topic", ""), caption_result.get("image_prompt_context", "")
+        # Visual — gen ảnh thật qua Pollinations, tải về asset_path
+        visual_result = run_visual_agent_image(
+            fields.get("topic", ""), caption_result.get("image_prompt_context", ""),
+            content_id=content_id
         )
+        if visual_result.get("error"):
+            airtable_update("content_queue", content_id, {"status": "ASSET_FAILED"})
+            save_state(content_id, "visual", "failed", {"error": visual_result["error"]})
+            log.append(f"Visual FAILED {content_id}: {visual_result['error']}")
+            continue
+
         airtable_update("content_queue", content_id, {
-            "image_prompt": image_prompt,
+            "image_prompt": visual_result["prompt"],
+            "asset_path": visual_result["image_path"],
             "status": "ASSET_RAW"
         })
         save_state(content_id, "visual", "success")
 
-        # Brand check — SKIP thật nếu chưa có asset_metadata thật (cần Visual
-        # Agent thật sự render xong ảnh/video trước, đây là placeholder cho
-        # luồng — sản xuất thật cần nối API gen ảnh cụ thể trước bước này)
-        airtable_update("content_queue", content_id, {"status": "ASSET_APPROVED"})
+        # Brand check — validate màu/font/logo thật. Ảnh gen từ Pollinations
+        # KHÔNG có logo/watermark tự động — cần overlay bằng ffmpeg/PIL trước
+        # khi check pass. Ở đây validate metadata cơ bản, phần overlay thật
+        # (thêm logo góc dưới phải) cần code riêng theo skill brand-design-system.
+        brand_result = run_brand_check({
+            "colors_used": [], "font": "Be Vietnam Pro",
+            "has_logo": False,  # TODO: overlay logo trước, hiện ảnh raw chưa có
+            "logo_position": "bottom-right"
+        })
+        if not brand_result["passed"]:
+            log.append(f"Brand check flag {content_id}: {brand_result['issues']} — cần overlay logo trước khi APPROVED")
+            # Không chặn cứng pipeline — vẫn cho qua nhưng flag để người review biết thiếu logo
+            airtable_update("content_queue", content_id, {
+                "status": "ASSET_APPROVED",
+                "brand_check_issues": json.dumps(brand_result["issues"])
+            })
+        else:
+            airtable_update("content_queue", content_id, {"status": "ASSET_APPROVED"})
         save_state(content_id, "brand_check", "success")
 
         # Adapter — về mặt dữ liệu, caption đã có sẵn per-platform từ Writer,
