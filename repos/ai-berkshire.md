@@ -1,3 +1,11 @@
+---
+name: ai-berkshire
+description: >
+  Framework đầu tư giá trị dựa trên Claude Code — tổng hợp phương pháp của 4
+  nhà đầu tư huyền thoại (Buffett, Munger, Duan Yongping, Li Lu) thành agent
+  chạy phân tích cổ phiếu. Thực chiến: +69% năm 2024, +66% năm 2025 YTD.
+---
+
 # AI Berkshire — GitHub Repo
 
 ## TL;DR
