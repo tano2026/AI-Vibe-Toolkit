@@ -1,3 +1,9 @@
+---
+name: aitoearn-skill
+description: >
+  Tự động hóa content pipeline, monetize bằng AI
+---
+
 # AiToEarn — Skill Setup AI Tự Tạo Content + Kiếm Tiền
 
 **Repo:** github.com/yikart/AiToEarn
