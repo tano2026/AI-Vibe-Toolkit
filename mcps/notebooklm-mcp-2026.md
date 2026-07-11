@@ -1,3 +1,10 @@
+---
+name: notebooklm-mcp-2026
+description: >
+  GitHub: https://github.com/julianoczkowski/notebooklm-mcp-2026 License: MIT
+  Language: Python
+---
+
 # notebooklm-mcp-2026 — NotebookLM MCP Python, Auth Qua Chrome DevTools
 
 **GitHub:** https://github.com/julianoczkowski/notebooklm-mcp-2026
