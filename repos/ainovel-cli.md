@@ -1,3 +1,12 @@
+---
+name: ainovel-cli
+description: >
+  Multi-agent CLI viết web novel tự dong bang AI — Go, 1.1K stars, dang
+  trending. Giao chu de, no tu tao outline, viet tung chuong, kiem tra nhat
+  quan nhan vat, xuat file hoan chinh. Content creator viet truyen dai khong
+  can ngoi viet tay.
+---
+
 # ainovel-cli — GitHub Repo
 
 ## TL;DR
