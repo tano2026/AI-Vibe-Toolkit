@@ -1,3 +1,10 @@
+---
+name: hermes-agents
+description: >
+  File nay la harness chinh thuc cho Hermes agent. Sinh tu
+  learn-harness-engineering harness-creator skill.
+---
+
 # AGENTS.md — Hermes Production Harness
 
 > File nay la harness chinh thuc cho Hermes agent.
