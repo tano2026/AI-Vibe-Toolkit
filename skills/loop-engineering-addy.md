@@ -1,3 +1,10 @@
+---
+name: loop-engineering-addy
+description: >
+  Nguồn: Addy Osmani — Google Chrome Lead @bachtambui (Bách làm Tech) Liên
+  quan: skills/sams-loop-engineering.md (framework chi tiết hơn)
+---
+
 # Loop Engineering — Xu Hướng Mới Của Vibe Coding (Addy Osmani)
 
 **Nguồn:** Addy Osmani — Google Chrome Lead | @bachtambui (Bách làm Tech)
