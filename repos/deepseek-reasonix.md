@@ -1,3 +1,11 @@
+---
+name: deepseek-reasonix
+description: >
+  AI coding agent chạy trên terminal, được build đặc biệt để tận dụng prefix
+  cache của DeepSeek. Session dài mà chỉ tốn 1/5 chi phí input token so với
+  các agent thông thường — vì loop append-only, cache hit 90%+.
+---
+
 # DeepSeek-Reasonix — GitHub Repo
 
 ## TL;DR
