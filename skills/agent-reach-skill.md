@@ -1,3 +1,10 @@
+---
+name: agent-reach-skill
+description: >
+  Repo: github.com/Panniantong/Agent-Reach 29k⭐ MIT Cost: $0 scrape Chỉ tốn
+  token khi feed vào Claude
+---
+
 # Agent-Reach — Skill Dùng Ngay + Tối Ưu Token
 
 **Repo:** github.com/Panniantong/Agent-Reach | 29k⭐ | MIT
