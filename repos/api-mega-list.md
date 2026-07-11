@@ -1,3 +1,11 @@
+---
+name: api-mega-list
+description: >
+  cporter202/API-mega-list — 6k stars. Danh sách APIs khổng lồ cho
+  automation, AI workflow, lead gen, ecommerce, social media. Đừng mua tool
+  nếu chưa tìm API ở đây.
+---
+
 # API Mega List — Kho 6k+ APIs Free Để Build Mọi Thứ
 
 > cporter202/API-mega-list — ~6k stars. Danh sách APIs khổng lồ cho automation, AI workflow, lead gen, ecommerce, social media. Đừng mua tool nếu chưa tìm API ở đây.
