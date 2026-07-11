@@ -1,3 +1,11 @@
+---
+name: yasgu
+description: >
+  80 stars — Auto tạo YouTube Shorts từ text/script: TTS voiceover → ghép
+  background video → add subtitles → upload lên YouTube. Pipeline tự động từ
+  A-Z, không cần edit tay.
+---
+
 # YASGU — YouTube Automatised Shorts Generator & Uploader
 
 ## TL;DR
