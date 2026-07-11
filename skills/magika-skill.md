@@ -1,3 +1,10 @@
+---
+name: magika-skill
+description: >
+  Repo: github.com/google/magika Apache 2.0 Google Dùng trong: Gmail, Google
+  Drive, Google Safe Browsing
+---
+
 # magika — AI File Type Detection (15.2k⭐, Google)
 
 **Repo:** github.com/google/magika | Apache 2.0 | Google
