@@ -1,3 +1,10 @@
+---
+name: hermes-guide
+description: >
+  File này dành riêng cho Hermes agent. Đọc file này trước khi fetch bất kỳ
+  file nào khác trong kho.
+---
+
 # Hermes — Hướng dẫn dùng kho AI Vibe Toolkit
 
 > File này dành riêng cho Hermes agent. Đọc file này trước khi fetch bất kỳ file nào khác trong kho.
