@@ -1,3 +1,12 @@
+---
+name: ziwei-doushu
+description: >
+  Web app Next.js đầy đủ + dataset 518,400 lá số mẫu cho Tử Vi Đẩu Số, build
+  trên chính iztro — clone về là có ngay 1 sản phẩm tử vi hoàn chỉnh thay vì
+  code từ đầu. 2,490⭐, MIT (code) + tự do thương mại (data, chỉ cần ghi
+  nguồn).
+---
+
 # ziwei-doushu (Renhuai123) — GitHub Repo
 
 ## TL;DR
