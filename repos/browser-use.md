@@ -1,3 +1,9 @@
+---
+name: browser-use
+description: >
+  Stars: 95k+ License: MIT Tác giả: browser-use team (YC W25)
+---
+
 # browser-use — AI agent điều khiển browser như người thật, 95k stars
 
 **GitHub:** https://github.com/browser-use/browser-use
