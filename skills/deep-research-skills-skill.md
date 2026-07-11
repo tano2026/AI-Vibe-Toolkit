@@ -1,3 +1,10 @@
+---
+name: deep-research-skills-skill
+description: >
+  Repo: github.com/hint-shu/deep-research MIT v0.6.0 Stack: Firecrawl +
+  Tavily + Exa + optional Codex CLI
+---
+
 # deep-research — Research Ladder Dùng Ngay (L0→L5)
 
 **Repo:** github.com/hint-shu/deep-research | MIT | v0.6.0
