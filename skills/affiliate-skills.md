@@ -1,3 +1,10 @@
+---
+name: affiliate-skills
+description: >
+  GitHub: https://github.com/Affitor/affiliate-skills Stars: 460⭐ License:
+  MIT Dùng với: Claude Code, Cursor, OpenClaw, ChatGPT
+---
+
 # affiliate-skills — 52 Skills Affiliate Marketing Full Pipeline (460⭐)
 
 **GitHub:** https://github.com/Affitor/affiliate-skills
