@@ -1,3 +1,12 @@
+---
+name: design-md
+description: >
+  Google Labs ra chuẩn file — giống như nhưng dành riêng cho AI agent đọc
+  design system. Mày tạo 1 file DESIGN.md → AI coding agent (Claude Code,
+  Cursor, Copilot...) hiểu ngay brand mày: màu sắc, font, spacing, reasoning
+  đằng sau từng quyết định design.
+---
+
 # DESIGN.md — GitHub Repo
 
 ## TL;DR
