@@ -1,3 +1,9 @@
+---
+name: cloud-accounting-mcps
+description: >
+  Dùng cho: Kết nối Claude với phần mềm kế toán cloud Cập nhật: tháng 6/2026
+---
+
 # Cloud Accounting MCPs — Xero + Wave + FreshBooks + Stripe
 
 **Dùng cho:** Kết nối Claude với phần mềm kế toán cloud
