@@ -1,3 +1,10 @@
+---
+name: ai-shorts-generator-pipeline
+description: >
+  Concept từ: TikTok @Meii Stack: Claude Code + Playwright + FFmpeg Dạng:
+  Pattern/Workflow — không phải 1 repo cụ thể mà là pipeline architecture
+---
+
 # AI Shorts Generator — Pipeline Playwright + Claude Code → MP4 Tự Động
 
 **Concept từ:** TikTok @Meii | **Stack:** Claude Code + Playwright + FFmpeg
