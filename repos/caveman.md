@@ -1,3 +1,12 @@
+---
+name: caveman
+description: >
+  Claude Code skill (+ Codex/Gemini/Cursor/40+ agent khác) bắt AI trả lời
+  kiểu "người tiền sử" — cắt bỏ mạo từ, câu xã giao, rào đón — giữ nguyên
+  100% nội dung kỹ thuật. Giảm 65-75% token output thật, đo bằng Claude API
+  thật, có benchmark reproducible. 80k+ sao.
+---
+
 # Caveman — GitHub Repo
 
 ## TL;DR
