@@ -61,6 +61,13 @@
 - **Output:** File ảnh/video raw (1:1 hoặc 9:16 hoặc 16:9)
 - **Tool:** SceneWorks MCP → gen ảnh, ffmpeg → render video
 
+### 3b. Brand Design System Agent
+- **Trigger:** Ngay sau Visual Agent, trước Adapter Agent
+- **Input:** Asset raw (ảnh/video) từ Visual Agent
+- **Output:** Asset đã validate/chuẩn hóa theo brand — hoặc reject kèm issues
+- **Tool:** brand-design-system skill — check màu, font, logo, layout, contrast
+- **Guardrail:** Asset KHÔNG được qua Adapter nếu chưa pass checklist
+
 ### 4. Adapter Agent
 - **Trigger:** Visual asset xong
 - **Input:** Caption + asset
