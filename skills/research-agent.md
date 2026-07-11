@@ -1,3 +1,10 @@
+---
+name: research-agent
+description: >
+  Copy prompt này vào → Claude tự lên kế hoạch research, tìm kiếm, tổng hợp
+  báo cáo — như có intern làm việc cho mày.
+---
+
 # Skill: Research Agent — Biến Claude Thành Máy Research
 
 > Copy prompt này vào → Claude tự lên kế hoạch research, tìm kiếm, tổng hợp báo cáo — như có intern làm việc cho mày.
