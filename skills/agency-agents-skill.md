@@ -1,3 +1,10 @@
+---
+name: agency-agents-skill
+description: >
+  Repo: github.com/msitarzewski/agency-agents MIT 220 agents 17 divisions 87
+  contributors
+---
+
 # agency-agents — Skill Dùng Ngay (113k⭐)
 
 **Repo:** github.com/msitarzewski/agency-agents | MIT
