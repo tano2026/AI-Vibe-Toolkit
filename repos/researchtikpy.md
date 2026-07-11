@@ -1,3 +1,11 @@
+---
+name: researchtikpy
+description: >
+  45 stars — Python wrapper cho TikTok Research API chính thức. Lấy được dữ
+  liệu lớn: top videos theo hashtag/keyword, user info, comment threads,
+  follower list. Cần apply access từ TikTok (dành cho researcher/business).
+---
+
 # ResearchTikPy — TikTok Research API Wrapper
 
 ## TL;DR
