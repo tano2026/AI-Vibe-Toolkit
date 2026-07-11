@@ -1,3 +1,11 @@
+---
+name: ecc
+description: >
+  ECC = Everything Claude Code — hệ vận hành cho AI coding agents. Gồm:
+  Skills + Instincts + Memory + Security + Research-first development. Không
+  phải plugin đơn lẻ — là operating system cho toàn bộ AI coding workflow.
+---
+
 # ECC (affaan-m) — Agent Harness OS Cho Claude Code/Codex (215k⭐)
 
 **GitHub:** https://github.com/affaan-m/ECC
