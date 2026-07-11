@@ -1,3 +1,10 @@
+---
+name: marketingskills-skill
+description: >
+  Repo: github.com/coreyhaines31/marketingskills MIT v2.3.0 Tác giả: Corey
+  Haines 43 skills 309 commits 16 releases
+---
+
 # marketingskills — 43 AI Marketing Skills Dùng Ngay (31.9k⭐)
 
 **Repo:** github.com/coreyhaines31/marketingskills | MIT | v2.3.0
