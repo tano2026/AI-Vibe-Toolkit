@@ -1,3 +1,10 @@
+---
+name: iptv-org-iptv
+description: >
+  Kho 127k sao tổng hợp hàng chục nghìn kênh IPTV công khai từ khắp thế giới
+  — dạng file M3U, cộng đồng cùng cập nhật, mở hoàn toàn.
+---
+
 # iptv-org/iptv — GitHub Repo
 
 ## TL;DR
