@@ -1,3 +1,11 @@
+---
+name: google-skills
+description: >
+  Google's official Agent Skills collection — theo chuẩn Anthropic Agent
+  Skills format. Anthropic khởi xướng format, Google vào cuộc làm skills cho
+  Google products.
+---
+
 # google/skills — Agent Skills Chính Thức Từ Google (13.7k⭐)
 
 **GitHub:** https://github.com/google/skills
