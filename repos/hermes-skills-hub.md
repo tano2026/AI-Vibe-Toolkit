@@ -1,3 +1,11 @@
+---
+name: hermes-skills-hub
+description: >
+  Skills Hub là "app store" skill cho Hermes Agent — nơi tìm, xem và cài các
+  gói giúp agent biết làm việc cụ thể. Hiện có 88.057 skill từ 12 nguồn, gom
+  từ Anthropic, OpenAI, HuggingFace, NVIDIA đến cộng đồng tự đăng.
+---
+
 # Hermes Skills Hub — Kho 88.000+ Skill cho AI Agent
 
 **GitHub:** https://github.com/NousResearch/hermes-agent (Skills Hub là feature built-in)
