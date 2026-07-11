@@ -1,3 +1,12 @@
+---
+name: agency-agents
+description: >
+  232 AI agent chuyen biet to chuc thanh 16 phong ban — Engineering,
+  Marketing, Sales, Design, Paid Media, QA, Customer Support... Cai 1 lenh
+  vao Claude Code, Cursor, OpenClaw, Antigravity. 117K stars, 19K forks, dang
+  tang cuc nhanh. Repo trending nong nhat 2 tuan qua.
+---
+
 # agency-agents — GitHub Repo
 
 ## TL;DR
