@@ -235,3 +235,23 @@ pm2 save
 | 9 | n8n | Đã có sẵn | — | — |
 
 **Tổng chi phí cố định: $0/tháng** (trừ Anthropic API tính theo lượng dùng thực tế — content 1 fanpage/tháng thường chỉ vài USD).
+
+
+---
+
+## 9. OmniRoute — LLM Router (đã có sẵn trên VPS, 231 providers)
+
+```
+Không cần cài mới — đang chạy sẵn theo memory của mày.
+Chỉ cần confirm tên model đúng: deepseek-v3, deepseek-r1, gemini-2.0-flash
+```
+
+```bash
+# Set env
+OMNIROUTE_URL=http://localhost:PORT/v1/chat/completions
+OMNIROUTE_API_KEY=your_omniroute_key
+```
+
+**Lý do thêm:** Không phải agent nào cũng cần Claude. Xem chi tiết phân bổ 
+model theo từng agent tại `skills/llm-router/SKILL.md` — tiết kiệm ~70% 
+chi phí LLM so với dùng Claude cho toàn bộ pipeline.
