@@ -1,3 +1,10 @@
+---
+name: markitdown
+description: >
+  Python tool của Microsoft — convert hầu hết file formats sang Markdown.
+  Dùng để feed documents vào LLM mà không cần xử lý phức tạp.
+---
+
 # MarkItDown — Convert Mọi File Thành Markdown (153k⭐, Microsoft)
 
 **GitHub:** https://github.com/microsoft/markitdown
