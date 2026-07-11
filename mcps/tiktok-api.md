@@ -1,3 +1,11 @@
+---
+name: tiktok-api
+description: >
+  Official TikTok APIs gồm 3 loại: Content Posting API (upload video),
+  Research API (analytics dữ liệu lớn), Display API (basic user info). Hermes
+  dùng được cả 3 bằng Python thuần.
+---
+
 # TikTok for Developers API — Upload, Analytics, Research
 
 ## TL;DR
