@@ -1,3 +1,9 @@
+---
+name: agent-research-skills-academic-skill
+description: >
+  Literature review, paper writing, experiment design
+---
+
 # agent-research-skills — 31 Skills Academic Research Pipeline (132⭐)
 
 **Repo:** github.com/lingzhi227/agent-research-skills | Python
