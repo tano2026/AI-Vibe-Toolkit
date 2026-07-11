@@ -1,3 +1,9 @@
+---
+name: antigravity-playbook
+description: >
+  Đọc file này trước khi thực thi bất kỳ deployment nào.
+---
+
 # ANTIGRAVITY-PLAYBOOK
 > Đọc file này trước khi thực thi bất kỳ deployment nào.
 
