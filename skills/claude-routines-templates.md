@@ -1,3 +1,9 @@
+---
+name: claude-routines-templates
+description: >
+  URL: claude.ai/code/routines Feature: Anthropic official Release 15/4/2026
+---
+
 # Claude Routines — Prompt Templates Dùng Ngay
 
 **URL:** claude.ai/code/routines
