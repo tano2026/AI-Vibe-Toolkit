@@ -1,3 +1,11 @@
+---
+name: tavily-mcp
+description: >
+  Search API build riêng cho AI agent chứ không phải cho người — query vào,
+  ra thẳng JSON sạch (summary, content, citation) sẵn sàng nhét vào prompt,
+  không phải tự bóc HTML như search thường. Free 1,000 credit/tháng.
+---
+
 # Tavily — MCP Server
 
 ## TL;DR
