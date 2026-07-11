@@ -1,3 +1,10 @@
+---
+name: x-research-skill-skill
+description: >
+  Repo: github.com/rohunvora/x-research-skill TypeScript Dùng với: Claude
+  Code, OpenClaw
+---
+
 # x-research-skill — X/Twitter Research Agent (1146⭐)
 
 **Repo:** github.com/rohunvora/x-research-skill | TypeScript
