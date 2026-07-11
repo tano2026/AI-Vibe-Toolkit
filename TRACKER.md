@@ -1608,3 +1608,4 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | 117 | Repo | Hermes Skills Hub | /repos/hermes-skills-hub.md | Đã push | /content/script-video-151-hermes-skills-hub.md | 2025-07-09 |
 | 117 | Skill | Agentic Loop Optimizer | /skills/agentic-loop-optimizer.md | Đã push | /content/script-video-152-agentic-loop-optimizer.md | 2026-07-10 |
 | 118 | Repo | DramaClaw | /repos/dramaclaw.md | Đã push | /content/script-video-153-dramaclaw.md | 2026-07-10 |
+| 117 | Repo | SceneWorks | /repos/sceneworks.md | Đã push | /content/script-video-154-sceneworks.md | 2026-07-11 |
