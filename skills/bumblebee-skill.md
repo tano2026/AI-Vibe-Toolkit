@@ -1,3 +1,9 @@
+---
+name: bumblebee-skill
+description: >
+  Security scan MCPs, extensions, packages trước khi cài
+---
+
 # bumblebee (Perplexity) — Scan MCP An Toàn Trước Khi Cài
 
 **Repo:** github.com/perplexityai/bumblebee | Apache 2.0 | Perplexity AI
