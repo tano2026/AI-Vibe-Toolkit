@@ -1,3 +1,11 @@
+---
+name: iztro
+description: >
+  Thư viện JS/TS nhẹ tính lá số Tử Vi Đẩu Số (Zi Wei Dou Shu), output sẵn
+  tiếng Việt — build app/web tử vi cho người Việt không cần tự dịch thuật
+  ngữ. 3,830⭐, MIT.
+---
+
 # iztro — GitHub Repo
 
 ## TL;DR
