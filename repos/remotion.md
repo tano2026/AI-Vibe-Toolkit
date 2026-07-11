@@ -1,3 +1,10 @@
+---
+name: remotion
+description: >
+  Stars: 49.9k Forks: 3.6k License: Remotion License* Tác giả: Jonny Burger
+  (Swiss developer, full-time từ 2021)
+---
+
 # Remotion — Tạo Video Bằng React, Render Ra MP4 Thật
 
 **GitHub:** https://github.com/remotion-dev/remotion
