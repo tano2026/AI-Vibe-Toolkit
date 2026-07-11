@@ -1,3 +1,10 @@
+---
+name: claude-ads
+description: >
+  GitHub: https://github.com/AgriciDaniel/claude-seo (cùng tác giả
+  claude-seo) Repo: github.com/AgriciDaniel/claude-ads
+---
+
 # claude-ads — Audit Quảng Cáo Google/Meta/TikTok/YouTube Trong 15 Phút (6033⭐)
 
 **GitHub:** https://github.com/AgriciDaniel/claude-seo (cùng tác giả claude-seo)
