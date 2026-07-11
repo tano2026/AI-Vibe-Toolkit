@@ -144,3 +144,105 @@ def llm_call_with_fallback(prompt, tier="cheap", max_tokens=1500):
 - OmniRoute đã chạy sẵn trên VPS — chỉ cần set `OMNIROUTE_URL` và `OMNIROUTE_API_KEY` trong pm2 env
 - Tên model (`deepseek-v3`, `gemini-2.0-flash`...) phải khớp đúng với config OmniRoute đang route — check lại tên chính xác trong OmniRoute dashboard trước khi deploy
 - `temperature` thấp (0.3-0.5) cho task classify/extract, cao hơn (0.7-0.9) cho task sáng tạo (Writer, Reply)
+
+
+---
+
+## Prompt Caching — tiết kiệm thêm cho Writer/Reply prompt dài
+
+System prompt của Writer Agent (~2000 token) được gọi 28 lần/tháng — cache 
+phần cố định (persona, tone matrix, few-shot examples, banned patterns), 
+chỉ phần biến đổi (topic, brief) mới tính token mới mỗi lần gọi.
+
+```python
+def llm_call_cached(system_prompt_static, user_content_variable, model="claude-sonnet-4-6", max_tokens=2000):
+    """
+    Dùng cho Writer + Reply — phần persona/rule cố định được cache, 
+    chỉ trả tiền đầy đủ ở lần gọi đầu, các lần sau rẻ hơn nhiều (~90% giảm 
+    cho phần cached).
+    """
+    import os, json, urllib.request
+
+    url = "https://api.anthropic.com/v1/messages"
+    headers = {
+        "x-api-key": os.environ.get("ANTHROPIC_API_KEY"),
+        "anthropic-version": "2023-06-01",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": model,
+        "max_tokens": max_tokens,
+        "messages": [{
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": system_prompt_static,
+                    "cache_control": {"type": "ephemeral"}
+                },
+                {
+                    "type": "text",
+                    "text": user_content_variable
+                }
+            ]
+        }]
+    }
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
+    result = json.loads(urllib.request.urlopen(req).read())
+    return result["content"][0]["text"]
+```
+
+**Áp dụng:** Tách `WRITER_SYSTEM_PROMPT` (persona + few-shot + banned patterns 
+— phần không đổi) khỏi phần `{topic}, {brief}, {key_points}` (phần đổi mỗi 
+bài) — gọi qua `llm_call_cached()` thay vì nhét chung 1 khối như hiện tại.
+
+## Budget Tracker — theo dõi chi phí tích lũy, chặn khi vượt ngưỡng
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True, slots=True)
+class CostRecord:
+    agent: str
+    model: str
+    input_tokens: int
+    output_tokens: int
+    cost_usd: float
+
+@dataclass(frozen=True, slots=True)
+class CostTracker:
+    budget_limit_monthly: float = 10.00  # ngưỡng an toàn cho 1 fanpage
+    records: tuple = ()
+
+    def add(self, record):
+        return CostTracker(self.budget_limit_monthly, (*self.records, record))
+
+    @property
+    def total_cost(self):
+        return sum(r.cost_usd for r in self.records)
+
+    @property
+    def over_budget(self):
+        return self.total_cost > self.budget_limit_monthly
+
+    def by_agent(self):
+        """Breakdown chi phí theo agent — biết agent nào đang tốn nhất"""
+        breakdown = {}
+        for r in self.records:
+            breakdown[r.agent] = breakdown.get(r.agent, 0) + r.cost_usd
+        return breakdown
+
+
+# Check trước MỖI lần gọi LLM trong pipeline
+def guarded_llm_call(prompt, tier, tracker, agent_name, telegram_alert_fn):
+    if tracker.over_budget:
+        telegram_alert_fn(
+            f"🔴 Budget vượt ngưỡng ${tracker.budget_limit_monthly}/tháng "
+            f"— pipeline TẠM DỪNG, cần review"
+        )
+        raise BudgetExceededError(tracker.total_cost, tracker.budget_limit_monthly)
+    return llm_call(prompt, tier=tier)
+```
+
+**Nguồn:** kết hợp từ `skills/ecc/cost-aware-llm-pipeline` (kho gốc) — pattern 
+immutable dataclass tránh side-effect khi nhiều agent cùng update tracker.
