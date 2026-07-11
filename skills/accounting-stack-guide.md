@@ -1,3 +1,10 @@
+---
+name: accounting-stack-guide
+description: >
+  Tổng hợp: Jaz AI + cynco-skills + Worker K + Recite + Invoice Extractor +
+  Cloud MCPs Cập nhật: tháng 6/2026
+---
+
 # Accounting Stack Guide — Kế Toán AI Đầy Đủ
 
 **Tổng hợp:** Jaz AI + cynco-skills + Worker K + Recite + Invoice Extractor + Cloud MCPs
