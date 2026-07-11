@@ -1,3 +1,11 @@
+---
+name: page-agent
+description: >
+  JavaScript in-page GUI agent của Alibaba — control bất kỳ web interface nào
+  bằng ngôn ngữ tự nhiên, chạy thẳng trong browser mà không cần backend.
+  19.8K stars, đang trending mạnh.
+---
+
 # Page Agent — GitHub Repo
 
 ## TL;DR
