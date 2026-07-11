@@ -1,3 +1,10 @@
+---
+name: make-mcp
+description: >
+  GitHub: https://github.com/tommyevening/makemcp License: MIT Language:
+  TypeScript Apps: 3,260+
+---
+
 # makemcp — Build Make.com Scenarios Từ Claude (3,260 Apps)
 
 **GitHub:** https://github.com/tommyevening/makemcp
