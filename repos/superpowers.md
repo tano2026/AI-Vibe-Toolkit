@@ -1,3 +1,10 @@
+---
+name: superpowers
+description: >
+  150k GitHub stars, trending 1. Cài vào Claude Code — AI sẽ suy nghĩ, lên kế
+  hoạch, test trước khi code, thay vì nhảy vào làm bừa.
+---
+
 # Superpowers — Plugin Biến Claude Code Thành Senior Dev
 
 > 150k GitHub stars, trending #1. Cài vào Claude Code — AI sẽ suy nghĩ, lên kế hoạch, test trước khi code, thay vì nhảy vào làm bừa.
