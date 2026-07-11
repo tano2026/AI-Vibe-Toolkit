@@ -1,3 +1,12 @@
+---
+name: airweave
+description: >
+  Airweave là "lớp truy xuất context" cho AI agent — nối vào 50+ nguồn dữ
+  liệu (Drive, Notion, Slack, GitHub, CRM...) rồi cho agent search qua 1 API
+  duy nhất, thay vì phải tự viết integration riêng cho từng nguồn. 5.7K
+  stars, YC-backed.
+---
+
 # Airweave — GitHub Repo
 
 ## TL;DR
