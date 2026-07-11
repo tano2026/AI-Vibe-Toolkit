@@ -1,3 +1,13 @@
+---
+name: caveman
+description: >
+  Dùng khi mày là người xài Claude Code/Claude nặng, hay bị giới hạn
+  token/rate limit trong ngày, hoặc đơn giản là không cần Claude giải thích
+  dài dòng — chỉ cần fix nhanh, review nhanh, commit message gọn. Không nên
+  dùng khi cần văn phong chuẩn mực để gửi cho client hoặc viết nội dung
+  public-facing (giọng "caveman" đọc hơi cộc, không hợp context đó).
+---
+
 # Caveman — Prompt Template / System Prompt
 
 ## TL;DR
