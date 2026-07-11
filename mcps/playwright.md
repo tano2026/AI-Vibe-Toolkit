@@ -1,3 +1,9 @@
+---
+name: playwright
+description: >
+  AI tự điều khiển browser để test UI, scrape web, tự động hóa thao tác
+---
+
 # Playwright MCP — Cho AI Xem Và Điều Khiển Browser
 
 > Thay vì mày test web bằng tay, cài cái này vào — Claude tự mở browser, click, check kết quả, báo lại cho mày.
