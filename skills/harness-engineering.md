@@ -1,3 +1,12 @@
+---
+name: harness-engineering
+description: >
+  Khi mày đang: build AI agent mà demo thì được nhưng chạy thật thì gãy,
+  deploy agent lên production mà unreliable, bị hỏi tại sao agent làm đúng 1
+  bước rồi sai lung tung từ bước 2 trở đi. Cũng áp dụng khi muốn thiết kế hệ
+  thống Hermes + OpenClaw chạy 24/7 không cần canh.
+---
+
 # Harness Engineering — Skill / Framework
 
 ## TL;DR
