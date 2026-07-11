@@ -1,3 +1,11 @@
+---
+name: ai-job-search
+description: >
+  Framework xin việc chạy trên Claude Code — fork về, điền profile 1 lần,
+  xong Claude tự chấm độ phù hợp công việc, viết CV + cover letter riêng cho
+  từng job, và chuẩn bị phỏng vấn. Đang trending trên GitHub.
+---
+
 # ai-job-search (MadsLorentzen/ai-job-search) — GitHub Repo
 
 ## TL;DR
