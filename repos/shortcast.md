@@ -1,3 +1,11 @@
+---
+name: shortcast
+description: >
+  App macOS native: thả 1 video dài vào → AI tự cắt ra 3–6 đoạn dễ viral, tự
+  caption, tự reframe dọc 9:16, tự schedule — chạy 100% trên máy, không lên
+  cloud. 334⭐, ra mắt tháng 5/2026, Apache 2.0.
+---
+
 # Shortcast — GitHub Repo
 
 ## TL;DR
