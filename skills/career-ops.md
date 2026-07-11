@@ -1,3 +1,11 @@
+---
+name: career-ops
+description: >
+  Hệ thống tìm việc AI-powered xây bằng Claude Skills: tự động navigate job
+  listings, so sánh CV với JD, adapt resume theo từng listing. 14 skill
+  modes, Go dashboard, PDF generation.
+---
+
 # Career Ops — Hệ Thống Tìm Việc AI Xây Bằng Claude Code
 
 ## TL;DR
