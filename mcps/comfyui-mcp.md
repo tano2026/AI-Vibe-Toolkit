@@ -1,3 +1,10 @@
+---
+name: comfyui-mcp
+description: >
+  GitHub: https://github.com/artokun/comfyui-mcp Stars: 152⭐ License: MIT
+  Language: TypeScript
+---
+
 # comfyui-mcp — Image & Video AI Ngay Trong Claude Code (152⭐)
 
 **GitHub:** https://github.com/artokun/comfyui-mcp
