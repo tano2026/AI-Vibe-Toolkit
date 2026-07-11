@@ -1,3 +1,9 @@
+---
+name: superpowers-skill
+description: >
+  Repo: github.com/obra/superpowers MIT Jesse Vincent Dùng với: Claude Code
+---
+
 # superpowers — Skill Biến Claude Code Thành Senior Dev (150k⭐)
 
 **Repo:** github.com/obra/superpowers | MIT | Jesse Vincent
