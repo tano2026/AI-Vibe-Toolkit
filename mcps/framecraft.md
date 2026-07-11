@@ -1,3 +1,10 @@
+---
+name: framecraft
+description: >
+  GitHub: https://github.com/vaddisrinivas/framecraft Stars: 6⭐ Stack: Python
+  + FFmpeg + Playwright
+---
+
 # framecraft — Describe → Claude Viết HTML → Render MP4 (FREE)
 
 **GitHub:** https://github.com/vaddisrinivas/framecraft
