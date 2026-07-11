@@ -1,3 +1,10 @@
+---
+name: social-media-stack
+description: >
+  Tổng hợp: claude-ads + affiliate-skills + viral-hooks + youtube-skills +
+  meta-mcp + buffer-mcp + poppify Cập nhật: tháng 6/2026
+---
+
 # Social Media Stack — Facebook/YouTube/TikTok Guide Dùng Ngay
 
 **Tổng hợp:** claude-ads + affiliate-skills + viral-hooks + youtube-skills + meta-mcp + buffer-mcp + poppify
