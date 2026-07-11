@@ -1,3 +1,10 @@
+---
+name: diffusiongemma-skill
+description: >
+  Nguồn: google/diffusiongemma-26B-A4B-it Apache 2.0 Architecture: 26B MoE,
+  3.8B active params Diffusion-based (không phải autoregressive)
+---
+
 # DiffusionGemma — LLM Tạo Text 4x Nhanh Hơn (Google, 10/6/2026)
 
 **Nguồn:** google/diffusiongemma-26B-A4B-it | Apache 2.0
