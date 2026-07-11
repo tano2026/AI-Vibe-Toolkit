@@ -1,3 +1,12 @@
+---
+name: omniroute
+description: >
+  Free AI gateway mo nguon mo — gom 231 provider (50+ free tier) thanh 1
+  endpoint local OpenAI-compatible. 1.6B token mien phi moi thang,
+  RTK+Caveman compression tiet kiem them 15-95% token. Cai 2 phut, khong can
+  credit card. Tich hop Antigravity chinh thuc. 7.1K stars, dang tang nhanh.
+---
+
 # OmniRoute — GitHub Repo
 
 ## TL;DR
