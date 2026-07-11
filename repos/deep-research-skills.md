@@ -1,3 +1,11 @@
+---
+name: deep-research-skills
+description: >
+  6 composable research skills tạo thành research ladder — mỗi tier build on
+  top của tier trước, thêm capability. Chọn đúng depth cho đúng task — không
+  waste token cho task đơn giản, không thiếu depth cho task phức tạp.
+---
+
 # deep-research — Research Ladder L0→L5 Cho Claude Code
 
 **GitHub:** https://github.com/hint-shu/deep-research
