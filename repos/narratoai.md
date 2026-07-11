@@ -1,3 +1,10 @@
+---
+name: narratoai
+description: >
+  Repo 10k sao giúp biến video dài thành video recap có lời dẫn (commentary)
+  và cắt ghép tự động bằng AI — một click là xong, không cần edit tay.
+---
+
 # NarratoAI — GitHub Repo
 
 ## TL;DR
