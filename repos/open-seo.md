@@ -1,3 +1,11 @@
+---
+name: open-seo
+description: >
+  Alternative mã nguồn mở của Semrush và Ahrefs — kết nối được với Claude
+  Code, Hermes, OpenClaw. Pay-as-you-go, không tốn $100+/tháng subscription.
+  2.5K stars và growing.
+---
+
 # OpenSEO — GitHub Repo
 
 ## TL;DR
