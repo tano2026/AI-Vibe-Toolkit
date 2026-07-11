@@ -62,21 +62,74 @@ def gen_image(prompt, width=1080, height=1080):
     result = json.loads(urllib.request.urlopen(req, timeout=60).read())
     return result.get("image_path") or result.get("output_path")
 
-def gen_content_with_claude(prompt):
-    """Gọi Anthropic API để gen caption"""
-    url = "https://api.anthropic.com/v1/messages"
-    headers = {
-        "x-api-key": os.environ.get("ANTHROPIC_API_KEY"),
-        "anthropic-version": "2023-06-01",
-        "Content-Type": "application/json"
-    }
+# === LLM ROUTER (xem skills/llm-router/SKILL.md để biết chi tiết) ===
+
+OMNIROUTE_URL = os.environ.get("OMNIROUTE_URL")
+OMNIROUTE_KEY = os.environ.get("OMNIROUTE_API_KEY")
+
+MODEL_MAP = {
+    "cheap": "deepseek-v3",           # research, image prompt, sentiment
+    "reasoning": "deepseek-r1",        # dedup, logic filter
+    "balanced": "gemini-2.0-flash",    # ideation synthesis
+    "creative": "claude-sonnet-4-6",   # writer, reply — đại diện brand voice
+    "factcheck": "claude-sonnet-4-6",  # accuracy-critical
+}
+
+def llm_call(prompt, tier="cheap", max_tokens=1500, temperature=0.7):
+    """
+    Universal call — route theo tier thay vì hardcode Claude cho mọi thứ.
+    Việc cần văn phong/brand voice (creative, factcheck) -> Claude.
+    Việc nội bộ (cheap, reasoning, balanced) -> qua OmniRoute, rẻ hơn nhiều.
+    """
+    model = MODEL_MAP.get(tier, "deepseek-v3")
+
+    if model.startswith("claude"):
+        url = "https://api.anthropic.com/v1/messages"
+        headers = {
+            "x-api-key": os.environ.get("ANTHROPIC_API_KEY"),
+            "anthropic-version": "2023-06-01",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "messages": [{"role": "user", "content": prompt}]
+        }
+        result = api_call(url, "POST", payload, headers)
+        return result["content"][0]["text"] if "content" in result else None
+
+    # Model rẻ qua OmniRoute (OpenAI-compatible)
     payload = {
-        "model": "claude-sonnet-4-6",
-        "max_tokens": 2000,
-        "messages": [{"role": "user", "content": prompt}]
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens,
+        "temperature": temperature
     }
-    result = api_call(url, "POST", payload, headers)
-    return result["content"][0]["text"] if "content" in result else None
+    headers = {"Authorization": f"Bearer {OMNIROUTE_KEY}", "Content-Type": "application/json"}
+    try:
+        result = api_call(OMNIROUTE_URL, "POST", payload, headers)
+        return result["choices"][0]["message"]["content"]
+    except Exception as e:
+        # Fallback lên Claude nếu model rẻ lỗi
+        print(f"[llm_call] tier={tier} failed ({e}), fallback to Claude")
+        return llm_call(prompt, tier="creative", max_tokens=max_tokens, temperature=temperature)
+
+
+def llm_call_json(prompt, tier="cheap", max_tokens=1500):
+    """Parse JSON, retry 1 lần với instruction nhấn mạnh nếu parse fail"""
+    raw = llm_call(prompt, tier=tier, max_tokens=max_tokens, temperature=0.5)
+    try:
+        return json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        retry_prompt = prompt + "\n\nQUAN TRỌNG: Chỉ trả JSON hợp lệ, không markdown, không giải thích."
+        raw2 = llm_call(retry_prompt, tier=tier, max_tokens=max_tokens, temperature=0.3)
+        return json.loads(raw2)
+
+
+# Giữ tên cũ để không phải sửa chỗ gọi khác — giờ route qua llm_call tier=creative
+def gen_content_with_claude(prompt):
+    return llm_call(prompt, tier="creative", max_tokens=2000)
 
 # === CONTENT PIPELINE ===
 
