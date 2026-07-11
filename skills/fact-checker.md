@@ -1,3 +1,10 @@
+---
+name: fact-checker
+description: >
+  - "Thông tin này có đúng không?" - "Fact-check bài báo/post này cho tao" -
+  "Verify số liệu này"
+---
+
 # Fact-Checker — Skill
 
 ## TL;DR
