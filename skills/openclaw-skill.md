@@ -1,3 +1,10 @@
+---
+name: openclaw-skill
+description: >
+  Repo: github.com/openclaw/openclaw MIT Stars: 210k — fastest growing AI
+  agent repo lịch sử GitHub
+---
+
 # openclaw — Skill Chạy AI Agent 24/7 Trên Máy Mày (210k⭐)
 
 **Repo:** github.com/openclaw/openclaw | MIT
