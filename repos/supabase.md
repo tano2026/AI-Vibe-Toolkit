@@ -1,3 +1,11 @@
+---
+name: supabase
+description: >
+  Firebase alternative mã nguồn mở — Postgres database + Auth + Storage +
+  Realtime + Edge Functions trong một platform. 104K stars. Vibe coder dùng
+  Supabase thay vì tự setup backend từ đầu.
+---
+
 # Supabase — GitHub Repo
 
 ## TL;DR
