@@ -1,3 +1,10 @@
+---
+name: ml-concepts-explainer
+description: >
+  Inspired by: @chipmastervn (TikTok/Xiaohongshu) Dạng: Prompt Template —
+  dùng với Claude/ChatGPT
+---
+
 # ML Concepts Explainer — Giải Thích Thuật Toán AI Theo Kiểu Người Thường
 
 **Inspired by:** @chipmastervn (TikTok/Xiaohongshu)
