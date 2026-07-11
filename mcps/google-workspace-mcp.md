@@ -1,3 +1,10 @@
+---
+name: google-workspace-mcp
+description: >
+  GitHub: https://github.com/evolsb/claude-code-google-workspace Stars: 25⭐
+  License: MIT Multi-account support
+---
+
 # google-workspace-mcp — Gmail + Drive + Sheets + Docs Cho Claude Code (25⭐)
 
 **GitHub:** https://github.com/evolsb/claude-code-google-workspace
