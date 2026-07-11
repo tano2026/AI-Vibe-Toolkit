@@ -1,3 +1,12 @@
+---
+name: paperclip
+description: >
+  Platform quan ly doi AI agent cho doanh nghiep — mo nguon mo, 72K stars.
+  Neu OpenClaw la "nhan vien AI", Paperclip la "cong ty" quan ly nhung nhan
+  vien do. Dat muc tieu kinh doanh → thue doi agent → duyet ngan sach → agent
+  tu chay. OpenClaw integration chinh thuc.
+---
+
 # Paperclip — GitHub Repo
 
 ## TL;DR
