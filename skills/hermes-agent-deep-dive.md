@@ -1,3 +1,9 @@
+---
+name: hermes-agent-deep-dive
+description: >
+  Research, viết script video, build feature, phân tích repo mới.
+---
+
 # Hermes Agent — Deep Dive: 8 Vòng Lặp & Cách Dùng Hiệu Quả
 
 **Nguồn:** NousResearch/hermes-agent (95k⭐ → 188k⭐) | v0.16.0 | MIT
