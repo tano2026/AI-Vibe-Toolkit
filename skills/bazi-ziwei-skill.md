@@ -1,3 +1,13 @@
+---
+name: bazi-ziwei-skill
+description: >
+  Khi muốn Claude/Hermes/OpenClaw trả lời câu hỏi kiểu "xem bát tự/tử vi giúp
+  tôi" mà KHÔNG để LLM tự bốc số tính tay (LLM tính bát tự/tử vi rất dễ sai
+  ngày trụ, sai cách cục vì đây là phép tính lịch phức tạp). Skill này tách
+  rõ: phần tính toán giao cho thuật toán xác định (không phải LLM đoán), phần
+  phân tích/luận giải mới giao cho LLM.
+---
+
 # Bazi-Ziwei Skill — Prompt Template / System Prompt
 
 ## TL;DR
