@@ -1,3 +1,11 @@
+---
+name: understand-anything
+description: >
+  Tool 64K+ stars biến bất kỳ codebase, docs hay knowledge base nào thành
+  knowledge graph tương tác — mày có thể explore, tìm kiếm và hỏi trực tiếp.
+  Chạy được với Claude Code, Cursor, Copilot, Gemini CLI.
+---
+
 # Understand Anything — Biến Codebase Thành Knowledge Graph Tương Tác
 
 ## TL;DR
