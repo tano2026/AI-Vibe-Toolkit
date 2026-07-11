@@ -1,3 +1,11 @@
+---
+name: coolify
+description: >
+  Self-hosted PaaS thay thế Vercel, Heroku, Netlify — deploy app, database,
+  service lên VPS riêng chỉ cần một click. 57.4K stars. Tao deploy mọi thứ
+  lên VPS mà không cần biết DevOps phức tạp.
+---
+
 # Coolify — GitHub Repo
 
 ## TL;DR
