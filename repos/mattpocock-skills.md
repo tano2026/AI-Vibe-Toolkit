@@ -1,3 +1,11 @@
+---
+name: mattpocock-skills
+description: >
+  Matt Pocock — cha đẻ Total TypeScript — publish bộ skills cá nhân ông dùng
+  hàng ngày. 109k stars, trending 1 GitHub 6 ngày liên tiếp. Cài 1 lệnh,
+  Claude Code không còn bừa bãi.
+---
+
 # mattpocock/skills — 109k Stars, Giảm 75% Token, Claude Code Kỷ Luật Hơn
 
 > Matt Pocock — cha đẻ Total TypeScript — publish bộ skills cá nhân ông dùng hàng ngày. 109k stars, trending #1 GitHub 6 ngày liên tiếp. Cài 1 lệnh, Claude Code không còn bừa bãi.
