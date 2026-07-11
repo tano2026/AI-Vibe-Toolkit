@@ -1,3 +1,10 @@
+---
+name: ai-content-writing
+description: >
+  Nguồn: Nguyễn Tất Kiệm — nguyen tat kiem.com (Scale Mentor) Dạng: Prompt
+  Templates — dùng với ChatGPT, Claude, Gemini
+---
+
 # AI Content Writing — 6 Prompt Viết Content Chuyên Nghiệp
 
 **Nguồn:** Nguyễn Tất Kiệm — nguyen tat kiem.com (Scale Mentor)
