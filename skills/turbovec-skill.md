@@ -1,3 +1,10 @@
+---
+name: turbovec-skill
+description: >
+  Repo: github.com/RyanCodrai/turbovec MIT Tech: Rust SIMD + Python bindings
+  Based on Google TurboQuant research
+---
+
 # TurboVec — Vector Search 8x Nhỏ Hơn, Nhanh Hơn FAISS (~6k⭐)
 
 **Repo:** github.com/RyanCodrai/turbovec | MIT
