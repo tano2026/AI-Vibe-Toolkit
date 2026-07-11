@@ -1,3 +1,11 @@
+---
+name: anthropic-skills
+description: >
+  Bộ kỹ năng chính thức từ Anthropic, production-tested bởi đội ngũ xây dựng
+  Claude. Gồm các skill tạo tài liệu DOCX, PDF, PPTX, XLSX và nhiều hơn nữa —
+  dùng được ngay không cần config phức tạp.
+---
+
 # Anthropic Skills — Agent Skills Chính Thức
 
 ## TL;DR
