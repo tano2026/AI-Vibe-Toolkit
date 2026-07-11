@@ -1,3 +1,10 @@
+---
+name: n8n-claw-skill
+description: >
+  Repo: github.com/freddy-schuetz/n8n-claw MIT Stack: n8n + OpenClaw — visual
+  workflow + AI agent power
+---
+
 # n8n-claw — Skill Build AI Agent Visual, Không Cần Terminal
 
 **Repo:** github.com/freddy-schuetz/n8n-claw | MIT
