@@ -1,3 +1,11 @@
+---
+name: chattts
+description: >
+  Model TTS đàm thoại tự nhiên nhất hiện tại, 39,000+ sao GitHub. Chạy local,
+  hỗ trợ tiếng Anh + Trung, có thể thêm [laugh], [uv_break] để giọng nghe như
+  người thật đang nói chuyện.
+---
+
 # ChatTTS — GitHub Repo
 
 ## TL;DR
