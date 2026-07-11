@@ -1,3 +1,9 @@
+---
+name: magika
+description: >
+  Stars: 15.2k License: Apache 2.0 TÃ¡c giáº£: Google Release: python-v1.0.2
+---
+
 # Magika â€” AI detect file type chÃ­nh xÃ¡c 99%, Google dÃ¹ng cho Gmail vÃ  Drive
 
 **GitHub:** https://github.com/google/magika
