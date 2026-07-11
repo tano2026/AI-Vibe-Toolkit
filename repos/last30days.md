@@ -1,3 +1,11 @@
+---
+name: last30days
+description: >
+  34k stars, 1 GitHub Trending. Slash command cho Claude Code: → AI search
+  Reddit, X, YouTube, HackerNews, Polymarket cùng lúc → tổng hợp signal thật
+  từ người dùng thật.
+---
+
 # last30days — AI Tìm Signal Từ Người Thật, Không Phải Google Biên Tập
 
 > 34k stars, #1 GitHub Trending. Slash command cho Claude Code: `/last30days [topic]` → AI search Reddit, X, YouTube, HackerNews, Polymarket cùng lúc → tổng hợp signal thật từ người dùng thật.
