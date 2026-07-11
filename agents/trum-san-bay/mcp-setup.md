@@ -2,7 +2,30 @@
 
 ## Danh sách cần bật
 
-### 1. SceneWorks (Gen ảnh/video)
+### 1. ~~SceneWorks~~ — thay bằng HyperFrames
+
+### 1b. HyperFrames (Render video — thay SceneWorks)
+```bash
+# Cài trên VPS (Node.js 22+ required)
+npm install -g hyperframes
+npx skills add heygen-com/hyperframes
+apt install ffmpeg -y
+
+# Test render
+npx hyperframes render --input test.html --output test.mp4 --width 1080 --height 1920
+```
+
+### 1c. Apify (Research Agent crawler)
+```
+Free tier: 5 USD credit/tháng — đủ dùng
+
+Set env:
+APIFY_TOKEN=your_apify_token
+```
+Đăng ký: https://apify.com (free)
+
+
+### 2. Meta Graph API (Facebook + Instagram + Reels)
 ```bash
 # Chạy local hoặc GPU VPS
 cd /opt/sceneworks
