@@ -1,3 +1,10 @@
+---
+name: hubspot-mcp
+description: >
+  GitHub: https://github.com/ZLeventer/hubspot-mcp Tools: 33 tools License:
+  MIT Language: TypeScript
+---
+
 # hubspot-mcp — HubSpot CRM & Marketing Từ Claude (33 Tools)
 
 **GitHub:** https://github.com/ZLeventer/hubspot-mcp
