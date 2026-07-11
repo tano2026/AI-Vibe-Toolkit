@@ -1,3 +1,10 @@
+---
+name: nanochat-skill
+description: >
+  Repo: github.com/karpathy/nanochat MIT Tác giả: Andrej Karpathy — cha đẻ
+  "vibe coding"
+---
+
 # nanochat (Karpathy) — Tự Train LLM Với $15-100
 
 **Repo:** github.com/karpathy/nanochat | MIT
