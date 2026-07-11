@@ -1,3 +1,11 @@
+---
+name: deerflow
+description: >
+  Open-source super agent harness — orchestrate sub-agents, memory, sandboxes
+  để làm gần như bất cứ thứ gì. Tasks từ vài phút đến vài tiếng. Không phải
+  chatbot. Không phải Copilot. AI nhân viên thật sự.
+---
+
 # DeerFlow — Super Agent Harness Của ByteDance (71k⭐)
 
 **GitHub:** https://github.com/bytedance/deer-flow
