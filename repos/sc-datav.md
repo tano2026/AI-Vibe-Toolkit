@@ -1,3 +1,10 @@
+---
+name: sc-datav
+description: >
+  Three.js + Vue3 — tạo dashboard "màn hình lớn" 3D cực đẹp như trong phim
+  khoa học viễn tưởng. Vibe code xong có ngay UI hoành tráng.
+---
+
 # sc-datav — Dashboard 3D Trực Quan Hóa Dữ Liệu Kiểu Màn Hình Lớn
 
 > Three.js + Vue3 — tạo dashboard "màn hình lớn" 3D cực đẹp như trong phim khoa học viễn tưởng. Vibe code xong có ngay UI hoành tráng.
