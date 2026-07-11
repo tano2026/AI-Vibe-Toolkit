@@ -1,3 +1,11 @@
+---
+name: moneyprinterturbo
+description: >
+  Tool tự động tạo short-form video từ topic → script → voiceover → subtitles
+  → video hoàn chỉnh. Hỗ trợ đa ngôn ngữ, nhiều TTS providers, upload thẳng
+  lên YouTube/TikTok. ``` Topic/Keyword
+---
+
 # MoneyPrinterTurbo — Tự Động Tạo Video Kiếm Tiền (87.8k⭐)
 
 **GitHub:** https://github.com/harry0703/MoneyPrinterTurbo
