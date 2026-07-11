@@ -1,3 +1,11 @@
+---
+name: 5kynang-claude-skill
+description: >
+  - Khi mày muốn xây kênh content hoặc business solo dùng AI - Khi cần hướng
+  dẫn cụ thể cho từng vai trò Claude - Khi muốn có framework rõ ràng thay vì
+  "dùng AI kiếm tiền chung chung"
+---
+
 # 5 Kỹ Năng Dùng Claude Trả Lương Cao Hơn Bằng Đại Học — Skill Framework
 
 ## TL;DR
