@@ -73,17 +73,17 @@ từng agent rời rạc. Comment pipeline (`run_comment_pipeline`) cần
 `fetch_comments_fn` implement riêng theo từng platform API, gọi mỗi 2h.
 
 **Trạng thái thật (đã cập nhật):**
-- ✅ `run_visual_agent_image()` giờ gọi Pollinations thật (free, tier anonymous), 
-  tải ảnh về `/opt/trum-san-bay/assets/` — không còn chỉ trả prompt suông
+- ✅ `run_visual_agent_image()` gọi Gemini image gen thật (`gemini-2.5-flash-image`, 
+  free tier Google AI Studio), tải ảnh về `/opt/trum-san-bay/assets/` — đổi từ 
+  Pollinations sang vì free tier ổn định hơn + dùng chung key với llm-router
 - ✅ `fetch_all_comments()` đã code đủ 4 platform (Facebook, Instagram Graph API; 
   TikTok qua Apify Comment Scraper; YouTube Data API v3) — dùng làm 
   `fetch_comments_fn` cho `run_comment_pipeline()`
 - ⚠️ Brand Check chạy nhưng **ảnh từ Pollinations chưa có logo/watermark tự động** 
   — pipeline flag `brand_check_issues` trong Airtable thay vì chặn cứng, cần 
   code thêm bước overlay logo (ffmpeg/PIL) trước khi coi là "brand compliant" thật
-- ⚠️ Pollinations đang chuyển sang gateway mới có Pollen credit (2026) — endpoint 
-  free dùng ở đây là bản cũ, có thể cần đăng ký `POLLINATIONS_API_KEY` free tại 
-  enter.pollinations.ai nếu gặp lỗi 401/429 thường xuyên
+- ⚠️ Gemini free tier rate limit ~15 req/phút — đủ cho nhịp content hiện tại 
+  nhưng nếu research batch nhiều bài cùng lúc, code đã có retry backoff cho 429
 - ⚠️ Toàn bộ code compile sạch nhưng CHƯA chạy với credential thật — bước 
   tiếp theo là Phase 5 trong `deploy-checklist.md`
 
