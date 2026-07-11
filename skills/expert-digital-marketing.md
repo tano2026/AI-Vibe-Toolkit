@@ -1,3 +1,12 @@
+---
+name: expert-digital-marketing
+description: >
+  - Lên chiến lược marketing đa kênh, định vị thương hiệu cho 1
+  project/brand. - Tối ưu Google Ads/Meta Ads/TikTok Ads, review
+  creative/targeting/bidding. - SEO content strategy, keyword research,
+  technical SEO.
+---
+
 # Chuyên gia Digital Marketing — Skill / System Prompt
 
 ## TL;DR
