@@ -1,3 +1,9 @@
+---
+name: worker-k-accounting
+description: >
+  GitHub: https://github.com/WeiKhjan/worker-k Stars: 1⭐ License: MIT
+---
+
 # Worker K — Office Automation Cho Kế Toán (Excel/Word/PDF/Bank Rec)
 
 **GitHub:** https://github.com/WeiKhjan/worker-k
