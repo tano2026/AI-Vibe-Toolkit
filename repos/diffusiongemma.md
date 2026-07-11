@@ -1,3 +1,9 @@
+---
+name: diffusiongemma
+description: >
+  License: Apache 2.0 Ra mắt: 10/6/2026 Tác giả: Google DeepMind
+---
+
 # DiffusionGemma — LLM tạo text 4x nhanh hơn, Google vừa thả 10/6/2026
 
 **GitHub / HuggingFace:** google/diffusiongemma-26B-A4B-it
