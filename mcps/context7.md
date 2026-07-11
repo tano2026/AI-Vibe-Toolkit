@@ -1,3 +1,9 @@
+---
+name: context7
+description: >
+  Cấp docs mới nhất của mọi thư viện cho AI khi code
+---
+
 # Context7 — Docs Thật, Không Hallucinate
 
 > Claude/Cursor hay bịa API không tồn tại? Cài cái này vào — AI sẽ lấy docs thật từ internet thay vì "nhớ" lung tung.
