@@ -1,3 +1,12 @@
+---
+name: public-apis
+description: >
+  Danh sach tong hop 1500+ API mien phi cho developer — 444K stars, top 5
+  repo GitHub moi thoi dai. Phan loai theo 90+ danh muc: AI, Finance,
+  Weather, Music, Sports, Travel... Moi lam tinh nang moi cho app thi kiem o
+  day truoc.
+---
+
 # Public APIs — GitHub Repo
 
 ## TL;DR
