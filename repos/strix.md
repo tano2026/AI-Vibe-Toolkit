@@ -1,3 +1,11 @@
+---
+name: strix
+description: >
+  AI pentest agent mo nguon mo — tu dong tim va vai luong khac nhau de phat
+  hien lo hong bao mat trong app cua may, roi de xuat fix. 27.8K stars,
+  Apache 2.0. Tich hop CI/CD: tu dong scan moi pull request.
+---
+
 # Strix — GitHub Repo
 
 ## TL;DR
