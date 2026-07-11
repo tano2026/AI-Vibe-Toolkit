@@ -1,3 +1,13 @@
+---
+name: ai-auto-generate-video
+description: >
+  Pipeline tu dong: bai viet tieng Viet (URL hoac .txt) → video 9:16 hoan
+  chinh trong vai phut. Dung Claude Code slash command , ket hop OmniVoice
+  (TTS local, khong can API key) + HyperFrames (render template) + FFmpeg
+  (mux). Output: video.mp4 + voice.mp3 + script.txt — san sang up
+  CapCut/TikTok/Shorts/Reels.
+---
+
 # AI-auto-generate-video — GitHub Repo
 
 ## TL;DR
