@@ -1,3 +1,11 @@
+---
+name: minimax-mcp
+description: >
+  MCP server chính thức từ MiniMax — tích hợp text-to-speech, voice cloning,
+  video generation, image generation và music generation vào Claude workflow.
+  1.5K stars, update liên tục, có cả model Hailuo-02 1080P.
+---
+
 # MiniMax MCP — TTS + Video + Nhạc Trong 1 MCP Server
 
 ## TL;DR
