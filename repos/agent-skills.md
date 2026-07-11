@@ -1,3 +1,14 @@
+---
+name: agent-skills
+description: >
+  Bộ 24 skills mã hóa workflow, quality gates, và best practices mà senior
+  engineers dùng khi build software — packaged để AI agents follow nhất quán
+  qua mọi phase development. Vấn đề: AI coding agent thường skip steps quan
+  trọng — code không có spec, không có tests, không có review, ship mà không
+  có monitoring. Kết quả: tech debt chồng chất. agent-skills fix cái đó.
+  Install 1 lần → AI tự kích hoạt đúng skill đúng lúc.
+---
+
 # agent-skills — 24 Engineering Skills Của Senior Engineer Thành AI Agent
 
 **GitHub:** https://github.com/addyosmani/agent-skills
