@@ -1,3 +1,12 @@
+---
+name: opik
+description: >
+  Opik (by Comet) là platform mã nguồn mở để trace, evaluate và monitor LLM
+  app/agent — thấy rõ agent gọi model gì, tool gì, sai ở bước nào, tự động
+  chấm điểm bằng LLM-as-a-judge. Từ 0 lên 12.5K stars trong 8-9 tháng, hiện
+  exploding growth.
+---
+
 # Opik — GitHub Repo
 
 ## TL;DR
