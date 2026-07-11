@@ -1,3 +1,10 @@
+---
+name: hyperframes-skill
+description: >
+  Repo: github.com/heygen-com/hyperframes Apache 2.0 HeyGen Downloads:
+  200k/tháng Built for AI agents
+---
+
 # HyperFrames (HeyGen) — HTML → Video MP4 (200k downloads/tháng)
 
 **Repo:** github.com/heygen-com/hyperframes | Apache 2.0 | HeyGen
