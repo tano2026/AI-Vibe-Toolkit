@@ -1,3 +1,10 @@
+---
+name: notebooklm-mcp-roomifields
+description: >
+  GitHub: https://github.com/roomi-fields/notebooklm-mcp Stars: 89 Forks: 26
+  License: MIT
+---
+
 # notebooklm-mcp (roomi-fields) — Power User Version: MCP + HTTP REST API + Docker
 
 **GitHub:** https://github.com/roomi-fields/notebooklm-mcp
