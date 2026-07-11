@@ -1,3 +1,10 @@
+---
+name: browser-use-skill
+description: >
+  Repo: github.com/browser-use/browser-use MIT YC W25 Dùng với: Python,
+  Claude, OpenAI, Gemini
+---
+
 # browser-use — Skill Dùng Ngay (95k⭐)
 
 **Repo:** github.com/browser-use/browser-use | MIT | YC W25
