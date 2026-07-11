@@ -1,3 +1,10 @@
+---
+name: ke-toan-automation
+description: >
+  Nguồn: Workflow từ infographic "AI Thay Đổi Cách Kế Toán Vận Hành" Stack:
+  Claude Code + Python + Google Workspace MCP + Google Drive/Sheets
+---
+
 # Kế Toán Tự Động Hóa — Skill Dùng Ngay Với Claude Code
 
 **Nguồn:** Workflow từ infographic "AI Thay Đổi Cách Kế Toán Vận Hành"
