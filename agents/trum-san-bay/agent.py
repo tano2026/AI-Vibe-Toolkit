@@ -249,8 +249,11 @@ def handle_command(cmd, args=""):
         return f"✅ Đã tạo content: {result.get('content_id')}\n📝 Preview: {result.get('preview_caption')}"
 
     elif cmd == "approve":
-        result = publish_post(args)
-        return f"🚀 Đã đăng lên {len(result.get('post_ids', {}))} platform"
+        try:
+            result = publish_post_safe(args)  # bản có gate + idempotency
+            return f"🚀 Đã đăng lên {len(result.get('post_ids', {}))} platform"
+        except PipelineGateError as e:
+            return f"⛔ {str(e)}"
 
     elif cmd == "queue":
         records = airtable_list("content_queue", "status='PENDING_REVIEW'")
