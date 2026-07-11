@@ -1,3 +1,11 @@
+---
+name: awesome-harness-engineering
+description: >
+  Danh sach curate cac tool, guide, framework, benchmark tot nhat cho Harness
+  Engineering — 3.3K stars. Companion repo cua learn-harness-engineering.
+  Bookmark de reference khi xay dung hoac nang cap harness.
+---
+
 # awesome-harness-engineering — GitHub Repo
 
 ## TL;DR
