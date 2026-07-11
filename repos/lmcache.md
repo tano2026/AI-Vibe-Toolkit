@@ -1,3 +1,10 @@
+---
+name: lmcache
+description: >
+  8.6k stars. Cache thông minh cho LLM — context dài không cần recompute, tốc
+  độ tăng vọt, tiền API giảm mạnh.
+---
+
 # LMCache — Tăng Tốc LLM Gấp Nhiều Lần, Tiết Kiệm Chi Phí
 
 > 8.6k stars. Cache thông minh cho LLM — context dài không cần recompute, tốc độ tăng vọt, tiền API giảm mạnh.
