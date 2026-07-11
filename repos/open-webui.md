@@ -1,3 +1,11 @@
+---
+name: open-webui
+description: >
+  Giao diện web đẹp, self-hosted để chạy Ollama và mọi LLM local — thay thế
+  ChatGPT UI hoàn toàn. 143K stars. Cài một lần, dùng mãi, không tốn
+  subscription.
+---
+
 # Open WebUI — GitHub Repo
 
 ## TL;DR
