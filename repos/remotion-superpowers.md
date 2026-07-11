@@ -1,3 +1,13 @@
+---
+name: remotion-superpowers
+description: >
+  Claude Code plugin biến Remotion thành studio video production đầy đủ. Gồm
+  5 MCP server, 13 slash command — từ viết script đến voiceover ElevenLabs,
+  nhạc nền, stock footage, caption TikTok, render ra file. Miễn phí, open
+  source. Cái này là pipeline tự động gần nhất với workflow ElevenLabs → OBS
+  → CapCut hiện tại.
+---
+
 # Remotion Superpowers — Studio Video Ngay Trong Claude Code
 
 ## TL;DR
