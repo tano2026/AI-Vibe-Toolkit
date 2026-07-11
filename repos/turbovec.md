@@ -1,3 +1,10 @@
+---
+name: turbovec
+description: >
+  Stars: 6k License: MIT Tác giả: RyanCodrai (implement Google Research's
+  TurboQuant)
+---
+
 # TurboVec — Vector Search Nhanh Hơn FAISS, 31GB → 4GB, Không Cần Training
 
 **GitHub:** https://github.com/RyanCodrai/turbovec
