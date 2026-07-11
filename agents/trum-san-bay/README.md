@@ -51,3 +51,31 @@ BOFU (Conversion)    → Promote Fast Track / SIM / đổi tiền — 15% conten
 4. Bật n8n workflow từ `n8n-workflow.json`
 5. Dán `system-prompt.md` làm instruction cho Hermes
 6. Test theo `deploy-checklist.md` trước khi bật semi-auto
+
+
+---
+
+## Não hệ thống — orchestrator.py
+
+`agent.py` chỉ chứa các hàm nền (API call, Airtable, token refresh, publish).
+`orchestrator.py` mới là NÃO THẬT — ghép 9 agent thành pipeline chạy được:
+
+```bash
+# Chạy full pipeline tuần (Research -> Ideation -> Writer -> Visual -> Brand Check -> Adapter)
+python3 orchestrator.py weekly
+
+# Check + refresh token chủ động
+python3 orchestrator.py token_check
+```
+
+pm2 cron gọi `orchestrator.py weekly` mỗi thứ 2 7h sáng — không phải gọi
+từng agent rời rạc. Comment pipeline (`run_comment_pipeline`) cần
+`fetch_comments_fn` implement riêng theo từng platform API, gọi mỗi 2h.
+
+**Trạng thái thật:** Logic điều phối đã có và compile sạch, NHƯNG:
+- `run_visual_agent_image()` mới trả prompt, chưa tự gọi image gen API cụ thể — 
+  cần chọn dịch vụ (Kling/Runway/Pollinations...) và nối vào
+- Brand Check trong pipeline hiện là bước bỏ qua tạm (chưa có asset thật để 
+  validate màu/logo) — cần nối sau khi có ảnh/video thật
+- `fetch_comments_fn` là tham số phải tự viết theo từng platform, chưa có 
+  sẵn trong repo
