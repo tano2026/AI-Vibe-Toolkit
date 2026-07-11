@@ -1,3 +1,10 @@
+---
+name: notebooklm-mcp-pleaseprompto
+description: >
+  GitHub: https://github.com/PleasePrompto/notebooklm-mcp Stars: 2.7k Forks:
+  375 License: MIT
+---
+
 # notebooklm-mcp (PleasePrompto) — Kết Nối Claude Với NotebookLM, Zero Hallucination
 
 **GitHub:** https://github.com/PleasePrompto/notebooklm-mcp
