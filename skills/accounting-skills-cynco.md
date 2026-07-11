@@ -1,3 +1,9 @@
+---
+name: accounting-skills-cynco
+description: >
+  GitHub: https://github.com/cynco-labs/skills Stars: 10⭐ License: MIT
+---
+
 # accounting-skills (cynco) — 8 Phases Kế Toán Chuyên Nghiệp (10⭐)
 
 **GitHub:** https://github.com/cynco-labs/skills
