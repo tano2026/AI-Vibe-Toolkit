@@ -1,3 +1,10 @@
+---
+name: youtube-marketing-skills
+description: >
+  GitHub: https://github.com/adityaarsharma/youtube-marketing-skills Stars:
+  14⭐ npm: youtube-channel-mcp License: MIT
+---
+
 # youtube-marketing-skills — 21 Commands Grow YouTube Channel (14⭐)
 
 **GitHub:** https://github.com/adityaarsharma/youtube-marketing-skills
