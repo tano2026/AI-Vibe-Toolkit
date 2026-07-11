@@ -1,3 +1,11 @@
+---
+name: apple-container
+description: >
+  Apple's native tool chạy Linux containers như lightweight VMs trên Mac.
+  OCI-compatible — dùng được mọi Docker image. Nhanh hơn Docker Desktop vì
+  native Swift.
+---
+
 # apple/container — Linux Containers Trên Mac, By Apple (37k⭐)
 
 **GitHub:** https://github.com/apple/container
