@@ -1,3 +1,9 @@
+---
+name: sc-datav-skill
+description: >
+  Data visualization kiểu "màn hình lớn" trong phim
+---
+
 # sc-datav — Dashboard 3D Sci-Fi Từ Dữ Liệu Của Mày
 
 **Repo:** github.com/knight-L/sc-datav | MIT
