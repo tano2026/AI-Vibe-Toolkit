@@ -1,3 +1,9 @@
+---
+name: master-index
+description: >
+  Kho: github.com/tano2026/AI-Vibe-Toolkit Cập nhật: tháng 6/2026
+---
+
 # 🗂️ AI VIBE TOOLKIT — MASTER SKILL INDEX
 
 **Kho:** github.com/tano2026/AI-Vibe-Toolkit
