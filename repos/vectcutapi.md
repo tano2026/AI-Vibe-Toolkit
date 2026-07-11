@@ -1,3 +1,10 @@
+---
+name: vectcutapi
+description: >
+  Gọi CapCut API để tự động xuất phụ đề SRT chuẩn timeframe — 2,000+ sao
+  GitHub. Kết nối trực tiếp vào engine phụ đề của CapCut mà không cần mở app.
+---
+
 # VectCutAPI — GitHub Repo
 
 ## TL;DR
