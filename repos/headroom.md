@@ -1,3 +1,11 @@
+---
+name: headroom
+description: >
+  Context compression layer cho AI agents — compress tool outputs, logs,
+  files, RAG chunks trước khi đưa vào LLM. Giảm 60-95% tokens, câu trả lời
+  vẫn như nhau. ``` Tool output 50,000 tokens
+---
+
 # headroom — Token Compression 60-95%, Cùng Câu Trả Lời (27.5k⭐)
 
 **GitHub:** https://github.com/chopratejas/headroom
