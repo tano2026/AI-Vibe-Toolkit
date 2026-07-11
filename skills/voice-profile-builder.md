@@ -1,3 +1,10 @@
+---
+name: voice-profile-builder
+description: >
+  Nguồn: AI Leaders Vietnam — how-to-ai.guide Dạng: Workflow + Prompt
+  Templates — 2 giai đoạn
+---
+
 # Voice Profile Builder — Biến Bản Thân Thành Phiên Bản Đỉnh Cao Trong Claude
 
 **Nguồn:** AI Leaders Vietnam — how-to-ai.guide
