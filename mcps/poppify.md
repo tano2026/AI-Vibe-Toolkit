@@ -1,3 +1,10 @@
+---
+name: poppify
+description: >
+  GitHub: github.com/Poppify/poppify-claude-plugin Website: poppify.ai
+  License: MIT
+---
+
 # Poppify — Ảnh → TikTok/Reels/YouTube Shorts ($0.06/reel)
 
 **GitHub:** github.com/Poppify/poppify-claude-plugin
