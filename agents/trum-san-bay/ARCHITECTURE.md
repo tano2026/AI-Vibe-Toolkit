@@ -59,7 +59,7 @@
 - **Trigger:** Caption xong
 - **Input:** Caption + platform + content type (ảnh/video/carousel)
 - **Output:** File ảnh/video raw (1:1 hoặc 9:16 hoặc 16:9)
-- **Tool:** SceneWorks MCP → gen ảnh, ffmpeg → render video
+- **Tool:** image-prompt-engineer skill (viết prompt ảnh) → HyperFrames (video) → ffmpeg
 
 ### 3b. Brand Design System Agent
 - **Trigger:** Ngay sau Visual Agent, trước Adapter Agent
@@ -86,6 +86,13 @@
 - **Status flow:** DRAFT → PENDING_REVIEW → APPROVED / REJECTED → POSTED
 - **Notify:** Telegram message kèm preview khi có bài mới vào queue
 
+### 5b. API Error Handler (bọc quanh Publisher)
+- **Trigger:** Mọi lần Publisher Agent gọi API đăng bài
+- **Input:** API call function + platform
+- **Output:** Retry tự động nếu lỗi tạm thời, escalate Telegram nếu lỗi cần người xử lý
+- **Tool:** api-error-handler skill — bảng lỗi theo platform, backoff strategy
+- **Guardrail:** 1 platform fail không chặn platform khác; token hết hạn luôn alert ngay
+
 ### 6. Publisher Agent
 - **Trigger:** Status = APPROVED trong Airtable
 - **Input:** Package từng platform + scheduled_time
@@ -94,6 +101,13 @@
   - Facebook/Instagram/Reels: Meta Graph API v18+
   - TikTok: TikTok Content Posting API
   - YouTube Shorts: YouTube Data API v3
+
+### 6b. Sentiment Classifier (ngay sau Comment Monitor)
+- **Trigger:** Comment mới fetch về, trước khi vào comment_queue
+- **Input:** Comment text + post context
+- **Output:** Label (URGENT_COMPLAINT/QUESTION/PURCHASE_INTENT/POSITIVE/NEGATIVE_MILD/SPAM/IRRELEVANT) + priority
+- **Tool:** sentiment-classifier skill
+- **Guardrail:** Confidence thấp luôn route thủ công, không tự động reply
 
 ### 7. Comment Monitor
 - **Trigger:** Cron mỗi 2 giờ
