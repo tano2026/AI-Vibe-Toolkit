@@ -1,3 +1,11 @@
+---
+name: bumblebee
+description: >
+  Perplexity AI vừa open-source tool nội bộ họ dùng để bảo vệ máy developer.
+  Scan MCP configs, extensions, packages — phát hiện malware trước khi nó
+  chạy.
+---
+
 # Bumblebee (Perplexity AI) — Scanner Bảo Vệ Máy Mày Khỏi MCP Độc Hại
 
 > Perplexity AI vừa open-source tool nội bộ họ dùng để bảo vệ máy developer. Scan MCP configs, extensions, packages — phát hiện malware trước khi nó chạy.
