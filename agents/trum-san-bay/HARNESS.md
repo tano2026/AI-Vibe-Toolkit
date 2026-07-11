@@ -258,9 +258,22 @@ Cron 1 tháng/lần: /tsb audit-facts
    `fcntl.flock` chống race condition khi 2 process cùng ghi
 3. Chưa có dashboard xem `progress.json` trực quan — hiện phải đọc JSON tay 
    (còn nợ, độ ưu tiên thấp — không chặn vận hành)
-4. **Mới phát sinh:** `publish_post_safe()` mới code cứng 2 platform (Facebook, 
-   Instagram) để demo pattern — cần mở rộng thêm TikTok + YouTube theo cùng 
-   pattern idempotent trước khi go-live thật
+4. ~~`publish_post_safe()` mới code cứng 2 platform~~ ✅ Đã xong — mở rộng đủ 
+   4 platform (Facebook, Instagram, TikTok, YouTube), mỗi platform có hàm 
+   riêng `_publish_*()`, retry theo bảng lỗi trong `api-error-handler`, chỉ 
+   đăng platform nào có credential cấu hình (cho phép launch dần platform), 
+   và `PipelineGateError`/`BudgetExceededError` được bắt riêng trong 
+   `handle_command()` để trả message rõ ràng thay vì crash im lặng
+
+## Việc còn nợ thật (chưa test với credential thật)
+
+- TikTok publisher dùng `PULL_FROM_URL` — cần video có URL public truy cập 
+  được từ ngoài (vd host qua nginx trên VPS), chưa verify với account TikTok 
+  Developer thật
+- YouTube publisher dùng resumable upload thuần urllib — chưa test với OAuth 
+  token thật, `YOUTUBE_ACCESS_TOKEN` cần refresh định kỳ (access token chỉ 
+  sống 1h) — refresh flow riêng CHƯA code, hiện giả định token luôn valid
+- Chưa có dashboard xem `progress.json` trực quan (độ ưu tiên thấp)
 
 ---
 
