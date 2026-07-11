@@ -1,3 +1,13 @@
+---
+name: cubesandbox
+description: >
+  CubeSandbox (TencentCloud) là sandbox siêu nhẹ, siêu nhanh (khởi động
+  <60ms, chỉ tốn <5MB RAM/instance) để agent chạy code do AI sinh ra một cách
+  an toàn — mỗi agent có kernel riêng, không share kernel như Docker nên
+  không lo container escape. Đã chạy production thật ở Tencent Cloud trước
+  khi mở nguồn, tương thích ngược với E2B SDK.
+---
+
 # CubeSandbox — GitHub Repo
 
 ## TL;DR
