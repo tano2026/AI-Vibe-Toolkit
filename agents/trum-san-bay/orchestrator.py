@@ -17,6 +17,8 @@ from agent import (
     llm_call, llm_call_json,
     publish_post_safe, check_all_tokens_health,
     save_state, enforce_pipeline_gate, PipelineGateError, BudgetExceededError,
+    FB_PAGE_ID, FB_ACCESS_TOKEN, IG_USER_ID, TIKTOK_ACCESS_TOKEN,
+    YOUTUBE_CHANNEL_ID, get_youtube_access_token, TokenRefreshError,
 )
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
@@ -549,6 +551,178 @@ Chỉ JSON.
 
 
 # ============================================================
+# FETCH COMMENTS — implement thật theo từng platform
+# Gọi hàm fetch_all_comments() làm fetch_comments_fn cho run_comment_pipeline
+# ============================================================
+
+def _fetch_facebook_comments(since_minutes=120):
+    """
+    Facebook Graph API — lấy comment mới trên các post gần đây của Page.
+    Cần permission pages_read_engagement.
+    """
+    from agent import FB_PAGE_ID, FB_ACCESS_TOKEN, api_call
+    if not (FB_PAGE_ID and FB_ACCESS_TOKEN):
+        return []
+
+    since_ts = int(time.time()) - since_minutes * 60
+    posts_result = api_call(
+        f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/posts"
+        f"?fields=id,message&since={since_ts}&limit=10",
+        headers={"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+    )
+
+    comments = []
+    for post in posts_result.get("data", []):
+        cm_result = api_call(
+            f"https://graph.facebook.com/v18.0/{post['id']}/comments"
+            f"?fields=id,message,from,created_time&since={since_ts}",
+            headers={"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        for c in cm_result.get("data", []):
+            comments.append({
+                "id": c["id"], "platform": "facebook", "text": c.get("message", ""),
+                "author": c.get("from", {}).get("name", "unknown"),
+                "post_id": post["id"], "post_context": post.get("message", "")[:200]
+            })
+    return comments
+
+
+def _fetch_instagram_comments(since_minutes=120):
+    """
+    Instagram Graph API — cùng cơ chế Facebook, dùng IG_USER_ID.
+    """
+    from agent import IG_USER_ID, FB_ACCESS_TOKEN, api_call
+    if not (IG_USER_ID and FB_ACCESS_TOKEN):
+        return []
+
+    media_result = api_call(
+        f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media"
+        f"?fields=id,caption&limit=10",
+        headers={"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+    )
+
+    comments = []
+    for media in media_result.get("data", []):
+        cm_result = api_call(
+            f"https://graph.facebook.com/v18.0/{media['id']}/comments"
+            f"?fields=id,text,username,timestamp",
+            headers={"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        for c in cm_result.get("data", []):
+            comments.append({
+                "id": c["id"], "platform": "instagram", "text": c.get("text", ""),
+                "author": c.get("username", "unknown"),
+                "post_id": media["id"], "post_context": media.get("caption", "")[:200]
+            })
+    return comments
+
+
+def _fetch_tiktok_comments(since_minutes=120):
+    """
+    TikTok — Display API không hỗ trợ đọc comment công khai dễ dàng như Meta;
+    cần Research API (application riêng, xét duyệt khó) hoặc dùng Apify
+    TikTok Comment Scraper làm workaround. Dùng Apify vì đã có sẵn từ
+    Research Agent — nhất quán 1 nguồn crawl.
+    """
+    if not APIFY_TOKEN:
+        return []
+
+    import urllib.request
+    # Cần video_id các post đã đăng gần đây — lấy từ content_queue đã POSTED
+    recent_posts = airtable_list(
+        "content_queue",
+        "AND(status='POSTED', IS_AFTER(created_at, DATEADD(NOW(), -1, 'days')))"
+    )
+    comments = []
+    for record in recent_posts.get("records", [])[:5]:  # giới hạn 5 post/lần để tiết kiệm Apify credit
+        post_ids = json.loads(record["fields"].get("post_ids", "{}"))
+        tiktok_id = post_ids.get("tiktok")
+        if not tiktok_id:
+            continue
+
+        url = f"https://api.apify.com/v2/acts/clockworks~tiktok-comments-scraper/run-sync-get-dataset-items?token={APIFY_TOKEN}"
+        payload = {"postURLs": [f"https://www.tiktok.com/@trumsanbay/video/{tiktok_id}"], "commentsPerPost": 20}
+        req = urllib.request.Request(url, data=json.dumps(payload).encode(),
+                                      headers={"Content-Type": "application/json"}, method="POST")
+        try:
+            data = json.loads(urllib.request.urlopen(req, timeout=60).read())
+            for c in data:
+                comments.append({
+                    "id": c.get("cid", str(hash(c.get("text", "")))),
+                    "platform": "tiktok", "text": c.get("text", ""),
+                    "author": c.get("uniqueId", "unknown"),
+                    "post_id": tiktok_id, "post_context": ""
+                })
+        except Exception:
+            pass
+    return comments
+
+
+def _fetch_youtube_comments(since_minutes=120):
+    """
+    YouTube Data API v3 — commentThreads.list theo video gần đây.
+    Dùng access token đã refresh qua get_youtube_access_token().
+    """
+    from agent import get_youtube_access_token, TokenRefreshError, YOUTUBE_CHANNEL_ID
+    import urllib.request
+
+    try:
+        access_token = get_youtube_access_token()
+    except TokenRefreshError:
+        return []
+
+    if not YOUTUBE_CHANNEL_ID:
+        return []
+
+    search_url = (
+        f"https://www.googleapis.com/youtube/v3/search?part=id&channelId={YOUTUBE_CHANNEL_ID}"
+        f"&order=date&maxResults=5&type=video"
+    )
+    req = urllib.request.Request(search_url, headers={"Authorization": f"Bearer {access_token}"})
+    try:
+        videos = json.loads(urllib.request.urlopen(req, timeout=15).read())
+    except Exception:
+        return []
+
+    comments = []
+    for item in videos.get("items", []):
+        video_id = item["id"]["videoId"]
+        cm_url = (
+            f"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet"
+            f"&videoId={video_id}&maxResults=20&order=time"
+        )
+        cm_req = urllib.request.Request(cm_url, headers={"Authorization": f"Bearer {access_token}"})
+        try:
+            cm_data = json.loads(urllib.request.urlopen(cm_req, timeout=15).read())
+        except Exception:
+            continue
+        for thread in cm_data.get("items", []):
+            snippet = thread["snippet"]["topLevelComment"]["snippet"]
+            comments.append({
+                "id": thread["id"], "platform": "youtube", "text": snippet.get("textDisplay", ""),
+                "author": snippet.get("authorDisplayName", "unknown"),
+                "post_id": video_id, "post_context": ""
+            })
+    return comments
+
+
+def fetch_all_comments():
+    """
+    Entry point thật cho run_comment_pipeline(fetch_comments_fn=fetch_all_comments).
+    Gộp comment từ 4 platform, mỗi platform tự bỏ qua nếu chưa cấu hình
+    (không crash pipeline nếu 1 platform thiếu credential).
+    """
+    all_comments = []
+    for fetch_fn in [_fetch_facebook_comments, _fetch_instagram_comments,
+                       _fetch_tiktok_comments, _fetch_youtube_comments]:
+        try:
+            all_comments.extend(fetch_fn())
+        except Exception as e:
+            print(f"[fetch_all_comments] {fetch_fn.__name__} lỗi: {e}")
+    return all_comments
+
+
+# ============================================================
 # ENTRY POINTS — Hermes/cron gọi các hàm này
 # ============================================================
 
@@ -560,5 +734,7 @@ if __name__ == "__main__":
         print(json.dumps(run_weekly_content_pipeline(), ensure_ascii=False, indent=2))
     elif action == "token_check":
         print(json.dumps(check_all_tokens_health(), ensure_ascii=False, indent=2))
+    elif action == "comments":
+        print(json.dumps(run_comment_pipeline(fetch_all_comments), ensure_ascii=False, indent=2))
     else:
-        print("Dùng: python3 orchestrator.py [weekly|token_check]")
+        print("Dùng: python3 orchestrator.py [weekly|token_check|comments]")
