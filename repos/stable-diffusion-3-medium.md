@@ -1,3 +1,10 @@
+---
+name: stable-diffusion-3-medium
+description: >
+  Stability AI release SD3 Medium hoàn toàn miễn phí — model tạo ảnh chất
+  lượng cao, dùng được cho personal và commercial.
+---
+
 # Stable Diffusion 3 Medium — Image AI Free, Commercial OK (Stability AI)
 
 **HuggingFace:** https://huggingface.co/stabilityai/stable-diffusion-3-medium
