@@ -1,3 +1,11 @@
+---
+name: token-efficient-research
+description: >
+  Tổng hợp từ: web-research MCP + deep-research ladder +
+  agent-research-skills + Firecrawl + Brave Search + Exa Cập nhật: tháng
+  6/2026
+---
+
 # Token-Efficient Research — Cheat Sheet Dùng Ngay
 
 **Tổng hợp từ:** web-research MCP + deep-research ladder + agent-research-skills + Firecrawl + Brave Search + Exa
