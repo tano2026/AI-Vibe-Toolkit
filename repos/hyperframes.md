@@ -1,3 +1,10 @@
+---
+name: hyperframes
+description: >
+  200k downloads/tháng. Viết HTML → Claude render thành video MP4. Không cần
+  biết edit video. Built for AI agents. Free, Apache 2.0.
+---
+
 # HyperFrames (HeyGen) — Viết HTML, AI Render Thành Video
 
 > 200k downloads/tháng. Viết HTML → Claude render thành video MP4. Không cần biết edit video. Built for AI agents. Free, Apache 2.0.
