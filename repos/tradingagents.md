@@ -1,3 +1,10 @@
+---
+name: tradingagents
+description: >
+  Framework đa-agent mô phỏng phòng giao dịch thật — nhiều AI chuyên trách
+  cùng phân tích và tranh luận trước khi ra lệnh mua/bán. ``` Market Data
+---
+
 # TradingAgents — Phòng Giao Dịch AI Đa-Agent (86k⭐)
 
 **GitHub:** https://github.com/TauricResearch/TradingAgents
