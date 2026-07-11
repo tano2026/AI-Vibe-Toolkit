@@ -1,3 +1,9 @@
+---
+name: supertonic-skill
+description: >
+  Voiceover video, TTS local thay ElevenLabs
+---
+
 # Supertonic — TTS Local $0, 31 Ngôn Ngữ, Không Cần GPU (5.3k⭐)
 
 **Repo:** github.com/supertone-inc/supertonic | MIT (code) + OpenRAIL-M (model)
