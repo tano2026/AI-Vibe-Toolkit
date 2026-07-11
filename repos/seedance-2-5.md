@@ -1,3 +1,13 @@
+---
+name: seedance-2-5
+description: >
+  Model tạo video AI mới nhất của ByteDance (công ty mẹ TikTok) — ra mắt
+  23/6/2026 tại Volcano Engine FORCE Conference. Tạo clip 30 giây native 4K
+  trong một lần generate, nhận 50 reference inputs cùng lúc. Hiện enterprise
+  beta, public launch đầu tháng 7/2026. Seedance 2.0 đang 1 trên Artificial
+  Analysis Video Arena — vượt Google Veo 3.1 và Kling 3.0.
+---
+
 # Seedance 2.5 — GitHub Repo / AI Video Model
 
 ## TL;DR
