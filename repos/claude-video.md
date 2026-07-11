@@ -1,3 +1,13 @@
+---
+name: claude-video
+description: >
+  Skill cho Claude Code (và các host khác) để "xem" video thật sự — không chỉ
+  đọc transcript mà còn đọc từng frame hình ảnh. Dán link
+  YouTube/TikTok/Instagram/X hoặc file local, hỏi 1 câu, Claude tự tải, tách
+  frame, lấy transcript rồi trả lời như người đã xem video thật. 5.3K sao,
+  trending mạnh.
+---
+
 # claude-video (bradautomates/claude-video) — GitHub Repo
 
 ## TL;DR
