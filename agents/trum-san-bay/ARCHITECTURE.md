@@ -111,7 +111,7 @@ Orchestrator:  Hermes (Python, urllib)
 Gateway:       OpenClaw (Node.js, Telegram bot)
 Workflow:      n8n (port 5678, đang chạy trên VPS)
 Queue/CMS:     Airtable
-Visual gen:    SceneWorks (local hoặc GPU VPS)
+Visual gen:    HyperFrames (Node.js, không cần GPU)
 Video render:  ffmpeg
 Storage:       Local VPS /opt/trum-san-bay/assets/
 ```
