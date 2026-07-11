@@ -1,3 +1,12 @@
+---
+name: anthropic-cybersecurity-skills
+description: >
+  817 structured cybersecurity skill files cho AI agent — mapped với 6
+  framework bảo mật lớn nhất (MITRE ATT&CK, NIST CSF, MITRE ATLAS...). Chạy
+  được với Claude Code, Cursor, Copilot, Gemini CLI và 20+ platform. 21.2K
+  stars.
+---
+
 # Anthropic Cybersecurity Skills — GitHub Repo
 
 ## TL;DR
