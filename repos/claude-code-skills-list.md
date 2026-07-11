@@ -1,3 +1,11 @@
+---
+name: claude-code-skills-list
+description: >
+  List 20 skills tốt nhất cho Claude Code chia theo 6 categories. Từ TDD đến
+  MCP builder đến security auditor — cài bằng 1 lệnh, AI coding agent mạnh
+  hơn ngay.
+---
+
 # 20 Claude Code Skills Đáng Thử — Tổng Hợp Đầy Đủ
 
 > List 20 skills tốt nhất cho Claude Code chia theo 6 categories. Từ TDD đến MCP builder đến security auditor — cài bằng 1 lệnh, AI coding agent mạnh hơn ngay.
