@@ -1,3 +1,10 @@
+---
+name: vibe-coding-roadmap
+description: >
+  kamranahmedse/developer-roadmap vừa thêm Vibe Coding Roadmap — lộ trình
+  chính thức cho người không có background kỹ thuật muốn build bằng AI.
+---
+
 # Vibe Coding Roadmap — Lộ Trình Học Từ Zero Đến Build Product Bằng AI
 
 > kamranahmedse/developer-roadmap vừa thêm Vibe Coding Roadmap — lộ trình chính thức cho người không có background kỹ thuật muốn build bằng AI.
