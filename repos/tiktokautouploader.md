@@ -1,3 +1,11 @@
+---
+name: tiktokautouploader
+description: >
+  Python lib upload + schedule video lên TikTok tự động, tự né captcha, tự né
+  bot-detection (Phantomwright), không cần TikTok API chính thức. 273⭐, đang
+  active maintain (update tháng 4/2026).
+---
+
 # TikTokAutoUploader — GitHub Repo
 
 ## TL;DR
