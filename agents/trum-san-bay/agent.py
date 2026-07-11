@@ -250,10 +250,19 @@ def handle_command(cmd, args=""):
 
     elif cmd == "approve":
         try:
-            result = publish_post_safe(args)  # bản có gate + idempotency
-            return f"🚀 Đã đăng lên {len(result.get('post_ids', {}))} platform"
+            # telegram_alert_fn thật sẽ được OpenClaw wire vào lúc gọi hàm này
+            # (Hermes không tự gửi Telegram trực tiếp — trả message, OpenClaw gửi)
+            result = publish_post_safe(args, telegram_alert_fn=None)
+            posted = len(result.get("posted_platforms", []))
+            failed = result.get("failed_platforms", {})
+            msg = f"🚀 Đã đăng lên {posted} platform"
+            if failed:
+                msg += f"\n⚠️ Lỗi: {', '.join(f'{p} ({e})' for p, e in failed.items())}"
+            return msg
         except PipelineGateError as e:
             return f"⛔ {str(e)}"
+        except BudgetExceededError as e:
+            return f"🔴 Vượt budget: ${e.current:.2f}/${e.limit:.2f} — cần review trước khi tiếp tục"
 
     elif cmd == "queue":
         records = airtable_list("content_queue", "status='PENDING_REVIEW'")
