@@ -1,3 +1,11 @@
+---
+name: trek
+description: >
+  Self-hosted trip planner với real-time collaboration, interactive maps,
+  budget tracker, packing lists, PWA support — alternative mã nguồn mở của
+  WanderLog. 6.6K stars. Perfect cho travel brand như ABTRIP/Tano.
+---
+
 # TREK — GitHub Repo
 
 ## TL;DR
