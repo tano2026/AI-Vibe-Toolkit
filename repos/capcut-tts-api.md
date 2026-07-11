@@ -1,3 +1,12 @@
+---
+name: capcut-tts-api
+description: >
+  Python client goi thang CapCut TTS API — lay giong doc CapCut (giong BV074
+  va nhieu giong khac) ma khong can mo app. 177 stars, tac gia VN (@K07VN).
+  Dung de tu dong hoa voiceover video trong pipeline, thay the
+  ElevenLabs/Resona neu may da co tai khoan CapCut.
+---
+
 # capcut-tts-api — GitHub Repo
 
 ## TL;DR
