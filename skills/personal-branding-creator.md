@@ -1,3 +1,11 @@
+---
+name: personal-branding-creator
+description: >
+  Skill này dạy AI cách đóng vai trò trợ lý chiến lược thương hiệu cá nhân,
+  tự lập lịch content phễu và lên kịch bản TikTok/Facebook theo tone giọng
+  chuyên gia thực chiến.
+---
+
 # personal-branding-creator — Skill Phát Triển Nhân Hiệu Đa Kênh
 
 > *Skill này dạy AI cách đóng vai trò trợ lý chiến lược thương hiệu cá nhân, tự lập lịch content phễu và lên kịch bản TikTok/Facebook theo tone giọng chuyên gia thực chiến.*
