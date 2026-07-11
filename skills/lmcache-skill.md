@@ -1,3 +1,10 @@
+---
+name: lmcache-skill
+description: >
+  Repo: github.com/LMCache/LMCache Apache 2.0 Stars: 8.6k Tích hợp với vLLM,
+  SGLang, OpenAI API
+---
+
 # lmcache — Cache LLM Context, Tăng Tốc + Tiết Kiệm Chi Phí (8.6k⭐)
 
 **Repo:** github.com/LMCache/LMCache | Apache 2.0
