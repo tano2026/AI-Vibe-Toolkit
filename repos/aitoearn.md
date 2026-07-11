@@ -1,3 +1,10 @@
+---
+name: aitoearn
+description: >
+  Tool giúp AI agents tự tạo content, tự đăng lên mạng xã hội, tự kiếm tiền —
+  mày setup xong ngồi nhìn tiền vào.
+---
+
 # AiToEarn — Nền Tảng Dùng AI Để Kiếm Tiền Từ Content
 
 > Tool giúp AI agents tự tạo content, tự đăng lên mạng xã hội, tự kiếm tiền — mày setup xong ngồi nhìn tiền vào.
