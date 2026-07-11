@@ -1,3 +1,11 @@
+---
+name: mem0
+description: >
+  48k stars, $24M Series A, YC-backed. Cài vào AI agent — nó nhớ preferences,
+  lịch sử, quyết định của mày. Không cần training. Không cần chờ. Setup 20
+  phút.
+---
+
 # Mem0 — Cho AI Agent Có Ký Ức Thật, Nhớ Mọi Thứ Về Mày
 
 > 48k stars, $24M Series A, YC-backed. Cài vào AI agent — nó nhớ preferences, lịch sử, quyết định của mày. Không cần training. Không cần chờ. Setup 20 phút.
