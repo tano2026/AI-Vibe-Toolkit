@@ -1,3 +1,10 @@
+---
+name: claude-routines
+description: >
+  ``` Check sale Shopify mỗi sáng, báo ROAS về Telegram Quét trend POD:
+  Google Trends đối chiếu TikTok
+---
+
 # Claude Code Routines — Automation Không Cần Máy Bật, Không Cần VPS
 
 **Feature chính thức:** claude.ai/code/routines
