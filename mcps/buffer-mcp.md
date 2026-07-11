@@ -1,3 +1,10 @@
+---
+name: buffer-mcp
+description: >
+  GitHub: https://github.com/jakemeany523/buffer-mcp License: MIT Language:
+  Python
+---
+
 # buffer-mcp — Schedule Social Media Posts Qua Claude (Buffer GraphQL)
 
 **GitHub:** https://github.com/jakemeany523/buffer-mcp
