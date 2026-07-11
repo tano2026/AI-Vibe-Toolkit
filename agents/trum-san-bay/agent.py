@@ -268,3 +268,155 @@ def handle_command(cmd, args=""):
 if __name__ == "__main__":
     # Test local
     print(handle_command("queue"))
+
+
+# === HARNESS — Progress persistence + Pipeline gate (xem HARNESS.md) ===
+
+import fcntl
+import time as _time
+
+STATE_FILE = "/opt/trum-san-bay/state/progress.json"
+STATE_LOCK = "/opt/trum-san-bay/state/progress.lock"
+
+class PipelineGateError(Exception):
+    pass
+
+class BudgetExceededError(Exception):
+    def __init__(self, current, limit):
+        self.current = current
+        self.limit = limit
+        super().__init__(f"Budget exceeded: ${current:.2f} / ${limit:.2f}")
+
+
+def _with_state_lock(fn):
+    """
+    File lock chống race condition — nếu Hermes chạy 2 instance cùng lúc
+    (vd cron trigger trùng lệnh Telegram thủ công), chỉ 1 process được
+    ghi state tại 1 thời điểm.
+    """
+    def wrapper(*args, **kwargs):
+        os.makedirs(os.path.dirname(STATE_LOCK), exist_ok=True)
+        with open(STATE_LOCK, "w") as lockfile:
+            fcntl.flock(lockfile, fcntl.LOCK_EX)
+            try:
+                return fn(*args, **kwargs)
+            finally:
+                fcntl.flock(lockfile, fcntl.LOCK_UN)
+    return wrapper
+
+
+def _load_state():
+    if not os.path.exists(STATE_FILE):
+        return {}
+    with open(STATE_FILE) as f:
+        return json.load(f)
+
+
+@_with_state_lock
+def save_state(content_id, step, status, extra=None):
+    """Gọi SAU MỖI bước trong pipeline, không đợi hết pipeline mới ghi 1 lần."""
+    state = _load_state()
+    state[content_id] = {
+        "step": step,
+        "status": status,
+        "updated_at": datetime.now().isoformat(),
+        "extra": extra or {}
+    }
+    os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+
+
+def resume_incomplete():
+    """Chạy khi Hermes restart — tìm content đang dở để tiếp tục, không làm lại từ đầu."""
+    state = _load_state()
+    return {k: v for k, v in state.items() if v["status"] == "in_progress"}
+
+
+# Gate rule — step nào chỉ được chạy khi Airtable status đang ở đâu
+GATE_RULES = {
+    "writer": ["DRAFT_BRIEF"],
+    "visual": ["CAPTION_READY"],
+    "brand_check": ["ASSET_RAW"],
+    "adapter": ["ASSET_APPROVED"],
+    "publish": ["APPROVED"],  # Publisher CHỈ chạy nếu người đã approve — gate quan trọng nhất
+}
+
+
+def enforce_pipeline_gate(content_id, current_step, record_fields):
+    """
+    Gọi TRƯỚC mỗi bước pipeline. record_fields = fields dict lấy từ Airtable.
+    Không cho agent nhảy cóc step hoặc tự publish khi chưa được approve.
+    """
+    status = record_fields.get("status")
+    allowed_from = GATE_RULES.get(current_step, [])
+    if status not in allowed_from:
+        raise PipelineGateError(
+            f"{content_id} đang ở status={status}, KHÔNG đủ điều kiện chạy "
+            f"bước '{current_step}' (yêu cầu status thuộc {allowed_from})"
+        )
+    return True
+
+
+def publish_post_safe(airtable_record_id):
+    """
+    Bản publish_post() có harness đầy đủ: gate check + idempotency (không
+    đăng trùng platform đã đăng nếu retry sau crash) + progress persistence.
+    THAY THẾ publish_post() gốc — dùng hàm này trong handle_command().
+    """
+    url = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/content_queue/{airtable_record_id}"
+    headers = {"Authorization": f"Bearer {AIRTABLE_API_KEY}"}
+    record = api_call(url, headers=headers)
+    fields = record.get("fields", {})
+
+    # GATE — chặn cứng nếu chưa APPROVED, dù ai gọi hàm này từ đâu
+    enforce_pipeline_gate(airtable_record_id, "publish", fields)
+
+    # Idempotency — check đã đăng platform nào rồi (từ progress.json)
+    state = _load_state().get(airtable_record_id, {})
+    already_posted = state.get("extra", {}).get("posted_platforms", [])
+
+    save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
+
+    post_ids = {}
+
+    if "facebook" not in already_posted:
+        fb_result = api_call(
+            f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/photos", "POST",
+            {"message": fields.get("caption_fb"), "url": fields.get("asset_path")},
+            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        if fb_result.get("id"):
+            post_ids["facebook"] = fb_result["id"]
+            already_posted.append("facebook")
+            save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
+        _time.sleep(1)
+
+    if "instagram" not in already_posted:
+        ig_container = api_call(
+            f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media", "POST",
+            {"image_url": fields.get("asset_path"), "caption": fields.get("caption_ig")},
+            {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+        )
+        if ig_container.get("id"):
+            _time.sleep(2)
+            ig_publish = api_call(
+                f"https://graph.facebook.com/v18.0/{IG_USER_ID}/media_publish", "POST",
+                {"creation_id": ig_container["id"]},
+                {"Authorization": f"Bearer {FB_ACCESS_TOKEN}"}
+            )
+            if ig_publish.get("id"):
+                post_ids["instagram"] = ig_publish["id"]
+                already_posted.append("instagram")
+                save_state(airtable_record_id, "publish", "in_progress", {"posted_platforms": already_posted})
+
+    all_done = len(already_posted) >= 2  # điều chỉnh theo số platform thật cấu hình
+    final_status = "success" if all_done else "failed"
+    save_state(airtable_record_id, "publish", final_status, {"posted_platforms": already_posted})
+
+    airtable_update("content_queue", airtable_record_id, {
+        "status": "POSTED" if all_done else "PARTIAL_FAIL",
+        "post_ids": json.dumps(post_ids)
+    })
+
+    return {"status": final_status, "post_ids": post_ids, "already_posted": already_posted}
