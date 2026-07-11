@@ -1,3 +1,11 @@
+---
+name: x-research-skill
+description: >
+  X/Twitter research agent cho Claude Code và OpenClaw. Wrap X API thành CLI
+  nhanh — AI agent search tweets, pull threads, monitor accounts, get sourced
+  research mà không cần viết curl commands.
+---
+
 # x-research-skill — X/Twitter Research Agent (1146⭐)
 
 **GitHub:** https://github.com/rohunvora/x-research-skill
