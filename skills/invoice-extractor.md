@@ -1,3 +1,10 @@
+---
+name: invoice-extractor
+description: >
+  GitHub: https://github.com/Viprasol-Tech/invoice-extractor License: MIT
+  Output: Validated JSON
+---
+
 # Invoice Extractor — Hóa Đơn/Chứng Từ → JSON Sạch, Tự Kiểm Tra
 
 **GitHub:** https://github.com/Viprasol-Tech/invoice-extractor
