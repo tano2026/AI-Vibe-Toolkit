@@ -255,3 +255,65 @@ OMNIROUTE_API_KEY=your_omniroute_key
 **Lý do thêm:** Không phải agent nào cũng cần Claude. Xem chi tiết phân bổ 
 model theo từng agent tại `skills/llm-router/SKILL.md` — tiết kiệm ~70% 
 chi phí LLM so với dùng Claude cho toàn bộ pipeline.
+
+
+---
+
+## 10. Lấy Refresh Token — YouTube + TikTok (bước thủ công 1 lần)
+
+Publisher giờ tự refresh access token, nhưng cần refresh_token gốc lấy 1 lần qua OAuth flow.
+
+### YouTube — lấy refresh_token
+```bash
+# 1. Vào Google Cloud Console -> OAuth consent screen -> tạo OAuth client
+# 2. Dùng OAuth Playground (developers.google.com/oauthplayground) hoặc script:
+python3 -c "
+import urllib.parse
+params = {
+    'client_id': 'YOUR_CLIENT_ID',
+    'redirect_uri': 'http://localhost',
+    'response_type': 'code',
+    'scope': 'https://www.googleapis.com/auth/youtube.upload',
+    'access_type': 'offline',
+    'prompt': 'consent'
+}
+print('https://accounts.google.com/o/oauth2/v2/auth?' + urllib.parse.urlencode(params))
+"
+# 3. Mở URL trên, đăng nhập, lấy 'code' từ redirect URL
+# 4. Đổi code lấy refresh_token:
+curl -X POST https://oauth2.googleapis.com/token \
+  -d "code=YOUR_CODE&client_id=YOUR_CLIENT_ID&client_secret=YOUR_SECRET&redirect_uri=http://localhost&grant_type=authorization_code"
+# Response chứa "refresh_token" — lưu vào env YOUTUBE_REFRESH_TOKEN
+```
+
+### TikTok — lấy refresh_token
+```bash
+# 1. TikTok Developer Portal -> app -> Login Kit -> tạo authorization URL
+# 2. User authorize -> redirect trả về "code"
+# 3. Đổi code lấy token:
+curl -X POST https://open.tiktokapis.com/v2/oauth/token/ \
+  -d "client_key=YOUR_KEY&client_secret=YOUR_SECRET&code=YOUR_CODE&grant_type=authorization_code&redirect_uri=YOUR_REDIRECT"
+# Response chứa "refresh_token" — lưu vào env TIKTOK_REFRESH_TOKEN
+```
+
+```bash
+# Set thêm vào pm2 env
+YOUTUBE_REFRESH_TOKEN=1//xxxxxxxxxxxxx
+TIKTOK_REFRESH_TOKEN=xxxxxxxxxxxxx
+```
+
+> ⚠️ Đây là bước làm 1 LẦN DUY NHẤT lúc setup — sau đó `agent.py` tự động 
+> refresh access_token mỗi khi gần hết hạn, không cần lặp lại thủ công.
+> TikTok có thể rotate refresh_token — dashboard sẽ cảnh báo nếu cần cập nhật.
+
+---
+
+## 11. Pipeline Dashboard (tùy chọn, khuyến nghị bật)
+
+```bash
+mkdir -p /opt/trum-san-bay/dashboard
+# copy dashboard_server.py + dashboard.html từ skills/pipeline-dashboard/SKILL.md
+pm2 start /opt/trum-san-bay/dashboard/dashboard_server.py --name tsb-dashboard --interpreter python3
+```
+
+Xem trạng thái pipeline trực quan tại `http://<vps-ip>:8899` — không bắt buộc nhưng giúp debug nhanh hơn nhiều so với đọc `progress.json` bằng tay.
