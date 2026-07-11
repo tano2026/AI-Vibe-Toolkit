@@ -1,3 +1,10 @@
+---
+name: continue
+description: >
+  Stars: 33.7k⭐ Forks: 4.7k License: Apache 2.0 Tác giả: Continue Dev, Inc.
+  Tạo: 5/2023
+---
+
 # Continue — Coding Agent Open-Source (VS Code + JetBrains + CLI)
 
 **GitHub:** https://github.com/continuedev/continue
