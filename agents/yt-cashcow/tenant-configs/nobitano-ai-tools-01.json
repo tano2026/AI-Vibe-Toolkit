@@ -1,0 +1,52 @@
+{
+  "tenant_id": "nobitano-ai-tools-01",
+  "channel_name": "TBD — cần Nobitano đặt tên kênh thật trước khi tạo YouTube channel",
+  "niche": "AI tool reviews — real cost/benchmark data, not hype. Góc: chi phí thực tế, so sánh benchmark, không phải 'làm giàu với AI'",
+  "brand_voice": {
+    "tone": "casual-expert — như dân trong nghề giải thích cho bạn, không hype/không quá formal",
+    "language": "en",
+    "banned_topics": [
+      "chính trị",
+      "y tế cụ thể / medical advice",
+      "tài chính advice cụ thể (đầu tư/trading) — tránh framing financial advice",
+      "legal advice"
+    ],
+    "sample_scripts": []
+  },
+  "platforms": {
+    "youtube": {"enabled": true, "upload_credentials_ref": "PENDING — chưa đăng ký Upload-Post"},
+    "tiktok": {"enabled": false, "note": "tắt ở MVP — theo deploy-checklist.md, tăng dần không mở đồng thời"},
+    "instagram": {"enabled": false},
+    "facebook": {"enabled": false}
+  },
+  "compliance": {
+    "structure_similarity_threshold": 8,
+    "hook_similarity_threshold": 6,
+    "claim_overlap_threshold": 0.4,
+    "min_commentary_ratio": 0.15,
+    "review_sample_rate": 0.1,
+    "_note": "Giá trị mặc định từ compliance-gate/SKILL.md — KHÔNG tự hạ, theo nguyên tắc TENANT-CONFIG-SCHEMA.md"
+  },
+  "render_engine_config": {
+    "engine": "moneyprinterturbo",
+    "tts_provider": "edge",
+    "_note": "F5-TTS (brand voice riêng) là nâng cấp giai đoạn sau, không phải MVP",
+    "resolution_long": "1920x1080",
+    "resolution_short": "1080x1920"
+  },
+  "schedule": {
+    "trend_scan_frequency": "daily",
+    "publish_cap_per_day": 1,
+    "_note": "Bắt đầu 1 video/ngày, KHÔNG batch nhiều video/ngày ngay từ đầu — theo deploy-checklist.md"
+  },
+  "billing_tier": "internal",
+  "_status": {
+    "stage": "config đã điền, CHƯA deploy, CHƯA chạy video nào",
+    "blocking_items": [
+      "MoneyPrinterTurbo chưa deploy trên VPS (cần Antigravity)",
+      "Upload-Post chưa đăng ký (cần Nobitano)",
+      "Airtable base yt-cashcow-log chưa tạo (cần Nobitano/Antigravity)",
+      "channel_name chưa chốt, kênh YouTube chưa tạo"
+    ]
+  }
+}
