@@ -1675,3 +1675,20 @@ khong dung 1 engine co dinh cho moi video:
 - Thumbnail luon tach rieng qua Pollinations, khong cat tu b-roll
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow — Tenant config dau tien CHOT (07/2026)
+
+agents/yt-cashcow/tenant-configs/nobitano-ai-tools-01.json - niche da chot:
+"AI tool reviews - data that, khong hype". Da loai nganh "giai ma so phan"
+(ca ban ngoai lan VN) sau khi research: ban ngoai can pivot BaZi + localize
+tu dau, ban VN RPM thap 20-60 lan so voi US/UK/AU nen mau thuan voi ly do
+goc chon huong "YouTube ngoai".
+
+Status: config da dien, CHUA deploy, CHUA chay video nao. Blocking items
+ghi ro trong file: MoneyPrinterTurbo chua deploy (can Antigravity), Upload-Post
+chua dang ky, Airtable base chua tao, channel_name chua chot.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
