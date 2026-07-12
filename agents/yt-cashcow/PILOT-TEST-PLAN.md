@@ -17,17 +17,20 @@ gốc từ chính quá trình build kênh — không phải AI generate mù, đ�
 **structure_type:** `comparison` — dùng stock footage, không cần nhánh AI-gen
 visual còn chưa test (đúng CONTENT-PRODUCTION-MODEL.md).
 
-## Các bước — chạy tay, không qua Hermes/cron
+## Các bước — chạy tay, trên máy LOCAL, không đụng VPS production
 
 | # | Bước | Ai làm | Ghi chú |
 |---|---|---|---|
-| 1 | Antigravity chạy Phase 0-2 trong runbook deploy (check tài nguyên, deploy MoneyPrinterTurbo, set env) | Antigravity | Đã có brief chi tiết ở lượt trước |
-| 2 | Viết script tay (~300-400 từ, giọng casual-expert theo `brand_voice` đã chốt) | Nobitano hoặc Claude (chat này) | Không qua Script Variation Engine — chưa cần tự động lần đầu |
-| 3 | Tính fingerprint script này TAY theo công thức trong `compliance-gate/SKILL.md` (structure_type, hook_type, unique_claims, commentary_ratio) | Claude (chat này) | Không phải để CHẶN — để **ghi lại làm gốc**, video #2 mới có cái để so sánh |
-| 4 | Nhập script vào WebUI MoneyPrinterTurbo (`localhost:8501` qua SSH tunnel), chọn TTS=Edge, resolution 1920x1080 | Nobitano | Đúng Phase 5 runbook trước |
+| 1 | Cài Docker Desktop (Win/Mac) hoặc Docker Engine (Linux) trên máy local | Nobitano | Check trước: `nproc`/`free -h` (Linux/Mac) hoặc Task Manager (Win) — cần ≥4 core/4GB rảnh |
+| 1b | `git clone` MoneyPrinterTurbo, sửa `config.toml` trỏ LLM qua OmniRoute (endpoint public trên VPS, gọi qua internet — VPS không phải gánh việc render) | Nobitano | `docker-compose up -d` |
+| 2 | Viết script tay (~300-400 từ, giọng casual-expert theo `brand_voice` đã chốt) | Claude (chat này) — đã soạn sẵn bên dưới | Không qua Script Variation Engine — chưa cần tự động lần đầu |
+| 3 | Tính fingerprint script này TAY theo công thức trong `compliance-gate/SKILL.md` | Claude (chat này) — đã tính sẵn bên dưới | Ghi lại làm gốc, video #2 mới có cái để so sánh |
+| 4 | Nhập script vào WebUI MoneyPrinterTurbo — mở thẳng `localhost:8501` trên trình duyệt máy local, chọn TTS=Edge, resolution 1920x1080 | Nobitano | Không cần SSH tunnel vì chạy local |
 | 5 | Xem video render ra — chấm tay: TTS nghe tự nhiên không, b-roll khớp nội dung không, subtitle đúng timing không, tổng thời gian render bao lâu | Nobitano | Đây là điểm quan trọng nhất của cả pilot |
 | 6 | Nếu OK → upload TAY lên YouTube (không qua Upload-Post), tự bật toggle "Altered/synthetic content" tay | Nobitano | Chưa cần OAuth setup cho 1 video |
-| 7 | Ghi lại fingerprint (bước 3) vào 1 file tạm (chưa cần Airtable thật cho 1 video) | Claude (chat này) | Làm gốc, để lúc build Airtable thật thì có sẵn record #1 |
+| 7 | Ghi lại fingerprint (bước 3) vào 1 file tạm | Claude (chat này) | Làm gốc cho lúc build Airtable thật |
+
+**Giới hạn của local — chỉ dùng cho pilot, không phải quyết định lâu dài:** không chạy 24/7, không tự động, không Hermes gọi tới được. Sau khi pilot pass mới quyết định hạ tầng thật (VPS riêng hay dùng chung).
 
 ## Tiêu chí để coi pilot THÀNH CÔNG
 
