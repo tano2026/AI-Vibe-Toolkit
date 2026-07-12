@@ -1641,3 +1641,21 @@ co monetize AI content hay khong dang MAU THUAN giua nguon third-party — SKILL
 ghi ro can tu verify lai truc tiep trong TikTok Creator Portal, khong dung so lieu cu.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow tong quat hoa -> SaaS-ready (07/2026)
+
+Tach engine chung khoi config rieng tung kenh, chuan bi cho ban Fullstack SaaS sau nay:
+
+| File | Vai tro |
+|---|---|
+| agents/yt-cashcow/CORE-BRAIN.md | State machine that (khong phai LLM tu quyet luong) - moi node nhan tenant_id, khong hardcode |
+| agents/yt-cashcow/TENANT-CONFIG-SCHEMA.md | Schema ca nhan hoa (niche/brand_voice/platforms/schedule) - RIENG compliance threshold KHONG cho tenant tu chinh |
+| agents/yt-cashcow/SAAS-BLUEPRINT.md | 3 giai doan: MVP 1 tenant (hien tai) -> multi-tenant noi bo -> SaaS that (can Supabase thay Airtable, Stripe billing, UI rieng) |
+
+Nguyen tac xuyen suot: Compliance Gate + Platform Disclosure Adapter la hard-coded
+logic chung, khong phai feature ban theo tier, tenant khong tat duoc du VIP.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages (yt-cashcow nay da SaaS-ready blueprint)**
