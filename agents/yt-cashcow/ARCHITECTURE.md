@@ -43,6 +43,51 @@ render 1 video rồi mới biết fail, phải render lại. Đặt Gate NGAY SA
 text (trước khi tốn TTS+render) → rẻ hơn, nhanh hơn, và đúng nguyên tắc harness:
 chặn lỗi sớm nhất có thể trong pipeline, không để lỗi lan xuống bước tốn tài nguyên hơn.
 
+## Mở rộng đa nền tảng — sau Compliance Gate, trước Publisher
+
+```
+        (video pass Compliance Gate)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │  YouTube long-form     │  ← master content, render trực tiếp
+        │  (16:9, MoneyPrinterTurbo) │  qua MoneyPrinterTurbo
+        └───────────┬────────────┘
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │  shortcast cắt bản     │  ← không render lại từ đầu, cắt
+        │  9:16 từ long-form      │  on-device (tiết kiệm compute)
+        └───────────┬────────────┘
+                    │
+        ┌───────────┼───────────┬──────────────┐
+        ▼           ▼           ▼              ▼
+   YT Shorts     TikTok        IG Reels      Facebook Reels
+        │           │           │              │
+        ▼           ▼           ▼              ▼
+  ┌─────────────────────────────────────────────────┐
+  │       PLATFORM DISCLOSURE ADAPTER                 │
+  │  (skills/platform-disclosure-adapter/SKILL.md)    │
+  │  YouTube: toggle metadata (honor-system)          │
+  │  TikTok:  toggle BẮT BUỘC (C2PA auto-detect,      │
+  │           không né được — khác cơ chế YouTube)    │
+  │  Meta:    toggle (enforcement lỏng hơn TikTok)    │
+  └───────────┬───────────┬───────────┬───────────────┘
+              ▼           ▼           ▼
+      Upload-Post   TikTokAuto-  meta-mcp-server
+      (trong MPT)   Uploader     / Buffer MCP
+```
+
+**Vì sao không publish 1 video y hệt ra cả 3 nơi:** ngoài lý do kỹ thuật (aspect
+ratio khác), publish y hệt cross-platform còn vô tình tạo cảm giác "mass-produce"
+nếu ai đó thấy cùng 1 video ở nhiều nơi cùng lúc không có biến thể gì — bản cắt
+qua shortcast tự nhiên khác nhau về độ dài/pacing giữa các platform, giảm rủi ro
+này thêm 1 lớp.
+
+**TikTok là platform rủi ro cao nhất trong 3** — cơ chế C2PA phát hiện tự động,
+không dựa vào tự khai như YouTube. Compliance Gate + Disclosure Adapter đều bắt
+buộc chạy đầy đủ cho nhánh TikTok, không rút gọn quy trình vì "chỉ là video ngắn".
+
 ## State/Memory — theo pattern hermes-memory-layer đang pending
 
 Không dùng bộ nhớ trong context của LLM (sẽ mất khi restart). Dùng Airtable base
