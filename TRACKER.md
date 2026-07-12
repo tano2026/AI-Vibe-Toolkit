@@ -1709,3 +1709,19 @@ Nguyen tac: KHONG xay Airtable/automation/multi-platform truoc khi co toi thieu
 1 video chay thanh cong bang tay.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow — San sang bat tay lam pilot (07/2026)
+
+PILOT-TEST-PLAN.md chuyen sang chay LOCAL (khong dung VPS production, tranh
+rui ro anh huong Hermes/OpenClaw dang chay on dinh). PILOT-VIDEO-01.md da
+soan san script that (~360 tu, chu de so sanh 3 AI video tool) + fingerprint
+tinh tay theo dung cong thuc compliance-gate - lam record goc cho video #2
+so sanh sau nay.
+
+Trang thai: cho Nobitano cai Docker local + docker-compose up MoneyPrinterTurbo,
+nhap script co san vao WebUI, render thu, cham theo 5 tieu chi PASS.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
