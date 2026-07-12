@@ -27,10 +27,14 @@
 | Não — SEO | youtube-marketing-skills (21 command) | `skills/youtube-marketing/SKILL.md` (có sẵn kho) |
 | Não — Thumbnail/Title | claude-ads → ads-youtube | `skills/claude-ads/ads-youtube.md` (có sẵn kho) |
 | Não — Compliance | Compliance Gate (mới, BẮT BUỘC) | `skills/compliance-gate/SKILL.md` (package này) |
+| Não — Disclosure đa nền tảng | Platform Disclosure Adapter (mới, BẮT BUỘC cho TikTok) | `skills/platform-disclosure-adapter/SKILL.md` (package này) |
 | Tay — Engine chính | MoneyPrinterTurbo (script+TTS+broll+subtitle+render+upload) | `repos/moneyprinterturbo.md` (có sẵn kho) |
 | Tay — Trend research | MediaCrawler + mcp-youtube (transcript) | `repos/mediacrawler.md`, `mcps/mcp-youtube.md` (có sẵn kho) |
 | Tay — Voice thay thế | Resona / F5-TTS (nếu cần chất lượng hơn Edge-TTS free) | `skills/resona.md`, `repos/f5-tts.md` (có sẵn kho) |
 | Tay — LLM routing | OmniRoute (231 provider, 1.6B token/tháng free) | `repos/omniroute.md` (có sẵn kho) |
+| Tay — Upload TikTok | TikTokAutoUploader (né captcha, cookie login 1 lần) | `repos/tiktokautouploader.md` (có sẵn kho) |
+| Tay — Upload Meta | meta-mcp-server (IG/FB/Threads) hoặc Buffer MCP (cross-platform schedule) | `mcps/meta-mcp-server.md`, `mcps/buffer-mcp.md` (có sẵn kho) |
+| Tay — Cắt long-form → Shorts | shortcast (on-device, không cloud) | `repos/shortcast.md` (có sẵn kho) |
 | Cơ — Orchestrate | OpenClaw + n8n cron | infra sẵn có |
 | Cơ — State/log | Airtable (theo pattern hermes-memory-layer đang pending) | mới, cần setup |
 
