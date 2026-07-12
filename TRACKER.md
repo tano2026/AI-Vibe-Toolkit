@@ -1692,3 +1692,20 @@ ghi ro trong file: MoneyPrinterTurbo chua deploy (can Antigravity), Upload-Post
 chua dang ky, Airtable base chua tao, channel_name chua chot.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow — PILOT-TEST-PLAN cu the (07/2026)
+
+agents/yt-cashcow/PILOT-TEST-PLAN.md - thu hep toi da tu ban chung, chi test
+1 video bang tay, khong qua cron/automation/compliance-gate that (video #1
+khong co lich su de so sanh - chi tinh fingerprint de lam goc cho video #2).
+
+Chu de pilot: so sanh 3 AI video tool (MoneyPrinterTurbo/OpenMontage/Pollinations)
+dung chinh so lieu that da verify luc research kho - unique content, khong hype.
+
+Nguyen tac: KHONG xay Airtable/automation/multi-platform truoc khi co toi thieu
+1 video chay thanh cong bang tay.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
