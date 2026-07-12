@@ -1626,3 +1626,18 @@ kien truc chinh.
 | YT Cashcow — YouTube ngoai automation agent | agents/yt-cashcow/ | Orchestrator + 3 skill moi (compliance-gate, trend-scout, script-variation-engine). Compliance Gate la node BAT BUOC, dung giua pipeline (truoc render, sau script) — chan Inauthentic Content Policy dua tren case that 1/2026 (16 kenh/35M sub/4.7 ty view bi xoa). Verify thong so MoneyPrinterTurbo that: 4-8 core/4-8GB RAM, khong can GPU voi cloud LLM+Edge-TTS — chay duoc tren VPS hien tai khong can nang cap. |
 
 **Kho: 118 repos | 38 MCPs | 87 skills | 146 scripts | 6 agent packages (research-pro, research-analytics-pro, smb-ai-team, sales-ceo, infra-ops-agent, yt-cashcow) + 3 core VPS playbook**
+
+
+---
+
+## Mo rong yt-cashcow — da nen tang (07/2026)
+
+Them skills/platform-disclosure-adapter/SKILL.md — xu ly disclosure AI content
+rieng cho tung platform (YouTube honor-system, TikTok C2PA auto-detect BAT BUOC
+khong ne duoc, Meta long hon). Ghep them tool co san kho: tiktokautouploader,
+meta-mcp-server, buffer-mcp, shortcast (cat long-form -> Shorts on-device).
+Luu y quan trong: du lieu ve TikTok Creativity Program vs Creator Rewards Program
+co monetize AI content hay khong dang MAU THUAN giua nguon third-party — SKILL.md
+ghi ro can tu verify lai truc tiep trong TikTok Creator Portal, khong dung so lieu cu.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
