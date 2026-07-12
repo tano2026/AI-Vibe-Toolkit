@@ -1609,3 +1609,20 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | 117 | Skill | Agentic Loop Optimizer | /skills/agentic-loop-optimizer.md | Đã push | /content/script-video-152-agentic-loop-optimizer.md | 2026-07-10 |
 | 118 | Repo | DramaClaw | /repos/dramaclaw.md | Đã push | /content/script-video-153-dramaclaw.md | 2026-07-10 |
 | 117 | Repo | SceneWorks | /repos/sceneworks.md | Đã push | /content/script-video-154-sceneworks.md | 2026-07-11 |
+
+
+---
+
+## Agent package moi — YT Cashcow (07/2026)
+
+Ghep tool co san trong kho (khong build lai tu 0): MoneyPrinterTurbo (engine chinh:
+script+TTS+broll+subtitle+render+Upload-Post) + MediaCrawler + mcp-youtube (trend)
++ viral-hooks + youtube-marketing-skills + claude-ads/ads-youtube (co san kho) +
+OmniRoute (LLM routing). Ap dung khung Harness Engineering (skill co san kho) lam
+kien truc chinh.
+
+| Ten | Path | Ghi chu |
+|---|---|---|
+| YT Cashcow — YouTube ngoai automation agent | agents/yt-cashcow/ | Orchestrator + 3 skill moi (compliance-gate, trend-scout, script-variation-engine). Compliance Gate la node BAT BUOC, dung giua pipeline (truoc render, sau script) — chan Inauthentic Content Policy dua tren case that 1/2026 (16 kenh/35M sub/4.7 ty view bi xoa). Verify thong so MoneyPrinterTurbo that: 4-8 core/4-8GB RAM, khong can GPU voi cloud LLM+Edge-TTS — chay duoc tren VPS hien tai khong can nang cap. |
+
+**Kho: 118 repos | 38 MCPs | 87 skills | 146 scripts | 6 agent packages (research-pro, research-analytics-pro, smb-ai-team, sales-ceo, infra-ops-agent, yt-cashcow) + 3 core VPS playbook**
