@@ -1659,3 +1659,19 @@ Nguyen tac xuyen suot: Compliance Gate + Platform Disclosure Adapter la hard-cod
 logic chung, khong phai feature ban theo tier, tenant khong tat duoc du VIP.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages (yt-cashcow nay da SaaS-ready blueprint)**
+
+
+---
+
+## yt-cashcow — Content Production Model 4 lop (07/2026)
+
+agents/yt-cashcow/CONTENT-PRODUCTION-MODEL.md - re nhanh theo structure_type,
+khong dung 1 engine co dinh cho moi video:
+- List/comparison/tutorial -> stock footage (Pexels/Pixabay qua MoneyPrinterTurbo)
+- Narrative/case-study -> AI-gen visual co consistency (SceneWorks/fal-mcp) +
+  assembly qua OpenMontage/ViMax thay vi MoneyPrinterTurbo
+- TTS: Edge-TTS mac dinh, F5-TTS khi can brand voice nhat quan (tin hieu
+  "genuine creative fingerprint" theo dung dinh nghia Inauthentic Content policy)
+- Thumbnail luon tach rieng qua Pollinations, khong cat tu b-roll
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
