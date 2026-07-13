@@ -1725,3 +1725,22 @@ Trang thai: cho Nobitano cai Docker local + docker-compose up MoneyPrinterTurbo,
 nhap script co san vao WebUI, render thu, cham theo 5 tieu chi PASS.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow — Ten kenh CHOT: Actually Tested (07/2026)
+
+agents/yt-cashcow/BRAND-IDENTITY.md - brand identity day du: mau charcoal +
+electric teal, style prefix Pollinations co dinh, logo concept, cong thuc
+thumbnail. Da loai 3 ten trung (No Hype AI, The AI Ledger, The Real Cost -
+deu la brand/kenh dang hoat dong that, verify qua web search).
+
+tenant-configs/nobitano-ai-tools-01.json cap nhat channel_name + doi
+image_source_default sang pollinations_ai_gen (tu bai hoc pilot video #2:
+stock footage khong khop content dang explainer).
+
+Con thieu: tu tay check handle @ActuallyTested con trong, tao avatar/banner,
+tao kenh YouTube that.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
