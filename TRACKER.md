@@ -1759,3 +1759,19 @@ da CHOT: "Actually Tested". Viec tiep theo va nguyen tac KHONG duoc pha vo
 da liet ke chi tiet trong HANDOFF.md.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+---
+
+## trum-san-bay — 5 script video dau tien de day follow len 1000 (07/2026)
+
+content/script-video-155 den 159 - 5 script TikTok hoan chinh (hook + voiceover
+ElevenLabs-ready + ghi chu hinh anh Pollinations + caption CapCut + thumbnail
+Canva + CTA), viet theo dung brand-voice/SKILL.md da build (persona anh 15 nam
+kinh nghiem san bay). Chu de: check-in kiosk, loi hanh ly xach tay, Fast Track,
+doi tien san bay, sim du lich - mix TOFU (meo mien phi) va BOFU (Fast Track/SIM)
+de vua cau follow vua dan ve dich vu.
+
+Muc tieu: kenh @trumsanbay dang 44 follow, can 1000 follow de mo Shop + trang
+trung bay. Uu tien dang deu 1 video/ngay, khong dan trai nhieu pillar cung luc.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 151 scripts | 6 agent packages**
