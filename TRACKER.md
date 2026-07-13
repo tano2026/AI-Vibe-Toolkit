@@ -1744,3 +1744,18 @@ Con thieu: tu tay check handle @ActuallyTested con trong, tao avatar/banner,
 tao kenh YouTube that.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
+
+
+---
+
+## yt-cashcow — HANDOFF ban giao (07/2026)
+
+agents/yt-cashcow/HANDOFF.md - file TOM TAT toan bo tien do, doc file nay
+DAU TIEN neu tiep tuc project yt-cashcow. Tom luoc: da thiet ke xong blueprint
+day du, da chay pilot that tren LOCAL, video render thanh cong ky thuat nhung
+b-roll khong khop noi dung (da tim nguyen nhan + huong sua: doi sang Pollinations
+AI-gen anh + doi structure content sang narrative/explainer). Ten kenh + brand
+da CHOT: "Actually Tested". Viec tiep theo va nguyen tac KHONG duoc pha vo
+da liet ke chi tiet trong HANDOFF.md.
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 146 scripts | 6 agent packages**
