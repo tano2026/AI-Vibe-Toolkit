@@ -1833,3 +1833,26 @@ nhat neu chay nham lenh pha VPS). OpenCut can luu y: nhanh main dang REWRITE, ba
 la opencut-classic. ai-hedge-fund chi de hoc kien truc multi-agent, khong dung dau tu that.
 
 **Kho: 122 repos | 38 MCPs | 88 skills | 164 scripts | 7 agent packages | 4 stacks**
+
+
+---
+
+## Batch trending GitHub 15/07/2026
+
+Nguon: danh sach top 5 trending + bonus 4 repo user gui. Da SKIP 4/9 vi TRUNG voi kho san co:
+OpenCut-app/OpenCut, Graphify-Labs/graphify, HKUDS/Vibe-Trading, virattt/ai-hedge-fund,
+Shubhamsaboo/awesome-llm-apps (5 cai trung, khong ghi lai). Da SKIP 2 cai vi khong lien quan
+niche vibe-coding/AI agency: Raphire/Win11Debloat (Windows debloat tool), par274/sharpemu
+(PS5 emulator).
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| Nutlope/hallmark | repos/hallmark.md | 6.5k | script-video-165 |
+| penpot/penpot | repos/penpot.md | 56.4k | script-video-166 |
+
+Highlight: hallmark la anti-AI-slop design skill cho Claude Code/Cursor/Codex - hop thang voi
+ui-component-forge skill da co, dung lam lop filter chong UI generic truoc khi ship cho khach
+(An Binh, Wonder Mart). penpot la Figma alternative mo nguon tu host duoc, co MCP server rieng -
+de xuat dung cho brand board An Binh Airport Services de giu data trong nha thay vi tra seat Figma.
+
+**Kho: 124 repos | 38 MCPs | 88 skills | 166 scripts | 7 agent packages | 4 stacks**
