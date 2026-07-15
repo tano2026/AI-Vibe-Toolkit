@@ -1793,3 +1793,21 @@ theo skill trigger).
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 160 scripts | 6 agent packages | 4 stacks**
 
+
+
+---
+
+## Agent package moi — An Binh / ABTRIP Ops Analyst (07/2026)
+
+agents/anbinh-travel-ops-analyst/ — agent phan tich cho ABTRIP + An Binh Airport Services,
+sinh boi quy trinh agentic-factory. Muc tu chu: TRA CUU + PHAN TICH, khong hanh dong (khong
+tu gui email/ghi CRM/dang content). 6 skill: source-evaluation (bat buoc nen), aviation-policy-
+lookup, customer-pattern-analysis, competitive-intel-ground-handling, ota-content-strategy,
+data-storytelling. Guardrail chinh: moi thong tin chinh sach hang khong/nhap canh PHAI qua
+source-evaluation + web search moi nhat, khong tra loi tu tri nho, luon kem disclaimer.
+
+Kien truc: Orchestrator -> Collector -> Validator (source-eval, bat buoc) -> Analyst (pandas)
+-> Synthesizer (data-storytelling). Khong co tang Action/Confirm - neu nang cap len muc hanh
+dong phai them Executor + Confirm rieng (xem ARCHITECTURE.md).
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 160 scripts | 7 agent packages | 4 stacks**
