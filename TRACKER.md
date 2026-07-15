@@ -1811,3 +1811,25 @@ Kien truc: Orchestrator -> Collector -> Validator (source-eval, bat buoc) -> Ana
 dong phai them Executor + Confirm rieng (xem ARCHITECTURE.md).
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 160 scripts | 7 agent packages | 4 stacks**
+
+
+---
+
+## Batch 4 repo trending GitHub 14/07/2026
+
+Nguon: danh sach 5 repo trending user gui. Da SKIP #2 mattpocock/skills vi TRUNG voi
+repos/mattpocock-skills.md da co san trong kho.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| Dicklesworthstone/destructive_command_guard | repos/destructive-command-guard.md | 4.5k | script-video-161 |
+| Shubhamsaboo/awesome-llm-apps | repos/awesome-llm-apps.md | 121k | script-video-162 |
+| OpenCut-app/OpenCut | repos/opencut.md | 69.4k | script-video-163 |
+| virattt/ai-hedge-fund | repos/ai-hedge-fund.md | 61.9k | script-video-164 |
+
+Highlight: destructive_command_guard ho tro NATIVE Hermes Agent - da them Agent Integration
+section huong dan cai cho ca Hermes va Antigravity (2 agent co quyen shell/deploy, rui ro cao
+nhat neu chay nham lenh pha VPS). OpenCut can luu y: nhanh main dang REWRITE, ban dung duoc
+la opencut-classic. ai-hedge-fund chi de hoc kien truc multi-agent, khong dung dau tu that.
+
+**Kho: 122 repos | 38 MCPs | 88 skills | 164 scripts | 7 agent packages | 4 stacks**
