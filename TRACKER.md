@@ -1775,3 +1775,21 @@ Muc tieu: kenh @trumsanbay dang 44 follow, can 1000 follow de mo Shop + trang
 trung bay. Uu tien dang deu 1 video/ngay, khong dan trai nhieu pillar cung luc.
 
 **Kho: 118 repos | 38 MCPs | 88 skills | 151 scripts | 6 agent packages**
+
+---
+
+## Stack moi — Small Business + Brock Skill Pack (07/2026)
+
+| # | Ten | File | Script | Video |
+|---|-----|------|--------|-------|
+| 4 | Small Business + Brock Skill Pack (Claude Cowork) | stacks/small-business-cowork-skillpacks.md | content/script-video-160-small-business-skillpacks.md | ⏳ |
+
+Ghep 2 bo skill: `skills-small-business` (31 skill chinh chu Anthropic — van hanh so sach,
+CRM, hoa don, tuyen dung) + `skills-brock-pack` (15 skill ben thu ba tren Gumroad cua creator
+Brock — brief sang, quick research, email drafter, slide deck builder), cong voi connectors
+QuickBooks/Gmail/Slack/HubSpot. Da ghi ro brock-pack la third-party khong phai chinh chu, va
+so sanh voi pattern Harness Engineering (thieu state machine cung, phu thuoc LLM tu quyet luong
+theo skill trigger).
+
+**Kho: 118 repos | 38 MCPs | 88 skills | 160 scripts | 6 agent packages | 4 stacks**
+
