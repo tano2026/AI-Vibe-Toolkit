@@ -1856,3 +1856,23 @@ ui-component-forge skill da co, dung lam lop filter chong UI generic truoc khi s
 de xuat dung cho brand board An Binh Airport Services de giu data trong nha thay vi tra seat Figma.
 
 **Kho: 124 repos | 38 MCPs | 88 skills | 166 scripts | 7 agent packages | 4 stacks**
+
+
+---
+
+## Stack moi 15/07/2026 — Second Brain (Obsidian + Claude + Git)
+
+Nguon: Nobitano hoi ve Obsidian ("bo nao thu 2"), khong fit vao MCP/Skill/Repo (app dong
+nguon, khong co repo de clone) nen quyet dinh lam Stack. Pattern goi la COG (Claude +
+Obsidian + Git) - vault markdown local, Claude doc/ghi qua MCP hoac skill co san
+desktop-commander:obsidian-vault, Git giu lich su + backup thay Obsidian Sync tra phi.
+
+| Stack | File | Script |
+|-------|------|--------|
+| Second Brain - Obsidian + Claude + Git | stacks/second-brain-obsidian-claude.md | script-video-167 |
+
+Highlight: de xuat dung nhu lop "bo nho nhap" ca nhan truoc khi format vao kho
+AI-Vibe-Toolkit chinh thuc - ghi note tho trong Obsidian (offline, nhanh), Claude doc lai
+qua MCP roi viet thanh file chuan template nhu quy trinh cu.
+
+**Kho: 124 repos | 38 MCPs | 88 skills | 167 scripts | 7 agent packages | 5 stacks**
