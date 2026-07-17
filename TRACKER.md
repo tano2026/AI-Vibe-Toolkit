@@ -1876,3 +1876,4 @@ AI-Vibe-Toolkit chinh thuc - ghi note tho trong Obsidian (offline, nhanh), Claud
 qua MCP roi viet thanh file chuan template nhu quy trinh cu.
 
 **Kho: 124 repos | 38 MCPs | 88 skills | 167 scripts | 7 agent packages | 5 stacks**
+| 119 | Agent | RIO Brain v2.0 | /agents/rio-bot/ | Đã push | — | 2026-07-17 |
