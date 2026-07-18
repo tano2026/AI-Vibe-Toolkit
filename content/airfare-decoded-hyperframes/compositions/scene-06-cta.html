@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        #root { position: absolute; inset: 0; display: grid; place-items: center;
+                font-family: "Patrick Hand", "Comic Sans MS", cursive; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-cta" data-width="1920" data-height="1080">
+        <div style="text-align:center;">
+          <h2 id="c6-title" style="font-size:100px; margin:0; color:#111;">The airline industry, <span class="accent">decoded.</span></h2>
+          <p id="c6-sub" style="font-size:48px; color:#8a8a86; font-family: Inter, system-ui, sans-serif;">New insider explainer every week — Subscribe</p>
+          <div id="c6-btn" style="display:inline-block; margin-top:30px; padding:24px 70px; background:#d92b2b; color:#fff; font-size:54px; border-radius:60px;">SUBSCRIBE</div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        tl.from("#c6-title", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+        tl.from("#c6-sub", { opacity: 0, duration: 0.6 }, 1.2);
+        tl.from("#c6-btn", { scale: 0, duration: 0.6, ease: "back.out(2)" }, 1.8);
+        /* pulse HỮU HẠN — contract cấm repeat:-1 */
+        tl.to("#c6-btn", { scale: 1.06, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 2.6);
+
+        window.__timelines["scene-cta"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
