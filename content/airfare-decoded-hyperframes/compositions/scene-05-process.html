@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        #root { position: absolute; inset: 0; font-family: "Patrick Hand", "Comic Sans MS", cursive; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-process" data-width="1920" data-height="1080">
+        <h2 id="c5-title" style="position:absolute; top:70px; width:100%; font-size:76px; margin:0; text-align:center; color:#111;">What happens when you hit "Search"</h2>
+
+        <svg id="c5-line" viewBox="0 0 1600 80" style="position:absolute; top:520px; left:160px; width:1600px; height:80px;">
+          <path id="c5-line-path" d="M20,40 C400,10 700,70 1050,40 C1300,20 1450,50 1580,40"
+                fill="none" stroke="#111111" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round"/>
+        </svg>
+
+        <div style="position:absolute; top:300px; left:120px; right:120px; display:flex; justify-content:space-between;">
+          <div class="c5-step" style="width:360px; text-align:center;">
+            <div style="font-size:96px;">&#128269;</div>
+            <p style="font-size:42px; color:#111;">Your query hits the GDS</p>
+          </div>
+          <div class="c5-step" style="width:360px; text-align:center;">
+            <div style="font-size:96px;">&#129706;</div>
+            <p style="font-size:42px; color:#111;">System checks bucket availability</p>
+          </div>
+          <div class="c5-step" style="width:360px; text-align:center;">
+            <div style="font-size:96px;">&#127991;&#65039;</div>
+            <p style="font-size:42px; color:#111;">Lowest open bucket = your price</p>
+          </div>
+          <div class="c5-step" style="width:360px; text-align:center;">
+            <div class="accent" style="font-size:96px;">&#128200;</div>
+            <p class="accent" style="font-size:42px;">Bucket closes &rarr; price "jumps"</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        /* Build-time measurement — đồng bộ, trước khi đăng ký timeline */
+        const linePath = document.getElementById("c5-line-path");
+        const lineLen = linePath.getTotalLength();
+        gsap.set(linePath, { strokeDasharray: lineLen, strokeDashoffset: lineLen });
+
+        tl.from("#c5-title", { y: 40, opacity: 0, duration: 0.6 }, 0.3);
+        tl.to(linePath, { strokeDashoffset: 0, duration: 2.5, ease: "power2.inOut" }, 1.0);
+        tl.from(".c5-step", { y: 60, opacity: 0, duration: 0.6, stagger: 0.9, ease: "power3.out" }, 1.2);
+
+        window.__timelines["scene-process"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
