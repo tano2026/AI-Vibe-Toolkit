@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        #root { position: absolute; inset: 0; display: grid; place-items: center;
+                font-family: "Patrick Hand", "Comic Sans MS", cursive; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-bignumber" data-width="1920" data-height="1080">
+        <div style="text-align:center;">
+          <div id="c4-number" class="accent" style="font-size:340px; line-height:1;">0</div>
+          <p id="c4-label" style="font-size:64px; margin:12px 0 0; color:#111;">fare classes on a single flight</p>
+          <p id="c4-sub" style="font-size:40px; color:#8a8a86; font-family: Inter, system-ui, sans-serif;">and you only ever see one price at a time</p>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        /* Seek-safe count-up: giá trị được TÍNH TỪ progress của tween, không dùng biến ngoài
+           tích luỹ qua thời gian — an toàn khi renderer seek ngược/không tuần tự. */
+        const counterState = { v: 0 };
+        const numEl = document.getElementById("c4-number");
+
+        tl.from("#c4-number", { scale: 0.6, opacity: 0, duration: 0.5, ease: "back.out(1.7)" }, 0.3);
+        tl.to(counterState, {
+          v: 26, duration: 2.0, ease: "power2.out",
+          onUpdate: () => { numEl.textContent = Math.round(counterState.v); }
+        }, 0.6);
+        tl.from("#c4-label", { y: 40, opacity: 0, duration: 0.6 }, 1.2);
+        tl.from("#c4-sub", { opacity: 0, duration: 0.6 }, 2.2);
+
+        window.__timelines["scene-bignumber"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
