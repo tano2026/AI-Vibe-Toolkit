@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        #root { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; gap:80px;
+                font-family: Inter, system-ui, sans-serif; }
+        .hand { font-family: "Patrick Hand", "Comic Sans MS", cursive; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-concept" data-width="1920" data-height="1080">
+        <div style="position:relative; width:760px; height:760px;">
+          <img id="figure" src="assets/s2-figure.png" alt=""
+               style="width:760px; height:760px; object-fit:contain;" />
+          <svg id="circle-svg" viewBox="0 0 200 200"
+               style="position:absolute; top:210px; left:230px; width:300px; height:300px; overflow:visible;">
+            <path id="circle-path"
+                  d="M100,20 C150,15 185,55 180,100 C175,150 130,185 90,180 C40,175 12,130 20,85 C28,45 65,22 100,20"
+                  fill="none" stroke="#d92b2b" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="max-width:620px;">
+          <h2 id="title" class="hand" style="font-size:84px; margin:0; color:#111;">Every flight has <span class="accent">26 hidden buckets</span></h2>
+          <p id="text" style="font-size:40px; line-height:1.5; color:#8a8a86;">Airlines don't sell "a seat". They sell fare classes — Y, B, M, H, K… each with its own price and its own quota.</p>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        /* Build-time measurement — chạy đồng bộ TRƯỚC khi đăng ký timeline, đúng contract */
+        const circlePath = document.getElementById("circle-path");
+        const circleLen = circlePath.getTotalLength();
+        gsap.set(circlePath, { strokeDasharray: circleLen, strokeDashoffset: circleLen });
+
+        tl.from("#figure", { x: -120, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.3);
+        tl.from("#title", { y: 40, opacity: 0, duration: 0.7 }, 0.8);
+        tl.from("#text", { y: 40, opacity: 0, duration: 0.7 }, 1.6);
+        tl.to(circlePath, { strokeDashoffset: 0, duration: 1.2, ease: "power2.inOut" }, 3.0);
+
+        window.__timelines["scene-concept"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
