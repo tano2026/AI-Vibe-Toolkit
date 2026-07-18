@@ -66,6 +66,40 @@ curl -o assets/s2-figure.png "https://image.pollinations.ai/prompt/$(python3 -c 
 
 `npx hyperframes cloud render` — qua HeyGen API, $0.10/phút 1080p30. Video 10 phút = $1. Chỉ dùng khi batch; mặc định render local free.
 
+## ✅ Verified thật (test trực tiếp 2026-07-18, không phải suy đoán từ docs)
+
+Đã cài `hyperframes` thật, `init` project, thả composition `index.html` của kênh vào, chạy `lint`/`check`/`render` thật:
+
+| Bước | Kết quả |
+|---|---|
+| `npm install hyperframes` | ✅ OK — cần cờ `--ignore-scripts` nếu môi trường chặn `api.nuget.org` (postinstall optional cho whisper/OCR, không liên quan render) |
+| `npx hyperframes init <name> --example blank --non-interactive` | ✅ Scaffold sạch |
+| `npx hyperframes lint` (composition 6-scene của kênh) | ✅ **0 lỗi cấu trúc** sau khi có đủ asset — composition viết tay tuần trước đúng chuẩn contract thật, không phải đoán mò |
+| `npx hyperframes check` / `render` | ✗ Dừng ở bước launch Chrome — xem nguyên nhân bên dưới |
+
+**Cảnh báo lint đáng lưu ý (không phải lỗi, nhưng nên biết):**
+- `timeline_track_too_dense` — 6 scene nhồi 1 file là quá dày theo khuyến nghị chính chủ. **Chuẩn hoá tách mỗi scene archetype (HOOK/CONCEPT/COMPARE/BIG NUMBER/PROCESS/CTA) thành 1 file riêng trong `compositions/`, mount vào file gốc qua `data-composition-src`.** Video thật (nhiều scene hơn demo) càng nên tách từ đầu — dễ sửa, dễ diff, đúng khuyến nghị tool.
+- `gsap_callback_dom_measurement` — do dùng `getTotalLength()` trong helper `drawOn()`. Helper này gọi ĐÚNG lúc build-time (đồng bộ, trước khi đăng ký timeline) nên an toàn, nhưng linter static-check vẫn cảnh báo vì không phân biệt được ngữ cảnh. Có thể bỏ qua cảnh báo này với pattern `drawOn` hiện tại — nếu nghi ngờ render lỗi, chạy `npx hyperframes keyframes` để diagnostic.
+
+## ⚠️ Vấn đề đã gặp — Chrome headless
+
+Render local cần tải `chrome-headless-shell` từ `storage.googleapis.com`. Trong môi trường mạng bị khoá whitelist domain (như sandbox Claude dùng để test), domain này bị chặn → `npx hyperframes browser ensure` và `render` đều fail ở bước tải Chrome, KHÔNG PHẢI lỗi composition.
+
+**Trên máy Windows local của mày (không bị khoá domain) sẽ KHÔNG gặp lỗi này** — chỉ cần:
+```bash
+npx hyperframes browser ensure
+```
+tải Chrome-for-Testing bình thường 1 lần duy nhất.
+
+**Nếu vẫn gặp lỗi tương tự trên máy thật** (firewall công ty, VPN chặn googleapis...), 2 hướng fix:
+```bash
+# Cách 1: trỏ vào Chrome/Edge đã cài sẵn trên Windows
+export HYPERFRAMES_BROWSER_PATH="C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+# Cách 2: render qua cloud HeyGen thay vì local (không cần Chrome local)
+npx hyperframes cloud render
+```
+
 ## Checklist trước upload
 
 - [ ] `check` 0 findings
