@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- head chỉ để đọc file cho người, runtime KHÔNG đọc phần này -->
+  </head>
+  <body>
+    <template>
+      <style>
+        /* @font-face bắt buộc — renderer KHÔNG tự resolve font từ CDN link.
+           local() dùng font cài sẵn trên máy render (Windows có Comic Sans MS).
+           Patrick Hand là Google Font — nếu cần đúng font này, tải file .woff2 thật
+           về assets/fonts/ rồi đổi src thành url('assets/fonts/PatrickHand-Regular.woff2'). */
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        /* Root style bằng #root, không dùng class (CSS bị scope theo data-composition-id lúc render) */
+        #root {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-family: "Patrick Hand", "Comic Sans MS", cursive;
+        }
+        .hand { font-family: inherit; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-hook" data-width="1920" data-height="1080">
+        <div id="wrap" style="text-align:center; max-width: 1500px;">
+          <h1 id="line1" style="font-size:110px; margin:0; color:#111;">You searched the same flight twice.</h1>
+          <h1 id="line2" style="font-size:130px; margin:24px 0 0; color:#111;">The price <span id="accent" class="accent">changed.</span></h1>
+          <p id="sub" style="font-size:44px; color:#8a8a86; margin-top:32px;">It's not your cookies. Here's what really happened.</p>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        tl.from("#line1", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+        tl.from("#line2", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 1.2);
+        tl.from("#accent", { scale: 1.8, duration: 0.5, ease: "back.out(2)" }, 1.9);
+        tl.from("#sub", { opacity: 0, duration: 0.6 }, 2.8);
+        window.__timelines["scene-hook"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
