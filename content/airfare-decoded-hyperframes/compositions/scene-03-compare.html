@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Patrick Hand"; src: local("Patrick Hand"); }
+        @font-face { font-family: "Comic Sans MS"; src: local("Comic Sans MS"); }
+
+        #root { position: absolute; inset: 0; font-family: Inter, system-ui, sans-serif; }
+        .hand { font-family: "Patrick Hand", "Comic Sans MS", cursive; }
+        .accent { color: #d92b2b; }
+      </style>
+
+      <div id="root" data-composition-id="scene-compare" data-width="1920" data-height="1080">
+        <h2 id="c3-title" class="hand" style="position:absolute; top:60px; width:100%; font-size:76px; margin:0; text-align:center; color:#111;">Why did the price jump?</h2>
+
+        <div style="position:absolute; top:240px; left:0; right:0; display:flex; justify-content:center; gap:60px;">
+          <div id="c3-left" style="width:700px; padding:50px; border:5px solid #8a8a86; border-radius:24px;">
+            <h3 class="hand" style="font-size:56px; margin:0; color:#8a8a86;">&#10060; What people think</h3>
+            <p style="font-size:42px; color:#8a8a86;">"The website tracked me and raised the price."</p>
+          </div>
+          <div id="c3-right" style="width:700px; padding:50px; border:6px solid #d92b2b; border-radius:24px;">
+            <h3 class="hand accent" style="font-size:56px; margin:0;">&#10003; What actually happened</h3>
+            <p style="font-size:42px; color:#111;">The cheap fare bucket sold out. The system moved you to the next bucket up.</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        tl.from("#c3-title", { y: 40, opacity: 0, duration: 0.6 }, 0.3);
+        tl.from("#c3-left", { x: -100, opacity: 0, duration: 0.7, ease: "power3.out" }, 1.0);
+        tl.from("#c3-right", { x: 100, opacity: 0, duration: 0.7, ease: "power3.out" }, 3.0);
+        tl.to("#c3-left", { opacity: 0.35, scale: 0.96, duration: 0.5 }, 5.5);
+        tl.to("#c3-right", { scale: 1.04, duration: 0.5, ease: "back.out(1.5)" }, 5.5);
+
+        window.__timelines["scene-compare"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
