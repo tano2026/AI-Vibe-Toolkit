@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Airfare Decoded — Scene Pack Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* ============ AIRFARE DECODED TOKENS (đổi ở đây = đổi cả video) ============ */
+      :root {
+        --ink: #111111;          /* nét vẽ chính */
+        --paper: #fdfdfb;        /* nền giấy trắng ngà */
+        --accent: #d92b2b;       /* red accent — 1 element/scene */
+        --muted: #8a8a86;
+        --font-display: "Patrick Hand", "Comic Sans MS", cursive; /* handwritten */
+        --font-body: Inter, system-ui, sans-serif;
+      }
+      body { margin: 0; font-family: var(--font-body); color: var(--ink); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      /* Nền full-bleed phải là CHILD absolute, không đặt background lên root (rule contract) */
+      #paper-bg { position: absolute; inset: 0; background: var(--paper); }
+      .clip { position: absolute; inset: 0; }
+      .center { display: grid; place-items: center; }
+      .hand { font-family: var(--font-display); }
+      .accent { color: var(--accent); }
+      .figure-img { object-fit: contain; }
+      .caption { font-family: var(--font-display); font-size: 44px; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="airfare-demo" data-start="0"
+         data-width="1920" data-height="1080" data-duration="54">
+
+      <div id="paper-bg"></div>
+
+      <!-- AUDIO SLOT: voiceover ElevenLabs — phải là con TRỰC TIẾP của root (contract).
+           Bỏ comment khi có file:
+      <audio class="clip" data-start="0" data-duration="54" data-track-index="0"
+             src="assets/vo-demo.mp3"></audio>
+      -->
+
+      <!-- ============ SCENE 1 — HOOK (0–6s): kinetic title ============ -->
+      <section id="s1" class="clip center" data-start="0" data-duration="6" data-track-index="1">
+        <div id="s1-wrap" style="text-align:center; max-width: 1500px;">
+          <h1 id="s1-line1" class="hand" style="font-size:110px; margin:0;">You searched the same flight twice.</h1>
+          <h1 id="s1-line2" class="hand" style="font-size:130px; margin:24px 0 0;">The price <span id="s1-accent" class="accent">changed.</span></h1>
+          <p id="s1-sub" class="caption" style="margin-top:32px;">It's not your cookies. Here's what really happened.</p>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 2 — CONCEPT (6–16s): stick figure + SVG circle draw-on ============ -->
+      <section id="s2" class="clip" data-start="6" data-duration="10" data-track-index="1">
+        <div id="s2-wrap" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:80px;">
+          <div style="position:relative; width:760px; height:760px;">
+            <img id="s2-img" class="figure-img" src="assets/s2-figure.png"
+                 alt="" style="width:760px; height:760px;" />
+            <!-- vòng khoanh đỏ tự vẽ quanh chi tiết quan trọng -->
+            <svg id="s2-circle" viewBox="0 0 200 200" style="position:absolute; top:210px; left:230px; width:300px; height:300px; overflow:visible;">
+              <path id="s2-circle-path" d="M100,20 C150,15 185,55 180,100 C175,150 130,185 90,180 C40,175 12,130 20,85 C28,45 65,22 100,20"
+                    fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="max-width:620px;">
+            <h2 id="s2-title" class="hand" style="font-size:84px; margin:0;">Every flight has <span class="accent">26 hidden buckets</span></h2>
+            <p id="s2-text" class="caption" style="font-size:40px; line-height:1.5;">Airlines don't sell "a seat". They sell fare classes — Y, B, M, H, K… each with its own price and its own quota.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 3 — COMPARE (16–26s): 2 cột myth vs reality ============ -->
+      <section id="s3" class="clip" data-start="16" data-duration="10" data-track-index="1">
+        <h2 id="s3-title" class="hand center" style="position:absolute; top:60px; width:100%; font-size:76px; margin:0; text-align:center;">Why did the price jump?</h2>
+        <div style="position:absolute; top:240px; left:0; right:0; display:flex; justify-content:center; gap:60px;">
+          <div id="s3-left" style="width:700px; padding:50px; border:5px solid var(--muted); border-radius:24px;">
+            <h3 class="hand" style="font-size:56px; margin:0; color:var(--muted);">❌ What people think</h3>
+            <p class="caption" style="font-size:42px;">"The website tracked me and raised the price."</p>
+          </div>
+          <div id="s3-right" style="width:700px; padding:50px; border:6px solid var(--accent); border-radius:24px;">
+            <h3 class="hand accent" style="font-size:56px; margin:0;">✓ What actually happened</h3>
+            <p class="caption" style="font-size:42px; color:var(--ink);">The cheap fare bucket sold out. The system moved you to the next bucket up.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 4 — BIG NUMBER (26–34s): stat hit count-up ============ -->
+      <section id="s4" class="clip center" data-start="26" data-duration="8" data-track-index="1">
+        <div style="text-align:center;">
+          <div id="s4-number" class="hand accent" style="font-size:340px; line-height:1;">0</div>
+          <p id="s4-label" class="hand" style="font-size:64px; margin:12px 0 0;">fare classes on a single flight</p>
+          <p id="s4-sub" class="caption">and you only ever see one price at a time</p>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 5 — PROCESS (34–46s): 4 bước + đường nối tự vẽ ============ -->
+      <section id="s5" class="clip" data-start="34" data-duration="12" data-track-index="1">
+        <h2 id="s5-title" class="hand center" style="position:absolute; top:70px; width:100%; font-size:76px; margin:0; text-align:center;">What happens when you hit "Search"</h2>
+        <svg id="s5-line" viewBox="0 0 1600 80" style="position:absolute; top:520px; left:160px; width:1600px; height:80px;">
+          <path id="s5-line-path" d="M20,40 C400,10 700,70 1050,40 C1300,20 1450,50 1580,40"
+                fill="none" stroke="var(--ink)" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round"/>
+        </svg>
+        <div style="position:absolute; top:300px; left:120px; right:120px; display:flex; justify-content:space-between;">
+          <div class="s5-step" id="s5-step1" style="width:360px; text-align:center;">
+            <div class="hand" style="font-size:96px;">🔍</div>
+            <p class="hand" style="font-size:42px;">Your query hits the GDS</p>
+          </div>
+          <div class="s5-step" id="s5-step2" style="width:360px; text-align:center;">
+            <div class="hand" style="font-size:96px;">🪣</div>
+            <p class="hand" style="font-size:42px;">System checks bucket availability</p>
+          </div>
+          <div class="s5-step" id="s5-step3" style="width:360px; text-align:center;">
+            <div class="hand" style="font-size:96px;">🏷️</div>
+            <p class="hand" style="font-size:42px;">Lowest open bucket = your price</p>
+          </div>
+          <div class="s5-step" id="s5-step4" style="width:360px; text-align:center;">
+            <div class="hand accent" style="font-size:96px;">📈</div>
+            <p class="hand accent" style="font-size:42px;">Bucket closes → price "jumps"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCENE 6 — CTA (46–54s) ============ -->
+      <section id="s6" class="clip center" data-start="46" data-duration="8" data-track-index="1">
+        <div style="text-align:center;">
+          <h2 id="s6-title" class="hand" style="font-size:100px; margin:0;">The airline industry, <span class="accent">decoded.</span></h2>
+          <p id="s6-sub" class="caption" style="font-size:48px;">New insider explainer every week — Subscribe</p>
+          <div id="s6-btn" class="hand" style="display:inline-block; margin-top:30px; padding:24px 70px; background:var(--accent); color:#fff; font-size:54px; border-radius:60px;">SUBSCRIBE</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* Helper: SVG draw-on (stroke-dashoffset) — seekable, không cần plugin */
+      function drawOn(sel, at, dur) {
+        const p = document.querySelector(sel);
+        const len = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+        tl.to(p, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, at);
+      }
+
+      /* ---- Scene 1 (0–6): kinetic hook ---- */
+      tl.from("#s1-line1", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+      tl.from("#s1-line2", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 1.2);
+      tl.from("#s1-accent", { scale: 1.8, duration: 0.5, ease: "back.out(2)" }, 1.9);
+      tl.from("#s1-sub", { opacity: 0, duration: 0.6 }, 2.8);
+
+      /* ---- Scene 2 (6–16): figure in + circle draw-on ---- */
+      tl.from("#s2-img", { x: -120, opacity: 0, duration: 0.8, ease: "power3.out" }, 6.3);
+      tl.from("#s2-title", { y: 40, opacity: 0, duration: 0.7 }, 6.8);
+      tl.from("#s2-text", { y: 40, opacity: 0, duration: 0.7 }, 7.6);
+      drawOn("#s2-circle-path", 9.0, 1.2);
+
+      /* ---- Scene 3 (16–26): compare — left trước, right "thắng" ---- */
+      tl.from("#s3-title", { y: 40, opacity: 0, duration: 0.6 }, 16.3);
+      tl.from("#s3-left", { x: -100, opacity: 0, duration: 0.7, ease: "power3.out" }, 17.0);
+      tl.from("#s3-right", { x: 100, opacity: 0, duration: 0.7, ease: "power3.out" }, 19.0);
+      tl.to("#s3-left", { opacity: 0.35, scale: 0.96, duration: 0.5 }, 21.5);
+      tl.to("#s3-right", { scale: 1.04, duration: 0.5, ease: "back.out(1.5)" }, 21.5);
+
+      /* ---- Scene 4 (26–34): count-up 0 → 26 (seek-safe: giá trị suy từ tween) ---- */
+      const counter = { v: 0 };
+      const numEl = () => document.getElementById("s4-number");
+      tl.from("#s4-number", { scale: 0.6, opacity: 0, duration: 0.5, ease: "back.out(1.7)" }, 26.3);
+      tl.to(counter, {
+        v: 26, duration: 2.0, ease: "power2.out",
+        onUpdate: () => { numEl().textContent = Math.round(counter.v); }
+      }, 26.6);
+      tl.from("#s4-label", { y: 40, opacity: 0, duration: 0.6 }, 27.2);
+      tl.from("#s4-sub", { opacity: 0, duration: 0.6 }, 28.2);
+
+      /* ---- Scene 5 (34–46): line draw-on + 4 bước stagger ---- */
+      tl.from("#s5-title", { y: 40, opacity: 0, duration: 0.6 }, 34.3);
+      drawOn("#s5-line-path", 35.0, 2.5);
+      tl.from(".s5-step", { y: 60, opacity: 0, duration: 0.6, stagger: 0.9, ease: "power3.out" }, 35.2);
+
+      /* ---- Scene 6 (46–54): CTA ---- */
+      tl.from("#s6-title", { y: 60, opacity: 0, duration: 0.7, ease: "power3.out" }, 46.3);
+      tl.from("#s6-sub", { opacity: 0, duration: 0.6 }, 47.2);
+      tl.from("#s6-btn", { scale: 0, duration: 0.6, ease: "back.out(2)" }, 47.8);
+      /* pulse hữu hạn — contract cấm repeat:-1 */
+      tl.to("#s6-btn", { scale: 1.06, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 48.6);
+
+      window.__timelines["airfare-demo"] = tl;
+    </script>
+  </body>
+</html>
