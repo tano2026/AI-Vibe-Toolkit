@@ -1,5 +1,8 @@
 # ORG — Công ty 1 người vận hành bằng Agent
 
+> ⚠️ **SUPERSEDED 19/07/2026:** bản chính thức là `ORG-v2.md` (8 role, thêm Ops & Finance,
+> quyền quyết định chuyển sang `DECISION-MATRIX.md`). File này giữ để tham khảo lịch sử.
+
 > Entry point cho toàn bộ mô hình "One-Person Company". Agent nào cần hiểu tổ chức → đọc file này trước.
 > Nguyên tắc thiết kế: **domain-agnostic core + Domain Pack cắm thêm + 3 runtime thật, không thêm process mới.**
 

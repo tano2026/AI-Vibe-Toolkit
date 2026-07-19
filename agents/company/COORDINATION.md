@@ -1,5 +1,8 @@
 # COORDINATION — Giao thức phối hợp giữa 7 vị trí
 
+> ⚠️ **SUPERSEDED 19/07/2026:** bản chính thức là `COORDINATION-v2.md` (7 bảng Airtable,
+> job lifecycle đầy đủ). File này giữ để tham khảo lịch sử.
+
 > Đọc kèm `agents/company/ORG.md`. File này định nghĩa: workspace chung, format handoff,
 > approval loop với CEO, và sync định kỳ. Mọi role pack đều tuân theo file này.
 
