@@ -1911,3 +1911,29 @@ Ops & Finance tu "ghi so thu chi" len "tu duy quyet dinh dau tu/mo rong co so li
 CAC/LTV/contribution margin tung domain + tu dong phat hien chi phi dinh ky an ngam.
 
 **Kho: 127 repos | 38 MCPs | 88 skills | 170 scripts | 7 agent packages | 5 stacks**
+
+
+---
+
+## Role moi 20/07/2026 — HR & Admin Agent (vi tri thu 9)
+
+Nobitano yeu cau them "thang hanh chinh nhan su" vao he thong company agent. Luu y quan
+trong: ORG-v2.md truoc do da chot "8 role, khong gop, khong bo - khong option". Role nay
+duoc chap nhan la NGOAI LE DUY NHAT vi job-to-be-done khac han: 8 role kia la AI phoi hop
+AI xu ly viec so, con HR&Admin quan ly CON NGUOI THAT (nhan vien ca truc Fast Track, nhan
+vien Tano Cafe, cong tac vien) - co hop dong that, tranh chap lao dong that.
+
+| Repo/Role | File | Script |
+|-----------|------|--------|
+| borghei/Claude-Skills (hr-operations) | repos/hr-operations-claude-skills.md | script-video-171 |
+| Role Pack HR & Admin (vi tri 9) | agents/company/roles/hr-admin.md | - |
+
+Da update ORG-v2.md: them role 9 vao so do to chuc + bang phan cong, ghi ro dieu kien de
+duoc phep them role thu 10 tro len sau nay (phai chung minh job-to-be-done khong trung,
+khong gop duoc vao role san co).
+
+Guardrail cung: AI KHONG BAO GIO tu sa thai/ky luat/tang giam luong - moi quyet dinh that
+ve nhan su deu qua CEO. Moi case tranh chap lao dong bat buoc di du 4 buoc Listen ->
+Investigate -> Analyze -> CEO quyet, khong duoc rut gon.
+
+**Kho: 128 repos | 38 MCPs | 88 skills | 171 scripts | 7 agent packages | 5 stacks | 9 role**
