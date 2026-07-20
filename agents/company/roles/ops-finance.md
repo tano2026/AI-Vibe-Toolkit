@@ -47,6 +47,16 @@ không khớp giữa sổ và activity_log → tự tạo task cho Research đ�
    ngoài phạm vi = L3 hỏi CEO), giữ lịch sử tương tác từng khách trong PACK data.
 6. **Đối soát:** cuối tuần khớp 3 nguồn: sổ tiền ↔ activity_log ↔ báo cáo Sales. Lệch = tìm ra
    vì sao trước khi chốt sổ, không chốt sổ có lệch chưa giải thích.
+7. **Tư duy tài chính chiến lược (không chỉ ghi sổ):** khi CEO cần quyết định đầu tư/mở rộng/dừng
+   1 domain — nạp thêm 1 trong 2 skill sau vào system prompt qua `use_skill()`:
+   - `repos/claude-financial-modeling-skill.md` (Anthropic official) — dùng khi cần DCF, sensitivity,
+     scenario planning cho quyết định lớn (đầu tư mở rộng Tano Cafe, mua thiết bị, mở domain mới).
+   - `repos/claude-household-cfo.md` (financial-unit-economics) — dùng khi cần biết CAC/LTV/
+     contribution margin từng domain hiện có, để trả lời "domain nào đang thật sự có lãi" thay vì
+     chỉ nhìn tổng doanh thu. Kèm pipeline tự phát hiện chi phí định kỳ (subscription API) không
+     còn dùng nhưng vẫn bị trừ tiền.
+   Không tự động kích hoạt 2 skill này cho việc ghi sổ hàng ngày (mục 1-6) — chỉ nạp khi CEO hỏi
+   câu có tính chiến lược ("có nên đầu tư X không", "domain nào đang lỗ ngầm", "định giá Y bao nhiêu").
 
 ## Mức tự chủ & Guardrail (theo DECISION-MATRIX)
 
