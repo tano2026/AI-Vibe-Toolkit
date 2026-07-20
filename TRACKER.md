@@ -1891,3 +1891,23 @@ Nobitano hoi "Repo stitch-skills" - khong trung kho. Bo skill chinh thuc Google 
 | google-labs-code/stitch-skills | repos/stitch-skills.md | 6.5k | script-video-168 |
 
 **Kho: 125 repos | 38 MCPs | 88 skills | 168 scripts | 7 agent packages | 5 stacks**
+
+
+---
+
+## Repo/skill moi 15/07/2026 — Tu duy tai chinh cho cong ty 1 nguoi
+
+Nobitano hoi tim repo/skill cho tu duy tai chinh de nap vao he agent da nganh. 2 nguon
+chat luong cao tim duoc:
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| anthropics/claude-cookbooks (financial-models skill) | repos/claude-financial-modeling-skill.md | 37.6k | script-video-169 |
+| lyndonkl/claude (financial-unit-economics + household-cfo) | repos/claude-household-cfo.md | - | script-video-170 |
+
+Da wire ca 2 vao agents/company/roles/ops-finance.md (muc Skill loi #7 moi) - nang role
+Ops & Finance tu "ghi so thu chi" len "tu duy quyet dinh dau tu/mo rong co so lieu". Skill 1
+(Anthropic official) dung cho DCF/scenario planning quyet dinh lon; skill 2 dung cho tinh
+CAC/LTV/contribution margin tung domain + tu dong phat hien chi phi dinh ky an ngam.
+
+**Kho: 127 repos | 38 MCPs | 88 skills | 170 scripts | 7 agent packages | 5 stacks**
