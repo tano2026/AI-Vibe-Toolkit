@@ -1937,3 +1937,28 @@ ve nhan su deu qua CEO. Moi case tranh chap lao dong bat buoc di du 4 buoc Liste
 Investigate -> Analyze -> CEO quyet, khong duoc rut gon.
 
 **Kho: 128 repos | 38 MCPs | 88 skills | 171 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Skill moi 20/07/2026 — Tu duy tai chinh vi mo (Chien Tranh Tien Te x Big Cycle)
+
+Nobitano lam ro: "tu duy tai chinh" muon noi truoc khong phai tai chinh doanh nghiep (da co o
+ops-finance) ma la tu duy VI MO kieu sach "Chien Tranh Tien Te" (Song Hongbing) - doc chu ky
+no/tien te/dia chinh tri kieu Ray Dalio "Big Cycle". Muc dich chinh: content GMSP phan kinh te
++ CEO hieu boi canh vi mo anh huong ABTRIP (ty gia ve may bay).
+
+| Skill | File | Script |
+|-------|------|--------|
+| Tu duy tai chinh vi mo | skills/tu-duy-tai-chinh-vi-mo.md | script-video-172 |
+
+Skill tu viet (khong phai fetch tu 1 repo co san) - ghep 2 khung: Big Cycle (Dalio, so lieu
+he thong) + Chien Tranh Tien Te (Song Hongbing, dia chinh tri). Da wire vao
+agents/company/roles/content-creator.md (Skill loi #8 moi, rieng cho domain GMSP). Co nhac
+repo phu tro SimSimButDifferent/debt-cycles-tracker (4 sao, khong license - chi dung tham
+khao so lieu, khong phai cong cu chinh).
+
+Luu y quan trong ghi trong skill: luon phan biet ro "doc boi canh" vs "khuyen nghi dau tu" -
+khong dua loi khuyen mua/ban tai san cu the cho khan gia.
+
+**Kho: 128 repos | 38 MCPs | 89 skills | 172 scripts | 7 agent packages | 5 stacks | 9 role**
