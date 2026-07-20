@@ -2015,3 +2015,25 @@ giong trung lap to mo, KHONG dung de "chung minh/bac bo" Tu Vi - chi giai thich 
 dung sau niem tin, khong phan xet.
 
 **Kho: 128 repos | 38 MCPs | 91 skills | 174 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 20/07/2026 — Mission Control (dashboard dieu phoi AI agent)
+
+Nobitano hoi "Mission control" - tim ra day la 1 phat hien LON, giai quyet dung lo hong da
+ton dong lau: "Airtable coordination layer chua deploy" ghi trong memory. Co san dashboard mo
+nguon xay RIENG cho OpenClaw Gateway.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| abhi1693/openclaw-mission-control | repos/mission-control.md | 4.1k | script-video-175 |
+| builderz-labs/mission-control (anh em, tong quat hon) | (nhac trong cung file) | 5.8k | - |
+
+Highlight: to chuc theo organizations -> board groups -> boards -> tasks -> tags, gan nhu khop
+1:1 voi mo hinh 9 role/domain pack da co trong ORG-v2.md. Co approval flow UI that thay vi chi
+nhan Telegram "OK <job-id>". CANH BAO quan trong da ghi trong file: nen dung THAY THE ke hoach
+Airtable company-hq, KHONG chay song song 2 nguon trang thai - can CEO xac nhan huong truoc khi
+Antigravity deploy that.
+
+**Kho: 129 repos | 38 MCPs | 91 skills | 175 scripts | 7 agent packages | 5 stacks | 9 role**
