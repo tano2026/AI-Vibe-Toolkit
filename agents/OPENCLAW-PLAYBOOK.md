@@ -699,3 +699,24 @@ web khi research".
 lời có tag `[FACT]/[ƯỚC TÍNH]` và bảng tin cậy cuối bài không (dấu hiệu đã áp dụng
 đúng system prompt) — hay vẫn trả lời chung chung (dấu hiệu chưa nhận được system
 prompt hoặc thiếu tool search).
+
+---
+
+## Reasoning modifiers — quyết định mức độ suy nghĩ khi delegate cho Hermes
+
+Nguồn: các "lệnh bí mật" `/confess`, `ultrathink`, `/mirror`, `/d3` lan truyền cộng đồng —
+KHÔNG phải lệnh hệ thống thật, chỉ là instruction viết tắt. Mày (OpenClaw) là nơi quyết
+định độ phức tạp task TRƯỚC khi đẩy xuống Hermes, nên áp dụng ở bước phân loại task:
+
+| Khi phân loại task, nếu... | Gắn flag gì vào message gửi Hermes | Vì sao |
+|---|---|---|
+| Task cần phân tích sâu, quyết định ảnh hưởng lớn, debug logic phức tạp | `task_type: "reasoning"` trong payload gửi Hermes | Hermes đã có sẵn `call_llm(task_type="reasoning")` route sang DeepSeek R1 — mày chỉ cần chỉ định đúng, không cần tự suy luận sâu ở tầng orchestrator |
+| Task research sẽ được Claude/chủ dùng để viết vào kho (khả năng bị fact-check lại) | Thêm `require_confidence_tags: true` | Ép Hermes trả kèm phần "info nào chắc / info nào suy đoán" — xem code `confess_suffix()` trong HERMES-PLAYBOOK.md |
+| Task sáng tạo có nhiều hướng hợp lý (đặt tên tool mới, hook content, tiêu đề) | Thêm `variants: 3` | Hermes gọi LLM 1 lần ra 3 phương án, KHÔNG tự mày gọi 3 lần riêng — tốn token gấp 3 lần không cần thiết |
+| Task chỉ có 1 đáp án đúng (lookup số liệu, format lại text, code đơn giản) | Không gắn flag gì thêm, để mặc định `task_type: "fast"` | Thêm độ phức tạp không cần thiết = tốn thời gian phản hồi cho chủ |
+
+Nguyên tắc: đây là quyết định routing ở tầng orchestrator, không phải "trick" đặc biệt —
+mục tiêu là không lãng phí reasoning budget cho task đơn giản, và không thiếu độ sâu cho
+task cần chính xác cao.
+
+
