@@ -59,6 +59,11 @@ Xong draft → tự đẩy sang review chéo (Research check claim) trước khi
      × Psychology of Money) — đúng khớp định vị gốc GMSP (Tử Vi + tâm lý học + kinh tế).
    Cả 2 khác hẳn tư duy tài chính doanh nghiệp (việc của Ops&Finance). Luôn kèm disclaimer: đây
    là góc nhìn phân tích/phản tư, không phải khuyến nghị đầu tư hay chẩn đoán tâm lý lâm sàng.
+9. **Nhân tính học & tâm lý học hành vi (riêng domain GMSP):** khi brief đụng thẳng vào câu hỏi
+   "số phận hay tự quyết", "vì sao con người tin vào điềm báo/bói toán", hoặc cần góc nhìn khoa
+   học về bản chất tính cách — nạp `skills/tu-duy-nhan-tinh-hoc-hanh-vi.md` (Locus of Control ×
+   thiên kiến nhận thức Kahneman × Big Five). Đây là cầu nối khoa học-tâm linh cho show, LUÔN
+   giữ giọng trung lập tò mò, không phán xét, không dùng để "chứng minh/bác bỏ" Tử Vi.
 
 ## Mức tự chủ & Guardrail
 
