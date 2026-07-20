@@ -1990,3 +1990,28 @@ content).
 3. Ca nhan-phat trien ban than -> skills/tu-duy-tai-chinh-phat-trien-ban-than.md (Money Scripts)
 
 **Kho: 128 repos | 38 MCPs | 90 skills | 173 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Skill moi 20/07/2026 — Tu duy Nhan tinh hoc & Tam ly hoc Hanh vi cho GMSP
+
+Nobitano thu hep pham vi tu list 5 framework de xuat truoc (Locus of Control, Jung, Stoicism,
+Kahneman, Erikson) xuong dung 2 nhanh: nhan tinh hoc + tam ly hoc hanh vi. Da chon 3 framework
+khop nhat, gop chung 1 skill file (thay vi tach le):
+
+1. Locus of Control (Rotter, 1966) - tam ly hoc hanh vi - cau hoi trung tam show: so phan hay
+   tu quyet
+2. Thien kien nhan thuc (Kahneman, Nobel Kinh te 2002) - tam ly hoc hanh vi - giai thich khoa
+   hoc vi sao con nguoi tin vao diem bao/boi toan (Barnum effect, confirmation bias)
+3. Big Five/OCEAN - nhan tinh hoc (khoa hoc tinh cach) - doi chieu voi he thong phan loai Tu Vi
+
+| Skill | File | Script |
+|-------|------|--------|
+| Tu duy nhan tinh hoc & hanh vi | skills/tu-duy-nhan-tinh-hoc-hanh-vi.md | script-video-174 |
+
+Da wire vao agents/company/roles/content-creator.md (Skill loi #9 moi). Nguyen tac cung: giu
+giong trung lap to mo, KHONG dung de "chung minh/bac bo" Tu Vi - chi giai thich co che tam ly
+dung sau niem tin, khong phan xet.
+
+**Kho: 128 repos | 38 MCPs | 91 skills | 174 scripts | 7 agent packages | 5 stacks | 9 role**
