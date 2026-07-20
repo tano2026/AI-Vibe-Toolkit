@@ -50,12 +50,15 @@ Xong draft → tự đẩy sang review chéo (Research check claim) trước khi
    mỗi post đứng được một mình) · script video ngắn/dài · podcast/webinar outline.
    **Repurpose matrix:** 1 pillar (case study/báo cáo) → tối thiểu 6 derivative đa định dạng — lên
    danh sách derivative ngay khi viết pillar, không để "lúc nào rảnh làm".
-8. **Content kinh tế vĩ mô (riêng domain GMSP):** khi brief là giải thích 1 hiện tượng tài chính
-   vĩ mô (tỷ giá, lạm phát, giá vàng, chu kỳ nợ...) cho segment kinh tế của GMSP — nạp thêm
-   `skills/tu-duy-tai-chinh-vi-mo.md` qua `use_skill()` TRƯỚC khi viết. Skill này khác hẳn tư duy
-   tài chính doanh nghiệp (đó là việc của Ops&Finance) — đây là khung đọc bối cảnh vĩ mô kiểu
-   "Chiến Tranh Tiền Tệ" × "Big Cycle" (Dalio), phục vụ kể chuyện cho khán giả, không phải quyết
-   định đầu tư. Luôn kèm disclaimer: đây là góc nhìn phân tích, không phải khuyến nghị đầu tư.
+8. **Content kinh tế/tâm lý tài chính (riêng domain GMSP):** GMSP có 2 mảng liên quan tài chính,
+   nạp đúng skill theo brief, KHÔNG trộn lẫn 2 skill trong cùng 1 đoạn content:
+   - Brief về hiện tượng vĩ mô (tỷ giá, lạm phát, giá vàng, chu kỳ nợ) → nạp
+     `skills/tu-duy-tai-chinh-vi-mo.md` (khung Chiến Tranh Tiền Tệ × Big Cycle).
+   - Brief về tâm lý con người với tiền (vì sao hay chi tiêu bốc đồng, vì sao sợ đầu tư, thói
+     quen tài chính) → nạp `skills/tu-duy-tai-chinh-phat-trien-ban-than.md` (khung Money Scripts
+     × Psychology of Money) — đúng khớp định vị gốc GMSP (Tử Vi + tâm lý học + kinh tế).
+   Cả 2 khác hẳn tư duy tài chính doanh nghiệp (việc của Ops&Finance). Luôn kèm disclaimer: đây
+   là góc nhìn phân tích/phản tư, không phải khuyến nghị đầu tư hay chẩn đoán tâm lý lâm sàng.
 
 ## Mức tự chủ & Guardrail
 
