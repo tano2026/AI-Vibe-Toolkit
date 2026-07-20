@@ -20,7 +20,8 @@ updated: 2026-07-19
 Công ty = **AI Agency cung cấp dịch vụ đầy đủ phòng ban**. Mỗi business domain
 (ABTRIP/An Bình, Trùm Sân Bay, Tano Cafe, Airfare Decoded, GMSP, kênh AI review) = 1 **client
 đặt dịch vụ**, chạy trên cùng bộ máy qua Domain Pack. CEO (Nobitano, con người duy nhất)
-ra quyết định qua Telegram; 8 nhân viên AI làm toàn bộ chuyên môn, 24/7.
+ra quyết định qua Telegram; 8 nhân viên AI làm toàn bộ chuyên môn số hoá 24/7, cộng thêm
+1 role ⑨ quản lý con người thật (nhân sự có hợp đồng, ca trực) — 9 vị trí tổng cộng.
 
 Chuẩn "nhân viên AI" kiểu TQ (mỗi role BẮT BUỘC đủ 4 thứ, thiếu 1 = chưa được nhận việc):
 1. **JD** — job-to-be-done + ranh giới (không làm gì)
@@ -42,8 +43,12 @@ Chuẩn "nhân viên AI" kiểu TQ (mỗi role BẮT BUỘC đủ 4 thứ, thi�
 | ⑥ Designer | ✅ Giữ nguyên | Như ④ |
 | ⑦ Media | ✅ Giữ nguyên | Là role duy nhất cầm quyền "bấm đăng" — phải đứng riêng |
 | **⑧ Ops & Finance** | 🆕 **THÊM MỚI** | Lỗ hổng lớn nhất v1: không ai fulfillment đơn (Fast Track booking, đơn Tano Cafe), không ai đếm tiền. Công ty không có sổ thu chi theo domain = không biết job nào lãi job nào lỗ = không bền vững. Pack: `roles/ops-finance.md` |
+| **⑨ HR & Admin** | 🆕 **THÊM v2.1 — 20/07/2026** | Job-to-be-done KHÁC HẲN 8 role trên: 8 role kia đều là AI phối hợp AI xử lý việc số; ⑨ quản lý CON NGƯỜI THẬT — nhân viên ca trực Fast Track, nhân viên Tano Cafe, cộng tác viên thuê ngoài. Có hợp đồng thật, tranh chấp lao động thật, nghĩa vụ pháp lý thật — không role nào trong 8 role kia đảm nhiệm được. Đây là lý do duy nhất được phép phá vỡ kết luận "8 role, không option" ở trên: khác job-to-be-done, không phải mở rộng phạm vi 1 role cũ. Pack: `roles/hr-admin.md` |
 
-**Kết luận: 8 role, không gộp, không bỏ.** Đây là recommendation duy nhất — không option.
+**Kết luận v2.1: 9 role — 8 role AI-coordination (không gộp, không bỏ) + 1 role quản lý người
+thật (HR & Admin).** Nếu sau này có đề xuất thêm role AI-coordination thứ 10 trở lên → mặc định
+từ chối trừ khi chứng minh được job-to-be-done không trùng bất kỳ role nào trong 9 role hiện có
+VÀ không thể gộp vào role sẵn có.
 
 ---
 
@@ -57,10 +62,10 @@ Chuẩn "nhân viên AI" kiểu TQ (mỗi role BẮT BUỘC đủ 4 thứ, thi�
              │  OpenClaw = Điều phối     │ Telegram/WhatsApp gateway
              │  (dispatcher + gateway)   │ route job → role → runtime
              └────────────┬─────────────┘
-   ┌─────┬─────┬─────┬────┼────┬─────┬─────┐
-   ▼     ▼     ▼     ▼    ▼    ▼     ▼     ▼
-Research Mkt Sales Content Designer Media Ops&Fin   (8 nhân viên AI)
-   └─────┴─────┴─────┴────┬────┴─────┴─────┘
+   ┌─────┬─────┬─────┬────┼────┬─────┬─────┬─────┐
+   ▼     ▼     ▼     ▼    ▼    ▼     ▼     ▼     ▼
+Research Mkt Sales Content Designer Media Ops&Fin HR&Admin  (9 nhân viên AI)
+   └─────┴─────┴─────┴────┬────┴─────┴─────┴─────┘
                           ▼
              Dev & Automation (tầng nền, phục vụ 7 role kia)
              = Hermes + OpenClaw + Antigravity
@@ -92,6 +97,7 @@ Tier OmniRoute: `cheap` (Gemini Flash) · `balanced` (DeepSeek V3) · `reasoning
 | ⑥ | Designer | `roles/designer.md` | Hermes + OpenClaw | creative | TẤT CẢ | Số visual đúng spec, số template tái dùng |
 | ⑦ | Media | `roles/media.md` | OpenClaw | cheap | Mọi kênh social/YouTube | Số bài đăng đúng lịch + engagement delta |
 | ⑧ | Ops & Finance | `roles/ops-finance.md` 🆕 | Hermes | cheap→balanced | ABTRIP/An Bình, Tano Cafe (+ mọi domain có tiền vào) | Đơn xử lý <SLA + sổ thu chi cập nhật 100% |
+| ⑨ | HR & Admin | `roles/hr-admin.md` 🆕 v2.1 | Hermes | balanced→reasoning (case quan hệ lao động) | Fast Track (ca trực), Tano Cafe (nhân viên) | % ca trực đủ người + hồ sơ nhân sự cập nhật 100% |
 
 **Luật routing tier (tiết kiệm là P&L trực tiếp):** mặc định theo bảng trên; nâng tier chỉ khi
 task ghi rõ lý do trong brief; log token theo job (bảng `activity_log`). Mục tiêu giữ nguyên:
