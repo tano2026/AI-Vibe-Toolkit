@@ -1877,3 +1877,17 @@ qua MCP roi viet thanh file chuan template nhu quy trinh cu.
 
 **Kho: 124 repos | 38 MCPs | 88 skills | 167 scripts | 7 agent packages | 5 stacks**
 | 119 | Agent | RIO Brain v2.0 | /agents/rio-bot/ | Đã push | — | 2026-07-17 |
+
+
+---
+
+## Repo moi 15/07/2026 — stitch-skills (Google Labs)
+
+Nobitano hoi "Repo stitch-skills" - khong trung kho. Bo skill chinh thuc Google gan Stitch
+(AI design tool) vao coding agent qua Stitch MCP server.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| google-labs-code/stitch-skills | repos/stitch-skills.md | 6.5k | script-video-168 |
+
+**Kho: 125 repos | 38 MCPs | 88 skills | 168 scripts | 7 agent packages | 5 stacks**
