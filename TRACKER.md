@@ -1962,3 +1962,31 @@ Luu y quan trong ghi trong skill: luon phan biet ro "doc boi canh" vs "khuyen ng
 khong dua loi khuyen mua/ban tai san cu the cho khan gia.
 
 **Kho: 128 repos | 38 MCPs | 89 skills | 172 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Skill moi 20/07/2026 — Tu duy tai chinh phat trien ban than (Money Scripts x Psychology of Money)
+
+Nobitano lam ro lan 3: "tu duy tai chinh" muon noi la cho PHAT TRIEN BAN THAN, khong phai
+doanh nghiep (ops-finance) hay vi mo-dia chinh tri (tu-duy-tai-chinh-vi-mo, da lam truoc do
+trong cung ngay). Day la manh thu 3, khac han 2 manh kia: soi NIEM TIN VO THUC ve tien cua
+chinh minh, dung nghien cuu khoa hoc that (Klontz Money Script Inventory, Journal of Financial
+Therapy 2011) + Psychology of Money (Morgan Housel).
+
+| Skill | File | Script |
+|-------|------|--------|
+| Tu duy tai chinh phat trien ban than | skills/tu-duy-tai-chinh-phat-trien-ban-than.md | script-video-173 |
+
+Khong tim duoc repo/skill GitHub rieng chat luong cho manh nay (da search, chi ra sach/blog
+chung chung) - skill nay tu viet dua tren nghien cuu khoa hoc that (KMSI, peer-reviewed), khong
+phai self-help mo ho. Da wire vao agents/company/roles/content-creator.md (Skill loi #8, gop
+chung voi tu-duy-tai-chinh-vi-mo - GMSP co 2 nhanh tai chinh, khong tron lan trong cung 1 doan
+content).
+
+3 manh tu duy tai chinh hien co trong kho:
+1. Doanh nghiep -> roles/ops-finance.md (DCF, unit economics)
+2. Vi mo-dia chinh tri -> skills/tu-duy-tai-chinh-vi-mo.md (Chien Tranh Tien Te x Big Cycle)
+3. Ca nhan-phat trien ban than -> skills/tu-duy-tai-chinh-phat-trien-ban-than.md (Money Scripts)
+
+**Kho: 128 repos | 38 MCPs | 90 skills | 173 scripts | 7 agent packages | 5 stacks | 9 role**
