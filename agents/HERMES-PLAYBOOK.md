@@ -514,6 +514,33 @@ MEM0_API_KEY=           # mem0.ai — hoặc self-host port 8000
 
 ---
 
+## Reasoning modifiers — khi nào tăng độ sâu suy nghĩ, khi nào không
+
+Nguồn: mấy "lệnh bí mật" kiểu `/confess`, `ultrathink`, `/mirror`, `/d3` lan truyền trên
+TikTok/cộng đồng AI — thực chất KHÔNG phải lệnh hệ thống nào, chỉ là instruction viết tắt.
+Áp dụng như bảng dưới, dùng đúng `call_llm(task_type=...)` sẵn có, không cần cú pháp lạ.
+
+| Ý định | Cách làm bằng infra hiện có | Dùng khi |
+|---|---|---|
+| `ultrathink` — suy nghĩ sâu hơn | `call_llm(prompt, task_type="reasoning")` — route sang DeepSeek R1 | Research phức tạp, phân tích kiến trúc agent mới, debug logic khó, quyết định có ảnh hưởng lớn. **KHÔNG** dùng cho task đơn giản (lookup, format lại text) — tốn token/thời gian vô ích |
+| `/confess` — tự báo độ tự tin | Thêm suffix vào prompt: `"\\n\\nCuối câu trả lời, liệt kê rõ: (1) info nào có nguồn xác nhận, (2) info nào là suy đoán/ước tính."` | Mọi task research trước khi trả kết quả về Claude/chủ để viết vào kho — tránh bịa số liệu bị phát hiện sau |
+| `/mirror` — bắt chước văn phong | Few-shot thật: fetch 1-2 file `.md` cũ đã có trong kho làm `system` prompt trước khi gọi `use_skill()` | Khi cần giữ giọng văn nhất quán qua nhiều task (vd viết nhiều note liên tiếp cho cùng 1 domain) |
+| `/d3` — nhiều phương án | Gọi `call_llm()` 1 lần với instruction `"Đưa 3 phương án khác nhau, mỗi phương án 1 dòng lý do"` — KHÔNG gọi 3 lần riêng (tốn token gấp 3) | Task sáng tạo có nhiều hướng hợp lý (đặt tên, hook content) — KHÔNG dùng cho task chỉ có 1 đáp án đúng (tra cứu số liệu, code) |
+
+```python
+def confess_suffix():
+    return ("\n\nCuối câu trả lời, liệt kê: (1) thông tin nào có nguồn xác nhận rõ, "
+            "(2) thông tin nào là suy đoán/ước tính — không gộp chung.")
+
+def research_with_confidence(query, task_type="reasoning"):
+    return call_llm(query + confess_suffix(), task_type=task_type, max_tokens=3000)
+```
+
+Nguyên tắc chung: đây đều là prompt engineering thường, không phải feature ẩn — không tự
+tin quá mức vào "trick" nào, và không thêm độ phức tạp nếu task không cần.
+
+---
+
 ## Ticket đang chờ Antigravity
 
 - **Hermes thiếu generic HTTP fetch tool** trong default_api → xem chi tiết trong `agents/ANTIGRAVITY-PLAYBOOK.md`
