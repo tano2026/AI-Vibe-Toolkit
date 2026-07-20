@@ -2037,3 +2037,26 @@ Airtable company-hq, KHONG chay song song 2 nguon trang thai - can CEO xac nhan 
 Antigravity deploy that.
 
 **Kho: 129 repos | 38 MCPs | 91 skills | 175 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 20/07/2026 — Short Video Factory (YILS-LIN)
+
+Nobitano hoi "Short-video-factory" - repo desktop app mo nguon, 1 click ra video ngan tu
+footage co san (AI viet van an + EdgeTTS giong doc + tu cat ghep + phu de).
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| YILS-LIN/short-video-factory | repos/short-video-factory.md | 4.6k | script-video-176 |
+
+Highlight: khac html-video (motion graphics tu code) va HyperFrames (composition tay cho
+brand rieng) - cai nay toi uu cho "co san clip, chua co thoi gian dung", chay batch ra nhieu
+phien ban de A/B test. Chay hoan toan local, noi duoc thang OmniRoute gateway cho phan van an.
+
+CANH BAO quan trong: License AGPL-3.0 (copyleft manh, khac MIT/Apache cac repo khac trong
+kho) - dung ban build san thi an toan, can doc ky neu dinh fork/tuy bien roi ban dich vu dua
+tren no. Ngoai ra day la desktop app CO UI (Electron) - KHONG tich hop duoc vao pipeline agent
+headless tren VPS, chi dung tay tren may Windows local khi can.
+
+**Kho: 130 repos | 38 MCPs | 91 skills | 176 scripts | 7 agent packages | 5 stacks | 9 role**
