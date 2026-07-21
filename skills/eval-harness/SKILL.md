@@ -1,11 +1,5 @@
 ---
 name: eval-harness
-description: ---
-category: development
----
-
----
-name: eval-harness
 description: Formal evaluation framework for Claude Code sessions implementing eval-driven development (EDD) principles
 origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
@@ -274,4 +268,3 @@ Recommended thresholds:
 - `.claude/evals/<feature>.md` definition
 - `.claude/evals/<feature>.log` run history
 - `docs/releases/<version>/eval-summary.md` release snapshot
-
