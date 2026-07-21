@@ -2116,3 +2116,39 @@ Highlight:
   va Phase 11 (LLM Engineering) sat nhat voi cong viec xay agent packages hien tai cua kho.
 
 **Kho: 134 repos | 38 MCPs | 91 skills | 180 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Dọn kho 21/07/2026 — Fix bug double-frontmatter + xoá 266 skill trùng "ecc-*"
+
+Nobitano yêu cầu audit toàn bộ skill sau khi phát hiện gần 270 entry trùng tiền tố `ecc-`
+(vd `ecc-git-workflow` va `git-workflow`). Ket qua sau khi so sanh toan bo 266 cap qua Git
+Trees API + Git Blobs API:
+
+**Phat hien 1 bug lon hon ca duplicate:** MOI file trong 266 cap (ca ban `ecc-X` lan ban `X`)
+deu bi loi **double frontmatter** - phan YAML dau file la 1 wrapper vo nghia (vd
+`description: "Vibe Toolkit skill: ecc-X"` hoac `description: "---\ncategory: development"`)
+duoc them de tren dau, ben duoi moi la frontmatter that (co origin: ECC + mo ta chuan). Bug nay
+lam bat ky tool nao doc SKILL.md theo frontmatter chuan se doc nham metadata rac, khong thay
+duoc mo ta that cua skill - anh huong ca 266 skill, khong chi rieng ban `ecc-*`.
+
+**Da xu ly:**
+- 260/266 cap: noi dung that (sau khi bo wrapper) giong het nhau giua 2 ban -> xoa han thu muc
+  `ecc-X/`, ghi de `X/SKILL.md` bang noi dung da lam sach (bo wrapper, giu dung 1 frontmatter)
+- 6/266 cap co noi dung that KHAC nhau thuc su (khong chi khac wrapper): `blueprint`,
+  `deployment-patterns`, `brand-voice`, `terminal-ops`, `fastapi-patterns`, `frontend-patterns`
+  -> so sanh do dai/do day du, giu ban tot hon (5/6 giu ban `X`, rieng `blueprint` giu noi dung
+  tu ban `ecc-blueprint` vi day du hon nhieu - 5310 vs 2125 ky tu)
+- 6 entry con lai co tien to `ecc-` la ten that (khong phai duplicate): `ecc-agents`,
+  `ecc-claude`, `ecc-guide`, `ecc-index`, `ecc-remotion-video-creation`, `ecc-tools-cost-audit`
+  - giu nguyen, khong dung cham
+
+**Ket qua:** skills/ giam tu ~715 xuong 449 top-level entries (xoa 266 duplicate), toan bo
+449 file con lai deu la single clean frontmatter, khong con file nao dinh bug wrapper kep.
+
+Thuc hien qua Git Trees API (1 lan fetch toan bo tree - 2303 entries, tranh phai GET tung file)
++ Git Blobs API (so sanh noi dung) + Contents API PUT/DELETE (co SHA dung chuan). Batch 266 cap
+qua 3 lan chay, 0 loi.
+
+**Kho: 134 repos | 38 MCPs | 449 skills (giam tu ~715, xoa 266 ecc-duplicate + fix bug wrapper) | 180 scripts | 7 agent packages | 5 stacks | 9 role**
