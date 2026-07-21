@@ -1,11 +1,5 @@
 ---
 name: redis-patterns
-description: ---
-category: development
----
-
----
-name: redis-patterns
 description: Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, and connection management for production applications.
 origin: ECC
 ---
@@ -407,4 +401,3 @@ Use Pub/Sub for fire-and-forget. Switch to Streams if you need guaranteed delive
 - Skill: `database-migrations` — schema versioning
 - Skill: `django-patterns` — Django cache framework integration
 - Agent: `database-reviewer` — full database review workflow
-
