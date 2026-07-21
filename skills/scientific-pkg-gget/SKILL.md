@@ -1,10 +1,4 @@
 ---
-name: scientific-pkg-gget
-description: ---
-category: development
----
-
----
 name: gget
 description: gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style searches, enrichment checks, and reproducible bioinformatics evidence logs.
 origin: community
@@ -170,4 +164,3 @@ Also record:
 - [gget updates](https://pachterlab.github.io/gget/en/updates.html)
 - [gget GitHub repository](https://github.com/pachterlab/gget)
 - [gget Bioinformatics paper](https://doi.org/10.1093/bioinformatics/btac836)
-
