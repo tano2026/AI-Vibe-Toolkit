@@ -1,10 +1,4 @@
 ---
-name: scientific-db-uspto-database
-description: ---
-category: development
----
-
----
 name: uspto-database
 description: USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR checks, assignment data, and reproducible IP research logs.
 origin: community
@@ -181,4 +175,3 @@ For final writeups, separate:
 - [PatentSearch API reference](https://search.patentsview.org/docs/docs/Search%20API/SearchAPIReference/)
 - [PatentSearch API updates](https://search.patentsview.org/docs/)
 - [TSDR API bulk download FAQ](https://developer.uspto.gov/faq/tsdr-api-bulk-download)
-
