@@ -1,11 +1,5 @@
 ---
 name: database-migrations
-description: ---
-category: development
----
-
----
-name: database-migrations
 description: Database migration best practices for schema changes, data migrations, rollbacks, and zero-downtime deployments across PostgreSQL, MySQL, and common ORMs (Prisma, Drizzle, Kysely, Django, TypeORM, golang-migrate).
 origin: ECC
 ---
@@ -433,4 +427,3 @@ Day 7: Migration drops old status column
 | Inline index on large table | Blocks writes during build | CREATE INDEX CONCURRENTLY |
 | Schema + data in one migration | Hard to rollback, long transactions | Separate migrations |
 | Dropping column before removing code | Application errors on missing column | Remove code first, drop column next deploy |
-
