@@ -1,11 +1,5 @@
 ---
 name: prisma-patterns
-description: ---
-category: development
----
-
----
-name: prisma-patterns
 description: Prisma ORM patterns for TypeScript backends — schema design, query optimization, transactions, pagination, and critical traps like updateMany returning count not records, $transaction timeouts, migrate dev resetting the DB, @updatedAt skipped on bulk writes, and serverless connection exhaustion.
 origin: ECC
 ---
@@ -375,4 +369,3 @@ await prisma.post.deleteMany({ where: { authorId: userId } });
 - `postgres-patterns` — PostgreSQL-level indexing and connection tuning
 - `database-migrations` — multi-step migration planning for production
 - `backend-patterns` — general API and service layer design
-
