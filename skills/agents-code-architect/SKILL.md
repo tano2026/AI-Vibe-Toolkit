@@ -1,10 +1,4 @@
 ---
-name: agents-code-architect
-description: ---
-category: development
----
-
----
 name: code-architect
 description: Designs feature architectures by analyzing existing codebase patterns and conventions, then providing implementation blueprints with concrete files, interfaces, data flow, and build order.
 model: sonnet
@@ -84,4 +78,3 @@ Order the implementation by dependency:
 1. Step 1
 2. Step 2
 ```
-
