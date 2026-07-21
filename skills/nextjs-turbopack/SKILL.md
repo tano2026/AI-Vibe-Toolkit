@@ -1,11 +1,5 @@
 ---
 name: nextjs-turbopack
-description: ---
-category: development
----
-
----
-name: nextjs-turbopack
 description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed, and when to use Turbopack vs webpack.
 origin: ECC
 ---
@@ -61,4 +55,3 @@ Reference: [Next.js proxy docs](https://nextjs.org/docs/app/getting-started/prox
 - Stay on a recent Next.js 16.x for stable Turbopack and caching behavior.
 - If dev is slow, ensure you're on Turbopack (default) and that the cache isn't being cleared unnecessarily.
 - For production bundle size issues, use the official Next.js bundle analysis tooling for your version.
-
