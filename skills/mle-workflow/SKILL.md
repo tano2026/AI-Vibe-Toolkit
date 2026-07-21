@@ -1,11 +1,5 @@
 ---
 name: mle-workflow
-description: ---
-category: development
----
-
----
-name: mle-workflow
 description: Production machine-learning engineering workflow for data contracts, reproducible training, model evaluation, deployment, monitoring, and rollback. Use when building, reviewing, or hardening ML systems beyond one-off notebooks.
 origin: ECC
 ---
@@ -350,4 +344,3 @@ Every deployment should have a rollback plan that names the previous artifact, c
 ## Output Expectations
 
 When using this skill, return concrete artifacts: data contract, promotion gates, pipeline steps, test plan, deployment plan, or review findings. Call out unknowns that block production readiness instead of filling them with assumptions.
-
