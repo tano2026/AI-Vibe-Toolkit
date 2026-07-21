@@ -1,11 +1,5 @@
 ---
 name: network-bgp-diagnostics
-description: ---
-category: development
----
-
----
-name: network-bgp-diagnostics
 description: Diagnostics-only BGP troubleshooting patterns for neighbor state, route exchange, prefix policy, AS path inspection, and safe evidence collection.
 origin: community
 ---
@@ -171,4 +165,3 @@ supported by the platform and document exactly why it is safe.
 - Skill: `cisco-ios-patterns`
 - Skill: `network-config-validation`
 - Skill: `network-interface-health`
-
