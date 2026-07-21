@@ -1,11 +1,5 @@
 ---
 name: blender-motion-state-inspection
-description: ---
-category: development
----
-
----
-name: blender-motion-state-inspection
 description: Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground contact, facing direction, or model-vs-motion alignment where screenshots alone are not enough.
 origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
@@ -168,4 +162,3 @@ Verdict: likely backwards import or retargeting forward-axis mismatch. Fix the i
 ## Tooling Notes
 
 If a Blender state exporter is available, prefer JSON that includes meshes, armatures, pose bones, materials, contacts, bounding boxes, and sampled animation frames. If no exporter exists, run a small Blender Python script through Blender itself, for example `blender --background scene.blend --python collect_motion_state.py`, because `bpy` is not available in a normal system Python interpreter.
-
