@@ -1,11 +1,5 @@
 ---
 name: rules-distill
-description: ---
-category: development
----
-
----
-name: rules-distill
 description: "Scan skills to extract cross-cutting principles and distill them into rules — append, revise, or create new rule files"
 origin: ECC
 ---
@@ -268,4 +262,3 @@ Results saved to results.json
 - **Link back**: Draft text should include `See skill: [name]` references so readers can find the detailed How.
 - **Deterministic collection, LLM judgment**: Scripts guarantee exhaustiveness; the LLM guarantees contextual understanding.
 - **Anti-abstraction safeguard**: The 3-layer filter (2+ skills evidence, actionable behavior test, violation risk) prevents overly abstract principles from entering rules.
-
