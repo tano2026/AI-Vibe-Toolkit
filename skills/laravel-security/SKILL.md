@@ -1,11 +1,5 @@
 ---
 name: laravel-security
-description: ---
-category: development
----
-
----
-name: laravel-security
 description: Laravel security best practices — authentication, authorization, Eloquent safety, CSRF, XSS prevention, API security, and secure deployment configurations.
 origin: ECC
 ---
@@ -951,4 +945,3 @@ SecurityLogger::log('suspicious_activity', ['reason' => 'multiple_attempts_from_
 - `laravel-patterns` — Laravel architecture, routing, Eloquent, and API patterns
 - `backend-patterns` — General backend API and database patterns
 - `laravel-tdd` — Laravel testing with PHPUnit and Pest
-
