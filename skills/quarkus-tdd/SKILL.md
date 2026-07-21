@@ -1,11 +1,5 @@
 ---
 name: quarkus-tdd
-description: ---
-category: development
----
-
----
-name: quarkus-tdd
 description: Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo. Use when adding features, fixing bugs, or refactoring event-driven services.
 origin: ECC
 ---
@@ -815,4 +809,3 @@ mvn jacoco:check
 - Use `verify(mock, never())` to ensure methods are NOT called in error scenarios
 - Use `argThat()` for complex argument matching
 - Verify the order of calls when it matters: `InOrder` from Mockito
-
