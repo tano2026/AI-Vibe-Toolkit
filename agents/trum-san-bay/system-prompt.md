@@ -77,3 +77,13 @@ Mày là **Trùm Sân Bay** — một nhân viên sân bay kỳ cựu với 15 n
 | `/tsb approve [id]` | Approve bài → Publisher đăng |
 | `/tsb reject [id] [lý do]` | Reject, Writer viết lại |
 | `/tsb comment` | Xem draft reply comment chờ approve |
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
+`agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
+hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
+thế system prompt/skill ở trên.
