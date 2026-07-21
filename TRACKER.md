@@ -2210,3 +2210,26 @@ Da update agents/rio-bot/ARCHITECTURE.md len v3.0, doc lai toan bo thay doi + so
 **Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
 (RIO Bot: tu "cho wire-up" -> co the deploy that, con thieu: test thuc te tren VPS/may local
 Windows, wire OMNIROUTE_URL neu muon nang sentiment/synthesis len tier AI thay vi template)
+
+
+---
+
+## Repo moi 21/07/2026 (b) — agency-agents-app
+
+Nobitano gui 4 ten: Graphify-labs/graphify, hallmark, opencut, agency-agent — ca 4 DA CO SAN
+trong kho (repos/graphify.md, repos/hallmark.md, repos/opencut.md, repos/agency-agents.md),
+khong viet lai. Rieng khi research lai agency-agents, phat hien 1 companion app MOI cua cung
+tac gia (msitarzewski) chua co trong kho — da xac nhan voi Nobitano va viet them.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| msitarzewski/agency-agents-app | repos/agency-agents-app.md | 24 | script-video-181 |
+
+Highlight: app native (Tauri 2 + Svelte 5, khong phai web) de browse/cai/theo doi 232 persona
+tu repo goc agency-agents vao dung tool AI coding (Claude Code, Codex, Cursor, Gemini CLI,
+Copilot, Qwen, opencode) chi bang 1 click, thay vi tu convert tay. Diem hay nhat: tu phat hien
+"drift" khi file persona bi sua tay ben ngoai app (so sanh byte voi source goc). Luu y quan
+trong: **OpenClaw chua nam trong danh sach tool duoc app ho tro cai truc tiep** — Nobitano can
+dung tam script convert.sh cua repo goc cho case nay.
+
+**Kho: 135 repos | 38 MCPs | 449 skills | 181 scripts | 7 agent packages | 5 stacks | 9 role**
