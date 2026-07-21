@@ -1,11 +1,5 @@
 ---
 name: gan-style-harness
-description: ---
-category: development
----
-
----
-name: gan-style-harness
 description: "GAN-inspired Generator-Evaluator agent harness for building high-quality applications autonomously. Based on Anthropic's March 2026 harness design paper."
 origin: ECC-community
 tools: Read, Write, Edit, Bash, Grep, Glob, Task
@@ -282,4 +276,3 @@ Based on Anthropic's published results:
 - [Epsilla: The GAN-Style Agent Loop](https://www.epsilla.com/blogs/anthropic-harness-engineering-multi-agent-gan-architecture) — Architecture deconstruction
 - [Martin Fowler: Harness Engineering](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html) — Broader industry context
 - [OpenAI: Harness Engineering](https://openai.com/index/harness-engineering/) — OpenAI's parallel work
-
