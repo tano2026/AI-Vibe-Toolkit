@@ -1,11 +1,5 @@
 ---
 name: token-budget-advisor
-description: ---
-category: development
----
-
----
-name: token-budget-advisor
 description: >-
   Offers the user an informed choice about how much response depth to
   consume before answering. Use this skill when the user explicitly
@@ -137,4 +131,3 @@ This skill uses heuristic estimation — no real tokenizer. Accuracy ~85-90%, va
 
 Standalone skill from [TBA — Token Budget Advisor for Claude Code](https://github.com/Xabilimon1/Token-Budget-Advisor-Claude-Code-).
 Original project also ships a Python estimator script, but this repository keeps the skill self-contained and heuristic-only.
-
