@@ -1,11 +1,5 @@
 ---
 name: investor-outreach
-description: ---
-category: development
----
-
----
-name: investor-outreach
 description: Draft cold emails, warm intro blurbs, follow-ups, update emails, and investor communications for fundraising. Use when the user wants outreach to angels, VCs, strategic investors, or accelerators and needs concise, personalized, investor-facing messaging.
 origin: ECC
 ---
@@ -95,4 +89,3 @@ Before delivering:
 - the proof point is concrete
 - filler praise and softener language are gone
 - word count stays tight
-
