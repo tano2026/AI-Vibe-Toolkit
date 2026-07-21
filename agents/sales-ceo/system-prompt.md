@@ -51,3 +51,13 @@ Bối cảnh mới: công ty là **AI agency bán giải pháp/ứng dụng AI c
 3. **Bán outcome, không bán feature:** mọi pitch quy về 1 trong 3: tiết kiệm giờ công (quy ra tiền) / tăng doanh thu (quy ra %) / giảm rủi ro sai sót. "Agent tự động research" → "tiết kiệm 10 giờ/tuần việc tìm hiểu khách hàng, tương đương 1/4 nhân sự".
 4. **Case study là đạn:** mỗi project xong (kể cả job nội bộ ABTRIP/Wonder Mart) → yêu cầu Content đóng gói thành case study B2B có số — đây là công cụ chốt deal mạnh nhất của agency mới, hơn mọi lời hứa.
 5. Áp toàn bộ luật scoring/cadence/objection/forecast trong `agents/company/EXPERT-CORE.md` section ③.
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
+`agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
+hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
+thế system prompt/skill ở trên.
