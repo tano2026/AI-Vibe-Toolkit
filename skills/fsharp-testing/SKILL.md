@@ -1,11 +1,5 @@
 ---
 name: fsharp-testing
-description: ---
-category: development
----
-
----
-name: fsharp-testing
 description: F# testing patterns with xUnit, FsUnit, Unquote, FsCheck property-based testing, integration tests, and test organization best practices.
 origin: ECC
 ---
@@ -284,4 +278,3 @@ dotnet test --filter "FullyQualifiedName~OrderService"
 # Watch mode during development
 dotnet watch test --project tests/MyApp.Tests/
 ```
-
