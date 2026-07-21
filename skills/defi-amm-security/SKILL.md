@@ -1,11 +1,5 @@
 ---
 name: defi-amm-security
-description: ---
-category: development
----
-
----
-name: defi-amm-security
 description: Security checklist for Solidity AMM contracts, liquidity pools, and swap flows. Covers reentrancy, CEI ordering, donation or inflation attacks, oracle manipulation, slippage, admin controls, and integer math.
 origin: ECC direct-port adaptation
 version: "1.0.0"
@@ -170,4 +164,3 @@ echidna-test . --contract YourAMM --config echidna.yaml
 
 forge test --fuzz-runs 10000
 ```
-
