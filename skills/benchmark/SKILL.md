@@ -1,11 +1,5 @@
 ---
 name: benchmark
-description: ---
-category: development
----
-
----
-name: benchmark
 description: Use this skill to measure performance baselines, detect regressions before/after PRs, and compare stack alternatives.
 origin: ECC
 ---
@@ -97,4 +91,3 @@ Stores baselines in `.ecc/benchmarks/` as JSON. Git-tracked so the team shares b
 - CI: run `/benchmark compare` on every PR
 - Pair with `/canary-watch` for post-deploy monitoring
 - Pair with `/browser-qa` for full pre-ship checklist
-
