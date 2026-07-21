@@ -1,11 +1,5 @@
 ---
 name: content-hash-cache-pattern
-description: ---
-category: development
----
-
----
-name: content-hash-cache-pattern
 description: Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-invalidating, with service layer separation.
 origin: ECC
 ---
@@ -165,4 +159,3 @@ data = dataclasses.asdict(entry)  # Use manual serialization instead
 - Data that must always be fresh (real-time feeds)
 - Cache entries that would be extremely large (consider streaming instead)
 - Results that depend on parameters beyond file content (e.g., different extraction configs)
-
