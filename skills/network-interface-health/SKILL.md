@@ -1,11 +1,5 @@
 ---
 name: network-interface-health
-description: ---
-category: development
----
-
----
-name: network-interface-health
 description: Diagnose interface errors, drops, CRCs, duplex mismatches, flapping, speed negotiation issues, and counter trends on routers, switches, and Linux hosts.
 origin: community
 ---
@@ -156,4 +150,3 @@ def parse_show_interfaces(raw: str) -> list[dict[str, Any]]:
 - Agent: `network-troubleshooter`
 - Skill: `network-config-validation`
 - Skill: `homelab-network-setup`
-
