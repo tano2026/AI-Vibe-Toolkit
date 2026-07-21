@@ -1,11 +1,5 @@
 ---
 name: swift-concurrency-6-2
-description: ---
-category: development
----
-
----
-name: swift-concurrency-6-2
 description: Swift 6.2 Approachable Concurrency — single-threaded by default, @concurrent for explicit background offloading, isolated conformances for main actor types.
 ---
 
@@ -220,4 +214,3 @@ To use `@concurrent`:
 - Resolving data-race safety compiler errors during Xcode 26 adoption
 - Building MainActor-centric app architectures (most UI apps)
 - Performance optimization — offloading specific heavy computations to background
-
