@@ -1,11 +1,5 @@
 ---
 name: motion-ui
-description: ---
-category: development
----
-
----
-name: motion-ui
 description: "Production-ready UI motion system for React/Next.js. Use when implementing animations, transitions, or motion patterns."
 origin: ECC
 ---
@@ -579,4 +573,3 @@ export function Shared() {
   return <motion.div layoutId="shared" />
 }
 ```
-
