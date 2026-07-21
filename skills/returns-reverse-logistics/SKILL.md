@@ -1,11 +1,5 @@
 ---
 name: returns-reverse-logistics
-description: ---
-category: development
----
-
----
-name: returns-reverse-logistics
 description: >
   Codified expertise for returns authorization, receipt and inspection,
   disposition decisions, refund processing, fraud detection, and warranty
@@ -244,4 +238,3 @@ Level 1 (Returns Associate) → Level 2 (Team Lead, 2 hours) → Level 3 (Return
 
 - Pair this skill with your grading rubric, fraud review thresholds, and refund authority matrix before using it in production.
 - Keep restocking standards, hazmat return handling, and liquidation rules near the operating team that will execute the decisions.
-
