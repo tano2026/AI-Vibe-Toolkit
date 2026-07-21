@@ -1,11 +1,5 @@
 ---
 name: kubernetes-patterns
-description: ---
-category: development
----
-
----
-name: kubernetes-patterns
 description: Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging for production-grade deployments.
 origin: ECC
 ---
@@ -759,4 +753,3 @@ spec:
 - `deployment-patterns` — CI/CD pipelines, rollback strategy, health check endpoints
 - `security-review` — Broader security hardening context
 - `git-workflow` — GitOps integration with K8s (ArgoCD / Flux patterns)
-
