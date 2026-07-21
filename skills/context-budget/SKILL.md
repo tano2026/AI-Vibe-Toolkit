@@ -1,11 +1,5 @@
 ---
 name: context-budget
-description: ---
-category: development
----
-
----
-name: context-budget
 description: Audits Claude Code context window consumption across agents, skills, MCP servers, and rules. Identifies bloat, redundant components, and produces prioritized token-savings recommendations.
 origin: ECC
 ---
@@ -139,4 +133,3 @@ Skill: Current overhead 33% → adding 5 servers (~50 tools) would add ~25,000 t
 - **Agent descriptions are loaded always**: even if the agent is never invoked, its description field is present in every Task tool context
 - **Verbose mode for debugging**: use when you need to pinpoint the exact files driving overhead, not for regular audits
 - **Audit after changes**: run after adding any agent, skill, or MCP server to catch creep early
-
