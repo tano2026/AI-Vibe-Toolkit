@@ -1,11 +1,5 @@
 ---
 name: git-workflow
-description: ---
-category: development
----
-
----
-name: git-workflow
 description: Git workflow patterns including branching strategies, commit conventions, merge vs rebase, conflict resolution, and collaborative development best practices for teams of all sizes.
 origin: ECC
 ---
@@ -719,4 +713,3 @@ git add node_modules/
 | Stash | `git stash push -m "message"` |
 | Undo last commit | `git reset --soft HEAD~1` |
 | Revert commit | `git revert HEAD` |
-
