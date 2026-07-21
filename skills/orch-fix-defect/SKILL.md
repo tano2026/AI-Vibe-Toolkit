@@ -1,11 +1,5 @@
 ---
 name: orch-fix-defect
-description: ---
-category: development
----
-
----
-name: orch-fix-defect
 description: Orchestrate fixing a bug — reproduce it as a failing regression test, fix to green, review, and gated commit — by delegating each phase to the matching ECC agent. Use when existing behavior is broken or wrong.
 origin: ECC
 ---
@@ -46,4 +40,3 @@ orch-fix-defect: poller crashes on empty NWS response
 → write failing test reproducing the crash → fix to green
 → code-review → commit  [GATE 2: confirm]   (commit: fix:)
 ```
-
