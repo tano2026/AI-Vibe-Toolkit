@@ -1,11 +1,5 @@
 ---
 name: recursive-decision-ledger
-description: ---
-category: development
----
-
----
-name: recursive-decision-ledger
 description: Use when the user asks for repeated rollouts, marked decision processes, high-dimensional search, stochastic optimization, local-optima exploration, ensemble comparison, or recursive reasoning with a visible evidence trail.
 origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
@@ -83,4 +77,3 @@ Rollout 15 complete. The prior winner still holds, but edge deteriorated 17%.
 Status: watch, not live. Next gate: 20 replay fills with fresh orderbook age
 below threshold.
 ```
-
