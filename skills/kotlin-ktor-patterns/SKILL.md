@@ -1,11 +1,5 @@
 ---
 name: kotlin-ktor-patterns
-description: ---
-category: development
----
-
----
-name: kotlin-ktor-patterns
 description: Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.serialization, WebSockets, and testApplication testing.
 origin: ECC
 ---
@@ -693,4 +687,3 @@ fun Application.configureDI() {
 | `testApplication { }` | Integration testing |
 
 **Remember**: Ktor is designed around Kotlin coroutines and DSLs. Keep routes thin, push logic to services, and use Koin for dependency injection. Test with `testApplication` for full integration coverage.
-
