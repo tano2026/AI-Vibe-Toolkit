@@ -1,11 +1,5 @@
 ---
 name: angular-developer
-description: ---
-category: development
----
-
----
-name: angular-developer
 description: Generates Angular code and provides architectural guidance. Trigger when creating projects, components, or services, or for best practices on reactivity (signals, linkedSignal, resource), forms, dependency injection, routing, SSR, accessibility (ARIA), animations, styling (component styles, Tailwind CSS), testing, or CLI tooling.
 origin: ECC
 ---
@@ -158,4 +152,3 @@ When working with Angular tooling, consult the following references:
 - `tdd-workflow` — test-driven development workflow applicable to Angular components and services
 - `security-review` — security checklist for web applications including Angular-specific concerns
 - `frontend-patterns` — general frontend patterns for context on React/Next.js approaches
-
