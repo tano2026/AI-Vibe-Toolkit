@@ -1,11 +1,5 @@
 ---
 name: codehealth-mcp
-description: ---
-category: development
----
-
----
-name: codehealth-mcp
 description: Real-time structural Code Health via CodeScene MCP — review before edits, verify score deltas after changes, gate commits and PRs. Use when reviewing code quality, refactoring, checking if AI changes degraded a file, or before commit/PR.
 origin: community
 ---
@@ -170,4 +164,3 @@ Drive-by cleanup across the module
 - `tdd-workflow` — test-first development
 - `security-review` — security checklist
 - `documentation-lookup` — library docs via Context7 (orthogonal)
-
