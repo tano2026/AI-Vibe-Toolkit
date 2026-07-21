@@ -1,11 +1,5 @@
 ---
 name: homelab-pihole-dns
-description: ---
-category: development
----
-
----
-name: homelab-pihole-dns
 description: Pi-hole installation, blocklist management, DNS-over-HTTPS setup, DHCP integration, local DNS records, and troubleshooting broken DNS resolution on a home network.
 origin: community
 ---
@@ -278,4 +272,3 @@ pihole -g
 - homelab-network-setup
 - homelab-vlan-segmentation
 - homelab-wireguard-vpn
-
