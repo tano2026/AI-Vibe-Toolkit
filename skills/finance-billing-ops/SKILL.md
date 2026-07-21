@@ -1,11 +1,5 @@
 ---
 name: finance-billing-ops
-description: ---
-category: development
----
-
----
-name: finance-billing-ops
 description: Evidence-first revenue, pricing, refunds, team-billing, and billing-model truth workflow for ECC. Use when the user wants a sales snapshot, pricing comparison, duplicate-charge diagnosis, or code-backed billing reality instead of generic payments advice.
 origin: ECC
 ---
@@ -131,4 +125,3 @@ PRODUCT GAP
 - the answer includes a live-data statement or snapshot timestamp
 - product-truth claims are code-backed
 - customer-impact and broader pricing/product conclusions are separated cleanly
-
