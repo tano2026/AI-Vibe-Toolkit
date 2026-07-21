@@ -1,11 +1,5 @@
 ---
 name: ck
-description: ---
-category: development
----
-
----
-name: ck
 description: Persistent per-project memory for Claude Code. Auto-loads project context on session start, tracks sessions with git activity, and writes to native memory. Commands run deterministic Node.js scripts — behavior is consistent across model versions.
 origin: community
 version: 2.0.0
@@ -151,4 +145,3 @@ unsaved sessions, git activity since last save, and goal mismatches vs CLAUDE.md
 - If a script exits with code 1, display its stdout as an error message.
 - Never edit `context.json` or `CONTEXT.md` directly — always use the scripts.
 - If `projects.json` is malformed, tell the user and offer to reset it to `{}`.
-
