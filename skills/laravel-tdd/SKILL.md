@@ -1,11 +1,5 @@
 ---
 name: laravel-tdd
-description: ---
-category: development
----
-
----
-name: laravel-tdd
 description: Laravel testing strategies with PHPUnit, Pest, model factories, HTTP tests, Sanctum authentication testing, mocking, and coverage.
 origin: ECC
 ---
@@ -678,4 +672,3 @@ vendor/bin/pest --coverage --min=80
 - `laravel-security` — Laravel authentication, authorization, and secure coding
 - `tdd-workflow` — The repo-wide RED -> GREEN -> REFACTOR loop
 - `backend-patterns` — General backend API and database patterns
-
