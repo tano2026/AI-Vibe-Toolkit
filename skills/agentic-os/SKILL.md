@@ -1,11 +1,5 @@
 ---
 name: agentic-os
-description: ---
-category: development
----
-
----
-name: agentic-os
 description: Build persistent multi-agent operating systems on Claude Code. Covers kernel architecture, specialist agents, slash commands, file-based memory, scheduled automation, and state management without external databases.
 origin: ECC
 ---
@@ -391,4 +385,3 @@ Keep routing declarative in `CLAUDE.md` markdown tables. It is inspectable, edit
 - [ ] Scheduled tasks use external cron (LaunchAgent, systemd, pm2), not Claude Code's session cron
 - [ ] Cost tracking: log API spend per session in `data/logs/<date>-costs.json`
 - [ ] One project = one Agentic OS. Do not share a single `CLAUDE.md` across unrelated projects.
-
