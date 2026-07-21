@@ -1,10 +1,4 @@
 ---
-name: agents-a11y-architect
-description: ---
-category: development
----
-
----
 name: a11y-architect
 description: Accessibility Architect specializing in WCAG 2.2 compliance for Web and Native platforms. Use PROACTIVELY when designing UI components, establishing design systems, or auditing code for inclusive user experiences.
 model: sonnet
@@ -153,4 +147,3 @@ Button(action: close) {
 ## Reference
 
 - See skill `accessibility` to transform raw UI requirements into platform-specific accessible code (WAI-ARIA, SwiftUI, or Jetpack Compose) based on WCAG 2.2 criteria.
-
