@@ -1,11 +1,5 @@
 ---
 name: vite-patterns
-description: ---
-category: development
----
-
----
-name: vite-patterns
 description: Vite build tool patterns including config, plugins, HMR, env variables, proxy setup, SSR, library mode, dependency pre-bundling, and build optimization. Activate when working with vite.config.ts, Vite plugins, or Vite-based projects.
 origin: ECC
 ---
@@ -453,4 +447,3 @@ import.meta.hot.data.count = 0                 // CORRECT
 - `frontend-patterns` — React component patterns
 - `docker-patterns` — containerized dev with Vite
 - `nextjs-turbopack` — alternative bundler for Next.js
-
