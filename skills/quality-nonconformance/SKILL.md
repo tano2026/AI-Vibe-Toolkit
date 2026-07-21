@@ -1,11 +1,5 @@
 ---
 name: quality-nonconformance
-description: ---
-category: development
----
-
----
-name: quality-nonconformance
 description: >
   Codified expertise for quality control, non-conformance investigation, root
   cause analysis, corrective action, and supplier quality management in
@@ -264,4 +258,3 @@ Track these metrics weekly and trend monthly:
 
 - Pair this skill with your NCR template, disposition authority matrix, and SPC rule set so investigators use the same definitions every time.
 - Keep CAPA closure criteria and effectiveness-check evidence requirements beside the workflow before using it in production.
-
