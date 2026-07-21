@@ -1,11 +1,5 @@
 ---
 name: gateguard
-description: ---
-category: development
----
-
----
-name: gateguard
 description: Fact-forcing gate that blocks Edit/Write/Bash (including MultiEdit) and demands concrete investigation (importers, data schemas, user instruction) before allowing the action. Measurably improves output quality by +2.25 points vs ungated agents.
 origin: community
 ---
@@ -136,4 +130,3 @@ This adds `.gateguard.yml` for per-project configuration (custom messages, ignor
 
 - `safety-guard` — Runtime safety checks (complementary, not overlapping)
 - `code-reviewer` — Post-edit review (GateGuard is pre-edit investigation)
-
