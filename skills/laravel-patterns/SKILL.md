@@ -1,11 +1,5 @@
 ---
 name: laravel-patterns
-description: ---
-category: development
----
-
----
-name: laravel-patterns
 description: Laravel architecture patterns, routing/controllers, Eloquent ORM, service layers, queues, events, caching, and API resources for production apps.
 origin: ECC
 ---
@@ -419,4 +413,3 @@ return response()->json([
 
 - Keep secrets in `.env` and config in `config/*.php`
 - Use per-environment config overrides and `config:cache` in production
-
