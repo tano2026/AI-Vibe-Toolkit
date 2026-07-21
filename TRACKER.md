@@ -2060,3 +2060,30 @@ tren no. Ngoai ra day la desktop app CO UI (Electron) - KHONG tich hop duoc vao 
 headless tren VPS, chi dung tay tren may Windows local khi can.
 
 **Kho: 130 repos | 38 MCPs | 91 skills | 176 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 20/07/2026 — Andrej Karpathy Skills (temperament layer cho Claude Code)
+
+Nobitano hoi "Andrej-karpathy-skill" - day la 1 phat hien LON: repo 194.7K stars (mot trong
+nhung repo AI-workflow duoc star nhieu nhat tung co tren GitHub). 1 file CLAUDE.md duc ket
+quan sat cua Andrej Karpathy ve loi hanh vi AI coding agent thuong gap.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| multica-ai/andrej-karpathy-skills (canonical) | repos/andrej-karpathy-skills.md | 194.7k | script-video-177 |
+| swarmclawai/andrej-karpathy-skills (co adapter OpenClaw rieng) | (nhac trong cung file) | 30 | - |
+
+4 nguyen tac: (1) Think Before Coding - neu ro gia dinh, hoi lai khi mo ho, (2) Simplicity
+First - khong code thua/abstraction som, (3) Surgical Changes - chi sua dung yeu cau, khong
+tien tay refactor, (4) Goal-Driven Execution - bien lenh mo ho thanh tieu chi verify duoc.
+
+Day la "sua hanh vi" khong phai "them nang luc" - dung CHUNG voi SKILL.md chuyen biet da co,
+khong thay the. CANH BAO: ban canonical multica-ai KHONG ghi ro license - can trong khi phan
+phoi lai/dong goi thuong mai, dung ca nhan/noi bo thi binh thuong.
+
+Da wire huong dan append vao HERMES-PLAYBOOK.md va OPENCLAW-PLAYBOOK.md (agent integration
+section trong file repo) - de xuat ap dung ngay cho MOI agent package trong he sinh thai.
+
+**Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
