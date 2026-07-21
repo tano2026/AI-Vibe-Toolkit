@@ -1,11 +1,5 @@
 ---
 name: api-connector-builder
-description: ---
-category: development
----
-
----
-name: api-connector-builder
 description: Build a new API connector or provider by matching the target repo's existing integration pattern exactly. Use when adding one more integration without inventing a second architecture.
 origin: ECC direct-port adaptation
 version: "1.0.0"
@@ -124,4 +118,3 @@ src/integrations/
 - `backend-patterns`
 - `mcp-server-patterns`
 - `github-ops`
-
