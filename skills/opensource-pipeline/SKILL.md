@@ -1,11 +1,5 @@
 ---
 name: opensource-pipeline
-description: ---
-category: development
----
-
----
-name: opensource-pipeline
 description: "Open-source pipeline: fork, sanitize, and package private projects for safe public release. Chains 3 agents (forker, sanitizer, packager). Triggers: '/opensource', 'open source this', 'make this public', 'prepare for open source'."
 origin: ECC
 ---
@@ -259,4 +253,3 @@ $HOME/opensource-staging/
 ## Related Skills
 
 See `security-review` for secret detection patterns used by the sanitizer.
-
