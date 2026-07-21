@@ -1,11 +1,5 @@
 ---
 name: browser-qa
-description: ---
-category: development
----
-
----
-name: browser-qa
 description: Use this skill to automate visual testing and UI interaction verification using browser automation after deploying features.
 origin: ECC
 ---
@@ -91,4 +85,3 @@ Works with any browser MCP:
 - Direct Puppeteer scripts
 
 Pair with `/canary-watch` for post-deploy monitoring.
-
