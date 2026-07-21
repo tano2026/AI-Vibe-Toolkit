@@ -1,11 +1,5 @@
 ---
 name: council
-description: ---
-category: development
----
-
----
-name: council
 description: Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls. Use when multiple valid paths exist and you need structured disagreement before choosing.
 origin: ECC
 ---
@@ -207,4 +201,3 @@ Likely council shape:
 - Critic focuses on support burden, expectation debt, and rollout confusion
 
 The value is not unanimity. The value is making the disagreement legible before choosing.
-
