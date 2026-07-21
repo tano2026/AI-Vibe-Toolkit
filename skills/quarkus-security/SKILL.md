@@ -1,11 +1,5 @@
 ---
 name: quarkus-security
-description: ---
-category: development
----
-
----
-name: quarkus-security
 description: Quarkus Security best practices for authentication, authorization, JWT/OIDC, RBAC, input validation, CSRF, secrets management, and dependency security.
 origin: ECC
 ---
@@ -471,4 +465,3 @@ quarkus extension list --installable
 - Use SecurityIdentity for programmatic checks
 - Set appropriate CORS policies
 - Test authentication and authorization paths
-
