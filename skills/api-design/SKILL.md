@@ -1,11 +1,5 @@
 ---
 name: api-design
-description: ---
-category: development
----
-
----
-name: api-design
 description: REST API design patterns including resource naming, status codes, pagination, filtering, error responses, versioning, and rate limiting for production APIs.
 origin: ECC
 ---
@@ -527,4 +521,3 @@ Before shipping a new endpoint:
 - [ ] Response does not leak internal details (stack traces, SQL errors)
 - [ ] Consistent naming with existing endpoints (camelCase vs snake_case)
 - [ ] Documented (OpenAPI/Swagger spec updated)
-
