@@ -1,11 +1,5 @@
 ---
 name: visa-doc-translate
-description: ---
-category: development
----
-
----
-name: visa-doc-translate
 description: Translate visa application documents (images) to English and create a bilingual PDF with original and translation
 ---
 
@@ -121,4 +115,3 @@ The skill will:
    - Page 2: Professional English translation
 
 Perfect for visa applications to Australia, USA, Canada, UK, and other countries requiring translated documents.
-
