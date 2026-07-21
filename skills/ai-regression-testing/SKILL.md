@@ -1,11 +1,5 @@
 ---
 name: ai-regression-testing
-description: ---
-category: development
----
-
----
-name: ai-regression-testing
 description: Regression testing strategies for AI-assisted development. Sandbox-mode API testing without database dependencies, automated bug-check workflows, and patterns to catch AI blind spots where the same model writes and reviews code.
 origin: ECC
 ---
@@ -389,4 +383,3 @@ No bug in /api/user/notifications  → Don't write test (yet)
 - Skip sandbox path testing because "it's just mock data"
 - Write integration tests when unit tests suffice
 - Aim for coverage percentage — aim for regression prevention
-
