@@ -1,11 +1,5 @@
 ---
 name: django-verification
-description: ---
-category: development
----
-
----
-name: django-verification
 description: "Verification loop for Django projects: migrations, linting, tests with coverage, security scans, and deployment readiness checks before release or PR."
 origin: ECC
 ---
@@ -473,4 +467,3 @@ jobs:
 | Diff stats | `git diff --stat` |
 
 Remember: Automated verification catches common issues but doesn't replace manual code review and testing in staging environment.
-
