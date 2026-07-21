@@ -1,11 +1,5 @@
 ---
 name: jira-integration
-description: ---
-category: development
----
-
----
-name: jira-integration
 description: Use this skill when retrieving Jira tickets, analyzing requirements, updating ticket status, adding comments, or transitioning issues. Provides Jira API patterns via MCP or direct REST calls.
 origin: ECC
 ---
@@ -306,4 +300,3 @@ Coverage: XX%
 - Use @mentions if you need input from others
 - Check linked issues to understand full feature scope before starting
 - If acceptance criteria are vague, ask for clarification before writing code
-
