@@ -1,11 +1,5 @@
 ---
 name: rust-patterns
-description: ---
-category: development
----
-
----
-name: rust-patterns
 description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency, and best practices for building safe, performant applications.
 origin: ECC
 ---
@@ -503,4 +497,3 @@ async fn bad_async() {
 ```
 
 **Remember**: If it compiles, it's probably correct — but only if you avoid `unwrap()`, minimize `unsafe`, and let the type system work for you.
-
