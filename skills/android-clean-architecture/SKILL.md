@@ -1,11 +1,5 @@
 ---
 name: android-clean-architecture
-description: ---
-category: development
----
-
----
-name: android-clean-architecture
 description: Clean Architecture patterns for Android and Kotlin Multiplatform projects — module structure, dependency rules, UseCases, Repositories, and data layer patterns.
 origin: ECC
 ---
@@ -343,4 +337,3 @@ plugins { id("kmp-library") }
 
 See skill: `compose-multiplatform-patterns` for UI patterns.
 See skill: `kotlin-coroutines-flows` for async patterns.
-
