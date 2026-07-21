@@ -1,11 +1,5 @@
 ---
 name: team-builder
-description: ---
-category: development
----
-
----
-name: team-builder
 description: Interactive agent picker for composing and dispatching parallel teams
 origin: community
 ---
@@ -172,4 +166,3 @@ Both agents agree on: [...]
 Tension: Security recommends CSP that blocks inline styles, SEO needs inline schema markup. Resolution: [...]
 Next steps: [...]
 ```
-
