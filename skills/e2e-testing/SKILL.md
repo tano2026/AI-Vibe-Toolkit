@@ -1,11 +1,5 @@
 ---
 name: e2e-testing
-description: ---
-category: development
----
-
----
-name: e2e-testing
 description: Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.
 origin: ECC
 ---
@@ -330,4 +324,3 @@ test('trade execution', async ({ page }) => {
   await expect(page.locator('[data-testid="trade-success"]')).toBeVisible()
 })
 ```
-
