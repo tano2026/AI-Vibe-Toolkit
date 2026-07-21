@@ -1,11 +1,5 @@
 ---
 name: orch-build-mvp
-description: ---
-category: development
----
-
----
-name: orch-build-mvp
 description: Orchestrate bootstrapping a working MVP from a design or spec document — ingest the doc, plan thin vertical slices, scaffold the first end-to-end slice, then TDD-implement, review, and gated commit. Use to turn an SDD/PRD into a running starting point.
 origin: ECC
 ---
@@ -52,4 +46,3 @@ orch-build-mvp: civicpulse/docs/SDD-v0.6.md
 → /gan-build --skip-planner (generator → evaluator loop) scores vs spec → review
 → commit feat:  [GATE 2: confirm] → next slice
 ```
-
