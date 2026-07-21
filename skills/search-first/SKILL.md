@@ -1,11 +1,5 @@
 ---
 name: search-first
-description: ---
-category: development
----
-
----
-name: search-first
 description: Research-before-coding workflow. Search for existing tools, libraries, and patterns before writing custom code. Invokes the researcher agent.
 origin: ECC
 ---
@@ -186,4 +180,3 @@ Result: 1 package + 1 schema file, no custom validation logic
 - **Silent skipping**: Reporting "nothing found" when a search channel was unavailable
 - **Over-customizing**: Wrapping a library so heavily it loses its benefits
 - **Dependency bloat**: Installing a massive package for one small feature
-
