@@ -2180,3 +2180,33 @@ dong pointer tro toi, khong copy-paste noi dung day du 11 lan - de maintain, sua
 toan bo he thong cap nhat theo.
 
 **Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Nang cap 20/07/2026 — RIO Bot v3.0 "Trum Research"
+
+Nobitano yeu cau nang cap rio thanh "trum research". Da giai quyet dut diem nut that ton
+dong lau ("can rio_bot.py that va 4 module hien co") + nang cap that ve chat luong research:
+
+**File moi:**
+- agents/rio-bot/rio_bot.py — Telegram entry point DA VIET DAY DU, 10 lenh
+  (/market /swot /sentiment /forecast /kpi /deep /domain /cn /history /help),
+  long-polling zero webhook, chan chat la qua RIO_ALLOWED_CHAT_ID
+- agents/rio-bot/web_search.py — DDG scrape adapter, urllib thuan, zero API key,
+  zero pip package ngoai
+
+**Nang cap brain.py (v2.0 -> v3.0):**
+- Drafter-Reviewer loop moi: stage _review tu cham ban draft dau, dao sau them 1 vong
+  neu coverage yeu (>=40% sub-question rong) hoac thieu fact confirmed (rtype can so cung).
+  Toi da 2 vong, khong lap vo han.
+- 4 domain playbook that: aviation (ABTRIP/Fast Track), fnb (Tano Cafe), ecommerce
+  (Wonder Mart), content_niche (GMSP/Airfare Decoded) - khop dung business domain that
+- resolve_rtype() - go ten domain quen thuoc thay vi rtype ky thuat (vd /domain abtrip ...)
+- Fix _collect chong duplicate evidence khi chay lai vong 2
+
+Da update agents/rio-bot/ARCHITECTURE.md len v3.0, doc lai toan bo thay doi + so do moi.
+
+**Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
+(RIO Bot: tu "cho wire-up" -> co the deploy that, con thieu: test thuc te tren VPS/may local
+Windows, wire OMNIROUTE_URL neu muon nang sentiment/synthesis len tier AI thay vi template)
