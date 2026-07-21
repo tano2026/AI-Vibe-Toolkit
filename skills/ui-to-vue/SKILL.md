@@ -1,11 +1,5 @@
 ---
 name: ui-to-vue
-description: ---
-category: development
----
-
----
-name: ui-to-vue
 description: Use when the user has UI screenshots or design exports that need batch conversion into Vue 3 components, especially with Vant, Element Plus, or Ant Design Vue.
 origin: community
 ---
@@ -138,4 +132,3 @@ If a local config file is required, keep it out of version control:
 ## References
 
 - npm package: `ui-to-vue-converter`
-
