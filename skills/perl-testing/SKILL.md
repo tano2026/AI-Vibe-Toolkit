@@ -1,11 +1,5 @@
 ---
 name: perl-testing
-description: ---
-category: development
----
-
----
-name: perl-testing
 description: Perl testing patterns using Test2::V0, Test::More, prove runner, mocking, coverage with Devel::Cover, and TDD methodology.
 origin: ECC
 ---
@@ -479,4 +473,3 @@ Mock the *dependency*, not the code under test. If your test only verifies that 
 Use `my` variables inside subtests — never `our` — to prevent state leaking between tests.
 
 **Remember**: Tests are your safety net. Keep them fast, focused, and independent. Use Test2::V0 for new projects, prove for running, and Devel::Cover for accountability.
-
