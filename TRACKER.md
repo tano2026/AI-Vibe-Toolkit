@@ -2087,3 +2087,32 @@ Da wire huong dan append vao HERMES-PLAYBOOK.md va OPENCLAW-PLAYBOOK.md (agent i
 section trong file repo) - de xuat ap dung ngay cho MOI agent package trong he sinh thai.
 
 **Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 21/07/2026 — 3 repo trending tu batch GitHub hom nay
+
+Nobitano gui 5 repo trending nhat GitHub hom nay. Kiem tra duplicate truoc: **agency-agents**
+(msitarzewski) va **OmniRoute** (diegosouzapw) DA CO SAN trong kho (repos/agency-agents.md,
+repos/omniroute.md) - khong viet lai. Con 3 repo moi duoi day.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| tirth8205/code-review-graph | repos/code-review-graph.md | 19k | script-video-178 |
+| 1jehuang/jcode | repos/jcode.md | 9.1k | script-video-179 |
+| rohitg00/ai-engineering-from-scratch | repos/ai-engineering-from-scratch.md | 31.5k | script-video-180 |
+
+Highlight:
+- **code-review-graph** - local-first knowledge graph (Tree-sitter, MCP) cho AI coding tool doc
+  dung phan can thay vi scan het repo. Benchmark that: 6.8x giam token trung binh, toi 49x tren
+  monorepo lon. Ung dung ngay: cai cho chinh kho AI-Vibe-Toolkit (124+ file) de Hermes/OpenClaw
+  query nhanh hon.
+- **jcode** - coding agent harness Rust, thay Claude Code CLI, diem la multi-agent-aware (2+
+  agent chay chung 1 repo, tu bao conflict khi dam file) + side panel render mermaid rieng
+  nhanh hon toi 1800x. Con moi, terminal rieng (Handterm) con WIP.
+- **ai-engineering-from-scratch** - khong phai tool ma la curriculum mien phi MIT, 430+ bai,
+  20 phase, cai duoc thang vao agent qua `npx skills add`. Phase 14 (Agent Engineering, 42 bai)
+  va Phase 11 (LLM Engineering) sat nhat voi cong viec xay agent packages hien tai cua kho.
+
+**Kho: 134 repos | 38 MCPs | 91 skills | 180 scripts | 7 agent packages | 5 stacks | 9 role**
