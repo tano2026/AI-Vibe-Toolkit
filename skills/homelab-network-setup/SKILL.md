@@ -1,11 +1,5 @@
 ---
 name: homelab-network-setup
-description: ---
-category: development
----
-
----
-name: homelab-network-setup
 description: Practical home and homelab network planning for gateways, switches, access points, IP ranges, DHCP reservations, DNS, cabling, and common beginner mistakes.
 origin: community
 ---
@@ -133,4 +127,3 @@ Goal: Prepare for future segmentation without enabling it immediately.
 
 - Skill: `network-interface-health`
 - Skill: `network-config-validation`
-
