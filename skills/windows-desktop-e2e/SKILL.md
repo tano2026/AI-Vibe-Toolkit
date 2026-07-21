@@ -1,11 +1,5 @@
 ---
 name: windows-desktop-e2e
-description: ---
-category: development
----
-
----
-name: windows-desktop-e2e
 description: E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.
 origin: ECC
 ---
@@ -891,4 +885,3 @@ pytest tests/test_login.py --count=5 -v
 - `e2e-testing` — Playwright E2E for web applications
 - `cpp-testing` — C++ unit/integration testing with GoogleTest
 - `cpp-coding-standards` — C++ code style and patterns
-
