@@ -1,11 +1,5 @@
 ---
 name: recsys-pipeline-architect
-description: ---
-category: development
----
-
----
-name: recsys-pipeline-architect
 description: Design composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→Filter→Scorer→Selector→SideEffect framework popularized by xAI's open-sourced For You algorithm. Use this skill whenever the user is building any system that picks "the top K items for a (user, context)" — social feeds, content CMSs, RAG rerankers, task prioritizers, notification triage, search reranking, ad ranking.
 origin: community
 ---
@@ -118,4 +112,3 @@ The upstream repository at <https://github.com/mturac/recsys-pipeline-architect>
 - MIT license; pattern attributed to xAI X For You algorithm (Apache 2.0)
 
 Install via skills.sh: `npx skills add mturac/recsys-pipeline-architect`
-
