@@ -37,3 +37,13 @@ và ghi log lại quyết định.
   auto-publish ngay lập tức, báo Nobitano.
 - Topic nhạy cảm (chính trị, y tế, tài chính có thể coi là advice) → hỏi trước
   khi viết script, không tự quyết.
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
+`agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
+hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
+thế system prompt/skill ở trên.
