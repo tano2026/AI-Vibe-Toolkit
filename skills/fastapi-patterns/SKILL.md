@@ -1,11 +1,5 @@
 ---
 name: fastapi-patterns
-description: ---
-category: development
----
-
----
-name: fastapi-patterns
 description: FastAPI best practices covering project structure, Pydantic v2 schemas, dependency injection, async handlers, authentication, authorization, transactional service layers, and testing with httpx and pytest.
 origin: ECC
 ---
@@ -638,4 +632,3 @@ When multiple incremental patches corrupt a Python file (e.g., broken syntax fro
 - Parse JWT parameters defensively, expecting potential string/integer cast mismatches from modern payload variations.
 - Enforce deterministic sorting (e.g., `.order_by(Model.id)`) on all offset/limit paginated endpoints to avoid data skips.
 - Isolate authorization checks from core authentication dependencies to provide precise REST status signals (`401` vs `403`).
-
