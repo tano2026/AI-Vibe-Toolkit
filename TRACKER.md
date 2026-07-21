@@ -2152,3 +2152,31 @@ Thuc hien qua Git Trees API (1 lan fetch toan bo tree - 2303 entries, tranh phai
 qua 3 lan chay, 0 loi.
 
 **Kho: 134 repos | 38 MCPs | 449 skills (giam tu ~715, xoa 266 ecc-duplicate + fix bug wrapper) | 180 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Ap dung Karpathy Coding Guidelines toan he thong 20/07/2026
+
+Nobitano xac nhan "choi luon" - da wire agents/KARPATHY-CODING-GUIDELINES.md (file goc, dich
+tieng Viet tu andrej-karpathy-skills 194.7K stars) vao TOAN BO agent package + playbook:
+
+Da them pointer vao 9 file:
+1. agents/HERMES-PLAYBOOK.md
+2. agents/OPENCLAW-PLAYBOOK.md
+3. agents/ANTIGRAVITY-PLAYBOOK.md
+4. agents/anbinh-travel-ops-analyst/system-prompt.md
+5. agents/infra-ops-agent/system-prompt.md
+6. agents/research-analytics-pro/system-prompt.md
+7. agents/sales-ceo/system-prompt.md
+8. agents/trum-san-bay/system-prompt.md
+9. agents/yt-cashcow/system-prompt.md
+10. agents/smb-ai-team/01-research-agent/system-prompt.md
+11. agents/rio-bot/ARCHITECTURE.md (luu y: chi ap dung khi SUA CODE rio-bot, khong phai runtime -
+    rio-bot la state machine code-driven, khong LLM-driven)
+
+Thiet ke DRY: 1 file goc chung (agents/KARPATHY-CODING-GUIDELINES.md), moi package chi co 1
+dong pointer tro toi, khong copy-paste noi dung day du 11 lan - de maintain, sua 1 cho la
+toan bo he thong cap nhat theo.
+
+**Kho: 131 repos | 38 MCPs | 91 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
