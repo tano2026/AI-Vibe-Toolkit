@@ -1,11 +1,5 @@
 ---
 name: swiftui-patterns
-description: ---
-category: development
----
-
----
-name: swiftui-patterns
 description: SwiftUI architecture patterns, state management with @Observable, view composition, navigation, performance optimization, and modern iOS/macOS UI best practices.
 ---
 
@@ -263,4 +257,3 @@ Use `#Preview` macro with inline mock data for fast iteration:
 
 See skill: `swift-actor-persistence` for actor-based persistence patterns.
 See skill: `swift-protocol-di-testing` for protocol-based DI and testing with Swift Testing.
-
