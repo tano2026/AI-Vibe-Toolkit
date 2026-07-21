@@ -1,14 +1,21 @@
 """
-brain.py — RIO Brain v2.0 (code-driven state machine)
+brain.py — RIO Brain v3.0 "Trùm Research" (code-driven state machine + Drafter-Reviewer loop)
 
 Pipeline cố định — code quyết định flow, không phải LLM, không phải scraped content:
 
-    INTAKE → PLAN → COLLECT → VALIDATE → ANALYZE → SYNTHESIZE → VERIFY → DELIVER
+    PLAN → COLLECT → VALIDATE → ANALYZE → SYNTHESIZE → [REVIEW → vòng 2 nếu yếu] → VERIFY → DELIVER
+
+v3.0 thêm so với v2.0:
+  - REVIEW stage (Drafter-Reviewer): tự chấm bản draft, đào sâu thêm 1 vòng nếu coverage/
+    fact confirmed còn yếu — không còn "1 phát ăn ngay", mà tự biết khi nào chưa đủ chắc.
+  - Domain playbook thật cho aviation/fnb/ecommerce/content_niche (khớp business domain
+    Tano Agency), resolve_rtype() cho phép gõ tên domain quen thuộc thay vì rtype kỹ thuật.
+  - _collect chống duplicate evidence khi chạy lại ở vòng 2 (track theo query đã collect).
 
 Wiring trong rio_bot.py:
 
-    from brain import RIOBrain
-    import ratelimit
+    from brain import RIOBrain, resolve_rtype
+    import ratelimit, web_search
     web_search.search = ratelimit.throttled_search(web_search.search)
 
     brain = RIOBrain(adapters={
@@ -17,7 +24,7 @@ Wiring trong rio_bot.py:
         "video":  video_extract.extract,       # (url) -> {transcript, meta}  (optional)
         "report": report_gen.format_report,    # (dict) -> str                (optional)
     })
-    text = brain.run("market", "thị trường fast track sân bay VN")
+    text = brain.run(resolve_rtype("abtrip"), "thị trường fast track sân bay VN")
 """
 import time, traceback
 import memory, validator
@@ -58,31 +65,97 @@ SUBQ_TEMPLATES = {
         "{topic} chuyên gia nhận định",
         "{topic} case study thực tế",
     ],
+    # ---- Domain playbook thật, khớp business domain của Tano Agency (v3.0) ----
+    "aviation": [
+        "{topic} giá vé máy bay xu hướng",
+        "{topic} IATA quy định mới nhất",
+        "{topic} sân bay Nội Bài lưu lượng khách",
+        "{topic} ground handling fast track cạnh tranh",
+        "{topic} tỷ giá USD ảnh hưởng giá vé",
+    ],
+    "fnb": [
+        "{topic} xu hướng F&B quán cà phê 2026",
+        "{topic} giá nguyên liệu đầu vào biến động",
+        "{topic} hành vi khách hàng quán gần sân bay",
+        "{topic} đối thủ cạnh tranh khu vực",
+    ],
+    "ecommerce": [
+        "{topic} xu hướng thương mại điện tử VN",
+        "{topic} chi phí vận chuyển logistics",
+        "{topic} hành vi mua sắm online 2026",
+        "{topic} đối thủ cùng ngành hàng",
+    ],
+    "content_niche": [
+        "{topic} xu hướng YouTube/TikTok ngành",
+        "{topic} đối thủ kênh cùng chủ đề",
+        "{topic} thuật toán nền tảng thay đổi gần đây",
+        "{topic} định dạng nội dung đang hiệu quả",
+    ],
 }
+
+# Alias domain -> rtype gần nhất, dùng khi user gõ domain thay vì rtype chuẩn
+DOMAIN_ALIAS = {
+    "abtrip": "aviation", "an binh": "aviation", "fast track": "aviation",
+    "tano cafe": "fnb", "cafe": "fnb", "quán": "fnb",
+    "wonder mart": "ecommerce", "shop": "ecommerce",
+    "gmsp": "content_niche", "airfare decoded": "content_niche", "youtube": "content_niche",
+}
+
+
+def resolve_rtype(rtype_or_domain):
+    """Cho phép gõ tên domain quen thuộc thay vì rtype kỹ thuật — vd '/research abtrip ...'"""
+    key = (rtype_or_domain or "").strip().lower()
+    if key in SUBQ_TEMPLATES:
+        return key
+    for alias, mapped in DOMAIN_ALIAS.items():
+        if alias in key:
+            return mapped
+    return "deep"
 
 
 class RIOBrain:
     def __init__(self, adapters):
         self.adapters = adapters
         self.max_stage_retry = 1
+        self.max_research_rounds = 2  # v3.0: 1 vòng gốc + tối đa 1 vòng đào sâu thêm
 
     # ------------------------------------------------------------ public
 
     def run(self, rtype, topic, cn_platform=None, video_url=None):
-        """Entry point duy nhất. Trả về report text sẵn gửi Telegram."""
+        """Entry point duy nhất. Trả về report text sẵn gửi Telegram.
+
+        v3.0 — Drafter-Reviewer loop: sau khi ra bản draft đầu (_synthesize), _review
+        tự chấm bản draft có đủ chắc không. Nếu yếu (thiếu coverage/thiếu confirmed
+        facts) → tự sinh thêm sub-question nhắm đúng chỗ yếu, collect thêm 1 vòng rồi
+        tổng hợp lại — KHÔNG lặp vô hạn, tối đa `max_research_rounds` vòng.
+        """
         state = {
             "rtype": rtype, "topic": topic,
             "cn_platform": cn_platform, "video_url": video_url,
             "subqs": [], "evidence": [], "claims": [],
             "analysis": {}, "report": "", "warnings": [],
-            "t0": time.time(),
+            "round": 0, "t0": time.time(),
         }
-        pipeline = [self._plan, self._collect, self._validate,
-                    self._analyze, self._synthesize, self._verify]
-        for stage in pipeline:
+        draft_pipeline = [self._plan, self._collect, self._validate,
+                          self._analyze, self._synthesize]
+        for stage in draft_pipeline:
             ok = self._run_stage(stage, state)
             if not ok:
                 state["warnings"].append(f"⚠️ Stage {stage.__name__} fail sau retry — output có thể thiếu.")
+
+        for extra_round in range(1, self.max_research_rounds):
+            self._run_stage(self._review, state)
+            if not state.get("needs_more"):
+                break
+            state["round"] = extra_round
+            for stage in [self._collect, self._validate, self._analyze, self._synthesize]:
+                ok = self._run_stage(stage, state)
+                if not ok:
+                    state["warnings"].append(f"⚠️ Stage {stage.__name__} (vòng {extra_round}) fail.")
+
+        ok = self._run_stage(self._verify, state)
+        if not ok:
+            state["warnings"].append("⚠️ Stage _verify fail sau retry — output có thể thiếu.")
         return self._deliver(state)
 
     # ------------------------------------------------------------ stage runner
@@ -108,7 +181,11 @@ class RIOBrain:
 
     def _collect(self, s):
         search = self.adapters["search"]
+        collected = s.setdefault("_collected_qs", set())
         for q in s["subqs"]:
+            if q in collected:
+                continue  # đã collect ở vòng trước, tránh duplicate evidence
+            collected.add(q)
             for r in (search(q) or [])[:5]:
                 s["evidence"].append({
                     "query": q,
@@ -117,14 +194,16 @@ class RIOBrain:
                     "snippet": validator.sanitize(r.get("snippet", "")),
                 })
         # nguồn phụ — degrade nhẹ nhàng, không chết pipeline
-        if s.get("cn_platform") and "cn" in self.adapters:
+        if s.get("cn_platform") and "cn" in self.adapters and not s.get("_cn_done"):
+            s["_cn_done"] = True
             try:
                 for t in (self.adapters["cn"](s["cn_platform"]) or [])[:10]:
                     s["evidence"].append({"query": f"cn:{s['cn_platform']}", "url": "cn_trends",
                                           "title": validator.sanitize(str(t)), "snippet": ""})
             except Exception:
                 s["warnings"].append("🔄 CN trends không truy cập được lúc này.")
-        if s.get("video_url") and "video" in self.adapters:
+        if s.get("video_url") and "video" in self.adapters and not s.get("_video_done"):
+            s["_video_done"] = True
             try:
                 v = self.adapters["video"](s["video_url"]) or {}
                 s["evidence"].append({"query": "video", "url": s["video_url"],
@@ -173,7 +252,8 @@ class RIOBrain:
 
     def _synthesize(self, s):
         a = s["analysis"]
-        lines = [f"📊 *RIO Research — {s['rtype'].upper()}: {s['topic']}*",
+        round_tag = f" · vòng {s['round']+1}/{self.max_research_rounds}" if s["round"] > 0 else ""
+        lines = [f"📊 *RIO Research — {s['rtype'].upper()}: {s['topic']}*{round_tag}",
                  f"_Nguồn: {a['n_sources']} domain · {a['n_evidence']} evidence · "
                  f"độ tin cậy TB {a['avg_source_score']}_", ""]
 
@@ -209,6 +289,31 @@ class RIOBrain:
                 s["report"] = self.adapters["report"]({"raw": s["report"], "state": s}) or s["report"]
             except Exception:
                 pass  # giữ bản template
+
+    def _review(self, s):
+        """v3.0 — Reviewer chấm bản draft, quyết định có cần đào sâu thêm 1 vòng không.
+        Yếu khi: >=40% sub-question rỗng, HOẶC <2 claim confirmed (✅) cho rtype cần
+        số liệu cứng (market/forecast/kpi/aviation/ecommerce)."""
+        a = s["analysis"]
+        uncovered = [q for q, n in a["coverage"].items() if n == 0]
+        weak_coverage = len(s["subqs"]) > 0 and len(uncovered) / len(s["subqs"]) >= 0.4
+        needs_hard_facts = s["rtype"] in ("market", "forecast", "kpi", "aviation", "ecommerce")
+        weak_facts = needs_hard_facts and len(a.get("confirmed", [])) < 2
+
+        s["needs_more"] = bool(weak_coverage or weak_facts) and s["round"] == 0
+        if not s["needs_more"]:
+            return
+
+        followups = []
+        for q in uncovered[:3]:
+            followups.append(f"{q} nguồn khác site:*.gov OR site:*.org")
+        if weak_facts:
+            followups.append(f"{s['topic']} số liệu chính thức báo cáo")
+            followups.append(f"{s['topic']} thống kê ngành gần nhất")
+        # tránh lặp query đã có
+        new_qs = [q for q in followups if q not in s["subqs"]]
+        s["subqs"] = s["subqs"] + new_qs
+        s["warnings"].append(f"🔁 Draft vòng 1 chưa đủ chắc — đào sâu thêm {len(new_qs)} câu hỏi phụ.")
 
     def _verify(self, s):
         problems = []
