@@ -1,11 +1,5 @@
 ---
 name: nestjs-patterns
-description: ---
-category: development
----
-
----
-name: nestjs-patterns
 description: NestJS architecture patterns for modules, controllers, providers, DTO validation, guards, interceptors, config, and production-grade TypeScript backends.
 origin: ECC
 ---
@@ -234,4 +228,3 @@ describe('UsersController', () => {
 - Prefer async provider initialization for DB/cache clients with explicit health checks.
 - Keep background jobs and event consumers in their own modules, not inside HTTP controllers.
 - Make rate limiting, auth, and audit logging explicit for public endpoints.
-
