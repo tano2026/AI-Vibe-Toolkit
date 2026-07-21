@@ -1,11 +1,5 @@
 ---
 name: frontend-design-direction
-description: ---
-category: development
----
-
----
-name: frontend-design-direction
 description: Set an ECC-specific frontend design direction for production UI work. Use when building or improving websites, dashboards, applications, components, landing pages, visual tools, or any web UI that needs stronger product-specific design judgment.
 origin: community
 ---
@@ -96,4 +90,3 @@ needs repeated daily use.
 - Motion improves orientation and does not mask sluggishness.
 - The result matches the repo's existing frontend conventions unless there is a
   clear reason to depart.
-
