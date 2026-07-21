@@ -1,11 +1,5 @@
 ---
 name: latency-critical-systems
-description: ---
-category: development
----
-
----
-name: latency-critical-systems
 description: Use for latency-sensitive systems such as realtime dashboards, market data, streaming agents, execution gateways, queues, caches, or HFT-like infrastructure where freshness and p95 latency matter.
 origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
@@ -77,4 +71,3 @@ ready.
 - Do not run live orders, destructive migrations, or customer-impacting deploys
   without an explicit approval gate.
 - Keep secrets and private payloads out of logs and benchmark artifacts.
-
