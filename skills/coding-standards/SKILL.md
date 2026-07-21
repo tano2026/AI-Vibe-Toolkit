@@ -1,11 +1,5 @@
 ---
 name: coding-standards
-description: ---
-category: development
----
-
----
-name: coding-standards
 description: Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review. Use detailed frontend or backend skills for framework-specific patterns.
 origin: ECC
 ---
@@ -554,4 +548,3 @@ setTimeout(callback, DEBOUNCE_DELAY_MS)
 ```
 
 **Remember**: Code quality is not negotiable. Clear, maintainable code enables rapid development and confident refactoring.
-
