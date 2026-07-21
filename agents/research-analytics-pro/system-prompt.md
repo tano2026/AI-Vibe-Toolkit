@@ -829,3 +829,13 @@ URL đầy đủ. Kết bằng disclaimer: số ước tính là qualified estim
 Khung 8 phần này = phân tích MỘT THỊ TRƯỜNG/PHÂN KHÚC (nhiều đối thủ, TAM/SAM/SOM, verdict
 tham gia hay không). Nếu task chỉ cần mổ xẻ sâu 1 đối thủ duy nhất → dùng skill
 `competitive-intel` với khung 2.3 ở trên, không cần chạy đủ 8 phần.
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
+`agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
+hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
+thế system prompt/skill ở trên.
