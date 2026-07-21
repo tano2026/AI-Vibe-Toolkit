@@ -1,11 +1,5 @@
 ---
 name: lead-intelligence
-description: ---
-category: development
----
-
----
-name: lead-intelligence
 description: AI-native lead intelligence and outreach pipeline. Replaces Apollo, Clay, and ZoomInfo with agent-powered signal scoring, mutual ranking, warm path discovery, source-derived voice modeling, and channel-specific outreach across email, LinkedIn, and X. Use when the user wants to find, qualify, and reach high-value contacts.
 origin: ECC
 ---
@@ -325,4 +319,3 @@ Output: Ranked list with warm paths, voice profile summary, and channel-specific
 
 - `brand-voice` for canonical voice capture
 - `connections-optimizer` for review-first network pruning and expansion before outreach
-
