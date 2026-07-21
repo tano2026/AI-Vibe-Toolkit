@@ -1,11 +1,5 @@
 ---
 name: perl-security
-description: ---
-category: development
----
-
----
-name: perl-security
 description: Comprehensive Perl security covering taint mode, input validation, safe process execution, DBI parameterized queries, web security (XSS/SQLi/CSRF), and perlcritic security policies.
 origin: ECC
 ---
@@ -507,4 +501,3 @@ print $cgi->redirect($user_url);         # Open redirect
 ```
 
 **Remember**: Perl's flexibility is powerful but requires discipline. Use taint mode for web-facing code, validate all input with allowlists, use DBI placeholders for every query, and encode all output for its context. Defense in depth — never rely on a single layer.
-
