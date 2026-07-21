@@ -1,11 +1,5 @@
 ---
 name: golang-patterns
-description: ---
-category: development
----
-
----
-name: golang-patterns
 description: Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications.
 origin: ECC
 ---
@@ -678,4 +672,3 @@ func (c *Counter) Increment() { c.n++ }        // Pointer receiver
 ```
 
 **Remember**: Go code should be boring in the best way - predictable, consistent, and easy to understand. When in doubt, keep it simple.
-
