@@ -1,11 +1,5 @@
 ---
 name: ecc-tools-cost-audit
-description: ---
-category: development
----
-
----
-name: ecc-tools-cost-audit
 description: Evidence-first ECC Tools burn and billing audit workflow. Use when investigating runaway PR creation, quota bypass, premium-model leakage, duplicate jobs, or GitHub App cost spikes in the ECC Tools repo.
 origin: ECC
 ---
@@ -164,4 +158,3 @@ If the system can spend tokens and then fail on PR creation, file update, or bra
 - fixes are ordered by burn impact, not code neatness
 - proving commands are named
 - final status distinguishes local change, verification, push, and deployment
-
