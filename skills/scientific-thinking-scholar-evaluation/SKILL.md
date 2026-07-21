@@ -1,10 +1,4 @@
 ---
-name: scientific-thinking-scholar-evaluation
-description: ---
-category: development
----
-
----
 name: scholar-evaluation
 description: Structured scholarly-work evaluation for papers, proposals, literature reviews, methods sections, evidence quality, citation support, and research-writing feedback.
 origin: community
@@ -164,4 +158,3 @@ Use `N/A` for dimensions that do not apply.
 - Do not penalize a paper for omitting a dimension outside its scope.
 - Do not treat citation count, venue, or author reputation as proof of quality.
 - Do not accept unsupported claims just because they appear in the abstract.
-
