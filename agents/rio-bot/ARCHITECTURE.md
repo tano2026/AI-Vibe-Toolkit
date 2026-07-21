@@ -85,3 +85,14 @@ env OMNIROUTE_URL có?
              synthesis polish: tier balanced (Gemini Flash)
              timeout 20s / lỗi → fallback local, log lesson
 ```
+
+
+---
+
+## Karpathy Coding Guidelines (khi SỬA CODE của rio-bot, không phải khi rio-bot chạy)
+
+rio-bot là state machine code-driven (không LLM-driven, tránh prompt injection) — Karpathy
+Coding Guidelines KHÔNG áp dụng cho hành vi runtime của bot, mà áp dụng cho chính Claude khi
+được giao sửa/mở rộng source code Python của rio-bot (brain.py, memory.py, ratelimit.py,
+validator.py). Đọc `agents/KARPATHY-CODING-GUIDELINES.md` trước khi sửa: không refactor thừa,
+không thêm abstraction không ai yêu cầu, chỉ sửa đúng phần được giao.
