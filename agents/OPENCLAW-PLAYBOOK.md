@@ -720,3 +720,12 @@ mục tiêu là không lãng phí reasoning budget cho task đơn giản, và kh
 task cần chính xác cao.
 
 
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào, đọc và áp dụng `agents/KARPATHY-CODING-GUIDELINES.md` — 4
+nguyên tắc: nghĩ trước khi code, đơn giản là trên hết, sửa đúng phạm vi, thực thi theo mục
+tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sinh thái, không riêng agent nào.
