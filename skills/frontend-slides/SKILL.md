@@ -1,11 +1,5 @@
 ---
 name: frontend-slides
-description: ---
-category: development
----
-
----
-name: frontend-slides
 description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
 origin: ECC
 ---
@@ -188,4 +182,3 @@ Use these maxima unless the user explicitly asks for denser slides and readabili
 - animation is meaningful, not noisy
 - reduced motion is respected
 - file paths and customization points are explained at handoff
-
