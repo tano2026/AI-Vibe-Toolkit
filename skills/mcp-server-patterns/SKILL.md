@@ -1,11 +1,5 @@
 ---
 name: mcp-server-patterns
-description: ---
-category: development
----
-
----
-name: mcp-server-patterns
 description: Build MCP servers with Node/TypeScript SDK — tools, resources, prompts, Zod validation, stdio vs Streamable HTTP. Use Context7 or official MCP docs for latest API.
 origin: ECC
 ---
@@ -73,4 +67,3 @@ Use **Zod** (or the SDK’s preferred schema format) for input validation.
 - **JavaScript/TypeScript**: `@modelcontextprotocol/sdk` (npm). Use Context7 with library name "MCP" for current registration and transport patterns.
 - **Go**: Official Go SDK on GitHub (`modelcontextprotocol/go-sdk`).
 - **C#**: Official C# SDK for .NET.
-
