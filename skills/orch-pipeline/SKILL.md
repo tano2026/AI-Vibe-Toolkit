@@ -1,11 +1,5 @@
 ---
 name: orch-pipeline
-description: ---
-category: development
----
-
----
-name: orch-pipeline
 description: Shared orchestration engine for the orch-* skill family. Defines the gated Research-Plan-TDD-Review-Commit pipeline, the size classifier, the agent map, and the two human gates that the orch-* operation skills delegate to. Not usually invoked directly.
 origin: ECC
 ---
@@ -124,4 +118,3 @@ The pipeline carries no hidden state — the planning docs *are* the handoff:
 - `security-reviewer` ran iff a security trigger was touched
 - commits are conventional and scoped to one logical change
 - new / changed behavior has tests; coverage ≥ 80% per `rules/common/testing.md`
-
