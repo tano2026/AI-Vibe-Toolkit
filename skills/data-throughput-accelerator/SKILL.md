@@ -1,11 +1,5 @@
 ---
 name: data-throughput-accelerator
-description: ---
-category: development
----
-
----
-name: data-throughput-accelerator
 description: Use when large data ingestion, backfill, export, ETL, warehouse loading, manifest catch-up, or table synchronization needs to become much faster while preserving data correctness.
 origin: ECC
 tools: Read, Write, Edit, Bash, Grep, Glob
@@ -76,4 +70,3 @@ Data throughput result:
 - Do not call a pipeline complete until the target tables and manifest agree.
 - For finance, healthcare, regulated, or customer-impacting data, preserve
   replay evidence and approval gates.
-
