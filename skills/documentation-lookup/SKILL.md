@@ -1,11 +1,5 @@
 ---
 name: documentation-lookup
-description: ---
-category: development
----
-
----
-name: documentation-lookup
 description: Use up-to-date library and framework docs via Context7 MCP instead of training data. Activates for setup questions, API references, code examples, or when the user names a framework (e.g. React, Next.js, Prisma).
 origin: ECC
 ---
@@ -94,4 +88,3 @@ Limit: do not call query-docs (or resolve-library-id) more than 3 times per ques
 - **Version awareness**: When users mention versions, use version-specific library IDs from the resolve step when available.
 - **Prefer official sources**: When multiple matches exist, prefer official or primary packages over community forks.
 - **No sensitive data**: Redact API keys, passwords, tokens, and other secrets from any query sent to Context7. Treat the user's question as potentially containing secrets before passing it to resolve-library-id or query-docs.
-
