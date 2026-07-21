@@ -1,11 +1,5 @@
 ---
 name: laravel-plugin-discovery
-description: ---
-category: development
----
-
----
-name: laravel-plugin-discovery
 description: Discover and evaluate Laravel packages via LaraPlugins.io MCP. Use when the user wants to find plugins, check package health, or assess Laravel/PHP compatibility.
 origin: ECC
 ---
@@ -233,4 +227,3 @@ The detailed response includes:
 - `laravel-tdd` — Test-driven development for Laravel
 - `laravel-security` — Laravel security best practices
 - `documentation-lookup` — General library documentation lookup (Context7)
-
