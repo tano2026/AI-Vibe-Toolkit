@@ -1,11 +1,5 @@
 ---
 name: error-handling
-description: ---
-category: development
----
-
----
-name: error-handling
 description: Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, error boundaries, retries, circuit breakers, and user-facing error messages.
 origin: ECC
 ---
@@ -380,4 +374,3 @@ Before merging any code that touches error handling:
 - [ ] Async functions surface errors to callers — no fire-and-forget without fallback
 - [ ] Retry logic only retries retriable errors (not 4xx client errors)
 - [ ] React components are wrapped in `ErrorBoundary` for rendering errors
-
