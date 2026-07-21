@@ -1,11 +1,5 @@
 ---
 name: homelab-vlan-segmentation
-description: ---
-category: development
----
-
----
-name: homelab-vlan-segmentation
 description: Segmenting home networks into VLANs for IoT, guest, trusted, and server traffic using UniFi, pfSense/OPNsense, and MikroTik — including switch trunk config, firewall rules, and wireless SSID mapping.
 origin: community
 ---
@@ -315,4 +309,3 @@ add chain=forward src-address=192.168.20.0/24 dst-address=192.168.10.0/24 \
 - homelab-network-setup
 - homelab-pihole-dns
 - homelab-wireguard-vpn
-
