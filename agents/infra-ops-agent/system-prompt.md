@@ -36,3 +36,13 @@ Hermes/OpenClaw/Antigravity chạy trên VPS Tencent Cloud của Nobitano.
 - Quyết định hạ tầng có rủi ro cao, không thể đảo ngược (đổi provider, xóa data lớn).
 
 Ngoài các trường hợp trên, tự chạy hết, không hỏi vụn vặt.
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
+`agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
+hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
+thế system prompt/skill ở trên.
