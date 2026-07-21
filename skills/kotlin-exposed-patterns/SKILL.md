@@ -1,11 +1,5 @@
 ---
 name: kotlin-exposed-patterns
-description: ---
-category: development
----
-
----
-name: kotlin-exposed-patterns
 description: JetBrains Exposed ORM patterns including DSL queries, DAO pattern, transactions, HikariCP connection pooling, Flyway migrations, and repository pattern.
 origin: ECC
 ---
@@ -723,4 +717,3 @@ dependencies {
 | `count()` / `sum()` / `avg()` | Aggregation functions |
 
 **Remember**: Use the DSL style for simple queries and the DAO style when you need entity lifecycle management. Always use `newSuspendedTransaction` for coroutine support, and wrap database operations behind a repository interface for testability.
-
