@@ -1,11 +1,5 @@
 ---
 name: nanoclaw-repl
-description: ---
-category: development
----
-
----
-name: nanoclaw-repl
 description: Operate and extend NanoClaw v2, ECC's zero-dependency session-aware REPL built on claude -p.
 origin: ECC
 ---
@@ -37,4 +31,3 @@ Use this skill when running or extending `scripts/claw.js`.
 - keep zero external runtime dependencies
 - preserve markdown-as-database compatibility
 - keep command handlers deterministic and local
-
