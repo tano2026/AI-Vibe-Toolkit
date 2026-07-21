@@ -1,11 +1,5 @@
 ---
 name: skill-comply
-description: ---
-category: development
----
-
----
-name: skill-comply
 description: Visualize whether skills, rules, and agent definitions are actually followed — auto-generates scenarios at 3 prompt strictness levels, runs agents, classifies behavioral sequences, and reports compliance rates with full tool call timelines
 origin: ECC
 tools: Read, Bash
@@ -62,4 +56,3 @@ Reports are self-contained and include:
 ### Advanced (optional)
 
 For users familiar with hooks, reports also include hook promotion recommendations for steps with low compliance. This is informational — the main value is the compliance visibility itself.
-
