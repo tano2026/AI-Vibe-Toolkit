@@ -1,11 +1,5 @@
 ---
 name: energy-procurement
-description: ---
-category: development
----
-
----
-name: energy-procurement
 description: >
   Codified expertise for electricity and gas procurement, tariff optimization,
   demand charge management, renewable PPA evaluation, and multi-facility energy
@@ -232,4 +226,3 @@ Track monthly, review quarterly with finance and sustainability:
 
 - Maintain an internal hedge policy, approved counterparty list, and tariff-change calendar alongside this skill.
 - Keep facility-specific load shapes and utility contract metadata close to the planning workflow so recommendations stay grounded in real demand patterns.
-
