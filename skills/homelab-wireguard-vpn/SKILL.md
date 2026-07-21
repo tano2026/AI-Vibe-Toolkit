@@ -1,11 +1,5 @@
 ---
 name: homelab-wireguard-vpn
-description: ---
-category: development
----
-
----
-name: homelab-wireguard-vpn
 description: WireGuard VPN server setup, peer configuration, key generation, split tunneling vs full tunnel routing, and remote access to a home network from mobile and laptop clients.
 origin: community
 ---
@@ -309,4 +303,3 @@ sudo wg-quick down wg0 && sudo wg-quick up wg0
 - homelab-network-setup
 - homelab-vlan-segmentation
 - homelab-pihole-dns
-
