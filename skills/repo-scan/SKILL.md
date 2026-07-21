@@ -1,11 +1,5 @@
 ---
 name: repo-scan
-description: ---
-category: development
----
-
----
-name: repo-scan
 description: Cross-stack source code asset audit — classifies every file, detects embedded third-party libraries, and delivers actionable four-level verdicts per module with interactive HTML reports.
 origin: community
 ---
@@ -82,4 +76,3 @@ On a 50,000-file C++ monorepo:
 ## Links
 
 - [GitHub Repository](https://github.com/haibindev/repo-scan)
-
