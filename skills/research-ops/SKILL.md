@@ -1,11 +1,5 @@
 ---
 name: research-ops
-description: ---
-category: development
----
-
----
-name: research-ops
 description: Evidence-first current-state research workflow for ECC. Use when the user wants fresh facts, comparisons, enrichment, or a recommendation built from current public evidence and any supplied local context.
 origin: ECC
 ---
@@ -116,4 +110,3 @@ RECOMMENDATION
 - important claims are labeled by evidence type
 - freshness-sensitive outputs include dates
 - the final recommendation matches the actual research mode used
-
