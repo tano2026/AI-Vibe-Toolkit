@@ -1,11 +1,5 @@
 ---
 name: continuous-learning-v2
-description: ---
-category: development
----
-
----
-name: continuous-learning-v2
 description: Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents. v2.1 adds project-scoped instincts to prevent cross-project contamination.
 origin: ECC
 version: 2.1.0
@@ -364,4 +358,3 @@ v2.1 is fully compatible with v2.0 and v1:
 ---
 
 *Instinct-based learning: teaching Claude your patterns, one project at a time.*
-
