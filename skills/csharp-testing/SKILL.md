@@ -1,11 +1,5 @@
 ---
 name: csharp-testing
-description: ---
-category: development
----
-
----
-name: csharp-testing
 description: C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices.
 origin: ECC
 ---
@@ -325,4 +319,3 @@ dotnet test --filter "FullyQualifiedName~OrderService"
 # Watch mode during development
 dotnet watch test --project tests/MyApp.UnitTests/
 ```
-
