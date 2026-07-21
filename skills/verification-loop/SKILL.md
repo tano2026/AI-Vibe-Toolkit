@@ -1,11 +1,5 @@
 ---
 name: verification-loop
-description: ---
-category: development
----
-
----
-name: verification-loop
 description: "A comprehensive verification system for Claude Code sessions."
 origin: ECC
 ---
@@ -130,4 +124,3 @@ Run: /verify
 
 This skill complements PostToolUse hooks but provides deeper verification.
 Hooks catch issues immediately; this skill provides comprehensive review.
-
