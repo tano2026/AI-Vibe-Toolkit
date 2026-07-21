@@ -1,11 +1,5 @@
 ---
 name: dashboard-builder
-description: ---
-category: development
----
-
----
-name: dashboard-builder
 description: Build monitoring dashboards that answer real operator questions for Grafana, SigNoz, and similar platforms. Use when turning metrics into a working dashboard instead of a vanity board.
 origin: ECC direct-port adaptation
 version: "1.0.0"
@@ -112,4 +106,3 @@ Every panel should answer a real question. If it does not, remove it.
 - `research-ops`
 - `backend-patterns`
 - `terminal-ops`
-
