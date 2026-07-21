@@ -1,11 +1,5 @@
 ---
 name: automation-audit-ops
-description: ---
-category: development
----
-
----
-name: automation-audit-ops
 description: Evidence-first automation inventory and overlap audit workflow for ECC. Use when the user wants to know which jobs, hooks, connectors, MCP servers, or wrappers are live, broken, redundant, or missing before fixing anything.
 origin: ECC
 ---
@@ -146,4 +140,3 @@ NEXT ECC MOVE
 - important claims cite a live proof path
 - each surfaced automation is labeled with a clear live-state category
 - the final recommendation distinguishes keep / merge / cut / fix-next
-
