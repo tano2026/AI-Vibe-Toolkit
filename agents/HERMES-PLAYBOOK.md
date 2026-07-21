@@ -547,3 +547,12 @@ tin quá mức vào "trick" nào, và không thêm độ phức tạp nếu task
 - **hubspot-mcp chưa deploy** trên VPS — Sales CEO agent bị giới hạn đến khi fix
 - **CubeSandbox** cần verify `lsmod | grep kvm` trước khi deploy sandbox cho code execution
 - **Chatwoot** cho ABTRIP cần VPS riêng 4GB RAM
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào, đọc và áp dụng `agents/KARPATHY-CODING-GUIDELINES.md` — 4
+nguyên tắc: nghĩ trước khi code, đơn giản là trên hết, sửa đúng phạm vi, thực thi theo mục
+tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sinh thái, không riêng agent nào.
