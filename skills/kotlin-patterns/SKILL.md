@@ -1,11 +1,5 @@
 ---
 name: kotlin-patterns
-description: ---
-category: development
----
-
----
-name: kotlin-patterns
 description: Idiomatic Kotlin patterns, best practices, and conventions for building robust, efficient, and maintainable Kotlin applications with coroutines, null safety, and DSL builders.
 origin: ECC
 ---
@@ -715,4 +709,3 @@ user?.address?.city?.let { process(it) }
 ```
 
 **Remember**: Kotlin code should be concise but readable. Leverage the type system for safety, prefer immutability, and use coroutines for concurrency. When in doubt, let the compiler help you.
-
