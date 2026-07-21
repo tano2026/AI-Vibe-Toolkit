@@ -1,11 +1,5 @@
 ---
 name: bun-runtime
-description: ---
-category: development
----
-
----
-name: bun-runtime
 description: Bun as runtime, package manager, bundler, and test runner. When to choose Bun vs Node, migration notes, and Vercel support.
 origin: ECC
 ---
@@ -88,4 +82,3 @@ Bun.serve({
 - Commit the lockfile (`bun.lock` or `bun.lockb`) for reproducible installs.
 - Prefer `bun run` for scripts. For TypeScript, Bun runs `.ts` natively.
 - Keep dependencies up to date; Bun and the ecosystem evolve quickly.
-
