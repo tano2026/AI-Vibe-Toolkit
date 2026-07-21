@@ -1,11 +1,5 @@
 ---
 name: plankton-code-quality
-description: ---
-category: development
----
-
----
-name: plankton-code-quality
 description: "Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks."
 origin: community
 ---
@@ -240,4 +234,3 @@ Track:
 - average remediation time
 - repeat violations by category
 - merge blocks due to gate failures
-
