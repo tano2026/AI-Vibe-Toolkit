@@ -1,11 +1,5 @@
 ---
 name: perl-patterns
-description: ---
-category: development
----
-
----
-name: perl-patterns
 description: Modern Perl 5.36+ idioms, best practices, and conventions for building robust, maintainable Perl applications.
 origin: ECC
 ---
@@ -508,4 +502,3 @@ require_module($module);
 ```
 
 **Remember**: Modern Perl is clean, readable, and safe. Let `use v5.36` handle the boilerplate, use Moo for objects, and prefer CPAN's battle-tested modules over hand-rolled solutions.
-
