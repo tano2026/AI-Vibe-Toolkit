@@ -1,11 +1,5 @@
 ---
 name: kotlin-coroutines-flows
-description: ---
-category: development
----
-
----
-name: kotlin-coroutines-flows
 description: Kotlin Coroutines and Flow patterns for Android and KMP — structured concurrency, Flow operators, StateFlow, error handling, and testing.
 origin: ECC
 ---
@@ -288,4 +282,3 @@ class FakeItemRepository : ItemRepository {
 
 See skill: `compose-multiplatform-patterns` for UI consumption of Flows.
 See skill: `android-clean-architecture` for where coroutines fit in layers.
-
