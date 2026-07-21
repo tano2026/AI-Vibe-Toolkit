@@ -1,11 +1,5 @@
 ---
 name: cost-tracking
-description: ---
-category: development
----
-
----
-name: cost-tracking
 description: Track and report Claude Code token usage, spending, and budgets from a local cost-tracking database. Use when the user asks about costs, spending, usage, tokens, budgets, or cost breakdowns by project, tool, session, or date.
 origin: community
 ---
@@ -151,4 +145,3 @@ two decimals are enough.
 - `cost-aware-llm-pipeline` - Model-routing and budget-design patterns.
 - `token-budget-advisor` - Context and token-budget planning.
 - `strategic-compact` - Context compaction to reduce repeated token spend.
-
