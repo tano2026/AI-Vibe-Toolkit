@@ -1,11 +1,5 @@
 ---
 name: agent-introspection-debugging
-description: ---
-category: development
----
-
----
-name: agent-introspection-debugging
 description: Structured self-debugging workflow for AI agent failures using capture, diagnosis, contained recovery, and introspection reports.
 origin: ECC
 ---
@@ -157,4 +151,3 @@ Always provide:
 - the root-cause hypothesis
 - the recovery action
 - the evidence that the situation is now better or still blocked
-
