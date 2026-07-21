@@ -1,10 +1,4 @@
 ---
-name: scientific-db-pubmed-database
-description: ---
-category: development
----
-
----
 name: pubmed-database
 description: Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PMID lookup, citation retrieval, and API-backed literature monitoring.
 origin: community
@@ -179,4 +173,3 @@ Example:
 - [NCBI E-utilities documentation](https://www.ncbi.nlm.nih.gov/books/NBK25501/)
 - [NCBI API key guidance](https://support.nlm.nih.gov/kbArticle/?pn=KA-05317)
 - NCBI support: <eutilities@ncbi.nlm.nih.gov>
-
