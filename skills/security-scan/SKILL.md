@@ -1,11 +1,5 @@
 ---
 name: security-scan
-description: ---
-category: development
----
-
----
-name: security-scan
 description: Scan your Claude Code configuration (.claude/ directory) for security vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions.
 origin: ECC
 ---
@@ -169,4 +163,3 @@ Add to your CI pipeline:
 
 - **GitHub**: [github.com/affaan-m/agentshield](https://github.com/affaan-m/agentshield)
 - **npm**: [npmjs.com/package/ecc-agentshield](https://www.npmjs.com/package/ecc-agentshield)
-
