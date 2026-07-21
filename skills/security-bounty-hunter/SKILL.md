@@ -1,11 +1,5 @@
 ---
 name: security-bounty-hunter
-description: ---
-category: development
----
-
----
-name: security-bounty-hunter
 description: Hunt for exploitable, bounty-worthy security issues in repositories. Focuses on remotely reachable vulnerabilities that qualify for real reports instead of noisy local-only findings.
 origin: ECC direct-port adaptation
 version: "1.0.0"
@@ -103,4 +97,3 @@ Before submitting:
 - The PoC works
 - The issue is not already covered by an advisory, CVE, or open ticket
 - The target is actually in scope for the bounty program
-
