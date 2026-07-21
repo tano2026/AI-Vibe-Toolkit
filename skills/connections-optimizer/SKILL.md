@@ -1,11 +1,5 @@
 ---
 name: connections-optimizer
-description: ---
-category: development
----
-
----
-name: connections-optimizer
 description: Reorganize the user's X and LinkedIn network with review-first pruning, add/follow recommendations, and channel-specific warm outreach drafted in the user's real voice. Use when the user wants to clean up following lists, grow toward current priorities, or rebalance a social graph around higher-signal relationships.
 origin: ECC
 ---
@@ -193,4 +187,3 @@ Drafts
 - `lead-intelligence` for weighted target and warm-path discovery
 - `x-api` for X graph access, drafting, and optional apply flows
 - `content-engine` when the user also wants public launch content around network moves
-
