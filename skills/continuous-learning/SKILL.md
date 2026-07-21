@@ -1,11 +1,5 @@
 ---
 name: continuous-learning
-description: ---
-category: development
----
-
----
-name: continuous-learning
 description: "[DEPRECATED - use continuous-learning-v2] Legacy v1 stop-hook skill extractor. v2 is a strict superset with instinct-based, project-scoped, hook-reliable learning. Do not invoke v1; route continuous learning, session learning, and pattern extraction requests to continuous-learning-v2."
 origin: ECC
 ---
@@ -135,4 +129,3 @@ Homunculus v2 takes a more sophisticated approach:
 5. **Evolution path** - Cluster related instincts into skills/commands
 
 See: `docs/continuous-learning-v2-spec.md` for full spec.
-
