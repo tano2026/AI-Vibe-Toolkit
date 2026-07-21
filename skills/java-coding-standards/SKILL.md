@@ -1,11 +1,5 @@
 ---
 name: java-coding-standards
-description: ---
-category: development
----
-
----
-name: java-coding-standards
 description: "Java coding standards for Spring Boot and Quarkus services: naming, immutability, Optional usage, streams, exceptions, generics, CDI, reactive patterns, and project layout. Automatically applies framework-specific conventions."
 origin: ECC
 ---
@@ -387,4 +381,3 @@ class MarketServiceTest {
 ```
 
 **Remember**: Keep code intentional, typed, and observable. Optimize for maintainability over micro-optimizations unless proven necessary.
-
