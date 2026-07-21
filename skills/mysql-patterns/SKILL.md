@@ -1,11 +1,5 @@
 ---
 name: mysql-patterns
-description: ---
-category: development
----
-
----
-name: mysql-patterns
 description: MySQL and MariaDB schema, query, indexing, transaction, replication, and connection-pool patterns for production backends.
 origin: ECC
 ---
@@ -416,4 +410,3 @@ When this skill is used for review, return:
 - Skill: `backend-patterns` - API and service-layer patterns
 - Skill: `security-review` - secret handling, auth, and least privilege
 - Agent: `database-reviewer` - broader database review workflow
-
