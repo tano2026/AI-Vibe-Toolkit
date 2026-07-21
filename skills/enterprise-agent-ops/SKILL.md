@@ -1,11 +1,5 @@
 ---
 name: enterprise-agent-ops
-description: ---
-category: development
----
-
----
-name: enterprise-agent-ops
 description: Operate long-lived agent workloads with observability, security boundaries, and lifecycle management.
 origin: ECC
 ---
@@ -54,4 +48,3 @@ This skill pairs with:
 - systemd services
 - container orchestrators
 - CI/CD gates
-
