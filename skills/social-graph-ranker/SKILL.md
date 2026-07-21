@@ -1,11 +1,5 @@
 ---
 name: social-graph-ranker
-description: ---
-category: development
----
-
----
-name: social-graph-ranker
 description: Weighted social-graph ranking for warm intro discovery, bridge scoring, and network gap analysis across X and LinkedIn. Use when the user wants the reusable graph-ranking engine itself, not the broader outreach or network-maintenance workflow layered on top of it.
 origin: ECC
 ---
@@ -158,4 +152,3 @@ No Warm Path
 - `connections-optimizer` uses the same bridge logic when deciding who to keep, prune, or add
 - `brand-voice` should run before drafting any intro request or direct outreach
 - `x-api` provides X graph access and optional execution paths
-
