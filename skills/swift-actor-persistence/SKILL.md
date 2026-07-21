@@ -1,11 +1,5 @@
 ---
 name: swift-actor-persistence
-description: ---
-category: development
----
-
----
-name: swift-actor-persistence
 description: Thread-safe data persistence in Swift using actors — in-memory cache with file-backed storage, eliminating data races by design.
 origin: ECC
 ---
@@ -147,4 +141,3 @@ final class QuestionListViewModel {
 - Offline-first architectures that sync to a server later
 - Any shared mutable state that multiple parts of the app access concurrently
 - Replacing legacy `DispatchQueue`-based thread safety with modern Swift concurrency
-
