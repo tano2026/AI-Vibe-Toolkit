@@ -18,31 +18,32 @@
 
 ---
 
-## Sơ đồ tổng thể
+## Sơ đồ tổng thể (v3.0)
 
 ```
-Telegram (rio_bot.py — giữ nguyên 10 commands)
+Telegram (rio_bot.py — 10 commands, ĐÃ VIẾT ĐẦY ĐỦ trong v3.0)
         │
         ▼
-┌─────────────────────────  brain.py — RIOBrain  ─────────────────────────┐
-│                                                                          │
-│  INTAKE → PLAN → COLLECT → VALIDATE → ANALYZE → SYNTHESIZE → VERIFY → DELIVER
-│    │       │        │          │          │           │          │        │
-│    │       │        │          │          │           │          │        └─ chunk 4096, log memory
-│    │       │        │          │          │           │          └─ checklist + 1 retry
-│    │       │        │          │          │           └─ report_gen + fact ledger
-│    │       │        │          │          └─ analytics.py (local compute)
-│    │       │        │          └─ validator.py (source score, fact rating, sanitize)
-│    │       │        └─ web_search / cn_trends / video_extract (qua adapter registry)
-│    │       └─ sub-question templates theo research type
-│    └─ parse command → ResearchTask
-│                                                                          │
-└───────────┬──────────────────────────────────────────────┬───────────────┘
+┌────────────────────────  brain.py — RIOBrain v3.0  ─────────────────────────┐
+│                                                                             │
+│  PLAN → COLLECT → VALIDATE → ANALYZE → SYNTHESIZE ─┬─ REVIEW yếu? ─┐        │
+│    │       │          │          │           │      │             │        │
+│    │       │          │          │           │      └─ không → VERIFY → DELIVER
+│    │       │          │          │           │                    │        │
+│    │       │          │          │           │      có → vòng 2:  │        │
+│    │       │          │          │           │      COLLECT thêm→ VALIDATE→ANALYZE→SYNTHESIZE
+│    │       │          │          │           │         (tối đa 2 vòng, chống duplicate evidence)
+│    │       │          │          └─ analytics local (n_sources, confirmed, avg_score)
+│    │       │          └─ validator.py (source score, fact rating, sanitize)
+│    │       └─ web_search.py (DDG, ĐÃ VIẾT trong v3.0) / cn_trends / video_extract (adapter)
+│    └─ sub-question templates (6 chuẩn + 4 domain playbook mới: aviation/fnb/ecommerce/content_niche)
+│                                                                             │
+└───────────┬─────────────────────────────────────────────┬─────────────────┘
             ▼                                              ▼
      memory.py (SQLite)                            ratelimit.py
      · research_history                            · token bucket cho DDG
-     · evidence_cache (TTL 24h)                    · exponential backoff
-     · source_scores (học dần)                     · cache-first (đỡ bị chặn)
+     · evidence_cache (TTL 24h)                     · exponential backoff
+     · source_scores (học dần)                      · cache-first (đỡ bị chặn)
      · lessons
 ```
 
