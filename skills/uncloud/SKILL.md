@@ -1,11 +1,5 @@
 ---
 name: uncloud
-description: ---
-category: development
----
-
----
-name: uncloud
 description: Use when managing an Uncloud cluster — deploying services, configuring Caddy ingress, adding static proxy routes for non-cluster devices, publishing ports, scaling, inspecting logs, or managing machines and volumes with the `uc` CLI.
 origin: ECC
 ---
@@ -347,4 +341,3 @@ uc deploy --recreate
 | `uc caddy config` shows no user-defined blocks | Caddy admin socket unreachable — check `uc inspect caddy` and `uc logs caddy` |
 | Service can't reach external LAN IP from container | Verify Caddy container's host can route to target network |
 | Volumes lost after `uc service rm` | Named volumes persist; only anonymous volumes are auto-removed |
-
