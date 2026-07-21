@@ -1,11 +1,5 @@
 ---
 name: product-lens
-description: ---
-category: development
----
-
----
-name: product-lens
 description: Use this skill to validate the "why" before building, run product diagnostics, and pressure-test product direction before the request becomes an implementation contract.
 origin: ECC
 ---
@@ -96,4 +90,3 @@ Pair with:
 - `/design-system audit` for visual polish assessment
 - `/canary-watch` for post-launch monitoring
 - `product-capability` when the product brief needs to become an implementation-ready capability plan
-
