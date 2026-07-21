@@ -1,11 +1,5 @@
 ---
 name: ito-trade-planner
-description: ---
-category: development
----
-
----
-name: ito-trade-planner
 description: Build a non-advisory prediction-market trade planning worksheet for Itô or venue workflows. Use to inspect venues, underliers, constraints, order prerequisites, and manual execution steps without placing trades or recommending positions.
 origin: ECC
 ---
@@ -71,4 +65,3 @@ End every plan with:
 This is a planning worksheet, not investment or trading advice. Review venue
 rules and make any trading decisions yourself.
 ```
-
