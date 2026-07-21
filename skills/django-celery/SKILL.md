@@ -1,11 +1,5 @@
 ---
 name: django-celery
-description: ---
-category: development
----
-
----
-name: django-celery
 description: Django + Celery async task patterns — configuration, task design, beat scheduling, retries, canvas workflows, monitoring, and testing. Use when adding background jobs, scheduled tasks, or async processing to a Django app.
 origin: ECC
 ---
@@ -461,4 +455,3 @@ def charge_and_fulfill(order_id):
 - `django-patterns` — ORM, service layer, and project structure
 - `django-tdd` — Testing Django models, views, and services
 - `python-testing` — pytest configuration and fixtures
-
