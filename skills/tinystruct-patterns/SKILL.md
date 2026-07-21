@@ -1,11 +1,5 @@
 ---
 name: tinystruct-patterns
-description: ---
-category: development
----
-
----
-name: tinystruct-patterns
 description: Expert guidance for developing with the tinystruct Java framework. Use when working on the tinystruct codebase or any project built on tinystruct — including creating Application classes, @Action-mapped routes, unit tests, ActionRegistry, HTTP/CLI dual-mode handling, the built-in HTTP server, the event system, JSON with Builder/Builders, database persistence with AbstractData, POJO generation, Server-Sent Events (SSE), file uploads, and outbound HTTP networking.
 origin: ECC
 ---
@@ -207,4 +201,3 @@ Detailed guides are available in the `references/` directory:
 - `src/main/java/org/tinystruct/http/SSEPushManager.java` — SSE connection management
 - `src/test/java/org/tinystruct/application/ActionRegistryTest.java` — Registry test examples
 - `src/test/java/org/tinystruct/system/HttpServerHttpModeTest.java` — HTTP integration test patterns
-
