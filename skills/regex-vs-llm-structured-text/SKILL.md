@@ -1,11 +1,5 @@
 ---
 name: regex-vs-llm-structured-text
-description: ---
-category: development
----
-
----
-name: regex-vs-llm-structured-text
 description: Decision framework for choosing between regex and LLM when parsing structured text — start with regex, add LLM only for low-confidence edge cases.
 origin: ECC
 ---
@@ -224,4 +218,3 @@ From a production quiz parsing pipeline (410 items):
 - Invoice/receipt processing
 - Document structure parsing (headers, sections, tables)
 - Any structured text with repeating patterns where cost matters
-
