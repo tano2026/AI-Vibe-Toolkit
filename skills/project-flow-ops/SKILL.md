@@ -1,11 +1,5 @@
 ---
 name: project-flow-ops
-description: ---
-category: development
----
-
----
-name: project-flow-ops
 description: Operate execution flow across GitHub and Linear by triaging issues and pull requests, linking active work, and keeping GitHub public-facing while Linear remains the internal execution layer. Use when the user wants backlog control, PR triage, or GitHub-to-Linear coordination.
 origin: ECC
 ---
@@ -115,4 +109,3 @@ NEXT OPERATOR ACTION
 - "Audit the open PR backlog and tell me what to merge vs rebuild"
 - "Map GitHub issues into our ECC 1.x and ECC 2.0 program lanes"
 - "Check whether this needs a Linear issue or should stay GitHub-only"
-
