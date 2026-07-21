@@ -1,11 +1,5 @@
 ---
 name: ui-demo
-description: ---
-category: development
----
-
----
-name: ui-demo
 description: Record polished UI demo videos using Playwright. Use when the user asks to create a demo, walkthrough, screen recording, or tutorial video of a web application. Produces WebM videos with visible cursor, natural pacing, and professional feel.
 origin: ECC
 ---
@@ -469,4 +463,3 @@ node demo-script.cjs
 10. Features were assumed - inspect the actual UI before scripting.
 11. Placeholder select values look real - watch for `"0"` and `"Select..."`.
 12. Popups create separate videos - capture popup pages explicitly and merge later if needed.
-
