@@ -1,11 +1,5 @@
 ---
 name: continuous-agent-loop
-description: ---
-category: development
----
-
----
-name: continuous-agent-loop
 description: Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls.
 origin: ECC
 ---
@@ -49,4 +43,3 @@ Recommended production stack:
 - run `/harness-audit`
 - reduce scope to failing unit
 - replay with explicit acceptance criteria
-
