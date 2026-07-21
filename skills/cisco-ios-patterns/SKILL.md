@@ -1,11 +1,5 @@
 ---
 name: cisco-ios-patterns
-description: ---
-category: development
----
-
----
-name: cisco-ios-patterns
 description: Cisco IOS and IOS-XE review patterns for show commands, config hierarchy, wildcard masks, ACL placement, interface hygiene, and safe change-window verification.
 origin: community
 ---
@@ -167,4 +161,3 @@ source rather than relying on a generic ping.
 - Agent: `network-troubleshooter`
 - Skill: `network-config-validation`
 - Skill: `network-interface-health`
-
