@@ -1,11 +1,5 @@
 ---
 name: plan-orchestrate
-description: ---
-category: development
----
-
----
-name: plan-orchestrate
 description: Read a plan document, decompose it into steps, design a per-step agent chain from the ECC catalogue, and emit ready-to-paste /orchestrate custom prompts. Generative only — never invokes /orchestrate itself. Use when the user has a multi-step plan and wants to drive it through orchestrate without composing chains by hand.
 origin: ECC
 ---
@@ -266,4 +260,3 @@ The two examples above illustrate **the two possible outputs** for two different
 - Generative only. Never invoke `/orchestrate` from inside this skill.
 - Match the language of the plan document for task descriptions (agent names always remain English).
 - Do not insert "Co-Authored-By" lines or emoji in the output unless the user explicitly asks.
-
