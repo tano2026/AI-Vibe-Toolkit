@@ -1,11 +1,5 @@
 ---
 name: unified-notifications-ops
-description: ---
-category: development
----
-
----
-name: unified-notifications-ops
 description: Operate notifications as one ECC-native workflow across GitHub, Linear, desktop alerts, hooks, and connected communication surfaces. Use when the real problem is alert routing, deduplication, escalation, or inbox collapse.
 origin: ECC
 ---
@@ -191,4 +185,3 @@ NEXT ECC MOVE
 - `github-ops`
 - `knowledge-ops`
 - `customer-billing-ops` when the notification pain is billing/customer operations rather than engineering
-
