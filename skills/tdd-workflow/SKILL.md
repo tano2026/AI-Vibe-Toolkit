@@ -1,11 +1,5 @@
 ---
 name: tdd-workflow
-description: ---
-category: development
----
-
----
-name: tdd-workflow
 description: Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.
 origin: ECC
 ---
@@ -467,4 +461,3 @@ npm test && npm run lint
 ---
 
 **Remember**: Tests are not optional. They are the safety net that enables confident refactoring, rapid development, and production reliability.
-
