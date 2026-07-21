@@ -1,11 +1,5 @@
 ---
 name: ito-market-intelligence
-description: ---
-category: development
----
-
----
-name: ito-market-intelligence
 description: Research prediction-market events, venues, underliers, liquidity, and news context for Itô basket workflows. Use for read-only market intelligence, API-gated Itô exploration, and source-grounded prediction-market briefings without investment advice or live trading.
 origin: ECC
 ---
@@ -64,4 +58,3 @@ If access is missing, say:
 Itô live basket/API data requires gated access. Request an ITO_API_KEY before
 using Itô-backed reads.
 ```
-
