@@ -340,3 +340,12 @@ curl -sf -H "Authorization: token $GITHUB_TOKEN" \
   không kèm header token → sửa sang Contents API + token.
 
 **Status:** Chờ Antigravity xử lý. Blocker toàn hệ thống đọc kho.
+
+
+---
+
+## Karpathy Coding Guidelines (lớp hành vi nền)
+
+Trước khi code bất kỳ phần nào, đọc và áp dụng `agents/KARPATHY-CODING-GUIDELINES.md` — 4
+nguyên tắc: nghĩ trước khi code, đơn giản là trên hết, sửa đúng phạm vi, thực thi theo mục
+tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sinh thái, không riêng agent nào.
