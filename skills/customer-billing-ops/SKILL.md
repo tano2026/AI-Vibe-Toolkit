@@ -1,11 +1,5 @@
 ---
 name: customer-billing-ops
-description: ---
-category: development
----
-
----
-name: customer-billing-ops
 description: Operate customer billing workflows such as subscriptions, refunds, churn triage, billing-portal recovery, and plan analysis using connected billing tools like Stripe. Use when the user needs to help a customer, inspect subscription state, or manage revenue-impacting billing operations.
 origin: ECC
 ---
@@ -144,4 +138,3 @@ PRODUCT GAP
 - "The right fix is a billing portal, not a custom dashboard yet"
 - "This looks like duplicate personal checkout, not a real team-seat purchase"
 - "Refund one duplicate charge, keep the remaining active subscription, then convert the customer to org billing later if needed"
-
