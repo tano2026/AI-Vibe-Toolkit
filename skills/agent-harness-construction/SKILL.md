@@ -1,11 +1,5 @@
 ---
 name: agent-harness-construction
-description: ---
-category: development
----
-
----
-name: agent-harness-construction
 description: Design and optimize AI agent action spaces, tool definitions, and observation formatting for higher completion rates.
 origin: ECC
 ---
@@ -77,4 +71,3 @@ Track:
 - Opaque tool output with no recovery hints.
 - Error-only output without next steps.
 - Context overloading with irrelevant references.
-
