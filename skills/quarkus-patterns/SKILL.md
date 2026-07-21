@@ -1,11 +1,5 @@
 ---
 name: quarkus-patterns
-description: ---
-category: development
----
-
----
-name: quarkus-patterns
 description: Quarkus 3.x LTS architecture patterns with Camel for messaging, RESTful API design, CDI services, data access with Panache, and async processing. Use for Java Quarkus backend work with event-driven architectures.
 origin: ECC
 ---
@@ -726,4 +720,3 @@ public class CamelHealthCheck implements HealthCheck {
 - Use Quarkus dev mode for hot reload
 - Add health checks for production readiness
 - Test native compilation compatibility periodically
-
