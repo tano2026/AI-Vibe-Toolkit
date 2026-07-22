@@ -2233,3 +2233,26 @@ trong: **OpenClaw chua nam trong danh sach tool duoc app ho tro cai truc tiep** 
 dung tam script convert.sh cua repo goc cho case nay.
 
 **Kho: 135 repos | 38 MCPs | 449 skills | 181 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 21/07/2026 (c) — skillops (Xerus-ai)
+
+Nobitano go "Skillops" — ten dung 4-5 project khac nhau (omdenis/SkillOps career, Xerus-ai/skillops
+CLI, microsoft/SkillOpt research, Hik289/SkillOps paper, KHemanthRaju/SkillOps career). Da hoi lai
+1 cau xac nhan truoc khi viet - Nobitano chon **Xerus-ai/skillops**.
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| Xerus-ai/skillops | repos/skillops.md | 0 (rat moi) | script-video-182 |
+
+Highlight: CLI quan ly skill AI agent o quy mo to chuc - "DevOps cho skill". 5 tru cot: lint 24
+rule (SKL100-SKL507), eval 3-agent scoring, git-based registry, sync co drift detection, telemetry
+2 tang local-only. **Fit truc tiep voi van de vua xu ly hom nay** (dedup 266 skill ecc-* + bug
+double-frontmatter) - skops se bat duoc bug nay qua `skops validate` va phat hien trung lap qua
+`skops status` thay vi phai tu viet script Git Trees/Blobs API. Luu y: du an rat moi (0 star, 2
+commit, chua co release) - recommend thu nghiem tren nhanh nho truoc khi ap dung cho toan bo 449
+skill hien tai cua kho.
+
+**Kho: 136 repos | 38 MCPs | 449 skills | 182 scripts | 7 agent packages | 5 stacks | 9 role**
