@@ -2275,3 +2275,23 @@ khi quyet dinh tu code Python rieng hay khong. Khong thay the Hermes/OpenClaw la
 chinh.
 
 **Kho: 137 repos | 38 MCPs | 449 skills | 183 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 21/07/2026 (e) — Videofy Minimal
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| schibsted/videofy_minimal | repos/videofy-minimal.md | 623 | script-video-184 |
+
+Highlight: tool cua tap doan bao chi Schibsted (Bac Au) — bien bai bao/tin thanh video ngan
+tu dong: fetch noi dung → AI viet kich ban → ghep hinh → tao giong doc ElevenLabs → **render
+qua Remotion** → xuat vertical + horizontal. Diem khac biet lon nhat: co CMS UI human-in-the-
+loop that su (editor review/sua truoc khi render), khong phai 1-click-mu-quang nhu Short Video
+Factory. Fit ro cho Airfare Decoded / Trum San Bay (tin tuc hang khong cap nhat lien tuc).
+**Luu y quan trong**: dung Remotion nen phai kiem tra license Remotion truoc khi dung cho video
+thuong mai ABTRIP/Wonder Mart (remotion.dev/license) — Remotion co dieu khoan rieng cho cong ty
+tu quy mo nhat dinh tro len.
+
+**Kho: 138 repos | 38 MCPs | 449 skills | 184 scripts | 7 agent packages | 5 stacks | 9 role**
