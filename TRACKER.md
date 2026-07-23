@@ -2295,3 +2295,24 @@ thuong mai ABTRIP/Wonder Mart (remotion.dev/license) — Remotion co dieu khoan 
 tu quy mo nhat dinh tro len.
 
 **Kho: 138 repos | 38 MCPs | 449 skills | 184 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 21/07/2026 (f) — World Monitor
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| koala73/worldmonitor | repos/worldmonitor.md | 64.3K | script-video-185 |
+
+Highlight: dashboard tinh bao toan cau real-time — 500+ nguon tin, 15 category (dia chinh tri,
+tai chinh, hang khong, nang luong, khi hau, quan su, cyber), Country Instability Index cho 31
+nuoc, radar tai chinh 29 san giao dich, **du lieu bay ADS-B that (Wingbits)**. Co san MCP server
+(`worldmonitor.app/mcp`), CLI (`npx worldmonitor`), SDK Python/Ruby/Go — tich hop duoc vao
+Hermes gan nhu ngay lap tuc. Fit truc tiep 2 cho: (1) ABTRIP/Fast Track Noi Bai — theo doi bat
+thuong chuyen bay khu vuc som, (2) noi dung Trum San Bay + script tai chinh vi mo (#172) — nguon
+so lieu tin tuc/chi so bat on thay vi tu tong hop tay. **Luu y license AGPL-3.0**: chi dung
+API/MCP/SDK cong khai (khong tu sua code roi host lai thanh dich vu) de tranh nghia vu cong khai
+source.
+
+**Kho: 139 repos | 38 MCPs | 449 skills | 185 scripts | 7 agent packages | 5 stacks | 9 role**
