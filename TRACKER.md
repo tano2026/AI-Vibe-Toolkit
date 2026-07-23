@@ -2256,3 +2256,22 @@ commit, chua co release) - recommend thu nghiem tren nhanh nho truoc khi ap dung
 skill hien tai cua kho.
 
 **Kho: 136 repos | 38 MCPs | 449 skills | 182 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 21/07/2026 (d) — Flowise
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| FlowiseAI/Flowise | repos/flowise.md | 53K+ | script-video-183 |
+
+Highlight: nen tang low-code keo-tha xay AI Agent/LLM workflow, dua tren LangChain. Agentflow
+(multi-agent) + Chatflow (chatbot don), 100+ tich hop LLM/vector DB/document loader. Tu host
+mien phi, co REST API rieng cho tung flow (`/api/v1/prediction/<chatflow-id>`) — de goi tu
+Hermes/webhook ben ngoai. Fit ro nhat: prototype nhanh chatbot cho ke hoach "Deploy Chatwoot
+ABTRIP customer support" dang co trong on the horizon — test y tuong RAG/tool-calling truoc
+khi quyet dinh tu code Python rieng hay khong. Khong thay the Hermes/OpenClaw lam orchestrator
+chinh.
+
+**Kho: 137 repos | 38 MCPs | 449 skills | 183 scripts | 7 agent packages | 5 stacks | 9 role**
