@@ -2350,3 +2350,23 @@ Highlight:
   LIGHTRAG_API_KEY truoc khi expose ra ngoai VPS.
 
 **Kho: 142 repos | 38 MCPs | 449 skills | 188 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 24/07/2026 (h) — AIWriteX
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| iniwap/AIWriteX | repos/aiwritex.md | 1.6K | script-video-189 |
+
+Highlight: content-factory tu dong da nen tang (chu yeu Trung Quoc: WeChat gongzhonghao,
+Tieu Hong Thu, Baijiahao, Toutiao, Weibo) xay tren CrewAI multi-agent + AIForge. 2 y tuong
+dang hoc theo du khong dung nguyen bo: (1) "chuyen gia theo nganh" — bo quy tac rieng cho
+tung nganh thay vi 1 prompt chung, (2) engine "khu vi AI" chong AI-detection — pha cau
+truc liet ke + tiem cam xuc chu quan thay vi chi doi tu dong nghia. **Luu y**: nen tang
+xuat ban gan chat he sinh thai Trung Quoc, khong match truc tiep kenh TikTok/YouTube hien
+tai — chi nen lay tham khao kien truc, khong can cai dat nguyen bo tru khi thuc su can
+dang len nen tang Trung Quoc.
+
+**Kho: 143 repos | 38 MCPs | 449 skills | 189 scripts | 7 agent packages | 5 stacks | 9 role**
