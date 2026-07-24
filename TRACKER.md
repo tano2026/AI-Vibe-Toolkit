@@ -2370,3 +2370,26 @@ tai — chi nen lay tham khao kien truc, khong can cai dat nguyen bo tru khi thu
 dang len nen tang Trung Quoc.
 
 **Kho: 143 repos | 38 MCPs | 449 skills | 189 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Skill moi 20/07/2026 — Kiem tra bao mat truoc deploy (7 loi toang ngam)
+
+Nobitano upload 9 anh TikTok tu @caothanhphng5, checklist "7 loi toang ngam trong app vibe
+coding" - chi lo ra SAU khi da deploy, khong phai luc code local. Da dua vao kho lam skill.
+
+| Skill | File |
+|-------|------|
+| Kiem tra bao mat truoc deploy | skills/kiem-tra-bao-mat-truoc-deploy.md |
+
+7 muc: (1) Secret trong code, (2) Fake security (UI-only, hacker goi thang API), (3) Data
+leak/IDOR (User A xem duoc data User B), (4) Khong error tracking, (5) Backup chua test
+restore, (6) Payment tin du lieu tu frontend (gia tien, webhook khong verify), (7) AI pha
+ngam (Claude Code tu sua cho khong ai biet - lien quan truc tiep Karpathy Guidelines nguyen
+tac 3 "Surgical Changes").
+
+Da wire vao agents/infra-ops-agent/system-prompt.md (bat buoc chay qua truoc moi lan deploy).
+DAC BIET quan trong cho Wonder Mart (payment - muc 6) va ABTRIP (data khach hang - muc 3).
+
+**Kho: 131 repos | 38 MCPs | 92 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
