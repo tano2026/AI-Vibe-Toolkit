@@ -2316,3 +2316,37 @@ API/MCP/SDK cong khai (khong tu sua code roi host lai thanh dich vu) de tranh ng
 source.
 
 **Kho: 139 repos | 38 MCPs | 449 skills | 185 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Repo moi 24/07/2026 (g) — Video Autopilot Kit / AOS-CE / LightRAG
+
+| Repo | File | Stars | Script |
+|------|------|-------|--------|
+| Hao0321/video-autopilot-kit | repos/video-autopilot-kit.md | 1.5K | script-video-186 |
+| unicity-aos/aos-ce | repos/aos-ce.md | 6.8K | script-video-187 |
+| HKUDS/LightRAG | repos/lightrag.md | 38K | script-video-188 |
+
+Highlight:
+- **video-autopilot-kit**: khung (khong phai product dong goi san) cho tu dong hoa video
+  YouTube/short-form — 2 nhanh song song (Path 1 thuan ffmpeg/Python da nen tang, Path 2
+  tu dong hoa CapCut Desktop qua sua draft JSON), co bo QA co khi truoc khi xuat (quet
+  nhap nhay/khoang chet/dong bo caption). Khong dinh du lieu ca nhan tac gia goc, SETUP.md
+  bat nguoi dung tu dien de thanh he thong rieng. Fit tham khao kien truc QA-gate de bo
+  sung cho HyperFrames pipeline hien tai.
+- **aos-ce**: "he dieu hanh cho agent" — moi nang luc agent dung duoc dong goi thanh capsule
+  least-privilege, co audit trail rieng, va bat buoc qua approval gate khi lam viec nhay
+  cam. Co Forge — cho phep agent tu soi he thong, tu phat hien thieu nang luc gi, tu build
+  capsule moi. Dung huong voi nguyen tac "state machine phai code-driven" da duc ket trong
+  kho — giai bai toan prompt injection o tang OS thay vi tu va tung agent. **Can test ky
+  co che approval tren VPS headless (Tencent Cloud Ubuntu) truoc khi dua vao production**,
+  vi UI approval mac dinh doi hoi GUI cuc bo.
+- **LightRAG**: RAG ket hop knowledge graph + vector embedding, update tang dan khong can
+  rebuild toan bo index nhu GraphRAG, ho tro da backend (NetworkX/Neo4J/PostgreSQL). Publish
+  chinh thuc tai EMNLP2025, 38K sao. Fit truc tiep cho RIO Bot (CORE-BRAIN) — nang cap tu
+  SQLite+DDG thuan sang co kha nang tra loi cau hoi co quan he cheo giua nhieu entry da
+  research. **Luu y bao mat**: mac dinh server bind 0.0.0.0 khong auth, bat buoc set
+  LIGHTRAG_API_KEY truoc khi expose ra ngoai VPS.
+
+**Kho: 142 repos | 38 MCPs | 449 skills | 188 scripts | 7 agent packages | 5 stacks | 9 role**
