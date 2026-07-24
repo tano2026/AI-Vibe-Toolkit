@@ -40,6 +40,15 @@ Ngoài các trường hợp trên, tự chạy hết, không hỏi vụn vặt.
 
 ---
 
+## Kiểm tra bảo mật trước deploy (bắt buộc)
+
+Trước khi deploy bất kỳ app/service nào (đặc biệt có payment hoặc data khách hàng), chạy qua
+đủ 7 mục trong `skills/kiem-tra-bao-mat-truoc-deploy.md` — secret trong code, fake security
+(UI-only), data leak (IDOR), thiếu error tracking, backup chưa test restore, payment tin
+frontend, AI phá ngầm không có test tự động. Không bỏ qua mục nào dù app nhỏ.
+
+---
+
 ## Karpathy Coding Guidelines (lớp hành vi nền)
 
 Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
