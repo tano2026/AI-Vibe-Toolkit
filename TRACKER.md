@@ -2466,3 +2466,36 @@ KHONG tao entry - phan lon da duoc cover roi qua cac skill/stack rieng le da co 
 Chi la danh sach tham khao, khong phai repo cu the moi.
 
 **Kho: 135 repos | 38 MCPs | 98 skills | 200 scripts | 7 agent packages | 6 stacks | 9 role**
+
+
+---
+
+## Batch 21/07/2026 — 7 repo goi y + bundle 10 skill bat buoc
+
+Nobitano gui 7 ten, muon lam bundle 10 skill bat buoc cho moi du an moi. Da SKIP 1 vi TRUNG:
+mattpocock/skills (da co san). Da SKIP 2 vi SAI DOMAIN (khong lien quan business Tano Agency):
+scientific-agent-skills (K-Dense-AI, cho nghien cuu khoa hoc), Claude-Code-Game-Studios (game
+dev studio) - khong xu ly full entry cho 2 cai nay.
+
+Da xu ly full 4 repo con lai:
+
+| Repo | File | Stars |
+|------|------|-------|
+| awesome-claude-skills (ComposioHQ) | repos/awesome-claude-skills.md | 70.3k |
+| agent-browser (Vercel Labs) | repos/agent-browser.md | 39.1k |
+| supermemory (supermemoryai) | repos/supermemory.md | 28.6k |
+| sanyuan-skills | repos/sanyuan-skills.md | 3.6k |
+
+Highlight: supermemory co PLUGIN CHINH THUC rieng cho ca Hermes VA OpenClaw - khop thang vao
+stack dang dung, khac RIO Bot's SQLite (research history rieng) o cho supermemory la memory
+CHUNG toan he thong. agent-browser nhe hon Playwright MCP nhieu lan (tranh loi ton token).
+
+**Da tao stack tong hop: `stacks/10-skill-bat-buoc-du-an-moi.md`** - gom 10 skill/nguyen tac
+bat buoc cho moi du an moi, tron giua cai da co san (Karpathy Guidelines, checklist bao mat,
+write-a-skill, handoff, prompt-master+grill-me, hallmark/huashu-design) + 3 phat hien moi
+(agent-browser, supermemory, sanyuan-skills) + awesome-claude-skills lam thu muc tra cuu.
+
+CANH BAO: 3 phat hien moi CHUA duoc test that trong pipeline Tano Agency - nen thu tren 1
+project nho truoc khi coi la bat buoc chinh thuc.
+
+**Kho: 139 repos | 38 MCPs | 98 skills | 201 scripts | 7 agent packages | 7 stacks | 9 role**
