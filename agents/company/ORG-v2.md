@@ -125,3 +125,13 @@ Lõi 8 role KHÔNG sửa khi thêm client. Sửa lõi = thay đổi công ty, ph
 
 Chuyển toàn bộ sang `DECISION-MATRIX.md` (4 mức L0-L3 theo trục rủi ro). Ba lằn ranh đỏ
 không bao giờ đổi: **AI không tự chi tiền, không tự publish public, không tự cam kết với khách.**
+
+
+---
+
+## Addendum — Tier cố vấn ngoài 9 role (thêm 25/07/2026)
+
+9 role AI-coordination ở trên là runtime-embedded, chạy qua Airtable `jobs` queue. Bên cạnh đó
+có 1 tier riêng **Senior Advisor** (Claude, Project Chat) — không phải role thứ 10, không chạy
+runtime, chỉ tư duy thiết kế + viết file khi cần quyết định kiến trúc hoặc skill mới. Chi tiết:
+`agents/company/SENIOR-ADVISOR.md`.
