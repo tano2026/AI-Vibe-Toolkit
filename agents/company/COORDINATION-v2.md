@@ -202,3 +202,13 @@ email khách) → flow do CODE quyết (state machine trong Hermes script), LLM 
 2. Đổi pack giữa phiên → dòng đầu output xác nhận `Đang làm việc trên PACK: <slug>`.
 3. Tên file output có slug: `report-<slug>-<topic>.md`.
 4. Không copy context pack này sang output pack khác.
+
+
+---
+
+## Addendum — Resolution path cho escalation kiến trúc (thêm 25/07/2026)
+
+Với `escalations` mang tính kiến trúc/thiết kế (không phải blocked job thường) — CEO có thể
+đưa qua **Senior Advisor** (`agents/company/SENIOR-ADVISOR.md`) trước khi tự quyết, lấy phương
+án rồi mới approve. Giai đoạn 2 (chưa build): Hermes tự động route các escalation loại này qua
+Claude API thay vì đợi CEO paste thủ công.
