@@ -82,3 +82,11 @@
   truy cập ≠ không tồn tại, (2) verify trước khi tin kể cả tự báo cáo của mình (vụ hallucinate
   sanyuan-skills), (3) chạm production/khách hàng thật luôn dừng hỏi dù có vẻ rõ đường đi, (4)
   assumption cũ là tạm, phải tự hỏi lại trước khi dùng làm nền quyết định mới
+
+- Sửa xong 2 việc tồn đọng:
+  1. sanyuan-skills.md — KHÔNG phải hallucinate hoàn toàn như đã báo trước (đính chính): repo
+     có thật (sanyuan0704/sanyuan-skills, 3.6K sao, nội dung mô tả khớp 100%), chỉ URL bị để
+     placeholder <org>. Đã sửa URL + cách cài đúng (npx skills add, không phải git clone)
+  2. supermemory.md — sửa claim sai "có plugin cho Hermes": chỉ OpenClaw có plugin thật
+     (openclaw-supermemory), Hermes dùng qua MCP chung không có plugin riêng. Lý do lỗi: nhầm
+     "Hermes agent" (NousResearch/hermes-agent, model LLM khác tên) với Hermes của Tano Agency
