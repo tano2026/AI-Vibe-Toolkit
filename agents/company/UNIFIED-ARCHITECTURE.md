@@ -120,13 +120,40 @@ task_types = ["execute", "healthcheck", "deploy-api", "run-cron", "mcp-call"]
 ```
 
 **Luật bất biến — để không lặp lại lỗi "2 não":**
-1. OpenClaw KHÔNG có kênh nhận lệnh riêng (không Telegram bot riêng, không webhook tự route)
-2. OpenClaw CHỈ pull task từ Taskboard chung (Hermes ghi vào, OpenClaw đọc ra)
+1. OpenClaw KHÔNG có kênh RA LỆNH riêng (không tự nhận task hành động, không webhook tự route
+   task mới, không tự dispatch)
+2. OpenClaw CHỈ pull task hành động từ Taskboard chung (Hermes ghi vào, OpenClaw đọc ra)
 3. OpenClaw không có quyền tự quyết mức nào trong `DECISION-MATRIX.md` — mọi hành động OpenClaw
    thực thi đã được Hermes (hoặc CEO Nobitano) duyệt mức tương ứng TRƯỚC KHI giao task
 4. OpenClaw chạy ở đâu tuỳ nghiệp vụ — chủ yếu VPS (24/7, public-facing: sales/support/operations
    fulfillment), nhưng KHÔNG bị giới hạn cứng chỉ VPS — nếu 1 tác vụ thực thi (không phải quyết
    định) cần chạy Local vì lý do tài nguyên, vẫn gọi là OpenClaw đang thực thi, chỉ khác máy vật lý
+
+**Ngoại lệ — kênh HỎI trực tiếp (khác kênh RA LỆNH ở trên):** Nobitano cần hỏi thẳng OpenClaw
+(trạng thái, log, đang chạy task nào, lỗi gần nhất) mà không phải đợi Hermes phân tích/tóm tắt
+lại. Đây KHÔNG phá luật "1 bộ não" vì HỎI không phải RA LỆNH — không tạo task mới, không thay
+đổi gì, không cần duyệt mức nào.
+
+```
+Vẫn 1 Telegram bot DUY NHẤT (CEO Bot) — không mở bot thứ 2.
+Trong bot đó, thêm command riêng route THẲNG tới OpenClaw, bỏ qua bước Hermes
+phân tích (vì hỏi thì không cần lên kế hoạch gì):
+
+  /oc status              → OpenClaw tự trả lời trạng thái, không qua Hermes
+  /oc log <task-id>       → OpenClaw trả log thô
+  /oc health              → OpenClaw tự báo cáo
+
+Còn lệnh hành động qua /oc bị từ chối ngay ở tầng OpenClaw, không cần Hermes
+chặn hộ:
+
+  /oc deploy X            → OpenClaw tự trả lời: "Lệnh hành động phải qua
+                             Hermes, tao chỉ báo cáo trực tiếp, không tự
+                             quyết định thực thi gì mới"
+```
+
+Nguyên tắc phân định: OpenClaw được trả lời TRỰC TIẾP mọi câu hỏi VỀ CHÍNH NÓ (đang làm gì, khoẻ
+không, log ra sao) — nhưng KHÔNG được tự quyết định LÀM GÌ MỚI khi nhận lệnh qua `/oc`. Ranh
+giới rõ: "báo cáo" luôn trực tiếp được, "hành động" luôn phải qua Hermes.
 
 **Việc cần làm (sau khi VPS reboot):**
 - SSH check `pm2 list` + `ls /opt/openclaw/` — nếu còn sót code/process OpenClaw đời cũ (có
