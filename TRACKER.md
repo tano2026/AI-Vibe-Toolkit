@@ -2559,3 +2559,22 @@ Da fix:
 
 **Kho: 140 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
 (dong bo hoan tat, khong con noi nao trong kho tham chieu con so 8 hoac 9 role cu)
+
+
+---
+
+## Repo THAT (public, xac nhan) 21/07/2026 — 3 repo rediumvex/theromanknox con thieu
+
+Sau khi lam ro bo 42-skill phan lon la teaser, tim ra rediumvex (Roman Knox) co 4-5 repo
+PUBLIC THAT. Da co san 2 (seedance model + viral-hooks-skill), them 3 con thieu:
+
+| Repo | File | Ap dung cho |
+|------|------|-------------|
+| ai-video-generator-claude | repos/ai-video-generator-claude.md | B-roll Trum San Bay/kenh AI review |
+| social-media-caption-generator | repos/social-media-caption-generator.md | Caption da nen tang Tano Cafe/Trum San Bay |
+| ai-marketing-claude | repos/ai-marketing-claude.md | Audit dinh ky landing page ABTRIP/Wonder Mart |
+
+ai-marketing-claude la repo MANH NHAT (12 skill, 5 subagent, lenh goc /market) - dung khop
+voi slide "Marketing" da thay hom truoc, xac nhan la THAT chu khong phai teaser.
+
+**Kho: 143 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
