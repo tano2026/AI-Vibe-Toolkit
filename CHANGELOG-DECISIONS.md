@@ -45,3 +45,12 @@
   có khả năng hành động thật (gửi/ghi/tiền) → quy tắc: Claude Advisor chỉ báo cáo skill mới,
   KHÔNG tự sync; skill hành động thật bắt buộc CEO duyệt (L2), skill tham khảo duyệt 1 lần rồi
   tự import (L1). Đã update trong OPENCLAW-WORKER-STRUCTURE.md
+
+- Phát hiện gốc rễ mâu thuẫn: HERMES-PLAYBOOK.md ghi sai "Hermes chạy VPS" trong khi thực tế
+  (Claude Code audit TANO-AGENCY local) là Hermes chạy Local Windows với Telegram bot riêng —
+  2 bot, 2 taskboard (hq.db vs Airtable design vs n8n), 2 skill dir song song không đồng bộ.
+  Thiết kế lại thành 1 kiến trúc: 1 CEO Bot (VPS, 24/7) → 1 Taskboard (Airtable) → dispatch
+  theo LOẠI VIỆC (không theo "của Hermes/OpenClaw") → Local (nghiệp vụ nặng) hoặc VPS (24/7,
+  nhẹ, public-facing). OpenClaw cũ triệt thoái, thay VPS Agent mỏng chỉ thực thi không tự quyết.
+  → [UNIFIED-ARCHITECTURE.md](agents/company/UNIFIED-ARCHITECTURE.md) — STATUS: DRAFT, chờ xác
+  nhận VPS đã reboot chưa + tên 8 phòng ban thật trong agent-core/spec.py trước khi thực thi
