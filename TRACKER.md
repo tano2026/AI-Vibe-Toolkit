@@ -2578,3 +2578,27 @@ ai-marketing-claude la repo MANH NHAT (12 skill, 5 subagent, lenh goc /market) -
 voi slide "Marketing" da thay hom truoc, xac nhan la THAT chu khong phai teaser.
 
 **Kho: 143 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+
+
+---
+
+## Skill moi 21/07/2026 — AI Chatbot React Starter (dieu chinh OmniRoute)
+
+Nobitano upload 7 anh carousel "Build an AI Chatbot in React" (@aicareersuite), yeu cau
+nghien cuu ky. DA KIEM TRA: noi dung ky thuat CHINH XAC, khong loi - kien truc React + Express
++ OpenAI chuan, canh bao bao mat dung (khong lo API key frontend, khop muc #1 checklist bao
+mat da co).
+
+| Skill | File |
+|-------|------|
+| AI Chatbot React Starter | skills/ai-chatbot-react-starter.md |
+
+DIEU CHINH quan trong so voi ban goc: doi goi thang OpenAI API sang goi qua OmniRoute gateway
+(route model re DeepSeek V3/Gemini Flash cho FAQ don gian, tiet kiem chi phi dang ke).
+
+Da lam ro RANH GIOI voi Chatwoot (da co trong ke hoach deploy cho ABTRIP CSKH): skill nay la
+AI-only widget don gian (FAQ bot nhung landing page), KHONG co ticketing/human handoff/CRM
+khach hang - Chatwoot van la lua chon cho CSKH day du. 2 cai phuc vu 2 use case khac nhau,
+khong thay the nhau.
+
+**Kho: 143 repos | 38 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
