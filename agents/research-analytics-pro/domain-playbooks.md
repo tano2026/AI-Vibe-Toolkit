@@ -173,3 +173,28 @@ CPM | CPC | CTR | ROAS | CAC | Engagement rate | Reach/Impression ratio
 **Key metrics:**
 Logistics cost % GDP | Warehouse utilization | Last-mile cost | Transit time | Fill rate
 
+
+
+---
+
+## 🏪 LOCAL BUSINESS INTEL (áp dụng: ABTRIP/An Bình, Tano Cafe)
+
+> Khác các domain vĩ mô ở trên — đây là local business cạnh tranh theo địa lý.
+> Dùng skill `local-gap-finder` (không phải research-synthesis chung) + `FOCUS-MODE.md`
+> cho nhịp tuần. Xem chi tiết pipeline đầy đủ trong 2 file đó.
+
+**Free data sources:**
+- Google Maps/GBP → giờ hoạt động, review, rating, ảnh menu/bảng giá đối thủ
+- Google Trends → search volume "<dịch vụ> + <địa danh>" / "near me"
+- Google review + Trustpilot → customer voice mining (pain/objection/buying)
+- Fanpage/website đối thủ trực tiếp (scrape công khai)
+- Reddit/Facebook group địa phương nếu có thread liên quan
+
+**Key metrics:**
+Gap Score (demand × margin room ÷ mật độ cạnh tranh) | Vị trí giá (dưới/ngang/trên thị trường) |
+Rating trung bình đối thủ | Tần suất pain point lặp lại trong review
+
+**Sample queries Nobitano hay hỏi:**
+- Đối thủ Fast Track quanh Nội Bài đang có gói nào mình chưa có?
+- Tano Cafe định giá đúng chưa so với quán cùng khu vực?
+- Có gap nào khách hay phàn nàn mà chưa ai fill?
