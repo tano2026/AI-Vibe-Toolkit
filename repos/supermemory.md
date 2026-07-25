@@ -1,7 +1,7 @@
 # Supermemory — GitHub Repo
 
 ## TL;DR
-Engine bộ nhớ dài hạn cho AI agent, chạy được hoàn toàn local, **có plugin chính thức riêng cho Hermes và OpenClaw** — khớp thẳng vào stack đang dùng. 28.6K stars, MIT license. Trên benchmark LongMemEval: nhớ đúng 95% (Recall@15) mà chỉ tốn ~720 token context (giảm 99.4% so với nhồi toàn bộ lịch sử).
+Engine bộ nhớ dài hạn cho AI agent, chạy được hoàn toàn local, **có plugin chính thức cho OpenClaw** (`supermemoryai/openclaw-supermemory`) và Claude Code — khớp thẳng vào stack đang dùng. Hermes (agent-core Python) dùng qua MCP server chung, không có plugin riêng. 28.6K stars, MIT license. Trên benchmark LongMemEval: nhớ đúng 95% (Recall@15) mà chỉ tốn ~720 token context (giảm 99.4% so với nhồi toàn bộ lịch sử).
 
 ## Repo này dùng để làm gì
 Giải quyết đúng vấn đề: agent quên hết mọi thứ khi mở session mới. Supermemory tự động:
@@ -27,7 +27,7 @@ Lấy API key in ra màn hình lúc khởi động lần đầu.
 ```bash
 SUPERMEMORY_CC_API_KEY=sm_...
 ```
-4. **Riêng cho Hermes/OpenClaw** — repo chính thức có sẵn plugin implementation cho cả 2 (open source), xem trực tiếp trong `supermemoryai/supermemory` phần tích hợp — đây là lý do repo này đáng chú ý hơn hẳn các memory engine khác đã có trong kho (RIO Bot dùng SQLite riêng, ổn cho research history, nhưng supermemory hợp hơn cho memory CHUNG toàn hệ agent).
+4. **Riêng cho OpenClaw** — có plugin chính thức open source: `supermemoryai/openclaw-supermemory`. **Hermes** không có plugin riêng — dùng qua MCP server chung (`https://mcp.supermemory.ai/mcp`), vẫn dùng được nhưng không "khớp sẵn" như OpenClaw. Đáng chú ý hơn memory engine khác đã có trong kho (RIO Bot dùng SQLite riêng, ổn cho research history, nhưng supermemory hợp hơn cho memory CHUNG toàn hệ agent) — lưu ý: "Hermes agent" nhắc tới trong 1 số tài liệu supermemory (`NousResearch/hermes-agent`) là 1 model LLM tên trùng, KHÔNG liên quan Hermes của Tano Agency — đừng nhầm.
 5. Cấu hình mức capture qua `.claude/.supermemory-claude/config.json` theo project — chỉnh `signalKeywords` (vd thêm "quyết định", "bug", "fix" để bắt đúng khoảnh khắc quan trọng).
 
 ## Ví dụ thực tế
@@ -40,7 +40,7 @@ OpenClaw đang điều phối nhiều task cho các domain khác nhau (ABTRIP, T
 - Khác RIO Bot's `memory.py` (SQLite, chỉ lưu research history/evidence cache) — supermemory là lớp memory CHUNG cho mọi agent, nên rõ ràng phạm vi: RIO Bot giữ nguyên SQLite riêng cho research, supermemory phủ toàn hệ thống Hermes/OpenClaw cho context chung.
 
 ## Đánh giá cá nhân
-- Điểm mạnh: có plugin chính thức cho đúng cả Hermes VÀ OpenClaw (hiếm công cụ nào khớp sẵn cả 2); benchmark hiệu quả token thật sự ấn tượng; chạy local hoàn toàn được, không bắt buộc gửi data ra ngoài.
+- Điểm mạnh: có plugin chính thức cho OpenClaw + Claude Code (Hermes dùng qua MCP chung, không có plugin riêng — vẫn dùng được, chỉ không tiện bằng); benchmark hiệu quả token thật sự ấn tượng; chạy local hoàn toàn được, không bắt buộc gửi data ra ngoài.
 - Điểm yếu: cần cấu hình cẩn thận để tránh auto-capture data nhạy cảm; thêm 1 tầng hạ tầng nữa cần maintain trên VPS.
 - Có nên dùng không: 8.5/10 — đáng đưa vào **bộ skill bắt buộc cho mọi project agent mới**, giải quyết đúng vấn đề "agent quên hết" đã gặp nhiều lần trong quá trình vận hành 9-role company.
 
