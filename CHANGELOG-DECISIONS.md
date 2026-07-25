@@ -31,3 +31,11 @@
   [FOCUS-MODE.md](agents/research-analytics-pro/FOCUS-MODE.md)
 - Tạo folder `/reports/` — lưu weekly snapshot theo pack, mặc định bật cho
   abtrip/an-binh/tano-cafe
+
+- Review kế hoạch "3 bước" OpenClaw tự đề xuất (dọn workspace + build 8 agent worker + Claude
+  Advisor) — phát hiện lệch ORG-v2.md: gộp sai marketing/content, media/designer (phá guardrail
+  người tạo ≠ người đăng), nhầm ops/support với dev+ops-finance thật, thiếu HR&Admin, và đặt
+  Claude thành worker nhận task qua queue (sai thiết kế SENIOR-ADVISOR.md). Đã viết bản sửa →
+  [OPENCLAW-WORKER-STRUCTURE.md](agents/company/OPENCLAW-WORKER-STRUCTURE.md)
+- Câu hỏi mở chưa trả lời: "ECC" (Skills ECC, 459 skills) là nguồn gì — không có định nghĩa
+  trong kho, cần Nobitano xác nhận trước khi Hermes/OpenClaw build cơ chế auto-sync
