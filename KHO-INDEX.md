@@ -34,7 +34,12 @@
 | **Hermes** | `agents/HERMES-PLAYBOOK.md` |
 | **OpenClaw** | `agents/OPENCLAW-PLAYBOOK.md` |
 | **Antigravity** | `agents/ANTIGRAVITY-PLAYBOOK.md` |
-| **Claude** | Không cần — gọi GitHub API trực tiếp trong session |
+| **Claude (Senior Advisor)** | Không cần fetch file này trước — có Project Knowledge riêng. Khi cần hiểu tổ chức: `agents/company/ORG-v2.md` + `agents/company/SENIOR-ADVISOR.md` |
+
+> ⚠️ **Lưu ý:** file này ghi ngày cập nhật tháng 6/2026, nhưng `agents/company/ORG-v2.md` /
+> `COORDINATION-v2.md` đã lên v2.1 ngày 19-20/07/2026 (9 role, không phải 7-8). Số liệu bảng
+> dưới đây (37 mcps / 92 repos / 85 skills...) có thể đã lệch so với thực tế — cần đếm lại
+> qua Hermes/Antigravity trước khi coi là chính xác tuyệt đối.
 
 ---
 
