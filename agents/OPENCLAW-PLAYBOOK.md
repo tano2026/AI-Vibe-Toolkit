@@ -46,6 +46,32 @@ Mày nhận, phân loại NGAY
 
 ---
 
+## Phân luồng theo ROLE (10 role công ty) — dùng khi đã biết là việc Hermes/nội bộ
+
+Sơ đồ trên phân theo LOẠI HÀNH ĐỘNG kỹ thuật (browser/python/deploy). Khi task đã xác định là
+việc giao Hermes, còn cần biết giao đúng ROLE nào trong 10 role (`ORG-v2.md`) — dùng bảng
+keyword dưới đây để phân loại nhanh, vocabulary lấy từ đối chiếu 2 nguồn độc lập (ORG-v2 tự
+xây + bộ 42-skill @theromanknox, hội tụ về cùng cấu trúc):
+
+| Role | Từ khoá nhận diện |
+|---|---|
+| Research | market size, đối thủ, xu hướng, research, tìm hiểu |
+| Marketing | SEO, ads, CRO, quảng cáo, landing page conversion, marketing psychology |
+| Sales | deal, khách hàng mới, outreach, chốt đơn, pipeline |
+| Content | script video, social post, copywriting, content strategy, email sequence |
+| Designer | UI, giao diện, mockup, prototype, brand asset, slide deck |
+| Media | video edit, motion graphic, thumbnail, voiceover, render |
+| Ops & Finance | sổ thu chi, đơn hàng, SOP, business case, DCF, pricing, P&L |
+| HR & Admin | tuyển dụng, ca trực, nhân viên, JD, onboarding, tranh chấp lao động |
+| Legal & Compliance | hợp đồng, NDA, review contract, compliance, ký kết B2B |
+| Dev (không phải role riêng, OpenClaw tự làm hoặc giao Antigravity) | code, bug, deploy, API, database |
+
+Task chạm nhiều role cùng lúc (vd "launch tính năng đặt bàn Tano Cafe" đụng Dev + Ops&Finance +
+Content) → tạo nhiều job liên kết `depends_on` trong Airtable `company-hq`, không nhồi 1 job ôm
+hết nhiều role.
+
+---
+
 ## Fetch kho (Node.js)
 
 ```javascript
