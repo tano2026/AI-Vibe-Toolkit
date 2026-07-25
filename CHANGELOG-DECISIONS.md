@@ -63,3 +63,10 @@
   lệch đã note rõ, ORG-v2.md cần viết lại theo thực tế). Gap thật: không có HR&Admin agent —
   tạm gộp vào operations, tách riêng khi khối lượng tăng. Còn 1 việc chờ: Nobitano tự reboot VPS
   (AI không có quyền SSH/provider console), sau đó SSH check pm2/opt-openclaw để xác nhận nốt
+
+- SỬA quyết định trước: OpenClaw KHÔNG khai tử — Nobitano xác nhận mô hình 3 tầng
+  Hermes(não, quyết định) → OpenClaw(tay chân, chỉ thực thi) → Claude(cố vấn, ngoài runtime).
+  OpenClaw build LẠI TỪ ĐẦU (không hồi sinh code cũ có Telegram bot riêng — đó là nguồn gốc
+  "2 não đá nhau"). Luật bất biến: OpenClaw không có kênh nhận lệnh riêng, chỉ pull task từ
+  Taskboard Hermes ghi, không có quyền tự quyết DECISION-MATRIX.md mức nào. Đã update
+  UNIFIED-ARCHITECTURE.md
