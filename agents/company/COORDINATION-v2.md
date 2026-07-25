@@ -28,7 +28,7 @@ updated: 2026-07-19
 ### 2.1 `agents` — sổ nhân sự AI (tạo TRƯỚC, bảng khác link vào)
 | Field | Type | Ghi chú |
 |-------|------|---------|
-| `role` | Single line | research / marketing / sales / content / designer / media / dev / ops-finance |
+| `role` | Single line | research / marketing / sales / content / designer / media / ops-finance / hr-admin / legal-compliance / dev |
 | `runtime` | Multiple select | hermes / openclaw / antigravity |
 | `model_tier` | Single select | cheap / balanced / reasoning / creative |
 | `role_pack_url` | URL | Link raw GitHub tới role pack |
@@ -36,7 +36,7 @@ updated: 2026-07-19
 | `kpi_chinh` | Single line | 1 câu, khớp bảng ORG-v2 |
 | `escalation_rule` | Long text | Khi nào dừng gọi CEO (copy từ role pack) |
 
-Seed: 8 record = 8 role theo ORG-v2.
+Seed: 10 record = 10 role theo ORG-v2 (v2.2, đã thêm HR & Admin ⑨ và Legal & Compliance ⑩).
 
 ### 2.2 `jobs` — trái tim hệ thống
 | Field | Type | Ghi chú |
