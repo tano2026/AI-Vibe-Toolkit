@@ -2428,3 +2428,41 @@ Highlight 3 cai thuc te dung duoc:
   overlap voi hallmark + stitch-skills da co - dung nhu "bo 3 cong cu thiet ke AI"
 
 **Kho: 135 repos | 38 MCPs | 92 skills | 199 scripts | 7 agent packages | 5 stacks | 9 role**
+
+
+---
+
+## Batch 3 anh 21/07/2026 — Prompt chain + folder structure + Claude Code combos
+
+Nobitano upload 3 anh infographic khong kem cau hoi cu the.
+
+### Anh 1 — "9 Claude Skills that write your prompts for you"
+Da co san 3/9 trong kho (prompt-master, grill-me, prompt-optimizer ~ Optimizer 4.8). Viet
+not 6 skill con thieu + 1 stack ghep chuoi:
+
+| Skill | File | Buoc |
+|-------|------|------|
+| How To | skills/how-to.md | 03/09 |
+| Fable Prompter | skills/fable-prompter.md | 05/09 |
+| Personal Voice | skills/personal-voice.md | 06/09 |
+| Anti-AI | skills/anti-ai-tells.md | 07/09 |
+| Write a Skill | skills/write-a-skill.md | 08/09 |
+| Hand Off | skills/handoff.md | 09/09 |
+| Chuoi 9 buoc (stack ghep) | stacks/chuoi-9-buoc-viet-prompt.md | - |
+
+Script: script-video-200. LUU Y: 6 skill moi la DIEN GIAI theo tinh than infographic, khong
+phai copy nguyen ban goc tac gia (chua co ban goc that).
+
+### Anh 2 — "Cau truc 4 thu muc cho moi du an AI" (prompts/data/agents/evals/)
+KHONG tao entry rieng - day la goi y cho cau truc KHO CHINH, khong phai 1 tool/skill can add.
+Diem dang chu y: kho AI-Vibe-Toolkit hien CHUA CO khai niem "evals/" (tests/traces/scorecards
+de danh gia skill co hoat dong dung khong) - day la khoang trong thuc su, chua xu ly, de xuat
+Nobitano quyet dinh co muon them cau truc nay khong.
+
+### Anh 3 — "15 To hop Claude Code" (Obsidian, GitHub, Notion, Figma, Supabase, Excel, Chrome,
+Docker, Postgres, Slack, Vercel, Jupyter, AWS, Terminal)
+KHONG tao entry - phan lon da duoc cover roi qua cac skill/stack rieng le da co trong kho
+(second-brain-obsidian-claude cho Obsidian, stitch-skills/penpot cho Figma-adjacent, v.v).
+Chi la danh sach tham khao, khong phai repo cu the moi.
+
+**Kho: 135 repos | 38 MCPs | 98 skills | 200 scripts | 7 agent packages | 6 stacks | 9 role**
