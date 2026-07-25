@@ -90,3 +90,11 @@
   2. supermemory.md — sửa claim sai "có plugin cho Hermes": chỉ OpenClaw có plugin thật
      (openclaw-supermemory), Hermes dùng qua MCP chung không có plugin riêng. Lý do lỗi: nhầm
      "Hermes agent" (NousResearch/hermes-agent, model LLM khác tên) với Hermes của Tano Agency
+
+- Thêm mục "Án lệ" vào HERMES-SOUL.md — 6 case study thật (không phải lý thuyết) đúc kết từ
+  phiên làm việc hôm nay: (1) audit Local nhầm kết luận OpenClaw chết trong khi nó sống + phục
+  vụ Zalo OA thật, (2) URL placeholder bị viết như đã verify, (2b) NGƯỢC LẠI — gán nhãn
+  "hallucinate" cũng sai vì chưa tự verify lại (sanyuan-skills hoá ra là thật), (3) quyết định
+  kiến trúc phân mảnh qua nhiều phiên chat riêng biệt (role 10, Paperclip bị quên), (4) cùng 1
+  dạng lỗi "2 hệ thống làm trùng việc" lặp lại ở tầng khác (2 não / 2 lớp governance), (5) quy
+  trình chậm mà chắc đã cứu 2 lần thật (publish gate, classify_task routing)
