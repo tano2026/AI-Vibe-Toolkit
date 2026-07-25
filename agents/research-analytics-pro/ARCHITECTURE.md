@@ -160,3 +160,13 @@ research-analytics-pro
 ├── repos/sc-datav.md          (3D Dashboard output)
 └── repos/tradingagents.md     (Multi-analyst pattern reference)
 ```
+
+
+---
+
+## Addendum — Local Gap Finder + Focus Mode (thêm 25/07/2026)
+
+Cho local business (ABTRIP/An Bình, Tano Cafe) — pipeline Scout→Validator→Analyst→Synthesizer
+ở trên chạy cụ thể hơn qua skill `skills/local-gap-finder/SKILL.md` (offer matrix, customer
+voice mining, demand radar → Gap Score xếp hạng). Nhịp chạy định kỳ + tích luỹ state qua tuần:
+xem `FOCUS-MODE.md`. Domain không phải local business giữ nguyên kiến trúc chung, không đổi.
