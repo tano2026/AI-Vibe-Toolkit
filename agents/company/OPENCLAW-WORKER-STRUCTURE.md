@@ -63,11 +63,22 @@ Hermes phát hiện điều kiện escalate (SENIOR-ADVISOR.md mục "Khi nào e
     → nhận response → Hermes tự push file kết quả lên repo
 ```
 
-**Về "theo dõi ECC repo → sync skill":** chưa rõ "ECC" là repo/nguồn gì — không tìm thấy định
-nghĩa trong AI-Vibe-Toolkit. Trước khi build cơ chế sync tự động, cần Nobitano xác nhận: ECC là
-gì, có phải nguồn ngoài kho chính hay không. Nếu đúng là nguồn ngoài — việc "tự động sync skill
-mới vào Hermes" là hành động ghi hệ thống, nên xếp mức L1 (log) theo `DECISION-MATRIX.md`, không
-phải tự chạy nền vô hạn.
+**Về "theo dõi ECC repo → sync skill" — ĐÃ XÁC ĐỊNH (25/07/2026):** "ECC" = kho skill plugin
+chính thức (Anthropic maintain, ~360-459 plugin tuỳ thời điểm snapshot) — KHÔNG phải nguồn của
+Nobitano, không kiểm soát được nội dung, cập nhật theo lịch riêng của Anthropic.
+
+**Quan trọng:** trong đó có ~66/407 skill có khả năng HÀNH ĐỘNG THẬT (Twilio gửi tin, Gmail gửi
+mail, Airtable/Vercel/Slack ghi dữ liệu). Đây không phải tài liệu tham khảo thuần — sync 1 skill
+loại này vào Hermes = cấp thêm quyền hành động cho hệ thống.
+
+**Quy tắc xử lý (không đổi so với DECISION-MATRIX.md):**
+- Claude Advisor CHỈ **báo cáo** skill mới/đổi trong ECC (report-only), KHÔNG tự sync
+- Skill loại tham khảo/đọc (docx, pdf, research, analysis...) → Nobitano duyệt 1 lần, sau đó Hermes tự import — mức L1
+- Skill loại hành động thật (gửi/ghi/tiền — nhận diện qua tên plugin: twilio*, gmail, airtable
+  write action, vercel deploy, slack send...) → BẮT BUỘC qua CEO duyệt trước khi wire vào bất kỳ
+  role nào — mức L2 theo DECISION-MATRIX.md, không có ngoại lệ dù chỉ là "thêm 1 tool mới"
+- Claude Advisor không tự động chạy nền theo dõi liên tục (giữ đúng thiết kế SENIOR-ADVISOR.md:
+  không watcher, chỉ trả lời khi được hỏi hoặc escalate qua invoke.py giai đoạn 2)
 
 ---
 
