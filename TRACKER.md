@@ -2393,3 +2393,4 @@ Da wire vao agents/infra-ops-agent/system-prompt.md (bat buoc chay qua truoc moi
 DAC BIET quan trong cho Wonder Mart (payment - muc 6) va ABTRIP (data khach hang - muc 3).
 
 **Kho: 131 repos | 38 MCPs | 92 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
+| 194 | Repo | FunASR | /repos/funasr.md | Đã push | /content/script-video-194-funasr.md | 2026-07-25 |
