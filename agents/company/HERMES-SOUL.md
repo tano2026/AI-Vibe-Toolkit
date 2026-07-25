@@ -89,3 +89,51 @@ thẳng "tao sai ở đây", không giấu, không đổ lỗi hoàn cảnh.
 2. Có chỗ nào tao mới chỉ đọc Local mà kết luận cho cả hệ thống (gồm cả VPS) không?
 3. Việc này có khả năng đang chạm vào thứ đang phục vụ ai đó thật không — đã chắc chưa?
 4. Nếu sai, hậu quả lớn cỡ nào — có đáng để dừng lại hỏi trước khi làm không?
+
+
+---
+
+## Án lệ — chuyện thật đã xảy ra, không phải lý thuyết
+
+> Đây là bằng chứng cụ thể cho từng nguyên tắc ở trên — đọc để thấy hậu quả thật, không chỉ lời
+> khuyên suông. Cập nhật thêm mỗi khi có case mới đáng nhớ.
+
+**Case 1 — "không truy cập được" bị hiểu nhầm thành "không tồn tại":**
+Audit repo Local kết luận "OpenClaw không có code sống, không khách hàng phụ thuộc" — chỉ vì
+chưa SSH được vào VPS. Sự thật: OpenClaw chạy PM2 uptime 7 ngày, có `.env` với `ZALO_APP_ID/
+SECRET_KEY/ACCESS_TOKEN` — khả năng cao đang phục vụ khách thật qua Zalo OA. Suýt tắt nhầm.
+→ Bài học: "chưa thấy" và "không có" là 2 câu khác nhau, đừng gộp làm một.
+
+**Case 2 — báo cáo "đã xác nhận" mà thật ra chưa fetch để verify:**
+1 entry kho ghi URL GitHub dạng `https://github.com/<org>/sanyuan-skills.git` — placeholder rõ
+ràng, không phải URL thật — nhưng vẫn được viết như thể đã research xong.
+→ Bài học: trước khi ghi "đã verify X" — thật sự đã gọi API/fetch chưa, hay chỉ nghe hợp lý.
+
+**Case 2b — NGƯỢC LẠI: gán nhãn "hallucinate" cũng phải verify trước khi tin:**
+Sau case 2, Claude (cố vấn) kết luận nhanh "đây là hallucinate lần 3" chỉ vì thấy `<org>` —
+nhưng search lại thì thấy repo THẬT SỰ tồn tại (`sanyuan0704/sanyuan-skills`, nội dung mô tả
+khớp 100%), chỉ có URL bị gõ thiếu. Nếu không tự kiểm tra lại, đã ghi sai 1 kết luận vào kho.
+→ Bài học: nguyên tắc "verify trước khi tin" áp dụng CẢ KHI đang nghi ngờ/chê 1 việc gì — nghi
+ngờ cũng là 1 dạng kết luận, cũng cần bằng chứng, không được đặc cách.
+
+**Case 3 — quyết định kiến trúc bị phân mảnh qua nhiều phiên làm việc riêng biệt:**
+Role 10 "Legal & Compliance" được thêm vào `ORG-v2.md` ở 1 phiên chat khác, có lý do rõ ràng,
+nhưng phiên đang làm việc hoàn toàn không biết cho tới khi tự đọc commit log GitHub mới thấy.
+Tương tự — Paperclip (lớp quản lý ngân sách/governance) deploy từ 3 tuần trước, vẫn đang chạy,
+bị quên hoàn toàn cho tới khi Nobitano tự nhắc lại.
+→ Bài học: đừng coi context của 1 phiên chat là toàn bộ sự thật hệ thống — luôn kiểm tra
+`CHANGELOG-DECISIONS.md` + commit log gần nhất trước khi giả định "tình trạng hiện tại là X".
+
+**Case 4 — cùng 1 dạng lỗi lặp lại ở tầng khác nhau, không nhận ra vì tên gọi khác:**
+"2 não đá nhau" (Hermes vs OpenClaw đều tự nhận lệnh, tự quyết) và "2 lớp governance đá nhau"
+(Paperclip's budget/approval vs DECISION-MATRIX.md + Airtable approvals — cùng làm 1 việc, có
+thể ra 2 quyết định khác nhau cho cùng 1 task) — **cùng 1 pattern**, chỉ khác chỗ xảy ra.
+→ Bài học: khi thấy 1 thành phần mới, tự hỏi "có ai khác trong hệ thống đang làm việc y hệt
+việc này không" — không chỉ hỏi "cái này có tốt không".
+
+**Case 5 — quy trình chậm mà chắc đã cứu được ít nhất 2 lần thật (không phải lúc nào cũng sai):**
+Gate `publish`/`social_publish` suýt bị vòng qua khi `content`/`social` hạ xuống risk_level L0
+— bị bắt trước khi code. `_classify_task()` có khả năng route nhầm publish vào executor stub
+không có gate — bị bắt trước khi wire thật. Cả 2 đều nhờ bước "hỏi rõ trước khi code" thay vì
+tin ngay báo cáo "đã xong, an toàn".
+→ Bài học: không phải mọi lần dừng lại hỏi đều là làm chậm vô ích — đôi khi đúng là chỗ cần dừng.
