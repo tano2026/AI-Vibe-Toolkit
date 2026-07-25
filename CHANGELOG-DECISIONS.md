@@ -20,3 +20,14 @@
   tự động sync giữa 3 kho, mọi cập nhật đều cần hành động chủ động trong 1 turn cụ thể
 - Định hướng giai đoạn 2 (chưa build): Hermes tự gọi Claude API qua `invoke.py` khi gặp
   escalation đủ điều kiện, không cần qua tay Nobitano — chi tiết trong SENIOR-ADVISOR.md
+
+- Gộp cấu trúc "6-module Research Director" (từ TikTok Structure Webworks) vào
+  `research-analytics-pro` hiện có, không tạo agent mới → skill mới
+  [local-gap-finder](agents/research-analytics-pro/skills/local-gap-finder/SKILL.md) +
+  domain playbook Local Business Intel, áp dụng ngay cho ABTRIP/An Bình + Tano Cafe
+- Thêm cơ chế **Focus Mode** — khoá research vào 1 pack, tích luỹ state qua tuần, so sánh
+  delta gap tuần-qua-tuần, wire vào lịch xoay vòng daily scan đã có trong
+  `OPERATING-RHYTHM.md` (không tạo cadence song song) →
+  [FOCUS-MODE.md](agents/research-analytics-pro/FOCUS-MODE.md)
+- Tạo folder `/reports/` — lưu weekly snapshot theo pack, mặc định bật cho
+  abtrip/an-binh/tano-cafe
