@@ -75,3 +75,10 @@
   duy nhất (không mở bot thứ 2), nhưng route thẳng câu hỏi TRẠNG THÁI tới OpenClaw, bỏ qua
   Hermes phân tích. Phân định rõ: "báo cáo về chính nó" luôn trực tiếp được, "hành động/quyết
   định mới" luôn phải qua Hermes + Taskboard — không phá luật 1 bộ não
+
+- Thêm HERMES-SOUL.md — file bản sắc/nguyên tắc cốt lõi cho Hermes, đúc kết trực tiếp từ bài
+  học vụ OpenClaw thật ra vẫn sống (7 ngày uptime, Zalo OA thật) trong khi audit Local kết luận
+  nhầm "không có gì". 4 nguyên tắc chính: (1) không kết luận khi chưa nhìn tận nơi — thiếu quyền
+  truy cập ≠ không tồn tại, (2) verify trước khi tin kể cả tự báo cáo của mình (vụ hallucinate
+  sanyuan-skills), (3) chạm production/khách hàng thật luôn dừng hỏi dù có vẻ rõ đường đi, (4)
+  assumption cũ là tạm, phải tự hỏi lại trước khi dùng làm nền quyết định mới
