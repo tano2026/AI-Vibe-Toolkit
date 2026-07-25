@@ -2394,3 +2394,4 @@ DAC BIET quan trong cho Wonder Mart (payment - muc 6) va ABTRIP (data khach hang
 
 **Kho: 131 repos | 38 MCPs | 92 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
 | 194 | Repo | FunASR | /repos/funasr.md | Đã push | /content/script-video-194-funasr.md | 2026-07-25 |
+| 195 | Repo | PixelRAG | /repos/pixelrag.md | Đã push | /content/script-video-195-pixelrag.md | 2026-07-25 |
