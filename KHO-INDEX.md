@@ -14,16 +14,20 @@
 
 ---
 
-## Số liệu thực tế (tháng 6/2026)
+## Số liệu thực tế (đếm lại 25/07/2026 qua GitHub API)
 
 | Folder | Số files | Ghi chú |
 |--------|----------|---------|
-| /mcps/ | 37 | MCP servers |
-| /repos/ | 92 | GitHub repos |
-| /skills/ | 85 | Prompt templates |
-| /stacks/ | 3 | Combo workflows |
-| /agents/ | 7 | Playbook agents |
-| /content/ | 126 | Script video |
+| /mcps/ | 44 | MCP servers |
+| /repos/ | 151 | GitHub repos |
+| /skills/ | 109 | Prompt templates |
+| /stacks/ | 7 | Combo workflows |
+| /agents/ | 12 | Playbook + company/ + role packages (không tính file lồng trong subfolder) |
+| /content/ | 196 | Script video |
+
+> Số liệu tháng 6/2026 cũ (37/92/85/3/7/126) đã lệch nhiều — bản trên đếm trực tiếp qua
+> `list_dir()` GitHub API, không tính file trong subfolder của `/agents/` (company/, roles/,
+> từng agent package riêng có file .md/.py con bên trong).
 
 ---
 
