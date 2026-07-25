@@ -2540,3 +2540,22 @@ CANH BAO CUNG NHAT trong toan bo kho: cong cu phap ly mac dinh phan tich theo LU
 that cho hop dong gia tri/rui ro cao.
 
 **Kho: 140 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+
+
+---
+
+## Fix + wire 21/07/2026 — dong bo COORDINATION-v2 va OpenClaw routing sau khi len 10 role
+
+Nobitano xac nhan bo 42-skill khop voi cau truc 10-role da xay - phat hien 1 cho LOI THOI can
+sua: COORDINATION-v2.md (Airtable schema, chua deploy) van ghi "8 record = 8 role" tu truoc khi
+them HR&Admin (role 9) va Legal&Compliance (role 10).
+
+Da fix:
+1. agents/company/COORDINATION-v2.md - cap nhat field `role` du 10 gia tri, seed count 8->10
+2. agents/OPENCLAW-PLAYBOOK.md - them bang "Phan luong theo ROLE" moi, dung tu khoa doi chieu
+   tu 2 nguon doc lap (ORG-v2 tu xay + bo 42-skill @theromanknox) de OpenClaw phan loai nhanh
+   task ve dung 1 trong 10 role, khac voi so do routing cu (phan theo LOAI HANH DONG ky thuat:
+   browser/python/deploy)
+
+**Kho: 140 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+(dong bo hoan tat, khong con noi nao trong kho tham chieu con so 8 hoac 9 role cu)
