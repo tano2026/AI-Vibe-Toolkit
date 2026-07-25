@@ -70,3 +70,8 @@
   "2 não đá nhau"). Luật bất biến: OpenClaw không có kênh nhận lệnh riêng, chỉ pull task từ
   Taskboard Hermes ghi, không có quyền tự quyết DECISION-MATRIX.md mức nào. Đã update
   UNIFIED-ARCHITECTURE.md
+
+- Thêm kênh HỎI trực tiếp OpenClaw (`/oc status`, `/oc log`, `/oc health`) — vẫn 1 Telegram bot
+  duy nhất (không mở bot thứ 2), nhưng route thẳng câu hỏi TRẠNG THÁI tới OpenClaw, bỏ qua
+  Hermes phân tích. Phân định rõ: "báo cáo về chính nó" luôn trực tiếp được, "hành động/quyết
+  định mới" luôn phải qua Hermes + Taskboard — không phá luật 1 bộ não
