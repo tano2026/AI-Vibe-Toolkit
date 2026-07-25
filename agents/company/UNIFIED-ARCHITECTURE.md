@@ -30,10 +30,11 @@ status: THIẾT KẾ ĐÃ CHỐT — chỉ còn chờ Nobitano reboot VPS (mục
 | Khách hàng thật phụ thuộc OpenClaw? | **Không tìm thấy** — ABTrip backend là FastAPI độc lập (port 8767), không qua OpenClaw |
 | Tắt OpenClaw ngay có ảnh hưởng gì không? | **Nhiều khả năng KHÔNG** — nhưng chưa loại trừ 100% vì có thể còn process trên VPS (chưa SSH được để check `pm2 list`) |
 
-**Kết luận:** không phải "2 hệ thống sống cạnh tranh cần hoà giải" như v1 giả định — mà là **1 hệ
-thống sống thật (agent-core Local)** + **1 khái niệm gần như đã chết (OpenClaw)**, còn sót lại
-trong tên gọi/docs nhưng không còn vận hành gì. Việc "gộp" thực chất là **chính thức khai tử
-OpenClaw**, không phải đàm phán giữa 2 bên ngang hàng.
+**Kết luận (đã điều chỉnh theo xác nhận của Nobitano):** không phải "2 hệ thống cạnh tranh
+cần hoà giải" — mà là **1 bộ não thật (Hermes/agent-core)** cần thêm **1 bộ tay chân thực thi
+riêng (OpenClaw)**, build mới hoàn toàn, không phải hồi sinh code cũ (code cũ chính là
+nguyên nhân "2 não đá nhau" vì nó có quyền tự quyết/tự nhận lệnh riêng — bản mới không được
+phép có quyền đó).
 
 ---
 
@@ -98,14 +99,41 @@ không đổi: cần 1 nguồn cả Local lẫn VPS cùng đọc/ghi được qu
 
 ---
 
-## OpenClaw — khai tử chính thức, không phải "migrate"
+## OpenClaw — GIỮ LẠI, nhưng build lại từ đầu với vai trò mới (không phải migrate code cũ)
 
-- Xác nhận: không có code sống, không có khách hàng phụ thuộc trong phạm vi repo kiểm tra được
-- **Việc cần làm:** sau khi VPS reboot, SSH vào chạy `pm2 list` và `ls /opt/openclaw/` — nếu có
-  process/thư mục thật tồn tại trên VPS (ngoài phạm vi repo Local) → tắt hẳn, không migrate gì
-  cả (không có gì đáng migrate)
-- Xoá/archive mọi playbook nhắc OpenClaw như 1 orchestrator độc lập (`OPENCLAW-PLAYBOOK.md` cần
-  viết lại hoàn toàn hoặc xoá, tuỳ sau khi SSH xác nhận có gì trên VPS hay không)
+**Quyết định cuối (25/07/2026):** Nobitano xác nhận mô hình 3 tầng:
+```
+Hermes  = BỘ NÃO      — agent-core (9 agent), quyết định, lên kế hoạch, dispatch
+OpenClaw = TAY CHÂN   — chỉ thực thi, KHÔNG tự quyết định gì
+Claude  = CỐ VẤN      — bên ngoài, không runtime, xem SENIOR-ADVISOR.md
+```
+
+OpenClaw **không hồi sinh code cũ** (code cũ có Telegram bot riêng, tự route domain — đó chính
+là nguồn gốc "2 não đá nhau", không được lặp lại). OpenClaw mới = **build từ đầu**, đúng
+nguyên mẫu "VPS Agent mỏng" đã thiết kế:
+
+```python
+# OpenClaw mới — chỉ nhận lệnh, không tự quyết
+task_types = ["execute", "healthcheck", "deploy-api", "run-cron", "mcp-call"]
+# KHÔNG có: dispatch(), plan(), delegate() — những hàm đó thuộc về Hermes
+# KHÔNG có: Telegram listener riêng — mọi lệnh vào qua CEO Bot (agent "ceo" của Hermes)
+```
+
+**Luật bất biến — để không lặp lại lỗi "2 não":**
+1. OpenClaw KHÔNG có kênh nhận lệnh riêng (không Telegram bot riêng, không webhook tự route)
+2. OpenClaw CHỈ pull task từ Taskboard chung (Hermes ghi vào, OpenClaw đọc ra)
+3. OpenClaw không có quyền tự quyết mức nào trong `DECISION-MATRIX.md` — mọi hành động OpenClaw
+   thực thi đã được Hermes (hoặc CEO Nobitano) duyệt mức tương ứng TRƯỚC KHI giao task
+4. OpenClaw chạy ở đâu tuỳ nghiệp vụ — chủ yếu VPS (24/7, public-facing: sales/support/operations
+   fulfillment), nhưng KHÔNG bị giới hạn cứng chỉ VPS — nếu 1 tác vụ thực thi (không phải quyết
+   định) cần chạy Local vì lý do tài nguyên, vẫn gọi là OpenClaw đang thực thi, chỉ khác máy vật lý
+
+**Việc cần làm (sau khi VPS reboot):**
+- SSH check `pm2 list` + `ls /opt/openclaw/` — nếu còn sót code/process OpenClaw đời cũ (có
+  Telegram bot riêng) → **tắt hẳn bản cũ**, không tái sử dụng, build bản mới theo spec trên
+- Viết OpenClaw mới theo `task_types` trên, deploy VPS
+- `OPENCLAW-PLAYBOOK.md` viết lại hoàn toàn theo vai trò "chỉ thực thi" — xoá mọi đoạn mô tả nó
+  là orchestrator/router độc lập
 
 ---
 
