@@ -2395,3 +2395,36 @@ DAC BIET quan trong cho Wonder Mart (payment - muc 6) va ABTRIP (data khach hang
 **Kho: 131 repos | 38 MCPs | 92 skills | 177 scripts | 7 agent packages | 5 stacks | 9 role**
 | 194 | Repo | FunASR | /repos/funasr.md | Đã push | /content/script-video-194-funasr.md | 2026-07-25 |
 | 195 | Repo | PixelRAG | /repos/pixelrag.md | Đã push | /content/script-video-195-pixelrag.md | 2026-07-25 |
+
+
+---
+
+## Batch 21/07/2026 — 9 ten (video-gen models + tools)
+
+Nobitano gui list 9 ten. Da SKIP 1 vi TRUNG voi kho san co: Deep-research (deep-research-skills.md,
+deep-research-skills-skill.md, deep-research da co).
+
+Da xu ly 8 cai con lai, gop 5 model video-gen "GPU nang" thanh 1 entry so sanh, 3 cai con
+(video-use, OpenVoice, Huashu Design) lam full entry rieng vi thuc te dung duoc ngay:
+
+| Ten | File | Stars | Script |
+|-----|------|-------|--------|
+| Open-Sora + Wan-Video + FramePack + HunyuanVideo + LTX-Video (gop) | repos/open-video-gen-models-2026.md | 15-29k/repo | script-video-196 |
+| video-use (browser-use) | repos/video-use.md | - | script-video-197 |
+| OpenVoice (myshell-ai) | repos/openvoice.md | 36.6k | script-video-198 |
+| Huashu Design (alchaincyf) | repos/huashu-design.md | 21.4k | script-video-199 |
+
+CANH BAO QUAN TRONG cho nhom 5 model video-gen: TAT CA deu can GPU nang (6-80GB VRAM tuy
+model) - VPS Tencent Cloud va may Windows local hien tai (khong GPU roi) KHONG chay duoc bat
+ky cai nao truc tiep. De xuat dung qua cloud API (DashScope cho Wan, ~$0.10-0.15/clip) thay vi
+tu host. Danh gia 6/10 xet tren ha tang hien tai.
+
+Highlight 3 cai thuc te dung duoc:
+- video-use: edit video bang Claude Code qua transcript (khong frame-dump, tiet kiem token
+  cuc lon), dung chung ElevenLabs key da co san - RAT hop hau ky GMSP/Airfare Decoded
+- OpenVoice: MIT free hoan toan, nhung CHUA XAC NHAN chat luong tieng Viet - can test truoc
+  khi thay ElevenLabs
+- Huashu Design: HTML-native design skill, 1 cau ra prototype/slide/animation/infographic,
+  overlap voi hallmark + stitch-skills da co - dung nhu "bo 3 cong cu thiet ke AI"
+
+**Kho: 135 repos | 38 MCPs | 92 skills | 199 scripts | 7 agent packages | 5 stacks | 9 role**
