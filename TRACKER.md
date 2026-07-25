@@ -2499,3 +2499,44 @@ CANH BAO: 3 phat hien moi CHUA duoc test that trong pipeline Tano Agency - nen t
 project nho truoc khi coi la bat buoc chinh thuc.
 
 **Kho: 139 repos | 38 MCPs | 98 skills | 201 scripts | 7 agent packages | 7 stacks | 9 role**
+
+
+---
+
+## Batch 7 anh 21/07/2026 — 42-skill taxonomy (@theromanknox) -> phat hien khoang trong Legal
+
+Nobitano upload 7 anh carousel "Build Skills" (@theromanknox, skool.com/knox) - 42 skill chia
+7 nhom: Developers, Design, Marketing, Social & Content, Finance, Operations, Legal.
+
+PHAN TICH TONG QUAN: da doi chieu toan bo 42 ten voi kho + available_skills (plugin co san):
+- Developers (6): Superpowers, Context7, Claude-Mem DA CO SAN trong kho (repos/skills/mcps).
+  MCP Builder, Skill Creator DA CO SAN nhu Anthropic official plugin. Webapp Testing ~ da co
+  agent-browser (lam hom truoc).
+- Design (6): Frontend-Design, Web-Artifacts, Canvas-Design, Algorithmic-Art, Slack-GIF DEU LA
+  Anthropic official example skills DA CO SAN san dung ngay, khong can them vao kho.
+- Marketing (6): SEO Audit, Programmatic SEO, AI SEO, CRO... DA CO SAN qua searchfit-seo:*
+  plugin bundle (seo-audit, technical-seo, ai-visibility, content-strategy...).
+- Social & Content (6): trung voi agents/company/roles/content-creator.md da co.
+- Finance (6): DCF Model da co (claude-financial-modeling-skill.md). Pricing da co
+  (small-business:price-check plugin). LBO/Comps/Pitch Deck - khong uu tien (Tano Agency
+  khong dang goi von).
+- Operations (6): SOP/Incident Postmortem/XLSX da co qua engineering:* plugin bundle.
+
+KHOANG TRONG THAT SU DUY NHAT: **Legal** (Contract Review, NDA Triage, Legal Risk, Compliance) -
+hoan toan chua co role/skill nao trong 10 role... a wait 9 role cu. Giong dung logic da phat
+hien voi HR&Admin truoc do.
+
+Da xu ly:
+| Item | File |
+|------|------|
+| claude-for-legal (anthropics + evolsb) | repos/claude-for-legal.md |
+| Role Pack Legal & Compliance (vi tri 10) | agents/company/roles/legal-compliance.md |
+
+Script: script-video-202. Da update ORG-v2.md them role 10 (v2.2), cung logic ngoai le nhu
+role 9: job-to-be-done khac han 8 role AI-coordination goc.
+
+CANH BAO CUNG NHAT trong toan bo kho: cong cu phap ly mac dinh phan tich theo LUAT MY, F1 chi
+~0.62 tren clause extraction - CHI la buoc sang loc so bo, TUYET DOI khong thay the luat su VN
+that cho hop dong gia tri/rui ro cao.
+
+**Kho: 140 repos | 38 MCPs | 98 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
