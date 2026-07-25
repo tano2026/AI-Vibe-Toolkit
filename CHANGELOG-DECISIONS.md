@@ -39,3 +39,9 @@
   [OPENCLAW-WORKER-STRUCTURE.md](agents/company/OPENCLAW-WORKER-STRUCTURE.md)
 - Câu hỏi mở chưa trả lời: "ECC" (Skills ECC, 459 skills) là nguồn gì — không có định nghĩa
   trong kho, cần Nobitano xác nhận trước khi Hermes/OpenClaw build cơ chế auto-sync
+
+- Xác định "ECC" = kho skill plugin chính thức Anthropic (~360-459 plugin, cùng nguồn Claude
+  trong Project Chat có quyền đọc), không phải kho riêng của Nobitano. Trong đó ~66/407 skill
+  có khả năng hành động thật (gửi/ghi/tiền) → quy tắc: Claude Advisor chỉ báo cáo skill mới,
+  KHÔNG tự sync; skill hành động thật bắt buộc CEO duyệt (L2), skill tham khảo duyệt 1 lần rồi
+  tự import (L1). Đã update trong OPENCLAW-WORKER-STRUCTURE.md
