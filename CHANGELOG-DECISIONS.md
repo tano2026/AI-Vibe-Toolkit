@@ -54,3 +54,12 @@
   nhẹ, public-facing). OpenClaw cũ triệt thoái, thay VPS Agent mỏng chỉ thực thi không tự quyết.
   → [UNIFIED-ARCHITECTURE.md](agents/company/UNIFIED-ARCHITECTURE.md) — STATUS: DRAFT, chờ xác
   nhận VPS đã reboot chưa + tên 8 phòng ban thật trong agent-core/spec.py trước khi thực thi
+
+- UNIFIED-ARCHITECTURE.md → v2, dựa trên audit thật (Claude Code đọc trực tiếp agent-core):
+  OpenClaw KHÔNG có code sống trong repo, chỉ còn archive/docs — "2 não đá nhau" hoá ra là 1 hệ
+  thống sống (agent-core Local, 9 agent thật: ceo/research/dev/sales/marketing/media/operations/
+  support/analytics) + 1 khái niệm gần chết (OpenClaw). Quyết định: khai tử OpenClaw (không phải
+  migrate), giữ nguyên cách chia agent thật (không ép theo 9-role lý thuyết ORG-v2 cũ — 4 điểm
+  lệch đã note rõ, ORG-v2.md cần viết lại theo thực tế). Gap thật: không có HR&Admin agent —
+  tạm gộp vào operations, tách riêng khi khối lượng tăng. Còn 1 việc chờ: Nobitano tự reboot VPS
+  (AI không có quyền SSH/provider console), sau đó SSH check pm2/opt-openclaw để xác nhận nốt
