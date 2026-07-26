@@ -197,3 +197,15 @@ giới rõ: "báo cáo" luôn trực tiếp được, "hành động" luôn ph�
    curl localhost:8137
    ```
    Kết quả paste lại — tao xác nhận nốt rồi mới cho thực thi Bước "chuyển CEO Bot sang VPS".
+
+
+---
+
+## Addendum — Loop/Token Governor + Security Wall (thêm 25/07/2026)
+
+2 cơ chế bổ sung, wire vào kiến trúc trên:
+- **Loop & Token:** `agents/company/LOOP-TOKEN-GOVERNOR.md` — exit condition theo risk_level,
+  model routing đúng 4 tier OmniRoute, circuit breaker tự phát hiện job stuck (đáng lẽ đã báo
+  sớm vụ 9 job kẹt 5 ngày)
+- **Bảo mật:** `agents/company/SECURITY-WALL.md` — 5 lớp, viết ngay sau khi phát hiện lỗ hổng
+  thật (.env plaintext chứa ZALO_ACCESS_TOKEN + DEEPSEEK_API_KEY đọc được bằng `cat`)
