@@ -2602,3 +2602,4 @@ khach hang - Chatwoot van la lua chon cho CSKH day du. 2 cai phuc vu 2 use case 
 khong thay the nhau.
 
 **Kho: 143 repos | 38 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+| 195 | Stack | Shorts Affiliate System | /agents/shorts-affiliate-system/README.md | Đã push (đã test render script) | — (agent package, không phải 1 tool đơn) | 2026-07-26 |
