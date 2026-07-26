@@ -45,3 +45,8 @@ Dự án mới: thêm tính năng đặt bàn online cho Tano Cafe. Bắt đầu
 ## Link
 - Nguồn 3 phát hiện mới: mattpocock/skills, awesome-claude-skills, agent-browser, scientific-agent-skills (bỏ qua — sai domain), supermemory, Claude-Code-Game-Studios (bỏ qua — sai domain), sanyuan-skills
 - Link tới từng skill: xem bảng "10 skill trong bundle" ở trên
+
+
+---
+
+> ⚠️ **SUPERSEDED** (25/07/2026) — thay bằng `stacks/20-skill-nen-theo-loai-du-an.md`. Bundle mới có thêm 10 skill + cơ chế tự chọn theo loại dự án (không phải nạp cứng cả 10 như file này). Giữ lại file này chỉ để tham khảo lịch sử.
