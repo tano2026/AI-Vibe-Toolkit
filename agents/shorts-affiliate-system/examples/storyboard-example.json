@@ -1,0 +1,52 @@
+{
+  "title": "FunASR",
+  "source_url": "https://github.com/modelscope/FunASR",
+  "affiliate_link": null,
+  "duration": 28,
+  "scenes": [
+    {
+      "type": "hero-text",
+      "duration": 4,
+      "content": {
+        "headline": "Còn gõ tay transcript?",
+        "subtitle": "1 dòng lệnh là xong"
+      }
+    },
+    {
+      "type": "hero-text",
+      "duration": 4,
+      "content": {
+        "headline": "FunASR",
+        "subtitle": "Toolkit nhận diện giọng nói của Alibaba — 19.2k sao"
+      }
+    },
+    {
+      "type": "terminal",
+      "duration": 6,
+      "content": {
+        "command": "funasr audio.wav --spk --timestamps -f json",
+        "output": "[0.6s] Speaker 0: Xin chào..."
+      }
+    },
+    {
+      "type": "stats-grid",
+      "duration": 5,
+      "content": {
+        "stats": [
+          { "label": "Stars", "value": "19.2k" },
+          { "label": "Tốc độ", "value": "170x realtime" },
+          { "label": "Ngôn ngữ", "value": "50+" }
+        ]
+      }
+    },
+    {
+      "type": "cta-url",
+      "duration": 4,
+      "content": {
+        "text": "Link trong mô tả",
+        "url": "https://github.com/modelscope/FunASR",
+        "is_affiliate": false
+      }
+    }
+  ]
+}
