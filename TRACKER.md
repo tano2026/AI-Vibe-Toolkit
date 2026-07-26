@@ -2603,3 +2603,8 @@ khong thay the nhau.
 
 **Kho: 143 repos | 38 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
 | 195 | Stack | Shorts Affiliate System | /agents/shorts-affiliate-system/README.md | Đã push (đã test render script) | — (agent package, không phải 1 tool đơn) | 2026-07-26 |
+| 196 | Repo | TurboDiffusion | /repos/turbodiffusion.md | Đã push | /content/script-video-203-turbodiffusion.md | 2026-07-26 |
+| 197 | Repo | InfiniteTalk | /repos/infinitetalk.md | Đã push | /content/script-video-204-infinitetalk.md | 2026-07-26 |
+| 198 | Repo | PyCaps | /repos/pycaps.md | Đã push | /content/script-video-205-pycaps.md | 2026-07-26 |
+| 199 | Repo | Clipify | /repos/clipify.md | Đã push | /content/script-video-206-clipify.md | 2026-07-26 |
+| 200 | Repo | Egolite (ego lite) | /repos/egolite.md | Đã push | /content/script-video-207-egolite.md | 2026-07-26 |
