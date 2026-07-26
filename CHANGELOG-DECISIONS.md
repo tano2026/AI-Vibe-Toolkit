@@ -98,3 +98,11 @@
   kiến trúc phân mảnh qua nhiều phiên chat riêng biệt (role 10, Paperclip bị quên), (4) cùng 1
   dạng lỗi "2 hệ thống làm trùng việc" lặp lại ở tầng khác (2 não / 2 lớp governance), (5) quy
   trình chậm mà chắc đã cứu 2 lần thật (publish gate, classify_task routing)
+
+- Nâng cấp bundle 10→20 skill nền cho dự án mới — thêm 10 skill mới (database-migrations,
+  fact-checker, anti-ai-tells, personal-voice, architecture-decision-records, api-design,
+  production-code-audit, git-workflow, token-budget-advisor, duplicate-checker). Đổi cơ chế:
+  không còn "nạp cứng cả 10/20" — gắn tag ALWAYS/CODE/UI/DATA/CONTENT/DEPLOY/RESEARCH, mỗi dự án
+  tự lọc theo 6 câu hỏi đặc điểm (có code/UI/DB/content/deploy thật/research không). Bundle 10
+  cũ đánh dấu SUPERSEDED, giữ lại tham khảo lịch sử →
+  [stacks/20-skill-nen-theo-loai-du-an.md](stacks/20-skill-nen-theo-loai-du-an.md)
