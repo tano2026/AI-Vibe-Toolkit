@@ -106,3 +106,10 @@
   tự lọc theo 6 câu hỏi đặc điểm (có code/UI/DB/content/deploy thật/research không). Bundle 10
   cũ đánh dấu SUPERSEDED, giữ lại tham khảo lịch sử →
   [stacks/20-skill-nen-theo-loai-du-an.md](stacks/20-skill-nen-theo-loai-du-an.md)
+
+- Thêm 2 cơ chế quan trọng: LOOP-TOKEN-GOVERNOR.md (wire skill agentic-loop-optimizer có sẵn
+  vào 4 tier OmniRoute thật + exit condition theo risk_level L0-L3 + circuit breaker tự phát
+  hiện job stuck) và SECURITY-WALL.md (5 lớp, viết ngay từ lỗ hổng thật vừa tìm — .env VPS chứa
+  ZALO_ACCESS_TOKEN + DEEPSEEK_API_KEY plaintext, đọc được bằng cat). Cả 2 wire skill có sẵn
+  trong kho (destructive-command-guard, security-review) thay vì viết lại, chỉ thêm lớp áp dụng
+  cụ thể cho 9 agent thật + tình huống VPS thật
