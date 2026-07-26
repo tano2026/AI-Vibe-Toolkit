@@ -2608,3 +2608,4 @@ khong thay the nhau.
 | 198 | Repo | PyCaps | /repos/pycaps.md | Đã push | /content/script-video-205-pycaps.md | 2026-07-26 |
 | 199 | Repo | Clipify | /repos/clipify.md | Đã push | /content/script-video-206-clipify.md | 2026-07-26 |
 | 200 | Repo | Egolite (ego lite) | /repos/egolite.md | Đã push | /content/script-video-207-egolite.md | 2026-07-26 |
+| 201 | Repo | BMAD-METHOD | /repos/bmad-method.md | Đã push | /content/script-video-208-bmad-method.md | 2026-07-26 |
