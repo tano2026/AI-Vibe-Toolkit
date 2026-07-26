@@ -1,0 +1,82 @@
+<!--
+  Thư viện scene template — mỗi <template> là 1 loại scene trong storyboard.json.
+  render_template.html (ở /render/) sẽ đọc storyboard.json rồi ghép các template này
+  lại theo đúng thứ tự + nội dung, xuất ra 1 file render.html duy nhất cho Playwright quay.
+
+  Quy ước biến: {{field}} sẽ được render_template.html thay thế bằng giá trị thật từ
+  storyboard.json trước khi Playwright load file.
+-->
+
+<template id="scene-hero-text">
+  <div class="scene hero-text">
+    <h1 class="headline">{{headline}}</h1>
+    <p class="subtitle">{{subtitle}}</p>
+  </div>
+</template>
+
+<template id="scene-terminal">
+  <div class="scene terminal">
+    <div class="terminal-window">
+      <div class="terminal-bar"><span></span><span></span><span></span></div>
+      <pre class="terminal-command">$ {{command}}</pre>
+      <pre class="terminal-output">{{output}}</pre>
+    </div>
+  </div>
+</template>
+
+<template id="scene-stats-grid">
+  <div class="scene stats-grid">
+    <div class="stats-container">
+      <!-- render_template.html lặp {{#stats}} label/value -->
+      {{#stats}}
+      <div class="stat-item">
+        <div class="stat-value">{{value}}</div>
+        <div class="stat-label">{{label}}</div>
+      </div>
+      {{/stats}}
+    </div>
+  </div>
+</template>
+
+<template id="scene-iframe">
+  <div class="scene iframe-scene">
+    <iframe src="{{url}}" class="demo-iframe"></iframe>
+  </div>
+</template>
+
+<template id="scene-quote">
+  <div class="scene quote">
+    <blockquote>"{{text}}"</blockquote>
+    <cite>— {{author}}</cite>
+  </div>
+</template>
+
+<template id="scene-cta-url">
+  <div class="scene cta-url">
+    <div class="cta-card">
+      <p class="cta-text">{{text}}</p>
+      <p class="cta-link">{{url}}</p>
+      <!-- affiliate_disclosure_badge chỉ hiện nếu is_affiliate=true, do render_template.html quyết định -->
+      {{#is_affiliate}}
+      <p class="cta-disclosure">Link liên kết / Affiliate</p>
+      {{/is_affiliate}}
+    </div>
+  </div>
+</template>
+
+<style>
+  /* CSS nền tối giản — style thật chi tiết (màu brand, font, animation) nên đưa qua
+     frontend-design skill khi build UI thật, đây chỉ là khung chức năng */
+  .scene {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: -apple-system, sans-serif; text-align: center; padding: 5%;
+  }
+  .headline { font-size: 3rem; font-weight: 800; }
+  .subtitle { font-size: 1.4rem; opacity: .8; }
+  .terminal-window { background: #1e1e1e; color: #0f0; border-radius: 8px; padding: 1.5rem; width: 80%; text-align: left; }
+  .stats-container { display: flex; gap: 2rem; }
+  .stat-value { font-size: 2.5rem; font-weight: 800; }
+  .cta-card { border: 2px solid; border-radius: 12px; padding: 2rem; }
+  .cta-disclosure { font-size: .9rem; opacity: .6; margin-top: .5rem; }
+</style>
