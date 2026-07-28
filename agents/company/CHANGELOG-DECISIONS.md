@@ -44,3 +44,32 @@ chưa được nhắc tới ở bất kỳ file audit nào.
   (`SECURITY-WALL.md`), CHƯA xác nhận đã rotate 2 key này chưa.
 - Hạ tầng: VPS đang down, IP `100.64.173.75` là dải CGNAT không phải IP public thật — chờ
   Nobitano reboot + xác định đúng IP public trước khi build OpenClaw mới.
+
+
+---
+
+## 2026-07-28 — QUYẾT ĐỊNH CHỐT: theo audit thật, không theo lý thuyết
+
+**Người chốt:** Nobitano, sau khi Senior Advisor trình bày 2 phương án.
+
+**Kết quả:** Theo hướng `UNIFIED-ARCHITECTURE.md` (audit thật) — giữ nguyên 9 agent thật đang
+chạy trong agent-core, KHÔNG build agent thứ 10/11 cho HR&Admin/Legal&Compliance.
+
+**Đã thực thi:**
+1. `agents/company/ORG-v2.md` viết lại thành v3.0 — bảng 9 agent thật thay 10-role lý thuyết cũ.
+2. `roles/hr-admin.md` v2.0 — đổi từ "Role Pack vị trí ⑨" thành "Extension pack nạp vào agent
+   `operations`". Nội dung SOP/skill giữ nguyên 100%, chỉ đổi vai trò gọi.
+3. `roles/legal-compliance.md` v2.0 — đổi từ "Role Pack vị trí ⑩" thành "Extension pack nạp
+   vào agent `sales`". Nội dung giữ nguyên 100%, chỉ đổi vai trò gọi.
+4. `OPENCLAW-WORKER-STRUCTURE.md` v2.0 — sửa lại đúng 8 folder worker (research, dev, sales,
+   marketing, media, operations, support, analytics — không tính `ceo` vì đó là Hermes/bộ não,
+   không phải OpenClaw worker), xoá `content/`, `designer/`, `ops-finance/`, `hr-admin/` riêng
+   biệt khỏi kế hoạch build.
+
+**Còn treo, CHƯA xử lý trong lượt này (cần theo dõi riêng):**
+- Bảo mật: rotate `ZALO_ACCESS_TOKEN` + `DEEPSEEK_API_KEY` sau khi phát hiện lộ plaintext
+  (xem `SECURITY-WALL.md`) — CHƯA xác nhận đã làm.
+- Hạ tầng: VPS đang down, cần Nobitano tự reboot + xác định đúng IP public trước khi build
+  OpenClaw mới theo cấu trúc 8 folder ở trên.
+- `HERMES-PLAYBOOK.md` dòng 16 vẫn còn mô tả sai "Hermes chạy trong OpenClaw trên VPS" — cần
+  sửa theo đúng `UNIFIED-ARCHITECTURE.md` (Hermes = agent-core, Local Windows) ở lượt sau.
