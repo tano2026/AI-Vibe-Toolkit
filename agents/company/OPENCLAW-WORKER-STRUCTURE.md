@@ -1,17 +1,17 @@
 ---
 name: openclaw-worker-structure
-description: Cấu trúc thư mục agent worker trên OpenClaw VPS — bản sửa, khớp 9 role trong ORG-v2.md. Thay thế đề xuất 8-folder ban đầu (gộp sai role, thiếu Ops&Finance thật và HR&Admin).
-version: 1.0
-updated: 2026-07-25
-supersedes: đề xuất "3 bước" ban đầu của OpenClaw (2026-07-25, gộp marketing/content, media/designer, ops/support sai)
+description: Cấu trúc thư mục agent worker trên OpenClaw VPS — khớp 9 agent THẬT trong ORG-v2.md v3.0 (agent-core audit), không phải 9-role lý thuyết cũ.
+version: 2.0
+updated: 2026-07-28
+supersedes: v1.0 (25/07/2026) mô tả 9 folder theo ORG-v2.md v2.2 lý thuyết (research/marketing/sales/content/dev/designer/media/ops-finance/hr-admin) — SAI, không khớp agent-core thật. Xem CHANGELOG-DECISIONS.md entry 28/07/2026.
 ---
 
-# OpenClaw Worker Structure — Bản sửa khớp ORG-v2
+# OpenClaw Worker Structure — Bản v2, khớp ORG-v2 v3.0 (9 agent thật)
 
-> Đọc kèm: `agents/company/ORG-v2.md` (nguồn chân lý duy nhất về 9 role),
-> `agents/company/DECISION-MATRIX.md`, `agents/company/SENIOR-ADVISOR.md`.
-> File này thay bản đề xuất gốc — giữ nguyên Bước 1 (dọn workspace, không liên quan cấu trúc
-> role), sửa Bước 2 (worker folder) và Bước 3 (Claude không phải worker).
+> Đọc kèm: `agents/company/ORG-v2.md` v3.0 (nguồn chân lý duy nhất, dựa trên audit
+> `agents/__init__.py`), `agents/company/UNIFIED-ARCHITECTURE.md`, `agents/company/DECISION-MATRIX.md`.
+> File này thay bản v1.0 — bản đó dùng 9-role LÝ THUYẾT (ORG-v2 v2.2), không khớp code thật
+> đang chạy. Giữ nguyên Bước 1 (dọn workspace), sửa lại Bước 2 (worker folder) cho đúng.
 
 ---
 
@@ -22,35 +22,41 @@ Xóa: screenshot, test file v1-v9, abtrip_dump*, debug scripts.
 Gom: project phụ vào `archive/`.
 
 **Trước khi xoá gì:** `git pull origin main` trong thư mục AI-Vibe-Toolkit trên VPS để đảm bảo
-đang đọc bản kho mới nhất (đã có ORG-v2.md, SENIOR-ADVISOR.md, FOCUS-MODE.md, local-gap-finder).
+đang đọc bản kho mới nhất (đã có ORG-v2.md v3.0, SENIOR-ADVISOR.md, CHANGELOG-DECISIONS.md).
 
-## Bước 2 — Build agent workers: ĐÚNG 9 folder, không gộp
+## Bước 2 — Build agent workers: ĐÚNG 8 folder (không tính `ceo` — đó là Hermes/bộ não, không phải worker OpenClaw thực thi)
 
 ```
 /opt/openclaw/agents/
-├── research/        ← ① Research & Analytics — insight, không phải KPI report
-├── marketing/        ← ② Marketing — chiến lược kênh + tiền ads
-├── sales/             ← ③ Sales — deal + CSKH TRƯỚC bán (đã mở rộng JD trong ORG-v2)
-├── content/           ← ④ Content Creator — TÁCH RIÊNG khỏi marketing
-├── dev/               ← ⑤ Dev & Automation — code, deploy, healthcheck, schedule (Antigravity job nằm ở đây, không phải "ops")
-├── designer/          ← ⑥ Designer — TÁCH RIÊNG khỏi media
-├── media/             ← ⑦ Media — CHỈ role được quyền bấm đăng thật (guardrail: người tạo ≠ người đăng)
-├── ops-finance/       ← ⑧ Ops & Finance — fulfillment đơn (Fast Track, Tano Cafe) + CSKH SAU bán + sổ thu chi
-└── hr-admin/          ← ⑨ HR & Admin — nhân viên ca trực Fast Track, nhân viên Tano Cafe (THIẾU trong đề xuất gốc)
+├── research/          ← nghiên cứu thị trường, fact-check, đối thủ, xu hướng
+├── dev/                ← code/deploy, fix bug, hạ tầng + healthcheck/monitor/backup
+├── sales/              ← lead-gen, CSKH trước bán, proposal + ext. legal-compliance khi chạm hợp đồng B2B
+├── marketing/          ← content đa kênh (gộp Content Creator) + SEO + campaign
+├── media/              ← thiết kế + hình ảnh + video + ĐĂNG (approval gate, không tách agent designer riêng)
+├── operations/         ← đơn/booking/lịch (Fast Track, Tano Cafe) + ext. hr-admin khi chạm ca trực/nhân sự
+├── support/            ← CSKH 24/7 SAU bán, ticket, KB/FAQ
+└── analytics/          ← doanh thu, KPI, dashboard, forecast, SWOT — nạp 3 skill tài chính đã có
 ```
 
-**3 điểm sửa quan trọng so với đề xuất gốc:**
-1. `marketing/` và `content/` là 2 folder riêng — không gộp. Lý do: ORG-v2 tách có chủ đích.
-2. `media/` và `designer/` là 2 folder riêng — không gộp. Lý do: guardrail "người tạo ≠ người
-   đăng" — gộp lại nghĩa là 1 worker vừa tạo vừa tự đăng, mất lớp kiểm soát trước khi lên public.
-3. `ops-finance/` = đơn hàng + tiền (đúng JD role ⑧), KHÔNG phải healthcheck/schedule — cái đó
-   thuộc `dev/` (Antigravity). "support/" không tồn tại độc lập — CSKH trước bán nằm trong
-   `sales/`, CSKH sau bán nằm trong `ops-finance/`.
+**Điểm khác biệt quan trọng so với bản v1.0 (SAI, đã supersede):**
+1. **KHÔNG có folder `content/` riêng** — gộp vào `marketing/` (code thật đã gộp, không tách).
+2. **KHÔNG có folder `designer/` riêng** — chỉ có `media/`, guardrail "người tạo ≠ người đăng"
+   xử lý qua approval gate (`DECISION-MATRIX.md`), không phải tách agent.
+3. **KHÔNG có folder `ops-finance/` và `hr-admin/` riêng** — gộp thành `operations/`, HR&Admin
+   là **extension pack nạp thêm** khi cần (không phải worker riêng, xem `roles/hr-admin.md`).
+4. **KHÔNG có folder `hr-admin/` hay `legal-compliance/` độc lập** — Legal&Compliance là
+   **extension pack nạp vào `sales/`** khi task chạm hợp đồng B2B/NDA.
+5. **Có thêm folder `support/`** — không có trong bản v1.0, nhưng code thật xác nhận đây là
+   agent riêng, hoạt động tốt hơn ép vào Sales/Ops.
+6. **Có thêm folder `analytics/`** tách riêng khỏi `research/` — code thật xác nhận 2 agent
+   riêng, không gộp.
 
-Mỗi worker Python nhận task từ Hermes theo đúng pattern đã có: fetch role pack
-(`agents/company/roles/<role>.md`) + section trong `EXPERT-CORE.md` + Domain Pack → chạy.
+Mỗi worker Python nhận task từ Hermes theo đúng pattern đã có: fetch package tham chiếu
+(`agents/company/roles/<role>.md` hoặc file tương ứng trong bảng ORG-v2.md) + section trong
+`EXPERT-CORE.md` + Domain Pack → chạy. Extension pack (`hr-admin.md`, `legal-compliance.md`)
+chỉ nạp thêm khi task khớp điều kiện, không nạp mặc định.
 
-## Bước 3 — Senior Advisor: KHÔNG phải worker thứ 10
+## Bước 3 — Senior Advisor: KHÔNG phải worker thứ 9/10
 
 Không tạo `claude/` trong `/opt/openclaw/agents/`. Senior Advisor không nhận task qua hàng đợi
 như 9 worker trên — chi tiết đầy đủ: `agents/company/SENIOR-ADVISOR.md`.
