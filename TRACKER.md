@@ -2610,3 +2610,21 @@ khong thay the nhau.
 | 200 | Repo | Egolite (ego lite) | /repos/egolite.md | Đã push | /content/script-video-207-egolite.md | 2026-07-26 |
 | 201 | Repo | BMAD-METHOD | /repos/bmad-method.md | Đã push | /content/script-video-208-bmad-method.md | 2026-07-26 |
 | 202 | Repo | OpenReel Video | /repos/openreel-video.md | Đã push | /content/script-video-209-openreel-video.md | 2026-07-26 |
+
+
+---
+
+## MCP moi 21/07/2026 — Meta Ads MCP chinh thuc + TikTok MCP
+
+Nobitano hoi "MCP cua Meta va MCP TikTok". Da co san API co ban (meta-social-api.md,
+tiktok-api.md, meta-mcp-server.md 15 sao khong chinh thuc) nhung co tin moi quan trong:
+
+| MCP | File | Trang thai |
+|-----|------|------------|
+| Meta Ads MCP (chinh thuc) | mcps/meta-ads-mcp-official.md | Open beta tu 29/4/2026, mcp.facebook.com/ads, 29 tool doc/ghi |
+| TikTok MCP | mcps/tiktok-mcp.md | TikTok CHUA co ban chinh thuc (chi cong bo tai TikTok World 13/5/2026, khong endpoint public) - dung Outstand/Pipeboard (ben thu 3) de dung THAT ngay bay gio |
+
+CANH BAO quan trong: khong nham MCP TikTok "chinh thuc" da co san - hien tai moi la ben thu 3
+dung lai TikTok Official Content Posting API, khong phai TikTok truc tiep van hanh MCP.
+
+**Kho: 143 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
