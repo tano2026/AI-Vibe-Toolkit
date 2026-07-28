@@ -755,3 +755,43 @@ task cần chính xác cao.
 Trước khi code bất kỳ phần nào, đọc và áp dụng `agents/KARPATHY-CODING-GUIDELINES.md` — 4
 nguyên tắc: nghĩ trước khi code, đơn giản là trên hết, sửa đúng phạm vi, thực thi theo mục
 tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sinh thái, không riêng agent nào.
+
+---
+
+## Skill + MCP bắt buộc cho MỌI project mới
+
+Trước khi khởi tạo bất kỳ project/agent package mới nào, kiểm tra đủ 2 danh sách dưới đây.
+Không phải project nào cũng cần dùng hết, nhưng đây là checklist kiểm tra bắt buộc.
+
+### 10 skill bắt buộc
+
+Xem đầy đủ tại `stacks/10-skill-bat-buoc-du-an-moi.md` — tóm tắt:
+
+| # | Skill | Bắt buộc khi |
+|---|---|---|
+| 1 | Karpathy Coding Guidelines | Luôn luôn (đã nạp sẵn ở trên) |
+| 2 | sanyuan-skills (review SOLID/hiệu năng) | Trước khi merge code quan trọng |
+| 3 | Kiểm tra bảo mật trước deploy | Bắt buộc mọi lần deploy, không ngoại lệ |
+| 4 | agent-browser | Project có UI/web app |
+| 5 | supermemory | Setup 1 lần đầu project, dùng suốt vòng đời |
+| 6 | Write a Skill | Sau khi 1 quy trình verify thành công ≥2-3 lần |
+| 7 | Hand Off | Chat dài, chuyển giao giữa Hermes/OpenClaw/Claude |
+| 8 | Hallmark/Huashu Design | Project có giao diện người dùng thấy |
+| 9 | Prompt Master + Grill Me | Brief mới từ CEO còn mơ hồ |
+| 10 | awesome-claude-skills (tra cứu) | Trước khi tự viết skill mới cho 1 dịch vụ chưa có |
+
+### MCP bắt buộc kiểm tra kết nối
+
+Không phải cài hết cho mọi project — kiểm tra đúng loại project cần gì:
+
+| MCP | Bắt buộc khi | Ghi chú |
+|---|---|---|
+| GitHub | LUÔN LUÔN — mọi project đều push code/doc vào kho | Đã có sẵn, dùng urllib pattern chuẩn trong HERMES-PLAYBOOK.md |
+| Airtable | Project cần coordination layer/theo dõi task | Ưu tiên hơn Mission Control theo quyết định đã chốt (xem TRACKER) |
+| Google Drive | Project cần lưu trữ file lớn/chia sẻ với người ngoài hệ agent | |
+| Meta Ads MCP (chính thức) | Project chạy quảng cáo Facebook/Instagram | `mcps/meta-ads-mcp-official.md` |
+| TikTok MCP (qua Outstand/Pipeboard) | Project cần đăng/quản lý nội dung TikTok | Official TikTok MCP CHƯA sẵn có, dùng bên thứ 3 tạm — xem `mcps/tiktok-mcp.md` |
+
+Nguyên tắc: KHÔNG bật MCP "phòng khi sau này cần" — chỉ bật đúng cái project hiện tại dùng
+thật, tránh phình context/rủi ro bảo mật không cần thiết (đúng tinh thần Karpathy nguyên tắc 2
+"Simplicity First").
