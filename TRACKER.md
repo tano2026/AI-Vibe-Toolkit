@@ -2687,3 +2687,26 @@ moi vao OPENCLAW-PLAYBOOK.md ngay sau Karpathy Guidelines:
 
 **Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
 (dong bo: OPENCLAW-PLAYBOOK.md gio co du bang routing theo role + checklist skill/MCP bat buoc)
+
+
+---
+
+## Reconciliation 28/07/2026 — chot kien truc 9 agent, dep bo 10-role ly thuyet
+
+Nobitano xac nhan huong theo UNIFIED-ARCHITECTURE.md (audit that). Da thuc thi 4 file:
+
+| File | Thay doi |
+|------|----------|
+| agents/company/ORG-v2.md | v3.0 - bang 9 agent that (ceo/research/dev/sales/marketing/media/operations/support/analytics) thay 10-role ly thuyet |
+| agents/company/roles/hr-admin.md | v2.0 - doi tu "Role Pack doc lap vi tri 9" thanh "Extension pack nap vao operations" |
+| agents/company/roles/legal-compliance.md | v2.0 - doi tu "Role Pack doc lap vi tri 10" thanh "Extension pack nap vao sales" |
+| agents/company/OPENCLAW-WORKER-STRUCTURE.md | v2.0 - sua dung 8 folder worker (khong content/designer/ops-finance/hr-admin rieng) |
+| agents/company/CHANGELOG-DECISIONS.md | Ghi quyet dinh chot + viec con treo |
+
+Noi dung SOP/skill trong hr-admin.md va legal-compliance.md GIU NGUYEN 100% - chi doi vai tro
+tu "agent doc lap" thanh "extension pack nap vao agent co san".
+
+CON TREO chua xu ly: rotate ZALO_ACCESS_TOKEN + DEEPSEEK_API_KEY (bao mat), VPS dang down cho
+Nobitano reboot, HERMES-PLAYBOOK.md dong 16 van con mo ta sai kien truc cu.
+
+**Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 9 agent that (thay 10 role ly thuyet)**
