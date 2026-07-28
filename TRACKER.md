@@ -2648,3 +2648,24 @@ la DEMO/TEMPLATE hoc tap, KHONG dung y nguyen - phai thay toan bo data source ba
 aggregator (Duffel) + data noi bo ABTRIP, va ap dung day du checklist bao mat truoc deploy that.
 
 **Kho: 144 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+
+
+---
+
+## Clone toan bo + curate 21/07/2026 — awesome-llm-apps shortlist
+
+Nobitano yeu cau lay toan bo repo ve xem dung duoc gi. Da clone full (175K sao, 13 category,
+~100+ app), loc curated shortlist thay vi liet ke het:
+
+| File | Noi dung |
+|------|----------|
+| repos/awesome-llm-apps-shortlist.md | Shortlist theo domain: CSKH (voice agent, fraud
+  detection), Sales (email outreach, meeting prep), Van hanh (product launch intel, multi-MCP
+  router, always-on agent, project graveyard), HR (resume matcher), Tai chinh (financial coach
+  UI), RAG (18 tutorial neu can nang cap chatbot ABTRIP tu "khong biet gi" len "biet data that") |
+
+Da loai bo ro rang phan khong lien quan (game agents, fine-tuning, health/fitness/medical) de
+khong mat thoi gian doc. Nhan manh: MOI app deu la demo/template hoc kien truc, khong phai
+production - luon can thay data source that + bao mat truoc khi dung that.
+
+**Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
