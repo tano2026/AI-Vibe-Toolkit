@@ -2628,3 +2628,23 @@ CANH BAO quan trong: khong nham MCP TikTok "chinh thuc" da co san - hien tai moi
 dung lai TikTok Official Content Posting API, khong phai TikTok truc tiep van hanh MCP.
 
 **Kho: 143 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+
+
+---
+
+## Deep-dive 21/07/2026 — AI Travel Agent templates (lien quan truc tiep M1 LLM Booking Desk)
+
+Nobitano upload screenshot TikTok ve template "AI Travel Agent" trong repo awesome-llm-apps
+(da co san trong kho), noi "can cai nay". Da dao sau rieng vi lien quan TRUC TIEP toi roadmap
+M1 LLM Booking Desk (Phase 1 MVP ABTRIP B2B Travel Platform).
+
+| File | Noi dung |
+|------|----------|
+| repos/ai-travel-agent-templates.md | 3 cap do: starter (1 file don gian) / with-memory (nho so thich khach) / MCP Team (multi-agent that, Airbnb MCP + Google Maps MCP) |
+
+Highlight: ban MCP Team la mo hinh kien truc gan nhat voi nhu cau that cua ABTRIP - chia agent
+theo nguon data (agent tra cuu + agent tinh transit + agent tong hop). CANH BAO quan trong: day
+la DEMO/TEMPLATE hoc tap, KHONG dung y nguyen - phai thay toan bo data source bang NDC
+aggregator (Duffel) + data noi bo ABTRIP, va ap dung day du checklist bao mat truoc deploy that.
+
+**Kho: 144 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
