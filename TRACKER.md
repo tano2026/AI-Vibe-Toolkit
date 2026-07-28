@@ -2669,3 +2669,21 @@ khong mat thoi gian doc. Nhan manh: MOI app deu la demo/template hoc kien truc, 
 production - luon can thay data source that + bao mat truoc khi dung that.
 
 **Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+
+
+---
+
+## Wire vao OpenClaw 21/07/2026 — checklist skill+MCP bat buoc moi project
+
+Nobitano hoi da wire "10 skill bat buoc" vao OpenClaw chua - CHUA, da bo sot. Da them section
+moi vao OPENCLAW-PLAYBOOK.md ngay sau Karpathy Guidelines:
+
+1. Bang tom tat 10 skill bat buoc (pointer toi stacks/10-skill-bat-buoc-du-an-moi.md), ghi ro
+   dieu kien ap dung tung skill (khong phai luon luon dung het).
+2. Bang MCP bat buoc kiem tra ket noi cho moi project moi: GitHub (luon luon), Airtable
+   (coordination layer), Google Drive, Meta Ads MCP chinh thuc, TikTok MCP (qua ben thu 3 tam
+   thoi). Nguyen tac: KHONG bat MCP "phong khi sau nay can" - chi bat dung cai project hien tai
+   dung that.
+
+**Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 10 role**
+(dong bo: OPENCLAW-PLAYBOOK.md gio co du bang routing theo role + checklist skill/MCP bat buoc)
