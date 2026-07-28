@@ -1,139 +1,161 @@
 ---
 name: org-v2
-description: Org design v2 — công ty 1 người kiểu TQ, CEO Nobitano + 8 nhân viên AI, mỗi role có JD/KPI/SOP/escalation
-version: 2.0
-replaces: agents/company/ORG.md
-updated: 2026-07-19
+description: Org design v3 — công ty 1 người kiểu TQ, CEO Nobitano + 9 agent AI THẬT (khớp agents/__init__.py), mỗi role có JD/KPI/SOP/escalation
+version: 3.0
+replaces: agents/company/ORG.md, ORG-v2.md v2.2 (bảng 10-role lý thuyết)
+supersedes_reason: >
+  v2.2 (10 role) là thiết kế lý thuyết, chưa từng khớp code thật đang chạy. Audit Claude Code
+  25/07/2026 xác nhận agent-core (Local Windows) chỉ có 9 agent thật, cấu trúc khác v2.2 ở 4
+  điểm. Xem UNIFIED-ARCHITECTURE.md (nguồn audit) + CHANGELOG-DECISIONS.md (quyết định
+  28/07/2026: theo audit thật, không theo lý thuyết).
+updated: 2026-07-28
 ---
 
-# ORG v2 — Công ty 1 người vận hành bằng Agent
+# ORG v3 — Công ty 1 người vận hành bằng Agent (khớp code thật)
 
-> Thay thế `ORG.md` (v1). Entry point cho toàn bộ mô hình One-Person Company.
-> Đọc kèm: `COORDINATION-v2.md` (state + handoff), `OPERATING-RHYTHM.md` (nhịp chạy),
-> `DECISION-MATRIX.md` (ai quyết gì).
+> Thay thế `ORG.md` (v1) và bảng 10-role của `ORG-v2.md` v2.2. Entry point cho toàn bộ mô hình
+> One-Person Company. Đọc kèm: `UNIFIED-ARCHITECTURE.md` (nguồn audit — đọc TRƯỚC file này nếu
+> có xung đột), `COORDINATION-v2.md`, `OPERATING-RHYTHM.md`, `DECISION-MATRIX.md`.
 > Nguyên tắc không đổi: **domain-agnostic core + Domain Pack cắm thêm + 3 runtime thật.**
 
 ---
 
 ## TL;DR
 
-Công ty = **AI Agency cung cấp dịch vụ đầy đủ phòng ban**. Mỗi business domain
-(ABTRIP/An Bình, Trùm Sân Bay, Tano Cafe, Airfare Decoded, GMSP, kênh AI review) = 1 **client
-đặt dịch vụ**, chạy trên cùng bộ máy qua Domain Pack. CEO (Nobitano, con người duy nhất)
-ra quyết định qua Telegram; 8 nhân viên AI làm toàn bộ chuyên môn số hoá 24/7, cộng thêm
-1 role ⑨ quản lý con người thật (nhân sự có hợp đồng, ca trực) — 9 vị trí tổng cộng — nay v2.2 thêm role 10 Legal & Compliance.
+Công ty = **AI Agency cung cấp dịch vụ đầy đủ phòng ban**. Mỗi business domain (ABTRIP/An Bình,
+Trùm Sân Bay, Tano Cafe, Airfare Decoded, GMSP, kênh AI review) = 1 **client đặt dịch vụ**, chạy
+trên cùng bộ máy qua Domain Pack. CEO (Nobitano, con người duy nhất) ra quyết định qua Telegram;
+**9 agent thật** (đúng agents/__init__.py, agent-core) làm toàn bộ chuyên môn 24/7.
 
-Chuẩn "nhân viên AI" kiểu TQ (mỗi role BẮT BUỘC đủ 4 thứ, thiếu 1 = chưa được nhận việc):
+Chuẩn "nhân viên AI" kiểu TQ (mỗi agent BẮT BUỘC đủ 4 thứ, thiếu 1 = chưa được nhận việc):
 1. **JD** — job-to-be-done + ranh giới (không làm gì)
 2. **KPI** — 1-2 số đo được, review hàng tuần
-3. **SOP** — quy trình chuẩn cho việc lặp lại (lưu bảng `sops` trong Airtable)
+3. **SOP** — quy trình chuẩn cho việc lặp lại (lưu bảng sops trong Airtable)
 4. **Escalation rule** — khi nào dừng và gọi CEO
 
 ---
 
-## Rà soát 7 role v1 → kết luận v2
+## 9 agent thật — nguồn chân lý (copy từ UNIFIED-ARCHITECTURE.md, gốc agents/__init__.py)
 
-| Role v1 | Phán quyết | Lý do |
-|---------|-----------|-------|
-| ① Research & Analytics | ✅ Giữ nguyên | Đầu vào cho mọi role, đã proven (RIO) |
-| ② Marketing | ✅ Giữ nguyên | Ranh giới rõ: chiến lược + kênh + tiền ads |
-| ③ Sales | ✅ Giữ, mở rộng JD | Nhận thêm CSKH TRƯỚC bán (tư vấn, báo giá). CSKH SAU bán → Ops |
-| ④ Content Creator | ✅ Giữ nguyên | Chồng chéo với Designer/Media chỉ là bề mặt — pack đã chia ranh giới chữ / hình / đăng rất rõ. Gộp lại sẽ mất separation of duties (người tạo ≠ người đăng = guardrail chống đăng bậy) |
-| ⑤ Dev & Automation | ✅ Giữ nguyên | Xương sống, charter 4 mảng đã chuẩn |
-| ⑥ Designer | ✅ Giữ nguyên | Như ④ |
-| ⑦ Media | ✅ Giữ nguyên | Là role duy nhất cầm quyền "bấm đăng" — phải đứng riêng |
-| **⑧ Ops & Finance** | 🆕 **THÊM MỚI** | Lỗ hổng lớn nhất v1: không ai fulfillment đơn (Fast Track booking, đơn Tano Cafe), không ai đếm tiền. Công ty không có sổ thu chi theo domain = không biết job nào lãi job nào lỗ = không bền vững. Pack: `roles/ops-finance.md` |
-| **⑨ HR & Admin** | 🆕 **THÊM v2.1 — 20/07/2026** | Job-to-be-done KHÁC HẲN 8 role trên: 8 role kia đều là AI phối hợp AI xử lý việc số; ⑨ quản lý CON NGƯỜI THẬT — nhân viên ca trực Fast Track, nhân viên Tano Cafe, cộng tác viên thuê ngoài. Có hợp đồng thật, tranh chấp lao động thật, nghĩa vụ pháp lý thật — không role nào trong 8 role kia đảm nhiệm được. Đây là lý do duy nhất được phép phá vỡ kết luận "8 role, không option" ở trên: khác job-to-be-done, không phải mở rộng phạm vi 1 role cũ. Pack: `roles/hr-admin.md` |
+| # | Agent | JD (job-to-be-done) | Task types |
+|---|---|---|---|
+| 0 | ceo 🧠 | Nhận lệnh, phân tích, giao việc, theo dõi tiến độ, báo cáo — đây là tầng "Hermes" vận hành, không ngang hàng 8 agent dưới | plan, delegate, status, daily-briefing |
+| 1 | research 🔬 | Nghiên cứu thị trường, phân tích ngách, fact-check, đối thủ, xu hướng | research, deep-dive, fact-check, niche, video, trend-analysis |
+| 2 | dev 🔧 | Code/deploy, fix bug, hạ tầng + healthcheck/monitor/backup, review | build, review, scan, deploy, fix |
+| 3 | sales 💰 | Lead-gen, CSKH TRƯỚC bán, outreach, proposal, pipeline | lead-gen, outreach, proposal, market-intel |
+| 4 | marketing 📢 | Content đa kênh (viết + chiến lược, gộp Content Creator), SEO, campaign, calendar, trend | content, seo, campaign, social |
+| 5 | media 🎬 | Thiết kế, hình ảnh, video, storyboard, format check, brand asset, ĐĂNG (guardrail người-tạo≠người-đăng qua approval gate, không tách agent) | render, footage-search, format-check, storyboard |
+| 6 | operations ⚙️ | Healthcheck hạ tầng KHÔNG còn ở đây (chuyển sang dev) — giờ CHỈ: đơn/booking/lịch (Fast Track, Tano Cafe) + ca trực/nhân sự cơ bản (extension pack HR&Admin, xem dưới) + tự động hoá | fulfillment, scheduling, hr-basic |
+| 7 | support 🎫 | CSKH 24/7 SAU bán, KB/FAQ, ticket, escalate | ticket, kb-search, kb-ingest, faq-gen, escalate |
+| 8 | analytics 📊 | Doanh thu, KPI, dashboard, trend/anomaly, forecast, SWOT — nơi nạp 3 skill tư duy tài chính (ops-finance.md, tu-duy-tai-chinh-vi-mo.md, tu-duy-tai-chinh-phat-trien-ban-than.md) | sql-query, report, dashboard, data-audit, swot, sentiment, forecast, kpi |
 
-**Kết luận v2.2: 10 role — 8 role AI-coordination (không gộp, không bỏ) + 2 role quản lý người
-thật/rủi ro thật (HR & Admin, Legal & Compliance).** Nếu sau này có đề xuất thêm role AI-coordination
-thứ 11 trở lên → mặc định từ chối trừ khi chứng minh được job-to-be-done không trùng bất kỳ role
-nào trong 10 role hiện có VÀ không thể gộp vào role sẵn có.
+4 điểm lệch với thiết kế lý thuyết cũ (v2.2), đã quyết — xem chi tiết CHANGELOG-DECISIONS.md
+entry 28/07/2026:
 
-| ⑩ | Legal & Compliance | `roles/legal-compliance.md` 🆕 v2.2 | Hermes | reasoning (US-law-bias cần cẩn trọng) | ABTRIP (hợp đồng B2B ground handling), mọi NDA đối tác mới | 100% hợp đồng sàng lọc trước ký + nhắc hạn đúng thời gian |
+| Điểm lệch | Lý thuyết cũ (v2.2) | Thật (v3, giữ) |
+|---|---|---|
+| Research vs Analytics | Gộp 1 role | Tách 2 agent — code đã tách sẵn |
+| Marketing vs Content | Tách 2 role | Gộp vào marketing — code đã gộp |
+| Designer vs Media | Tách 2 role | Chỉ media, guardrail qua approval gate không qua tách agent |
+| Ops&Finance vs Dev-healthcheck | Tách 2 role | Healthcheck → dev; đơn hàng/ca trực → operations (đổi tên/phạm vi) |
+
+## Gap thật — không phải agent riêng, là extension pack nạp vào agent có sẵn
+
+HR & Admin — KHÔNG phải agent thứ 10. Nạp vào operations khi task chạm ca trực/nhân sự
+(package: roles/hr-admin.md, đổi vai trò từ "role pack độc lập" thành "extension pack"). Lý
+do: khối lượng HR hiện tại (ca trực Fast Track, nhân viên Tano Cafe) chưa đủ lớn để cần agent
+riêng — build/maintain 1 agent mới tốn hơn lợi ích lúc này. Tách thành agent riêng khi khối
+lượng tăng (nhiều ca trực/tuyển dụng thường xuyên).
+
+Legal & Compliance — KHÔNG phải agent thứ 10. Nạp vào sales khi task chạm hợp đồng B2B/NDA
+(package: roles/legal-compliance.md, đổi vai trò tương tự) — lý do: hợp đồng B2B (ground
+handling ABTRIP) thường phát sinh cùng lúc với deal, sales là agent tiếp xúc đối tác đầu tiên,
+hợp lý hơn tạo agent riêng cho khối lượng còn nhỏ.
 
 ---
 
-## Sơ đồ tổ chức v2
+## Sơ đồ tổ chức v3
 
 ```
               CEO — Nobitano (con người, quyết định cuối)
-                          │ duyệt qua Telegram: "OK <job-id>"
-                          ▼
-             ┌──────────────────────────┐
-             │  OpenClaw = Điều phối     │ Telegram/WhatsApp gateway
-             │  (dispatcher + gateway)   │ route job → role → runtime
-             └────────────┬─────────────┘
-   ┌─────┬─────┬─────┬────┼────┬─────┬─────┬─────┐
-   ▼     ▼     ▼     ▼    ▼    ▼     ▼     ▼     ▼
-Research Mkt Sales Content Designer Media Ops&Fin HR&Admin Legal  (10 nhân viên AI)
-   └─────┴─────┴─────┴────┬────┴─────┴─────┴─────┘
-                          ▼
-             Dev & Automation (tầng nền, phục vụ 7 role kia)
-             = Hermes + OpenClaw + Antigravity
-                          │
-                          ▼
-   ┌────────────────────────────────────────┐
-   │ Shared workspace:                       │
-   │ • Repo AI-Vibe-Toolkit = artifacts      │
-   │ • Airtable `company-hq` = state         │
-   │   (jobs / agents / sops / kpis /        │
-   │    approvals / escalations / log)       │
-   └────────────────────────────────────────┘
+                          |  ra lệnh qua Telegram (CEO Bot)
+                          v
+                  agent "ceo" (Hermes — bộ não, quyết định + dispatch)
+                          |  giao task đã duyệt mức (DECISION-MATRIX.md)
+                          v
+   research  dev  sales  marketing  media  operations(+HR ext.)  support  analytics
+                          |
+                          v
+             OpenClaw = TAY CHÂN thực thi (KHÔNG tự quyết, không kênh nhận lệnh riêng)
+             Antigravity = hạ tầng VPS
+                          |
+                          v
+   Shared workspace:
+   - Repo AI-Vibe-Toolkit = artifacts
+   - Airtable company-hq = state (jobs / agents / sops / kpis / approvals / escalations / log)
 ```
 
 ---
 
-## Bảng phân công v2 — role × runtime × LLM tier × domain
+## Bảng phân công v3 — agent × runtime × LLM tier × domain
 
-Tier OmniRoute: `cheap` (Gemini Flash) · `balanced` (DeepSeek V3) · `reasoning` (DeepSeek R1)
-· `creative` (Claude Sonnet — CHỈ khi chất lượng chữ quyết định kết quả).
+Tier OmniRoute: cheap (DeepSeek V3) · balanced (Gemini Flash) · reasoning (DeepSeek R1)
+· creative (Claude Sonnet — CHỈ khi chất lượng chữ quyết định kết quả). Xem
+LOOP-TOKEN-GOVERNOR.md cho pick_tier() đầy đủ theo risk_level.
 
-| # | Role | Role Pack | Runtime | LLM tier mặc định | Domain phục vụ | KPI chính (weekly) |
-|---|------|-----------|---------|-------------------|----------------|--------------------|
-| ① | Research & Analytics | `agents/research-pro.md` + `agents/research-analytics-pro/` | Hermes | reasoning | TẤT CẢ | Số insight report được role khác dùng (cited) |
-| ② | Marketing | `roles/marketing.md` | Hermes + OpenClaw | balanced | TẤT CẢ | Lead/traffic theo domain vs target |
-| ③ | Sales | `agents/sales-ceo/system-prompt.md` | Hermes + OpenClaw | balanced | ABTRIP/An Bình, dịch vụ Tano Agency | Số deal chốt + pipeline value |
-| ④ | Content Creator | `roles/content-creator.md` | Hermes | creative | Trùm Sân Bay, Airfare Decoded, GMSP, kênh AI review | Số content ready-to-publish đúng hạn |
-| ⑤ | Dev & Automation | `HERMES-PLAYBOOK.md` + `OPENCLAW-PLAYBOOK.md` + `ANTIGRAVITY-PLAYBOOK.md` + `infra-ops-agent/` | Cả 3 | balanced (coding) | Hạ tầng + tool cho 7 role | Uptime 3 runtime + ticket tồn <7 ngày |
-| ⑥ | Designer | `roles/designer.md` | Hermes + OpenClaw | creative | TẤT CẢ | Số visual đúng spec, số template tái dùng |
-| ⑦ | Media | `roles/media.md` | OpenClaw | cheap | Mọi kênh social/YouTube | Số bài đăng đúng lịch + engagement delta |
-| ⑧ | Ops & Finance | `roles/ops-finance.md` 🆕 | Hermes | cheap→balanced | ABTRIP/An Bình, Tano Cafe (+ mọi domain có tiền vào) | Đơn xử lý <SLA + sổ thu chi cập nhật 100% |
-| ⑨ | HR & Admin | `roles/hr-admin.md` 🆕 v2.1 | Hermes | balanced→reasoning (case quan hệ lao động) | Fast Track (ca trực), Tano Cafe (nhân viên) | % ca trực đủ người + hồ sơ nhân sự cập nhật 100% |
+| # | Agent | Package tham chiếu | Runtime | LLM tier mặc định | Domain phục vụ | KPI chính (weekly) |
+|---|---|---|---|---|---|---|
+| 1 | research | agents/research-pro.md + research-analytics-pro/ | ceo (Hermes) | reasoning | TẤT CẢ | Số insight report được agent khác dùng (cited) |
+| 2 | dev | HERMES-PLAYBOOK.md + OPENCLAW-PLAYBOOK.md + ANTIGRAVITY-PLAYBOOK.md + infra-ops-agent/ | Cả 3 runtime | balanced | Hạ tầng + tool + healthcheck cho 8 agent | Uptime 3 runtime + ticket tồn <7 ngày |
+| 3 | sales | agents/sales-ceo/system-prompt.md (+ ext. roles/legal-compliance.md) | ceo + OpenClaw | balanced (reasoning khi chạm hợp đồng) | ABTRIP/An Bình, dịch vụ Tano Agency | Số deal chốt + pipeline value + 100% hợp đồng sàng lọc trước ký |
+| 4 | marketing | roles/marketing.md + roles/content-creator.md (gộp) | ceo + OpenClaw | creative (content) / balanced (SEO/ads) | Trùm Sân Bay, Airfare Decoded, GMSP, kênh AI review | Lead/traffic vs target + content ready-to-publish đúng hạn |
+| 5 | media | roles/media.md + roles/designer.md (gộp) | OpenClaw | creative (design) / cheap (đăng) | Mọi kênh social/YouTube | Số visual đúng spec + số bài đăng đúng lịch |
+| 6 | operations | roles/ops-finance.md (fulfillment) + ext. roles/hr-admin.md | ceo | cheap→balanced (reasoning khi tranh chấp lao động) | ABTRIP/An Bình, Tano Cafe, Fast Track (ca trực) | Đơn xử lý <SLA + % ca trực đủ người |
+| 7 | support | (chưa có role pack riêng — viết khi cần) | OpenClaw | cheap | Mọi domain có khách hàng sau bán | Ticket resolve <SLA |
+| 8 | analytics | 3 skill tài chính: ops-finance.md (DCF) + tu-duy-tai-chinh-vi-mo.md + tu-duy-tai-chinh-phat-trien-ban-than.md | ceo | reasoning | TẤT CẢ | Báo cáo KPI/forecast đúng hạn tuần |
 
-**Luật routing tier (tiết kiệm là P&L trực tiếp):** mặc định theo bảng trên; nâng tier chỉ khi
-task ghi rõ lý do trong brief; log token theo job (bảng `activity_log`). Mục tiêu giữ nguyên:
+Luật routing tier (tiết kiệm là P&L trực tiếp): mặc định theo bảng trên; nâng tier chỉ khi
+task ghi rõ lý do trong brief; log token theo job (bảng activity_log). Mục tiêu giữ nguyên:
 >80% khối lượng chạy free tier qua OmniRoute.
 
 ---
 
-## Cách nạp role (pattern proven, không đổi)
+## Cách nạp agent (pattern proven, không đổi)
 
-OpenClaw fetch 3 file: **role pack + section role trong `EXPERT-CORE.md` + Domain Pack** → embed
-vào delegation message → runtime hành xử theo role trong phiên đó. Không process mới, không
-deploy thêm. Mọi delegation mở đầu `[PACK: <slug>]` — thiếu là không chạy.
+ceo (Hermes) fetch 3 file: package tham chiếu + section agent trong EXPERT-CORE.md +
+Domain Pack → embed vào delegation message → agent hành xử theo JD trong phiên đó. Không
+process mới, không deploy thêm. Extension pack (HR&Admin, Legal&Compliance) nạp THÊM vào
+operations/sales khi task khớp — không phải nạp mặc định mọi lần.
 
 ## Nhân bản cho client mới (quy trình 30 phút)
 
-1. Copy `domain-packs/_TEMPLATE.md` → `domain-packs/<client-slug>/PACK.md`, điền brand context
+1. Copy domain-packs/_TEMPLATE.md → domain-packs/<client-slug>/PACK.md, điền brand context
    + constraints + glossary + design tokens.
-2. Tạo view lọc `pack = <client-slug>` trong Airtable `jobs` + thêm dòng KPI target vào `kpis`.
-3. Job đầu tiên luôn là: `[PACK: <slug>] role=research — scan thị trường + đối thủ + kênh`.
-   Không role nào được chạy trước khi Research nộp báo cáo nền.
+2. Tạo view lọc pack = <client-slug> trong Airtable jobs + thêm dòng KPI target vào kpis.
+3. Job đầu tiên luôn là: [PACK: <slug>] agent=research — scan thị trường + đối thủ + kênh.
+   Không agent nào được chạy trước khi Research nộp báo cáo nền.
 
-Lõi 8 role KHÔNG sửa khi thêm client. Sửa lõi = thay đổi công ty, phải qua CEO.
+Lõi 9 agent KHÔNG sửa khi thêm client. Sửa lõi = thay đổi công ty, phải qua CEO.
 
 ## Ma trận tự chủ
 
-Chuyển toàn bộ sang `DECISION-MATRIX.md` (4 mức L0-L3 theo trục rủi ro). Ba lằn ranh đỏ
-không bao giờ đổi: **AI không tự chi tiền, không tự publish public, không tự cam kết với khách.**
-
+Chuyển toàn bộ sang DECISION-MATRIX.md (4 mức L0-L3 theo trục rủi ro). Ba lằn ranh đỏ
+không bao giờ đổi: AI không tự chi tiền, không tự publish public, không tự cam kết với khách.
 
 ---
 
-## Addendum — Tier cố vấn ngoài 9 role (thêm 25/07/2026)
+## Addendum — Tier cố vấn ngoài 9 agent (giữ nguyên từ v2.2)
 
-9 role AI-coordination ở trên là runtime-embedded, chạy qua Airtable `jobs` queue. Bên cạnh đó
-có 1 tier riêng **Senior Advisor** (Claude, Project Chat) — không phải role thứ 10, không chạy
-runtime, chỉ tư duy thiết kế + viết file khi cần quyết định kiến trúc hoặc skill mới. Chi tiết:
-`agents/company/SENIOR-ADVISOR.md`.
+9 agent ở trên là runtime-embedded, chạy qua Airtable jobs queue. Bên cạnh đó có 1 tier riêng
+Senior Advisor (Claude, Project Chat) — không phải agent thứ 10, không chạy runtime, chỉ tư
+duy thiết kế + viết file khi cần quyết định kiến trúc hoặc skill mới. Chi tiết:
+agents/company/SENIOR-ADVISOR.md.
+
+## Lịch sử phiên bản
+
+- v1 (ORG.md) — 7 role lý thuyết ban đầu.
+- v2.0-v2.2 — thêm Ops&Finance, HR&Admin, Legal&Compliance — toàn bộ lý
+  thuyết, chưa đối chiếu code thật.
+- v3.0 (file này) — viết lại theo audit thật agents/__init__.py (25/07/2026), quyết định
+  chốt 28/07/2026 (xem CHANGELOG-DECISIONS.md): giữ 9 agent thật, HR&Admin/Legal&Compliance
+  chuyển từ "role độc lập" thành "extension pack" nạp vào operations/sales.
