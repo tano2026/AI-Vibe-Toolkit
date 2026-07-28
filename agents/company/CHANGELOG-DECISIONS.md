@@ -73,3 +73,20 @@ chạy trong agent-core, KHÔNG build agent thứ 10/11 cho HR&Admin/Legal&Compl
   OpenClaw mới theo cấu trúc 8 folder ở trên.
 - `HERMES-PLAYBOOK.md` dòng 16 vẫn còn mô tả sai "Hermes chạy trong OpenClaw trên VPS" — cần
   sửa theo đúng `UNIFIED-ARCHITECTURE.md` (Hermes = agent-core, Local Windows) ở lượt sau.
+
+
+---
+
+## 2026-07-28 (tiep) — Da sua HERMES-PLAYBOOK.md theo dung audit that
+
+Thuc thi viec con treo #3 tu entry truoc. Da sua HERMES-PLAYBOOK.md len v3.0:
+1. Phan "May la Hermes" - sua tu "AI agent chay trong OpenClaw tren VPS" thanh dung
+   "agent-core, runtime Python, Local Windows, la BO NAO khong phai worker".
+2. Phan "Marketing/Content/Designer/Media Agent (4 vi tri)" - sua thanh "Marketing/Media (2
+   agent that)", sua chieu delegate cho dung (Hermes dispatch -> OpenClaw thuc thi, khong phai
+   nguoc lai).
+
+Con treo (chua sua, uu tien thap hon bao mat + VPS): OPENCLAW-PLAYBOOK.md co the con vai cho
+tham chieu kien truc cu, can ra soat lai lan sau.
+
+**Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 9 agent that**
