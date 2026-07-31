@@ -2710,3 +2710,31 @@ CON TREO chua xu ly: rotate ZALO_ACCESS_TOKEN + DEEPSEEK_API_KEY (bao mat), VPS 
 Nobitano reboot, HERMES-PLAYBOOK.md dong 16 van con mo ta sai kien truc cu.
 
 **Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 9 agent that (thay 10 role ly thuyet)**
+
+
+---
+
+## Repo moi 29/07/2026 — Codex Security (OpenAI, xac nhan THAT)
+
+Nobitano upload screenshot TikTok ve "Codex Security" - danh gia nghi ngo ban dau (ten model
+"GPT-5.6" la, npm package tu xung "@openai" de bi gia mao). Da search verify qua nhieu nguon
+doc lap (CSO Online, The Hacker News, Unite.AI, blog chinh thuc OpenAI) - XAC NHAN THAT 100%.
+
+| Repo | File | Stars |
+|------|------|-------|
+| openai/codex-security | repos/codex-security.md | 7.6k |
+
+Model that ten "gpt-5.6-terra" (khong phai gia). So lieu that: quet 1.2 trieu commit/30 ngay,
+tim ra 792 loi critical + 10,561 loi high-severity, gan duoc 14 CVE that tren OpenSSH/GnuTLS/
+GOGS/Thorium/libssh/PHP/Chromium/GnuPG. Luu y: so lieu nay tu dot research preview 03/2026,
+KHONG phai phat sinh moi rieng tu ban ma nguon mo hoa thang 07/2026 - noi dung lan truyen gop
+2 moc thoi gian lam 1.
+
+CANH BAO rui ro supply-chain: ten "@openai/*" de bi gia mao - luon cai dung tu npm registry
+chinh thuc, kiem tra ten package chinh xac truoc khi chay.
+
+De xuat dung: chay TRUOC sanyuan-skills (code quality) va kiem-tra-bao-mat-truoc-deploy.md
+(checklist deploy) da co - 3 lop review khac nhau, khong trung, dac biet cho Wonder Mart
+payment va ABTRIP booking.
+
+**Kho: 146 repos | 40 MCPs | 99 skills | 203 scripts | 7 agent packages | 7 stacks | 9 agent that**
