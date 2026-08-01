@@ -90,3 +90,35 @@ Con treo (chua sua, uu tien thap hon bao mat + VPS): OPENCLAW-PLAYBOOK.md co the
 tham chieu kien truc cu, can ra soat lai lan sau.
 
 **Kho: 145 repos | 40 MCPs | 99 skills | 202 scripts | 7 agent packages | 7 stacks | 9 agent that**
+
+---
+
+## 2026-08-01 — Đã cài claude-mem, CHỈ áp cho Claude Code sessions, KHÔNG áp cho runtime Hermes/OpenClaw
+
+**Người quyết định:** Nobitano, sau khi Claude (Senior Advisor) research và giải thích phạm vi.
+
+**Bối cảnh:** Nobitano cài `claude-mem` (thedotmack/claude-mem, plugin trong `skills/claude-mem.md`)
+trên máy Windows local. Cài thành công — worker chạy tại `http://127.0.0.1:37777`, plugin dir
+`C:\Users\Nguyen Ngoc Tan\.claude\plugins\marketplaces\thedotmack`, version 13.12.4.
+
+**Quyết định chốt — phạm vi áp dụng:**
+- claude-mem CHỈ hoạt động qua lifecycle hook của Claude Code (SessionStart, UserPromptSubmit,
+  PostToolUse, Stop, SessionEnd) — 4 CLI được hỗ trợ chính thức: Claude Code, Gemini CLI,
+  OpenCode, Codex.
+- **Hermes** (Python executor thuần, tự gọi API qua `urllib.request`) và **OpenClaw** (Node.js
+  orchestrator, PM2-managed, gọi LLM qua OmniRoute) KHÔNG chạy trong khung Claude Code, KHÔNG
+  phát ra các lifecycle event trên → claude-mem KHÔNG cấp trí nhớ được cho runtime của 2 agent
+  này.
+- claude-mem giờ chỉ phục vụ session Claude Code của Nobitano khi code/debug trực tiếp trên máy
+  Windows (nơi Hermes cũng chạy local) — ví dụ nhớ lại hôm qua đã sửa gì trong codebase Hermes/
+  OpenClaw đang rebuild dở, không phải cấp bộ nhớ cho bản thân bot lúc chạy production.
+
+**Tham khảo kiến trúc cho vấn đề khác:** claude-mem dùng cặp SQLite (session/observation/summary)
++ Chroma vector DB, cộng cơ chế search 3 lớp tăng dần chi tiết (index gọn → context xung quanh →
+full detail) để tiết kiệm token. Đây đúng pattern có thể tham khảo để giải quyết việc còn treo
+"RIO Bot chưa có vector store layer (chỉ có SQLite relational, thiếu semantic search)" — KHÔNG
+phải cài claude-mem trực tiếp cho RIO Bot, mà tự build tương tự (SQLite + Chroma/sqlite-vec +
+pattern search 3 lớp) trong runtime của Hermes.
+
+**Việc treo:** chưa quyết định có build lại vector store layer cho RIO Bot theo pattern này hay
+không — để dành, ưu tiên thấp hơn các việc bảo mật/VPS đang xử lý.
