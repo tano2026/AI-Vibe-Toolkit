@@ -2758,3 +2758,27 @@ de tu dong hoa buoc dung video, thay the thao tac CapCut thu cong cho content da
 (tin ngan, stat card, quote card).
 
 **Kho: 146 repos | 40 MCPs | 99 skills | 204 scripts | 7 agent packages | 8 stacks | 9 agent that**
+
+
+---
+
+## Batch trending 02/08/2026 — 5 repo, 1 dang chu y truc tiep lien quan OpenClaw rebuild
+
+Nobitano gui 5 repo trending hom nay. Da xac nhan THAT ca 5 qua nhieu nguon doc lap.
+
+| # | Repo | File | Do lien quan |
+|---|------|------|---------------|
+| 1 | yc-software/qm (YC) | repos/yc-qm.md | CAO - lien quan truc tiep OpenClaw rebuild dang lam do |
+| 2-5 | AI-For-Beginners, pdf-inspector, reverse-skill, decimen-optical-transfer | repos/trending-020826-batch.md | Thap-trung binh, ghi nhan ngan |
+
+**Diem noi bat nhat: #1 qm** - Y Combinator mo nguon CHINH ha tang agent noi bo ho dung van
+hanh cong ty that (ke toan, phap ly, su kien, ky thuat). Khai niem "scope" (moi nguoi/channel/
+project co memory/file/quyen rieng) tuong duong "Domain Pack" da thiet ke trong ORG-v2.md
+nhung da code hoa day du bang Postgres that. 3 muc bao mat (Strict/Auto/Dangerous) tuong duong
+DECISION-MATRIX.md (L0-L3) da co. De xuat: doc ky lam tai lieu tham khao kien truc BAT BUOC
+truoc khi tiep tuc tu viet agent-core, khong nhat thiet migrate hoan toan.
+
+#4 reverse-skill: cong cu pentest duoc uy quyen hop phap, nhung do lien quan Tano Agency THAP
+(khong hoat dong mang an ninh mang) - chi ghi nhan ton tai, khong xu ly sau.
+
+**Kho: 148 repos | 40 MCPs | 99 skills | 204 scripts | 7 agent packages | 7 stacks | 9 agent that**
