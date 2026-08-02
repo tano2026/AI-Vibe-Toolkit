@@ -2738,3 +2738,23 @@ De xuat dung: chay TRUOC sanyuan-skills (code quality) va kiem-tra-bao-mat-truoc
 payment va ABTRIP booking.
 
 **Kho: 146 repos | 40 MCPs | 99 skills | 203 scripts | 7 agent packages | 7 stacks | 9 agent that**
+
+
+---
+
+## Stack moi 2026-08-02 — Remotion Template Factory
+
+Video TikTok Nobitano gui mo ta cach dung Remotion: chuan bi san template, roi build 1 tool
+nhan text dau vao tu dong render ra video. Kho da co Remotion (repos/remotion.md,
+skills/remotion-skill.md) nhung chua co stack noi ghep workflow "text -> props JSON -> render
+tu dong". Da research doc chinh thuc Remotion ve passing props / dataset render, viet stack moi.
+
+| Stack | File | Script video |
+|-------|------|---------------|
+| Remotion Template Factory | stacks/remotion-template-factory.md | content/script-video-210-remotion-template-factory.md |
+
+De xuat dung: noi vao pipeline trum-san-bay (agent Writer -> genPropsFromText -> renderMedia())
+de tu dong hoa buoc dung video, thay the thao tac CapCut thu cong cho content dang lap lai format
+(tin ngan, stat card, quote card).
+
+**Kho: 146 repos | 40 MCPs | 99 skills | 204 scripts | 7 agent packages | 8 stacks | 9 agent that**
