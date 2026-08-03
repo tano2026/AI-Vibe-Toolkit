@@ -35,9 +35,11 @@ prompt "cinematic airplane takeoff, dramatic, 4K" (ra kết quả chung chung), 
 ra prompt 30-100 từ đúng công thức đạo diễn, không lan man.
 
 ## Lưu ý / Lỗi thường gặp
-- **Cảnh báo bản quyền quan trọng (ghi ngay trong README, tháng 2/2026):** API Seedance 2.0 bị
-  trì hoãn ra mắt toàn cầu do các hành động thực thi bản quyền; upload khuôn mặt người thật đã
-  tạm dừng; bộ lọc nội dung siết chặt với nhân vật thương hiệu/anime/series đang phát sóng.
+- **Cảnh báo bản quyền quan trọng (cập nhật 02/08/2026):** Global launch đã diễn ra 15/4/2026
+  nhưng **trừ thị trường Mỹ** — 2 Thượng nghị sĩ Mỹ yêu cầu đóng cửa sau khi Disney/Paramount/
+  Warner Bros/Netflix/SAG-AFTRA gửi cảnh báo pháp lý vì nghi ngờ train trên dữ liệu có bản quyền.
+  ByteDance đã thêm safeguard (chặn tạo mặt người thật/nhân vật IP thương hiệu) nhưng **tranh
+  chấp pháp lý với các studio CHƯA giải quyết xong ở tòa** — vẫn đang lơ lửng, chưa yên ổn hẳn.
   **Bắt buộc chạy `seedance-copyright` trước mỗi lần generate** — bỏ qua bước này dễ dính vi
   phạm bản quyền khi dùng nhân vật/IP không phải của mình.
 - Có bản fork/tương tự `zhishu51/seedance-2.0-director` (dịch/đóng gói lại cho Codex) — nội
