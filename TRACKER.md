@@ -2782,3 +2782,27 @@ truoc khi tiep tuc tu viet agent-core, khong nhat thiet migrate hoan toan.
 (khong hoat dong mang an ninh mang) - chi ghi nhan ton tai, khong xu ly sau.
 
 **Kho: 148 repos | 40 MCPs | 99 skills | 204 scripts | 7 agent packages | 7 stacks | 9 agent that**
+
+
+---
+
+## Repo moi 02/08/2026 — Voice-Pro (abus-aikorea)
+
+Nobitano hoi "Voice-pro" - xac nhan that, 12K sao, WebUI Gradio "tat ca trong 1" cho xu ly
+giong noi.
+
+| Repo | File | Stars |
+|------|------|-------|
+| abus-aikorea/voice-pro | repos/voice-pro.md | 12k |
+
+Khac OpenVoice (chi clone giong), Voice-Pro la ca pipeline: tai YouTube + tach vocal (Demucs)
++ transcribe (Whisper) + dich 100+ ngon ngu + TTS/voice cloning zero-shot (F5-TTS/E2-TTS/
+CosyVoice). Tu dinh vi la "robust alternative to ElevenLabs".
+
+CANH BAO quan trong: License GPL-3.0 (khac MIT cua OpenVoice da co) - copyleft manh, can doc
+ky truoc khi dung thuong mai/phan phoi lai. Dung noi bo (khong phan phoi lai code) thi an toan.
+
+De xuat dung: dubbing da ngon ngu giu nguyen giong goc cho Airfare Decoded/GMSP khi mo rong
+khan gia ngon ngu khac.
+
+**Kho: 149 repos | 40 MCPs | 99 skills | 205 scripts | 7 agent packages | 7 stacks | 9 agent that**
