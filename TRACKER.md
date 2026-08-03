@@ -2806,3 +2806,28 @@ De xuat dung: dubbing da ngon ngu giu nguyen giong goc cho Airfare Decoded/GMSP 
 khan gia ngon ngu khac.
 
 **Kho: 149 repos | 40 MCPs | 99 skills | 205 scripts | 7 agent packages | 7 stacks | 9 agent that**
+
+
+---
+
+## Repo moi 03/08/2026 — Seedance 2.0 Skill OS (Emily2040), "Dao dien ma nguon mo"
+
+Nobitano upload screenshot TikTok ve "Emily2040/seedance-2.0" - da tim va xac nhan that.
+
+| Repo | File | Stars |
+|------|------|-------|
+| Emily2040/seedance-2.0 | repos/seedance-2-0-skill-os.md | 6.0k |
+
+KHAC voi repos/seedance-2-5.md da co (noi ve BAN THAN model Seedance) - day la LOP KY NANG
+viet prompt cho model do, 23 sub-skill module hoa (interview, camera, motion, lighting,
+characters, vfx, pipeline, copyright-check, troubleshoot...). Ep AI doc chuc nang kich tinh
+cua canh truoc khi viet prompt, giu nhat quan giong dao dien xuyen suot nhieu clip.
+
+CANH BAO quan trong (ghi ngay trong README goc, thang 2/2026): API Seedance 2.0 bi tri hoan
+ra mat toan cau do van de thuc thi ban quyen, upload khuon mat nguoi that tam dung, bo loc
+IP/anime/series siet chat. BAT BUOC chay seedance-copyright truoc moi lan generate.
+
+De xuat dung: B-roll/motion cho Airfare Decoded, kenh AI review - thay the viet prompt tay
+kieu liet ke tinh tu ra ket qua chung chung.
+
+**Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
