@@ -2832,3 +2832,4 @@ kieu liet ke tinh tu ra ket qua chung chung.
 
 **Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
 | 203 | Skill | Brand Identity Factory | /skills/brand-identity-factory.md | Đã push | /content/script-video-211-brand-identity-factory.md | 2026-08-04 |
+| 204 | Skill | AI Marketing Adoption Map | /skills/ai-marketing-adoption-map.md | Đã push | /content/script-video-212-ai-marketing-adoption-map.md | 2026-08-04 |
