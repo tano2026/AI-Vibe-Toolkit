@@ -943,3 +943,21 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 - **h4x0r/stem-branch** (7⭐) → quá nhỏ/non, chỉ là lib tính can chi cấp thấp, iztro/ziwei-doushu đã có API cấp cao hơn sẵn — không cần thiết viết riêng.
 
 **Kho: 55 repos | 37 MCPs | 427+ skills | 67 scripts**
+
+---
+## 🆕 HyperFrames Templates (08/2026 - lần 55)
+
+### Repos mới
+| # | Tên | Stars | Highlights |
+|---|-----|-------|-----------|
+| 56 | hyperframes-templates (reactvideoeditor) | mới (07/2026) | 19 HTML video blocks free MIT — data/text/overlay/social/transitions, copy-paste + CSS variables |
+
+### Skills mới
+| File | Tool | Highlights |
+|------|------|-----------|
+| skills/hyperframes-templates-skill.md | reactvideoeditor | Bảng chọn template theo use case, 3 prompt templates Claude Code, customize guide |
+
+### Note
+Repo mới (07/2026), community build, không affiliated HeyGen. Complement trực tiếp cho `hyperframes-skill.md` — thay vì Claude Code viết HTML từ đầu, dùng 19 blocks có sẵn làm base.
+
+**Kho: 56 repos | 37 MCPs | 428+ skills | 67 scripts**
