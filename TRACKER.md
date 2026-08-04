@@ -2831,3 +2831,4 @@ De xuat dung: B-roll/motion cho Airfare Decoded, kenh AI review - thay the viet 
 kieu liet ke tinh tu ra ket qua chung chung.
 
 **Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
+| 203 | Skill | Brand Identity Factory | /skills/brand-identity-factory.md | Đã push | /content/script-video-211-brand-identity-factory.md | 2026-08-04 |
