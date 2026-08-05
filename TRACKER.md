@@ -2834,3 +2834,4 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 203 | Skill | Brand Identity Factory | /skills/brand-identity-factory.md | Đã push | /content/script-video-211-brand-identity-factory.md | 2026-08-04 |
 | 204 | Skill | AI Marketing Adoption Map | /skills/ai-marketing-adoption-map.md | Đã push | /content/script-video-212-ai-marketing-adoption-map.md | 2026-08-04 |
 | 205 | Skill | Gemini Video Content Kit | /skills/gemini-video-content-kit.md | Đã push | /content/script-video-213-gemini-video-content-kit.md | 2026-08-04 |
+| 206 | Skill | Marketing 4 Nguyên Tắc Vàng | skills/marketing-4-nguyen-tac-vang/SKILL.md | Đã push | content/script-video-214-marketing-4-nguyen-tac-vang.md | 2026-08-05 |
