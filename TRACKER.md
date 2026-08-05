@@ -2840,3 +2840,14 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 209 | Repo | OpenWork (ModelStudio) | /repos/openwork-modelstudioai.md | Đã push | /content/script-video-217-openwork-modelstudioai.md | 2026-08-05 |
 | 210 | Repo | System Design Primer | /repos/system-design-primer.md | Đã push | /content/script-video-218-system-design-primer.md | 2026-08-05 |
 | 211 | Stack | Google Antigravity + NotebookLM Combo | /stacks/google-antigravity-notebooklm-combo.md | Đã push | /content/script-video-219-google-antigravity-notebooklm-combo.md | 2026-08-05 |
+| 212 | MCP | Granola | /mcps/granola.md | Đã push | /content/script-video-220-granola.md | 2026-08-05 |
+| 213 | MCP | Slack | /mcps/slack.md | Đã push | /content/script-video-221-slack-mcp.md | 2026-08-05 |
+| 214 | MCP | Notion | /mcps/notion.md | Đã push | /content/script-video-222-notion-mcp.md | 2026-08-05 |
+| 215 | MCP | Kondo | /mcps/kondo.md | Đã push | /content/script-video-223-kondo.md | 2026-08-05 |
+| 216 | MCP | Zapier | /mcps/zapier.md | Đã push | /content/script-video-224-zapier-mcp.md | 2026-08-05 |
+| 217 | MCP | Higgsfield | /mcps/higgsfield.md | Đã push | /content/script-video-225-higgsfield.md | 2026-08-05 |
+| 218 | MCP | Perplexity | /mcps/perplexity.md | Đã push | /content/script-video-226-perplexity-mcp.md | 2026-08-05 |
+| 219 | Skill | Social Media Skills | /skills/social-media-skills.md | Đã push | /content/script-video-227-social-media-skills.md | 2026-08-05 |
+| 220 | Skill | AI Second Brain | /skills/ai-second-brain.md | Đã push | /content/script-video-228-ai-second-brain.md | 2026-08-05 |
+| 221 | Repo | Codex Plugin for Claude Code | /repos/codex-plugin-cc.md | Đã push | /content/script-video-229-codex-plugin-cc.md | 2026-08-05 |
+| 222 | Repo | Financial Services Plugins (Anthropic) | /repos/financial-services.md | Đã push | /content/script-video-230-financial-services.md | 2026-08-05 |
