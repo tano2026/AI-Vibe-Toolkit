@@ -2838,3 +2838,4 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 207 | Repo | OpenWorker (Andrew Ng) | /repos/openworker-andrew-ng.md | Đã push | /content/script-video-215-openworker-andrew-ng.md | 2026-08-05 |
 | 208 | Repo | OpenWork (different-ai) | /repos/openwork-different-ai.md | Đã push | /content/script-video-216-openwork-different-ai.md | 2026-08-05 |
 | 209 | Repo | OpenWork (ModelStudio) | /repos/openwork-modelstudioai.md | Đã push | /content/script-video-217-openwork-modelstudioai.md | 2026-08-05 |
+| 210 | Repo | System Design Primer | /repos/system-design-primer.md | Đã push | /content/script-video-218-system-design-primer.md | 2026-08-05 |
