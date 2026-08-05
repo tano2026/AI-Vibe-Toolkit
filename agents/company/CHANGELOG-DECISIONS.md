@@ -122,3 +122,23 @@ pattern search 3 lớp) trong runtime của Hermes.
 
 **Việc treo:** chưa quyết định có build lại vector store layer cho RIO Bot theo pattern này hay
 không — để dành, ưu tiên thấp hơn các việc bảo mật/VPS đang xử lý.
+
+
+## 2026-08-05 — Chuẩn hóa path skill: folder/SKILL.md, bỏ flat .md
+
+**Vấn đề:** 113 skill tồn tại song song 2 dạng — `skills/ten.md` (phẳng) và `skills/ten/SKILL.md` (folder).
+Gây lỗi "skill not found" cho Hermes/OpenClaw khi loader không biết ưu tiên path nào (phát hiện qua cron
+job ABTRIP Content Writer báo thiếu skill `ai-content-writing`, `content-ops` dù thực ra có trong kho).
+
+**Quyết định:** Chuẩn path skill DUY NHẤT từ nay là `skills/<ten-skill>/SKILL.md` (folder format).
+Đã xóa toàn bộ 113 bản `skills/<ten-skill>.md` phẳng trùng lặp, giữ bản folder làm canonical
+(folder version có frontmatter chuẩn hơn cho agent — description tiếng Anh ngắn gọn + field category).
+
+**Đã fix kèm:**
+- TRACKER.md: sửa 69 reference path cũ -> path folder mới
+- KHO-INDEX.md: sửa 13 reference path cũ -> path folder mới
+- 3 file (`content-creator`, `fact-checker`, `token-efficient-research`) được kiểm tra thủ công
+  trước khi xóa vì bản phẳng dài hơn đáng kể — xác nhận nội dung cốt lõi vẫn nguyên trong bản folder.
+
+**Action cho Hermes/OpenClaw:** Khi load skill, LUÔN dùng path `skills/<ten>/SKILL.md`. Nếu 404,
+báo lỗi rõ ràng thay vì fallback im lặng — không còn bản `.md` phẳng để fallback nữa.
