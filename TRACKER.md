@@ -867,7 +867,6 @@ Scripts: #55 deerflow | #56 sd3-medium
 ### Scripts thêm
 | # | File | Hook |
 |---|------|------|
-| 59 | script-video-59-caveman.md | "Claude trả lời 1200 token. Skill này cắt còn 300." |
 | 60 | script-video-60-claude-mem.md | "Claude Code quên hết mỗi lần tắt máy. Plugin này fix luôn." |
 | 61 | script-video-61-humanizer.md | "Sếp hỏi 'cái này AI viết hả?' — skill này fix luôn." |
 
