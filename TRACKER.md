@@ -2835,3 +2835,6 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 204 | Skill | AI Marketing Adoption Map | /skills/ai-marketing-adoption-map.md | Đã push | /content/script-video-212-ai-marketing-adoption-map.md | 2026-08-04 |
 | 205 | Skill | Gemini Video Content Kit | /skills/gemini-video-content-kit.md | Đã push | /content/script-video-213-gemini-video-content-kit.md | 2026-08-04 |
 | 206 | Skill | Marketing 4 Nguyên Tắc Vàng | skills/marketing-4-nguyen-tac-vang/SKILL.md | Đã push | content/script-video-214-marketing-4-nguyen-tac-vang.md | 2026-08-05 |
+| 207 | Repo | OpenWorker (Andrew Ng) | /repos/openworker-andrew-ng.md | Đã push | /content/script-video-215-openworker-andrew-ng.md | 2026-08-05 |
+| 208 | Repo | OpenWork (different-ai) | /repos/openwork-different-ai.md | Đã push | /content/script-video-216-openwork-different-ai.md | 2026-08-05 |
+| 209 | Repo | OpenWork (ModelStudio) | /repos/openwork-modelstudioai.md | Đã push | /content/script-video-217-openwork-modelstudioai.md | 2026-08-05 |
