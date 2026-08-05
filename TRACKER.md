@@ -63,7 +63,7 @@
 | 5 | AI Content Writing (6 prompts) | ✅ | - | - |
 | 6 | ML Concepts Explainer | ✅ | - | - |
 | 7 | Agentic Factory (meta-skill) | skills/agentic-factory/SKILL.md | - | - |
-| 8 | Personal Branding Creator | skills/personal-branding-creator.md | ✅ | ⏳ |
+| 8 | Personal Branding Creator | skills/personal-branding-creator/SKILL.md | ✅ | ⏳ |
 
 
 ---
@@ -320,8 +320,8 @@
 ### Skills mới
 | # | File | Nội dung | Dùng cho |
 |---|------|---------|---------|
-| 11 | skills/claude-seo-commands.md | 25 lệnh /seo full reference + quick decision guide | Claude Code SEO workflow |
-| 12 | skills/continue-dot-continue-folder.md | Rules + Agents + Prompts gốc từ continuedev/continue | CLAUDE.md / .cursorrules template |
+| 11 | skills/claude-seo-commands/SKILL.md | 25 lệnh /seo full reference + quick decision guide | Claude Code SEO workflow |
+| 12 | skills/continue-dot-continue-folder/SKILL.md | Rules + Agents + Prompts gốc từ continuedev/continue | CLAUDE.md / .cursorrules template |
 
 ---
 ## 🆕 Master Skill & Template (06/2026 - lần 23)
@@ -329,8 +329,8 @@
 ### Files mới
 | File | Mô tả |
 |------|-------|
-| `skills/MASTER-INDEX.md` | Bản đồ toàn bộ kho — tra cứu nhanh theo situation, full danh sách MCPs/Repos/Skills/Scripts |
-| `skills/CLAUDE-MD-TEMPLATE.md` | CLAUDE.md template dùng ngay cho project mới — behavior rules + code rules + anti-slop UI |
+| `skills/MASTER-INDEX/SKILL.md` | Bản đồ toàn bộ kho — tra cứu nhanh theo situation, full danh sách MCPs/Repos/Skills/Scripts |
+| `skills/CLAUDE-MD-TEMPLATE/SKILL.md` | CLAUDE.md template dùng ngay cho project mới — behavior rules + code rules + anti-slop UI |
 
 ### Tổng kho hiện tại (rà soát 06/2026)
 - MCPs: 13 | Repos: 30 | Skills: 14 (incl. taste-skill subfolder) | Stack: 1 | Scripts: 41
@@ -341,7 +341,7 @@
 ### Skills mới
 | # | File | Mô tả |
 |---|------|-------|
-| 13 | skills/hermes-agent-deep-dive.md | 8 vòng lặp chi tiết kỹ thuật: cơ chế, số liệu, compound effect, tips dùng hiệu quả |
+| 13 | skills/hermes-agent-deep-dive/SKILL.md | 8 vòng lặp chi tiết kỹ thuật: cơ chế, số liệu, compound effect, tips dùng hiệu quả |
 
 ---
 ## 🆕 Update (06/2026 - lần 25)
@@ -349,8 +349,8 @@
 ### Files updated
 | File | Update |
 |------|--------|
-| `skills/hermes-agent-deep-dive.md` | Thêm section "Áp Dụng Thực Tế" — 5 cách dùng cụ thể + lịch trình 90 ngày cho AI Vibe Toolkit |
-| `skills/MASTER-INDEX.md` | Thêm Hermes workflow section — setup + daily use + compound schedule |
+| `skills/hermes-agent-deep-dive/SKILL.md` | Thêm section "Áp Dụng Thực Tế" — 5 cách dùng cụ thể + lịch trình 90 ngày cho AI Vibe Toolkit |
+| `skills/MASTER-INDEX/SKILL.md` | Thêm Hermes workflow section — setup + daily use + compound schedule |
 
 ---
 ## 🆕 Batch mới (06/2026 - lần 26)
@@ -386,7 +386,7 @@ spec-driven-development, test-driven-development, using-agent-skills
 ### Skills mới
 | # | File | Nội dung |
 |---|------|---------|
-| 14 | skills/token-efficient-research.md | Cheat sheet tổng hợp: nguyên tắc tối ưu token, tool stack theo use case, so sánh cost, 4 prompt templates, workflow cho kho |
+| 14 | skills/token-efficient-research/SKILL.md | Cheat sheet tổng hợp: nguyên tắc tối ưu token, tool stack theo use case, so sánh cost, 4 prompt templates, workflow cho kho |
 
 ---
 ## 🆕 Skills Batch (06/2026 - lần 28) — 12 Skills Mới
@@ -453,7 +453,7 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills & Scripts
 | Type | File | Nội dung |
 |------|------|---------|
-| Skill | skills/agency-agents-skill.md | Quick reference 220 agents, activate syntax, top 10 cho AI Vibe Toolkit |
+| Skill | skills/agency-agents-skill/SKILL.md | Quick reference 220 agents, activate syntax, top 10 cho AI Vibe Toolkit |
 | Script | content/script-video-42-agency-agents.md | Hook: "1 AI cho mọi thứ là sai lầm" |
 
 **Kho: 37 repos | 48+ skills | 42 scripts**
@@ -482,8 +482,8 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills mới — 2 guides tổng hợp
 | File | Nội dung |
 |------|---------|
-| skills/image-video-gen-mcp-guide.md | So sánh fal vs comfyui, prompt templates thumbnails/videos/products |
-| skills/marketing-automation-mcp-guide.md | Stack theo budget, commands dùng ngay, full marketing workflow |
+| skills/image-video-gen-mcp-guide/SKILL.md | So sánh fal vs comfyui, prompt templates thumbnails/videos/products |
+| skills/marketing-automation-mcp-guide/SKILL.md | Stack theo budget, commands dùng ngay, full marketing workflow |
 
 **MCPs tổng: 18 | Skills: 50+ | Repos: 37 | Scripts: 43**
 
@@ -501,10 +501,10 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills mới
 | File | Stars | Nội dung |
 |------|-------|---------|
-| skills/affiliate-skills.md | 460⭐ | 52 skills affiliate marketing 8 stages flywheel |
-| skills/viral-hooks-skill.md | 54⭐ | 100 hook formulas 10 psychology triggers TikTok/Reels/Shorts |
-| skills/youtube-marketing-skills.md | 14⭐ | 21 commands: keyword, SEO, analytics, content calendar |
-| skills/social-media-stack.md | - | Guide tổng hợp: workflow từ tool mới → published, prompt templates |
+| skills/affiliate-skills/SKILL.md | 460⭐ | 52 skills affiliate marketing 8 stages flywheel |
+| skills/viral-hooks-skill/SKILL.md | 54⭐ | 100 hook formulas 10 psychology triggers TikTok/Reels/Shorts |
+| skills/youtube-marketing-skills/SKILL.md | 14⭐ | 21 commands: keyword, SEO, analytics, content calendar |
+| skills/social-media-stack/SKILL.md | - | Guide tổng hợp: workflow từ tool mới → published, prompt templates |
 
 **MCPs tổng: 22 | Skills: 54+ | Repos: 37 | Scripts: 43**
 
@@ -546,7 +546,7 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills mới
 | File | Nội dung |
 |------|---------|
-| skills/free-image-video-stack.md | Decision tree, quick commands, workflow $0 hoàn chỉnh |
+| skills/free-image-video-stack/SKILL.md | Decision tree, quick commands, workflow $0 hoàn chỉnh |
 
 **Tổng MCPs: 27 | Skills: 85+ | Repos: 37 | Scripts: 43**
 
@@ -579,7 +579,7 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 | Type | File | Nội dung |
 |------|------|---------|
 | MCP/Feature | mcps/claude-routines.md | Full docs: setup, pricing, triggers, 15 routines hay nhất, template chuẩn |
-| Skill | skills/claude-routines-templates.md | 6 prompt templates copy-paste: morning brief, PR review, metrics, ROAS, content ideas, SEO |
+| Skill | skills/claude-routines-templates/SKILL.md | 6 prompt templates copy-paste: morning brief, PR review, metrics, ROAS, content ideas, SEO |
 | Script | content/script-video-46-claude-routines.md | Hook: "Viết 1 lần. Chạy mãi mãi." |
 
 ### Key Info
@@ -618,7 +618,7 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills mới
 | File | Nội dung |
 |------|---------|
-| skills/ke-toan-automation.md | 4 prompts + Python script: phân loại sao kê, chuỗi hóa đơn→Drive→Sheets, logic thuế, báo cáo tổng hợp |
+| skills/ke-toan-automation/SKILL.md | 4 prompts + Python script: phân loại sao kê, chuỗi hóa đơn→Drive→Sheets, logic thuế, báo cáo tổng hợp |
 
 ### Scripts
 | # | File | Nội dung |
@@ -639,11 +639,11 @@ Hoàn thành coverage 100% cho tất cả repos trong kho!
 ### Skills mới
 | File | Tool | Highlights |
 |------|------|-----------|
-| skills/accounting-skills-cynco.md | cynco-labs 10⭐ | 8-phase pipeline: OCR→reconcile→journal→P&L→tax→QC→output |
-| skills/worker-k-accounting.md | WeiKhjan 1⭐ | Excel+Word+PDF+Bank Rec+Research cho accounting firms |
-| skills/recite-receipt-scanner.md | rivradev 2⭐ | Scan hóa đơn/biên lai → CSV ledger tự động |
-| skills/invoice-extractor.md | Viprasol-Tech | Extract hóa đơn → validated JSON, math check |
-| skills/accounting-stack-guide.md | Tổng hợp | Decision tree, full workflow, prompts copy-paste |
+| skills/accounting-skills-cynco/SKILL.md | cynco-labs 10⭐ | 8-phase pipeline: OCR→reconcile→journal→P&L→tax→QC→output |
+| skills/worker-k-accounting/SKILL.md | WeiKhjan 1⭐ | Excel+Word+PDF+Bank Rec+Research cho accounting firms |
+| skills/recite-receipt-scanner/SKILL.md | rivradev 2⭐ | Scan hóa đơn/biên lai → CSV ledger tự động |
+| skills/invoice-extractor/SKILL.md | Viprasol-Tech | Extract hóa đơn → validated JSON, math check |
+| skills/accounting-stack-guide/SKILL.md | Tổng hợp | Decision tree, full workflow, prompts copy-paste |
 
 **MCPs: 31 | Skills: 94+ | Repos: 41 | Scripts: 47**
 
@@ -779,7 +779,7 @@ curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deplo
 ### Phân tích & Tài liệu hóa
 | File | Nội dung |
 |------|---------|
-| skills/sams-loop-engineering.md | Framework phân tích đầy đủ: 6 components, mapping với kho, 3 loop templates, cost control |
+| skills/sams-loop-engineering/SKILL.md | Framework phân tích đầy đủ: 6 components, mapping với kho, 3 loop templates, cost control |
 
 ### /VAULT/ folder — Memory backbone cho SAMS loops
 | File | Role |
@@ -796,7 +796,7 @@ curl -fsSL https://raw.githubusercontent.com/tano2026/AI-Vibe-Toolkit/main/deplo
 
 | File | Nội dung |
 |------|---------|
-| skills/agent-reach-skill.md | Pattern chuẩn: thu thập trước→filter→analyze sau, 3 rules tối ưu token, 4 use cases cụ thể cho AI Vibe Toolkit |
+| skills/agent-reach-skill/SKILL.md | Pattern chuẩn: thu thập trước→filter→analyze sau, 3 rules tối ưu token, 4 use cases cụ thể cho AI Vibe Toolkit |
 
 **Key insight:** Agent-Reach = $0 scrape. Chỉ tốn token khi feed vào Claude. Filter trước → tiết kiệm 80-95% token.
 
@@ -823,9 +823,9 @@ Scripts: #55 deerflow | #56 sd3-medium
 ### Skills mới (insights)
 | File | Nội dung |
 |------|---------|
-| skills/markdown-output-insight.md | Markdown phá hoại AI output: 3 fixes, khi nào dùng/không dùng |
-| skills/sakana-7b-livecodebench.md | 7B vượt GPT-5: orchestration beats scale, local model strategy |
-| skills/loop-engineering-addy.md | Addy Osmani: loop engineering vs manual prompting, 3 levels |
+| skills/markdown-output-insight/SKILL.md | Markdown phá hoại AI output: 3 fixes, khi nào dùng/không dùng |
+| skills/sakana-7b-livecodebench/SKILL.md | 7B vượt GPT-5: orchestration beats scale, local model strategy |
+| skills/loop-engineering-addy/SKILL.md | Addy Osmani: loop engineering vs manual prompting, 3 levels |
 | skills/google-skills/[10 files] | Google skills gốc: bigquery, firebase, cloud-run, gemini-api... |
 
 ### Scripts
@@ -861,9 +861,9 @@ Scripts: #55 deerflow | #56 sd3-medium
 ### Skills mới
 | # | Tên | Stars | File | Nguồn |
 |---|-----|-------|------|-------|
-| - | Caveman — nói kiểu người tiền sử, cắt 65% token | 74k⭐ | skills/caveman.md | JuliusBrussee/caveman |
-| - | Claude-Mem — trí nhớ dài hạn cho Claude Code | 83k⭐ | skills/claude-mem.md | thedotmack/claude-mem |
-| - | Humanizer — xóa dấu vết AI viết, 33 patterns | 24.7k⭐ | skills/humanizer.md | blader/humanizer |
+| - | Caveman — nói kiểu người tiền sử, cắt 65% token | 74k⭐ | skills/caveman/SKILL.md | JuliusBrussee/caveman |
+| - | Claude-Mem — trí nhớ dài hạn cho Claude Code | 83k⭐ | skills/claude-mem/SKILL.md | thedotmack/claude-mem |
+| - | Humanizer — xóa dấu vết AI viết, 33 patterns | 24.7k⭐ | skills/humanizer/SKILL.md | blader/humanizer |
 
 ### Scripts thêm
 | # | File | Hook |
@@ -874,8 +874,8 @@ Scripts: #55 deerflow | #56 sd3-medium
 
 ### Note: trùng lặp đã check trước khi viết
 Input gốc từ ảnh TikTok có 5 plugin (CAVEMAN, claude-mem, TASTE-SKILL, HUMANIZER, MARKETINGSKILLS). Sau khi research GitHub stars để chọn bản uy tín nhất cho mỗi tên (do tên trùng nhiều repo khác nhau), phát hiện:
-- **taste-skill** (Leonxlnx) → ĐÃ CÓ SẴN trong kho từ lần 20/21 (repos/taste-skill.md + skills/taste-skill-frontend.md + subfolder đầy đủ) — không viết lại.
-- **marketingskills** (coreyhaines31) → ĐÃ CÓ SẴN trong kho từ lần 17/28 (repos/marketingskills + skills/marketingskills-skill.md) — không viết lại.
+- **taste-skill** (Leonxlnx) → ĐÃ CÓ SẴN trong kho từ lần 20/21 (repos/taste-skill.md + skills/taste-skill-frontend/SKILL.md + subfolder đầy đủ) — không viết lại.
+- **marketingskills** (coreyhaines31) → ĐÃ CÓ SẴN trong kho từ lần 17/28 (repos/marketingskills + skills/marketingskills-skill/SKILL.md) — không viết lại.
 - 3 cái còn lại (caveman, claude-mem, humanizer) → MỚI, đã verify star count qua GitHub API trước khi viết để chọn đúng repo uy tín nhất trong các bản trùng tên (vd humanizer: blader/humanizer 24.7k⭐ chọn thay vì Aboudjem/humanizer-skill chỉ 84⭐).
 
 **Kho: 52 repos | 35 MCPs | 426+ skills | 61 scripts**
@@ -901,7 +901,7 @@ Input gốc từ ảnh TikTok có 5 plugin (CAVEMAN, claude-mem, TASTE-SKILL, HU
 
 ### Note: check trùng lặp trước khi viết
 Input gốc là 2 list lớn (YouTube MCP/automation tools + TikTok automation tools) từ chat dán vào. Đã verify từng repo qua GitHub API trước khi quyết định viết:
-- **Agent-Reach** (Panniantong) → ĐÃ CÓ SẴN trong kho từ lần 43/48 (repos/agent-reach.md + script #54 + skills/agent-reach-skill.md) — không viết lại, chỉ xác nhận lại đúng repo gốc.
+- **Agent-Reach** (Panniantong) → ĐÃ CÓ SẴN trong kho từ lần 43/48 (repos/agent-reach.md + script #54 + skills/agent-reach-skill/SKILL.md) — không viết lại, chỉ xác nhận lại đúng repo gốc.
 - **microsoft/mcp** → loại bỏ, đây là catalog MCP nội bộ Microsoft (Azure/M365), không liên quan YouTube dù bị gắn nhầm trong list gốc.
 - Nhiều repo khác trong list (BotTuber, yt-videos-list, tubescrape, vidilearn, Open-Dispatch, AxiBot, auto-shorts, autotok, n8n-nodes-upload-post, tiktok-automated-video-generator...) chưa verify — để dành cho batch sau nếu cần, tránh tốn token research/viết tất cả 1 lượt.
 
@@ -924,7 +924,7 @@ Input gốc là 2 list lớn (YouTube MCP/automation tools + TikTok automation t
 ### Skills mới
 | File | Tool | Stars | Highlights |
 |------|------|-------|-----------|
-| skills/bazi-ziwei-skill.md | dzcmemory-web/bazi-ziwei-skill | 317⭐ | SKILL.md cross-agent (Claude/Hermes/OpenClaw), tách tính toán khỏi LLM, render poster HTML thủy mặc |
+| skills/bazi-ziwei-skill/SKILL.md | dzcmemory-web/bazi-ziwei-skill | 317⭐ | SKILL.md cross-agent (Claude/Hermes/OpenClaw), tách tính toán khỏi LLM, render poster HTML thủy mặc |
 
 ### Scripts thêm
 | # | File | Hook |
@@ -954,7 +954,7 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 ### Skills mới
 | File | Concept | Độ nóng | Highlights |
 |------|---------|---------|-----------|
-| skills/harness-engineering.md | Harness Engineering | 🔥🔥🔥 | Xu hướng AI 2026, OpenAI đặt tên Feb 2026, "Agent = Model + Harness", 88% AI project fail vì thiếu harness |
+| skills/harness-engineering/SKILL.md | Harness Engineering | 🔥🔥🔥 | Xu hướng AI 2026, OpenAI đặt tên Feb 2026, "Agent = Model + Harness", 88% AI project fail vì thiếu harness |
 
 ### Stacks mới
 | File | Tool | Funding | Highlights |
@@ -992,15 +992,15 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 ### Skills mới
 | Loại | Tên | File |
 |------|-----|------|
-| Skill | Humanizer | /skills/humanizer.md |
-| Skill | Prompt-Master | /skills/prompt-master.md |
-| Skill | Fact-Checker | /skills/fact-checker.md |
-| Skill | Grill Me | /skills/grill-me.md |
-| 70 | Skill | Anthropic Skills | /skills/anthropic-skills.md | Đã push | /content/script-video-70-anthropic-skills.md | 2026-06-21 |
-| 71 | Skill | GStack (Garry Tan) | /skills/gstack.md | Đã push | /content/script-video-71-gstack.md | 2026-06-21 |
-| 72 | Skill | UI/UX Pro Max Skill | /skills/ui-ux-pro-max.md | Đã push | /content/script-video-72-ui-ux-pro-max.md | 2026-06-21 |
-| 73 | Skill | Understand Anything | /skills/understand-anything.md | Đã push | /content/script-video-73-understand-anything.md | 2026-06-21 |
-| 74 | Skill | Career Ops | /skills/career-ops.md | Đã push | /content/script-video-74-career-ops.md | 2026-06-21 |
+| Skill | Humanizer | /skills/humanizer/SKILL.md |
+| Skill | Prompt-Master | /skills/prompt-master/SKILL.md |
+| Skill | Fact-Checker | /skills/fact-checker/SKILL.md |
+| Skill | Grill Me | /skills/grill-me/SKILL.md |
+| 70 | Skill | Anthropic Skills | /skills/anthropic-skills/SKILL.md | Đã push | /content/script-video-70-anthropic-skills.md | 2026-06-21 |
+| 71 | Skill | GStack (Garry Tan) | /skills/gstack/SKILL.md | Đã push | /content/script-video-71-gstack.md | 2026-06-21 |
+| 72 | Skill | UI/UX Pro Max Skill | /skills/ui-ux-pro-max/SKILL.md | Đã push | /content/script-video-72-ui-ux-pro-max.md | 2026-06-21 |
+| 73 | Skill | Understand Anything | /skills/understand-anything/SKILL.md | Đã push | /content/script-video-73-understand-anything.md | 2026-06-21 |
+| 74 | Skill | Career Ops | /skills/career-ops/SKILL.md | Đã push | /content/script-video-74-career-ops.md | 2026-06-21 |
 | 75 | Repo | Remotion Superpowers | /repos/remotion-superpowers.md | Đã push | /content/script-video-75-remotion-superpowers.md | 2026-06-21 |
 | 76 | MCP | MiniMax MCP | /mcps/minimax-mcp.md | Đã push | /content/script-video-76-minimax-mcp.md | 2026-06-21 |
 | 77 | Repo | Toonflow | /repos/toonflow.md | Đã push | /content/script-video-77-toonflow.md | 2026-06-21 |
@@ -1068,7 +1068,7 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 ### Skills mới
 | Tên | File | Highlights |
 |------|------|-----------||
-| 5 Kỹ Năng Claude | skills/5kynang-claude-skill.md | Framework 5 vai trò dùng Claude kiếm tiền: Vibe Coder, Ghost Voice, Niche Architect, Pattern Hunter, Conversion Engineer. Có full prompt cho từng kỹ năng. |
+| 5 Kỹ Năng Claude | skills/5kynang-claude-skill/SKILL.md | Framework 5 vai trò dùng Claude kiếm tiền: Vibe Coder, Ghost Voice, Niche Architect, Pattern Hunter, Conversion Engineer. Có full prompt cho từng kỹ năng. |
 
 ### Scripts thêm
 | # | File | Hook |
@@ -1175,7 +1175,7 @@ Input gốc là 1 list về Eastern Astrology (Tử Vi/Bát Tự/紫微斗數) d
 
 | Ten | File | Loai | Highlights |
 |-----|------|------|-----------|
-| Resona | skills/resona.md | Skill/Tool | TTS tieng Viet native, long tieng video built-in, API 17K/thang |
+| Resona | skills/resona/SKILL.md | Skill/Tool | TTS tieng Viet native, long tieng video built-in, API 17K/thang |
 
 Script: script-video-113-resona.md — Hook: "ElevenLabs 550K/thang. Startup VN nay lam y chang, gia 17K."
 
@@ -1225,8 +1225,8 @@ Da co trong kho (skip): browser-use, crawl4ai
 |-----|------|-------|-----------|
 | ainovel-cli | repos/ainovel-cli.md | 1,103 | Multi-agent Go CLI viet web novel tu dong |
 | Public APIs | repos/public-apis.md | 444,496 | Top 5 GitHub moi thoi dai - 1500+ free API |
-| VibeVoice | skills/vibevoice.md | N/A | Windows TTS offline mien phi, doc 90 phut |
-| Sherpa Vietnamese ASR | skills/sherpa-vietnamese-asr.md | N/A | Nhan dang giong Viet offline, MIT, Windows |
+| VibeVoice | skills/vibevoice/SKILL.md | N/A | Windows TTS offline mien phi, doc 90 phut |
+| Sherpa Vietnamese ASR | skills/sherpa-vietnamese-asr/SKILL.md | N/A | Nhan dang giong Viet offline, MIT, Windows |
 
 Scripts: 123 (ainovel-cli) -> 126 (sherpa-asr)
 Da co (skip): 10 open source tools, ai-berkshire, 9router, seedance-2-5
@@ -1248,7 +1248,7 @@ Da co (skip): 10 open source tools, ai-berkshire, 9router, seedance-2-5
 
 | Ten | File | Stars | Highlights |
 |-----|------|-------|-----------|
-| freeLLM | skills/freellm.md | 121 | 224 free LLM API tu 25 providers, so sanh rate limit/context, one-click config |
+| freeLLM | skills/freellm/SKILL.md | 121 | 224 free LLM API tu 25 providers, so sanh rate limit/context, one-click config |
 
 Script: script-video-127-freellm.md
 Hook: "224 AI model mien phi. 25 providers. Khong can credit card. Tat ca trong 1 trang."
@@ -1587,9 +1587,9 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 **Kho: 116 repos | 38 MCPs | 86 skills | 146 scripts | 3 agents**
 | 113 | Skill | Agent Self-Improvement Loops | /skills/agent-self-improvement-loops/SKILL.md | Đã push | /content/script-video-147-agent-self-improvement-loops.md | 2026-07-07 |
 | 114 | Repo | Meetily | /repos/meetily.md | Đã push | /content/script-video-148-meetily.md | 2026-07-07 |
-| - | Skill | Chuyên gia Ticketing & Hàng không | /skills/expert-ticketing-aviation.md | Đã push | - | 2026-07-07 |
-| - | Skill | Chuyên gia Digital Marketing | /skills/expert-digital-marketing.md | Đã push | - | 2026-07-07 |
-| - | Skill | Chuyên gia Coding & Development | /skills/expert-coding-dev.md | Đã push | - | 2026-07-07 |
+| - | Skill | Chuyên gia Ticketing & Hàng không | /skills/expert-ticketing-aviation/SKILL.md | Đã push | - | 2026-07-07 |
+| - | Skill | Chuyên gia Digital Marketing | /skills/expert-digital-marketing/SKILL.md | Đã push | - | 2026-07-07 |
+| - | Skill | Chuyên gia Coding & Development | /skills/expert-coding-dev/SKILL.md | Đã push | - | 2026-07-07 |
 | — | Stack | One-Person Company ORG | agents/company/ORG.md | Đã push | — | 2026-07-07 |
 | — | Stack | Coordination Protocol (Airtable HQ + approval loop) | agents/company/COORDINATION.md | Đã push | — | 2026-07-07 |
 | — | Skill | Role Pack — Marketing Agent | agents/company/roles/marketing.md | Đã push | — | 2026-07-07 |
@@ -1606,7 +1606,7 @@ domain-age check qua RDAP + Wayback Machine (khong can API key).
 | 116 | Repo | claude-video | /repos/claude-video.md | Đã push | /content/script-video-150-claude-video.md | 2026-07-08 |
 | 117 | Agent | Research Pro system-prompt v4.3 (merge khung 8 phần) | /agents/research-analytics-pro/system-prompt.md | Đã push | — | 2026-07-09 |
 | 117 | Repo | Hermes Skills Hub | /repos/hermes-skills-hub.md | Đã push | /content/script-video-151-hermes-skills-hub.md | 2025-07-09 |
-| 117 | Skill | Agentic Loop Optimizer | /skills/agentic-loop-optimizer.md | Đã push | /content/script-video-152-agentic-loop-optimizer.md | 2026-07-10 |
+| 117 | Skill | Agentic Loop Optimizer | /skills/agentic-loop-optimizer/SKILL.md | Đã push | /content/script-video-152-agentic-loop-optimizer.md | 2026-07-10 |
 | 118 | Repo | DramaClaw | /repos/dramaclaw.md | Đã push | /content/script-video-153-dramaclaw.md | 2026-07-10 |
 | 117 | Repo | SceneWorks | /repos/sceneworks.md | Đã push | /content/script-video-154-sceneworks.md | 2026-07-11 |
 
@@ -1950,7 +1950,7 @@ no/tien te/dia chinh tri kieu Ray Dalio "Big Cycle". Muc dich chinh: content GMS
 
 | Skill | File | Script |
 |-------|------|--------|
-| Tu duy tai chinh vi mo | skills/tu-duy-tai-chinh-vi-mo.md | script-video-172 |
+| Tu duy tai chinh vi mo | skills/tu-duy-tai-chinh-vi-mo/SKILL.md | script-video-172 |
 
 Skill tu viet (khong phai fetch tu 1 repo co san) - ghep 2 khung: Big Cycle (Dalio, so lieu
 he thong) + Chien Tranh Tien Te (Song Hongbing, dia chinh tri). Da wire vao
@@ -1976,7 +1976,7 @@ Therapy 2011) + Psychology of Money (Morgan Housel).
 
 | Skill | File | Script |
 |-------|------|--------|
-| Tu duy tai chinh phat trien ban than | skills/tu-duy-tai-chinh-phat-trien-ban-than.md | script-video-173 |
+| Tu duy tai chinh phat trien ban than | skills/tu-duy-tai-chinh-phat-trien-ban-than/SKILL.md | script-video-173 |
 
 Khong tim duoc repo/skill GitHub rieng chat luong cho manh nay (da search, chi ra sach/blog
 chung chung) - skill nay tu viet dua tren nghien cuu khoa hoc that (KMSI, peer-reviewed), khong
@@ -1986,8 +1986,8 @@ content).
 
 3 manh tu duy tai chinh hien co trong kho:
 1. Doanh nghiep -> roles/ops-finance.md (DCF, unit economics)
-2. Vi mo-dia chinh tri -> skills/tu-duy-tai-chinh-vi-mo.md (Chien Tranh Tien Te x Big Cycle)
-3. Ca nhan-phat trien ban than -> skills/tu-duy-tai-chinh-phat-trien-ban-than.md (Money Scripts)
+2. Vi mo-dia chinh tri -> skills/tu-duy-tai-chinh-vi-mo/SKILL.md (Chien Tranh Tien Te x Big Cycle)
+3. Ca nhan-phat trien ban than -> skills/tu-duy-tai-chinh-phat-trien-ban-than/SKILL.md (Money Scripts)
 
 **Kho: 128 repos | 38 MCPs | 90 skills | 173 scripts | 7 agent packages | 5 stacks | 9 role**
 
@@ -2008,7 +2008,7 @@ khop nhat, gop chung 1 skill file (thay vi tach le):
 
 | Skill | File | Script |
 |-------|------|--------|
-| Tu duy nhan tinh hoc & hanh vi | skills/tu-duy-nhan-tinh-hoc-hanh-vi.md | script-video-174 |
+| Tu duy nhan tinh hoc & hanh vi | skills/tu-duy-nhan-tinh-hoc-hanh-vi/SKILL.md | script-video-174 |
 
 Da wire vao agents/company/roles/content-creator.md (Skill loi #9 moi). Nguyen tac cung: giu
 giong trung lap to mo, KHONG dung de "chung minh/bac bo" Tu Vi - chi giai thich co che tam ly
@@ -2381,7 +2381,7 @@ coding" - chi lo ra SAU khi da deploy, khong phai luc code local. Da dua vao kho
 
 | Skill | File |
 |-------|------|
-| Kiem tra bao mat truoc deploy | skills/kiem-tra-bao-mat-truoc-deploy.md |
+| Kiem tra bao mat truoc deploy | skills/kiem-tra-bao-mat-truoc-deploy/SKILL.md |
 
 7 muc: (1) Secret trong code, (2) Fake security (UI-only, hacker goi thang API), (3) Data
 leak/IDOR (User A xem duoc data User B), (4) Khong error tracking, (5) Backup chua test
@@ -2442,12 +2442,12 @@ not 6 skill con thieu + 1 stack ghep chuoi:
 
 | Skill | File | Buoc |
 |-------|------|------|
-| How To | skills/how-to.md | 03/09 |
-| Fable Prompter | skills/fable-prompter.md | 05/09 |
-| Personal Voice | skills/personal-voice.md | 06/09 |
-| Anti-AI | skills/anti-ai-tells.md | 07/09 |
-| Write a Skill | skills/write-a-skill.md | 08/09 |
-| Hand Off | skills/handoff.md | 09/09 |
+| How To | skills/how-to/SKILL.md | 03/09 |
+| Fable Prompter | skills/fable-prompter/SKILL.md | 05/09 |
+| Personal Voice | skills/personal-voice/SKILL.md | 06/09 |
+| Anti-AI | skills/anti-ai-tells/SKILL.md | 07/09 |
+| Write a Skill | skills/write-a-skill/SKILL.md | 08/09 |
+| Hand Off | skills/handoff/SKILL.md | 09/09 |
 | Chuoi 9 buoc (stack ghep) | stacks/chuoi-9-buoc-viet-prompt.md | - |
 
 Script: script-video-200. LUU Y: 6 skill moi la DIEN GIAI theo tinh than infographic, khong
@@ -2591,7 +2591,7 @@ mat da co).
 
 | Skill | File |
 |-------|------|
-| AI Chatbot React Starter | skills/ai-chatbot-react-starter.md |
+| AI Chatbot React Starter | skills/ai-chatbot-react-starter/SKILL.md |
 
 DIEU CHINH quan trong so voi ban goc: doi goi thang OpenAI API sang goi qua OmniRoute gateway
 (route model re DeepSeek V3/Gemini Flash cho FAQ don gian, tiet kiem chi phi dang ke).
@@ -2746,7 +2746,7 @@ payment va ABTRIP booking.
 
 Video TikTok Nobitano gui mo ta cach dung Remotion: chuan bi san template, roi build 1 tool
 nhan text dau vao tu dong render ra video. Kho da co Remotion (repos/remotion.md,
-skills/remotion-skill.md) nhung chua co stack noi ghep workflow "text -> props JSON -> render
+skills/remotion-skill/SKILL.md) nhung chua co stack noi ghep workflow "text -> props JSON -> render
 tu dong". Da research doc chinh thuc Remotion ve passing props / dataset render, viet stack moi.
 
 | Stack | File | Script video |
