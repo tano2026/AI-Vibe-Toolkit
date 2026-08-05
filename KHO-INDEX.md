@@ -105,19 +105,19 @@ Fetch về → dùng làm system prompt cho LLM call. Không cài gì.
 
 | File | Dùng khi |
 |------|---------|
-| skills/research-agent.md | Research thị trường, phân tích tool |
-| skills/content-creator.md | Viết script video, social post |
-| skills/token-efficient-research.md | Research nhiều source, tiết kiệm token |
-| skills/fact-checker.md | Verify thông tin trước khi báo chủ |
-| skills/auto-research-trending.md | Tự động research trending |
-| skills/mem0-skill.md | Lưu/retrieve memory preferences |
-| skills/hermes-agent-deep-dive.md | Reference Hermes architecture |
-| skills/viral-hooks-skill.md | Viết hook cho video content |
-| skills/personal-branding-creator.md | Content personal brand |
-| skills/social-media-stack.md | Chọn tool cho từng platform |
-| skills/youtube-marketing-skills.md | Marketing YouTube |
-| skills/vibe-coder-assistant.md | Assist coding tasks |
-| skills/marketing-automation-mcp-guide.md | Automation marketing |
+| skills/research-agent/SKILL.md | Research thị trường, phân tích tool |
+| skills/content-creator/SKILL.md | Viết script video, social post |
+| skills/token-efficient-research/SKILL.md | Research nhiều source, tiết kiệm token |
+| skills/fact-checker/SKILL.md | Verify thông tin trước khi báo chủ |
+| skills/auto-research-trending/SKILL.md | Tự động research trending |
+| skills/mem0-skill/SKILL.md | Lưu/retrieve memory preferences |
+| skills/hermes-agent-deep-dive/SKILL.md | Reference Hermes architecture |
+| skills/viral-hooks-skill/SKILL.md | Viết hook cho video content |
+| skills/personal-branding-creator/SKILL.md | Content personal brand |
+| skills/social-media-stack/SKILL.md | Chọn tool cho từng platform |
+| skills/youtube-marketing-skills/SKILL.md | Marketing YouTube |
+| skills/vibe-coder-assistant/SKILL.md | Assist coding tasks |
+| skills/marketing-automation-mcp-guide/SKILL.md | Automation marketing |
 
 ### Còn lại — ~170 files — KHÔNG có Agent Integration
 
