@@ -142,3 +142,26 @@ job ABTRIP Content Writer báo thiếu skill `ai-content-writing`, `content-ops`
 
 **Action cho Hermes/OpenClaw:** Khi load skill, LUÔN dùng path `skills/<ten>/SKILL.md`. Nếu 404,
 báo lỗi rõ ràng thay vì fallback im lặng — không còn bản `.md` phẳng để fallback nữa.
+
+
+## 2026-08-06 — Thêm affiliate vé máy bay vào Trùm Sân Bay (không phải Fast Track/SIM/đổi tiền)
+
+**Quyết định:** Mở rộng pipeline `agents/trum-san-bay/orchestrator.py` (không xây kênh mới)
+để hỗ trợ CTA affiliate vé máy bay, thay vì tạo kênh "Trùm Du Lịch" riêng. Lý do: Trùm Sân
+Bay đã có audience + pipeline sẵn, chỉ Fast Track/SIM/đổi tiền là sản phẩm CHÍNH ABTRIP (không
+phải affiliate) — vé máy bay là mảng affiliate thật đầu tiên của kênh này.
+
+**Đã làm:**
+- `WRITER_SYSTEM_PROMPT` + `run_writer_agent()`: thêm block AFFILIATE khi brief có
+  `cta_type="affiliate_flight"` và `affiliate_link` đã điền.
+- `inject_affiliate_block()`: guardrail độc lập chạy sau Writer, tự check/sửa nếu LLM quên
+  disclosure — đã unit-test 3 case (thiếu cả 2, không phải affiliate, Writer đã đúng).
+- Ideation prompt: thêm hướng dẫn tag `cta_type="affiliate_flight"` tối đa 1 post/tuần,
+  KHÔNG tự điền affiliate_link (Nobitano điền tay trong Airtable).
+- Skill mới: `agents/trum-san-bay/skills/affiliate-injector/SKILL.md`.
+
+**Việc còn treo (cần Nobitano):**
+- Đăng ký chương trình affiliate vé máy bay thật (Traveloka/Agoda Flights/Skyscanner).
+- Thêm field `affiliate_link` vào bảng `content_queue` trên Airtable UI nếu chưa có.
+- "Trùm Du Lịch" (kênh mới, affiliate sản phẩm du lịch nói chung) — để dành Phase 2,
+  chỉ làm sau khi có số liệu CTR/conversion thật từ affiliate_flight trên Trùm Sân Bay.
