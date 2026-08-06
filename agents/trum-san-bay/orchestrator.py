@@ -138,6 +138,13 @@ chủ đề tốt nhất, đảm bảo 4-5 TOFU/2 MOFU/1 BOFU, phân bổ 7 ngà
 
 Chủ đề thô: {json.dumps(filtered, ensure_ascii=False)}
 
+cta_type thường dùng: "save" (lưu bài), "comment" (hỏi ý kiến), "fast_track"/"sim"/
+"doi_tien" (dẫn về dịch vụ ABTRIP), "affiliate_flight" (dẫn về link vé máy bay
+affiliate — chỉ gán cho topic có góc "tìm vé rẻ/deal vé", KHÔNG gán bừa, tối đa
+1 post/tuần loại này). KHÔNG tự điền affiliate_link — để trống, Nobitano sẽ điền
+tay trong Airtable sau khi duyệt topic (link phải khớp đúng chương trình affiliate
+thật đang chạy, không được đoán/bịa).
+
 Trả JSON: {{"week": "...", "posts": [{{"day","topic","pillar","angle","brief",
 "key_points": [...], "hook_direction","cta_type","needs_factcheck",
 "image_category"}}]}}
@@ -202,12 +209,17 @@ Hook direction: {hook_direction}
 CTA type: {cta_type}
 Fact reference: {aviation_facts}
 {factcheck_warning}
+{affiliate_context}
 
 # GUARDRAIL
 1. KHÔNG bịa số liệu/quy định nếu không có trong Fact reference
 2. KHÔNG hứa hẹn giá cả/chính sách hãng bay cụ thể
 3. BOFU: tone tư vấn thật, KHÔNG ép mua
 4. Topic cảm xúc (delay, mất hành lý): đồng cảm trước, giải pháp sau
+5. Nếu có affiliate_link (xem block AFFILIATE ở trên): lồng CTA tự nhiên theo giọng
+   Trùm Sân Bay ("anh để link vé rẻ anh hay dùng dưới bio"), KHÔNG viết như quảng cáo
+   cứng. KHÔNG tự thêm affiliate link nếu block AFFILIATE trống — chỉ dùng đúng
+   link đã được cung cấp, không bịa link thay thế.
 
 # OUTPUT — chỉ JSON
 {{
@@ -241,6 +253,19 @@ def run_writer_agent(brief):
             "'kiểm tra lại với hãng bay'."
         )
 
+    # Affiliate block — CHỈ điền khi Ideation Agent đã gán affiliate_link cho brief này
+    # (xem run_ideation_agent: cta_type="affiliate_flight" + field affiliate_link).
+    # Không tự bịa link ở đây — nếu brief không có affiliate_link, block để trống,
+    # Writer sẽ không nhắc gì tới affiliate (xem GUARDRAIL #5 ở trên).
+    affiliate_context = ""
+    if brief.get("cta_type") == "affiliate_flight" and brief.get("affiliate_link"):
+        affiliate_context = f"""
+# AFFILIATE (chỉ dùng nếu có block này)
+Affiliate link: {brief['affiliate_link']}
+Đây là link vé máy bay affiliate — mỗi platform PHẢI có disclosure "Link liên kết/affiliate"
+đi kèm link, không được bỏ. Xem thêm skills/affiliate-injector/SKILL.md.
+"""
+
     prompt = WRITER_SYSTEM_PROMPT.format(
         topic=brief.get("topic", ""),
         pillar=brief.get("pillar", "TOFU"),
@@ -249,7 +274,8 @@ def run_writer_agent(brief):
         hook_direction=brief.get("hook_direction", "curiosity"),
         cta_type=brief.get("cta_type", "save"),
         aviation_facts=AVIATION_FACTS_BASE,
-        factcheck_warning=factcheck_warning
+        factcheck_warning=factcheck_warning,
+        affiliate_context=affiliate_context
     )
 
     result = llm_call_json(prompt, tier="creative", max_tokens=2000)
@@ -258,6 +284,57 @@ def run_writer_agent(brief):
         result["needs_manual_review"] = True
 
     return result
+
+
+# ============================================================
+# ③b AFFILIATE INJECTOR — guardrail cứng, KHÔNG tin Writer LLM tự làm đúng
+# ============================================================
+
+AFFILIATE_DISCLOSURE_VI = "Link liên kết/affiliate — anh có thể nhận hoa hồng nếu bạn đặt qua đây, không phát sinh thêm phí cho bạn."
+
+PLATFORM_CAPTION_KEYS = {
+    "facebook": "caption_fb", "instagram": "caption_ig",
+    "tiktok": "caption_tiktok", "shorts": "caption_shorts",
+}
+
+
+def inject_affiliate_block(caption_result, affiliate_link, brief):
+    """
+    Guardrail độc lập với Writer LLM — Writer được HƯỚNG DẪN tự lồng CTA + disclosure
+    trong prompt (xem WRITER_SYSTEM_PROMPT), nhưng LLM có thể quên. Hàm này CHECK và
+    TỰ THÊM disclosure nếu Writer bỏ sót, đảm bảo không có caption nào có affiliate
+    link mà thiếu disclosure lọt qua Review Queue.
+
+    Nguyên tắc mượn từ agents/shorts-affiliate-system/skills/affiliate-disclosure-writer:
+    - Không bao giờ để trống disclosure khi có affiliate link
+    - Không tự bịa link thay thế nếu affiliate_link rỗng — hàm này CHỈ chạy khi
+      cta_type="affiliate_flight" VÀ affiliate_link có giá trị thật
+    """
+    if brief.get("cta_type") != "affiliate_flight" or not affiliate_link:
+        return caption_result, {"injected": False, "reason": "not_affiliate_content"}
+
+    injected_platforms = []
+    for platform, key in PLATFORM_CAPTION_KEYS.items():
+        caption = caption_result.get(key, "")
+        if not caption:
+            continue
+        has_link = affiliate_link in caption
+        has_disclosure = "affiliate" in caption.lower() or "liên kết" in caption.lower()
+
+        if has_link and has_disclosure:
+            continue  # Writer đã làm đúng, không cần sửa
+
+        # Writer thiếu link hoặc thiếu disclosure — tự thêm vào cuối caption
+        addition = ""
+        if not has_link:
+            addition += f"\n🔗 {affiliate_link}"
+        if not has_disclosure:
+            addition += f"\n({AFFILIATE_DISCLOSURE_VI})"
+
+        caption_result[key] = caption + addition
+        injected_platforms.append(platform)
+
+    return caption_result, {"injected": len(injected_platforms) > 0, "platforms": injected_platforms}
 
 
 # ============================================================
@@ -453,6 +530,16 @@ def run_weekly_content_pipeline(telegram_notify_fn=None):
 
         # Writer
         caption_result = run_writer_agent(fields)
+
+        # Affiliate guardrail — chạy vô điều kiện, tự bỏ qua nếu không phải content
+        # affiliate (xem inject_affiliate_block). Đây là bước CHECK, không phải bước
+        # tạo mới — không thêm content_queue field nào, chỉ sửa caption nếu thiếu.
+        caption_result, affiliate_check = inject_affiliate_block(
+            caption_result, fields.get("affiliate_link"), fields
+        )
+        if affiliate_check["injected"]:
+            log.append(f"Affiliate disclosure auto-fixed cho {content_id}: {affiliate_check['platforms']}")
+
         airtable_update("content_queue", content_id, {
             **{k: v for k, v in caption_result.items() if k != "self_check"},
             "status": "CAPTION_READY"
