@@ -2847,3 +2847,4 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 221 | Repo | Codex Plugin for Claude Code | /repos/codex-plugin-cc.md | Đã push | /content/script-video-229-codex-plugin-cc.md | 2026-08-05 |
 | 222 | Repo | Financial Services Plugins (Anthropic) | /repos/financial-services.md | Đã push | /content/script-video-230-financial-services.md | 2026-08-05 |
 | 203 | Stack | Digital Marketing Agent | /agents/digital-marketing-agent/README.md | Đã push (orchestrator layer, tham chiếu skill có sẵn) | — (agent package) | 2026-08-06 |
+| 204 | Repo | LocalMiniDrama | /repos/localminidrama.md | Đã push | /content/script-video-228-localminidrama.md | 2026-08-06 |
