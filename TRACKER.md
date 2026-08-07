@@ -2848,3 +2848,4 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 222 | Repo | Financial Services Plugins (Anthropic) | /repos/financial-services.md | Đã push | /content/script-video-230-financial-services.md | 2026-08-05 |
 | 203 | Stack | Digital Marketing Agent | /agents/digital-marketing-agent/README.md | Đã push (orchestrator layer, tham chiếu skill có sẵn) | — (agent package) | 2026-08-06 |
 | 204 | Repo | LocalMiniDrama | /repos/localminidrama.md | Đã push | /content/script-video-228-localminidrama.md | 2026-08-06 |
+| 205 | Skill | Platform Policy Intelligence | /skills/platform-policy-intelligence/SKILL.md | Đã push (memory 3 platform đã điền dữ liệu thật 8/2026) | — | 2026-08-06 |
