@@ -2851,3 +2851,28 @@ kieu liet ke tinh tu ra ket qua chung chung.
 | 205 | Skill | Platform Policy Intelligence | /skills/platform-policy-intelligence/SKILL.md | Đã push (memory 3 platform đã điền dữ liệu thật 8/2026) | — | 2026-08-06 |
 | 223 | Skill | Zalo OA Du Lịch & Lưu Trú Playbook | skills/zalo-oa-du-lich-luu-tru-playbook/SKILL.md | Đã push | content/script-video-231-zalo-oa-du-lich-luu-tru-playbook.md | 2026-08-07 |
 | 233 | Repo | Buzz | /repos/buzz.md | Đã push | /content/script-video-232-buzz.md | 2026-08-08 |
+
+
+---
+
+## Repo moi 02/08/2026 — TencentDB Agent Memory (Tencent, xac nhan that)
+
+Nobitano hoi "Agentmemory cua tencent" - xac nhan that, 17.9K sao, Tencent chinh chu.
+
+| Repo | File |
+|------|------|
+| Tencent/TencentDB-Agent-Memory | repos/tencentdb-agent-memory.md |
+
+PHAT HIEN QUAN TRONG: repo liet ke ho tro truc tiep "OpenClaw, Hermes, Claude Code, CodeBuddy"
+nhu framework/runtime da co ten rieng trong he sinh thai - CAN XAC MINH xem "OpenClaw"/"Hermes"
+Tano Agency dang dung co phai lien quan framework mo nguon nay khong (da log vao
+CHANGELOG-DECISIONS.md, chua xac minh).
+
+Kien truc: memory layering 4 tang (L2 Scenario Markdown, L3 Persona, task canvas Mermaid) +
+symbolic memory - debug duoc bang cach di nguoc chuoi thay vi do mu qua vector score. Co
+CodeGraph tu index codebase - tinh nang doc dao supermemory (da co trong kho) khong co.
+
+CANH BAO: license "Other/NOASSERTION" (khac MIT cua supermemory), TRUNG PHAM VI voi
+repos/supermemory.md da co - khong nen cai ca 2 cung luc, can test truoc khi chon 1.
+
+**Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
