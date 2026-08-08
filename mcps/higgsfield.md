@@ -35,3 +35,69 @@ Cho kênh **AI review (TikTok/Shorts)**: mô tả "cảnh mở đầu điện th
 - MCP hosted: https://mcp.higgsfield.ai
 - Repo self-host (cần API key): https://github.com/geopopos/higgsfield_ai_mcp
 - Docs: https://higgsfield.ai/mcp
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+Bản hosted MCP (mcp.higgsfield.ai) yêu cầu OAuth qua Claude connector, KHÔNG gọi thẳng
+được từ script Python thuần bằng urllib. Muốn Hermes tự động hoá (không qua Claude chat),
+dùng REST wrapper tự host `geopopos/higgsfield_ai_mcp` (cần HF_API_KEY/HF_SECRET lấy từ
+tài khoản Higgsfield → Settings → API):
+
+```python
+import urllib.request, json, os
+
+HF_API_KEY = os.environ.get("HF_API_KEY")
+HF_SECRET = os.environ.get("HF_SECRET")
+
+def higgsfield_generate_image(prompt, model="soul"):
+    url = "https://api.higgsfield.ai/v1/image/generate"  # endpoint theo doc repo wrapper
+    headers = {
+        "Authorization": f"Bearer {HF_API_KEY}",
+        "X-HF-Secret": HF_SECRET,
+        "Content-Type": "application/json"
+    }
+    payload = json.dumps({"prompt": prompt, "model": model}).encode()
+    req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+    return json.loads(urllib.request.urlopen(req).read())
+
+# vd: tạo ảnh sản phẩm ABTRIP cho content Trùm Sân Bay
+# result = higgsfield_generate_image("SIM 4G đặt trên bàn đá cẩm thạch, ánh sáng buổi sáng ấm")
+```
+> ⚠️ Endpoint REST thật cần verify lại trong docs repo `geopopos/higgsfield_ai_mcp` trước
+> khi chạy — repo là wrapper cộng đồng, không phải API chính chủ Higgsfield.
+
+### OpenClaw
+Add MCP server hosted vào config OpenClaw (không cần API key, auth OAuth 1 lần qua tài khoản):
+
+```bash
+# trong OpenClaw MCP config (vd mcp-servers.json hoặc tương đương)
+# thêm entry:
+# {
+#   "name": "higgsfield",
+#   "url": "https://mcp.higgsfield.ai",
+#   "auth": "oauth"
+# }
+# Sau đó chạy lệnh xác thực (nếu OpenClaw hỗ trợ CLI auth flow):
+npx @higgsfield/cli auth login
+```
+> Cách chắc ăn nhất vẫn là add qua Claude web/desktop Connectors trước để xác nhận
+> account hoạt động, sau đó mới trỏ OpenClaw vào cùng MCP URL.
+
+### Antigravity
+Không cần deploy service riêng nếu dùng bản hosted (mcp.higgsfield.ai). Chỉ cần deploy
+khi muốn self-host wrapper `geopopos/higgsfield_ai_mcp` để Hermes gọi thẳng REST:
+
+```bash
+# trên VPS (Tencent Cloud), nếu chọn self-host wrapper:
+git clone https://github.com/geopopos/higgsfield_ai_mcp.git
+cd higgsfield_ai_mcp
+npm install
+# set env HF_API_KEY, HF_SECRET trong .env hoặc pm2 ecosystem file
+pm2 start index.js --name higgsfield-wrapper
+```
+> ⚠️ Chỉ làm bước này nếu Hermes THỰC SỰ cần gọi Higgsfield ngoài phiên Claude chat.
+> Nếu chỉ dùng qua Claude (web/Cowork/Code) thì bản hosted qua Connectors là đủ,
+> không cần deploy gì thêm.
