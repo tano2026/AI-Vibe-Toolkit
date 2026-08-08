@@ -165,3 +165,23 @@ phải affiliate) — vé máy bay là mảng affiliate thật đầu tiên củ
 - Thêm field `affiliate_link` vào bảng `content_queue` trên Airtable UI nếu chưa có.
 - "Trùm Du Lịch" (kênh mới, affiliate sản phẩm du lịch nói chung) — để dành Phase 2,
   chỉ làm sau khi có số liệu CTR/conversion thật từ affiliate_flight trên Trùm Sân Bay.
+
+
+---
+
+## 2026-08-02 — Cau hoi can xac minh: "OpenClaw"/"Hermes" co phai framework mo nguon co san
+
+Phat hien khi research repos/tencentdb-agent-memory.md: repo Tencent liet ke ho tro truc tiep
+"OpenClaw, Hermes, Claude Code, CodeBuddy" nhu cac framework/runtime da co ten rieng trong he
+sinh thai - khong phai trung ten ngau nhien voi agent-core cua Tano Agency.
+
+**CAN XAC MINH:** "OpenClaw" va "Hermes" ma Tano Agency dang dung co phai xay tren/lien quan
+framework mo nguon nay khong, hay chi trung ten tinh co voi 2 cai ten tu dat rieng cho
+agent-core/orchestrator.
+
+Neu la framework that co san -> nen can nhac dung lai/tich hop framework goc thay vi tiep tuc
+tu viet agent-core tu dau (dang lam do theo UNIFIED-ARCHITECTURE.md). Neu chi la trung ten ->
+bo qua, khong anh huong gi.
+
+**Trang thai:** CHUA XAC MINH - can Nobitano/Antigravity kiem tra truc tiep tren VPS/may local
+xem agent-core hien tai co dependency/reference nao toi framework "OpenClaw" mo nguon khong.
