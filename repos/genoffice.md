@@ -34,6 +34,9 @@ Mở 1 file .docx báo cáo dài, bôi đen 1 đoạn paragraph lỗi thời →
 - Chỉ hỗ trợ macOS Apple Silicon (không hỗ trợ Intel Mac) + Windows x64 + Linux x86_64 glibc 2.34+ — không có bản Linux ARM
 - Thư mục `ee/` (enterprise module tương lai) KHÔNG nằm trong Apache-2.0, có license riêng — nếu định fork để bán lại/customize cho khách, đọc kỹ phần này trước
 
+## Phạm vi sử dụng (Tano Agency)
+**Chỉ dùng nội bộ** — không đưa vào deliverable/pipeline giao cho khách hàng hay brand (ABTRIP/Wonder Mart/Tano Cafe) cho tới khi qua giai đoạn Alpha. Lý do: (1) chưa ổn định, (2) không có privacy policy riêng — nội dung tài liệu đi qua hạ tầng Genspark/model bên thứ 3, không phù hợp xử lý tài liệu có data khách hàng/brand nhạy cảm. Dùng thoải mái cho việc cá nhân: soạn báo cáo nội bộ, sửa nhanh file .docx/.xlsx không cần rời app.
+
 ## Đánh giá cá nhân
 - **Điểm mạnh:** Mã nguồn mở thật (Apache-2.0, không phải "open-core giả"), byte-preserving round trip là điểm kỹ thuật hiếm gặp — hầu hết AI doc tool khác export ra là auto làm hỏng định dạng gốc. Free và ad-free cho phần office cơ bản. Chạy được cả 3 OS.
 - **Điểm yếu:** Alpha nên chưa ổn định để giao cho khách/dùng production ngay; AI bắt buộc phụ thuộc tài khoản + credit Genspark (không self-host AI được), tức là vẫn có 1 điểm phụ thuộc bên ngoài dù code mở. Không có Linux ARM, chưa có bản mobile.
