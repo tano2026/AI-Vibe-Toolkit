@@ -2876,3 +2876,4 @@ CANH BAO: license "Other/NOASSERTION" (khac MIT cua supermemory), TRUNG PHAM VI 
 repos/supermemory.md da co - khong nen cai ca 2 cung luc, can test truoc khi chon 1.
 
 **Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
+| 234 | Repo | GenOffice | repos/genoffice.md | Đã push | content/script-video-233-genoffice.md | 2026-08-09 |
