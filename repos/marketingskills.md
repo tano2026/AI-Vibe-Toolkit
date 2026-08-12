@@ -1,16 +1,16 @@
 ---
 name: marketingskills
 description: >
-  Stars: 31.9k Forks: 5.3k License: MIT Tác giả: Corey Haines Version: v2.3.0
-  (tháng 5/2026)
+  Stars: 44k Forks: 6.9k License: MIT Tác giả: Corey Haines Version: v2.10.0
+  (27/07/2026)
 ---
 
-# marketingskills — 43 skill marketing biến AI agent thành CMO thực thụ
+# marketingskills — 49 skill marketing biến AI agent thành CMO thực thụ
 
 **GitHub:** https://github.com/coreyhaines31/marketingskills
-**Stars:** 31.9k | **Forks:** 5.3k | **License:** MIT
-**Tác giả:** Corey Haines | **Version:** v2.3.0 (tháng 5/2026)
-**Commits:** 309 | **Releases:** 16
+**Stars:** 44k | **Forks:** 6.9k | **Watching:** 385 | **License:** MIT
+**Tác giả:** Corey Haines (founder Conversion Factory, newsletter Swipe Files) | **Version:** v2.10.0 (27/07/2026)
+**Commits:** 389 | **Releases:** 39 | **Branches:** 33 | **Tags:** 39
 
 ---
 
@@ -30,7 +30,7 @@ marketingskills giải quyết đúng vấn đề đó — bằng cách cho agen
 
 ## Cơ chế hoạt động
 
-Repo này là **43 file markdown**, mỗi file = một "skill" định nghĩa cho agent biết:
+Repo này là **49 file markdown** (tính tới v2.10.0), mỗi file = một "skill" định nghĩa cho agent biết:
 - Khi nào activate skill này
 - Làm theo framework nào
 - Tham chiếu skill nào khác khi cần
@@ -40,25 +40,29 @@ Repo này là **43 file markdown**, mỗi file = một "skill" định nghĩa ch
 Mày hỏi → agent nhận diện intent → load đúng skill → thực thi theo framework
 ```
 
-**Điểm thiết kế thông minh nhất:** Skill `product-marketing` là foundation. Trước khi làm bất cứ thứ gì, tất cả 42 skill còn lại đều đọc file context sản phẩm của mày trước. Setup một lần, dùng mãi.
+**Điểm thiết kế thông minh nhất:** Skill `product-marketing` là foundation. Trước khi làm bất cứ thứ gì, tất cả skill còn lại đều đọc file context sản phẩm của mày trước. Setup một lần, dùng mãi.
 
 ---
 
-## 43 Skills — Phân loại theo nhóm
+## 49 Skills — Phân loại theo nhóm
 
 | Nhóm | Skills |
 |------|--------|
-| **SEO & Content** | seo-audit, ai-seo, site-arch, programmatic-seo, schema-markup, content-strategy, aso-audit |
-| **CRO** | cro, signup, onboarding, form-cro, popups, paywall |
-| **Copy & Content** | copywriting, copy-editing, cold-email, email-sequence, social, video, image, sms, ad-creative |
-| **Paid & Analytics** | paid-ads, analytics-tracking, ab-testing |
-| **Growth & Retention** | referral-program, free-tool-strategy, churn-prevention, community-marketing, lead-magnets, co-marketing |
-| **Sales & GTM** | revops, sales-enablement, launch-strategy, pricing-strategy, competitor-alternatives, competitor-profiling, directory-submissions, prospecting |
-| **Strategy** | marketing-ideas, marketing-psychology, customer-research, marketing-plan |
+| **SEO & Content** | seo-audit, ai-seo, site-architecture, programmatic-seo, schema, content-strategy, aso |
+| **CRO** | cro, signup, onboarding, offers, popups, paywalls |
+| **Copy & Content** | copywriting, copy-editing, cold-email, emails, social, video, image, sms, ad-creative |
+| **Paid & Measurement** | ads, analytics, ab-testing, **attribution** (mới v2.10.0) |
+| **Growth & Retention** | referrals, free-tools, churn-prevention, community-marketing, lead-magnets, co-marketing, marketing-loops |
+| **Sales & GTM** | revops, sales-enablement, launch, pricing, competitors, competitor-profiling, directory-submissions, prospecting, public-relations, influencer-marketing |
+| **Strategy** | marketing-ideas, marketing-psychology, customer-research, marketing-plan, **marketing-council** |
 
-**Skill đáng chú ý nhất:** `ai-seo` — optimize content để được ChatGPT, Claude, Perplexity cite. Đây là thứ rất ít framework marketing nào có ở thời điểm này.
+**Skill mới đáng chú ý nhất — `attribution` (v1.1.0, thêm trong v2.10.0):** trả lời câu hỏi khó nhất marketing — kênh nào thực sự tạo ra conversion/revenue. Trước đây phần này bị rải rác trong analytics (UTM), ads (pixel), revops (pipeline), ai-seo (AI blind spot) — giờ gom thành 1 skill riêng, có 2 trụ: (A) Interpretation — 6 mô hình attribution và khi nào mỗi mô hình "nói dối"; (B) Own your attribution — tự dựng first-party attribution khi mày kiểm soát được site/app.
 
-**Skill mới nhất (tháng 5/2026):** `marketing-plan` — tạo bản kế hoạch marketing theo AARRR, ~13 mục, ~10,000 từ, điều chỉnh theo budget/team size/giai đoạn sản phẩm.
+**Skill độc đáo — `marketing-council`:** mô phỏng một "ban cố vấn" gồm các marketer huyền thoại (Seth Godin, David Ogilvy, Eugene Schwartz, April Dunford, Rory Sutherland, Alex Hormozi, Byron Sharp...) — mỗi người đưa ý kiến theo đúng framework họ từng công bố, cố tình để họ **bất đồng** với nhau để lộ ra trade-off thật, rồi tổng hợp khuyến nghị. Skill tự ghi rõ đây là "persona simulation", không phải người thật.
+
+**Skill nền tảng cho người mới — `marketing-ideas`:** thư viện 139 ý tưởng marketing đã kiểm chứng cho SaaS (không phải 140 như một số bài review — số thật lấy trực tiếp từ SKILL.md là 139), gợi ý 3-5 ý tưởng phù hợp nhất theo giai đoạn/ngân sách/team size.
+
+**`ai-seo`** vẫn là skill hiếm có framework marketing nào làm — optimize content để được ChatGPT, Claude, Perplexity trích dẫn.
 
 ---
 
@@ -70,7 +74,7 @@ npx skills add coreyhaines31/marketingskills
 ```
 Tự động cài vào `.agents/skills/` và symlink vào `.claude/skills/`.
 
-**Cách 2: Claude Code plugin**
+**Cách 2: Claude Code plugin marketplace**
 ```
 /plugin marketplace add coreyhaines31/marketingskills
 /plugin install marketing-skills
@@ -82,6 +86,8 @@ git clone https://github.com/coreyhaines31/marketingskills.git
 cp -r marketingskills/skills/* .agents/skills/
 ```
 
+Ngoài ra còn git submodule, fork tùy chỉnh, và SkillKit đa agent — hợp Claude Code, OpenAI Codex, Cursor, Windsurf.
+
 ---
 
 ## Setup quan trọng nhất — product-marketing context
@@ -89,7 +95,6 @@ cp -r marketingskills/skills/* .agents/skills/
 Trước khi dùng bất kỳ skill nào, phải tạo file context sản phẩm:
 
 ```bash
-# Trong project của mày, chạy:
 mkdir -p .agents
 ```
 
@@ -101,7 +106,7 @@ Product Overview → Target Audience → Personas → Problems & Pain Points
 → Customer Language → Brand Voice → Proof Points → Goals
 ```
 
-Điền xong file này → mọi skill khác biết sản phẩm của mày là gì, không cần giải thích lại.
+Điền xong file này → mọi skill khác (kể cả `marketing-council` và `attribution` mới) đều tự đọc, không cần giải thích lại.
 
 ---
 
@@ -131,13 +136,13 @@ Task của mày ở đây
 → Agent load skill cro → phân tích theo 7-dimension framework
 → Output: Quick Wins / High-Impact / Test Ideas / Copy Alternatives
 
-"Write homepage copy for my SaaS"
-→ Agent load skill copywriting → áp dụng PAS/BAB/FAB framework
-→ Output: 3 headline options + rationale + body copy draft
+"Google nói kênh A tốt nhất, GA4 nói kênh B tốt nhất, số nào đúng?"
+→ Agent load skill attribution → giải thích vì sao 2 dashboard "nói dối"
+theo cách khác nhau, đề xuất mô hình attribution phù hợp
 
-"Set up GA4 tracking for signups"
-→ Agent load skill analytics-tracking
-→ Output: implementation guide step-by-step
+"Seth Godin với Hormozi sẽ nghĩ gì về chiến lược launch này?"
+→ Agent load skill marketing-council → mô phỏng debate giữa các advisor,
+tổng hợp khuyến nghị + chỗ họ bất đồng
 ```
 
 ---
@@ -147,8 +152,9 @@ Task của mày ở đây
 Skills tự biết khi nào cần gọi skill khác:
 - `copywriting` ↔ `cro` ↔ `ab-testing`
 - `revops` ↔ `sales-enablement` ↔ `cold-email`
-- `seo-audit` ↔ `schema-markup` ↔ `ai-seo`
-- `customer-research` → `copywriting`, `cro`, `competitor-alternatives`
+- `seo-audit` ↔ `schema` ↔ `ai-seo`
+- `customer-research` → `copywriting`, `cro`, `competitors`
+- `attribution` → không ôm việc của `analytics` (UTM/event tracking) hay `ads` (pixel) — chỉ lo phần "join touch → conversion → revenue"
 
 ---
 
@@ -156,9 +162,11 @@ Skills tự biết khi nào cần gọi skill khác:
 
 **Cần biết dùng CLI:** Cài qua `npx` hoặc copy thủ công — không có GUI.
 
-**Phụ thuộc vào context file:** Nếu `.agents/product-marketing.md` bỏ trống hoặc điền qua loa, output vẫn generic như không có skill.
+**Phụ thuộc vào context file:** Nếu `.agents/product-marketing.md` bỏ trống hoặc điền qua loa, output vẫn generic như không có skill — kể cả skill mới `marketing-council`/`attribution` cũng dựa vào file này.
 
 **Không phải cho người dùng web interface:** Lợi ích giảm đáng kể nếu chỉ chat trực tiếp trên claude.ai — phải paste thủ công từng skill.
+
+**`marketing-council` là persona simulation:** không phải Seth Godin/Hormozi thật trả lời — chỉ là mô phỏng dựa trên framework họ đã công bố công khai, cần hiểu rõ giới hạn này trước khi tin tưởng tuyệt đối vào output.
 
 ---
 
@@ -166,15 +174,15 @@ Skills tự biết khi nào cần gọi skill khác:
 
 marketingskills là thứ **technical founder nên cài trước khi mua thêm bất kỳ AI marketing tool SaaS nào**.
 
-31.9k stars không phải ngẫu nhiên — đây là một trong số ít repo giải quyết đúng vấn đề: AI agent giỏi code nhưng không biết marketing. Bộ skill này vá đúng lỗ hổng đó.
+44k stars không phải ngẫu nhiên — đây là một trong số ít repo giải quyết đúng vấn đề: AI agent giỏi code nhưng không biết marketing. Bộ skill này vá đúng lỗ hổng đó, và vẫn đang active phát triển đều (39 release, update gần nhất tháng 7/2026).
 
-Điểm tao đánh giá cao nhất là `ai-seo` và `marketing-plan`. Hai skill này cover những thứ mà ngay cả fractional CMO chuyên nghiệp cũng hay bỏ sót khi làm với startup giai đoạn đầu.
+Skill mới `attribution` là bổ sung hợp lý nhất trong bản v2.10.0 — trước đây đúng là bị thiếu 1 chỗ "chốt" câu hỏi kênh nào thực sự ăn tiền, giờ có hẳn 1 skill riêng xử lý reconciliation giữa các dashboard mâu thuẫn nhau. `marketing-council` thì vui nhưng giá trị thực tế phụ thuộc nhiều vào việc người dùng có hiểu đây là simulation hay không.
 
 Phù hợp nhất: technical founder, indie hacker, hoặc marketer đang dùng Claude Code / Cursor. Không phù hợp: người chưa biết terminal là gì.
 
-**Rating: 9/10** — trừ 1 điểm vì barrier to entry với non-technical users còn cao.
+**Rating: 9/10** — trừ 1 điểm vì barrier to entry với non-technical users còn cao, và `marketing-council` dễ bị hiểu nhầm là "ý kiến thật" nếu không đọc kỹ disclaimer.
 
 ---
 
 *Nguồn: github.com/coreyhaines31/marketingskills*
-*Cập nhật: tháng 6/2026*
+*Cập nhật: 12/08/2026 — nâng từ v2.3.0 (31.9k sao, 43 skill) lên v2.10.0 (44k sao, 49 skill, thêm attribution + marketing-council)*
