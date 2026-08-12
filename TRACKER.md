@@ -2898,3 +2898,10 @@ Hermes thuc te cua Tano Agency (Python executor thuan, urllib.request, khong co 
 Da note ro trong tung file .md, khong duoc cai truc tiep qua install-hermes.sh cua repo goc.
 25/35 skill con lai trong bundle bi bo qua vi trung lap voi skill da co (seo, ui-designer)
 hoac khong lien quan domain (academic-*, finance-*, video-generation phu thuoc backend chua co).
+
+CAP NHAT 2026-08-12: repos/marketingskills.md duoc update tu v2.3.0 (31.9k sao, 43 skill,
+thang 5/2026) len v2.10.0 (44k sao, 6.9k fork, 49 skill, phat hanh 27/07/2026). Bo sung
+2 skill moi dang chu y: attribution (giai quyet reconciliation giua cac dashboard analytics
+mau thuan nhau) va marketing-council (mo phong ban co van gom cac marketer huyen thoai -
+Seth Godin, Ogilvy, Hormozi... - de lo tradeoff qua bat dong y kien). So 139 y tuong trong
+marketing-ideas da duoc verify truc tiep tu SKILL.md (khong phai 140 nhu 1 so nguon review khac).
