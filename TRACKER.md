@@ -2878,3 +2878,23 @@ repos/supermemory.md da co - khong nen cai ca 2 cung luc, can test truoc khi cho
 **Kho: 150 repos | 40 MCPs | 99 skills | 206 scripts | 7 agent packages | 7 stacks | 9 agent that**
 | 234 | Repo | GenOffice | repos/genoffice.md | Đã push | content/script-video-233-genoffice.md | 2026-08-09 |
 | 234 | Repo | DeepSeek-R1 Local | /repos/deepseek-r1-local.md | Đã push | /content/script-video-233-deepseek-r1-local.md | 2026-08-12 |
+| 235 | Skill | Natural Writing | skills/natural-writing.md | Đã push | content/script-video-234-natural-writing.md | 2026-08-12 |
+| 236 | Skill | Skill Seekers | skills/skill-seekers.md | Đã push | content/script-video-235-skill-seekers.md | 2026-08-12 |
+| 237 | Skill | Markdown Converter | skills/markdown-converter.md | Đã push | content/script-video-236-markdown-converter.md | 2026-08-12 |
+| 238 | Skill | Domain Name Brainstormer | skills/domain-name-brainstormer.md | Đã push | content/script-video-237-domain-name-brainstormer.md | 2026-08-12 |
+| 239 | Skill | Content Research Writer | skills/content-research-writer.md | Đã push | content/script-video-238-content-research-writer.md | 2026-08-12 |
+| 240 | Skill | Summarization | skills/summarization.md | Đã push | content/script-video-239-summarization.md | 2026-08-12 |
+| 241 | Skill | Content Analysis | skills/content-analysis.md | Đã push | content/script-video-240-content-analysis.md | 2026-08-12 |
+| 242 | Skill | Data Analyzer | skills/data-analyzer.md | Đã push | content/script-video-241-data-analyzer.md | 2026-08-12 |
+| 243 | Skill | Analytics Data Analysis | skills/analytics-data-analysis.md | Đã push | content/script-video-242-analytics-data-analysis.md | 2026-08-12 |
+| 244 | Skill | KPI Dashboard Creator | skills/kpi-dashboard-creator.md | Đã push | content/script-video-243-kpi-dashboard-creator.md | 2026-08-12 |
+
+GHI CHU 2026-08-12: 10 skill tren duoc adapt tu bundle Rylaispirit/rylai-codex-hermes-skills
+(github.com/Rylaispirit/rylai-codex-hermes-skills). CANH BAO: repo nguon co dau hieu
+sao/fork bat thuong (39 sao/33 fork sau 3 ngay, push 1 lan duy nhat - kha nang inflated).
+NAMING COLLISION: "Hermes" trong repo nay la mot quy uoc generic khac (skill-loader doc
+tu ~/.hermes/skills/, co tool video_generate/image_generate gia dinh san) - KHONG PHAI
+Hermes thuc te cua Tano Agency (Python executor thuan, urllib.request, khong co skill-loader).
+Da note ro trong tung file .md, khong duoc cai truc tiep qua install-hermes.sh cua repo goc.
+25/35 skill con lai trong bundle bi bo qua vi trung lap voi skill da co (seo, ui-designer)
+hoac khong lien quan domain (academic-*, finance-*, video-generation phu thuoc backend chua co).
