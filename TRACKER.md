@@ -2905,3 +2905,23 @@ thang 5/2026) len v2.10.0 (44k sao, 6.9k fork, 49 skill, phat hanh 27/07/2026). 
 mau thuan nhau) va marketing-council (mo phong ban co van gom cac marketer huyen thoai -
 Seth Godin, Ogilvy, Hormozi... - de lo tradeoff qua bat dong y kien). So 139 y tuong trong
 marketing-ideas da duoc verify truc tiep tu SKILL.md (khong phai 140 nhu 1 so nguon review khac).
+
+
+---
+
+## Skill moi 2026-08-14 — Vox Director
+
+Video TikTok thu 2 Nobitano gui (@doanhnhanthongthai) mo ta phong cach video paper-collage
+kieu Vox. Da tim ra: Vox Director - agent skill ma nguon mo (Alisa0808/vox-director, MIT,
+7 stars), chay tren Atlas Cloud API + ffmpeg, cai vao Claude Code nhu 1 skill. Gap voi
+Remotion Template Factory da lam truoc do: Vox Director = AI tu sinh toan bo visual (khong
+kiem soat pixel), Remotion = code tay (kiem soat 100%, khong ton phi API moi lan render).
+
+| Skill | File | Script video |
+|-------|------|---------------|
+| Vox Director | skills/vox-director.md | content/script-video-244-vox-director.md |
+
+Danh gia ca nhan: 6/10 - hop de thu nghiem/content kham pha, khong nen la cong cu chinh cho
+content factory can output deu dan + dung brand + chi phi thap.
+
+**Kho: 146 repos | 40 MCPs | 100 skills | 244 scripts | 7 agent packages | 8 stacks | 9 agent that**
