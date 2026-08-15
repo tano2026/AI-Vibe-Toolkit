@@ -2925,3 +2925,4 @@ Danh gia ca nhan: 6/10 - hop de thu nghiem/content kham pha, khong nen la cong c
 content factory can output deu dan + dung brand + chi phi thap.
 
 **Kho: 146 repos | 40 MCPs | 100 skills | 244 scripts | 7 agent packages | 8 stacks | 9 agent that**
+| 246 | Skill | 5 Vai Trò Solo Operator | /skills/5-vai-tro-solo-operator/SKILL.md | Đã push | /content/script-video-245-5-vai-tro-solo-operator.md | 2026-08-15 |
