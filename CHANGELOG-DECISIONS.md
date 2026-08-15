@@ -113,3 +113,18 @@
   ZALO_ACCESS_TOKEN + DEEPSEEK_API_KEY plaintext, đọc được bằng cat). Cả 2 wire skill có sẵn
   trong kho (destructive-command-guard, security-review) thay vì viết lại, chỉ thêm lớp áp dụng
   cụ thể cho 9 agent thật + tình huống VPS thật
+
+
+## 2026-08-15
+
+- Council (4-voice: Architect/Skeptic/Pragmatist/Critic) quyet dinh video engine cho GMSP:
+  chon **OpenMontage** thay vi DramaClaw — use-case khop voiceover/explainer, DramaClaw toi uu
+  cho narrative/nhan vat (Director World 3GS) khong hop voi format GMSP. **DIEU KIEN BAT BUOC:**
+  config OpenMontage dung provider `elevenlabs_tts`, KHONG dung Piper mac dinh — Piper tieng
+  Viet (vi_VN) chi co voice chat luong low/medium (xac nhan tu rhasspy/piper VOICES.md), khong
+  dat chuan phat podcast. Skeptic dissent (da nhan): nen test 1-2 tap GMSP bang stack thu cong
+  hien co (ElevenLabs -> OBS -> CapCut) truoc khi dau tu setup OpenMontage, chi scale khi chung
+  minh can volume deu dan. Chi phi that: free tier ElevenLabs chi 10k ky tu/thang (~2-3 phut
+  audio) — GMSP lam nhieu tap/thang se vuot free tier nhanh, can tinh phi ElevenLabs rieng
+  ngoai chi phi OpenMontage ($0-1/video neu dung cloud API mac dinh) ->
+  [repos/openmontage.md](repos/openmontage.md)
