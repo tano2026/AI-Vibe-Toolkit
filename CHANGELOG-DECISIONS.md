@@ -114,17 +114,16 @@
   trong kho (destructive-command-guard, security-review) thay vì viết lại, chỉ thêm lớp áp dụng
   cụ thể cho 9 agent thật + tình huống VPS thật
 
-
 ## 2026-08-15
 
-- Council (4-voice: Architect/Skeptic/Pragmatist/Critic) quyet dinh video engine cho GMSP:
-  chon **OpenMontage** thay vi DramaClaw — use-case khop voiceover/explainer, DramaClaw toi uu
-  cho narrative/nhan vat (Director World 3GS) khong hop voi format GMSP. **DIEU KIEN BAT BUOC:**
-  config OpenMontage dung provider `elevenlabs_tts`, KHONG dung Piper mac dinh — Piper tieng
-  Viet (vi_VN) chi co voice chat luong low/medium (xac nhan tu rhasspy/piper VOICES.md), khong
-  dat chuan phat podcast. Skeptic dissent (da nhan): nen test 1-2 tap GMSP bang stack thu cong
-  hien co (ElevenLabs -> OBS -> CapCut) truoc khi dau tu setup OpenMontage, chi scale khi chung
-  minh can volume deu dan. Chi phi that: free tier ElevenLabs chi 10k ky tu/thang (~2-3 phut
-  audio) — GMSP lam nhieu tap/thang se vuot free tier nhanh, can tinh phi ElevenLabs rieng
-  ngoai chi phi OpenMontage ($0-1/video neu dung cloud API mac dinh) ->
+- Council (4-voice: Architect/Skeptic/Pragmatist/Critic) quyết định video engine cho GMSP:
+  chọn **OpenMontage** thay vì DramaClaw — use-case khớp voiceover/explainer, DramaClaw tối ưu
+  cho narrative/nhân vật (Director World 3GS) không hợp với format GMSP. **ĐIỀU KIỆN BẮT BUỘC:**
+  config OpenMontage dùng provider `elevenlabs_tts`, KHÔNG dùng Piper mặc định — Piper tiếng
+  Việt (vi_VN) chỉ có voice chất lượng low/medium (xác nhận từ rhasspy/piper VOICES.md), không
+  đạt chuẩn phát podcast. Skeptic dissent (đã nhận): nên test 1-2 tập GMSP bằng stack thủ công
+  hiện có (ElevenLabs → OBS → CapCut) trước khi đầu tư setup OpenMontage, chỉ scale khi chứng
+  minh cần volume đều đặn. Chi phí thật: free tier ElevenLabs chỉ 10k ký tự/tháng (~2-3 phút
+  audio) — GMSP làm nhiều tập/tháng sẽ vượt free tier nhanh, cần tính phí ElevenLabs riêng
+  ngoài chi phí OpenMontage ($0-1/video nếu dùng cloud API mặc định) →
   [repos/openmontage.md](repos/openmontage.md)
