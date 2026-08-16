@@ -2941,4 +2941,14 @@ chọn 3 skill liên quan nhất tới content factory/agency: deep-research (kh
 cũ trong kho — bản này dùng WebSearch thuần, không cần MCP firecrawl/exa), copywriting-prose-creator
 (tách prose/tone, ra PROSE.md làm nền cho content factory), site-launch-checklist (có phần
 llms.txt cho AI crawler, hợp với hướng GEO/AEO đã note trước đó).
+| 251 | Repo | awesome-claude-code-toolkit (rohitg00) | /repos/awesome-claude-code-toolkit.md | Đã push | /content/script-video-250-claude-code-toolkit.md | 2026-08-16 |
+
+---
+
+## Repo mới 2026-08-16 — Claude Code Toolkit (rohitg00)
+
+Nobitano gửi link tưởng trùng với ComposioHQ/awesome-claude-skills đã có trong kho — kiểm tra
+kỹ thì KHÁC repo, khác chủ. rohitg00/awesome-claude-code-toolkit (2.5K sao, Apache-2.0) mạnh về
+135 agent theo vai trò (đặc biệt nhóm Business & Product, Research & Analysis) + skill cost-optimizer
+(TokenWise, skill-cost-optimizer) hợp tối ưu OmniRoute gateway. 2 repo bổ sung nhau, không trùng.
 
