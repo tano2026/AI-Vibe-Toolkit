@@ -2951,4 +2951,24 @@ Nobitano gửi link tưởng trùng với ComposioHQ/awesome-claude-skills đã 
 kỹ thì KHÁC repo, khác chủ. rohitg00/awesome-claude-code-toolkit (2.5K sao, Apache-2.0) mạnh về
 135 agent theo vai trò (đặc biệt nhóm Business & Product, Research & Analysis) + skill cost-optimizer
 (TokenWise, skill-cost-optimizer) hợp tối ưu OmniRoute gateway. 2 repo bổ sung nhau, không trùng.
+| 252 | Stack | Mission Control Agent Roster | /stacks/mission-control-agent-roster/README.md | Đã push | /content/script-video-251-mission-control-agent-roster.md | 2026-08-16 |
+| 253 | Skill | TokenWise | /skills/tokenwise/SKILL.md | Đã push | /content/script-video-252-tokenwise.md | 2026-08-16 |
+| 254 | Skill | cc-inspect | /skills/cc-inspect/SKILL.md | Đã push | /content/script-video-253-cc-inspect.md | 2026-08-16 |
+| 255 | Skill | Overnight Worker | /skills/overnight-worker/SKILL.md | Đã push | /content/script-video-254-overnight-worker.md | 2026-08-16 |
+| 256 | Skill | Prism Scanner | /skills/prism-scanner/SKILL.md | Đã push | /content/script-video-255-prism-scanner.md | 2026-08-16 |
+
+---
+
+## Đợt thêm 2026-08-16 — lọc từ awesome-claude-code-toolkit cho Tano Agency
+
+Từ repo rohitg00/awesome-claude-code-toolkit, thêm: Stack Mission Control Agent Roster (6 agent
+business-product + research-analysis + 3 agent orchestration, ghép vào CEO Agent/sub-agent Mission
+Control), skill TokenWise (cost router), cc-inspect (dashboard audit skill/plugin local), Overnight
+Worker (autonomous task qua đêm, thiết kế cho OpenClaw gateway), Prism Scanner (security scan cho
+skill/plugin/MCP, 39+ rule, chấm A-F — thực thi hoá nguyên tắc security-wall đã có).
+
+**Duplicate check phát hiện:** claude-seo và claude-ads (AgriciDaniel) ĐÃ CÓ trong kho từ trước
+(repos/claude-seo.md, skills/claude-ads/) — không thêm lại, chỉ note nguồn trùng.
+**Link chết:** Nagendhra-web/memory-bank trong README gốc trả về 404 (repo đã xoá/đổi tên/riêng tư)
+— không thêm vào kho, cần báo lại nếu Nobitano muốn tìm bản thay thế.
 
