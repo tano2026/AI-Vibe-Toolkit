@@ -2927,3 +2927,18 @@ content factory can output deu dan + dung brand + chi phi thap.
 **Kho: 146 repos | 40 MCPs | 100 skills | 244 scripts | 7 agent packages | 8 stacks | 9 agent that**
 | 246 | Skill | 5 Vai Trò Solo Operator | /skills/5-vai-tro-solo-operator/SKILL.md | Đã push | /content/script-video-245-5-vai-tro-solo-operator.md | 2026-08-15 |
 | 247 | Skill | GEO/AEO Content Optimization | /skills/geo-aeo-content-optimization/SKILL.md | Đã push | /content/script-video-246-geo-aeo.md | 2026-08-15 |
+| 248 | Skill | Deep Research (samber/cc-skills) | /skills/deep-research-samber-cc/SKILL.md | Đã push | /content/script-video-247-deep-research-samber-cc.md | 2026-08-16 |
+| 249 | Skill | Copywriting Prose Creator | /skills/copywriting-prose-creator/SKILL.md | Đã push | /content/script-video-248-copywriting-prose-creator.md | 2026-08-16 |
+| 250 | Skill | Site Launch Checklist | /skills/site-launch-checklist/SKILL.md | Đã push | /content/script-video-249-site-launch-checklist.md | 2026-08-16 |
+
+---
+
+## Skill mới 2026-08-16 — 3 skill lọc từ mcpservers.org/vi/agent-skills
+
+Nobitano gửi link trang directory tổng hợp Agent Skills (mcpservers.org). Không phải 1 entry
+đơn lẻ nên đào sâu, lọc ra repo samber/cc-skills (153 sao, MIT, 17 skill marketing+dev) và
+chọn 3 skill liên quan nhất tới content factory/agency: deep-research (khác bản deep-research
+cũ trong kho — bản này dùng WebSearch thuần, không cần MCP firecrawl/exa), copywriting-prose-creator
+(tách prose/tone, ra PROSE.md làm nền cho content factory), site-launch-checklist (có phần
+llms.txt cho AI crawler, hợp với hướng GEO/AEO đã note trước đó).
+
