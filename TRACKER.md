@@ -2971,4 +2971,4 @@ skill/plugin/MCP, 39+ rule, chấm A-F — thực thi hoá nguyên tắc securit
 (repos/claude-seo.md, skills/claude-ads/) — không thêm lại, chỉ note nguồn trùng.
 **Link chết:** Nagendhra-web/memory-bank trong README gốc trả về 404 (repo đã xoá/đổi tên/riêng tư)
 — không thêm vào kho, cần báo lại nếu Nobitano muốn tìm bản thay thế.
-
+| 257 | Repo | DeepSeek Harness | /repos/deepseek-harness.md | Đã push | /content/script-video-256-deepseek-harness.md | 2026-08-17 |
