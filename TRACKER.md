@@ -2973,3 +2973,11 @@ skill/plugin/MCP, 39+ rule, chấm A-F — thực thi hoá nguyên tắc securit
 — không thêm vào kho, cần báo lại nếu Nobitano muốn tìm bản thay thế.
 | 257 | Repo | DeepSeek Harness | /repos/deepseek-harness.md | Đã push | /content/script-video-256-deepseek-harness.md | 2026-08-17 |
 | 258 | Skill | YouTube Shorts Prompt Chain | /skills/youtube-shorts-prompt-chain/SKILL.md | Đã push | /content/script-video-257-youtube-shorts-prompt-chain.md | 2026-08-17 |
+| 259 | Repo | Qdrant | /repos/qdrant.md | Đã push | /content/script-video-258-qdrant.md | 2026-08-18 |
+| 260 | Repo | Healthchecks | /repos/healthchecks.md | Đã push | /content/script-video-259-healthchecks.md | 2026-08-18 |
+
+## Đợt thêm 2026-08-18 — vá 2 lỗ hổng hạ tầng đang note trong kho
+
+Từ nghiên cứu awesome-selfhosted.net (đã có sẵn kho, không viết lại), lọc ra 2 tool khớp trực tiếp pain point đã ghi: Qdrant (vá RIO Bot thiếu vector store/semantic search) và Healthchecks (vá OPC Mission Control dashboard offline không ai biết, port 3100 chết không cảnh báo).
+
+**Duplicate check:** không trùng entry nào có sẵn trong kho.
