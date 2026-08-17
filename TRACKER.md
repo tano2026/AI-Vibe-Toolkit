@@ -2972,3 +2972,4 @@ skill/plugin/MCP, 39+ rule, chấm A-F — thực thi hoá nguyên tắc securit
 **Link chết:** Nagendhra-web/memory-bank trong README gốc trả về 404 (repo đã xoá/đổi tên/riêng tư)
 — không thêm vào kho, cần báo lại nếu Nobitano muốn tìm bản thay thế.
 | 257 | Repo | DeepSeek Harness | /repos/deepseek-harness.md | Đã push | /content/script-video-256-deepseek-harness.md | 2026-08-17 |
+| 258 | Skill | YouTube Shorts Prompt Chain | /skills/youtube-shorts-prompt-chain/SKILL.md | Đã push | /content/script-video-257-youtube-shorts-prompt-chain.md | 2026-08-17 |
