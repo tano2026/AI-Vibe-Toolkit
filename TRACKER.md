@@ -2981,3 +2981,11 @@ skill/plugin/MCP, 39+ rule, chấm A-F — thực thi hoá nguyên tắc securit
 Từ nghiên cứu awesome-selfhosted.net (đã có sẵn kho, không viết lại), lọc ra 2 tool khớp trực tiếp pain point đã ghi: Qdrant (vá RIO Bot thiếu vector store/semantic search) và Healthchecks (vá OPC Mission Control dashboard offline không ai biết, port 3100 chết không cảnh báo).
 
 **Duplicate check:** không trùng entry nào có sẵn trong kho.
+| 261 | Skill | 4 Nguon Khai Thac Y Tuong Vo Tan | /skills/4-nguon-y-tuong-content.md | Da push | /content/script-video-260-4-nguon-y-tuong-content.md | 2026-08-18 |
+
+## Dot them 2026-08-18 (2) - skill tu infographic TikTok
+
+Nguon: infographic 5 slide TikTok @dungbui0494 (Founder Dung Bui), Nobitano upload anh truc tiep.
+Duplicate check: KHONG trung agents/trum-san-bay/skills/content-strategy-ideation (skill do RANK/BRIEF
+y tuong tho co san) va skills/agent-skills/idea-refine.md (dialogue refine y tuong chung chung, khong
+phai framework 4 nguon sinh idea tu dau). Skill moi dung TRUOC 2 skill kia trong pipeline.
