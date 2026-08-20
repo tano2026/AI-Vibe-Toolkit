@@ -957,3 +957,108 @@ biết cấu trúc cạnh tranh ngành đó trước (Five Forces). Chạy skill
 - Giới hạn 8 search call là để tránh việc "học ngành" tốn ngân sách ngang 1 research
   task thật — nếu 8 call không đủ, dừng lại với Primer chưa hoàn chỉnh + ghi rõ phần
   còn thiếu, không cố kéo dài
+
+
+---
+
+## NÂNG CẤP v4.5 — Kỷ luật Superforecasting + Bổ sung tay chân (20/08/2026)
+
+> Nghiên cứu từ Good Judgment Project (Philip Tetlock, 2011-2015): nhóm
+> "superforecaster" (top 2% người tham gia) vượt qua cả chuyên gia tình báo CIA
+> 30% về độ chính xác dự đoán (đo bằng Brier score) — KHÔNG phải nhờ IQ cao hơn,
+> mà nhờ kỷ luật tư duy cụ thể, học được, áp dụng được cho AI. Nghiên cứu 2026
+> (CogBias, arXiv 2604.01366) xác nhận: LLM — kể cả GPT-4 — vẫn mắc lỗi
+> "base-rate neglect" y hệt con người nếu không được nhắc nhở rõ ràng. Phần
+> này bổ sung kỷ luật đó vào NGUYÊN TẮC BẤT BIẾN hiện có, không thay thế.
+
+### 6 nguyên tắc Superforecaster (áp dụng cho MỌI dự đoán/ước tính, không chỉ trend-forecasting)
+
+**1. Probabilistic thinking — không nói chắc như đinh đóng cột**
+Không viết "sẽ xảy ra" / "sẽ không xảy ra". Luôn gắn % xác suất kèm lý do:
+```
+SAI:   "Thị trường X sẽ bùng nổ trong 2026"
+ĐÚNG:  "Xác suất ~65-70% thị trường X tăng trưởng >20% trong 2026, dựa trên
+        [driver A] và [driver B]; rủi ro chính làm giảm xác suất: [driver C]"
+```
+
+**2. Decomposition (Fermi-izing) — chia nhỏ trước khi ước tính**
+Câu hỏi lớn/mơ hồ → chia thành sub-question cụ thể hơn, ước tính từng phần rồi
+ghép lại — thay vì đoán thẳng 1 con số cho câu hỏi lớn.
+```
+Câu hỏi lớn: "Doanh thu ngành Y ở VN năm 2026 khoảng bao nhiêu?"
+Chia nhỏ: (a) Số người dùng tiềm năng? (b) % người dùng thật sự trả tiền?
+          (c) ARPU trung bình? → nhân lại thành ước tính, mỗi phần có nguồn riêng
+```
+
+**3. Reference-class forecasting — tìm base rate TRƯỚC KHI ước tính riêng**
+Trước khi ước tính 1 tình huống mới/chưa từng gặp, tìm các case tương tự đã
+xảy ra trong lịch sử (reference class), lấy đó làm điểm neo, RỒI mới điều
+chỉnh theo đặc thù riêng. Thứ tự ngược lại (tự đoán riêng trước, không thèm
+check base rate) là lỗi "base-rate neglect" — lỗi phổ biến nhất kể cả ở LLM.
+```
+Ví dụ: Ước tính 1 startup SaaS VN mới ra mắt sẽ đạt bao nhiêu user sau 6 tháng?
+BƯỚC 1 (base rate trước): SaaS VN cùng tầm thường đạt 500-2000 user sau 6
+  tháng (theo N case tương tự đã biết) → đây là điểm neo ban đầu
+BƯỚC 2 (điều chỉnh riêng): startup này có [lợi thế X] nhưng [bất lợi Y] →
+  điều chỉnh lên/xuống từ điểm neo, GHI RÕ đã điều chỉnh bao nhiêu và vì sao
+```
+
+**4. Active open-mindedness ("dragonfly-eyed") — tổng hợp đa góc nhìn thật sự**
+Không dừng ở 1 nguồn/1 khung nhìn dù nguồn đó uy tín. Đã có debate pattern
+(bull/bear) trong v4.1 — mở rộng: với câu hỏi dự đoán quan trọng, chủ động tìm
+ý kiến TRÁI NGƯỢC nhau từ ít nhất 2-3 nguồn độc lập trước khi tổng hợp, không
+chỉ tìm nguồn củng cố quan điểm đã có sẵn trong đầu (confirmation bias).
+
+**5. Tránh Conjunction Fallacy — chi tiết hơn KHÔNG có nghĩa xác suất cao hơn**
+Câu chuyện càng chi tiết/cụ thể càng nghe thuyết phục, nhưng về toán học,
+P(A và B) LUÔN ≤ P(A). Cảnh giác khi 1 kịch bản nghe "hợp lý" vì nhiều chi
+tiết khớp nhau — chi tiết hoá không tự động tăng xác suất thật, có khi ngược
+lại (càng nhiều điều kiện phải đúng cùng lúc, xác suất tổng càng thấp).
+
+**6. Calibration ledger — tự chấm điểm để cải thiện theo thời gian**
+Với mọi dự đoán quan trọng (gắn % xác suất theo nguyên tắc 1), lưu vào Mem0
+kèm ngày + % đã gắn. Định kỳ (khi có kết quả thật xảy ra), quay lại đối chiếu:
+dự đoán 70% có đúng xảy ra ~70% số lần không? Đây là cách superforecaster
+thật sự cải thiện — không phải nhớ mông lung mà có "sổ ghi" đối chiếu được.
+
+### Bổ sung Tầng Tay — Vietnam Business Registry (thay thế RDAP cho case VN)
+
+RDAP (v4.2) chỉ hợp cho domain quốc tế (.com/.net) — không xác minh được
+pháp nhân Việt Nam. Bổ sung tool tra cứu doanh nghiệp VN thật, free, JSON,
+đúng chuẩn Hermes (urllib thuần):
+
+```python
+def check_vn_company(mst):
+    """
+    Tra cứu doanh nghiệp Việt Nam theo Mã số thuế (MST).
+    Trả về: tên công ty, trạng thái hoạt động, người đại diện pháp luật,
+    vốn điều lệ, ngành nghề, ngày đăng ký — hữu ích khi verify đối thủ/đối
+    tác VN có claim traction/quy mô đáng ngờ (tương tự domain-age-check
+    nhưng cho pháp nhân trong nước).
+    """
+    url = f"https://doanhnghiep.vn/api/v1/companies/{mst}"
+    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return json.loads(r.read())
+    except Exception as e:
+        return {"mst": mst, "error": str(e)}
+
+# Ví dụ dùng: check_vn_company("0101248141") → FPT Corp, status active,
+# is_listed=True, HOSE, vốn điều lệ 14,000 tỷ VNĐ, thành lập 1988
+```
+
+**Dùng khi:** đối thủ/đối tác VN tuyên bố quy mô/traction lớn nhưng chưa rõ
+pháp nhân thật — verify MST trước khi tin. Công ty chưa đăng ký/status
+inactive → nghi vấn nghiêm trọng, ghi rõ trong báo cáo.
+
+Cập nhật NGUYÊN TẮC BẤT BIẾN: với mọi claim về công ty/đối thủ Việt Nam quan
+trọng trong báo cáo, verify MST qua `check_vn_company()` nếu có, y hệt cách
+RDAP đã bắt buộc cho domain quốc tế.
+
+### Cách tích hợp vào Bước 0.5 (Industry Onboarding, v4.4)
+
+Khi Onboarding gặp 1 công ty/đối thủ VN cụ thể trong quá trình xây Primer,
+tự động chạy `check_vn_company()` song song — không đợi tới Bước 4 (Fetch
+nguồn chính chủ) mới làm, verify pháp nhân sớm giúp phát hiện red flag ngay
+từ đầu quy trình, tiết kiệm thời gian nếu công ty đó không tồn tại thật.
