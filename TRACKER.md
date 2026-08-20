@@ -3024,3 +3024,5 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 271 | Skill | Content Pillar/Cluster Architecture | /agents/content-pro/skills/content-pillar-cluster-architecture/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
 | 272 | Skill | Editorial Workflow Quality Gates | /agents/content-pro/skills/editorial-workflow-quality-gates/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
 | 273 | Skill | Content Distribution System | /agents/content-pro/skills/content-distribution-system/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
+| 274 | Skill | Content Strategy Review Gate | /agents/content-pro/skills/content-strategy-review-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-20 |
+| 275 | Stack | Content Brand Playbooks | /agents/content-pro/content-brand-playbooks.md | Đã push | (không có script riêng) | 2026-08-20 |
