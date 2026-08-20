@@ -2993,3 +2993,24 @@ phai framework 4 nguon sinh idea tu dau). Skill moi dung TRUOC 2 skill kia trong
 | 263 | Skill | Task Observer | /skills/task-observer/SKILL.md | Đã push | /content/script-video-262-task-observer.md | 2026-08-19 |
 | 264 | Skill | Info-Product Claims Compliance Gate | /skills/info-product-claims-compliance-gate/SKILL.md | Đã push | /content/script-video-263-compliance-gate.md | 2026-08-20 |
 | 265 | Skill | Research Analytics Pro v4.4 (Industry Onboarding Protocol) | /agents/research-analytics-pro/system-prompt.md | Đã push | (update, không có script mới) | 2026-08-20 |
+
+
+---
+
+## Repo moi 2026-08-20 — Pixelle-Video
+
+User hoi "Pixelle-video repo moi nay". Tim ra AIDC-AI/Pixelle-Video - 19.7k stars, 2.8k forks,
+Apache 2.0, "AI Fully Automated Short Video Engine". Cung nhom topic-to-video nhu Vox Director
+nhung khac chien luoc: build tren ComfyUI, co web UI Streamlit, ho tro che do hoan toan free
+(Ollama + ComfyUI local). Kho da co MoneyPrinterTurbo va NarratoAI (2 project duoc Pixelle-Video
+ghi nhan la nguon cam hung) nhung chua co Pixelle-Video rieng - khong trung, viet moi.
+
+| Repo | File | Script video |
+|------|------|---------------|
+| Pixelle-Video | repos/pixelle-video.md | content/script-video-264-pixelle-video.md |
+
+Danh gia ca nhan: 7/10 - manh hon Vox Director ve do truong thanh (19.7k vs 7 stars) va tinh
+linh hoat model, nhung thua Remotion ve kha nang tich hop agent tu dong (khong co API render
+sach de agent goi thang, chi co web UI Streamlit).
+
+**Kho: 147 repos | 40 MCPs | 100 skills | 264 scripts | 7 agent packages | 8 stacks | 9 agent that**
