@@ -3014,3 +3014,4 @@ linh hoat model, nhung thua Remotion ve kha nang tich hop agent tu dong (khong c
 sach de agent goi thang, chi co web UI Streamlit).
 
 **Kho: 147 repos | 40 MCPs | 100 skills | 264 scripts | 7 agent packages | 8 stacks | 9 agent that**
+| 266 | Skill | Primary Research Design | /agents/research-analytics-pro/skills/primary-research-design/SKILL.md | Đã push | (không có script mới) | 2026-08-20 |
