@@ -3016,3 +3016,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 **Kho: 147 repos | 40 MCPs | 100 skills | 264 scripts | 7 agent packages | 8 stacks | 9 agent that**
 | 266 | Skill | Primary Research Design | /agents/research-analytics-pro/skills/primary-research-design/SKILL.md | Đã push | (không có script mới) | 2026-08-20 |
 | 267 | Skill | Portable Skill Framework | /skills/portable-skill-framework/SKILL.md | Đã push | /content/script-video-265-portable-skill.md | 2026-08-20 |
+| 268 | Skill | Social Listening Research | /agents/research-analytics-pro/skills/social-listening-research/SKILL.md | Đã push | /content/script-video-266-social-listening.md | 2026-08-20 |
