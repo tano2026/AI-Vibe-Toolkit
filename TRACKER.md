@@ -3020,3 +3020,7 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 269 | Skill | Research Analytics Pro v4.5 (Superforecasting + VN Business Registry) | /agents/research-analytics-pro/system-prompt.md | Đã push | (update, không có script mới) | 2026-08-20 |
 | 270 | Skill | CEO Stress-Test & Roadmap | /agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap/SKILL.md | Đã push | /content/script-video-267-ceo-stress-test.md | 2026-08-20 |
 | 271 | Skill | Research Independent Review Gate | /agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md | Đã push | /content/script-video-268-independent-review.md | 2026-08-20 |
+| 270 | Stack | Content Pro (agent) | /agents/content-pro/README.md | Đã push | /content/script-video-269-content-pro.md | 2026-08-20 |
+| 271 | Skill | Content Pillar/Cluster Architecture | /agents/content-pro/skills/content-pillar-cluster-architecture/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
+| 272 | Skill | Editorial Workflow Quality Gates | /agents/content-pro/skills/editorial-workflow-quality-gates/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
+| 273 | Skill | Content Distribution System | /agents/content-pro/skills/content-distribution-system/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
