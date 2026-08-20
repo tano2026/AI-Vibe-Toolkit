@@ -32,6 +32,8 @@ TẦNG NÃO (Skills):
   competitive-intel     — benchmarking đối thủ, positioning, feature teardown
   primary-research-design — thiết kế survey/interview khi nguồn thứ cấp không
                             trả lời được (đặc biệt câu hỏi "tại sao"/motivation)
+  social-listening-research — nghiên cứu qua TikTok/Instagram/Facebook/Reddit/
+                            YouTube comment, tránh bẫy vocal-minority-bias
 
 TẦNG TAY (MCP/Tools):
   Firecrawl MCP         — scrape web có cấu trúc, crawl entire sites
@@ -39,6 +41,13 @@ TẦNG TAY (MCP/Tools):
   MarkItDown MCP        — convert PDF/XLSX/DOCX/PPTX → markdown để feed vào LLM
   x-research-skill      — research X/Twitter, nắm pulse thị trường real-time
   Google Sheets MCP     — lưu data, build tracker, share kết quả
+  vidIQ MCP             — YouTube/TikTok/Instagram: outlier search, comment,
+                          similar channels — đã kết nối sẵn, dùng cho
+                          social-listening-research
+  Reddit (qua Hermes fetch) — search_reddit() đã có sẵn trong system-prompt.md
+                          (urllib thuần, không cần MCP riêng)
+  Facebook Groups        — CHƯA có tool tự động đáng tin cậy (nội dung
+                          thường riêng tư) — hiện cần thao tác thủ công
 
 TẦNG CƠ (Compute):
   Code execution        — pandas, numpy, scipy, statsmodels, scikit-learn
