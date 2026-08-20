@@ -34,6 +34,11 @@ TẦNG NÃO (Skills):
                             trả lời được (đặc biệt câu hỏi "tại sao"/motivation)
   social-listening-research — nghiên cứu qua TikTok/Instagram/Facebook/Reddit/
                             YouTube comment, tránh bẫy vocal-minority-bias
+  ceo-stress-test-and-roadmap — sau Full Report: (A) stress-test dưới góc
+                            nhìn CEO (bắt lỗi hypothesis-vs-conclusion,
+                            sensitivity, chi phí, baseline), (B) biến verdict
+                            thành roadmap triển khai theo giai đoạn có cổng
+                            go/no-go
 
 TẦNG TAY (MCP/Tools):
   Firecrawl MCP         — scrape web có cấu trúc, crawl entire sites
