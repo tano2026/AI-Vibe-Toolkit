@@ -39,6 +39,10 @@ TẦNG NÃO (Skills):
                             sensitivity, chi phí, baseline), (B) biến verdict
                             thành roadmap triển khai theo giai đoạn có cổng
                             go/no-go
+  research-independent-review-gate — dual independent review (santa-method)
+                            riêng cho research report — 2 reviewer không
+                            thấy nhau (Domain Expert + Red-team Analyst),
+                            cả 2 phải pass mới trình Nobitano
 
 TẦNG TAY (MCP/Tools):
   Firecrawl MCP         — scrape web có cấu trúc, crawl entire sites
