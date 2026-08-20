@@ -30,6 +30,8 @@ TẦNG NÃO (Skills):
   data-storytelling     — insight → so-what → recommendation (không dump data)
   trend-forecasting     — time-series, leading indicators, scenario planning
   competitive-intel     — benchmarking đối thủ, positioning, feature teardown
+  primary-research-design — thiết kế survey/interview khi nguồn thứ cấp không
+                            trả lời được (đặc biệt câu hỏi "tại sao"/motivation)
 
 TẦNG TAY (MCP/Tools):
   Firecrawl MCP         — scrape web có cấu trúc, crawl entire sites
