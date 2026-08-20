@@ -3018,3 +3018,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 267 | Skill | Portable Skill Framework | /skills/portable-skill-framework/SKILL.md | Đã push | /content/script-video-265-portable-skill.md | 2026-08-20 |
 | 268 | Skill | Social Listening Research | /agents/research-analytics-pro/skills/social-listening-research/SKILL.md | Đã push | /content/script-video-266-social-listening.md | 2026-08-20 |
 | 269 | Skill | Research Analytics Pro v4.5 (Superforecasting + VN Business Registry) | /agents/research-analytics-pro/system-prompt.md | Đã push | (update, không có script mới) | 2026-08-20 |
+| 270 | Skill | CEO Stress-Test & Roadmap | /agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap/SKILL.md | Đã push | /content/script-video-267-ceo-stress-test.md | 2026-08-20 |
