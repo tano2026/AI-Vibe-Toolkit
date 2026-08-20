@@ -1,17 +1,22 @@
 ---
 name: portable-skill-framework
 description: >
-  Khung viết skill để dùng chung được trên nhiều harness khác nhau (Mission
-  Control/Paperclip, Claude Code, DeepSeek Harness...) mà không phải viết lại
-  từ đầu mỗi lần đổi công cụ. Tách skill thành 2 lớp: Core (kiến thức/logic,
-  không đổi) + Adapter (cách gắn vào từng harness cụ thể, đổi theo nơi lắp).
-  Dùng khi viết skill mới cho OMC/OPC hoặc bất kỳ agent nào cần chạy đa nền tảng.
+  Khung viết skill để dùng chung được trên nhiều harness khác nhau (Hermes,
+  Claude Code, Mission Control/Paperclip, DeepSeek Harness...) mà không phải
+  viết lại từ đầu mỗi lần đổi công cụ. Tách skill thành 2 lớp: Core (kiến
+  thức/logic, không đổi) + Adapter (cách gắn vào từng harness cụ thể, đổi
+  theo nơi lắp). Dùng khi viết skill mới cho OMC/OPC hoặc bất kỳ agent nào
+  cần chạy đa nền tảng.
 ---
 
 # Portable Skill Framework — Viết 1 lần, chạy nhiều nơi
 
 ## TL;DR
-Vấn đề: 3 harness (Mission Control/Paperclip, Claude Code, DeepSeek Harness) có format hoàn toàn khác nhau — AGENTS.md 4 file rời vs YAML frontmatter 1 file vs plugin JSON-RPC. Viết riêng skill cho từng harness = 3 lần công, dễ lệch nhau khi update. Giải pháp: tách phần "nghĩ gì" (Core, viết 1 lần) khỏi phần "gọi tool cụ thể ra sao" (Adapter, viết ngắn cho từng harness).
+Vấn đề: 4 harness (Hermes, Claude Code, Mission Control/Paperclip, DeepSeek Harness) có format hoàn toàn khác nhau — Python thuần `urllib` vs YAML frontmatter 1 file vs AGENTS.md 4 file rời vs plugin JSON-RPC. Viết riêng skill cho từng harness = 4 lần công, dễ lệch nhau khi update. Giải pháp: tách phần "nghĩ gì" (Core, viết 1 lần) khỏi phần "gọi tool cụ thể ra sao" (Adapter, viết ngắn cho từng harness).
+
+> Hermes và Claude Code là 2 harness đang dùng thật hàng ngày (không phải thử
+> nghiệm như DeepSeek Harness) — ưu tiên viết Adapter cho 2 cái này trước khi
+> làm Mission Control/DeepSeek Harness nếu phải chọn thứ tự.
 
 ## Khi nào dùng
 - Viết skill mới cần chạy được trên >1 harness (đúng case OMC/OPC hiện tại)
@@ -64,21 +69,62 @@ verify trước khi rely]
 
 ### Bảng dịch hành động generic → tool thật từng harness (dùng khi viết Adapter)
 
-| Hành động generic (viết trong Core) | Mission Control/Paperclip | Claude Code | DeepSeek Harness |
-|---|---|---|---|
-| Tìm kiếm web | (qua skill/tool đã cấp trong TOOLS.md) | `WebSearch` | plugin web-search (nếu cài) |
-| Đọc nội dung trang web | — | `WebFetch` | tool fetch trong plugin |
-| Đọc file | Read (nếu Claude Code chạy nền) | `Read` | tool file-read |
-| Ghi file | Write (nếu có quyền) | `Write` | tool file-write |
-| Tìm file theo pattern | — | `Glob` | — |
-| Tìm nội dung trong nhiều file | — | `Grep` | — |
-| Chạy lệnh shell | Antigravity (không tự chạy) | `Bash` | subprocess qua CLI |
-| Gọi agent khác làm phụ | tạo subtask, gán agent khác | Task/subagent invocation | gọi Claude Code/Codex làm sub-agent (tính năng riêng DSH) |
+| Hành động generic (viết trong Core) | Hermes (Python, urllib thuần) | Claude Code | Mission Control/Paperclip | DeepSeek Harness |
+|---|---|---|---|---|
+| Tìm kiếm web | `tavily_search()`/`exa_search()` qua urllib POST (xem system-prompt.md Research Analytics Pro), hoặc fallback DuckDuckGo/HN/Wikipedia free API | `WebSearch` | (qua skill/tool đã cấp trong TOOLS.md) | plugin web-search (nếu cài) |
+| Đọc nội dung trang web | `fetch(url)` + `strip_html()` — hàm urllib thuần đã có sẵn | `WebFetch` | — | tool fetch trong plugin |
+| Đọc file | `open(path).read()` hoặc `read_file()` (MarkItDown cho PDF/Excel/Word) | `Read` | Read (nếu Claude Code chạy nền) | tool file-read |
+| Ghi file | `open(path, 'w').write()` | `Write` | Write (nếu có quyền) | tool file-write |
+| Tìm file theo pattern | module `glob` (built-in, không cần pip) | `Glob` | — | — |
+| Tìm nội dung trong nhiều file | `os.walk()` + `re` (built-in) | `Grep` | — | — |
+| Chạy lệnh shell | KHÔNG tự chạy — báo Antigravity thực thi (giới hạn bảo mật cố ý) | `Bash` | Antigravity (không tự chạy) | subprocess qua CLI |
+| Gọi API bên thứ 3 (GitHub, Airtable...) | `urllib.request` thuần, tự build header/JSON | Tool có sẵn hoặc `Bash`+curl | qua MCP đã cấp | plugin tương ứng |
+| Cài thêm thư viện | KHÔNG — bắt buộc chỉ `urllib`/stdlib | `pip install`/`npm install` được | tuỳ hạ tầng | `dsh plugin add` |
+| Gọi agent khác làm phụ | Không tự spawn — báo OpenClaw điều phối | Task/subagent invocation | tạo subtask, gán agent khác | gọi Claude Code/Codex làm sub-agent (tính năng riêng DSH) |
 
 Ô "—" nghĩa là harness đó chưa có tool tương đương sẵn — Core cần có fallback
 ("nếu không có tool X, làm Y thay thế") thay vì giả định tool luôn tồn tại.
 
+**Ràng buộc riêng của Hermes — quan trọng nhất khi viết Adapter cho nó:**
+Hermes CHỈ được dùng `urllib.request` và các module built-in Python (`json`,
+`re`, `glob`, `os`, `time`, `base64`...) — **không được `pip install` bất cứ
+gì**. Mọi Adapter viết cho Hermes phải tự implement bằng tay (vd tự POST JSON
+qua `urllib` thay vì `import requests`). Đây không phải giới hạn kỹ thuật
+tạm thời — là quy tắc cố định của toàn bộ hạ tầng Hermes, viết Adapter vi
+phạm quy tắc này sẽ không chạy được trên máy thật.
+
 ### Format riêng từng harness (chi tiết kỹ thuật)
+
+**Hermes — Python thuần, không file cấu hình riêng:**
+```python
+# Core của skill portable → viết thành 1 module Python độc lập, import được
+# vào bất kỳ script Hermes nào. Không có "file cấu hình" như 3 harness kia —
+# Adapter CHÍNH LÀ code Python thật.
+
+import urllib.request, json, re
+
+def fetch(url, headers=None):
+    h = {"User-Agent": "Mozilla/5.0"}
+    if headers: h.update(headers)
+    req = urllib.request.Request(url, headers=h)
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return r.read().decode('utf-8', errors='ignore')
+
+# Core logic (nguyên tắc/quyết định) viết thành docstring hoặc comment ngay
+# trên hàm — để người đọc code vẫn hiểu được "tại sao", không chỉ "làm gì"
+def evaluate_source_reliability(url, content):
+    """
+    Core logic (từ skill source-evaluation):
+    - Nguồn chính chủ/chính phủ > báo chí uy tín > blog/community
+    - Domain quá mới (<1 năm, check RDAP) → hạ độ tin cậy
+    - Không tự bịa số liệu nếu không tìm thấy nguồn
+    """
+    # ... implement thật ở đây
+    pass
+```
+Nạp vào workflow: Hermes chạy qua lệnh Telegram → gọi script Python có import
+module Core này → không cần bước "cài đặt" hay "đăng ký skill" như 3 harness
+kia, chỉ cần đúng path file trên máy Windows (agent-core).
 
 **Mission Control/Paperclip — 4 file:**
 ```
@@ -120,7 +166,7 @@ nếu đã lâu không cập nhật.
 ## Setup từng bước
 1. Viết Core trước — thử tự hỏi "nếu bỏ hết tên tool cụ thể, phần này còn hiểu được không?" Nếu không → đang lẫn Adapter vào Core, tách lại.
 2. Với mỗi harness cần chạy, viết Adapter riêng theo bảng dịch hành động ở trên
-3. Test trên harness dễ nhất trước (thường Claude Code vì format rõ ràng nhất, ít mơ hồ nhất)
+3. Test trên harness đang dùng thật hàng ngày trước — Hermes hoặc Claude Code (format Claude Code rõ ràng nhất để verify logic đúng chưa; Hermes cần verify thêm vì bị giới hạn urllib-only, dễ lộ ra chỗ Core lỡ giả định có thư viện ngoài)
 4. Verify Core không bị "ăn gian" — nếu Adapter phải giải thích thêm logic mà Core chưa có, quay lại bổ sung Core, không vá trực tiếp vào Adapter (Adapter phình to = dấu hiệu tách lớp sai)
 
 ## Ví dụ thực tế
@@ -134,7 +180,7 @@ nếu đã lâu không cập nhật.
 
 ## Đánh giá cá nhân
 - Điểm mạnh: giảm công viết lại khi mở rộng harness mới (đúng nhu cầu OMC/OPC hiện tại), dễ maintain vì sửa Core 1 chỗ áp dụng mọi nơi, khớp tự nhiên với triết lý "Model + Harness = Agent" đã thấy ở DeepSeek Harness
-- Điểm yếu: thêm 1 lớp trừu tượng nghĩa là viết skill mới tốn thời gian hơn 1 chút ban đầu (phải tách đúng Core/Adapter thay vì viết thẳng 1 mạch); DeepSeek Harness còn quá mới, Adapter cho nó dễ lỗi thời nhanh
+- Điểm yếu: thêm 1 lớp trừu tượng nghĩa là viết skill mới tốn thời gian hơn 1 chút ban đầu (phải tách đúng Core/Adapter thay vì viết thẳng 1 mạch); DeepSeek Harness còn quá mới, Adapter cho nó dễ lỗi thời nhanh; Hermes bị giới hạn urllib-only nên Adapter cho Hermes thường dài hơn hẳn 3 harness kia (phải tự implement thay vì gọi thư viện có sẵn)
 - Có nên dùng: 9/10 cho bất kỳ skill nào dự định dùng >1 harness — không cần áp dụng cho skill chỉ chạy 1 nơi duy nhất (over-engineering không cần thiết)
 
 ## Link
