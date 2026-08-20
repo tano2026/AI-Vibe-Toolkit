@@ -839,3 +839,121 @@ Trước khi code bất kỳ phần nào của agent này, đọc và áp dụng
 `agents/KARPATHY-CODING-GUIDELINES.md` — 4 nguyên tắc: nghĩ trước khi code, đơn giản là trên
 hết, sửa đúng phạm vi, thực thi theo mục tiêu đo lường được. Đây là lớp bổ sung, không thay
 thế system prompt/skill ở trên.
+
+
+---
+
+## NÂNG CẤP v4.4 — Universal Industry Onboarding Protocol (10/08/2026)
+
+> Vá lỗ hổng: 12 domain-playbook trong `domain-playbooks.md` chỉ cover ngành ĐÃ liệt
+> kê sẵn. Gặp ngành thứ 13 trở đi (chưa có playbook) → trước giờ agent nhảy thẳng vào
+> research mà không có nền khái niệm/tư duy ngành, dễ hỏi sai câu, đo sai metric, không
+> biết thuật ngữ chuẩn ngành đó dùng là gì. Protocol này chèn vào giữa Bước 0 (nhận
+> dạng domain) và Bước 1 (thu thập số liệu) hiện có — chạy MỘT LẦN cho ngành lạ, rồi
+> cache lại để không phải học lại từ đầu mỗi lần.
+
+### Khi nào trigger
+
+Sau Bước 0 (nhận dạng domain), kiểm tra: domain này đã có trong `domain-playbooks.md`
+HAY đã có primer cache trong Mem0 chưa?
+- Có rồi → bỏ qua, dùng thẳng playbook/primer cũ, sang Bước 1 luôn
+- Chưa có → chạy Bước 0.5 (Industry Onboarding) dưới đây TRƯỚC KHI sang Bước 1
+
+Giới hạn: tối đa 8 search call cho bước này — đây là bước "khởi động nền", không phải
+research sâu, tốn quá nhiều token ở đây là sai mục đích.
+
+### Bước 0.5 — Industry Onboarding (4 phần, chạy song song khi được)
+
+**A. Terminology scan — học từ vựng ngành**
+Fetch Wikipedia (`search_wiki`) + 1-2 nguồn tổng quan ngành (Investopedia-style nếu có
+bản tiếng Anh, hoặc trang hiệp hội ngành tiếng Việt nếu ngành đó có). Trích ra 8-12
+thuật ngữ/jargon cốt lõi ngành hay dùng + định nghĩa ngắn gọn. Không copy nguyên văn
+nguồn — diễn giải lại bằng lời riêng.
+
+Ví dụ (ngành co-working space, giả định lần đầu gặp):
+```
+- Occupancy rate: % bàn/phòng đang được thuê trên tổng số có sẵn
+- Hot desk vs Dedicated desk: chỗ ngồi tự do chọn vs chỗ cố định riêng
+- Churn rate: % khách rời đi trong 1 khoảng thời gian
+- CAC/member: chi phí có được 1 thành viên mới
+```
+
+**B. Structural scan — PESTEL rút gọn (chỉ điền được thì điền, không ép)**
+1 câu mỗi yếu tố, CHỈ khi tìm ra bằng chứng thật — bỏ trống + ghi "chưa tìm thấy" nếu
+không có, không tự bịa cho đủ 6 yếu tố:
+```
+Political: [chính sách/quy định ảnh hưởng ngành, nếu có]
+Economic: [yếu tố kinh tế vĩ mô tác động trực tiếp]
+Social: [thay đổi hành vi/nhân khẩu học liên quan]
+Technological: [công nghệ đang định hình lại ngành]
+Legal: [luật/quy định cụ thể phải tuân thủ]
+Environmental: [yếu tố môi trường nếu liên quan ngành]
+```
+
+**C. Competitive structure scan — Porter's Five Forces rút gọn**
+Chấm Thấp/Trung bình/Cao cho mỗi lực, kèm 1 dòng bằng chứng — không chấm theo cảm tính:
+```
+Rào cản gia nhập:        [Thấp/TB/Cao] — [bằng chứng]
+Quyền lực nhà cung cấp:   [Thấp/TB/Cao] — [bằng chứng]
+Quyền lực người mua:      [Thấp/TB/Cao] — [bằng chứng]
+Sản phẩm thay thế:        [Thấp/TB/Cao] — [bằng chứng]
+Cạnh tranh nội bộ ngành:  [Thấp/TB/Cao] — [bằng chứng]
+```
+
+**D. Standard KPI dictionary — kim chỉ nam đo lường**
+Liệt kê 5-8 metric người trong ngành THẬT SỰ dùng để đánh giá hiệu quả (không phải
+metric chung chung như "doanh thu, lợi nhuận" — phải specific ngành đó). Đây chính là
+phần tương đương "Key metrics" đã có sẵn cho 12 ngành cũ trong domain-playbooks.md,
+giờ tự sinh ra cho ngành mới.
+
+### Output — Industry Primer (ngắn, không phải full report)
+
+```markdown
+## Industry Primer — [Tên ngành]
+📅 Tạo lúc: [ngày] | Nguồn: [N nguồn]
+
+### Thuật ngữ cốt lõi
+[bảng term → định nghĩa]
+
+### Bối cảnh vĩ mô (PESTEL rút gọn)
+[6 dòng, hoặc ít hơn nếu thiếu bằng chứng]
+
+### Cấu trúc cạnh tranh (Five Forces rút gọn)
+[bảng 5 dòng]
+
+### KPI chuẩn ngành
+[bảng 5-8 metric]
+
+### Nguồn
+[list URL]
+```
+
+### Sau khi có Primer
+
+1. Lưu vào Mem0, key = tên ngành chuẩn hoá (vd `industry_primer:coworking_space`) —
+   lần sau hỏi lại ngành này, fetch primer cũ, không chạy lại Bước 0.5
+2. **Tự động đề xuất thêm 1 mini-entry mới vào `domain-playbooks.md`** theo đúng format
+   các ngành cũ (Free data sources + Key metrics) — để lần sau ngành này thành ngành
+   "đã biết" luôn, không cần onboarding lại. Đề xuất này CHƯA tự ghi vào file, xuất ra
+   cho Nobitano duyệt trước (đúng nguyên tắc propose, don't decide) — duyệt xong Content
+   Lead/Nobitano tự push vào domain-playbooks.md qua đúng quy trình kho (Bước 1-8 trong
+   Project Instructions AI-Vibe-Toolkit)
+3. Sang Bước 1 (thu thập số liệu) như bình thường, giờ đã có nền khái niệm đúng để hỏi
+   đúng câu, đo đúng metric, không bị lẫn thuật ngữ ngành khác vào
+
+### Vì sao thứ tự này quan trọng (không phải hình thức)
+
+Skill `source-evaluation` (đã có trong Capability Map) chỉ có giá trị THẬT nếu agent
+hiểu được "nguồn này có động cơ gì trong đúng ngành này" — mà muốn hiểu động cơ, phải
+biết cấu trúc cạnh tranh ngành đó trước (Five Forces). Chạy skill trước khi có Primer
+= agent áp checklist máy móc mà không hiểu tại sao, dễ chấm sai độ tin cậy nguồn.
+
+### Lưu ý / Giới hạn
+
+- Đây là bước "làm quen", không thay thế nghiên cứu sâu — Primer nông hơn nhiều so với
+  Full Report 8 phần, không dùng Primer để trả lời câu hỏi cần độ chính xác cao
+- Ngành quá hẹp/mới (chưa ai viết nhiều) → Terminology scan có thể ra ít hơn 8 thuật
+  ngữ, chấp nhận, không tự bịa thêm cho đủ số
+- Giới hạn 8 search call là để tránh việc "học ngành" tốn ngân sách ngang 1 research
+  task thật — nếu 8 call không đủ, dừng lại với Primer chưa hoàn chỉnh + ghi rõ phần
+  còn thiếu, không cố kéo dài
