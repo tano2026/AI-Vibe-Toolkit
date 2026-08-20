@@ -48,6 +48,9 @@ TẦNG TAY (MCP/Tools):
                           (urllib thuần, không cần MCP riêng)
   Facebook Groups        — CHƯA có tool tự động đáng tin cậy (nội dung
                           thường riêng tư) — hiện cần thao tác thủ công
+  VN Business Registry   — check_vn_company() qua doanhnghiep.vn API,
+                          verify MST/pháp nhân/vốn điều lệ đối thủ VN
+                          (thay RDAP cho case trong nước, xem system-prompt v4.5)
 
 TẦNG CƠ (Compute):
   Code execution        — pandas, numpy, scipy, statsmodels, scikit-learn
