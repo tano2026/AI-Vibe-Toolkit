@@ -2992,3 +2992,4 @@ phai framework 4 nguon sinh idea tu dau). Skill moi dung TRUOC 2 skill kia trong
 | 262 | Skill | Channel Analytics Autopilot | /skills/channel-analytics-autopilot/SKILL.md | Đã push | /content/script-video-261-channel-analytics-autopilot.md | 2026-08-18 |
 | 263 | Skill | Task Observer | /skills/task-observer/SKILL.md | Đã push | /content/script-video-262-task-observer.md | 2026-08-19 |
 | 264 | Skill | Info-Product Claims Compliance Gate | /skills/info-product-claims-compliance-gate/SKILL.md | Đã push | /content/script-video-263-compliance-gate.md | 2026-08-20 |
+| 265 | Skill | Research Analytics Pro v4.4 (Industry Onboarding Protocol) | /agents/research-analytics-pro/system-prompt.md | Đã push | (update, không có script mới) | 2026-08-20 |
