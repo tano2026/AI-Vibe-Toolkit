@@ -2991,3 +2991,4 @@ y tuong tho co san) va skills/agent-skills/idea-refine.md (dialogue refine y tuo
 phai framework 4 nguon sinh idea tu dau). Skill moi dung TRUOC 2 skill kia trong pipeline.
 | 262 | Skill | Channel Analytics Autopilot | /skills/channel-analytics-autopilot/SKILL.md | Đã push | /content/script-video-261-channel-analytics-autopilot.md | 2026-08-18 |
 | 263 | Skill | Task Observer | /skills/task-observer/SKILL.md | Đã push | /content/script-video-262-task-observer.md | 2026-08-19 |
+| 264 | Skill | Info-Product Claims Compliance Gate | /skills/info-product-claims-compliance-gate/SKILL.md | Đã push | /content/script-video-263-compliance-gate.md | 2026-08-20 |
