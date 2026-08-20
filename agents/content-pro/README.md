@@ -36,6 +36,8 @@ TẦNG NÃO — Chiến lược (MỚI, do Content Pro sở hữu):
                                          mỗi bước có owner + gate
   content-distribution-system         — owned/earned/paid + refresh cycle
                                          6-8 tháng (2026)
+  content-strategy-review-gate        — stress-test khung Pillar/Cluster
+                                         (5 câu hỏi) trước khi giao sản xuất
 
 TẦNG NÃO — Chiến thuật (ĐÃ CÓ SẴN, Content Pro điều phối không viết lại):
   skills/viral-hooks          — 100 công thức hook, 10 trigger tâm lý
@@ -82,7 +84,9 @@ Content Orchestrator
 
 ## Cách bung
 
-1. Copy `skills/*` (3 skill mới) vào project skills directory
-2. KHÔNG copy các skill chiến thuật đã có — chỉ tham chiếu theo path, tránh trùng lặp lưu trữ
-3. Dán `system-prompt.md` làm Project Instructions (Claude.ai Project) hoặc adapter tương ứng (xem `skills/portable-skill-framework` nếu cần chạy trên Hermes/Mission Control/DeepSeek Harness)
-4. Áp thử cho 1 kênh cụ thể trước (đề xuất: Trùm Sân Bay, vì đã có pipeline 9-agent sẵn, chỉ thiếu tầng chiến lược) trước khi mở rộng
+1. Đọc `content-brand-playbooks.md` trước — brand đã có playbook sẵn chưa
+2. Copy `skills/*` (4 skill chiến lược) vào project skills directory
+3. KHÔNG copy các skill chiến thuật đã có — chỉ tham chiếu theo path, tránh trùng lặp lưu trữ
+4. Dán `system-prompt.md` làm Project Instructions (Claude.ai Project) hoặc adapter tương ứng (xem `skills/portable-skill-framework` nếu cần chạy trên Hermes/Mission Control/DeepSeek Harness/OMC)
+5. Xem `deploy-checklist.md` trước khi bung thật cho 1 brand cụ thể
+6. Áp thử cho 1 kênh cụ thể trước (đề xuất: Trùm Sân Bay, vì đã có pipeline 9-agent sẵn, chỉ thiếu tầng chiến lược) trước khi mở rộng
