@@ -43,6 +43,8 @@ lệnh thật. Agent này chỉ soạn plan + script + rủi ro, Antigravity là
 | `mcp-server-patterns` (kho có sẵn) | build/debug MCP server mới |
 | `destructive-command-guardrail` (mới viết) | chặn/flag lệnh phá hủy trước khi đưa ra |
 | `tencent-vps-capacity-cost` (mới viết) | capacity planning + cost riêng Tencent Cloud |
+| `dev-automation-discipline` (mới viết) | no-fabrication (đặc biệt Hermes), luật debug 6 bước, credential, script idempotency |
+| `deploy-review-gate` (mới viết) | dual independent review cho thay đổi hạ tầng rủi ro cao, trước khi Antigravity thực thi |
 
 **Tay:**
 | Tool | Vai trò |
@@ -67,3 +69,13 @@ Xem `ARCHITECTURE.md`.
 3. Agent này CHỈ tư vấn — không gắn quyền SSH/exec thật. Antigravity vẫn là bên duy nhất
    chạy lệnh trên VPS, theo đúng phân công trong Project Instructions.
 4. Chạy test case trong `deploy-checklist.md`.
+5. Nếu cần chạy trên Hermes (báo cáo/phân tích, không phải thực thi) — dùng `HERMES-ADAPTER.md`.
+6. Muốn lắp qua OMC/nền tảng khác — dùng gói portable (xem cuối README).
+
+## Nguyên tắc quan trọng — Agent này KHÔNG BAO GIỜ tự thực thi
+
+Khác Research Pro/Content Pro (tự làm việc), Infra Ops Agent **chỉ soạn plan**.
+Mọi lệnh có tính phá hủy phải qua `destructive-command-guardrail`, mọi thay
+đổi hạ tầng rủi ro cao (không chỉ lệnh phá hủy đơn lẻ, mà cả kế hoạch deploy
+lớn) phải qua `deploy-review-gate` TRƯỚC KHI đưa cho Antigravity — 2 lớp
+guardrail riêng biệt, không thay thế nhau.
