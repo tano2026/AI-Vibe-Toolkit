@@ -60,6 +60,11 @@ Quy tắc "data shelf life" theo loại:
   Industry structure:        stale sau 3 năm
   Academic theory:           stale sau 5-10 năm (tùy ngành)
 
+⚠️ OVERRIDE riêng cho data thị trường VIỆT NAM (theo EXPERT-CORE.md section ①,
+   luật "không thương lượng" — áp dụng bất kể quy tắc chung ở trên):
+  Data thị trường VN quá 18 THÁNG = coi là cũ, PHẢI nói rõ tuổi data trong
+  output, không âm thầm dùng như data mới.
+
 Nếu không có date → KHÔNG dùng cho market size claims.
 Ghi rõ: "Số liệu này không có ngày → độ tin cậy thấp"
 ```
@@ -67,7 +72,11 @@ Ghi rõ: "Số liệu này không có ngày → độ tin cậy thấp"
 ### Bước 3 — Triangulate
 
 ```
-Rule: Claim quan trọng = phải có ≥2 independent sources đồng thuận.
+Rule (theo EXPERT-CORE.md ①, "không thương lượng"):
+Claim ảnh hưởng quyết định TIỀN/CHIẾN LƯỢC = phải có ≥2 independent sources
+ĐỒNG THỜI mỗi nguồn phải đạt điểm ≥3 (Tertiary trở lên, KHÔNG tính
+Questionable/Unreliable dù có 2-3 nguồn loại đó). 2 nguồn rác vẫn là 2
+nguồn rác, không cộng dồn thành đáng tin.
 
 "Independent" nghĩa là:
   ✅ 2 nguồn KHÔNG trích dẫn lẫn nhau
@@ -75,8 +84,8 @@ Rule: Claim quan trọng = phải có ≥2 independent sources đồng thuận.
   ✅ 2 nguồn dùng methodology khác nhau
   ❌ Không tính: site A trích site B, site B trích site A → đây là 1 nguồn
 
-Nếu chỉ tìm được 1 nguồn:
-  → Label rõ: [Single source — cần verify thêm]
+Nếu chỉ tìm được 1 nguồn (hoặc <2 nguồn đạt điểm ≥3):
+  → Label rõ: [Single source — độ tin thấp, cần verify thêm]
   → Không loại bỏ, nhưng không present as fact
 
 Nếu 2 nguồn mâu thuẫn:
@@ -87,10 +96,27 @@ Nếu 2 nguồn mâu thuẫn:
 ### Bước 4 — Label trong output
 
 ```
-Trong mọi output, label rõ:
-  [Primary ⭐⭐⭐⭐⭐] Số liệu XYZ — Nguồn: World Bank 2024
-  [Secondary ⭐⭐⭐⭐] Ước tính thị trường ABC — Nguồn: McKinsey Report Q3/2025
-  [Estimated] Con số này là estimation của tao dựa trên [logic], không có primary source
+⚠️ QUAN TRỌNG: EXPERT-CORE.md (não cứng toàn hệ thống) quy định output PHẢI
+gắn nhãn confidence theo đúng 3 mức [cao]/[vừa]/[thấp] — đây là hệ nhãn
+DÙNG CHUNG cho mọi role (Research/Marketing/Sales/Content), không chỉ riêng
+Research. Hệ ⭐ ở trên là công cụ NỘI BỘ để tính ra đúng mức nào, nhưng khi
+xuất output cuối, PHẢI quy đổi về đúng 3 nhãn chuẩn này để nhất quán với
+Marketing/Sales/Content khi họ đọc report của Research.
+
+Bảng quy đổi ⭐ → nhãn chuẩn:
+  ⭐⭐⭐⭐⭐ Primary + có ≥2 nguồn độc lập đồng thuận  → [cao]
+  ⭐⭐⭐⭐  Secondary + có ≥2 nguồn độc lập            → [cao]
+  ⭐⭐⭐⭐/⭐⭐⭐⭐⭐ nhưng CHỈ 1 nguồn (chưa triangulate) → [vừa]
+  ⭐⭐⭐   Tertiary, hoặc 2 nguồn nhưng mâu thuẫn nhau  → [vừa]
+  ⭐⭐    Questionable, hoặc ước lượng/suy diễn        → [thấp]
+  ⭐     Unreliable                                    → [thấp] (cân nhắc loại bỏ)
+
+Trong mọi output, label rõ CẢ 2 lớp (chi tiết ⭐ cho ai cần đào sâu, nhãn
+chuẩn [cao/vừa/thấp] để role khác đọc nhanh):
+  [cao] (⭐⭐⭐⭐⭐ Primary, 2 nguồn độc lập) Số liệu XYZ — Nguồn: World Bank 2024
+  [cao] (⭐⭐⭐⭐ Secondary, 2 nguồn) Ước tính thị trường ABC — McKinsey Q3/2025
+  [vừa] (⭐⭐⭐⭐ Secondary, single-source) Con số này chỉ 1 nguồn, chưa verify chéo
+  [thấp] (Estimated) Ước tính của tao dựa trên [logic], không có primary source
   [Disputed] Có 2 nguồn khác nhau: [Nguồn A: $X] vs [Nguồn B: $Y] — xem phụ lục
 ```
 
@@ -123,3 +149,12 @@ Chưa tìm được primary source xác nhận con số $830M — cần verify t
 - **Vendor bias:** Công ty SaaS tự công bố "market growing 300%" — luôn check nguồn độc lập
 - **Stale data disguised:** "Market size $XB" không có năm → KHÔNG dùng
 - **Precision illusion:** "$1,234,567,890 market" trông chính xác hơn "$1.2B" nhưng không đáng tin hơn
+
+## Đối chiếu với EXPERT-CORE.md (cập nhật sau audit)
+
+Skill này đã được đối chiếu với `agents/company/EXPERT-CORE.md` section ①
+(RESEARCH & DATA ANALYTICS) — 3 điểm đã vá: ngưỡng 18 tháng riêng cho data
+VN, điều kiện điểm ≥3 khi triangulate, và hệ nhãn `[cao]/[vừa]/[thấp]` dùng
+chung toàn hệ thống. 2 luật khác của section ① (lệch top-down/bottom-up
+>30%, và SO WHAT + tối đa 3 khuyến nghị) đã có sẵn đúng chỗ hơn trong
+`market-sizing` và `data-storytelling` — không lặp lại ở đây.
