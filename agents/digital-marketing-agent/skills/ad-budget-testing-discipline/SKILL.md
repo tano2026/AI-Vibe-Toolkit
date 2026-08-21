@@ -11,7 +11,7 @@ description: >
 # Ad Budget & Testing Discipline
 
 ## TL;DR
-`digital-marketing-orchestrator` hiện chưa có bất kỳ ngưỡng số cụ thể nào cho ngân sách/kill rule/A/B test — mọi quyết định đang dựa cảm tính. Skill này vận hành hoá luật đã có sẵn trong EXPERT-CORE ②, áp trực tiếp cho mọi campaign chạy thật.
+Ngân sách/kill rule đã có công cụ mạnh hơn (`claude-ads/ads-budget.md` + `ads-audit.md`) — dùng luôn, đừng tự làm tay. Skill này giờ chỉ giữ đúng phần chưa ai làm: A/B test discipline (sample size, không peeking), luật attribution, luật frequency retargeting.
 
 ## Khi nào dùng
 - Bắt đầu campaign mới, chưa có data lịch sử để chia ngân sách
@@ -22,37 +22,23 @@ description: >
 
 ## Nội dung skill / prompt
 
-### 1. Luật budget
+## ⚠️ Đã sửa sau khi phát hiện trùng lặp (audit 21/08/2026)
+
+Phát hiện kho đã có `skills/claude-ads/ads-budget.md` + `ads-audit.md` — dùng đúng "70/20/10 rule, 3x Kill Rule, 20% scaling rule" y hệt, nhưng **trưởng thành hơn nhiều** (có hệ thống scoring 0-100, subagent delegation cho 6 platform, đã test `tested_date: 2026-05-17`). Mục 1 và 2 dưới đây ĐÃ ĐƯỢC THAY bằng tham chiếu, không lặp lại nội dung — chỉ giữ mục 3-5 (A/B test, attribution, frequency) vì đây là phần KHÔNG có trong `claude-ads/*`.
+
+### 1-2. Luật budget & Kill rule — dùng `claude-ads/ads-budget.md` + `ads-audit.md`
 
 ```
-Chưa có data lịch sử → split khởi điểm 70/20/10:
-  70% kênh đã proven (hoặc kênh an toàn nhất theo ngành nếu chưa proven)
-  20% kênh test có giả thuyết cụ thể
-  10% moonshot (thử nghiệm mạo hiểm, chấp nhận mất)
+KHÔNG tự tính budget/kill rule bằng tay nữa — gọi skill claude-ads/ads-budget
+cho budget allocation + bidding strategy, gọi claude-ads/ads-audit cho full
+audit đa nền tảng (Google/Meta/LinkedIn/TikTok/Microsoft) kèm health score
+0-100 và kill list tự động.
 
-Có data rồi → shift dần theo CPA thật, mỗi lần dịch ngân sách ≤15% tổng
-budget (không đảo 180 độ 1 lần)
-
-Chạy dài hạn (>3 tháng) → tối thiểu 20% dành cho brand/content nền,
-KHÔNG dồn 100% vào performance — CAC sẽ leo dần khi audience lạnh cạn
-(hiệu ứng đã biết trước, không phải rủi ro bất ngờ).
+Vẫn đúng luật gốc EXPERT-CORE (70/20/10, 3x Kill Rule) — chỉ là đã có công
+cụ mạnh hơn thực thi, không cần tự làm tay.
 ```
 
-### 2. Kill rule mặc định
-
-```
-Ad set: TẮT khi
-  - Spend ≥ 3× CPA target mà 0 conversion, HOẶC
-  - CPA thực > 1.5× target SAU KHI đã qua learning phase (không tắt
-    trong lúc đang learning — chưa đủ data để đánh giá)
-
-Creative: THAY khi CTR < 1/2 median của campaign sau 3 ngày chạy
-
-KHÔNG "để thêm vài ngày xem sao" quá 1 LẦN cho cùng 1 ad set — cho thêm
-cơ hội 1 lần là hợp lý, lần thứ 2 là trì hoãn quyết định đã rõ.
-```
-
-### 3. Luật A/B test
+### 3. Luật A/B test (KHÔNG có trong claude-ads/* — giữ nguyên)
 
 ```
 1 BIẾN/LẦN — đổi nhiều biến cùng lúc không biết cái nào tạo ra khác biệt.
@@ -120,4 +106,4 @@ Chạy ads cho gói AI automation Tano Agency, ngân sách mới lần đầu (c
 
 ## Link
 - Nguồn gốc luật: `agents/company/EXPERT-CORE.md` section ② MARKETING
-- Bổ sung cho: `agents/digital-marketing-agent/skills/digital-marketing-orchestrator/SKILL.md`
+- **Dùng cùng (không lặp lại):** `skills/claude-ads/ads-budget.md`, `skills/claude-ads/ads-audit.md` — budget allocation + kill rule + health scoring đã có sẵn, mạnh hơn
