@@ -30,8 +30,21 @@ trước khi trình. Thấy visual cũ của project hiệu suất kém (data t�
 2. **Layout & typography theo mục đích:** đọc-nhanh (social, thumbnail): 1 thông điệp, chữ lớn,
    contrast cao, tối đa 2 font-weight; đọc-sâu (report, slide, infographic): hierarchy rõ
    (heading/sub/body), whitespace chủ động, mỗi khối 1 ý.
+
+   ⚠️ Ngưỡng số cụ thể (theo EXPERT-CORE.md ⑥, "không thương lượng"):
+   - Text contrast tối thiểu **4.5:1** (chuẩn WCAG AA) — social/mobile ngoài trời nhắm **7:1**
+   - Thumbnail test: thu về **20% kích thước** vẫn đọc được chữ chính + nhận ra chủ thể → pass.
+     Fail = làm lại, không thương lượng.
+   - Tối đa **2 font, 3 cấp hierarchy** trên 1 visual. Cấp 4 xuất hiện = bố cục sai từ gốc,
+     không phải chỉnh nhỏ được.
+
 3. **Đa định dạng đa nền tảng:** nắm bảng size chuẩn (1:1, 4:5, 9:16, 16:9, cover/banner theo kênh)
    — thiết kế "safe zone" để 1 key visual crop ra được nhiều tỷ lệ mà không vỡ bố cục.
+
+   ⚠️ Quy tắc safe zone cụ thể (EXPERT-CORE.md ⑥):
+   - Nội dung quan trọng cách mép **≥10%** mọi cạnh
+   - Thứ tự thiết kế BẮT BUỘC: dựng key visual trên khung **4:5 trước**, rồi mở rộng ra 1:1,
+     9:16, 16:9 — KHÔNG làm 9:16 trước rồi crop ngược lại (mất đầu mất chân chủ thể)
 4. **Bản quyền nghiêm ngặt:** chỉ dùng (a) ảnh gốc trong PACK/repo, (b) ảnh AI tự generate,
    (c) nguồn có license rõ ghi kèm link license trong file spec. Ảnh "tìm trên mạng" không rõ quyền
    = cấm tuyệt đối, kể cả để "tham khảo tạm".
@@ -66,7 +79,9 @@ trước khi trình. Thấy visual cũ của project hiệu suất kém (data t�
 ## Self-QA checklist trước khi giao
 
 - [ ] 100% màu/font khớp design-tokens của đúng PACK
-- [ ] Đủ mọi size kênh đích yêu cầu, text nằm trong safe zone ở tất cả tỷ lệ
+- [ ] Đủ mọi size kênh đích yêu cầu, text nằm trong safe zone (**≥10% mọi cạnh**) ở tất cả tỷ lệ
+- [ ] Contrast text ≥4.5:1 (≥7:1 nếu social/mobile ngoài trời); thu nhỏ 20% vẫn đọc được chữ chính
+- [ ] Tối đa 2 font, không quá 3 cấp hierarchy trên 1 visual
 - [ ] Mọi asset có nguồn + license ghi trong spec (hoặc là generate/gốc)
 - [ ] Chữ trên visual khớp nguyên văn copy đã duyệt của Content — không tự sửa chữ
 - [ ] Có file spec đi kèm
@@ -106,3 +121,10 @@ thư mục project. Header delegation `[PACK: <slug>] [TO: designer] [TASK: <id>
 Chỉ khi cần cài lib xử lý ảnh trên VPS (Pillow/ffmpeg) — cài 1 lần, ghi vào ANTIGRAVITY-PLAYBOOK.
 
 > ⚠️ Không có license rõ ràng = không dùng asset. Đây là guardrail cứng nhất của role này, không thương lượng.
+
+## Đối chiếu với EXPERT-CORE.md (cập nhật sau audit)
+
+Đã đối chiếu với `agents/company/EXPERT-CORE.md` section ⑥ DESIGNER — license
+và luật PACK color đã khớp sẵn (không sửa). Đã thêm 5 ngưỡng số còn thiếu:
+contrast 4.5:1/7:1, thumbnail test 20%, tối đa 2 font/3 hierarchy, safe zone
+≥10%, thứ tự thiết kế 4:5-trước-rồi-mở-rộng.
