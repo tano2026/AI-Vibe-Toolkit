@@ -3026,3 +3026,5 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 273 | Skill | Content Distribution System | /agents/content-pro/skills/content-distribution-system/SKILL.md | Đã push | (chung script 269) | 2026-08-20 |
 | 274 | Skill | Content Strategy Review Gate | /agents/content-pro/skills/content-strategy-review-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-20 |
 | 275 | Stack | Content Brand Playbooks | /agents/content-pro/content-brand-playbooks.md | Đã push | (không có script riêng) | 2026-08-20 |
+| 276 | Skill | Hermes Adapter — Research Analytics Pro | /agents/research-analytics-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 277 | Skill | Hermes Adapter — Content Pro | /agents/content-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
