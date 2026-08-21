@@ -42,7 +42,8 @@ BƯỚC 4 — EDIT/REVIEW (Owner: người khác với người viết — khôn
   Output: bản đã sửa, có ghi chú thay đổi
   Gate: chạy qua fact-checker (nếu có claim) + anti-ai-tells (nếu cần tự
         nhiên hoá) + brand-voice/personal-voice check (giọng đúng brand
-        không, không lệch)
+        không, không lệch) + Content Quality Checklist bên dưới (bắt buộc,
+        theo EXPERT-CORE.md ④ — "không thương lượng")
 
 BƯỚC 5 — PUBLISH + DISTRIBUTE (Owner: người vận hành kênh)
   Output: content đã đăng + kế hoạch phân phối đi kèm (xem
@@ -50,6 +51,48 @@ BƯỚC 5 — PUBLISH + DISTRIBUTE (Owner: người vận hành kênh)
   Gate: đã gắn task phân phối (email/social post/repurpose) trước khi
         tính là "xong" chưa?
 ```
+
+### Content Quality Checklist — luật số cụ thể (EXPERT-CORE.md ④, chạy ở Bước 4)
+
+⚠️ Đây là luật "không thương lượng" của toàn hệ thống — không phải gợi ý,
+Bước 4 KHÔNG được coi là pass nếu bỏ qua bất kỳ mục nào dưới đây:
+
+```
+□ Luật hook: có VIẾT 3 hook option cho content này chưa (không phải viết
+  1 rồi thôi)? Test đọc to từng option — 3 giây đầu có chứa 1 trong 4 loại
+  (pain trực diện / con số bất ngờ / kết quả trước-sau / câu hỏi không né
+  được) không? Không option nào đạt → viết lại, không chọn "đỡ nhất trong
+  đám tệ".
+  → SAU KHI ĐĂNG (không phải lúc duyệt): nếu 3s retention thực tế <65% =
+  hook fail, quay lại mổ hook trước khi đổ lỗi phần thân content.
+
+□ Luật một-ý: content này có đúng 1 ý duy nhất không? Ý thứ 2 xuất hiện
+  giữa chừng → tách thành content riêng (đưa vào cluster cùng pillar qua
+  content-pillar-cluster-architecture), không nhét chung.
+
+□ Luật claim: mọi con số/so sánh/công dụng nhắc tới có nguồn (link hoặc
+  task_id từ Research Analytics Pro) không? Không có nguồn → CẮT, không
+  có chế độ "chắc là đúng".
+
+□ Luật voiceover (nếu có giọng đọc AI, ElevenLabs): câu ≤20 từ? Không viết
+  tắt lạ/ký tự đặc biệt? Số dài viết thành chữ đọc được ("1,2 triệu" không
+  phải "1.200.000")? Đã đọc to toàn bộ script 1 lần chưa — chỗ nào vấp là
+  chỗ phải sửa.
+
+□ Luật SEO (nếu là bài viết/blog): title ≤60 ký tự chứa keyword chính?
+  Đoạn đầu trả lời thẳng câu hỏi (không "trong thời đại 4.0...")? Heading
+  = câu hỏi phụ người thật hỏi? Keyword nhồi >2 lần/100 từ → viết lại tự
+  nhiên hơn.
+
+□ Luật CTA: đúng 1 CTA duy nhất? Awareness content → CTA nhẹ (follow/save);
+  conversion content → CTA hành động (link/inbox). Trộn 2 loại CTA trong
+  cùng 1 content = mất cả hai, không được để lẫn.
+```
+
+**Anti-pattern (từ EXPERT-CORE ④, tự kiểm tra không mắc phải):** mở bài
+vòng vo 15 giây; giọng "quảng cáo TV" trong khi PACK/brand-voice ghi giọng
+đời thường; dịch nguyên content Tây không bản địa hoá ví dụ; viết cho
+thuật toán quên mất người xem thật.
 
 ### Nguyên tắc bất biến
 - **Người review KHÔNG PHẢI người viết** — tự review chia sẻ cùng điểm mù với chính mình (đúng nguyên tắc đã áp cho `research-independent-review-gate`)
@@ -77,3 +120,11 @@ Trùm Sân Bay hiện có pipeline 9-agent nhưng caption/thumbnail/publish vẫ
 
 ## Link
 - Digital Applied — Content Calendar Template 2026 (nguồn quy trình 7 bước gốc, đã rút gọn còn 5 cho thực tế Tano Agency)
+
+## Đối chiếu với EXPERT-CORE.md (cập nhật sau audit)
+
+Đã đối chiếu với `agents/company/EXPERT-CORE.md` section ④ CONTENT CREATOR
+— phát hiện 0% overlap trước audit (skill này trước chỉ có gate chung
+chung "chạy qua fact-checker/anti-ai-tells/brand-voice", không có ngưỡng
+số cụ thể nào). Đã thêm nguyên "Content Quality Checklist" vào Bước 4 với
+đầy đủ 6 luật số của EXPERT-CORE (hook, một-ý, claim, voiceover, SEO, CTA).
