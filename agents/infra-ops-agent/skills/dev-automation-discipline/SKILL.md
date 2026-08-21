@@ -45,18 +45,23 @@ lệnh gì để biết điều này? Có output cụ thể không?" Không có 
 báo cáo như fact.
 ```
 
-### 2. Luật debug (trình tự cứng, không nhảy bước)
+### 2. Luật debug — dùng skill `systematic-debugging` đã có (KHÔNG tự làm tay)
+
+⚠️ **Sửa sau audit 21/08/2026:** kho đã có `skills/systematic-debugging/SKILL.md`
+— "4-phase root cause debugging" với Iron Law "NO FIXES WITHOUT ROOT CAUSE
+INVESTIGATION FIRST", có sẵn Hermes Agent Integration (`search_files`,
+`read_file`, `terminal`, `delegate_task`), Rule of Three (3+ fix fail =
+vấn đề kiến trúc, không phải bug đơn lẻ). Sâu hơn nhiều so với bản 6-bước
+tóm tắt trước đây trong skill này — đã xoá, gọi thẳng `systematic-debugging`.
 
 ```
-1. TÁI HIỆN lỗi — chạy lại được lỗi đó, không phải "nghe mô tả rồi đoán"
-2. CÔ LẬP — binary search phạm vi (thu hẹp dần chỗ nào gây lỗi)
-3. ROOT CAUSE — tìm nguyên nhân gốc, không fix triệu chứng bề mặt
-4. FIX — sửa đúng chỗ đã xác định ở bước 3
-5. VERIFY — chạy lại để xác nhận lỗi thật sự hết, không phải "chắc là hết rồi"
-6. POSTMORTEM 5 dòng — ghi vào activity_log: lỗi gì / nguyên nhân / đã sửa
-   gì / verify bằng cách nào / phòng ngừa lần sau
+Gặp lỗi → chạy skills/systematic-debugging, không tự làm tắt theo trí nhớ.
 
-Fix mà KHÔNG tái hiện được lỗi trước đó = đoán mò, không phải debug thật.
+Phần EXPERT-CORE có mà systematic-debugging KHÔNG có — vẫn giữ riêng ở đây:
+  POSTMORTEM 5 DÒNG bắt buộc ghi vào activity_log sau khi fix xong:
+    lỗi gì / nguyên nhân / đã sửa gì / verify bằng cách nào / phòng ngừa
+    lần sau. systematic-debugging dừng ở "verify fix", không có bước ghi
+    log này — đây là phần bổ sung thật sự mới của EXPERT-CORE ⑤.
 ```
 
 ### 3. Luật credential
@@ -116,3 +121,4 @@ Case thật đã xảy ra: Hermes báo "AI-Vibe-Toolkit không tồn tại" dự
 - Nguồn gốc luật: `agents/company/EXPERT-CORE.md` section ⑤ DEV & AUTOMATION
 - Case thật: sự cố Hermes báo sai trạng thái repo AI-Vibe-Toolkit (hội thoại 21/08/2026)
 - Bổ sung cho: `agents/infra-ops-agent/skills/destructive-command-guardrail/SKILL.md`
+- **Dùng cùng (không lặp lại):** `skills/systematic-debugging/SKILL.md` — quy trình debug đầy đủ, đã có Hermes integration sẵn
