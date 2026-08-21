@@ -55,11 +55,19 @@ Bố cục 5 phần (không thêm không bớt):
    Ví dụ: "ELSA Speak đạt 20M users (2024) — nhưng 95% là free tier → monetization vẫn là
    bài toán chưa giải của EdTech VN"
 
-4. KHUYẾN NGHỊ (3-5 actions)
+4. KHUYẾN NGHỊ (tối đa 3 — theo EXPERT-CORE.md ①, "không thương lượng")
+   ⚠️ KHÔNG phải 3-5 như bản cũ — đúng luật là TỐI ĐA 3, xếp theo impact ×
+   effort. "10 khuyến nghị = 0 khuyến nghị" — nhiều lựa chọn không phải
+   giúp đỡ, mà là đẩy việc ưu tiên hoá lại cho người đọc, tức là chưa làm
+   xong việc phân tích.
    Mỗi action phải: cụ thể + có owner + có timeline (hoặc ít nhất là priority)
-   Format: [Action] — [Lý do] — [Độ ưu tiên]
+   Format: [Action] — [Lý do] — [Độ ưu tiên impact×effort]
    Ví dụ: "Pilot corporate training với 2-3 doanh nghiệp trong Q3 — đây là gap chưa ai
-   khai thác, CAC thấp hơn B2C — HIGH priority"
+   khai thác, CAC thấp hơn B2C — HIGH priority (impact cao, effort thấp)"
+
+   Có nhiều hơn 3 ý đáng nói? → xếp impact×effort, chỉ giữ top 3 làm khuyến
+   nghị chính, phần còn lại đưa xuống mục riêng "Cân nhắc thêm" (không tính
+   là khuyến nghị chính, không đếm vào giới hạn 3)
 
 5. LIMITATIONS (1-3 bullets)
    Cái gì tao không biết, thiếu data ở đâu, confidence level của phân tích này.
@@ -118,3 +126,9 @@ Khi dùng sc-datav (3D dashboard từ kho):
 - **Vague recommendation:** "Nên đầu tư vào digital marketing" → cụ thể là gì? Bao nhiêu? Ai làm?
 - **Buried insight:** Insight quan trọng nhất để ở giữa báo cáo → không ai đọc tới
 - **Confidence overstatement:** Present estimation như fact → mất credibility ngay khi bị hỏi về nguồn
+
+## Đối chiếu với EXPERT-CORE.md (cập nhật sau audit)
+
+Đã đối chiếu với `agents/company/EXPERT-CORE.md` section ① — sửa 1 điểm:
+mục KHUYẾN NGHỊ trước ghi "3-5 actions", đúng luật là TỐI ĐA 3 (impact ×
+effort), phần dư đưa vào mục "Cân nhắc thêm" riêng.
