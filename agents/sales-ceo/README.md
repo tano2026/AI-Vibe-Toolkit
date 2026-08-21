@@ -39,6 +39,7 @@ vừa biết xây hệ thống (pipeline automation, CRM ops) và thực thi (pr
 | `negotiation-deal-structuring` (mới viết) | cấu trúc deal, concession ladder, BATNA |
 | `ceo-decision-lens` (mới viết) | khung quyết định CEO: risk/return/reversibility |
 | `gtm-strategy` (mới viết) | go-to-market cho SMB VN, pricing tier, channel |
+| `deal-scoring-forecast-discipline` (mới viết) | vận hành hoá luật scoring/cadence/objection/pricing/forecast/CRM từ EXPERT-CORE.md ③ |
 
 **Tay (MCP/Tools):**
 | Tool | Vai trò |
