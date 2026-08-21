@@ -3030,3 +3030,7 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 277 | Skill | Hermes Adapter — Content Pro | /agents/content-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 278 | Skill | Deal Scoring & Forecast Discipline | /agents/sales-ceo/skills/deal-scoring-forecast-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 279 | Skill | Audit EXPERT-CORE — source-evaluation, data-storytelling, editorial-workflow-quality-gates | (3 file cập nhật) | Đã push | (không có script riêng) | 2026-08-21 |
+| 280 | Skill | Dev & Automation Discipline (no-fabrication + debug + credential) | /agents/infra-ops-agent/skills/dev-automation-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 281 | Skill | Media Performance Discipline | /agents/trum-san-bay/skills/media-performance-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 282 | Skill | Audit EXPERT-CORE — designer.md (ngưỡng số ⑥) | /agents/company/roles/designer.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 283 | Skill | Ad Budget & Testing Discipline | /agents/digital-marketing-agent/skills/ad-budget-testing-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
