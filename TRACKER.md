@@ -3036,3 +3036,6 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 283 | Skill | Ad Budget & Testing Discipline | /agents/digital-marketing-agent/skills/ad-budget-testing-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 284 | Skill | Deploy Review Gate (Infra Ops Pro) | /agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 285 | Skill | Hermes Adapter — Infra Ops Agent | /agents/infra-ops-agent/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 286 | Stack | Media Pro (agent mới) | /agents/media-pro/README.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 287 | Skill | Cross-Channel Distribution Analysis | /agents/media-pro/skills/cross-channel-distribution-analysis/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 288 | Skill | Hermes Adapter — Media Pro | /agents/media-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
