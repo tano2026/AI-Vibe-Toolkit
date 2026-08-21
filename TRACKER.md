@@ -3034,3 +3034,5 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 281 | Skill | Media Performance Discipline | /agents/trum-san-bay/skills/media-performance-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 282 | Skill | Audit EXPERT-CORE — designer.md (ngưỡng số ⑥) | /agents/company/roles/designer.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 283 | Skill | Ad Budget & Testing Discipline | /agents/digital-marketing-agent/skills/ad-budget-testing-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 284 | Skill | Deploy Review Gate (Infra Ops Pro) | /agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 285 | Skill | Hermes Adapter — Infra Ops Agent | /agents/infra-ops-agent/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
