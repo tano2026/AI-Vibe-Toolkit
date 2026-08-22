@@ -117,6 +117,27 @@ full-auto, trả về 2 gate gốc của Vox Director.
 
 ---
 
+## Đã test thực tế
+
+- **Router classify:** test 9 câu topic thật (context ABTRIP/Trùm Sân Bay) → phát hiện bug
+  thiếu keyword `"vì sao"` (chỉ có `"tại sao"`) khiến 1 câu rơi sai vào ambiguous. Đã fix,
+  thêm cả `"bao nhiêu"`, `"vì đâu"`. Code hiện tại (bản dưới) đã qua fix này.
+- **Engine Remotion:** viết thật component `DataCard.tsx` (data card so sánh giá, có
+  animation), type-check pass 100%. Render thật cần Chrome Headless Shell (~300MB, tải từ
+  `remotion.media`) — máy có network mở/VPS thì chạy bình thường, sandbox hạn chế domain
+  thì không tải được. Không phải lỗi code.
+- **Engine Vox Director:** chưa test được — cần `ATLASCLOUD_API_KEY` thật + network mở tới
+  `atlascloud.ai`, phải chạy trên máy/VPS thật.
+
+**Cách test trên VPS/máy local:**
+```bash
+npx create-video@latest my-video --template blank
+# copy DataCard.tsx + index.tsx vào src/, thêm tsconfig.json
+npm install remotion @remotion/cli react react-dom
+npx remotion render src/entry.tsx DataCard out/video.mp4
+# Lần đầu sẽ tự tải Chrome Headless Shell — cần network mở, không bị chặn egress
+```
+
 ## Lưu ý / Lỗi thường gặp
 
 - **Auto-pick beat map/style sai gu** → nếu thấy output lệch quá nhiều so với brand voice,
@@ -157,8 +178,8 @@ full-auto, trả về 2 gate gốc của Vox Director.
 # Router classify — chạy rule-based trước, fallback LLM qua OmniRoute
 import urllib.request, json, re
 
-REMOTION_KW = ["top", "so sánh", "giá", "bảng", "%", "thống kê", "vs"]
-VOX_KW = ["là gì", "tại sao", "cách", "câu chuyện", "hành trình", "giải thích"]
+REMOTION_KW = ["top", "so sánh", "giá", "bảng", "%", "thống kê", "vs", "bao nhiêu"]
+VOX_KW = ["là gì", "tại sao", "vì sao", "cách", "câu chuyện", "hành trình", "giải thích", "vì đâu"]
 
 def classify(topic: str) -> str:
     t = topic.lower()
