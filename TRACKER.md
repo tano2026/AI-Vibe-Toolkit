@@ -3039,3 +3039,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 286 | Stack | Media Pro (agent mới) | /agents/media-pro/README.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 287 | Skill | Cross-Channel Distribution Analysis | /agents/media-pro/skills/cross-channel-distribution-analysis/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 288 | Skill | Hermes Adapter — Media Pro | /agents/media-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 289 | Stack | Video Factory Auto-Router | /stacks/video-factory-auto-router.md | Đã push | /content/script-video-270-video-factory-auto-router.md | 2026-08-22 |
