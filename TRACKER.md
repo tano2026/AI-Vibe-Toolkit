@@ -3041,3 +3041,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 288 | Skill | Hermes Adapter — Media Pro | /agents/media-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 289 | Stack | Video Factory Auto-Router | /stacks/video-factory-auto-router.md | Đã push | /content/script-video-270-video-factory-auto-router.md | 2026-08-22 |
 | 290 | Stack | DeepSeek Harness — Bo tai lieu hoc & tra cuu | /stacks/deepseek-harness-bo-tai-lieu.md | Da push | /content/script-video-272-deepseek-harness-bo-tai-lieu.md | 2026-08-22 |
+| 274 | Skill | Marketing Data Sources | /skills/marketing-data-sources/SKILL.md | Đã push | /content/script-video-273-marketing-data-sources.md | 2026-08-26 |
