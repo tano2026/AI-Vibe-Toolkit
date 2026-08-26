@@ -3042,3 +3042,8 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 289 | Stack | Video Factory Auto-Router | /stacks/video-factory-auto-router.md | Đã push | /content/script-video-270-video-factory-auto-router.md | 2026-08-22 |
 | 290 | Stack | DeepSeek Harness — Bo tai lieu hoc & tra cuu | /stacks/deepseek-harness-bo-tai-lieu.md | Da push | /content/script-video-272-deepseek-harness-bo-tai-lieu.md | 2026-08-22 |
 | 274 | Skill | Marketing Data Sources | /skills/marketing-data-sources/SKILL.md | Đã push | /content/script-video-273-marketing-data-sources.md | 2026-08-26 |
+| 275 | Repo | Prime Agent | /repos/prime-agent.md | Đã push | /content/script-video-274-prime-agent.md | 2026-08-26 |
+| 276 | Repo | LoopX | /repos/loopx.md | Đã push | /content/script-video-275-loopx.md | 2026-08-26 |
+| 277 | Repo | Oh My Pi | /repos/oh-my-pi.md | Đã push | /content/script-video-276-oh-my-pi.md | 2026-08-26 |
+| 278 | Repo | BitFun | /repos/bitfun.md | Đã push | /content/script-video-277-bitfun.md | 2026-08-26 |
+| 279 | Repo | Awesome GPT Image 2 | /repos/awesome-gpt-image-2.md | Đã push | /content/script-video-278-awesome-gpt-image-2.md | 2026-08-26 |
