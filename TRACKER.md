@@ -3047,3 +3047,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 277 | Repo | Oh My Pi | /repos/oh-my-pi.md | Đã push | /content/script-video-276-oh-my-pi.md | 2026-08-26 |
 | 278 | Repo | BitFun | /repos/bitfun.md | Đã push | /content/script-video-277-bitfun.md | 2026-08-26 |
 | 279 | Repo | Awesome GPT Image 2 | /repos/awesome-gpt-image-2.md | Đã push | /content/script-video-278-awesome-gpt-image-2.md | 2026-08-26 |
+| 280 | Repo | Orca | /repos/orca.md | Đã push | /content/script-video-279-orca.md | 2026-08-27 |
