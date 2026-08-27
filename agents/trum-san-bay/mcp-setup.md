@@ -26,20 +26,18 @@ apt update && apt install ffmpeg -y
 
 ---
 
-## 1. HyperFrames — Render video (thay SceneWorks)
+## 1. ⛔ TẠM TẮT — HyperFrames (render video)
+
+**2026-08: bỏ nhánh video khỏi pipeline theo quyết định Nobitano** ("không quay, không
+dựng, chỉ làm bài viết + ảnh"). KHÔNG cần cài mục này. Giữ nguyên hướng dẫn dưới đây
+trong file để bật lại dễ dàng nếu sau này quay lại làm video.
 
 ```bash
-npm install -g hyperframes
-npx skills add heygen-com/hyperframes
-
-# Test thử
-mkdir -p /opt/trum-san-bay/video-workspace
-cd /opt/trum-san-bay/video-workspace
-npx hyperframes init tsb-template
-npx hyperframes render --input test.html --output test.mp4 --width 1080 --height 1920
+# npm install -g hyperframes
+# npx skills add heygen-com/hyperframes
+# npx hyperframes init tsb-template
+# npx hyperframes render --input test.html --output test.mp4 --width 1080 --height 1920
 ```
-
-**Không cần token/API key** — chạy local hoàn toàn.
 
 ---
 
@@ -58,6 +56,27 @@ APIFY_TOKEN=apify_api_xxxxxxxxxxxx
 ```
 
 ---
+
+## 3a. Postiz — Facebook publish (2026-08, đang dùng mặc định)
+
+**Cần chuẩn bị:**
+1. Đăng ký tài khoản tại postiz.com
+2. Trong Postiz: Connect → chọn Facebook Page "Trùm Sân Bay" → xác nhận OAuth
+3. Settings → lấy API key + integration ID của kênh Facebook vừa connect
+
+```bash
+# Set env
+POSTIZ_API_KEY=xxxxxxxxxxxxx
+POSTIZ_FB_INTEGRATION_ID=xxxxxxxxxxxxx
+```
+
+> ⚠️ `agent.py` hàm `_publish_facebook_postiz` chưa test thật với key thật — chạy thử
+> 1 bài trước khi bật full pipeline, chỉnh field payload nếu API trả lỗi schema.
+
+## 3b. ⛔ DỰ PHÒNG — Meta Graph API trực tiếp (không dùng mặc định)
+
+Giữ lại code + hướng dẫn dưới đây để rollback nếu Postiz không ổn định. Không cần setup
+mục này trừ khi quyết định quay lại Graph API trực tiếp.
 
 ## 3. Meta Graph API — Facebook + Instagram + Reels
 
@@ -93,7 +112,7 @@ IG_USER_ID=17xxxxxxxxxxxxx
 
 ---
 
-## 4. TikTok Content Posting API
+## 4. ⛔ TẠM TẮT — TikTok Content Posting API (tập trung Facebook trước)
 
 **Cần chuẩn bị:**
 1. Đăng ký TikTok Developer: developers.tiktok.com
@@ -111,7 +130,7 @@ TIKTOK_ACCESS_TOKEN=xxxxxxxxxxxxx
 
 ---
 
-## 5. YouTube Data API v3
+## 5. ⛔ TẠM TẮT — YouTube Data API v3 (tập trung Facebook trước)
 
 **Cần chuẩn bị:**
 1. Tạo project tại console.cloud.google.com
@@ -222,17 +241,19 @@ pm2 save
 
 ## Checklist nhanh — cần bao nhiêu account/key
 
-| # | Dịch vụ | Loại | Free? | Bắt buộc |
+| # | Dịch vụ | Loại | Free? | Bắt buộc (2026-08) |
 |---|---------|------|-------|----------|
-| 1 | HyperFrames | npm package | Free | Có |
+| 1 | HyperFrames | npm package | Free | ⛔ Tắt — không dùng video |
 | 2 | Apify | API token | Free tier | Có |
-| 3 | Facebook App + Page Token | OAuth | Free | Có |
-| 4 | Instagram Business | Link qua FB | Free | Có |
-| 5 | TikTok Developer | OAuth | Free | Có |
-| 6 | YouTube/Google Cloud | OAuth | Free (quota giới hạn) | Có |
+| 3a | **Postiz** | OAuth + API key | Free tier | **Có — đang dùng mặc định** |
+| 3b | Facebook App + Page Token (Graph API trực tiếp) | OAuth | Free | ⛔ Dự phòng, không cần setup |
+| 4 | Instagram Business | Link qua FB | Free | ⛔ Tắt — tập trung Facebook |
+| 5 | TikTok Developer | OAuth | Free | ⛔ Tắt — tập trung Facebook |
+| 6 | YouTube/Google Cloud | OAuth | Free (quota giới hạn) | ⛔ Tắt — tập trung Facebook |
 | 7 | Airtable | API key | Free tier | Có |
 | 8 | Anthropic API | API key | Trả theo usage | Có |
-| 9 | n8n | Đã có sẵn | — | — |
+| 9 | Gemini API (gen ảnh, mục 12) | API key | Free tier | Có |
+| 10 | n8n | Đã có sẵn | — | — |
 
 **Tổng chi phí cố định: $0/tháng** (trừ Anthropic API tính theo lượng dùng thực tế — content 1 fanpage/tháng thường chỉ vài USD).
 
