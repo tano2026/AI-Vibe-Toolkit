@@ -19,6 +19,13 @@ YOUTUBE_CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID")
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
 
+# 2026-08 upgrade: đổi khâu publish Facebook sang Postiz (thay Meta Graph API
+# trực tiếp) — quyết định của Nobitano vì dễ setup hơn, không cần tự quản lý
+# token refresh 60 ngày. Giữ nguyên _publish_facebook (Graph API) cũ bên dưới,
+# không xóa, để rollback được nếu Postiz không ổn định.
+POSTIZ_API_KEY = os.environ.get("POSTIZ_API_KEY")
+POSTIZ_FB_INTEGRATION_ID = os.environ.get("POSTIZ_FB_INTEGRATION_ID")  # id kênh FB đã connect trong Postiz
+
 # === HELPERS ===
 
 def api_call(url, method="GET", data=None, headers=None):
@@ -249,6 +256,36 @@ def _retry_call(platform, fn, max_retries=3, base_backoff=5):
     return {"status": "failed_after_retries", "error_code": error_code}
 
 
+def _publish_facebook_postiz(fields):
+    """
+    Publish Facebook qua Postiz thay vì gọi thẳng Meta Graph API.
+    Ưu điểm: không phải tự quản lý refresh token 60 ngày (Postiz lo phần đó
+    sau khi Nobitano connect Page 1 lần qua postiz.com).
+
+    ⚠️ CHƯA TEST THẬT — field names dưới đây theo tài liệu public API của
+    Postiz (docs.postiz.com/public-api) tại thời điểm viết. Khi có
+    POSTIZ_API_KEY thật, chạy thử 1 lần và chỉnh lại field nếu response lỗi
+    schema — không giả định code này chạy đúng ngay lần đầu.
+    """
+    def call():
+        payload = {
+            "type": "draft",  # đổi "now"/"schedule" tùy Postiz hỗ trợ khi test thật
+            "content": fields.get("caption_fb"),
+            "integrations": [POSTIZ_FB_INTEGRATION_ID],
+        }
+        if fields.get("asset_path"):
+            payload["media"] = [fields.get("asset_path")]
+
+        result = api_call(
+            "https://api.postiz.com/public/v1/posts", "POST", payload,
+            {"Authorization": f"Bearer {POSTIZ_API_KEY}"}
+        )
+        if result.get("id") or result.get("status") == "success":
+            return True, result, None
+        return False, result, result.get("error_code") or result.get("status")
+    return _retry_call("facebook", call)
+
+
 def _publish_facebook(fields):
     def call():
         result = api_call(
@@ -382,8 +419,12 @@ def _publish_youtube(fields):
 
 
 # Map platform -> (publisher_fn, required_field_check)
+# 2026-08: facebook route qua Postiz. instagram/tiktok/youtube giữ nguyên code
+# nhưng KHÔNG nằm trong configured_platforms nữa (xem publish_post_safe) —
+# Nobitano quyết định tập trung sâu Facebook trước, chưa đóng đường quay lại.
 PLATFORM_PUBLISHERS = {
-    "facebook": _publish_facebook,
+    "facebook": _publish_facebook_postiz,
+    "facebook_graph_direct": _publish_facebook,  # dự phòng rollback, không dùng mặc định
     "instagram": _publish_instagram,
     "tiktok": _publish_tiktok,
     "youtube": _publish_youtube,
@@ -395,8 +436,9 @@ ERROR_MESSAGES = {
     368: "Nội dung bị Facebook flag — cần review thủ công",
     "access_token_invalid": "Token TikTok hết hạn — cần re-auth",
     "video_format_invalid": "Video TikTok lỗi format/thiếu URL public",
-    401: "Token YouTube hết hạn — cần refresh OAuth",
+    401: "Token YouTube hết hạn — cần refresh OAuth, hoặc Postiz API key sai/hết hạn",
     403: "YouTube hết quota API hôm nay hoặc thiếu permission",
+    "postiz_no_integration": "Chưa connect Facebook Page trong Postiz — vào postiz.com connect lại",
 }
 
 
@@ -419,15 +461,18 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
     enforce_pipeline_gate(airtable_record_id, "publish", fields)
 
     # Chỉ đăng platform nào đã cấu hình credential (tránh lỗi thừa khi launch dần)
+    # 2026-08: tập trung sâu Facebook trước theo quyết định Nobitano — chỉ bật
+    # facebook (qua Postiz). instagram/tiktok/youtube comment lại, không xóa,
+    # bật lại bằng cách bỏ comment khi cần mở rộng platform.
     configured_platforms = []
-    if FB_ACCESS_TOKEN and FB_PAGE_ID:
+    if POSTIZ_API_KEY and POSTIZ_FB_INTEGRATION_ID:
         configured_platforms.append("facebook")
-    if FB_ACCESS_TOKEN and IG_USER_ID:
-        configured_platforms.append("instagram")
-    if os.environ.get("TIKTOK_REFRESH_TOKEN"):
-        configured_platforms.append("tiktok")
-    if os.environ.get("YOUTUBE_REFRESH_TOKEN"):
-        configured_platforms.append("youtube")
+    # if FB_ACCESS_TOKEN and IG_USER_ID:
+    #     configured_platforms.append("instagram")
+    # if os.environ.get("TIKTOK_REFRESH_TOKEN"):
+    #     configured_platforms.append("tiktok")
+    # if os.environ.get("YOUTUBE_REFRESH_TOKEN"):
+    #     configured_platforms.append("youtube")
 
     # Idempotency — check đã đăng platform nào rồi (từ progress.json)
     state = _load_state().get(airtable_record_id, {})
