@@ -3048,3 +3048,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 278 | Repo | BitFun | /repos/bitfun.md | Đã push | /content/script-video-277-bitfun.md | 2026-08-26 |
 | 279 | Repo | Awesome GPT Image 2 | /repos/awesome-gpt-image-2.md | Đã push | /content/script-video-278-awesome-gpt-image-2.md | 2026-08-26 |
 | 280 | Repo | Orca | /repos/orca.md | Đã push | /content/script-video-279-orca.md | 2026-08-27 |
+| 281 | Repo | AgentTube | /repos/agenttube.md | Đã push | /content/script-video-280-agenttube.md | 2026-08-30 |
