@@ -3050,3 +3050,4 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 280 | Repo | Orca | /repos/orca.md | Đã push | /content/script-video-279-orca.md | 2026-08-27 |
 | 281 | Repo | AgentTube | /repos/agenttube.md | Đã push | /content/script-video-280-agenttube.md | 2026-08-30 |
 | 289 | Skill | Chatwoot Adapter — Content Pro | /agents/content-pro/CHATWOOT-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 290 | Skill | Khoj Adapter — Content Pro | /agents/content-pro/KHOJ-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
