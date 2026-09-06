@@ -3052,3 +3052,25 @@ sach de agent goi thang, chi co web UI Streamlit).
 | 289 | Skill | Chatwoot Adapter — Content Pro | /agents/content-pro/CHATWOOT-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 290 | Skill | Khoj Adapter — Content Pro | /agents/content-pro/KHOJ-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 282 | Repo | Commerce Agents (Anthropic) | /repos/commerce-agents.md | Đã push | /content/script-video-281-commerce-agents.md | 2026-09-04 |
+
+## Dọn kho 06/09/2026 — Xoá 4 cặp duplicate video-skill trong skills/ecc/
+
+Phát hiện khi rà soát nhóm skill/repo video theo yêu cầu Nobitano. 4 file trong `skills/ecc/`
+(bản raw archive gốc từ 262 ECC skills) trùng lặp với bản đã promote ra `skills/<name>/SKILL.md`:
+
+- `skills/ecc/manim-video.md` == `skills/manim-video/SKILL.md` (SHA giống hệt) → đã xoá bản ecc/
+- `skills/ecc/video-editing.md` == `skills/video-editing/SKILL.md` (SHA giống hệt) → đã xoá bản ecc/
+- `skills/ecc/videodb.md` == `skills/videodb/SKILL.md` (SHA giống hệt) → đã xoá bản ecc/
+- `remotion-video-creation`: có 2 bản lỗi — `skills/ecc/remotion-video-creation.md` (flat, outdated
+  format) và `skills/ecc-remotion-video-creation/SKILL.md` (bug double-frontmatter còn sót từ đợt dọn
+  21/07/2026, và tên folder `ecc-remotion-video-creation` không khớp `name: remotion-video-creation`
+  trong frontmatter). Đã gộp thành 1 bản sạch tại `skills/remotion-video-creation/SKILL.md` (canonical
+  path, 1 frontmatter duy nhất), xoá 2 bản cũ.
+
+**Ghi chú tồn đọng:** file `skills/remotion-video-creation/SKILL.md` là index trỏ tới 29 file
+`rules/*.md` (3d, animations, audio, captions, v.v.) nhưng các file rules con này CHƯA từng được
+đưa vào kho — chỉ có index. Cần research riêng nếu muốn dùng chi tiết rule cụ thể nào, không
+giả định nội dung.
+
+**Kho sau dọn:** đã xoá 4 file trùng trong `skills/ecc/`, canonical path cho remotion-video-creation
+giờ là `skills/remotion-video-creation/SKILL.md`.
