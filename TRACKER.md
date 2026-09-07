@@ -3074,3 +3074,4 @@ giả định nội dung.
 
 **Kho sau dọn:** đã xoá 4 file trùng trong `skills/ecc/`, canonical path cho remotion-video-creation
 giờ là `skills/remotion-video-creation/SKILL.md`.
+| 291 | Skill | Project Starter Rules | /skills/project-starter-rules/SKILL.md | Đã push | /content/script-video-282-project-starter-rules.md | 2026-09-07 |
