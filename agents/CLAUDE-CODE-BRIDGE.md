@@ -1,105 +1,113 @@
 # Claude Code Bridge — Kết nối Kho AI-Vibe-Toolkit với Claude Code
 
-> File này là playbook cho **Claude Code** (khác Hermes/OpenClaw/Antigravity).
-> Claude Code chạy trên VPS + máy Windows local của Nobitano — cả hai đều cần
-> đọc được kho này để không tự nghĩ lại cái đã có sẵn.
+> File này là playbook cho **Claude Code** (khác Hermes/OpenClaw/Antigravity/Team Thục Hán).
+> Claude Code ở đây = Claude Code Desktop (tab "Code" trong Claude Desktop app), chạy
+> **local trên máy Windows**, KHÔNG phải trên VPS. Team Thục Hán (Hermes/OpenClaw/DSH)
+> là hệ agent khác, giao tiếp qua file `tasks/*.md`, không chung runtime với Claude Code —
+> bridge này không đụng gì tới Team Thục Hán.
+
+---
+
+## Môi trường xác nhận (ghi lại để không đoán lại lần sau)
+
+- **Máy:** Windows 11 Pro (build 10.0.26200), local
+- **Working dir mẫu:** `D:\tano-tuvi-platform` (repo Tử Vi, branch `master`) — nhưng Claude
+  Code có thể được trỏ vào bất kỳ project nào khác trên máy, không cố định vào Tử Vi
+- **Shell:** PowerShell chính, Git Bash song song
+- **Browser pane riêng:** `Claude_Browser`, tách biệt Chrome thật — dùng để test render HTML
+- **Memory bundle:** `D:\Claude_vm_bundles\.claude\projects\...\memory\` — **KHÔNG theo
+  path mặc định `%USERPROFILE%\.claude`**. Đây là bundle custom, nên trước khi sửa bất
+  kỳ CLAUDE.md nào, PHẢI xác nhận lại path thật bằng lệnh `/memory` trong Claude Code
+  session (lệnh này liệt kê đúng những file CLAUDE.md/rules đang được load, không đoán mò).
 
 ---
 
 ## Vì sao cần bridge riêng
 
 Kho dùng template Skill riêng (`TL;DR / Setup / Ví dụ / Đánh giá`) — **không có YAML
-frontmatter** (`name:` + `description:`) như skill thật của Claude Code. Nên Claude Code
-sẽ **không tự trigger** 469 file trong `/skills/` như skill native. Claude Code chỉ đọc
-được kho khi được trỏ đường dẫn cụ thể (qua CLAUDE.md import hoặc `--add-dir`), dùng như
-**tài liệu tra cứu**, không phải skill auto-invoke.
-
-Muốn 1 skill cụ thể trigger tự động thật sự trong Claude Code → phải thêm frontmatter
-riêng cho skill đó và đặt vào `~/.claude/skills/<name>/SKILL.md` (mirror riêng, không
-sửa file gốc trong kho để không phá pipeline viết content/script video).
+frontmatter** (`name:` + `description:`) như skill thật của Claude Code. Claude Code sẽ
+**không tự trigger** 469 file trong `/skills/` như skill native. Chỉ đọc được kho khi
+được trỏ đường dẫn cụ thể (qua CLAUDE.md import hoặc `--add-dir`) — dùng như tài liệu
+tra cứu thụ động, không phải skill auto-invoke.
 
 ---
 
-## Setup 1 lần — clone kho về máy chạy Claude Code
+## Setup 1 lần — clone kho về máy Windows
 
-### VPS (Linux, Tencent Cloud — cùng chỗ Hermes)
-```bash
-cd /opt   # hoặc thư mục mày quen dùng cho project
-git clone https://github.com/tano2026/AI-Vibe-Toolkit.git
-# Repo private → cần auth 1 trong 2 cách:
-# Cách A (nhanh, tạm): git clone https://<GITHUB_TOKEN>@github.com/tano2026/AI-Vibe-Toolkit.git
-# Cách B (an toàn hơn, khuyên dùng): git config --global credential.helper store
-#          rồi clone bình thường, nhập token 1 lần khi được hỏi password
-```
-
-### Windows local
 ```powershell
-cd C:\Users\<ten-may>\Projects   # hoặc thư mục quen dùng
+# Clone RA NGOÀI thư mục D:\tano-tuvi-platform — kho là repo riêng, không nest vào
+# git repo Tử Vi để tránh xung đột submodule
+cd D:\
 git clone https://github.com/tano2026/AI-Vibe-Toolkit.git
-# Auth tương tự VPS — dùng Git Credential Manager (đã có sẵn nếu cài Git for Windows)
 ```
+Repo private → clone lần đầu sẽ hỏi credential. Dùng Git Credential Manager (có sẵn nếu
+cài Git for Windows) thay vì nhúng token thẳng vào URL clone — nhúng token vào URL sẽ lưu
+plaintext trong `.git/config`, `git remote -v` sẽ show ra.
 
-**Lưu ý bảo mật:** nhúng token thẳng vào URL clone sẽ lưu vào `.git/config` dạng plaintext,
-`git remote -v` sẽ show ra token. Nên dùng credential helper (Cách B) thay vì nhúng token
-vào URL nếu máy có người khác dùng chung.
+Kết quả: `D:\AI-Vibe-Toolkit\`
 
 ---
 
-## Setup 2 — trỏ Claude Code tới kho (user-level, áp dụng MỌI project)
+## Setup 2 — xác nhận path CLAUDE.md thật, rồi trỏ vào kho
 
-Thêm vào `~/.claude/CLAUDE.md` (Linux VPS) hoặc `%USERPROFILE%\.claude\CLAUDE.md` (Windows):
+**Bước A — xác nhận path thật (bắt buộc, đừng đoán):**
+Trong 1 phiên Claude Code, gõ:
+```
+/memory
+```
+Lệnh này show chính xác những file CLAUDE.md/rules nào đang load và path của chúng —
+vì bundle custom `D:\Claude_vm_bundles\...` có thể không giống mặc định.
 
+**Bước B — thêm import vào file user-level CLAUDE.md mà `/memory` vừa chỉ ra:**
 ```markdown
 ## Kho AI-Vibe-Toolkit
 Kho kiến thức chính của Tano Agency — ~470 skill, ~150 repo, ~44 MCP, stack, và
 playbook Hermes/OpenClaw/Antigravity. Trước khi tự viết tool/pattern mới từ đầu,
 LUÔN grep/đọc kho trước — khả năng cao đã có sẵn entry liên quan.
 
-Vị trí local (VPS): /opt/AI-Vibe-Toolkit
-Vị trí local (Windows): C:\Users\<ten-may>\Projects\AI-Vibe-Toolkit
+Vị trí local: D:\AI-Vibe-Toolkit
 
-@/opt/AI-Vibe-Toolkit/KHO-INDEX.md
+@D:\AI-Vibe-Toolkit\KHO-INDEX.md
 ```
 
-> Điều chỉnh path đúng theo từng máy. Trên Windows dùng `@C:\Users\<ten-may>\Projects\AI-Vibe-Toolkit\KHO-INDEX.md`.
-> Import `@` load thẳng nội dung KHO-INDEX.md vào context mỗi session — Claude Code biết
-> kho tồn tại và cấu trúc folder ngay từ đầu, không cần nhắc lại.
+User-level = áp dụng cho MỌI project Claude Code mở trên máy này, không riêng Tử Vi.
+Nếu chỉ muốn bật cho riêng project Tử Vi → thêm dòng `@` tương tự vào
+`D:\tano-tuvi-platform\CLAUDE.md` (project-level) thay vì user-level.
 
-Nếu chỉ muốn bật cho 1 project cụ thể (không phải global) → dùng `--add-dir /opt/AI-Vibe-Toolkit`
-khi chạy `claude`, hoặc thêm dòng `@` tương tự vào `CLAUDE.md` ở root project đó.
+Không chắc `/memory` trỏ tới đâu, hoặc bundle custom không cho sửa trực tiếp → cách chắc
+ăn nhất: thêm vào `D:\tano-tuvi-platform\CLAUDE.md` (project-level, chắc chắn load khi
+làm việc trong repo này), chấp nhận đánh đổi là chỉ áp dụng cho project Tử Vi thôi.
 
 ---
 
-## Setup 3 — auto-sync để kho local luôn mới
+## Setup 3 — giữ kho local luôn mới
 
-Claude (trên claude.ai project) là người DUY NHẤT ghi lên kho GitHub. VPS + Windows chỉ
-đọc bản local đã clone → cần pull định kỳ để không bị lệch.
+Máy local, không có cron kiểu Linux mặc định → 2 lựa chọn:
 
-### VPS — cron (Antigravity quản lý)
-```bash
-crontab -e
-# thêm dòng:
-*/30 * * * * cd /opt/AI-Vibe-Toolkit && git pull --quiet
-```
-
-### Windows — Task Scheduler
+**A. Task Scheduler (tự động, khuyên dùng nếu làm việc thường xuyên)**
 ```powershell
-# Tạo file pull-kho.ps1:
-# cd C:\Users\<ten-may>\Projects\AI-Vibe-Toolkit; git pull --quiet
+# Tạo D:\AI-Vibe-Toolkit\pull-kho.ps1 với nội dung:
+#   cd D:\AI-Vibe-Toolkit; git pull --quiet
 
-schtasks /create /tn "SyncKho" /tr "powershell.exe -File C:\Users\<ten-may>\Projects\pull-kho.ps1" /sc minute /mo 30
+schtasks /create /tn "SyncKho" /tr "powershell.exe -File D:\AI-Vibe-Toolkit\pull-kho.ps1" /sc minute /mo 30
 ```
+
+**B. Pull tay (đơn giản, đủ dùng nếu không phải làm việc 24/7)**
+```powershell
+cd D:\AI-Vibe-Toolkit; git pull
+```
+Chạy lệnh này đầu mỗi phiên làm việc trước khi bắt Claude Code tra kho.
 
 ---
 
 ## (Optional) Phase 2 — biến 1 skill cụ thể thành skill thật của Claude Code
 
 Chỉ làm cho skill nào thật sự cần auto-trigger (không convert cả 469 file — phí công,
-và phá format dùng cho content factory). Quy trình:
+phá format dùng cho content factory). Quy trình:
 
 1. Chọn skill trong kho, vd `skills/project-starter-rules/SKILL.md`
-2. Copy nội dung phần "Nội dung skill / prompt" sang file mới tại
-   `~/.claude/skills/project-starter-rules/SKILL.md`
+2. Copy nội dung phần "Nội dung skill / prompt" sang file mới. Path thật xác nhận qua
+   `/memory` — thường dạng `<claude-home>\skills\<ten-skill>\SKILL.md`
 3. Thêm frontmatter ở đầu file:
 ```yaml
 ---
@@ -107,21 +115,23 @@ name: project-starter-rules
 description: Áp dụng 5 trụ cột quy tắc chuẩn (code quality, token control, loop guardrail, security, verification) khi khởi tạo project mới cho Tano Agency.
 ---
 ```
-4. Claude Code giờ tự nhận diện và trigger đúng lúc, không cần gõ `/skill-name` thủ công
-   (dù vẫn gọi thủ công được nếu muốn).
+4. Claude Code giờ tự nhận diện và trigger đúng lúc.
 
 ---
 
 ## Tóm tắt luồng dữ liệu
 
 ```
-Nobitano quẳng task cho Claude (claude.ai project)
+Nobitano quẳng task cho Claude (claude.ai project — kho)
         ↓
 Claude research + viết .md + push kho GitHub (tano2026/AI-Vibe-Toolkit)
         ↓
-cron/Task Scheduler pull kho về VPS + Windows mỗi 30 phút
+Claude Code (Windows local, D:\AI-Vibe-Toolkit) pull kho — tay hoặc Task Scheduler
         ↓
-Claude Code (VPS hoặc Windows) đọc kho qua CLAUDE.md import
+Claude Code đọc kho qua CLAUDE.md import (path xác nhận bằng /memory)
         ↓
-Claude Code dùng thông tin kho khi code/build task thực tế
+Claude Code dùng thông tin kho khi code task thực tế (vd tano-tuvi-platform)
 ```
+
+Nếu sau này Claude Code cũng chạy thêm trên VPS (song song Hermes/OpenClaw) → lặp lại
+đúng quy trình Setup 1–3, chỉ đổi path Windows → path Linux và Task Scheduler → cron.
