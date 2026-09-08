@@ -3075,3 +3075,6 @@ giả định nội dung.
 **Kho sau dọn:** đã xoá 4 file trùng trong `skills/ecc/`, canonical path cho remotion-video-creation
 giờ là `skills/remotion-video-creation/SKILL.md`.
 | 291 | Skill | Project Starter Rules | /skills/project-starter-rules/SKILL.md | Đã push | /content/script-video-282-project-starter-rules.md | 2026-09-07 |
+| 292 | Repo | Claude Code Router | /repos/claude-code-router.md | Đã push | /content/script-video-283-claude-code-router.md | 2026-09-08 |
+| 293 | Repo | System Prompts AI | /repos/system-prompts-ai.md | Đã push | /content/script-video-284-system-prompts-ai.md | 2026-09-08 |
+| 294 | Repo | Awesome MCP Servers | /repos/awesome-mcp-servers.md | Đã push | /content/script-video-285-awesome-mcp-servers.md | 2026-09-08 |
