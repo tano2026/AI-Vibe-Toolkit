@@ -3078,3 +3078,6 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 292 | Repo | Claude Code Router | /repos/claude-code-router.md | Đã push | /content/script-video-283-claude-code-router.md | 2026-09-08 |
 | 293 | Repo | System Prompts AI | /repos/system-prompts-ai.md | Đã push | /content/script-video-284-system-prompts-ai.md | 2026-09-08 |
 | 294 | Repo | Awesome MCP Servers | /repos/awesome-mcp-servers.md | Đã push | /content/script-video-285-awesome-mcp-servers.md | 2026-09-08 |
+| 295 | Repo | Head Of Content | /repos/head-of-content.md | Đã push | /content/script-video-286-head-of-content.md | 2026-09-12 |
+| 296 | Repo | Brand Building Skills | /repos/brand-building-skills.md | Đã push | /content/script-video-287-brand-building-skills.md | 2026-09-12 |
+| 297 | Repo | Knowledge Work Plugins | /repos/knowledge-work-plugins.md | Đã push | /content/script-video-288-knowledge-work-plugins.md | 2026-09-12 |
