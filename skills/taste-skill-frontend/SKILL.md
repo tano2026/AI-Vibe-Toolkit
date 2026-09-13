@@ -182,6 +182,24 @@ The AI must strictly avoid the following generic web development defaults:
 
 ---
 
+## SKILL 5 — BRANDKIT (Image-generation, không phải code)
+
+**Dùng cho:** Brand-kit board, logo system, identity deck — ảnh trình bày, KHÔNG phải frontend code như 4 skill trên
+**Install name:** `brandkit`
+
+```
+---
+name: brandkit
+description: Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.
+---
+```
+
+**Khác biệt quan trọng với 4 skill kia:** đây là skill IMAGE GENERATION (dùng model tạo ảnh, ví dụ GPT Image 2/Nano Banana), tạo ra 1 board 3x3 (mặc định 4:3 hoặc 16:10) gồm các panel: logo cover, construction, digital application, tagline, color, typography, physical mockup, image direction, system detail — dùng để trình bày ý tưởng brand, KHÔNG sinh ra code React/HTML như `design-taste-frontend`.
+
+**Dùng khi:** cần dựng brand-kit visual cho pitch/thuyết trình (vd brand mới cho An Bình, Wonder Mart, hoặc client Tano Agency) trước khi bắt tay code landing page.
+
+---
+
 ## Quick Reference — Anti-Patterns Bị Cấm
 
 ### Fonts KHÔNG dùng:
