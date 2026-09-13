@@ -3089,8 +3089,8 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 303 | Repo | LibreChat | /repos/librechat.md | Đã push | /content/script-video-294-librechat.md | 2026-09-13 |
 | 304 | Repo | SWE-agent | /repos/swe-agent.md | Đã push | /content/script-video-295-swe-agent.md | 2026-09-13 |
 | 305 | MCP | Awslabs MCP | /mcps/awslabs-mcp.md | Đã push | /content/script-video-296-awslabs-mcp.md | 2026-09-13 |
-| 306 | Skill | Just Scrape | /skills/just-scrape.md | Đã viết .md | - | 2026-09-13 |
-| 307 | Skill | RunComfy Genmedia Skills | /skills/genmedia-labs-runcomfy.md | Đã viết .md | - | 2026-09-13 |
+| 306 | Skill | Just Scrape | /skills/just-scrape.md | Đã push | /content/script-video-297-just-scrape.md | 2026-09-13 |
+| 307 | Skill | RunComfy Genmedia Skills | /skills/genmedia-labs-runcomfy.md | Đã push | /content/script-video-298-genmedia-labs-runcomfy.md | 2026-09-13 |
 
 **Cập nhật/sửa (không phải entry mới):**
 - `/skills/hyperframes-skill/SKILL.md` — viết lại: sửa lệnh cài sai (`npm install -g @heygen/hyperframes` không tồn tại) → đúng là `npx skills add heygen-com/hyperframes`; thêm bảng skill con (hyperframes-cli, hyperframes-animation, talking-head-recut — tên cũ graphic-overlays đã đổi PR #1720).
