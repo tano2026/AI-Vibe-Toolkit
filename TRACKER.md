@@ -3097,3 +3097,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 - `/skills/taste-skill-frontend/SKILL.md` — thêm SKILL 5 (`brandkit`, image-generation, khác 4 skill code còn lại).
 | 308 | MCP | AI Video by AITuber | /mcps/aituber.md | Đã push | /content/script-video-299-aituber.md | 2026-09-13 |
 | 309 | MCP | Scrptly Video Generator | /mcps/scrptly.md | Đã push | /content/script-video-300-scrptly.md | 2026-09-13 |
+| 310 | Skill | Stickman Video Director | /skills/stickman-video-director.md | Đã push | /content/script-video-301-stickman-video-director.md | 2026-09-13 |
+| 311 | Repo | Stickman Studio | /repos/stickman-studio.md | Đã push | /content/script-video-302-stickman-studio.md | 2026-09-13 |
