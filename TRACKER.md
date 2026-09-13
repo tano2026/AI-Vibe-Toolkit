@@ -3095,3 +3095,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 **Cập nhật/sửa (không phải entry mới):**
 - `/skills/hyperframes-skill/SKILL.md` — viết lại: sửa lệnh cài sai (`npm install -g @heygen/hyperframes` không tồn tại) → đúng là `npx skills add heygen-com/hyperframes`; thêm bảng skill con (hyperframes-cli, hyperframes-animation, talking-head-recut — tên cũ graphic-overlays đã đổi PR #1720).
 - `/skills/taste-skill-frontend/SKILL.md` — thêm SKILL 5 (`brandkit`, image-generation, khác 4 skill code còn lại).
+| 308 | MCP | AI Video by AITuber | /mcps/aituber.md | Đã push | /content/script-video-299-aituber.md | 2026-09-13 |
+| 309 | MCP | Scrptly Video Generator | /mcps/scrptly.md | Đã push | /content/script-video-300-scrptly.md | 2026-09-13 |
