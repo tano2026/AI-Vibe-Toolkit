@@ -3085,3 +3085,7 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 299 | Repo | Claude Code Best Practice | /repos/claude-code-best-practice.md | Đã push | /content/script-video-290-claude-code-best-practice.md | 2026-09-13 |
 | 300 | Repo | Claude Howto | /repos/claude-howto.md | Đã push | /content/script-video-291-claude-howto.md | 2026-09-13 |
 | 301 | Repo | Awesome Design Md | /repos/awesome-design-md.md | Đã push | /content/script-video-292-awesome-design-md.md | 2026-09-13 |
+| 302 | Repo | Unsloth | /repos/unsloth.md | Đã push | /content/script-video-293-unsloth.md | 2026-09-13 |
+| 303 | Repo | LibreChat | /repos/librechat.md | Đã push | /content/script-video-294-librechat.md | 2026-09-13 |
+| 304 | Repo | SWE-agent | /repos/swe-agent.md | Đã push | /content/script-video-295-swe-agent.md | 2026-09-13 |
+| 305 | MCP | Awslabs MCP | /mcps/awslabs-mcp.md | Đã push | /content/script-video-296-awslabs-mcp.md | 2026-09-13 |
