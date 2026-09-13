@@ -19,34 +19,44 @@ MiniMax là AI company lớn của Trung Quốc (ngang tầm OpenAI ở thị tr
 - **Voice Design** — mô tả giọng muốn bằng text, AI tạo ra
 - **Video Generation** — generate video từ prompt (model Hailuo-02, 6s hoặc 10s, 768P/1080P)
 - **Image Generation** — text-to-image
-- **Music Generation** — generate nhạc từ prompt + lyrics (model music-1.5)
+- **Music Generation** — generate nhạc từ prompt + lyrics (model music-1.5) — ⚠️ tool này KHÔNG thấy trong bảng công cụ chính thức mới nhất (chỉ có text_to_audio, list_voices, voice_clone, voice_design, generate_video, query_video_generation, text_to_image) — có thể đã bị gỡ hoặc chưa release rộng, test lại trước khi dựa vào.
 
 Dùng thẳng trong Claude Code hoặc bất kỳ MCP client nào.
 
 ## Setup từng bước
+
+> ⚠️ **Sửa lại so với bản cũ trong kho:** package `@minimax-ai/mcp` qua `npx` KHÔNG đúng — server chính thức là gói Python `minimax-mcp`, cài qua `uv`/`uvx`, không phải npm.
+
 ```bash
 # Bước 1: Lấy API key
 # Global: https://www.minimax.io/platform/user-center/basic-information/interface-key
-# Mainland CN: https://platform.minimaxi.com (dùng cái global)
+# Mainland CN: https://platform.minimaxi.com
 
-# Bước 2: Install MCP server
-# Thêm vào claude_desktop_config.json hoặc .mcp.json:
+# Bước 2: Cài uv (trình quản lý gói Python) nếu chưa có
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Bước 3: Thêm vào claude_desktop_config.json (đúng cấu hình chính thức)
 {
   "mcpServers": {
-    "minimax": {
-      "command": "npx",
-      "args": ["-y", "@minimax-ai/mcp"],
+    "MiniMax": {
+      "command": "uvx",
+      "args": ["minimax-mcp", "-y"],
       "env": {
         "MINIMAX_API_KEY": "your_api_key_here",
-        "MINIMAX_API_HOST": "https://api.minimax.io"
+        "MINIMAX_MCP_BASE_PATH": "local-output-dir-path, ví dụ /User/xxx/Desktop",
+        "MINIMAX_API_HOST": "https://api.minimax.io hoặc https://api.minimaxi.com (CN)",
+        "MINIMAX_API_RESOURCE_MODE": "url (mặc định) hoặc local"
       }
     }
   }
 }
 
-# Bước 3: Restart Claude và test
-# Claude sẽ thấy tools: text_to_audio, generate_video, music_generation...
+# Bước 4: Restart Claude và test
+# Claude sẽ thấy tools: text_to_audio, list_voices, voice_clone, voice_design,
+# generate_video, query_video_generation, text_to_image
 ```
+
+**Có sẵn CLI tác nhân riêng (đáng chú ý cho OpenClaw):** MiniMax CLI (`mmx-cli`, github.com/MiniMax-AI/cli) — hoạt động như 1 agent skill trực tiếp cho Claude Code/Cursor/OpenClaw, không cần qua MCP config, có sẵn model mới nhất + text/vision/search.
 
 ## Ví dụ thực tế
 **Tình huống 1 — Clone giọng để làm voiceover:**
@@ -125,8 +135,10 @@ def minimax_tts(text, voice_id="male-qn-qingse", api_key=None, group_id=None):
 
 ### OpenClaw
 ```bash
-npx -y @modelcontextprotocol/server-minimax
-# Set MINIMAX_API_KEY + MINIMAX_GROUP_ID
+# Cách 1: qua MCP config (giống Claude Desktop ở trên, dùng uvx minimax-mcp)
+# Cách 2: qua CLI skill chính thức, không cần MCP config
+uvx mmx-cli   # hoặc theo hướng dẫn github.com/MiniMax-AI/cli
+# Set MINIMAX_API_KEY (theo đúng region — global vs CN, xem bảng ở trên)
 ```
 
 ### Antigravity
