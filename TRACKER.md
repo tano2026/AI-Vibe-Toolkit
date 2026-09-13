@@ -3081,3 +3081,7 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 295 | Repo | Head Of Content | /repos/head-of-content.md | Đã push | /content/script-video-286-head-of-content.md | 2026-09-12 |
 | 296 | Repo | Brand Building Skills | /repos/brand-building-skills.md | Đã push | /content/script-video-287-brand-building-skills.md | 2026-09-12 |
 | 297 | Repo | Knowledge Work Plugins | /repos/knowledge-work-plugins.md | Đã push | /content/script-video-288-knowledge-work-plugins.md | 2026-09-12 |
+| 298 | Repo | Pi Coding Agent | /repos/pi-coding-agent.md | Đã push | /content/script-video-289-pi-coding-agent.md | 2026-09-13 |
+| 299 | Repo | Claude Code Best Practice | /repos/claude-code-best-practice.md | Đã push | /content/script-video-290-claude-code-best-practice.md | 2026-09-13 |
+| 300 | Repo | Claude Howto | /repos/claude-howto.md | Đã push | /content/script-video-291-claude-howto.md | 2026-09-13 |
+| 301 | Repo | Awesome Design Md | /repos/awesome-design-md.md | Đã push | /content/script-video-292-awesome-design-md.md | 2026-09-13 |
