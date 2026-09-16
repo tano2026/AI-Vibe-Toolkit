@@ -3099,3 +3099,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 309 | MCP | Scrptly Video Generator | /mcps/scrptly.md | Đã push | /content/script-video-300-scrptly.md | 2026-09-13 |
 | 310 | Skill | Stickman Video Director | /skills/stickman-video-director.md | Đã push | /content/script-video-301-stickman-video-director.md | 2026-09-13 |
 | 311 | Repo | Stickman Studio | /repos/stickman-studio.md | Đã push | /content/script-video-302-stickman-studio.md | 2026-09-13 |
+| 304 | Repo | OpenShorts | /repos/openshorts.md | Đã push | /content/script-video-303-openshorts.md | 2026-08-21 |
