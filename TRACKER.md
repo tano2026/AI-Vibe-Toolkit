@@ -3102,3 +3102,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 304 | Repo | OpenShorts | /repos/openshorts.md | Đã push | /content/script-video-303-openshorts.md | 2026-08-21 |
 | 312 | Skill | Voxstyle Prompt Engine | /skills/voxstyle-prompt-engine.md | Đã push | /content/script-video-304-voxstyle-prompt-engine.md | 2026-09-16 |
 | 313 | Stack | Dây chuyền 4 agent Claude Code | /stacks/day-chuyen-4-agent-claude-code.md | Đã push | /content/script-video-305-day-chuyen-4-agent-claude-code.md | 2026-09-17 |
+| 314 | Stack | 10 Bước Thiết Kế Hệ Thống Agentic AI | /stacks/10-buoc-thiet-ke-agentic-ai.md | Đã push | /content/script-video-306-10-buoc-agentic-ai.md | 2026-09-18 |
+| 315 | Skill | Small Business Skills (Claude for Small Business) | /skills/small-business-skills.md | Đã push | /content/script-video-307-small-business-skills.md | 2026-09-18 |
