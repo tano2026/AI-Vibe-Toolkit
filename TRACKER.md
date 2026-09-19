@@ -3106,3 +3106,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 315 | Skill | Small Business Skills (Claude for Small Business) | /skills/small-business-skills.md | Đã push | /content/script-video-307-small-business-skills.md | 2026-09-18 |
 | 316 | Repo | Ever Gauzy | /repos/ever-gauzy.md | Đã push | /content/script-video-308-ever-gauzy.md | 2026-09-18 |
 | 317 | Repo | Deep Agents | /repos/deep-agents.md | Đã push | /content/script-video-309-deep-agents.md | 2026-09-19 |
+| 318 | Repo | Open Code Review (Alibaba) | /repos/open-code-review-alibaba.md | Đã push | /content/script-video-310-open-code-review-alibaba.md | 2026-09-19 |
