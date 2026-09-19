@@ -3107,3 +3107,9 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 316 | Repo | Ever Gauzy | /repos/ever-gauzy.md | Đã push | /content/script-video-308-ever-gauzy.md | 2026-09-18 |
 | 317 | Repo | Deep Agents | /repos/deep-agents.md | Đã push | /content/script-video-309-deep-agents.md | 2026-09-19 |
 | 318 | Repo | Open Code Review (Alibaba) | /repos/open-code-review-alibaba.md | Đã push | /content/script-video-310-open-code-review-alibaba.md | 2026-09-19 |
+| 319 | Skill | Ponytail | /skills/ponytail.md | Đã push | /content/script-video-311-ponytail.md | 2026-09-19 |
+| 320 | Repo | CrewAI | /repos/crewai.md | Đã push | /content/script-video-312-crewai.md | 2026-09-19 |
+| 321 | Repo | Skyvern | /repos/skyvern.md | Đã push | /content/script-video-313-skyvern.md | 2026-09-19 |
+| 322 | Repo | mcp-use | /repos/mcp-use.md | Đã push | /content/script-video-314-mcp-use.md | 2026-09-19 |
+| 323 | Repo | Goose | /repos/goose.md | Đã push | /content/script-video-315-goose.md | 2026-09-19 |
+| 324 | Repo | TypeSafe Jev | /repos/typesafe-jev.md | Đã push | /content/script-video-316-typesafe-jev.md | 2026-09-19 |
