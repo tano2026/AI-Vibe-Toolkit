@@ -3105,3 +3105,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 314 | Stack | 10 Bước Thiết Kế Hệ Thống Agentic AI | /stacks/10-buoc-thiet-ke-agentic-ai.md | Đã push | /content/script-video-306-10-buoc-agentic-ai.md | 2026-09-18 |
 | 315 | Skill | Small Business Skills (Claude for Small Business) | /skills/small-business-skills.md | Đã push | /content/script-video-307-small-business-skills.md | 2026-09-18 |
 | 316 | Repo | Ever Gauzy | /repos/ever-gauzy.md | Đã push | /content/script-video-308-ever-gauzy.md | 2026-09-18 |
+| 317 | Repo | Deep Agents | /repos/deep-agents.md | Đã push | /content/script-video-309-deep-agents.md | 2026-09-19 |
