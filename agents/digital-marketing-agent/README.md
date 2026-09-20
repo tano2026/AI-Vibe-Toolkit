@@ -75,3 +75,15 @@ Sơ đồ đầy đủ xem `ARCHITECTURE.md`.
   giả định có 1 trong 2 cái đã sẵn sàng.
 - Ngưỡng auto-approve cho hành động ghi/gửi (đăng ads dưới bao nhiêu tiền thì không
   cần confirm tay) — do Nobitano quyết định, mặc định hiện tại là confirm 100%.
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `ai-seo` (17KB, rất chi tiết) | Tối ưu content để AI search engine trích dẫn (AEO/GEO/LLMO) | ⚠️ Chồng lấn 1 phần với `geo-aeo-content-optimization` đã tự viết (Content Pro) — dùng `ai-seo` khi cần chi tiết kỹ thuật sâu hơn (schema, technical AEO), dùng skill tự viết khi cần gắn với content pillar cụ thể |
+| `seo` | SEO kỹ thuật truyền thống (Core Web Vitals, schema, sitemap) | Khác `ai-seo` — đây là SEO cổ điển cho Google, không phải AI engine |
+| `growth-engine` | Growth hacking (viral loop, referral, AARRR funnel, cohort analysis) | Góc nhìn khác `ad-budget-testing-discipline` (đó là kỷ luật chi tiêu ads, đây là tăng trưởng tự nhiên/viral) |
+| `conversion-ops` | Vận hành tối ưu conversion | Bổ trợ landing page/funnel |
+| `marketing-campaign` | Quản lý campaign chung | Bổ trợ `digital-marketing-orchestrator` |
+| `marketing-automation-mcp-guide` | Hướng dẫn MCP cho marketing automation | Tham khảo kỹ thuật khi setup tool |
+| `youtube-marketing` | Marketing riêng kênh YouTube | Dùng khi quản lý kênh YouTube cụ thể (yt-cashcow) |
