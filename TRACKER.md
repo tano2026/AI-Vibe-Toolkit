@@ -3130,3 +3130,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 332 | Skill | Design Quality Gate | /agents/designer-pro/skills/design-quality-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 333 | Skill | Sales & Marketing Collateral Production | /agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 334 | Skill | Hermes Adapter — Designer Pro | /agents/designer-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 335 | Stack | Rà soát bổ sung skill kho cho 7 Pro agent (từ 31 lên ~55 skill tham chiếu) | /agents/*/README.md | Đã push | (không có script riêng) | 2026-08-21 |
