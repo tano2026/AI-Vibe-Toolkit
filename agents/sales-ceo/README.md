@@ -40,6 +40,7 @@ vừa biết xây hệ thống (pipeline automation, CRM ops) và thực thi (pr
 | `ceo-decision-lens` (mới viết) | khung quyết định CEO: risk/return/reversibility |
 | `gtm-strategy` (mới viết) | go-to-market cho SMB VN, pricing tier, channel |
 | `deal-scoring-forecast-discipline` (mới viết) | vận hành hoá luật scoring/cadence/objection/pricing/forecast/CRM từ EXPERT-CORE.md ③ |
+| `forward-deployed-engineer-model` (mới viết) | mô hình GTM bán Outcome trên nền tảng chung (70% Primitives/30% custom), cụ thể hoá định vị "AI Implementation Partner" |
 
 **Tay (MCP/Tools):**
 | Tool | Vai trò |
