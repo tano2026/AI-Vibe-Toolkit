@@ -69,3 +69,9 @@ Xem `ARCHITECTURE.md`.
 4. Chạy test case trong `deploy-checklist.md` trước khi giao việc thật.
 5. Guardrail bắt buộc: KHÔNG cho agent tool ghi/gửi (Gmail send, HubSpot write) tới khi
    Nobitano confirm workflow ổn — bật read-only trước.
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `investor-outreach` | Outreach cho gọi vốn | Dùng nếu Tano Agency sau này cần gọi vốn, không phải sales khách hàng thường |
