@@ -26,6 +26,9 @@ Quét đoạn text, tìm và sửa các dấu hiệu "AI tells" phổ biến:
    chỉ giữ khi thật sự có tranh cãi 2 chiều
 4. THỪA TỪ ĐỆM: "Điều quan trọng cần lưu ý là", "Cần phải nói rằng" → xoá thẳng, vào thẳng ý
 5. KẾT LUẬN THỪA: đoạn cuối tóm tắt lại y hệt những gì đã nói → xoá nếu không thêm giá trị mới
+6. DẤU GẠCH DÀI (—): người đọc Việt nhận ra ngay đây là dấu hiệu AI viết — thay bằng " - "
+   (gạch ngắn có cách hai bên) hoặc dấu phẩy khi cần ngắt ý giữa câu. Đặc biệt quan trọng cho
+   content đăng Facebook/mạng xã hội VN, nơi độc giả tinh ý với dấu hiệu này.
 
 OUTPUT: bản đã sửa + liệt kê ngắn gọn đã sửa những dấu hiệu nào (để người dùng học được pattern,
 không chỉ nhận bản sửa mà không biết vì sao).
