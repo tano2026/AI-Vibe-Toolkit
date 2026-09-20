@@ -3116,3 +3116,11 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 318 | MCP | Google Flow MCP | /mcps/google-flow-mcp.md | Đã push | /content/script-video-317-google-flow-mcp.md | 2026-08-21 |
 | 319 | Repo | PrintFilm (research notes, chưa dùng) | /repos/printfilm-research-notes.md | Đã research | (không có script — chưa hành động) | 2026-08-21 |
 | 320 | Stack | Master Template Manifest (CORE vs TENANT-CONFIG toàn kho) | /agents/MASTER-TEMPLATE-MANIFEST.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 321 | Repo | llama_index | /repos/llama_index.md | Đã push | /content/script-video-318-llama-index.md | 2026-08-21 |
+| 322 | Repo | fabric | /repos/fabric.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 323 | Repo | dspy | /repos/dspy.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 324 | Repo | graphrag | /repos/graphrag.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 325 | Repo | vercel/ai SDK | /repos/vercel-ai-sdk.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 326 | Repo | gpt-crawler | /repos/gpt-crawler.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 327 | Repo | files-to-prompt | /repos/files-to-prompt.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 328 | Skill | Forward Deployed Engineer Model | /agents/sales-ceo/skills/forward-deployed-engineer-model/SKILL.md | Đã push | /content/script-video-319-fde-model.md | 2026-08-21 |
