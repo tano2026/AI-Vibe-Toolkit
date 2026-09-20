@@ -3115,3 +3115,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 324 | Repo | TypeSafe Jev | /repos/typesafe-jev.md | Đã push | /content/script-video-316-typesafe-jev.md | 2026-09-19 |
 | 318 | MCP | Google Flow MCP | /mcps/google-flow-mcp.md | Đã push | /content/script-video-317-google-flow-mcp.md | 2026-08-21 |
 | 319 | Repo | PrintFilm (research notes, chưa dùng) | /repos/printfilm-research-notes.md | Đã research | (không có script — chưa hành động) | 2026-08-21 |
+| 320 | Stack | Master Template Manifest (CORE vs TENANT-CONFIG toàn kho) | /agents/MASTER-TEMPLATE-MANIFEST.md | Đã push | (không có script riêng) | 2026-08-21 |
