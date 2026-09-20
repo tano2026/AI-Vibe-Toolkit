@@ -3126,3 +3126,7 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 328 | Skill | Forward Deployed Engineer Model | /agents/sales-ceo/skills/forward-deployed-engineer-model/SKILL.md | Đã push | /content/script-video-319-fde-model.md | 2026-08-21 |
 | 329 | Skill | Hermes Adapter — Sales-CEO | /agents/sales-ceo/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 330 | Skill | Hermes Adapter — Digital Marketing Agent | /agents/digital-marketing-agent/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 331 | Stack | Designer Pro (agent mới, agent thứ 7) | /agents/designer-pro/README.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 332 | Skill | Design Quality Gate | /agents/designer-pro/skills/design-quality-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 333 | Skill | Sales & Marketing Collateral Production | /agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 334 | Skill | Hermes Adapter — Designer Pro | /agents/designer-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
