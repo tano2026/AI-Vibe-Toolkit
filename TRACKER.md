@@ -3124,3 +3124,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 326 | Repo | gpt-crawler | /repos/gpt-crawler.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 327 | Repo | files-to-prompt | /repos/files-to-prompt.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 328 | Skill | Forward Deployed Engineer Model | /agents/sales-ceo/skills/forward-deployed-engineer-model/SKILL.md | Đã push | /content/script-video-319-fde-model.md | 2026-08-21 |
+| 329 | Skill | Hermes Adapter — Sales-CEO | /agents/sales-ceo/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 330 | Skill | Hermes Adapter — Digital Marketing Agent | /agents/digital-marketing-agent/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
