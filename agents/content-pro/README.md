@@ -90,3 +90,14 @@ Content Orchestrator
 4. Dán `system-prompt.md` làm Project Instructions (Claude.ai Project) hoặc adapter tương ứng (xem `skills/portable-skill-framework` nếu cần chạy trên Hermes/Mission Control/DeepSeek Harness/OMC)
 5. Xem `deploy-checklist.md` trước khi bung thật cho 1 brand cụ thể
 6. Áp thử cho 1 kênh cụ thể trước (đề xuất: Trùm Sân Bay, vì đã có pipeline 9-agent sẵn, chỉ thiếu tầng chiến lược) trước khi mở rộng
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `copywriting`, `copywriting-prose-creator` | Kỹ thuật copywriting chung | Dùng khi cần văn phong bán hàng cụ thể hơn `content-engine` |
+| `content-ops` | Vận hành content ops chung | Bổ trợ `editorial-workflow-quality-gates`, không thay |
+| `content-eval` | Đánh giá chất lượng content | Bổ trợ `content-strategy-review-gate` |
+| `ai-content-writing` | Viết content bằng AI, kỹ thuật chung | Tầng chiến thuật, dùng cùng `content-engine` |
+| `content-strategy` | Chiến lược content cho solopreneur (audience research, pillar, calendar) | ⚠️ Khác triết lý/nguồn gốc (ECC import) so với `content-pillar-cluster-architecture` (tự viết theo research 2026) — dùng để đối chiếu góc nhìn, KHÔNG thay thế |
+| `4-nguon-y-tuong-content` | 4 nguồn tìm ý tưởng content | Bổ trợ giai đoạn Research trong `editorial-workflow-quality-gates` |
