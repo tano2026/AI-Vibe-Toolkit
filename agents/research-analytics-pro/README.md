@@ -131,3 +131,15 @@ Agent này khai thác trực tiếp các entry đã có trong kho:
 | `mcps/markitdown-mcp.md` | MCP đọc file |
 | `mcps/firecrawl.md` | Scrape web |
 | `mcps/brave-search.md` | Web search |
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+Search lại toàn bộ 857 skill trong `skills/`, tìm ra thêm các skill liên quan chưa được liệt kê:
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `deep-research` | Multi-source research qua Firecrawl/Exa MCP, có citation | ⚠️ Tự nhận "Drift-prone skill" — dùng thận trọng, verify kỹ hơn skill tự viết |
+| `token-efficient-research` | Cheat sheet tối ưu token khi research (tổng hợp nhiều nguồn free-tier) | Bổ trợ cho ngân sách token, không thay `source-evaluation` |
+| `market-research` | Research thị trường chung (đã dùng chung với sales-ceo) | Dùng khi cần nhanh, không thay `market-sizing` (bottom-up chi tiết hơn) |
+| `competitor-research` | Research đối thủ chung | Bổ trợ `competitive-intel` |
+| `prediction-market-oracle-research` | Dùng prediction market làm tín hiệu dự đoán | Liên quan tới nguyên tắc calibration đã có trong `ceo-stress-test-and-roadmap` (v4.5 Superforecasting) |
