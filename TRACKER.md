@@ -3113,3 +3113,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 322 | Repo | mcp-use | /repos/mcp-use.md | Đã push | /content/script-video-314-mcp-use.md | 2026-09-19 |
 | 323 | Repo | Goose | /repos/goose.md | Đã push | /content/script-video-315-goose.md | 2026-09-19 |
 | 324 | Repo | TypeSafe Jev | /repos/typesafe-jev.md | Đã push | /content/script-video-316-typesafe-jev.md | 2026-09-19 |
+| 318 | MCP | Google Flow MCP | /mcps/google-flow-mcp.md | Đã push | /content/script-video-317-google-flow-mcp.md | 2026-08-21 |
+| 319 | Repo | PrintFilm (research notes, chưa dùng) | /repos/printfilm-research-notes.md | Đã research | (không có script — chưa hành động) | 2026-08-21 |
