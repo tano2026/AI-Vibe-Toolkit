@@ -52,3 +52,14 @@ Media Orchestrator
 2. Dán `system-prompt.md` làm Project Instructions (Claude.ai Project) hoặc dùng `HERMES-ADAPTER.md` nếu chạy trên Hermes
 3. Với kênh đã có pipeline riêng (Trùm Sân Bay) — Media Pro bổ sung tầng kỷ luật đăng/đo, KHÔNG thay thế `video-renderer`/`social-publisher` đã có
 4. Test đầu tiên: áp `media-performance-discipline` cho 5 video Trùm Sân Bay gần nhất trước, xem phân loại a/b/c ra sao so với đánh giá cảm tính trước đó
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `remotion-video-creation` | Video creation bằng React (29 luật animation/3D/audio/caption) | Khác `google-flow-mcp` (AI generate) — đây là compose video LẬP TRÌNH, dùng khi cần kiểm soát chính xác từng khung hình |
+| `video-editing` | Kỹ thuật edit video chung | Bổ trợ pipeline sản xuất |
+| `videodb` | Quản lý/truy vấn video bằng AI (video database) | Hữu ích khi kho video lớn, cần tìm lại clip cũ |
+| `youtube-shorts-prompt-chain` | Chuỗi prompt tạo YouTube Shorts | Bổ trợ pipeline sản xuất short-form |
+| `free-image-video-stack` | Stack ảnh/video miễn phí | Nguồn asset free, bổ trợ khi chưa cần generate AI |
+| `image-video-gen-mcp-guide` | Hướng dẫn MCP cho tạo ảnh/video | Tham khảo kỹ thuật, liên quan `google-flow-mcp` đã setup |
