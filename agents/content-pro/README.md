@@ -38,6 +38,9 @@ TẦNG NÃO — Chiến lược (MỚI, do Content Pro sở hữu):
                                          6-8 tháng (2026)
   content-strategy-review-gate        — stress-test khung Pillar/Cluster
                                          (5 câu hỏi) trước khi giao sản xuất
+  contrarian-insight-structure         — khung "lật kỳ vọng" cho bài kiến
+                                         thức: 1 điểm bất ngờ làm trục,
+                                         generalize mọi brand (không chỉ tech)
 
 TẦNG NÃO — Chiến thuật (ĐÃ CÓ SẴN, Content Pro điều phối không viết lại):
   skills/viral-hooks          — 100 công thức hook, 10 trigger tâm lý
