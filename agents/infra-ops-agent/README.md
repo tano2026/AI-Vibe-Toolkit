@@ -79,3 +79,13 @@ Mọi lệnh có tính phá hủy phải qua `destructive-command-guardrail`, m�
 đổi hạ tầng rủi ro cao (không chỉ lệnh phá hủy đơn lẻ, mà cả kế hoạch deploy
 lớn) phải qua `deploy-review-gate` TRƯỚC KHI đưa cho Antigravity — 2 lớp
 guardrail riêng biệt, không thay thế nhau.
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `kiem-tra-bao-mat-truoc-deploy` | Checklist 7 lỗi bảo mật "toang ngầm" — chỉ lộ SAU khi deploy | Nhắc thẳng tên Wonder Mart (payment) và ABTRIP (data khách) — RẤT liên quan, bắt buộc chạy trước deploy app có payment/data khách |
+| `e2e-testing` | Playwright E2E testing patterns | Bổ trợ `dev-automation-discipline` (luật debug), thêm kỷ luật test trước khi coi là xong |
+| `requesting-code-review`, `agents-code-reviewer` | Quy trình xin/thực hiện code review | Bổ trợ `deploy-review-gate` ở tầng code (không chỉ tầng plan deploy) |
+| `agent-skills/debugging-and-error-recovery.md` | Debug + phục hồi lỗi cho agent | Bổ trợ `systematic-debugging` đã dùng |
+| `agent-skills/security-and-hardening.md` | Hardening bảo mật cho agent | Bổ trợ `security-review`/`security-scan` đã có |
