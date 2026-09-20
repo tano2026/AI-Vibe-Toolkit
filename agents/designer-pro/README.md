@@ -47,3 +47,12 @@ TẦNG CƠ (Compute):
 3. Setup google-flow-mcp theo hướng dẫn đã có (mcps/google-flow-mcp.md) — đây là cách tạo ảnh/video thật, an toàn (API chính thức)
 4. Dán system-prompt.md làm Project Instructions, hoặc dùng HERMES-ADAPTER.md nếu cần chạy phần kiểm tra (không phải tạo ảnh) trên Hermes
 5. Test đầu tiên: chạy design-quality-gate cho 1 visual cũ đã có (Trùm Sân Bay/ABTRIP) xem có pass đủ 8 mục không
+
+## Skill mượn thêm từ kho (bổ sung sau rà soát "quá ít skill", 21/08/2026)
+
+| Skill (kho có sẵn) | Vai trò | Lưu ý |
+|---|---|---|
+| `design-system` | Generate/audit design system, check visual consistency, review PR về styling | Góc nhìn hệ thống — bổ trợ `design-quality-gate` (đó là kiểm tra 1 asset, đây là kiểm tra cả hệ thống) |
+| `nobitano-ui-ux-guidelines` | Nguyên tắc UI/UX cá nhân của Nobitano — hiện đại, đơn giản, Material Design 3 | ⚠️ Đây là brand-tied (gắn cá nhân Nobitano), không phải Core universal — dùng khi thiết kế cho chính brand Nobitano, không áp cứng cho khách khác |
+| `frontend-design-direction` | Định hướng thiết kế frontend | Bổ trợ khi Designer làm việc gần với code thật (web/app UI) |
+| `ui-ux-pro-max` | Kỹ thuật UI/UX nâng cao | Tham khảo bổ sung |
