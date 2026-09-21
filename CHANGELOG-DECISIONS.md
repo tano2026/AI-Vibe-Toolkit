@@ -135,3 +135,4 @@
 - Hoàn thiện 7/7 Pro Agent đồng chuẩn (thêm Designer Pro từ số 0, Hermes Adapter cho Sales-CEO + Digital Marketing) → agents/designer-pro/, agents/sales-ceo/HERMES-ADAPTER.md, agents/digital-marketing-agent/HERMES-ADAPTER.md
 - Research Swarms (kyegomez/swarms) — tương thích trực tiếp skills_dir với format SKILL.md đang dùng, đề xuất thay cơ chế load_skill() viết tay → [repos/swarms.md](./repos/swarms.md)
 - Xoá `agents/research-pro.md` (xác nhận trùng, đã bị `research-analytics-pro/` thay thế) — Nobitano duyệt
+- Xoá `skills/ecc/` (271 file, confirm trùng 100% skill phẳng đã có) — dọn kho trước khi Nobitano symlink toàn bộ skills/ vào Claude Code local
