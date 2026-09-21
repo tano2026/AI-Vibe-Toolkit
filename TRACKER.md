@@ -2,11 +2,12 @@
 *File này tự sinh từ nội dung THẬT trong /mcps /repos /skills /stacks — không phải nhật ký chỉnh tay.*
 
 ## Cách dùng file này
-- **Tra trùng trước khi viết entry mới:** Ctrl+F theo tên HOẶC từ khoá trong cột Tóm tắt (không chỉ tên — nhiều tool có tên khác nhưng làm việc giống nhau).
+- **Tra trùng trước khi viết entry mới:** Ctrl+F theo tên HOẶC từ khoá trong cột Tóm tắt (không chỉ tên — nhiều tool có tên khác nhau nhưng làm việc giống nhau).
 - **Tìm tool có code gọi được ngay** (không chỉ đọc tham khảo): lọc cột "Agent Integration" = Có.
 - **Cột "Quay video"** cập nhật TAY — chỉ đổi ✅ khi Nobitano xác nhận đã quay xong. Mặc định trống, không tự suy ra từ trạng thái push.
 - File **không có số ID tăng dần** — vì ID không map vào đâu cả (khác số trong tên file `script-video-XXX`, không dùng để tra cứu gì). Muốn dẫn tới 1 entry, dùng cột **File**.
-- Lịch sử batch cũ (trước khi dọn ngày hôm nay) lưu nguyên tại `TRACKER-ARCHIVE.md` — không tra cứu từ đó nữa, chỉ giữ làm tư liệu.
+- Lịch sử batch cũ (trước 2026-09-21) lưu nguyên tại `TRACKER-ARCHIVE.md` — không tra cứu từ đó nữa, chỉ giữ làm tư liệu.
+- **Cách cập nhật file này:** chạy lại script quét (`build_index.py` — xem trong lịch sử chat với Claude nếu cần tái tạo), KHÔNG tay-append dòng mới, để tránh lặp lại lỗi trùng ID đã xảy ra trước 2026-09-21.
 
 ---
 
@@ -70,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có | |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không | |
 
-## Repos — 235 cái
+## Repos — 236 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -116,6 +117,7 @@
 | BitFun — GitHub Repo | Desktop app AI agent viết bằng Rust + Tauri, đóng gói sẵn 4 agent khác nhau (Code Agent, Cowork Agent, Computer Use, Personal Assistant) trong 1 app — có memory, personality, và khả năng "tiến hoá" theo thời gian. Điều k… | `/repos/bitfun.md` | Có | |
 | BMAD-METHOD — GitHub Repo | Framework biến "vibe coding" (prompt tùy hứng, code chắp vá) thành quy trình agile có bài bản — 1 đội AI agent chuyên trách (PM, Architect, Dev, QA, UX...) đi qua đủ vòng đời từ brainstorm đến deploy, có tài liệu (PRD, A… | `/repos/bmad-method.md` | Có | |
 | brand-building-skills — bộ skill xây thương hiệu từ 0 đến launch | Bộ skill cho agent làm hết vòng đời xây brand: đặt tên, định vị, xây identity, viết voice, audit brand cũ, tới launch — có 1 file `brand-context` làm nền để mọi skill khác đọc trước khi chạy. | `/repos/brand-building-skills.md` | Có | |
+| Browser Harness — GitHub Repo | Của team Browser Use (cùng team làm `browser-use` nổi tiếng) — nối thẳng 1 LLM vào trình duyệt Chrome thật qua 1 websocket CDP duy nhất, không qua lớp trung gian nào. Điểm khác biệt: agent **tự viết code helper còn thiếu… | `/repos/browser-harness.md` | Có | |
 | browser-use — AI agent điều khiển browser như người thật, 95k stars | Stars: 95k+ License: MIT Tác giả: browser-use team (YC W25) | `/repos/browser-use.md` | Có | |
 | Bumblebee (Perplexity AI) — Scanner Bảo Vệ Máy Mày Khỏi MCP Độc Hại | Perplexity AI vừa open-source tool nội bộ họ dùng để bảo vệ máy developer.   Scan MCP configs, extensions, packages — phát hiện malware trước khi nó   chạy. | `/repos/bumblebee.md` | Không | |
 | Buzz — GitHub Repo | Buzz là workspace mã nguồn mở của Block (công ty Jack Dorsey) — nơi người và AI agent (Claude Code, Codex, Goose) dùng chung 1 relay Nostr, mỗi bên có cryptographic identity riêng, thay thế Slack+GitHub. 24.6k star sau ~… | `/repos/buzz.md` | Có | |
