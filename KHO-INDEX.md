@@ -74,7 +74,6 @@ Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-
 
 | File | Vấn đề |
 |---|---|
-| agents/research-pro.md (6.578 ký tự) | Bản CŨ, mỏng — đã bị agents/research-analytics-pro/ (23 file, đầy đủ hơn nhiều) thay thế. Agent nào đọc nhầm file này sẽ có thông tin cũ/thiếu. |
 | agents/HERMES-PLAYBOOK.md (24.633 ký tự, cập nhật 28/07/2026) vs agents/HERMES-GUIDE.md (5.207 ký tự) vs agents/HERMES-AGENTS.md (3.872 ký tự) | 3 file khác vai trò (PLAYBOOK = đầy đủ dán vào Project Instructions; GUIDE = đọc nhanh trước khi fetch; AGENTS = harness sinh tự động) nhưng KHÔNG ai ghi rõ thứ tự đọc — xem bảng "Agent nào đọc file nào" bên dưới, đã tạm làm rõ |
 | agents/OPENCLAW-PLAYBOOK.md vs -GUIDE.md vs -TOOLKIT.md | Tương tự — 3 vai trò khác nhau, đã làm rõ thứ tự bên dưới |
 | agents/CLAUDE-CODE-BRIDGE.md nhắc tới "Team Thục Hán" | Tên chưa từng xuất hiện trong toàn bộ audit/xây dựng phiên 21/08/2026 — CHƯA RÕ đây là gì, cần Nobitano xác nhận trước khi đưa vào tài liệu chính thức |
@@ -193,7 +192,7 @@ MEM0_API_KEY=
 
 ## Việc tồn đọng thật — không giấu
 
-1. research-pro.md, 3 cụm HERMES-*/OPENCLAW-*, "Team Thục Hán" — cần Nobitano xác nhận trước khi dọn/xoá
+1. ✅ research-pro.md đã xoá (21/08/2026, xác nhận trùng research-analytics-pro/). 3 cụm HERMES-*/OPENCLAW-* giữ nguyên (không trùng, chỉ khác vai trò — đã làm rõ thứ tự đọc). "Team Thục Hán" vẫn chưa xác nhận, chưa động vào.
 2. agents/README.md cũng lỗi thời như KHO-INDEX bản cũ — chưa viết lại
 3. Tier 2 (4 instance brand) chưa audit chéo EXPERT-CORE
 4. Tier 3 (861 skill rời) — đa số chưa được đọc/verify, chỉ vài chục đã xác nhận qua kiểm tra thật
