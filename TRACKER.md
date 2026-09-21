@@ -3135,3 +3135,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 337 | Repo | Swarms (kyegomez/swarms) | /repos/swarms.md | Đã push | /content/script-video-320-swarms.md | 2026-08-21 |
 | 338 | Repo | PaddleOCR | /repos/paddleocr.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 339 | Repo | WeKnora (Tencent) | /repos/weknora.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 340 | Stack | Audit tổng kho + viết lại KHO-INDEX.md v3.0 | /KHO-INDEX.md | Đã push | (không có script riêng) | 2026-08-21 |
