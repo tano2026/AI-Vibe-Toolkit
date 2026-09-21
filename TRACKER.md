@@ -3132,3 +3132,4 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 334 | Skill | Hermes Adapter — Designer Pro | /agents/designer-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 335 | Stack | Rà soát bổ sung skill kho cho 7 Pro agent (từ 31 lên ~55 skill tham chiếu) | /agents/*/README.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 336 | Skill | Contrarian Insight Structure | /agents/content-pro/skills/contrarian-insight-structure/SKILL.md | Đã push | (không có script riêng) | 2026-08-21 |
+| 337 | Repo | Swarms (kyegomez/swarms) | /repos/swarms.md | Đã push | /content/script-video-320-swarms.md | 2026-08-21 |
