@@ -1,8 +1,7 @@
 # KHO-INDEX — AI Vibe Toolkit
-> Cập nhật: 21/08/2026 | Version: 3.0
+> Cập nhật: 21/09/2026 | Version: 4.0
 > **Entry point duy nhất cho mọi agent. Fetch file này đầu tiên.**
-> ⚠️ Bản v2.1 (tháng 6/2026) đã lệch nặng — số liệu, cấu trúc, danh sách agent đều cũ.
-> Bản này viết lại toàn bộ sau đợt audit tổng 21/08/2026.
+> ⚠️ Bản v3.0 (21/08/2026) sai số liệu /skills/ (báo 861, không nói rõ đây là tổng cả 2 tầng khác nhau) và không hề nhắc TRACKER.md. Bản này viết lại bằng cách quét full recursive tree qua GitHub API — số liệu chính xác 100% tại thời điểm quét, không suy đoán.
 
 ---
 
@@ -12,41 +11,71 @@
 - **Chủ:** Nobitano — Founder Tano Agency, AI Implementation Partner cho SMB Việt Nam
 - **Mục đích kép:**
   1. Vận hành thật — luật quyết định + agent chạy việc cho ABTRIP/An Bình/Tano Cafe/Wonder Mart/Trùm Sân Bay
-  2. Content factory — mỗi entry đáng chú ý = 1 video TikTok/YouTube Shorts
+  2. Content factory — mỗi entry curated (theo template chuẩn) = 1 video TikTok/YouTube Shorts
 
 ---
 
-## Số liệu thực tế (đếm lại 21/08/2026 qua GitHub API — KHÔNG dùng số liệu bản cũ)
+## Số liệu thực tế (quét full recursive tree qua GitHub API, 21/09/2026)
 
-| Folder | Số file | Ghi chú |
+| Folder | Số file thật | Ghi chú |
 |---|---|---|
-| /skills/ | 861 | Thư viện skill rời — chất lượng KHÔNG đều, xem Tier 3 bên dưới |
-| /content/ | 330 (318 script, max #320) | Script video |
-| /repos/ | 236 | GitHub repo đã research |
-| /agents/ | 196 | Playbook + company/ + 7 Pro agent + 4 instance brand |
+| /skills/ | **591** — chia 2 tầng khác hẳn nhau, xem cảnh báo ngay dưới bảng | |
+| /content/ | 333 (317 script đánh số, max hiện tại **#320** + 4 script không đánh số + 1 series HyperFrames riêng `airfare-decoded-hyperframes/`) | |
+| /repos/ | 238 | GitHub repo đã research |
+| /agents/ | 195 (13 file gốc + 14 package con) | Playbook + company/ + 7 Pro agent + 4 instance brand + rio-bot + smb-ai-team |
 | /mcps/ | 57 | MCP server |
-| /stacks/ | 17 | Combo workflow |
-| /configs/, /deploy/, /VAULT/, /domain-packs/ | 24 | Hạ tầng/cấu hình |
-| Tổng | 1.731 file | Tăng gần gấp đôi so với lần đếm gần nhất (966) |
+| /stacks/ | 16 | Combo workflow |
+| /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 26 (11+7+4+2+1+1) | Hạ tầng/cấu hình |
+| Root (`TRACKER.md`, `KHO-INDEX.md`...) | 9 | |
+| **Tổng** | **1.466 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
 
----
-
-## Cấu trúc 3 tầng (MỚI — thay hoàn toàn cách hiểu cũ "chỉ là kho tool")
+### ⚠️ CẢNH BÁO QUAN TRỌNG — `/skills/` có 2 tầng khác hẳn nhau, đừng gộp chung
 
 ```
+Tầng "Template chuẩn" — 26 file nằm PHẲNG (skills/ten-skill.md)
+  Đây là entry viết theo đúng quy trình kho: có TL;DR, setup, ví dụ thực tế,
+  đánh giá cá nhân, mỗi cái có 1 script video đi kèm trong /content/.
+  → Nằm trong TRACKER.md, tra trùng bằng Ctrl+F ở đó là đủ.
+  → Ví dụ: skills/ponytail.md, skills/i-have-adhd.md
+
+Tầng 3 "Thư viện thô" — 470 subfolder (skills/<ten>/SKILL.md), 565 file
+  Là skill cộng đồng/third-party import hàng loạt, KHÔNG theo template kho,
+  đa số CHƯA audit/verify, KHÔNG có script video đi kèm, KHÔNG nằm trong TRACKER.md.
+  → Một số đã xác nhận chất lượng cao qua kiểm tra thật: skills/claude-ads/*,
+    skills/systematic-debugging, skills/anti-ai-tells, skills/accessibility
+  → 21/08/2026 báo 861 file, giờ còn 470 — do đã dọn bớt qua các đợt cleanup.
+```
+
+**Hệ quả thật cho việc tra trùng:** trước khi viết 1 entry Skill mới, phải tra CẢ 2 nơi —
+TRACKER.md (tầng chuẩn) VÀ liệt kê thư mục `skills/<tên-nghi-ngờ>/` (tầng thô) — vì
+Ctrl+F trong TRACKER.md một mình KHÔNG đủ, sẽ bỏ sót 470 skill kia.
+
+---
+
+## TRACKER.md — index tra cứu theo nội dung (MỚI, chưa có trong bản v3.0)
+
+`TRACKER.md` ở root repo — tự sinh (không phải tay-append) từ nội dung thật của `/mcps` `/repos` `/skills` (chỉ tầng phẳng) `/stacks`, có cột Tóm tắt lấy từ TL;DR mỗi file, cột Agent Integration (Có/Không) để lọc tool nào có code gọi được ngay. Viết lại toàn bộ 21/09/2026, thay cho bản cũ (nhật ký lộn xộn qua ~90 batch, số ID bị trùng) — bản cũ lưu nguyên tại `TRACKER-ARCHIVE.md`, chỉ để tham khảo lịch sử, không tra cứu từ đó.
+
+**Cách cập nhật khi thêm entry mới:** chạy lại script quét (build từ full repo tree), không tay-append dòng.
+
+---
+
+## Cấu trúc 3 tầng (giữ nguyên từ v3.0, số liệu agent-subfolder đã xác nhận khớp thật)
+
+\`\`\`
 TẦNG 0 — LUẬT CỨNG (đọc 1 lần, áp cho mọi việc)
   agents/company/EXPERT-CORE.md — ngưỡng số 7 vai trò (Research/Marketing/
     Sales/Content/Dev/Designer/Media): fit x intent >= 7, forecast 90%/60%,
     retention 70%/50%, contrast 4.5:1, no-fabrication...
 
 TẦNG 1 — 7 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nhất)
-  agents/research-analytics-pro/  (23 file, 12 skill)
-  agents/content-pro/             (14 file, 5 skill)
-  agents/sales-ceo/                (12 file, 5 skill)
-  agents/infra-ops-agent/          (10 file, 4 skill)
-  agents/digital-marketing-agent/  (8 file, 2 skill)
-  agents/media-pro/                (6 file, 2 skill)
-  agents/designer-pro/             (5 file, 2 skill)
+  agents/research-analytics-pro/  (23 file)
+  agents/content-pro/             (14 file)
+  agents/sales-ceo/                (12 file)
+  agents/infra-ops-agent/          (10 file)
+  agents/digital-marketing-agent/  (8 file)
+  agents/media-pro/                (6 file)
+  agents/designer-pro/             (5 file)
   -> Mỗi cái tự đủ: README (spec+capability map) + ARCHITECTURE + system-prompt
      + skills/ riêng + HERMES-ADAPTER.md
 
@@ -56,31 +85,18 @@ TẦNG 2 — INSTANCE ĐÃ CÁ NHÂN HOÁ CHO BRAND (chạy thật, CHƯA audit 
   agents/shorts-affiliate-system/    (15 file)
   agents/anbinh-travel-ops-analyst/  (11 file)
 
-TẦNG 3 — THƯ VIỆN SKILL RỜI (861 file, dùng chung, chất lượng không đều)
-  skills/<ten-skill>/SKILL.md — đa số CHƯA được audit/verify, một số đã xác
-  nhận chất lượng cao qua kiểm tra thật: skills/claude-ads/*,
-  skills/systematic-debugging, skills/anti-ai-tells, skills/accessibility
+TẦNG 3 — THƯ VIỆN SKILL THÔ (470 subfolder / 565 file, xem cảnh báo phía trên)
 
 CHƯA HOÀN THIỆN — cần quyết định giữ hay bỏ
   agents/rio-bot/       (8 file, KHÔNG có README/system-prompt)
   agents/smb-ai-team/   (3 file, gần trống)
-```
+\`\`\`
 
 Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-MANIFEST.md — phân loại CORE (clone thẳng, không sửa) vs TENANT-CONFIG (brand playbook riêng từng khách).
 
 ---
 
-## File cần dọn — chưa xoá, chỉ ghi nhận (cần Nobitano xác nhận trước khi xoá)
-
-| File | Vấn đề |
-|---|---|
-| agents/HERMES-PLAYBOOK.md (24.633 ký tự, cập nhật 28/07/2026) vs agents/HERMES-GUIDE.md (5.207 ký tự) vs agents/HERMES-AGENTS.md (3.872 ký tự) | 3 file khác vai trò (PLAYBOOK = đầy đủ dán vào Project Instructions; GUIDE = đọc nhanh trước khi fetch; AGENTS = harness sinh tự động) nhưng KHÔNG ai ghi rõ thứ tự đọc — xem bảng "Agent nào đọc file nào" bên dưới, đã tạm làm rõ |
-| agents/OPENCLAW-PLAYBOOK.md vs -GUIDE.md vs -TOOLKIT.md | Tương tự — 3 vai trò khác nhau, đã làm rõ thứ tự bên dưới |
-| agents/README.md (909 ký tự) | Chỉ mô tả "3 agents trong hệ thống" — không nhắc DeepSeek Harness hay 7 Pro Agent, cũng đã lỗi thời như KHO-INDEX bản cũ |
-
----
-
-## Agent nào đọc file nào tiếp theo (ĐÃ LÀM RÕ THỨ TỰ — bản cũ thiếu)
+## Agent nào đọc file nào tiếp theo
 
 | Agent | Đọc theo thứ tự |
 |---|---|
@@ -91,6 +107,7 @@ Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-
 | Claude Code | agents/CLAUDE-CODE-BRIDGE.md |
 | Claude (Senior Advisor) | Không cần fetch trước — có Project Knowledge riêng. Cần hiểu tổ chức: agents/company/ORG-v2.md + agents/company/SENIOR-ADVISOR.md |
 | Mọi agent, trước khi làm việc thuộc 1 trong 7 vai trò | agents/company/EXPERT-CORE.md — luật cứng, không tự hạ chuẩn |
+| Mọi agent, khi cần tra "kho có tool gì cho việc X" | TRACKER.md (xem mục ngay trên) |
 
 **"Team Thục Hán"** = biệt danh Nobitano đặt cho bộ 3 Hermes/OpenClaw/DeepSeek Harness khi
 gộp chung thành 1 project riêng gọi là **OPC** — giao tiếp nội bộ qua file `tasks/*.md`,
@@ -101,7 +118,7 @@ Lớp hành vi nền cho MỌI agent làm việc liên quan code: agents/KARPATH
 
 ---
 
-## Cách nạp skill — khuyến nghị MỚI (thay cách cũ)
+## Cách nạp skill — khuyến nghị (từ v3.0, chưa có cập nhật mới)
 
 Cách cũ (đang tồn tại trong 1 số Hermes Adapter): mỗi agent tự viết dict cứng {"tên-skill": "path"} rồi fetch tay từng cái qua GitHub API. Hoạt động nhưng phải tự maintain danh sách, dễ quên khi thêm skill mới.
 
@@ -136,15 +153,27 @@ def fetch(path):
 # 1. fetch("KHO-INDEX.md")                    -> map toàn bộ kho (file này)
 # 2. fetch("agents/company/EXPERT-CORE.md")   -> luật cứng áp dụng
 # 3. fetch("agents/HERMES-GUIDE.md")          -> hướng dẫn nhanh
-# 4. Việc thuộc 1 trong 7 vai trò Pro Agent -> fetch("agents/<pro-agent>/README.md")
+# 4. Cần tra "kho có gì cho việc X" -> fetch("TRACKER.md")
+# 5. Việc thuộc 1 trong 7 vai trò Pro Agent -> fetch("agents/<pro-agent>/README.md")
 #    rồi HERMES-ADAPTER.md của đúng agent đó
+```
+
+**Lưu ý khi list folder qua Contents API (`/contents/<path>`):** API này KHÔNG đệ quy —
+với `/skills/` sẽ chỉ trả về 26 file tầng phẳng, bỏ sót toàn bộ 470 subfolder Tầng 3.
+Muốn quét đầy đủ, dùng Git Trees API với `?recursive=1`:
+```python
+req = urllib.request.Request(
+    "https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/git/trees/main?recursive=1",
+    headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}",
+             "Accept": "application/vnd.github.v3+json"})
+tree = json.loads(urllib.request.urlopen(req).read())["tree"]
 ```
 
 Node.js (OpenClaw) và Bash (Antigravity) dùng cùng pattern — xem chi tiết trong HERMES-PLAYBOOK.md (áp dụng chung, chỉ đổi cú pháp HTTP request).
 
 ---
 
-## Env vars toàn hệ thống (đã bổ sung biến mới từ phiên 21/08/2026)
+## Env vars toàn hệ thống
 
 ```bash
 # GitHub
@@ -162,7 +191,7 @@ ANTHROPIC_API_KEY=
 # để phân biệt với 4 tool TRÙNG TÊN rủi ro ToS khác)
 GOOGLE_API_KEY=
 
-# Decision Engine — Jev (TypeSafe, còn early access/waitlist)
+# Decision Engine — Jev (TypeSafe, còn early access/waitlist — xem repos/typesafe-jev.md)
 TYPESAFE_API_KEY=
 
 # CRM — Sales-CEO
@@ -196,8 +225,10 @@ MEM0_API_KEY=
 
 ## Việc tồn đọng thật — không giấu
 
-1. ✅ research-pro.md đã xoá. 3 cụm HERMES-*/OPENCLAW-* giữ nguyên (không trùng, chỉ khác vai trò). ✅ "Team Thục Hán" đã xác nhận = biệt danh Hermes/OpenClaw/DSH trong project OPC, không phải hệ thống lạ.
-2. agents/README.md cũng lỗi thời như KHO-INDEX bản cũ — chưa viết lại
-3. Tier 2 (4 instance brand) chưa audit chéo EXPERT-CORE
-4. Tier 3 (861 skill rời) — đa số chưa được đọc/verify, chỉ vài chục đã xác nhận qua kiểm tra thật
-5. Swarms skills_dir — mới là đề xuất, chưa chạy Pilot thật
+1. ✅ Số liệu /skills/ đã sửa đúng (591 thật, tách rõ 2 tầng) — bản v3.0 báo 861 gộp chung, gây hiểu lầm là 1 khối đồng nhất.
+2. ✅ TRACKER.md đã viết lại 21/09/2026 (tự sinh, không tay-append) — bản cũ lưu tại TRACKER-ARCHIVE.md.
+3. ⚠️ **Tra trùng qua TRACKER.md một mình KHÔNG đủ** cho entry loại Skill — phải kiểm cả `skills/<tên>/` (Tầng 3) trước khi viết mới, quy trình dedup hiện tại (Claude, khi Nobitano giao task viết kho) cần cập nhật lại bước này.
+4. agents/README.md vẫn lỗi thời như bản v2.1 cũ — chưa viết lại, chỉ mô tả "3 agent trong hệ thống", không nhắc DeepSeek Harness hay 7 Pro Agent.
+5. Tier 2 (4 instance brand) chưa audit chéo EXPERT-CORE.
+6. Tier 3 (470 skill thô) — đa số chưa được đọc/verify, chỉ vài chục đã xác nhận qua kiểm tra thật.
+7. Swarms skills_dir — mới là đề xuất, chưa chạy Pilot thật.
