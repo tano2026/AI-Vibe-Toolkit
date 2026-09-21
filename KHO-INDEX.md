@@ -76,7 +76,6 @@ Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-
 |---|---|
 | agents/HERMES-PLAYBOOK.md (24.633 ký tự, cập nhật 28/07/2026) vs agents/HERMES-GUIDE.md (5.207 ký tự) vs agents/HERMES-AGENTS.md (3.872 ký tự) | 3 file khác vai trò (PLAYBOOK = đầy đủ dán vào Project Instructions; GUIDE = đọc nhanh trước khi fetch; AGENTS = harness sinh tự động) nhưng KHÔNG ai ghi rõ thứ tự đọc — xem bảng "Agent nào đọc file nào" bên dưới, đã tạm làm rõ |
 | agents/OPENCLAW-PLAYBOOK.md vs -GUIDE.md vs -TOOLKIT.md | Tương tự — 3 vai trò khác nhau, đã làm rõ thứ tự bên dưới |
-| agents/CLAUDE-CODE-BRIDGE.md nhắc tới "Team Thục Hán" | Tên chưa từng xuất hiện trong toàn bộ audit/xây dựng phiên 21/08/2026 — CHƯA RÕ đây là gì, cần Nobitano xác nhận trước khi đưa vào tài liệu chính thức |
 | agents/README.md (909 ký tự) | Chỉ mô tả "3 agents trong hệ thống" — không nhắc DeepSeek Harness hay 7 Pro Agent, cũng đã lỗi thời như KHO-INDEX bản cũ |
 
 ---
@@ -92,6 +91,11 @@ Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-
 | Claude Code | agents/CLAUDE-CODE-BRIDGE.md |
 | Claude (Senior Advisor) | Không cần fetch trước — có Project Knowledge riêng. Cần hiểu tổ chức: agents/company/ORG-v2.md + agents/company/SENIOR-ADVISOR.md |
 | Mọi agent, trước khi làm việc thuộc 1 trong 7 vai trò | agents/company/EXPERT-CORE.md — luật cứng, không tự hạ chuẩn |
+
+**"Team Thục Hán"** = biệt danh Nobitano đặt cho bộ 3 Hermes/OpenClaw/DeepSeek Harness khi
+gộp chung thành 1 project riêng gọi là **OPC** — giao tiếp nội bộ qua file `tasks/*.md`,
+tách biệt runtime với Claude Code (xem agents/CLAUDE-CODE-BRIDGE.md). Không phải hệ thống
+khác, chỉ là tên gọi khi 3 agent này hoạt động cùng nhau trong OPC.
 
 Lớp hành vi nền cho MỌI agent làm việc liên quan code: agents/KARPATHY-CODING-GUIDELINES.md.
 
@@ -192,7 +196,7 @@ MEM0_API_KEY=
 
 ## Việc tồn đọng thật — không giấu
 
-1. ✅ research-pro.md đã xoá (21/08/2026, xác nhận trùng research-analytics-pro/). 3 cụm HERMES-*/OPENCLAW-* giữ nguyên (không trùng, chỉ khác vai trò — đã làm rõ thứ tự đọc). "Team Thục Hán" vẫn chưa xác nhận, chưa động vào.
+1. ✅ research-pro.md đã xoá. 3 cụm HERMES-*/OPENCLAW-* giữ nguyên (không trùng, chỉ khác vai trò). ✅ "Team Thục Hán" đã xác nhận = biệt danh Hermes/OpenClaw/DSH trong project OPC, không phải hệ thống lạ.
 2. agents/README.md cũng lỗi thời như KHO-INDEX bản cũ — chưa viết lại
 3. Tier 2 (4 instance brand) chưa audit chéo EXPERT-CORE
 4. Tier 3 (861 skill rời) — đa số chưa được đọc/verify, chỉ vài chục đã xác nhận qua kiểm tra thật
