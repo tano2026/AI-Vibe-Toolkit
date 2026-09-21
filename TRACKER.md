@@ -363,3 +363,6 @@
 | 343 | Skill | Churn Risk & Escalation Discipline | /agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md | Đã push | (không có script riêng) | 2026-09-22 |
 | 344 | Skill | Critical Path Briefing | /agents/customer-satisfaction-pro/skills/critical-path-briefing/SKILL.md | Đã push | (không có script riêng) | 2026-09-22 |
 | 345 | Skill | Hermes Adapter — Customer Satisfaction Pro | /agents/customer-satisfaction-pro/HERMES-ADAPTER.md | Đã push | (không có script riêng) | 2026-09-22 |
+| 346 | Stack | Company Charter — mô hình OPC/OMC áp dụng thật | /agents/company/COMPANY-CHARTER.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 347 | Skill | Task Intake Quality Gate (vai trò EA) | /agents/company/skills/task-intake-quality-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 348 | Skill | Skill Lifecycle Management (vai trò HR) | /agents/company/skills/skill-lifecycle-management/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
