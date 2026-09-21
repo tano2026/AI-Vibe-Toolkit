@@ -140,6 +140,50 @@
 
 ---
 
+## ⑧ CUSTOMER SATISFACTION
+
+*(Nguồn: SQM Group FCR benchmark 2025, SuperOffice/GreetNow response-time study, HubSpot State of Service 2025, Zendesk CX Trends 2026 — số liệu thật, không suy đoán)*
+
+**Ngưỡng phản hồi lần đầu (First Response Time) theo kênh:**
+```
+Chat trực tiếp:     ≤40 giây (CSAT đỉnh 84,7% khi phản hồi trong 5-10 giây)
+Email tiêu chuẩn:    ≤4 giờ
+Email ưu tiên/VIP:   ≤1-2 giờ
+Social media:        ≤60 phút (trung bình ngành đang là 10 giờ — đây là
+                      khoảng trống cạnh tranh thật, không phải lý thuyết)
+```
+
+**Ngưỡng First Contact Resolution (FCR — giải quyết xong ngay lần đầu, không cần khách hỏi lại):**
+```
+≥70-79%  → tốt
+<65%     → báo động — nghĩa là người/agent xử lý KHÔNG đủ công cụ/thẩm
+           quyền giải quyết ngay, không phải lỗi thái độ
+```
+
+**Luật quan trọng nhất — không cần lặp lại nhiều lần mới đáng lo:**
+```
+1 lần phục vụ tệ → khách có 50% khả năng rời bỏ trong 6 tháng tới
+32% khách NGỪNG mua sau đúng 1 trải nghiệm tệ
+
+→ Không áp dụng kiểu "đợi xem có lặp lại không" cho khiếu nại nghiêm
+  trọng (khách nói thẳng ý định huỷ/chuyển đối thủ/thất vọng nặng) —
+  escalate ngay từ lần đầu, không đợi ngưỡng ≥3 lần như luật comment
+  thường (đó là cho phàn nàn nhỏ lặp lại, không phải rủi ro rời bỏ thật)
+```
+
+**Cách báo cáo đúng — không dùng số trung bình:**
+```
+Dữ liệu thời gian phản hồi LỆCH PHẢI (đa số nhanh, vài ca cực chậm kéo
+trung bình lên sai lệch) — báo cáo bằng median + P90 + % trong SLA,
+KHÔNG dùng số trung bình (dễ bị outlier làm sai lệch bức tranh thật)
+```
+
+**Ngưỡng backlog:** không quá 5% ticket còn mở sau 48 giờ.
+
+**Bằng chứng kinh doanh thật (B2B SaaS, không phải lý thuyết):** tài khoản có FRT <2 giờ gia hạn ở mức 94%, tài khoản FRT >8 giờ chỉ gia hạn 78% — chênh lệch 16 điểm phần trăm đến từ đúng 1 chỉ số tốc độ phản hồi.
+
+---
+
 ## Cách nạp (chốt pattern cuối)
 
 ```
