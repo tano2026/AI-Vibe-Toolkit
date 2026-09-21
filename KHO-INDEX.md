@@ -1,134 +1,122 @@
 # KHO-INDEX — AI Vibe Toolkit
-> Cập nhật: tháng 6/2026 | Version: 2.1
+> Cập nhật: 21/08/2026 | Version: 3.0
 > **Entry point duy nhất cho mọi agent. Fetch file này đầu tiên.**
+> ⚠️ Bản v2.1 (tháng 6/2026) đã lệch nặng — số liệu, cấu trúc, danh sách agent đều cũ.
+> Bản này viết lại toàn bộ sau đợt audit tổng 21/08/2026.
 
 ---
 
 ## Kho là gì
 
 - **Repo:** https://github.com/tano2026/AI-Vibe-Toolkit
-- **Chủ:** Nobitano — vibe coder, content creator, digital marketer VN
+- **Chủ:** Nobitano — Founder Tano Agency, AI Implementation Partner cho SMB Việt Nam
 - **Mục đích kép:**
-  1. Knowledge base để agents thực thi task
-  2. Content factory — mỗi entry = 1 video TikTok/YouTube Shorts
+  1. Vận hành thật — luật quyết định + agent chạy việc cho ABTRIP/An Bình/Tano Cafe/Wonder Mart/Trùm Sân Bay
+  2. Content factory — mỗi entry đáng chú ý = 1 video TikTok/YouTube Shorts
 
 ---
 
-## Số liệu thực tế (đếm lại 25/07/2026 qua GitHub API)
+## Số liệu thực tế (đếm lại 21/08/2026 qua GitHub API — KHÔNG dùng số liệu bản cũ)
 
-| Folder | Số files | Ghi chú |
-|--------|----------|---------|
-| /mcps/ | 44 | MCP servers |
-| /repos/ | 151 | GitHub repos |
-| /skills/ | 109 | Prompt templates |
-| /stacks/ | 7 | Combo workflows |
-| /agents/ | 12 | Playbook + company/ + role packages (không tính file lồng trong subfolder) |
-| /content/ | 196 | Script video |
-
-> Số liệu tháng 6/2026 cũ (37/92/85/3/7/126) đã lệch nhiều — bản trên đếm trực tiếp qua
-> `list_dir()` GitHub API, không tính file trong subfolder của `/agents/` (company/, roles/,
-> từng agent package riêng có file .md/.py con bên trong).
+| Folder | Số file | Ghi chú |
+|---|---|---|
+| /skills/ | 861 | Thư viện skill rời — chất lượng KHÔNG đều, xem Tier 3 bên dưới |
+| /content/ | 330 (318 script, max #320) | Script video |
+| /repos/ | 236 | GitHub repo đã research |
+| /agents/ | 196 | Playbook + company/ + 7 Pro agent + 4 instance brand |
+| /mcps/ | 57 | MCP server |
+| /stacks/ | 17 | Combo workflow |
+| /configs/, /deploy/, /VAULT/, /domain-packs/ | 24 | Hạ tầng/cấu hình |
+| Tổng | 1.731 file | Tăng gần gấp đôi so với lần đếm gần nhất (966) |
 
 ---
 
-## Agent nào đọc file nào tiếp theo
+## Cấu trúc 3 tầng (MỚI — thay hoàn toàn cách hiểu cũ "chỉ là kho tool")
 
-| Agent | Fetch ngay sau file này |
-|-------|------------------------|
-| **Hermes** | `agents/HERMES-PLAYBOOK.md` |
-| **OpenClaw** | `agents/OPENCLAW-PLAYBOOK.md` |
-| **Antigravity** | `agents/ANTIGRAVITY-PLAYBOOK.md` |
-| **Claude (Senior Advisor)** | Không cần fetch file này trước — có Project Knowledge riêng. Khi cần hiểu tổ chức: `agents/company/ORG-v2.md` + `agents/company/SENIOR-ADVISOR.md` |
+```
+TẦNG 0 — LUẬT CỨNG (đọc 1 lần, áp cho mọi việc)
+  agents/company/EXPERT-CORE.md — ngưỡng số 7 vai trò (Research/Marketing/
+    Sales/Content/Dev/Designer/Media): fit x intent >= 7, forecast 90%/60%,
+    retention 70%/50%, contrast 4.5:1, no-fabrication...
 
-> ⚠️ **Lưu ý:** file này ghi ngày cập nhật tháng 6/2026, nhưng `agents/company/ORG-v2.md` /
-> `COORDINATION-v2.md` đã lên v2.1 ngày 19-20/07/2026 (9 role, không phải 7-8). Số liệu bảng
-> dưới đây (37 mcps / 92 repos / 85 skills...) có thể đã lệch so với thực tế — cần đếm lại
-> qua Hermes/Antigravity trước khi coi là chính xác tuyệt đối.
+TẦNG 1 — 7 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nhất)
+  agents/research-analytics-pro/  (23 file, 12 skill)
+  agents/content-pro/             (14 file, 5 skill)
+  agents/sales-ceo/                (12 file, 5 skill)
+  agents/infra-ops-agent/          (10 file, 4 skill)
+  agents/digital-marketing-agent/  (8 file, 2 skill)
+  agents/media-pro/                (6 file, 2 skill)
+  agents/designer-pro/             (5 file, 2 skill)
+  -> Mỗi cái tự đủ: README (spec+capability map) + ARCHITECTURE + system-prompt
+     + skills/ riêng + HERMES-ADAPTER.md
 
----
+TẦNG 2 — INSTANCE ĐÃ CÁ NHÂN HOÁ CHO BRAND (chạy thật, CHƯA audit chéo EXPERT-CORE)
+  agents/trum-san-bay/              (27 file — nhiều nhất, pipeline chính)
+  agents/yt-cashcow/                 (18 file)
+  agents/shorts-affiliate-system/    (15 file)
+  agents/anbinh-travel-ops-analyst/  (11 file)
 
-## Trạng thái patch Agent Integration (tháng 6/2026)
+TẦNG 3 — THƯ VIỆN SKILL RỜI (861 file, dùng chung, chất lượng không đều)
+  skills/<ten-skill>/SKILL.md — đa số CHƯA được audit/verify, một số đã xác
+  nhận chất lượng cao qua kiểm tra thật: skills/claude-ads/*,
+  skills/systematic-debugging, skills/anti-ai-tells, skills/accessibility
 
-**49 files đã có section `## 🤖 Agent Integration`** — Hermes đọc block Python, chạy được ngay.
+CHƯA HOÀN THIỆN — cần quyết định giữ hay bỏ
+  agents/rio-bot/       (8 file, KHÔNG có README/system-prompt)
+  agents/smb-ai-team/   (3 file, gần trống)
+```
 
-### Tier 1 — MCPs có REST API (11 files) ✅ ĐÃ PATCH HẾT
-
-| File | API Endpoint | Key cần |
-|------|-------------|---------|
-| mcps/firecrawl.md | api.firecrawl.dev/v1/scrape | FIRECRAWL_API_KEY |
-| mcps/brave-search.md | api.search.brave.com/res/v1/web/search | BRAVE_API_KEY |
-| mcps/github-mcp.md | api.github.com | GITHUB_TOKEN |
-| mcps/markitdown-mcp.md | local pip | không cần |
-| mcps/pollinations-mcp.md | image.pollinations.ai | không cần (free) |
-| mcps/mcp-youtube.md | googleapis.com/youtube/v3 | YOUTUBE_API_KEY |
-| mcps/fal-mcp.md | fal.run/fal-ai/ | FAL_KEY |
-| mcps/minimax-mcp.md | api.minimax.chat/v1 | MINIMAX_API_KEY |
-| mcps/meta-mcp-server.md | graph.facebook.com/v19.0 | META_ACCESS_TOKEN |
-| mcps/n8n-workflow-builder-mcp.md | localhost:5678/api/v1 | N8N_API_KEY |
-| mcps/crawl4ai.md | localhost:11235/crawl | self-hosted |
-
-### Tier 2 — Repos self-hostable (25 files) ✅ ĐÃ PATCH HẾT
-
-Antigravity deploy 1 lần → Hermes gọi endpoint mãi mãi.
-
-| File | Port | Deploy bằng |
-|------|------|------------|
-| repos/mem0.md | cloud/8000 | pip / Docker |
-| repos/supabase.md | cloud/5432 | Docker |
-| repos/dify.md | 80 | Docker |
-| repos/langflow.md | 7860 | pip / Docker |
-| repos/open-webui.md | 3000 | Docker |
-| repos/coolify.md | 8000 | script |
-| repos/stirling-pdf.md | 8080 | Docker |
-| repos/markitdown.md | local | pip |
-| repos/browser-use.md | - | pip |
-| repos/maxun.md | 8080 | Docker |
-| repos/openhands.md | 3000 | Docker |
-| repos/tiktokautouploader.md | - | pip |
-| repos/magika.md | - | pip |
-| repos/billionmail.md | 8080 | Docker |
-| repos/chattts.md | 9966 | pip |
-| repos/f5-tts.md | 7860 | pip |
-| repos/kokoro-82m.md | 8880 | pip |
-| repos/vimax.md | 8000 | pip |
-| repos/vectcutapi.md | 8000 | pip |
-| repos/turbovec.md | 6333 | Docker |
-| repos/mediacrawler.md | - | pip |
-| repos/n8n-claw.md | 5678 | Docker |
-| repos/headroom.md | 8000 | pip |
-| repos/lmcache.md | 8000 | pip |
-| repos/narratoai.md | 7860 | pip |
-
-### Tier 3 — Skills/Prompts (13 files) ✅ ĐÃ PATCH HẾT
-
-Fetch về → dùng làm system prompt cho LLM call. Không cài gì.
-
-| File | Dùng khi |
-|------|---------|
-| skills/research-agent/SKILL.md | Research thị trường, phân tích tool |
-| skills/content-creator/SKILL.md | Viết script video, social post |
-| skills/token-efficient-research/SKILL.md | Research nhiều source, tiết kiệm token |
-| skills/fact-checker/SKILL.md | Verify thông tin trước khi báo chủ |
-| skills/auto-research-trending/SKILL.md | Tự động research trending |
-| skills/mem0-skill/SKILL.md | Lưu/retrieve memory preferences |
-| skills/hermes-agent-deep-dive/SKILL.md | Reference Hermes architecture |
-| skills/viral-hooks-skill/SKILL.md | Viết hook cho video content |
-| skills/personal-branding-creator/SKILL.md | Content personal brand |
-| skills/social-media-stack/SKILL.md | Chọn tool cho từng platform |
-| skills/youtube-marketing-skills/SKILL.md | Marketing YouTube |
-| skills/vibe-coder-assistant/SKILL.md | Assist coding tasks |
-| skills/marketing-automation-mcp-guide/SKILL.md | Automation marketing |
-
-### Còn lại — ~170 files — KHÔNG có Agent Integration
-
-Frontend tools, video-only tools, reference docs.
-Hermes đọc TL;DR để biết tool làm gì, không thực thi trực tiếp được.
+Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-MANIFEST.md — phân loại CORE (clone thẳng, không sửa) vs TENANT-CONFIG (brand playbook riêng từng khách).
 
 ---
 
-## Fetch function chuẩn
+## File cần dọn — chưa xoá, chỉ ghi nhận (cần Nobitano xác nhận trước khi xoá)
 
-### Python (Hermes)
+| File | Vấn đề |
+|---|---|
+| agents/research-pro.md (6.578 ký tự) | Bản CŨ, mỏng — đã bị agents/research-analytics-pro/ (23 file, đầy đủ hơn nhiều) thay thế. Agent nào đọc nhầm file này sẽ có thông tin cũ/thiếu. |
+| agents/HERMES-PLAYBOOK.md (24.633 ký tự, cập nhật 28/07/2026) vs agents/HERMES-GUIDE.md (5.207 ký tự) vs agents/HERMES-AGENTS.md (3.872 ký tự) | 3 file khác vai trò (PLAYBOOK = đầy đủ dán vào Project Instructions; GUIDE = đọc nhanh trước khi fetch; AGENTS = harness sinh tự động) nhưng KHÔNG ai ghi rõ thứ tự đọc — xem bảng "Agent nào đọc file nào" bên dưới, đã tạm làm rõ |
+| agents/OPENCLAW-PLAYBOOK.md vs -GUIDE.md vs -TOOLKIT.md | Tương tự — 3 vai trò khác nhau, đã làm rõ thứ tự bên dưới |
+| agents/CLAUDE-CODE-BRIDGE.md nhắc tới "Team Thục Hán" | Tên chưa từng xuất hiện trong toàn bộ audit/xây dựng phiên 21/08/2026 — CHƯA RÕ đây là gì, cần Nobitano xác nhận trước khi đưa vào tài liệu chính thức |
+| agents/README.md (909 ký tự) | Chỉ mô tả "3 agents trong hệ thống" — không nhắc DeepSeek Harness hay 7 Pro Agent, cũng đã lỗi thời như KHO-INDEX bản cũ |
+
+---
+
+## Agent nào đọc file nào tiếp theo (ĐÃ LÀM RÕ THỨ TỰ — bản cũ thiếu)
+
+| Agent | Đọc theo thứ tự |
+|---|---|
+| Hermes | 1. agents/HERMES-GUIDE.md (đọc nhanh) -> 2. agents/HERMES-PLAYBOOK.md (đầy đủ, dán Project Instructions) -> 3. Khi cần làm việc của 1 Pro agent cụ thể: agents/<pro-agent>/HERMES-ADAPTER.md |
+| OpenClaw | 1. agents/OPENCLAW-GUIDE.md -> 2. agents/OPENCLAW-PLAYBOOK.md -> 3. agents/OPENCLAW-TOOLKIT.md (tra cứu nhanh, không cần fetch từng file lẻ) |
+| Antigravity | 1. agents/ANTIGRAVITY-GUIDE.md -> 2. agents/ANTIGRAVITY-PLAYBOOK.md |
+| DeepSeek Harness | Chưa có playbook riêng chính thức — hiện mượn quyết định qua OpenClaw (nền tảng DSH còn breaking changes, xem ghi chú trong lịch sử quyết định) |
+| Claude Code | agents/CLAUDE-CODE-BRIDGE.md |
+| Claude (Senior Advisor) | Không cần fetch trước — có Project Knowledge riêng. Cần hiểu tổ chức: agents/company/ORG-v2.md + agents/company/SENIOR-ADVISOR.md |
+| Mọi agent, trước khi làm việc thuộc 1 trong 7 vai trò | agents/company/EXPERT-CORE.md — luật cứng, không tự hạ chuẩn |
+
+Lớp hành vi nền cho MỌI agent làm việc liên quan code: agents/KARPATHY-CODING-GUIDELINES.md.
+
+---
+
+## Cách nạp skill — khuyến nghị MỚI (thay cách cũ)
+
+Cách cũ (đang tồn tại trong 1 số Hermes Adapter): mỗi agent tự viết dict cứng {"tên-skill": "path"} rồi fetch tay từng cái qua GitHub API. Hoạt động nhưng phải tự maintain danh sách, dễ quên khi thêm skill mới.
+
+Cách khuyến nghị (từ khi research Swarms framework, 21/08/2026): dùng skills_dir — Swarms đọc THẲNG cấu trúc skills/<name>/SKILL.md đang dùng, tự chọn đúng skill theo độ liên quan tác vụ, không cần biết trước tên:
+
+```python
+from swarms import Agent
+agent = Agent(model_name="claude-sonnet-4-6", skills_dir="./skills")
+agent.run("Chấm điểm deal theo fit x intent")
+# Tự nạp đúng skill liên quan, không cần dict cứng
+```
+
+Chi tiết: repos/swarms.md. Đang ở giai đoạn đề xuất — chưa test thật với Pilot 1 agent, xem ghi chú trong file đó trước khi tin dùng production.
+
+---
+
+## Fetch function chuẩn (Python/Hermes)
+
 ```python
 import urllib.request, json, base64, os
 
@@ -142,111 +130,71 @@ def fetch(path):
     return base64.b64decode(data["content"]).decode()
 
 # Workflow chuẩn khi nhận task:
-# 1. fetch("KHO-INDEX.md")           → map toàn bộ kho
-# 2. fetch("agents/HERMES-PLAYBOOK.md") → instruction của mày
-# 3. fetch("mcps/[tool].md")         → đọc Agent Integration block
-# 4. Chạy code Python trong block đó
+# 1. fetch("KHO-INDEX.md")                    -> map toàn bộ kho (file này)
+# 2. fetch("agents/company/EXPERT-CORE.md")   -> luật cứng áp dụng
+# 3. fetch("agents/HERMES-GUIDE.md")          -> hướng dẫn nhanh
+# 4. Việc thuộc 1 trong 7 vai trò Pro Agent -> fetch("agents/<pro-agent>/README.md")
+#    rồi HERMES-ADAPTER.md của đúng agent đó
 ```
 
-### Node.js (OpenClaw)
-```javascript
-const https = require("https");
-async function fetchKho(path) {
-  return new Promise((resolve, reject) => {
-    https.get({
-      hostname: "api.github.com",
-      path: `/repos/tano2026/AI-Vibe-Toolkit/contents/${path}`,
-      headers: { "Authorization": `token ${process.env.GITHUB_TOKEN}`,
-                 "User-Agent": "openclaw",
-                 "Accept": "application/vnd.github.v3+json" }
-    }, res => {
-      let d = ""; res.on("data", c => d += c);
-      res.on("end", () => resolve(Buffer.from(JSON.parse(d).content, "base64").toString()));
-    }).on("error", reject);
-  });
-}
-```
-
-### Bash (Antigravity)
-```bash
-fetch_kho() {
-  curl -sf     -H "Authorization: token $GITHUB_TOKEN"     -H "Accept: application/vnd.github.v3+json"     "https://api.github.com/repos/tano2026/AI-Vibe-Toolkit/contents/$1"     | python3 -c "import sys,json,base64; print(base64.b64decode(json.load(sys.stdin)['content']).decode())"
-}
-```
+Node.js (OpenClaw) và Bash (Antigravity) dùng cùng pattern — xem chi tiết trong HERMES-PLAYBOOK.md (áp dụng chung, chỉ đổi cú pháp HTTP request).
 
 ---
 
-## Quy tắc đọc file .md trong kho
-
-| Section trong file | Hermes đọc? | OpenClaw? | Antigravity? |
-|--------------------|-------------|-----------|--------------|
-| TL;DR | ✅ | ✅ | ✅ |
-| Dùng để làm gì | ✅ | ✅ | ✅ |
-| Setup Claude Desktop / npx | ❌ skip | ✅ | ❌ |
-| `## 🤖 Agent Integration` | ✅ **ĐỌC NGAY** | ✅ | ✅ |
-| → Hermes (Python) block | ✅ | - | - |
-| → OpenClaw block | - | ✅ | - |
-| → Antigravity block | - | - | ✅ |
-| Đánh giá cá nhân | tham khảo | tham khảo | - |
-
----
-
-## Phân công 3 agent
-
-```
-Nobitano nhắn Telegram
-        ↓
-OpenClaw nhận, phân loại
-        ├── Browser / UI / WhatsApp  → OpenClaw tự làm
-        ├── Python / API / data      → Hermes
-        ├── Deploy / install / VPS   → Antigravity
-        └── Thêm entry kho / .md mới → Báo chủ → Claude làm
-                ↓
-          Hermes thực thi
-                ├── Fetch file .md → đọc "Hermes (Python)" block → chạy
-                ├── Tier 1: gọi REST API trực tiếp (11 MCPs)
-                ├── Tier 2: gọi localhost endpoint (25 repos, Antigravity đã deploy)
-                └── Tier 3: fetch skill → nhúng system prompt → gọi LLM
-                        ↓
-                  Antigravity (khi được yêu cầu)
-                        ├── pip install packages
-                        ├── Docker deploy services
-                        └── Báo endpoint về cho Hermes
-```
-
----
-
-## Env vars toàn hệ thống
+## Env vars toàn hệ thống (đã bổ sung biến mới từ phiên 21/08/2026)
 
 ```bash
 # GitHub
-GITHUB_TOKEN=[GITHUB_TOKEN]
+GITHUB_TOKEN=
 
-# Search/Scrape (free tier đủ dùng hàng ngày)
-BRAVE_API_KEY=          # brave.com/search/api — 2000 req/month free
-TAVILY_API_KEY=         # tavily.com — 1000 req/month free  
-FIRECRAWL_API_KEY=      # firecrawl.dev — 500 req/month free
+# Search/Scrape
+BRAVE_API_KEY=
+TAVILY_API_KEY=
+FIRECRAWL_API_KEY=
 
 # LLM
 ANTHROPIC_API_KEY=
 
-# Media
-FAL_KEY=                # fal.ai — pay per use, rất rẻ
-MINIMAX_API_KEY=        # TTS tiếng Việt
+# Media — Google Flow MCP (Nano Banana/Veo, API chính thức — xem mcps/google-flow-mcp.md
+# để phân biệt với 4 tool TRÙNG TÊN rủi ro ToS khác)
+GOOGLE_API_KEY=
+
+# Decision Engine — Jev (TypeSafe, còn early access/waitlist)
+TYPESAFE_API_KEY=
+
+# CRM — Sales-CEO
+HUBSPOT_TOKEN=
+
+# Ads — Digital Marketing Agent (cần OAuth thủ công 1 lần, xem HERMES-ADAPTER.md agent đó)
+GOOGLE_ADS_REFRESH_TOKEN=
+
+# Media cũ
+FAL_KEY=
+MINIMAX_API_KEY=
 MINIMAX_GROUP_ID=
-YOUTUBE_API_KEY=        # free 10k units/ngày
+YOUTUBE_API_KEY=
 
 # Database
 SUPABASE_URL=
 SUPABASE_KEY=
 
 # Email
-RESEND_API_KEY=         # free 3000/month
+RESEND_API_KEY=
 
 # Social
 META_ACCESS_TOKEN=
-TIKTOK_SESSION=         # cookies từ browser
+TIKTOK_SESSION=
 
 # Memory
-MEM0_API_KEY=           # cloud hoặc self-host port 8000
+MEM0_API_KEY=
 ```
+
+---
+
+## Việc tồn đọng thật — không giấu
+
+1. research-pro.md, 3 cụm HERMES-*/OPENCLAW-*, "Team Thục Hán" — cần Nobitano xác nhận trước khi dọn/xoá
+2. agents/README.md cũng lỗi thời như KHO-INDEX bản cũ — chưa viết lại
+3. Tier 2 (4 instance brand) chưa audit chéo EXPERT-CORE
+4. Tier 3 (861 skill rời) — đa số chưa được đọc/verify, chỉ vài chục đã xác nhận qua kiểm tra thật
+5. Swarms skills_dir — mới là đề xuất, chưa chạy Pilot thật
