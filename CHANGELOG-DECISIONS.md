@@ -136,3 +136,4 @@
 - Research Swarms (kyegomez/swarms) — tương thích trực tiếp skills_dir với format SKILL.md đang dùng, đề xuất thay cơ chế load_skill() viết tay → [repos/swarms.md](./repos/swarms.md)
 - Xoá `agents/research-pro.md` (xác nhận trùng, đã bị `research-analytics-pro/` thay thế) — Nobitano duyệt
 - Xoá `skills/ecc/` (271 file, confirm trùng 100% skill phẳng đã có) — dọn kho trước khi Nobitano symlink toàn bộ skills/ vào Claude Code local
+- Xây Customer Satisfaction Pro (agent thứ 8) — phát hiện khoảng trống sau khi so sánh cấu trúc với mô hình "AI Employees" (Mark Fulton, github.com/markfulton/ai-employees) — không Pro Agent nào trong 7 cái trước phụ trách CSKH/rủi ro rời bỏ khách. Thêm EXPERT-CORE.md section 8 (ngưỡng SLA/FCR thật, nguồn SQM Group/HubSpot/Zendesk 2026). Kèm skill critical-path-briefing (dùng chung mọi agent báo cáo, đúc kết từ cơ chế Chief of Staff của AI Employees)
