@@ -3137,3 +3137,5 @@ giờ là `skills/remotion-video-creation/SKILL.md`.
 | 339 | Repo | WeKnora (Tencent) | /repos/weknora.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 340 | Stack | Audit tổng kho + viết lại KHO-INDEX.md v3.0 | /KHO-INDEX.md | Đã push | (không có script riêng) | 2026-08-21 |
 | 341 | Stack | Xoá skills/ecc/ (271 file trùng) — dọn kho cho symlink Claude Code | /skills/ | Đã push | (không có script riêng) | 2026-08-21 |
+| 325 | Skill | I Have ADHD | /skills/i-have-adhd.md | Đã push | /content/script-video-317-i-have-adhd.md | 2026-09-21 |
+| 326 | Repo | God's Eye View | /repos/gods-eye-view.md | Đã push | /content/script-video-318-gods-eye-view.md | 2026-09-21 |
