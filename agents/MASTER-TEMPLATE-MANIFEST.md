@@ -46,6 +46,12 @@ agents/media-pro/                → ARCHITECTURE, HERMES-ADAPTER
 agents/content-pro/              → ARCHITECTURE, CHATWOOT-ADAPTER,
   HERMES-ADAPTER, mcp-setup
 agents/sales-ceo/                → ARCHITECTURE, PLUGIN-INTEGRATION, mcp-setup
+agents/designer-pro/              → TOÀN BỘ (agent thứ 7, xây từ số 0,
+  22/08/2026 — README, ARCHITECTURE, system-prompt, HERMES-ADAPTER, 2 skill)
+agents/customer-satisfaction-pro/ → TOÀN BỘ (agent thứ 8, xây từ số 0,
+  22/08/2026 — README, ARCHITECTURE, system-prompt, HERMES-ADAPTER, 2 skill)
+agents/company/CORE-META-SKILLS.md → Nhóm "Đầu Não" (harness/loop/
+  superpowers/humanizer) — CORE dùng chung mọi Pro Agent, không riêng 1 cái
 agents/digital-marketing-agent/  → mcp-setup
 agents/shorts-affiliate-system/  → toàn bộ (đã universal từ đầu)
 ```
