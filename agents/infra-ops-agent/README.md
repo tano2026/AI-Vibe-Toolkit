@@ -45,6 +45,7 @@ lệnh thật. Agent này chỉ soạn plan + script + rủi ro, Antigravity là
 | `tencent-vps-capacity-cost` (mới viết) | capacity planning + cost riêng Tencent Cloud |
 | `dev-automation-discipline` (mới viết) | no-fabrication (đặc biệt Hermes), luật debug 6 bước, credential, script idempotency |
 | `deploy-review-gate` (mới viết) | dual independent review cho thay đổi hạ tầng rủi ro cao, trước khi Antigravity thực thi |
+| `production-signal-feedback-loop` (mới viết) | vòng lặp khép kín ADLC — tín hiệu vận hành tự tạo intent mới qua Jev cascade, không chờ Nobitano tự phát hiện |
 
 **Tay:**
 | Tool | Vai trò |
