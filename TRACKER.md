@@ -366,3 +366,4 @@
 | 346 | Stack | Company Charter — mô hình OPC/OMC áp dụng thật | /agents/company/COMPANY-CHARTER.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 347 | Skill | Task Intake Quality Gate (vai trò EA) | /agents/company/skills/task-intake-quality-gate/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 348 | Skill | Skill Lifecycle Management (vai trò HR) | /agents/company/skills/skill-lifecycle-management/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 349 | Stack | Client Onboarding Template (bán FDE cho khách phi kỹ thuật) | /agents/company/CLIENT-ONBOARDING-TEMPLATE.md | Đã push | (không có script riêng) | 2026-08-22 |
