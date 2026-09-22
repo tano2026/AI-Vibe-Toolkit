@@ -60,22 +60,27 @@ Ctrl+F trong TRACKER.md một mình KHÔNG đủ, sẽ bỏ sót 470 skill kia.
 
 ---
 
-## Cấu trúc 3 tầng (giữ nguyên từ v3.0, số liệu agent-subfolder đã xác nhận khớp thật)
+## Cấu trúc 3 tầng (v3.2 — sửa lỗi backtick + thêm agent thứ 8, 22/08/2026)
 
-\`\`\`
+```
 TẦNG 0 — LUẬT CỨNG (đọc 1 lần, áp cho mọi việc)
-  agents/company/EXPERT-CORE.md — ngưỡng số 7 vai trò (Research/Marketing/
-    Sales/Content/Dev/Designer/Media): fit x intent >= 7, forecast 90%/60%,
-    retention 70%/50%, contrast 4.5:1, no-fabrication...
+  agents/company/EXPERT-CORE.md — ngưỡng số 8 vai trò (Research/Marketing/
+    Sales/Content/Dev/Designer/Media/Customer Satisfaction): fit x intent
+    >= 7, forecast 90%/60%, retention 70%/50%, contrast 4.5:1, FCR >=70%,
+    no-fabrication...
+  agents/company/CORE-META-SKILLS.md — nhóm "Đầu Não" (harness/loop/
+    superpowers/humanizer) — CẮT NGANG mọi Pro Agent, kiểm tra trước khi
+    viết agent mới (xem Agentic Factory v2, Bước 1)
 
-TẦNG 1 — 7 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nhất)
-  agents/research-analytics-pro/  (23 file)
-  agents/content-pro/             (14 file)
-  agents/sales-ceo/                (12 file)
-  agents/infra-ops-agent/          (10 file)
-  agents/digital-marketing-agent/  (8 file)
-  agents/media-pro/                (6 file)
-  agents/designer-pro/             (5 file)
+TẦNG 1 — 8 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nhất)
+  agents/research-analytics-pro/     (23 file)
+  agents/content-pro/                (14 file)
+  agents/sales-ceo/                  (12 file)
+  agents/infra-ops-agent/            (11 file)
+  agents/digital-marketing-agent/    (8 file)
+  agents/media-pro/                  (6 file)
+  agents/customer-satisfaction-pro/  (6 file) — MỚI, agent thứ 8
+  agents/designer-pro/               (5 file)
   -> Mỗi cái tự đủ: README (spec+capability map) + ARCHITECTURE + system-prompt
      + skills/ riêng + HERMES-ADAPTER.md
 
@@ -85,12 +90,13 @@ TẦNG 2 — INSTANCE ĐÃ CÁ NHÂN HOÁ CHO BRAND (chạy thật, CHƯA audit 
   agents/shorts-affiliate-system/    (15 file)
   agents/anbinh-travel-ops-analyst/  (11 file)
 
-TẦNG 3 — THƯ VIỆN SKILL THÔ (470 subfolder / 565 file, xem cảnh báo phía trên)
+TẦNG 3 — THƯ VIỆN SKILL THÔ (591 file trong skills/, sau khi xoá ecc/ 271
+  file trùng — số liệu đếm trực tiếp qua API, không suy đoán)
 
 CHƯA HOÀN THIỆN — cần quyết định giữ hay bỏ
   agents/rio-bot/       (8 file, KHÔNG có README/system-prompt)
   agents/smb-ai-team/   (3 file, gần trống)
-\`\`\`
+```
 
 Bản đồ tổng + cách nhân bản cho khách mới: agents/MASTER-TEMPLATE-MANIFEST.md — phân loại CORE (clone thẳng, không sửa) vs TENANT-CONFIG (brand playbook riêng từng khách).
 
