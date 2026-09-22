@@ -368,3 +368,4 @@
 | 348 | Skill | Skill Lifecycle Management (vai trò HR) | /agents/company/skills/skill-lifecycle-management/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 349 | Stack | Client Onboarding Template (bán FDE cho khách phi kỹ thuật) | /agents/company/CLIENT-ONBOARDING-TEMPLATE.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 350 | Skill | Production Signal Feedback Loop (ADLC + Jev cascade) | /agents/infra-ops-agent/skills/production-signal-feedback-loop/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 351 | Skill | Agentic Factory v2 (8 bước, sau khi xây 8 Pro Agent thật) | /skills/agentic-factory/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
