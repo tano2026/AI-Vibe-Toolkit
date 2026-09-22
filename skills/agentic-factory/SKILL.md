@@ -1,150 +1,139 @@
 ---
 name: agentic-factory
 description: >
-  Nhà sản xuất agentic — đưa vào MỘT ý tưởng về agent cần xây ("tao cần 1 agent chuyên về X"),
-  trả ra trọn bộ sản phẩm đóng gói: bộ skill files, danh sách MCP/tools, kiến trúc orchestrator,
-  file cấu hình project, và checklist deploy. Bung được ra dùng luôn.
-  Dùng skill này khi user nói: "xây 1 agent về...", "tao cần 1 agentic chuyên...", "đóng gói agent...",
-  "sản xuất agent...", "build cho tao 1 con AI làm...", "factory agent...", "tạo bộ skill cho agent...".
-  Trigger mạnh với: "agent", "agentic", "chuyên gia AI", "đóng gói", "bộ skill", "factory", kèm bất kỳ
-  mô tả chuyên ngành/công việc nào (research, sales, legal, kế toán, tuyển dụng, vận hành, v.v.).
+  Nhà sản xuất agentic v2 — đưa vào 1 ý tưởng agent, trả ra trọn bộ sản
+  phẩm đóng gói đúng chuẩn 8 Pro Agent đã xây thật (không phải lý thuyết
+  suông). Cập nhật sau khi học được: EXPERT-CORE grounding bắt buộc,
+  Vessel/Talent (OMC), chuỗi tạo tác ADLC, Jev cascade, EA gate, HR
+  lifecycle. Dùng khi Nobitano nói "xây 1 agent về...", "làm sao xây agent
+  như vậy", "đóng gói agent...".
 ---
 
-# Agentic Factory — Nhà sản xuất Agentic
+# Agentic Factory v2 — Nhà sản xuất Agentic
 
-Input: một ý tưởng. Output: một bộ sản phẩm agent hoàn chỉnh, đóng gói, deploy được.
+Input: 1 ý tưởng. Output: 1 Pro Agent đúng chuẩn 8 cái đã có, không lệch chất lượng.
 
-Nguyên tắc: KHÔNG hỏi lan man. Đọc ý tưởng → tự suy ra mọi thứ còn thiếu → ra sản phẩm. Chỉ hỏi
-lại tối đa 1 câu nếu domain mơ hồ tới mức không chọn được hướng.
+## Quy trình 8 bước (v2 — thêm 3 bước so với bản gốc, sau khi xây 8 Pro Agent thật)
 
----
-
-## Quy trình 5 bước (chạy tuần tự, không bỏ bước)
-
-### Bước 1 — Spec the Agent (Đặc tả)
-
-Từ ý tưởng của user, điền BẢNG SPEC này. Tự suy luận chỗ thiếu, đừng bắt user khai báo:
+### Bước 0 — Search trước khi viết (kỷ luật "HR", bắt buộc)
 
 ```
-Tên agent:        [đặt tên ngắn, snake_case + tên hiển thị]
-Domain:           [chuyên ngành cốt lõi]
-Job-to-be-done:   [1 câu: agent này tồn tại để làm gì]
-Người dùng:       [ai sẽ ra lệnh cho nó]
-Input điển hình:  [3-5 loại yêu cầu nó sẽ nhận]
-Output điển hình: [agent giao ra cái gì — report? file? quyết định? data?]
-Mức tự chủ:       [tra cứu / phân tích / hành động (gọi API, ghi data)]
-Rủi ro cao nhất:  [chỗ agent dễ sai/gây hại nhất → quyết định guardrail]
+KHÔNG viết gì trước khi search rộng skills/ + agents/ hiện có — đúng bài
+học đã xảy ra thật (ecc/ trùng 271 file, ad-budget-testing-discipline
+trùng claude-ads). Dùng quy trình trong skill-lifecycle-management.
 ```
 
-### Bước 2 — Derive the Capability Map (Suy ra năng lực)
-
-Map job-to-be-done sang 3 tầng năng lực. MỌI agent đều cần đủ 3 tầng, nếu thiếu tầng nào là agent què:
+### Bước 1 — Grounding vào EXPERT-CORE (bắt buộc, KHÔNG bịa số)
 
 ```
-TẦNG NÃO (Skills):     tư duy nghiệp vụ — cách agent suy nghĩ, đánh giá, quyết định
-TẦNG TAY (MCP/Tools):  nguồn data + khả năng hành động ra thế giới ngoài
-TẦNG CƠ (Compute):     xử lý thật — code execution, file creation, tính toán
+Agent mới thuộc 1 trong 8 role đã có EXPERT-CORE section -> đọc đúng
+section đó, không viết luật riêng chồng lên.
+
+Agent thuộc role CHƯA có trong EXPERT-CORE (như case Customer
+Satisfaction trước đây) -> BẮT BUỘC research ngưỡng số thật từ nguồn
+uy tín ngành (không suy đoán) -> viết thêm 1 section mới vào
+EXPERT-CORE.md trước khi làm bước 2.
 ```
 
-Quy tắc chọn cho mỗi tầng ở phần THƯ VIỆN bên dưới.
-
-### Bước 3 — Generate the Package (Sinh sản phẩm)
-
-Đẻ ra trọn bộ file vào thư mục `<tên-agent>/`:
+### Bước 2 — Spec the Agent (như bản gốc, giữ nguyên)
 
 ```
-<tên-agent>/
-├── README.md              ← spec + kiến trúc + hướng dẫn bung
-├── ARCHITECTURE.md        ← sơ đồ orchestrator + luồng dữ liệu
+Tên agent / Domain / Job-to-be-done / Người dùng / Input điển hình /
+Output điển hình / Mức tự chủ / Rủi ro cao nhất
+```
+
+### Bước 3 — Vessel + Talent (MỚI — thuật ngữ từ OneManCompany, 422 sao)
+
+```
+TALENT (năng lực) = EXPERT-CORE section (luật) + skill riêng viết mới
+  — đây là phần bản gốc gọi "Capability Map", giữ nguyên logic, đổi tên
+  đúng chuẩn đã kiểm chứng
+
+VESSEL (nơi chạy) = xác định NGAY từ đầu agent này chạy trên Vessel nào:
+  Hermes (task rời rạc, urllib-only) / OpenClaw (điều phối) /
+  Claude Code / Google Antigravity (hạ tầng, đã xác nhận là sản phẩm
+  Google thật) — mỗi Vessel cần 1 HERMES-ADAPTER.md riêng nếu áp dụng
+```
+
+### Bước 4 — Chuỗi tạo tác ADLC (MỚI — nếu agent làm việc nhiều bước)
+
+```
+Nếu agent có deliverable qua nhiều bước (không phải trả lời 1 lần) ->
+thiết kế theo chuỗi: intent.md -> spec.md -> plan.md -> code/output+tests
+-> review record -> production signal -> (vòng lặp lại intent.md nếu có
+tín hiệu vận hành mới)
+
+Agent đơn giản (chỉ tra cứu/phân loại 1 bước) -> bỏ qua bước này, không
+ép mọi agent vào khuôn nhiều bước không cần thiết
+```
+
+### Bước 5 — Generate the Package (như bản gốc, thêm 2 file)
+
+```
+<ten-agent>/
+├── README.md              <- Spec + Vessel/Talent + Capability Map
+├── ARCHITECTURE.md         <- sơ đồ luồng + chuỗi tạo tác nếu có
+├── system-prompt.md
+├── HERMES-ADAPTER.md       <- MỚI bắt buộc nếu chạy trên Hermes
 ├── skills/
-│   ├── <skill-1>/SKILL.md ← mỗi năng lực não = 1 skill file đầy đủ
-│   ├── <skill-2>/SKILL.md
-│   └── ...
-├── mcp-setup.md           ← danh sách MCP/connector + lý do + cách bật
-├── system-prompt.md       ← prompt gốc định danh + nguyên tắc + guardrail
-└── deploy-checklist.md    ← các bước bung ra môi trường thật
+│   └── <skill>/SKILL.md    <- viết thật, không để TODO
+└── (CHATWOOT/KHOJ-ADAPTER.md nếu cần đa nền tảng, tham khảo Content Pro)
 ```
 
-VIẾT THẬT nội dung từng file — không để placeholder "TODO". Mỗi SKILL.md phải có
-trigger tiếng Việt, quy trình rõ ràng, ví dụ cụ thể.
-
-### Bước 4 — Wire the Architecture (Đấu kiến trúc)
-
-Mặc định mọi agent dùng mô hình **Orchestrator + Sub-agents**:
+### Bước 6 — Jev Cascade (MỚI — chỉ áp nếu có quyết định lặp lại nhanh)
 
 ```
-<Domain> Orchestrator (điều phối, quyết định gọi sub-agent nào)
-├── Collector   — thu thập raw (web search, MCP, file đọc)
-├── Validator   — lọc nguồn, chấm độ tin cậy, flag mâu thuẫn
-├── Processor   — xử lý thật (code, tính toán, transform)
-└── Synthesizer — ra output cuối (insight + recommendation + deliverable)
+Agent có việc PHÂN LOẠI/CHẤM ĐIỂM lặp đi lặp lại (không phải sáng tạo)
+-> thiết kế câu hỏi Choice/Score/Noul cho Jev, kèm ngưỡng confidence
+  (>=80% tự tin, 50-80% làm nhưng gắn nhãn, <50% escalate Claude)
+-> LUÔN kèm fallback rule-based khi Jev chưa có access (còn waitlist)
+
+Agent không có việc phân loại lặp lại (vd Designer tạo ảnh sáng tạo)
+-> bỏ qua bước này
 ```
 
-Với agent đơn giản (chỉ tra cứu) có thể gộp còn Collector→Synthesizer.
-Với agent hành động (ghi data, gọi API) BẮT BUỘC giữ Validator + thêm tầng confirm.
+### Bước 7 — Wire vào hệ thống chung (MỚI — kết nối, không để agent cô lập)
 
-### Bước 5 — Guardrail + Deploy
+```
+1. task-intake-quality-gate: đảm bảo domain agent mới đủ RÕ để câu
+   hỏi "đúng agent?" của EA gate route được chính xác vào đây
+2. critical-path-briefing: agent mới báo cáo đúng nguyên tắc "chỉ đưa
+   việc cần quyết định của Nobitano", không liệt kê hết mọi việc
+3. skill-lifecycle-management: đăng ký skill mới vào TRACKER.md,
+   trạng thái "Ứng tuyển" cho tới khi được dùng thật + verify
+```
 
-Mỗi agent ra lò phải kèm:
-- **Guardrail** đúng theo "Rủi ro cao nhất" ở Bước 1 (vd: agent kế toán không tự chuyển tiền;
-  agent research phải trích nguồn; agent sales không spam).
-- **Deploy checklist**: bật MCP nào, set env nào, test case gì trước khi giao việc thật.
+### Bước 8 — Guardrail + Deploy (như bản gốc)
+
+```
+Guardrail đúng "Rủi ro cao nhất" ở Bước 2
+Deploy checklist: bật Vessel nào, set env nào, test case gì trước khi
+giao việc thật
+```
 
 ---
 
-## THƯ VIỆN năng lực (chọn theo domain)
+## Output format khi chạy factory v2
 
-### Tầng Não — Skill bank (mix & match theo job)
+1. Bảng SPEC (Bước 2) — xác nhận hướng, gọn
+2. Bảng GROUNDING (Bước 1) — trích đúng section EXPERT-CORE, hoặc research mới nếu chưa có
+3. VESSEL + TALENT (Bước 3) — 1 dòng mỗi cái, không dài dòng
+4. Sơ đồ CHUỖI TẠO TÁC (Bước 4, nếu áp dụng)
+5. Sinh trọn bộ file (Bước 5) — tạo thật bằng create_file
+6. JEV CASCADE (Bước 6, nếu áp dụng) — câu hỏi cụ thể + ngưỡng
+7. WIRE (Bước 7) — xác nhận 3 điểm kết nối
+8. Guardrail + deploy checklist + present files
 
-| Nếu agent cần... | Trang bị skill |
-|---|---|
-| Nghiên cứu/tổng hợp | `research-synthesis`, `source-evaluation`, `market-sizing` |
-| Phân tích số liệu | `data-cleaning`, `statistical-analysis`, `data-storytelling` |
-| Cạnh tranh/thị trường | `competitive-intel`, `trend-forecasting` |
-| Viết/nội dung | `copywriting`, `brand-voice`, `content-strategy` |
-| Bán hàng | `account-research`, `outreach-drafting`, `objection-handling` |
-| Vận hành/quy trình | `sop-builder`, `task-decomposition`, `checklist-runner` |
-| Pháp lý/tuân thủ | `compliance-check`, `clause-review`, `risk-flagging` |
-| Quyết định | `decision-framework`, `tradeoff-analysis` |
+## Khác biệt so với bản gốc (v1, đầu phiên) — nói thẳng
 
-Skill nền BẮT BUỘC cho mọi research-type agent: `source-evaluation` (để agent không tin
-mù mọi thứ search trả về) + `data-storytelling` (để ra "so what" chứ không dump data).
+| | v1 (lý thuyết) | v2 (sau khi xây 8 Pro Agent thật) |
+|---|---|---|
+| Luật gốc | Tự nghĩ ra khi cần | BẮT BUỘC trace về EXPERT-CORE, research thật nếu role mới |
+| Thuật ngữ hạ tầng | "Tầng Tay/Tầng Não/Tầng Cơ" tự đặt | Vessel/Talent — đã kiểm chứng qua 422 sao GitHub (OneManCompany) |
+| Nhiều bước | Không có khái niệm | Chuỗi tạo tác ADLC (intent->spec->plan->code->review->signal) |
+| Quyết định lặp lại | Không có | Jev cascade với ngưỡng confidence + fallback |
+| Kết nối hệ thống | Không có bước này | Bước 7 — wire vào EA gate/briefing/HR lifecycle |
 
-### Tầng Tay — MCP/Tool bank (chọn theo nguồn data agent cần)
-
-| Loại data/hành động | MCP/Tool |
-|---|---|
-| Web sạch cho agent | Tavily, Exa, Firecrawl (scrape có cấu trúc) |
-| Web traffic/market share | Similarweb |
-| Dataset công khai | DataHub, Hugging Face |
-| Tài chính công ty | Financial Modeling Prep, Alpha Vantage, SEC EDGAR |
-| Lưu trữ/cộng tác | Google Drive/Sheets, Notion, Airtable |
-| CRM/sales | HubSpot, Salesforce connector |
-| Giao tiếp ra ngoài | Gmail, Slack (chỉ khi agent được phép hành động) |
-
-Quy tắc: agent CHỈ TRA CỨU thì không cần connector ghi/gửi. Agent HÀNH ĐỘNG mới bật
-Gmail/Slack/CRM-write, và phải kèm tầng confirm trong kiến trúc.
-
-### Tầng Cơ — Compute bank (gần như luôn cần)
-
-| Việc | Trang bị |
-|---|---|
-| Phân tích data thật | Code execution + pandas, numpy, scipy, statsmodels, scikit-learn |
-| Biểu đồ | matplotlib, plotly, hoặc xuất Chart.js/D3 |
-| Deliverable file | skill `xlsx`, `pdf`, `docx`, `pptx` |
-
-Không có code execution = agent chỉ "kể chuyện về data" chứ không phân tích được. Với mọi
-agent dính tới số, BẮT BUỘC bật tầng này.
-
----
-
-## Output format khi chạy factory
-
-1. In ra BẢNG SPEC (Bước 1) để user xác nhận hướng — gọn, không hỏi lại trừ khi mơ hồ.
-2. In CAPABILITY MAP (Bước 2): liệt kê skill + MCP + compute đã chọn, kèm lý do 1 dòng mỗi cái.
-3. Sinh trọn bộ file (Bước 3) — tạo thật bằng create_file, đặt trong `<tên-agent>/`.
-4. Vẽ sơ đồ kiến trúc (Bước 4).
-5. Present files + 3 bước tiếp theo để bung.
-
-Phong cách: đi thẳng, một khuyến nghị rõ ràng cho mỗi lựa chọn (không liệt kê 5 option bắt
-user tự chọn). Nếu một MCP chưa có sẵn, nói rõ user cần bật ở đâu.
+## Link
+- Case đã áp dụng bản v1: Research/Content/Sales/Marketing/Dev/Media/Designer/Customer Satisfaction Pro
+- Nguồn học v2: agents/company/COMPANY-CHARTER.md, repos/typesafe-jev.md, infographic ADLC (Nobitano chia sẻ)
