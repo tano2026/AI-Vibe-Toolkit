@@ -371,3 +371,6 @@
 | 351 | Skill | Agentic Factory v2 (8 bước, sau khi xây 8 Pro Agent thật) | /skills/agentic-factory/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 352 | Stack | CORE-META-SKILLS.md — nhóm Đầu Não chính thức hoá | /agents/company/CORE-META-SKILLS.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 353 | Stack | KHO-INDEX.md v4 — sửa lỗi backtick + thêm agent thứ 8 | /KHO-INDEX.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 354 | Stack | agents/README.md v2 — sửa (trỏ file đã xoá, thiếu Vessel/8 Pro Agent) | /agents/README.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 355 | Stack | ARCHITECTURE.md v2 (gốc) — sửa số liệu stale từ tháng 6/2026 | /ARCHITECTURE.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 356 | Stack | MASTER-TEMPLATE-MANIFEST.md — thêm agent 7-8 + CORE-META-SKILLS | /agents/MASTER-TEMPLATE-MANIFEST.md | Đã push | (không có script riêng) | 2026-08-22 |
