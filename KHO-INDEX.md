@@ -5,6 +5,12 @@
 
 ---
 
+## ⭐ Bắt đầu từ đây nếu là Trio (Hermes/OpenClaw/DeepSeek Harness)
+
+`OPERATING-MODEL.md` (gốc kho) — brief giao việc trực tiếp, có checklist hành động riêng từng Vessel. Đọc file đó TRƯỚC, quay lại KHO-INDEX này khi cần tra cứu chi tiết.
+
+---
+
 ## Kho là gì
 
 - **Repo:** https://github.com/tano2026/AI-Vibe-Toolkit
