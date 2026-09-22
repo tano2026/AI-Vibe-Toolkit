@@ -29,6 +29,8 @@ trùng claude-ads). Dùng quy trình trong skill-lifecycle-management.
 Agent mới thuộc 1 trong 8 role đã có EXPERT-CORE section -> đọc đúng
 section đó, không viết luật riêng chồng lên.
 
+Kiểm tra agents/company/CORE-META-SKILLS.md (nhóm Đầu Não: harness/loop/superpowers/humanizer) trước — có thể agent mới cần 1 trong các skill này, không phải viết mới.
+
 Agent thuộc role CHƯA có trong EXPERT-CORE (như case Customer
 Satisfaction trước đây) -> BẮT BUỘC research ngưỡng số thật từ nguồn
 uy tín ngành (không suy đoán) -> viết thêm 1 section mới vào
