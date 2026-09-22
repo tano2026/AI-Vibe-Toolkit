@@ -374,3 +374,4 @@
 | 354 | Stack | agents/README.md v2 — sửa (trỏ file đã xoá, thiếu Vessel/8 Pro Agent) | /agents/README.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 355 | Stack | ARCHITECTURE.md v2 (gốc) — sửa số liệu stale từ tháng 6/2026 | /ARCHITECTURE.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 356 | Stack | MASTER-TEMPLATE-MANIFEST.md — thêm agent 7-8 + CORE-META-SKILLS | /agents/MASTER-TEMPLATE-MANIFEST.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 357 | Stack | OPERATING-MODEL.md — brief giao việc cho Trio triển khai | /OPERATING-MODEL.md | Đã push | (không có script riêng) | 2026-08-22 |
