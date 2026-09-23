@@ -4,6 +4,8 @@ category: tuvi
 description: Skill chuyên sâu về Kinh Dịch. Hỗ trợ gieo quẻ, luận giải quẻ và cung cấp các thông tin liên quan đến Kinh Dịch.
 ---
 
+> ⚠️ **Cập nhật 2026-09-23 — mức độ hoàn thiện: KHUNG MỎNG.** Skill này mới là mô tả + link nguồn tham khảo (chưa có bảng 64 quẻ, thuật gieo quẻ hay ví dụ luận đã verify). Khi dùng: chỉ dẫn nguồn, KHÔNG tự bịa nội dung hào từ/tượng từ; mọi luận giải quẻ phải đối chiếu ≥2 nguồn và ghi rõ mức tin cậy. Muốn dùng nghiêm túc cần bổ sung dữ liệu 64 quẻ + verify (theo AGENTS.md của dự án tử vi).
+
 ## Kinh Dịch Expert
 
 **Mô tả:**

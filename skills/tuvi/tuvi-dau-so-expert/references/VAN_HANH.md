@@ -96,16 +96,22 @@ Lưu nguyệt có Lộc vào Quan Lộc = tháng đó công việc thuận.
 Khác với Lưu niên (theo năm dương lịch), Tiểu hạn theo tuổi:
 
 ### Cung bắt đầu (tùy Tam Hợp chi năm sinh)
-| Chi năm sinh thuộc nhóm | Cung bắt đầu tiểu hạn |
-|------------------------|----------------------|
-| Thân, Tý, Thìn | Thìn (4) |
-| Dần, Ngọ, Tuất | Tuất (10) |
-| Tỵ, Dậu, Sửu | Sửu (1) |
-| Hợi, Mão, Mùi | Mùi (7) |
+> ⚠️ **Đã sửa 2026-09-23.** Bảng cũ ở đây SAI (lệch nhóm: gán Thân/Tý/Thìn→Thìn, Dần/Ngọ/Tuất→Tuất…).
+> Bảng dưới đã verify chéo 2 nguồn độc lập (phú cổ 寅午戌人辰上起… + tracuulasotuvi.com) và khớp case thật
+> (nữ sinh 1989 năm Kỷ Tỵ, cưới 2012 lúc 24 tuổi → Tiểu Hạn cung Thân). Code chuẩn: `get_tieu_han_branch()` trong
+> `D:\tano-tuvi-platform\skills\tuvi-master\scripts\tuvi_calc.py`.
 
-Tuổi 1: tại cung bắt đầu. Mỗi năm tiến 1 cung.
-- Nam: thuận kim
-- Nữ: nghịch kim
+| Chi năm sinh thuộc nhóm | Cung bắt đầu tiểu hạn (tuổi 1) |
+|------------------------|----------------------|
+| Dần, Ngọ, Tuất | Thìn |
+| Thân, Tý, Thìn | Tuất |
+| Tỵ, Dậu, Sửu | Mùi |
+| Hợi, Mão, Mùi | Sửu |
+
+Tuổi 1 tại cung bắt đầu, mỗi năm tiến 1 cung:
+- Nam: thuận (theo chiều tăng của địa chi Tý→Sửu→Dần…)
+- Nữ: nghịch
+- Chiều chạy **chỉ phụ thuộc giới tính**, KHÔNG phụ thuộc Âm/Dương Can (khác Đại Hạn — Đại Hạn xét cả Can năm sinh).
 
 ---
 

@@ -5,7 +5,7 @@ description: >
   Chuyên gia luận giải Tử Vi Đẩu Số đa tầng — kết hợp tinh hoa cổ học phương Đông (Tử Vi, Tứ Trụ, Kinh Dịch)
   với các "thuật" quản trị bản thân phương Tây (Thuật Đế Vương, Tâm lý học hành vi, Tư duy hệ thống, Chiến lược kinh doanh)
   cùng với triết lý Nhân Tính Học và Khắc Kỷ. Ứng dụng để thấu hiểu vận mệnh, rèn luyện nhân cách, ý chí, từ đó kiến tạo một cuộc đời có ý nghĩa và giá trị vững bền.
-version: "3.0"
+version: "3.1"
 related_skills:
   - tuvi-dau-so-expert
   - tuvi-tu-tru-expert
@@ -111,8 +111,14 @@ related_skills:
 - **Xác định gói sản phẩm phù hợp** (xem phần ĐÓNG GÓI SẢN PHẨM)
 
 ### Bước 2: Tính toán căn bản
-Ưu tiên dùng `mcp_tuvi_calculate_chart` (MCP iztro) để lấy lá số.
-Fallback: dùng browser tra trang web tử vi, hoặc an sao thủ công theo AN_SAO.md.
+**Engine chính (cập nhật 2026-09-23): `tuvi_calc.py` trong repo `D:\tano-tuvi-platform\skills\tuvi-master\scripts\`** —
+đã cross-check 2 phương pháp + test case thật (4 lá số gia đình, 3 case đối chiếu sự kiện thật).
+Pipeline: `tuvi_calc.py <Y> <M> <D> <H> <phút> "Tên" "Nơi sinh" nam|nu [năm_xem] out.json`
+→ `generate_reading.py out.json out.md` → `render_chart.py out.json out.html` (PDF: headless Chrome).
+⚠️ Input LUÔN là **dương lịch, thứ tự Năm Tháng Ngày** — xác nhận lại bằng chữ với khách ("ngày X tháng Y năm Z dương lịch"),
+nhất là khi ngày ≤ 12 (dễ nhầm ngày/tháng kiểu Việt vs Mỹ, và âm/dương lịch của dataset Trung Quốc).
+`mcp_tuvi_calculate_chart` (MCP iztro) chỉ còn là nguồn **đối chiếu phụ** — chưa kiểm chứng đủ ở môi trường này, không dùng làm nguồn duy nhất.
+Fallback: browser tra web tử vi, hoặc an sao thủ công theo AN_SAO.md.
 Nếu cần Tứ Trụ → `mcp_tuvi_four_pillars`.
 
 ### Bước 3: Luận giải Tử Vi nền (Tầng 2)
@@ -560,6 +566,34 @@ KÊU GỢI: "Đặt bản luận giải của riêng bạn ngay hôm nay."
 
 ---
 
+## ✍️ CHUẨN CHẤT LƯỢNG BÀI LUẬN (rút từ research thật, 2026-09)
+
+Áp dụng cho MỌI bài luận gửi khách. Các lý thuyết dưới đây là công cụ nội bộ để tự kiểm tra
+cách viết — **không ghi nhãn tâm lý học vào văn bản gửi khách**.
+
+1. **Trả lời câu hỏi thật của khách trước (mục "❓ Câu hỏi của đương số").** Nguồn chuyên nghiệp
+   (huyenhocvietnam.vn) coi đây là phần "hết sức quan trọng" của 1 bài luận. Hỏi khách 1 câu hỏi/mối
+   bận tâm chính lúc thu thập; engine nhận qua trường `cau_hoi` trong JSON, tự định tuyến sang đúng cung
+   và đối chiếu hạn hiện tại. Không có câu hỏi → bỏ qua mục, không bịa.
+2. **Định vị là "giải thích căn nguyên", không phải tiên tri.** Động cơ khách đi xem là giảm bất định,
+   tìm ý nghĩa, hiểu bản thân; nỗi đau thật là *"đổi việc/đổi người mà kết quả vẫn lặp lại"*, sợ chọn sai
+   ở ngã ba, *"ngoài ổn trong bất an"*. Tự Hóa Kỵ = vướng mắc do chính mình tạo ra → nói thẳng bằng ngôn ngữ đó.
+3. **Chống Barnum/Forer:** câu nào ai đọc cũng thấy đúng ("đôi khi bạn tự tin, đôi khi không") là câu hỏng.
+   Mỗi nhận định gắn 1 tình huống quan sát được ("nếu thấy mình đã nghĩ 1 quyết định quá 2 lần mà chưa làm gì…").
+4. **Lời khuyên dạng "Nếu X thì Y"** (implementation intentions — Gollwitzer): tăng tỷ lệ hành động thật
+   2-3 lần so với "nên cẩn thận hơn". Mỗi thiên kiến/điểm yếu nêu ra phải kèm 1 hành động if-then cụ thể.
+5. **Hạn khó = "chương khó, không phải chương cuối"** (narrative identity — McAdams): không phủ nhận
+   cái khó, nhưng đặt vào mạch câu chuyện có chuyển biến, không chỉ liệt kê rủi ro.
+6. **Mở bằng hình ảnh/ẩn dụ cụ thể, không mở bằng nhãn kỹ thuật** (vd Thiên Cơ = "cỗ máy tính chạy trước
+   một bước — thấy vết nứt trên tường trước khi nhà sập"). Nhịp câu ngắn-dài, nói về tình huống thật.
+7. **Không khai thác confirmation bias để tăng "độ đúng cảm nhận"** — luôn kèm disclaimer, không hứa hẹn.
+
+**Kỷ luật kỹ thuật bắt buộc (AGENTS.md của repo — 7 nguyên tắc):** không tin 1 nguồn; không tin báo cáo
+"đã verify" nếu không tự kiểm tra; test case thật; ghi mức tin cậy; đánh dấu "KHÔNG DÙNG" khi fail;
+không nuốt lỗi/không bịa dữ liệu; giữ API contract giữa `tuvi_calc.py` ↔ `generate_reading.py`/`render_chart.py`.
+
+---
+
 ## 🤖 AGENT INTEGRATION (Hermes)
 
 ### Load sequence
@@ -604,7 +638,8 @@ KÊU GỢI: "Đặt bản luận giải của riêng bạn ngay hôm nay."
 - `tuvi-phong-thuy-expert` — Phong Thủy
 
 ### Engine (tính toán tự động)
-- `tuvi-mcp-server` — MCP iztro (tính lá số, đại hạn, lưu niên)
+- **`tuvi-master` (repo `D:\tano-tuvi-platform`) — ENGINE CHÍNH:** `tuvi_calc.py` (lá số, Tứ Hóa, Đại Hạn, Tiểu Hạn, Lưu Niên, tạp diệu incl. Quốc Ấn, giờ mặt trời thật) + `generate_reading.py` (bài luận) + `render_chart.py` (lá số hình)
+- `tuvi-mcp-server` — MCP iztro, nguồn đối chiếu phụ (đã xác nhận iztro KHÔNG có sao Quốc Ấn; Tiểu Hạn chưa đối chiếu — không dùng làm nguồn duy nhất)
 - `tuvi-luu-nguyet-nhat` — Python engine Lưu Nguyệt/Nhật (chạy local)
 
 ### Chart (trực quan hóa)

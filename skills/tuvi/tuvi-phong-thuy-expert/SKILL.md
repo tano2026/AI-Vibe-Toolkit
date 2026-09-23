@@ -4,6 +4,8 @@ category: tuvi
 description: Skill chuyên sâu về Phong Thủy. Cung cấp các thông tin và phân tích liên quan đến các nguyên tắc Phong Thủy.
 ---
 
+> ⚠️ **Cập nhật 2026-09-23 — mức độ hoàn thiện: KHUNG MỎNG.** Skill này mới là mô tả + link nguồn (chưa có bảng Bát Trạch/Huyền Không đã verify, chưa có case thật). Khi dùng: nêu rõ đây là thông tin tham khảo, KHÔNG bịa hướng/cung mệnh; tính toán phải đối chiếu ≥2 nguồn. Không dùng làm cam kết cho khách trả tiền cho tới khi được bổ sung dữ liệu + verify.
+
 ## Phong Thủy Expert
 
 **Mô tả:**

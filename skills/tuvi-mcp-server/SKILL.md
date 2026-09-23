@@ -6,6 +6,15 @@ category: mcp
 
 # Tử Vi Đẩu Số MCP Server
 
+> ⚠️ **Cập nhật 2026-09-23 — vai trò của server này:** engine chính của dự án hiện là
+> `D:\tano-tuvi-platform\skills\tuvi-master\scripts\tuvi_calc.py` (đã verify 2 phương pháp + case thật). Server iztro này
+> dùng làm **nguồn đối chiếu phụ**, không phải nguồn duy nhất (quy tắc "không tin 1 nguồn").
+> Giới hạn đã xác nhận: iztro **không có sao Quốc Ấn**; Tiểu Hạn chưa đối chiếu với engine chính.
+> Khác với `wuunicorn/MCPIztro` (Python, phụ thuộc `pythonmonkey` — không build được trên máy này), server node
+> `index.mjs` ở đây chưa được test lại trong đợt này — kiểm tra trước khi dựa vào.
+> Khi kết quả 2 bên lệch nhau: KHÔNG tự chọn bên nào — báo cả hai, đối chiếu thêm nguồn/case thật rồi mới quyết.
+> Nhớ: ngày sinh nhập vào phải là **dương lịch**, xác nhận thứ tự ngày/tháng bằng chữ trước khi tính.
+
 ## Vị trí
 - MCP server: `D:\AI Store\Hermes Agent\tuvi-mcp-server\index.mjs`
 - Config: `~/.hermes/config.yaml` → section `mcp_servers.tuvi`

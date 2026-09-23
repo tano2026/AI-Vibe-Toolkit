@@ -4,6 +4,8 @@ category: tuvi
 description: Công cụ tính toán và luận giải Tử Vi Lưu Nguyệt (theo tháng) và Lưu Nhật (theo ngày) từ lá số gốc, bao gồm thuật toán an sao lưu động, Tứ Hóa và luận giải chi tiết.
 ---
 
+> ⚠️ **Cập nhật 2026-09-23:** lá số gốc nên lấy từ engine chính `D:\tano-tuvi-platform\skills\tuvi-master\scripts\tuvi_calc.py` (đã verify 2 phương pháp + case thật), thay vì `mcp_tuvi_calculate_chart`. Engine Lưu Nguyệt/Nhật ở đây là module độc lập, **chưa được đối chiếu chéo với engine chính trong đợt này** — nếu lá số gốc 2 bên lệch nhau, KHÔNG tự chọn: báo cả hai, kiểm tra lại giờ sinh/dương-âm lịch rồi mới luận. Ngày sinh nhập vào luôn là dương lịch, xác nhận thứ tự ngày/tháng bằng chữ.
+
 # Tử Vi Lưu Nguyệt & Lưu Nhật - Công Cụ Tính Toán Chi Tiết
 
 Skill này cung cấp module Python độc lập để tính toán sao Lưu Nguyệt (cấp tháng) và Lưu Nhật (cấp ngày) trong Tử Vi Đẩu Số. Dựa trên thông tin sinh và thời gian cần xem, công cụ sẽ xác định cung vị lưu động, các sao lưu, Tứ Hóa và đưa ra luận giải.
