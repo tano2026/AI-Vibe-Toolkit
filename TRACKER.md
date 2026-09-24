@@ -375,3 +375,5 @@
 | 355 | Stack | ARCHITECTURE.md v2 (gốc) — sửa số liệu stale từ tháng 6/2026 | /ARCHITECTURE.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 356 | Stack | MASTER-TEMPLATE-MANIFEST.md — thêm agent 7-8 + CORE-META-SKILLS | /agents/MASTER-TEMPLATE-MANIFEST.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 357 | Stack | OPERATING-MODEL.md — brief giao việc cho Trio triển khai | /OPERATING-MODEL.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 358 | Repo | Mirage Tesseract | /repos/mirage-tesseract.md | Đã push | - | 2026-09-24 |
+| 359 | Stack | Antigravity + Mirage Tesseract + Remotion Combo | /stacks/antigravity-mirage-remotion-combo.md | Đã push | /content/script-video-321-antigravity-mirage-remotion-combo.md | 2026-09-24 |
