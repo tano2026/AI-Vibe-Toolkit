@@ -40,12 +40,17 @@ Có 1 giờ raw footage phỏng vấn cho GMSP Episode 01 (nhiều đoạn lặp
 - Bắt buộc có ElevenLabs API key (chi phí theo mức dùng ElevenLabs hiện tại) — không chạy được nếu thiếu bước transcribe.
 - Chỉ hoạt động khi agent (Claude Code/Codex) có thể discover được `SKILL.md` — qua thư mục skill toàn cục hoặc import trong CLAUDE.md/system-prompt, đúng quy ước đã dùng trong kho.
 - README ghi rõ nguyên tắc "Do everything yourself" — agent tự lo hết việc cài đặt, chỉ hỏi user 2 thứ: API key và xác nhận trước khi `brew install` — không nên tự ý bỏ qua bước xác nhận này khi wire vào pipeline agent.
-- Là công cụ CẮT GHÉP dựa trên footage có sẵn — không sinh video mới, không hợp cho việc cần motion graphics/animation (đó là việc của html-video/HyperFrames).
+- Là công cụ CẮT GHÉP + COMPOSITE dựa trên footage có sẵn — không tự sinh video từ text (vẫn cần
+  footage/ảnh gốc). **Cập nhật:** trước đây ghi "không hợp cho animation" — SAI, đã sửa. Repo
+  hiện có hẳn mục Animations trong SKILL.md, tự chọn engine theo từng slot (HyperFrames, Remotion,
+  Manim, hoặc PIL+ffmpeg cho overlay đơn giản kiểu counter/typewriter text), spawn song song
+  nhiều sub-agent — **gọi được thẳng project Remotion đã build** (`kinetic-typography-template`,
+  `remotion-datacard-template`) làm 1 animation slot, không cần dựng lại từ đầu.
 
 ## Đánh giá cá nhân
-- Điểm mạnh: cách tiếp cận "đọc transcript thay vì xem frame" cực kỳ tiết kiệm token và chính xác hơn (cắt đúng ranh giới câu nói, không cắt giữa từ); có self-eval loop tự sửa lỗi trước khi giao; tận dụng thẳng ElevenLabs key đã có sẵn trong stack, không phải trả thêm phí công cụ mới; có sẵn phương án always-on qua Telegram khớp mô hình OpenClaw đang dùng.
+- Điểm mạnh: cách tiếp cận "đọc transcript thay vì xem frame" cực kỳ tiết kiệm token và chính xác hơn (cắt đúng ranh giới câu nói, không cắt giữa từ); có self-eval loop tự sửa lỗi trước khi giao; tận dụng thẳng ElevenLabs key đã có sẵn trong stack, không phải trả thêm phí công cụ mới; có sẵn phương án always-on qua Telegram khớp mô hình OpenClaw đang dùng; **tự orchestrate được Remotion/HyperFrames/Manim làm animation overlay, chạy song song qua sub-agent** — ghép trực tiếp vào template Remotion đã có trong kho thay vì tách rời 2 công cụ.
 - Điểm yếu: phụ thuộc hoàn toàn ElevenLabs (chi phí theo dùng); chỉ mạnh cho content có thoại rõ ràng (talking-head, phỏng vấn) — kém hiệu quả với video không lời/nhạc nền chính.
-- Có nên dùng không: 8.5/10 — rất hợp cho hậu kỳ GMSP/Airfare Decoded (nhiều thoại), tiết kiệm thời gian dựng đáng kể so với CapCut tay.
+- Có nên dùng không: 9/10 (nâng từ 8.5 sau khi xác nhận phần Animations) — vừa mạnh hậu kỳ thoại (GMSP/Airfare Decoded), vừa orchestrate được animation code-driven đã build, giảm hẳn số công cụ rời rạc cần quản lý.
 
 ## Link
 - Repo: https://github.com/browser-use/video-use
