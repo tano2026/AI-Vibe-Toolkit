@@ -1,0 +1,54 @@
+# brand-config.yaml — Chi (khách hàng đầu tiên của BrandScan)
+# Version: 0.1 — DRAFT dựa trên thông tin đã ghi nhận, CHƯA chạy Brand Strategy Sprint
+# thật với Chi — cần chạy Discovery đầy đủ trước khi coi đây là bản chốt.
+
+client:
+  id: chi-001
+  name: "Chi"
+  package: "Facebook content/personal brand — 1.000.000 VNĐ/tháng"
+  status: active_no_discovery_yet  # đang có gói trả phí nhưng CHƯA qua Brand Strategy Sprint đầy đủ
+
+# ── ĐỊNH VỊ — từ thông tin đã biết, CẦN xác nhận lại qua Discovery thật ──
+positioning_draft:
+  goal: "Định vị lại thành tích cực/năng lượng nhưng KHÔNG giảng đạo"
+  content_type: "Lifestyle ngắn, hàng ngày"
+  note: "⚠️ Đây là mô tả đã ghi nhận trước đó, chưa qua bước 1a (Discovery phỏng vấn) và
+    1b (Channel Audit) đầy đủ theo brand-strategy-sprint. Cần chạy lại đúng quy trình
+    trước khi tự động hóa sản xuất."
+
+# ── content_source_type — QUYẾT ĐỊNH QUAN TRỌNG NHẤT ──
+content_source_type: human_footage  # lifestyle content = bắt buộc footage thật của Chi
+# → dùng skill agents/brandscan/skills/human-footage-editor/SKILL.md
+# → KHÔNG dùng nhánh faceless của yt-cashcow cho khách này
+
+platform: facebook
+
+tone:
+  register: "tích cực, năng lượng"
+  avoid:
+    - "giảng đạo / lên lớp / dạy đời"
+    - "content nặng nề, tiêu cực"
+
+voice_profile:
+  status: not_built_yet
+  note: "Cần mẫu content cũ của Chi (nếu có) để chạy voice-profile-builder, hoặc bắt giọng
+    trực tiếp từ clip Chi gửi qua human-footage-editor"
+
+format_preference:
+  - type: "Clip lifestyle ngắn, tự quay bằng điện thoại"
+    priority: 1
+  - type: "Text + ảnh (khi không có clip mới trong ngày)"
+    priority: 2
+
+taboo: []  # cần bổ sung sau khi chạy Discovery thật — hiện chưa có
+
+performance_learnings:
+  hooks_that_worked: []
+  hooks_that_flopped: []
+  best_posting_time: null
+  notes: "Chưa có data — khách đang active nhưng workflow tự động chưa chạy"
+
+meta:
+  created: "2026-09"
+  status: draft_needs_real_discovery
+  next_action: "Chạy Brand Strategy Sprint đầy đủ với Chi (agents/brandscan/skills/brand-strategy-sprint/) trước khi tự động hóa sản xuất content"
