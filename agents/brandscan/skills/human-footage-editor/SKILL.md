@@ -21,8 +21,11 @@ nhánh này trong trường hợp `hybrid` (xem `agents/brandscan/README.md`).
 ## ⛔ Guardrail cứng — không được vượt qua
 - KHÔNG dùng HeyGen/SceneWorks/bất kỳ tool avatar/AI-face nào để thay hoặc bổ sung mặt
   người vào content loại này — phá vỡ chính giá trị "lifestyle thật" khách đang bán
-- KHÔNG tự ý thay giọng khách bằng TTS trừ khi khách yêu cầu rõ (vd cần giọng đọc voice-over
-  cho đoạn không có khách nói) — mặc định giữ nguyên giọng gốc trong clip
+- Mặc định giữ nguyên giọng gốc trong clip. CHỈ dùng TTS khi cần voice-over cho đoạn
+  không có khách nói (vd text overlay cần đọc), và **BẮT BUỘC dùng F5-TTS clone ĐÚNG
+  giọng của chính khách** (3 giây mẫu từ clip có sẵn của khách — xem `repos/f5-tts.md`),
+  KHÔNG dùng giọng AI generic/ElevenLabs mặc định — nguyên tắc giống hệt guardrail mặt
+  người: phải là bản sắc thật của khách, không phải AI chung chung
 - Nếu raw footage thiếu/mờ/không đủ dùng → báo lại khách xin quay lại, KHÔNG tự bù bằng
   stock footage hay AI-gen để lấp chỗ trống
 
