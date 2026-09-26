@@ -377,3 +377,6 @@
 | 357 | Stack | OPERATING-MODEL.md — brief giao việc cho Trio triển khai | /OPERATING-MODEL.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 358 | Repo | Mirage Tesseract | /repos/mirage-tesseract.md | Đã push | - | 2026-09-24 |
 | 359 | Stack | Antigravity + Mirage Tesseract + Remotion Combo | /stacks/antigravity-mirage-remotion-combo.md | Đã push | /content/script-video-321-antigravity-mirage-remotion-combo.md | 2026-09-24 |
+| 358 | Repo | hermes-jev-skills | /repos/hermes-jev-skills.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 359 | Repo | Langfuse (tích hợp chính thức với Jev) | /repos/langfuse.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 360 | Skill | Hermes Autonomous Kho Maintenance | /agents/company/skills/hermes-autonomous-kho-maintenance/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
