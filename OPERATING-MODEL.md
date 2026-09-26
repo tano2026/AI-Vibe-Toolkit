@@ -84,6 +84,9 @@ Jev (TypeSafe) đứng RIÊNG, cắt ngang mọi tầng — lọc quyết địn
        được skill thật, không phải giả lập
 [ ] 3. Báo cáo kết quả qua Telegram — chỉ báo PASS/FAIL từng bước,
        không cần giải thích dài (đúng critical-path-briefing)
+[ ] 4. (MỚI 22/08) Cài hermes-jev-skills, bắt đầu shadow mode — xem
+       repos/hermes-jev-skills.md + agents/company/skills/
+       hermes-autonomous-kho-maintenance/SKILL.md
 ```
 
 ### OpenClaw 2.0 — 3 việc
