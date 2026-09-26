@@ -1,11 +1,19 @@
+---
+name: brand-strategy-sprint
+description: >
+  Onboarding 3 bước cho khách mới của BrandScan — Discovery+Channel Audit → Alignment
+  → Implementation Plan — gộp thành 1 phiên hội thoại, ra 1 Brand Strategy Report (docx).
+  Dùng khi nhận khách personal brand mới, trước khi Content Factory sản xuất bất cứ gì.
+---
+
 # Brand Strategy Sprint — 1 tool, 3 bước tuần tự, 1 tài liệu
 
 ## TL;DR
 Gộp Bước 1-3 (lấy thông tin → thống nhất giọng điệu/định dạng → lập kế hoạch triển khai)
 thành 1 phiên hội thoại liên tục, không cần nhiều agent riêng — vì đây là quy trình làm
 1 lần/khách, không lặp lại như Bước 4. Ra 1 tài liệu duy nhất: Brand Strategy Report (docx).
-Bước 4 (triển khai + đo lường) KHÔNG nằm trong skill này — bàn giao sang pipeline agent
-đã có sẵn (`agents/trum-san-bay/orchestrator.py`, generalize multi-tenant).
+Bước 4 (triển khai + đo lường) KHÔNG nằm trong skill này — bàn giao sang
+`agents/brandscan/` (orchestrator generalize từ pattern `trum-san-bay`).
 
 ## Vì sao 1 tool là đủ, không cần tách agent
 3 bước đầu có đặc điểm: làm tuần tự, không branching phức tạp, không cần tool bên ngoài
@@ -87,7 +95,7 @@ Dùng khung Capability Map (Não/Tay/Cơ) — nhưng khác Agentic Factory ở c
 | Cần gì | Map sang |
 |---|---|
 | Kỹ năng/nghiệp vụ cần (Não) | Content pillar nào cần kiến thức chuyên sâu gì, ai review fact-check |
-| Công cụ (Tay) | Postiz (publish), Pollinations (ảnh) — liệt kê chi phí thật nếu có (Postiz/HeyGen...) |
+| Công cụ (Tay) | Postiz (publish), Pollinations/Gemini (ảnh), F5-TTS (voice-over — clone ĐÚNG giọng khách nếu cần, self-host free, khác ElevenLabs trả phí) |
 | Nguồn lực (Cơ + con người) | Thời gian khách cần duyệt bài/tuần, có cần thuê ngoài quay video không |
 | Timeline | 30-60-90 ngày, mốc nào review lại chiến lược |
 
@@ -111,3 +119,35 @@ Adapter → Review Queue → Publisher (Postiz) đã có sẵn — không dựng
 
 ## Output cuối cùng của toàn bộ skill này
 1 file docx (Brand Strategy Report) + 1 brand-config sẵn sàng nạp vào pipeline tự động.
+
+## Đánh giá cá nhân
+- **Điểm mạnh:** gộp 3 bước tư vấn thành 1 phiên duy nhất, không cần hạ tầng multi-agent
+  cho phần chỉ chạy 1 lần/khách — tiết kiệm thời gian setup khi nhận khách mới
+- **Điểm yếu:** chưa test với khách thật nào (kể cả Chi) — guardrail chống suy diễn mới
+  chỉ có trên giấy, chưa biết AI có thực sự tuân thủ tốt qua nhiều lượt hội thoại dài không
+- **Có nên dùng không: 6/10** — thiết kế hợp lý nhưng CHƯA CHỨNG MINH, hạ 1 điểm vì phụ
+  thuộc guardrail "không suy diễn" mà chưa có cách đo lường tự động, hoàn toàn dựa vào
+  review thủ công
+
+---
+
+## 🤖 Agent Integration
+
+### Hermes (Python)
+```python
+# Sau khi khách hoàn thành hội thoại discovery (qua OpenClaw), Hermes đọc transcript,
+# trích xuất theo 4 nhóm, gọi OmniRoute route 'creative' cho Bước 2-3, rồi gọi skill docx
+# để xuất Brand Strategy Report — xem chi tiết trong agents/brandscan/README.md
+```
+
+### OpenClaw
+```bash
+# Gateway nhận hội thoại discovery từ khách qua Telegram/WhatsApp, route theo
+# brand-discovery-session persona (agents/trum-san-bay/skills/brand-discovery-session/)
+```
+
+### Antigravity
+Không cần — skill này không đụng hạ tầng deploy.
+
+> ⚠️ CHƯA TEST với khách thật. Chạy thử ít nhất 1 vòng thủ công (Nobitano đóng vai khách,
+> hoặc dùng data Chi nếu đã có) trước khi tự động hóa qua Hermes.
