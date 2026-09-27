@@ -384,3 +384,5 @@
 | 362 | Skill | Video Narrative Structure | /agents/content-pro/skills/video-narrative-structure/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 363 | Skill | Brand Visual Template System (poster/thumbnail/infographic đa brand) | /agents/designer-pro/skills/brand-visual-template-system/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 364 | Skill | Brand Image Prompt Engineer (đa brand, tổng quát từ trum-san-bay) | /agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
+| 365 | Skill | Image Prompt Formula Core (thuần, không gắn brand) | /agents/designer-pro/skills/image-prompt-formula-core/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
+| 366 | Skill | Visual Template Formula Core (thuần, không gắn brand) | /agents/designer-pro/skills/visual-template-formula-core/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
