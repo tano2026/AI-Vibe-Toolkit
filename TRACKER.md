@@ -380,3 +380,4 @@
 | 358 | Repo | hermes-jev-skills | /repos/hermes-jev-skills.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 359 | Repo | Langfuse (tích hợp chính thức với Jev) | /repos/langfuse.md | Đã push | (không có script riêng) | 2026-08-22 |
 | 360 | Skill | Hermes Autonomous Kho Maintenance | /agents/company/skills/hermes-autonomous-kho-maintenance/SKILL.md | Đã push | (không có script riêng) | 2026-08-22 |
+| 361 | Repo | YuE2 Studio (AI tạo nhạc, license non-commercial) | /repos/yue2-studio.md | Đã push | (không có script riêng) | 2026-09-27 |
