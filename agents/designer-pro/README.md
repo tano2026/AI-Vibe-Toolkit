@@ -19,6 +19,15 @@
 
 ```
 TẦNG NÃO (Skills):
+  image-prompt-formula-core (MỚI)        — bản THUẦN không gắn brand nào
+                                            của brand-image-prompt-engineer
+                                            bên dưới — dùng cho khách hàng/
+                                            dự án tương lai, tách CORE khỏi
+                                            DATA (brand-context riêng)
+  visual-template-formula-core (MỚI)     — bản THUẦN không gắn brand nào
+                                            của brand-visual-template-system
+                                            bên dưới — khung kích thước
+                                            universal, token brand tách riêng
   brand-image-prompt-engineer            — công thức 7 phần viết prompt
                                             tạo ảnh + bảng lỗi AI gen ảnh
                                             thường gặp, gọi qua google-
