@@ -19,6 +19,10 @@
 
 ```
 TẦNG NÃO (Skills):
+  brand-image-prompt-engineer            — công thức 7 phần viết prompt
+                                            tạo ảnh + bảng lỗi AI gen ảnh
+                                            thường gặp, gọi qua google-
+                                            flow-mcp, chạy TRƯỚC template
   brand-visual-template-system           — poster/thumbnail/infographic
                                             đúng token+khung theo brand,
                                             tổng quát hoá từ trum-san-bay,
