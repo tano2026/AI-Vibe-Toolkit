@@ -383,3 +383,4 @@
 | 361 | Repo | YuE2 Studio (AI tạo nhạc, license non-commercial) | /repos/yue2-studio.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 362 | Skill | Video Narrative Structure | /agents/content-pro/skills/video-narrative-structure/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 363 | Skill | Brand Visual Template System (poster/thumbnail/infographic đa brand) | /agents/designer-pro/skills/brand-visual-template-system/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
+| 364 | Skill | Brand Image Prompt Engineer (đa brand, tổng quát từ trum-san-bay) | /agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
