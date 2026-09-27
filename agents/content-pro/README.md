@@ -41,6 +41,10 @@ TẦNG NÃO — Chiến lược (MỚI, do Content Pro sở hữu):
   contrarian-insight-structure         — khung "lật kỳ vọng" cho bài kiến
                                          thức: 1 điểm bất ngờ làm trục,
                                          generalize mọi brand (không chỉ tech)
+  video-narrative-structure            — Cốt truyện vs Câu chuyện, 3 kiểu
+                                         cấu trúc kể, khung cảm xúc theo
+                                         mốc giây (viết kịch bản TRƯỚC khi
+                                         bàn giao Media Pro đăng/đo hiệu suất)
 
 TẦNG NÃO — Chiến thuật (ĐÃ CÓ SẴN, Content Pro điều phối không viết lại):
   skills/viral-hooks          — 100 công thức hook, 10 trigger tâm lý
