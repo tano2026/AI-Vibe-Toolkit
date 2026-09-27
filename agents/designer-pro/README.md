@@ -19,6 +19,10 @@
 
 ```
 TẦNG NÃO (Skills):
+  brand-visual-template-system           — poster/thumbnail/infographic
+                                            đúng token+khung theo brand,
+                                            tổng quát hoá từ trum-san-bay,
+                                            chạy TRƯỚC design-quality-gate
   design-quality-gate                    — 8 mục kiểm tra bắt buộc trước
                                             khi giao (contrast/safe-zone/
                                             font/license/spec)
