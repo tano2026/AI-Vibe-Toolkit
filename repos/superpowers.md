@@ -91,10 +91,30 @@ Sau khi cài, Claude tự kích hoạt đúng skill theo context:
 
 ## ⚠️ Lưu ý
 
-- Cần **Claude Code** (terminal) — không phải Claude Desktop
+- Bản gốc hỗ trợ chính thức Claude Code, Codex, OpenCode (không phải Claude Desktop). Antigravity dùng được qua bản port cộng đồng — xem mục bên dưới
 - Claude Code cần subscription Claude Pro trở lên
 - Lần đầu dùng hơi chậm vì AI đọc skills trước khi làm
 - Không phù hợp cho task nhanh đơn giản — overkill
+
+---
+
+## 🤖 Agent Integration
+
+### Antigravity (Google Antigravity IDE, local Windows)
+Bản gốc chưa hỗ trợ chính thức Antigravity, dùng bản port cộng đồng `bonnguyenitc/antigravity-superpowers` (MIT, ~19 sao, 23 skills gồm 14 gốc + 9 mở rộng). Cài theo từng project:
+
+```powershell
+git clone https://github.com/bonnguyenitc/antigravity-superpowers $env:TEMP\agy-sp
+Get-Content $env:TEMP\agy-sp\.agent\rules\superpowers.md   # đọc trước khi cài
+Copy-Item -Recurse $env:TEMP\agy-sp\.agent <thư-mục-project>\.agent
+```
+
+Tạo `.agent/config.yml` với `auto_commit: false` để agent không tự commit. Test bằng `/brainstorm thêm nút dark mode`.
+
+> ⚠️ Bản port của cộng đồng, chưa audit — đọc `.agent/` trước khi cài. Rule `alwaysApply: true` tốn thêm token mỗi lượt. Không tự chạy `/update-superpowers` (AI viết lại rules). Chi tiết: `configs/antigravity-setup.md`.
+
+### Hermes / OpenClaw
+Không áp dụng — Superpowers là workflow cho coding agent, không phải tool gọi qua API.
 
 ---
 
