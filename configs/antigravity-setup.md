@@ -115,3 +115,9 @@ Antigravity dùng terminal `ssh` thẳng vào Tencent VPS, không cần MCP. Quy
 - [ ] `.agent/config.yml` có `auto_commit: false`
 - [ ] `/brainstorm` làm agent hỏi ngược lại
 - [ ] Không có token thật nằm trong file nào của `.agent/`
+
+---
+
+## Preset cài sẵn (v1, 29/09/2026)
+
+Bộ luật + skill tra kho + workflow + DESIGN.md mẫu, cài bằng 1 script: xem `configs/antigravity-preset/README.md`. Chưa test thật trên máy Nobitano tại thời điểm viết.
