@@ -387,3 +387,4 @@
 | 365 | Skill | Image Prompt Formula Core (thuần, không gắn brand) | /agents/designer-pro/skills/image-prompt-formula-core/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 366 | Skill | Visual Template Formula Core (thuần, không gắn brand) | /agents/designer-pro/skills/visual-template-formula-core/SKILL.md | Đã push | (không có script riêng) | 2026-09-27 |
 | 367 | Repo | SRT Whiteboard Animation (+ storyboard-ai nâng cao) | /repos/srt-whiteboard-animation.md | Đã push | (không có script riêng) | 2026-09-28 |
+| 368 | Repo | Animasyon Stil Katalogu (20 phong cách video, nối image-prompt-formula-core) | /repos/animasyon-stil-katalogu.md | Đã push | (không có script riêng) | 2026-09-28 |
