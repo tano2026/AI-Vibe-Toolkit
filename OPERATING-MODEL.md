@@ -89,7 +89,7 @@ Jev (TypeSafe) đứng RIÊNG, cắt ngang mọi tầng — lọc quyết địn
        hermes-autonomous-kho-maintenance/SKILL.md
 ```
 
-### OpenClaw 2.0 — 3 việc
+### OpenClaw 2.0 — 4 việc
 
 ```
 [ ] 1. Đọc agents/company/skills/task-intake-quality-gate/SKILL.md
@@ -100,6 +100,27 @@ Jev (TypeSafe) đứng RIÊNG, cắt ngang mọi tầng — lọc quyết địn
        dispatch, không route mù
 [ ] 3. Áp critical-path-briefing cho báo cáo OpenClaw tự gửi Nobitano
        — lọc bớt, chỉ đưa việc cần quyết định
+[ ] 4. (MỚI 29/09) TEST Zalo ClawBot — xem
+       agents/company/skills/zalo-channel-connection-guide/SKILL.md
+       trước, rồi cài:
+
+       openclaw plugins install "@zalo-platforms/openclaw-zaloclawbot@0.1.4"
+       openclaw config set plugins.entries.openclaw-zaloclawbot.enabled true
+       openclaw channels login --channel openclaw-zaloclawbot
+       # Quét QR bằng Zalo di động trong 5 PHÚT (hết hạn thì chạy lại
+       # dòng channels login)
+       openclaw gateway restart
+
+       ⚠️ CHỈ CHẠY TRÊN OPENCLAW — đây là plugin Gateway/Channel,
+       KHÔNG áp dụng cho Hermes (Hermes không có khái niệm channel)
+
+       TEST BẮT BUỘC sau khi cài xong — đây là phần CHƯA XÁC NHẬN
+       trong docs gốc, không giả định:
+       [ ] Gửi thử 1 ảnh qua bot — nhận được không?
+       [ ] Gửi thử 1 file (PDF/docx) — nhận được không?
+       [ ] Gửi thử 1 video ngắn — nhận được không?
+       Báo lại KẾT QUẢ THẬT từng mục trên qua Telegram — PASS/FAIL,
+       không cần giải thích dài (đúng critical-path-briefing)
 ```
 
 ### DeepSeek Harness — 1 việc DUY NHẤT trước (đừng làm gì khác trước việc này)
