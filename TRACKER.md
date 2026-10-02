@@ -389,3 +389,4 @@
 | 367 | Repo | SRT Whiteboard Animation (+ storyboard-ai nâng cao) | /repos/srt-whiteboard-animation.md | Đã push | (không có script riêng) | 2026-09-28 |
 | 368 | Repo | Animasyon Stil Katalogu (20 phong cách video, nối image-prompt-formula-core) | /repos/animasyon-stil-katalogu.md | Đã push | (không có script riêng) | 2026-09-28 |
 | 369 | Repo | Product Film Skill (video launch từ UI thật, cho TMC Portal/Smart Booking) | /repos/product-film-skill.md | Đã push | (không có script riêng) | 2026-09-28 |
+| 370 | Repo | VieNeu-TTS (TTS tiếng Việt, clone giọng, offline) | /repos/vieneu-tts.md | Đã push | (không có script riêng) | 2026-09-29 |
