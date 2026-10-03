@@ -56,7 +56,15 @@ cài SDK):
                        Nobitano gỡ được" — quyết định có đáng làm không)
 ```
 
-### Fallback khi Jev chưa có (còn waitlist)
+### Thay thế khi Jev chưa có (còn waitlist) — dùng Pydantic AI, KHÔNG phải rule-based
+
+Bản cập nhật 29/09/2026: thay vì fallback rule-based thô (bản đầu đã
+viết), dùng `pydantic-ai` bọc thẳng Claude — có validate cấu trúc
+output tự động retry, đủ tin cậy cho 4 câu hỏi phân loại mà KHÔNG cần
+chờ Jev. Xem repos/pydantic-ai.md. Khi Jev hết waitlist, có thể đổi
+sang Jev để rẻ/nhanh hơn, nhưng không còn BẮT BUỘC phải chờ.
+
+### (Cũ, chỉ dùng nếu không có cả Pydantic AI) Fallback rule-based
 
 ```
 Chưa có TYPESAFE_API_KEY -> dùng luật đơn giản thay thế (tạm thời):
