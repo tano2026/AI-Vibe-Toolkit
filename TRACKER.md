@@ -392,3 +392,4 @@
 | 370 | Repo | VieNeu-TTS (TTS tiếng Việt, clone giọng, offline) | /repos/vieneu-tts.md | Đã push | (không có script riêng) | 2026-09-29 |
 | 371 | Skill | Zalo Channel Connection Guide (3 đường qua OpenClaw) | /agents/company/skills/zalo-channel-connection-guide/SKILL.md | Đã push | (không có script riêng) | 2026-09-29 |
 | 372 | Stack | OPERATING-MODEL.md — thêm việc 4 cho OpenClaw (test Zalo ClawBot) | /OPERATING-MODEL.md | Đã push | (không có script riêng) | 2026-09-29 |
+| 373 | Repo | Pydantic AI (framework type-safe, thay 1 phần vai trò Jev) | /repos/pydantic-ai.md | Đã push | (không có script riêng) | 2026-09-29 |
