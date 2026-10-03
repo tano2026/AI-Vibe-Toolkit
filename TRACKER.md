@@ -395,3 +395,4 @@
 | 373 | Repo | Pydantic AI (framework type-safe, thay 1 phần vai trò Jev) | /repos/pydantic-ai.md | Đã push | (không có script riêng) | 2026-09-29 |
 | 374 | Repo | Archify (diagram HTML kiểm chứng, vẽ lại kiến trúc kho) | /repos/archify.md | Đã push | (không có script riêng) | 2026-10-03 |
 | 375 | Repo | Impeccable (UI critique, xây trên frontend-design) | /repos/impeccable.md | Đã push | (không có script riêng) | 2026-10-03 |
+| 376 | Repo | Microsoft Presidio (PII detection, vá lỗ hổng nhóm AI Security) | /repos/microsoft-presidio.md | Đã push | (không có script riêng) | 2026-10-03 |
