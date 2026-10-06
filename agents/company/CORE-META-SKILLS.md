@@ -62,6 +62,12 @@ Không phải agent nào cũng cần cả nhóm — chỉ tham khảo đúng ski
 nhu cầu thật, không nhét thừa.
 ```
 
+### Media — xử lý video/audio dùng chung (thêm 10/2026)
+
+| Skill | Vai trò |
+|---|---|
+| ffmpeg-media-toolkit | Bộ lệnh FFmpeg chuẩn (convert/cắt/ghép/nén/phụ đề/thumbnail), phát hiện qua việc nhiều skill video (srt-whiteboard-animation, product-film-skill) âm thầm cần FFmpeg riêng mà không ai gom lại |
+
 ## Việc CHƯA làm — nói thẳng
 
 - Chưa gắn tham chiếu vào README của 8 Pro Agent hiện có (chỉ mới gắn vào quy trình Agentic Factory cho agent TƯƠNG LAI)
