@@ -396,3 +396,4 @@
 | 374 | Repo | Archify (diagram HTML kiểm chứng, vẽ lại kiến trúc kho) | /repos/archify.md | Đã push | (không có script riêng) | 2026-10-03 |
 | 375 | Repo | Impeccable (UI critique, xây trên frontend-design) | /repos/impeccable.md | Đã push | (không có script riêng) | 2026-10-03 |
 | 376 | Repo | Microsoft Presidio (PII detection, vá lỗ hổng nhóm AI Security) | /repos/microsoft-presidio.md | Đã push | (không có script riêng) | 2026-10-03 |
+| 377 | Skill | FFmpeg Media Toolkit (dùng chung mọi agent) | /agents/company/skills/ffmpeg-media-toolkit/SKILL.md | Đã push | (không có script riêng) | 2026-10-06 |
