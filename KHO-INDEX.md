@@ -27,13 +27,13 @@
 |---|---|---|
 | /skills/ | **590** — chia 2 tầng khác hẳn nhau, xem cảnh báo ngay dưới bảng | |
 | /content/ | 335 (319 script đánh số, max hiện tại **#322** + 4 script không đánh số + 1 series HyperFrames riêng `airfare-decoded-hyperframes/`) | |
-| /repos/ | 253 | GitHub repo đã research |
+| /repos/ | 254 | GitHub repo đã research |
 | /agents/ | 219 | Playbook + company/ + 7 Pro agent + 4 instance brand + rio-bot + smb-ai-team |
 | /mcps/ | 57 | MCP server |
 | /stacks/ | 19 | Combo workflow |
-| /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 45 (29+7+4+2+1+2) | Hạ tầng/cấu hình |
+| /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 49 (29+11+4+2+1+2) | Hạ tầng/cấu hình |
 | Root (`TRACKER.md`, `KHO-INDEX.md`...) | 10 | |
-| **Tổng** | **1.528 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
+| **Tổng** | **1.533 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
 
 ### ⚠️ CẢNH BÁO QUAN TRỌNG — `/skills/` có 2 tầng khác hẳn nhau, đừng gộp chung
 

@@ -50,12 +50,13 @@ Cần: Docker, ~2GB RAM trống trở lên, domain/HTTPS nếu truy cập từ n
 - Opportunity: "Gia hạn phụ lục hợp đồng PVN" chạy qua stage Tiếp cận → Báo giá → Đàm phán hợp đồng → Ký/Gia hạn → Đang phục vụ
 - Object riêng: Bookings (PNR, hành trình, ngày xuất vé), Dịch vụ Fast Track/Meet & Assist
 - Chi tiết thiết kế: `stacks/twenty-crm-abtrip-internal.md`
+- Cài chạy được ngay (script + backup + test PASS/FAIL): `deploy/twenty-abtrip/HUONG-DAN-TRIEN-KHAI.md`
 
 ## Lưu ý / Lỗi thường gặp
 - **Chưa chạy thử thật** — toàn bộ nội dung trên là từ nghiên cứu, 0 lần cài. Không coi là đã verify
 - Object/field tuỳ biến dễ làm rối nếu thiết kế vội — chốt schema trên giấy trước
 - Bản self-host tự lo backup Postgres, tự lo cập nhật bản vá (xem mục bảo mật)
-- Đang có CRM tự xây tay (ABTrip CRM, 9 module) — chạy song song 2 hệ thống sẽ phân mảnh dữ liệu; phải quyết 1 trong 2
+- ABTrip CRM tự xây tay (9 module): Nobitano đã chốt chuyển sang Twenty (07/10/2026), CRM cũ đóng băng, không xoá. Không ghi dữ liệu mới song song 2 nơi
 
 ## Đánh giá cá nhân
 - Điểm mạnh: giao diện hiện đại, tuỳ biến object không cần code, API đầy đủ, cộng đồng và nhịp release dày

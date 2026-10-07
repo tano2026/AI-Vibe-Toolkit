@@ -1,15 +1,18 @@
 # Twenty CRM — Tuỳ biến cho ABTRIP (dùng nội bộ)
 
 ## TL;DR
-Spec thiết kế dùng Twenty CRM làm CRM nội bộ ABTRIP (object Bookings, Fast Track & Meet Assist, GDS Reference; pipeline 5 stage theo chu kỳ bán thật). CHƯA triển khai, CHƯA chạy thử — việc đầu tiên là quyết định giữ hay bỏ ABTrip CRM tự xây, rồi test PASS/FAIL ở mục 7.
+Spec thiết kế dùng Twenty CRM làm CRM nội bộ ABTRIP (ĐÃ CHỐT chuyển, có script cài kèm) (object Bookings, Fast Track & Meet Assist, GDS Reference; pipeline 5 stage theo chu kỳ bán thật). CHƯA triển khai, CHƯA chạy thử — việc đầu tiên là cài theo deploy/twenty-abtrip rồi test PASS/FAIL ở mục 7.
 
-> Trạng thái: **spec thiết kế, CHƯA triển khai, CHƯA chạy thử.**
-> Phạm vi: CHỈ nhân viên ABTRIP dùng, đặt sau VPN, không mở cho khách truy cập trực tiếp.
+> Trạng thái: **ĐÃ QUYẾT ĐỊNH chuyển sang Twenty (Nobitano chốt 07/10/2026).** Chưa triển khai thật, chưa chạy thử.
+> Cách cài chạy được ngay: `deploy/twenty-abtrip/HUONG-DAN-TRIEN-KHAI.md` (script cài, backup, test PASS/FAIL).
+> Phạm vi: CHỈ nhân viên ABTRIP dùng, đặt sau VPN/Tailscale, không mở cho khách truy cập trực tiếp.
 > Đọc trước: `repos/twenty-crm.md` (license + bảo mật). Tao không phải luật sư; phần license cần xác nhận nếu tính bán.
 
-## 0. Quyết định cần Nobitano chốt TRƯỚC khi làm bất kỳ bước nào
-**Dừng ABTrip CRM tự xây tay (React/TS/Vite, 9 module) và chuyển sang Twenty, hay giữ nguyên?**
-Spec này giả định chuyển hẳn. Không chạy song song 2 hệ thống — dữ liệu sẽ phân mảnh. Nếu giữ CRM tay, bỏ qua file này.
+## 0. Quyết định đã chốt và cách thực hiện an toàn
+**Chuyển sang Twenty; ABTrip CRM tự xây (React/TS/Vite, 9 module) đóng băng, KHÔNG xoá.**
+- Không chạy song song 2 hệ thống để ghi dữ liệu mới — từ ngày chuyển chỉ ghi vào Twenty.
+- CRM cũ giữ chế độ chỉ-đọc tối thiểu 30 ngày làm dự phòng. Xoá chỉ khi Nobitano xác nhận.
+- Điều kiện để thật sự chuyển: Twenty phải PASS test API (mục 7) VÀ có backup đã thử khôi phục. Chưa đủ 2 điều kiện này thì CRM cũ vẫn là nơi ghi dữ liệu thật.
 
 ## 1. Object gốc Twenty — giữ nguyên, không sửa cấu trúc
 ```
@@ -77,6 +80,7 @@ Mặc định Twenty: New → Screening → Meeting → Proposal → Customer
 > Lưu ý đính chính: CVE-2026-44492/44494/44495 là lỗi của thư viện **axios**, không phải của Twenty, và `twenty-server` main đã ghim axios ≥ 1.16.0. Đừng viết lại thành "Twenty dính CVE-44492".
 
 ## 7. Cách kiểm chứng (đây là việc đầu tiên, trước mọi thiết kế thêm)
+> Chạy bằng `deploy/twenty-abtrip/test-twenty-api.py` (xem hướng dẫn Bước 5).
 ```
 PASS khi: docker compose lên được trên VPS thử, tạo 1 Company + 1 People + 1 Opportunity
           bằng tay, rồi Hermes đọc lại đúng record đó qua REST API.

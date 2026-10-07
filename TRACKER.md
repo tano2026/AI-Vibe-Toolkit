@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 251 cái
+## Repos — 252 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -188,6 +188,7 @@
 | Hermes Agent — AI Agent Tự Học, Tự Cải Tiến, Càng Dùng Càng Thông Minh | Stars: 188k+ (7 tuần đạt 95k, hiện 188k và tăng tiếp) License: MIT Tác giả:   Nous Research Version: v0.16.0 | `/repos/hermes-agent.md` | Không |  |
 | Hermes Skills Hub — Kho 88.000+ Skill cho AI Agent | Skills Hub là "app store" skill cho Hermes Agent — nơi tìm, xem và cài các gói giúp agent biết làm việc cụ thể. Hiện có 88.057 skill từ 12 nguồn, gom từ Anthropic, OpenAI, HuggingFace, NVIDIA đến cộng đồng tự đăng.  --- | `/repos/hermes-skills-hub.md` | Có |  |
 | hermes-jev-skills — GitHub Repo | Bridge làm sẵn giữa Hermes/Claude Code/Codex với Jev (TypeSafe) — đúng việc đã tự thiết kế trong `production-signal-feedback-loop` (Antigravity Bridge tự viết), nhưng có sẵn: installer tự dò agent trên máy, 5 tool dùng ngay, lưu API key an toàn hơn thiết kế tự nghĩ. | `/repos/hermes-jev-skills.md` | Có |  |
+| higgsfield-mcp-unified — GitHub Repo | MCP server chạy trên máy mình (Python, MIT, alpha v0.1.0) gom Higgsfield vào 1 giao diện: gọi được model qua API chính thức, và tuỳ chọn thêm "cloud backend" để dùng model mới (Sora 2, Veo 3.x, Kling 3.0, Seedance 2.0...). Có thêm vài thứ bản chính thức không nhấn mạnh: liệt kê model không tốn credit, kiểm tra auth trư… | `/repos/higgsfield-mcp-unified.md` | Có |  |
 | hr-operations (borghei/Claude-Skills) — GitHub Repo | Cụm skill hành chính nhân sự trong bộ 343 skill của `borghei/Claude-Skills` (388 stars) — quản lý con người thật (tuyển dụng, onboarding, quan hệ lao động, đánh giá hiệu suất, org design), khác hẳn 8 role AI hiện có tron… | `/repos/hr-operations-claude-skills.md` | Có |  |
 | html-anything — Biến Markdown thành HTML đẹp bằng AI, $0 API key | Stars: 6.2k License: Apache 2.0 Tác giả: nexu-io team Ra mắt: tháng 5/2026 | `/repos/html-anything.md` | Không |  |
 | html-video (nexu-io) — AI Agent Viết HTML, Mày Nhận MP4 | Stars: 346 Forks: 12 License: Apache 2.0 Tác giả: nexu-io (Open Design   team) | `/repos/html-video.md` | Không |  |
