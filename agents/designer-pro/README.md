@@ -19,6 +19,9 @@
 
 ```
 TẦNG NÃO (Skills):
+  cinematic-shot-prompt-core (MỚI)       — công thức 6 phần (SCLCAM) viết prompt
+                                            ảnh/VIDEO AI theo ngôn ngữ điện ảnh,
+                                            không gắn brand/công cụ nào
   image-prompt-formula-core (MỚI)        — bản THUẦN không gắn brand nào
                                             của brand-image-prompt-engineer
                                             bên dưới — dùng cho khách hàng/
