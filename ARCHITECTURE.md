@@ -1,5 +1,5 @@
 # ARCHITECTURE.md — Sơ đồ hệ thống AI Vibe Toolkit
-> Cập nhật 22/08/2026 (bản trước ghi cứng "tháng 6/2026", số liệu lệch
+> Cập nhật 22/09/2026 (bản trước ghi cứng "tháng 6/2026", số liệu lệch
 > xa thực tế — 49 repos/34 MCPs/406 skills khi thật đã là 236/57/591).
 > Agents đọc file này để hiểu mình đứng ở đâu trong hệ thống.
 
@@ -77,7 +77,7 @@ Vessel tương ứng fetch khi cần (qua Adapter riêng)
 Antigravity deploy -> Vessel chạy loop -> Content tự publish
 ```
 
-## Trạng thái thật (22/08/2026, đếm trực tiếp qua GitHub API — không suy đoán)
+## Trạng thái thật (22/09/2026, đếm trực tiếp qua GitHub API — không suy đoán)
 
 - Kho: 236 repos / 57 MCPs / 591 skills (đã dọn ecc/ 271 file trùng)
 - 8 Pro Agent hoàn chỉnh, đồng chuẩn (README+ARCHITECTURE+system-prompt+skills+HERMES-ADAPTER)
@@ -87,4 +87,4 @@ Antigravity deploy -> Vessel chạy loop -> Content tự publish
 
 ---
 
-*AI Vibe Toolkit | ARCHITECTURE.md v2 | 22/08/2026*
+*AI Vibe Toolkit | ARCHITECTURE.md v2 | 22/09/2026*

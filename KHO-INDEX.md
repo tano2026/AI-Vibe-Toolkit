@@ -1,5 +1,5 @@
 # KHO-INDEX — AI Vibe Toolkit
-> Cập nhật: 21/09/2026 | Version: 4.0
+> Cập nhật: 07/10/2026 | Version: 4.1 (làm mới số liệu + TRACKER sinh lại bằng `tools/build_index.py`)
 > **Entry point duy nhất cho mọi agent. Fetch file này đầu tiên.**
 > ⚠️ Bản v3.0 (21/08/2026) sai số liệu /skills/ (báo 861, không nói rõ đây là tổng cả 2 tầng khác nhau) và không hề nhắc TRACKER.md. Bản này viết lại bằng cách quét full recursive tree qua GitHub API — số liệu chính xác 100% tại thời điểm quét, không suy đoán.
 
@@ -21,19 +21,19 @@
 
 ---
 
-## Số liệu thực tế (quét full recursive tree qua GitHub API, 21/09/2026)
+## Số liệu thực tế (quét full recursive tree, 07/10/2026)
 
 | Folder | Số file thật | Ghi chú |
 |---|---|---|
-| /skills/ | **591** — chia 2 tầng khác hẳn nhau, xem cảnh báo ngay dưới bảng | |
-| /content/ | 333 (317 script đánh số, max hiện tại **#320** + 4 script không đánh số + 1 series HyperFrames riêng `airfare-decoded-hyperframes/`) | |
-| /repos/ | 238 | GitHub repo đã research |
-| /agents/ | 195 (13 file gốc + 14 package con) | Playbook + company/ + 7 Pro agent + 4 instance brand + rio-bot + smb-ai-team |
+| /skills/ | **590** — chia 2 tầng khác hẳn nhau, xem cảnh báo ngay dưới bảng | |
+| /content/ | 335 (319 script đánh số, max hiện tại **#322** + 4 script không đánh số + 1 series HyperFrames riêng `airfare-decoded-hyperframes/`) | |
+| /repos/ | 253 | GitHub repo đã research |
+| /agents/ | 219 | Playbook + company/ + 7 Pro agent + 4 instance brand + rio-bot + smb-ai-team |
 | /mcps/ | 57 | MCP server |
-| /stacks/ | 16 | Combo workflow |
-| /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 26 (11+7+4+2+1+1) | Hạ tầng/cấu hình |
-| Root (`TRACKER.md`, `KHO-INDEX.md`...) | 9 | |
-| **Tổng** | **1.466 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
+| /stacks/ | 19 | Combo workflow |
+| /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 45 (29+7+4+2+1+2) | Hạ tầng/cấu hình |
+| Root (`TRACKER.md`, `KHO-INDEX.md`...) | 10 | |
+| **Tổng** | **1.528 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
 
 ### ⚠️ CẢNH BÁO QUAN TRỌNG — `/skills/` có 2 tầng khác hẳn nhau, đừng gộp chung
 
@@ -66,7 +66,7 @@ Ctrl+F trong TRACKER.md một mình KHÔNG đủ, sẽ bỏ sót 470 skill kia.
 
 ---
 
-## Cấu trúc 3 tầng (v3.2 — sửa lỗi backtick + thêm agent thứ 8, 22/08/2026)
+## Cấu trúc 3 tầng (v3.2 — sửa lỗi backtick + thêm agent thứ 8, 22/09/2026)
 
 ```
 TẦNG 0 — LUẬT CỨNG (đọc 1 lần, áp cho mọi việc)

@@ -83,6 +83,6 @@ TUYỆT ĐỐI KHÔNG tự làm (luôn cần Nobitano xác nhận):
 - Có nên dùng: 8/10 — đáng làm, nhưng PHẢI qua giai đoạn shadow mode đủ lâu trước khi tin tưởng IMPLEMENT tự động
 
 ## Link
-- Nguồn: phát hiện "Hermes Agent" là framework GitHub-native thật (research 22/08/2026), hermes-jev-skills, Langfuse
+- Nguồn: phát hiện "Hermes Agent" là framework GitHub-native thật (research 22/09/2026), hermes-jev-skills, Langfuse
 - Vá lỗ hổng: skill-lifecycle-management (thiết kế nhưng chưa ai chạy định kỳ thật)
-- Case đã xảy ra: agents/README.md trỏ file đã xoá, ARCHITECTURE.md số liệu lệch (cả 2 đã tự sửa tay 22/08/2026)
+- Case đã xảy ra: agents/README.md trỏ file đã xoá, ARCHITECTURE.md số liệu lệch (cả 2 đã tự sửa tay 22/09/2026)

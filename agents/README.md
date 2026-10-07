@@ -1,5 +1,5 @@
 # /agents — Hệ thống AI Agents
-> Cập nhật 22/08/2026 — bản trước ghi "3 agents", trỏ tới file đã xoá
+> Cập nhật 22/09/2026 — bản trước ghi "3 agents", trỏ tới file đã xoá
 > (research-pro.md). Viết lại đầy đủ theo COMPANY-CHARTER.md.
 
 ## 4 Vessel (nơi thực thi) — không phải 3 như bản cũ

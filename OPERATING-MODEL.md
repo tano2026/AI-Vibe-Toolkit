@@ -1,5 +1,5 @@
 # OPERATING MODEL — Brief giao việc cho Trio (Hermes/OpenClaw 2.0/DeepSeek Harness)
-> Viết 22/08/2026. Đây là bản đóng gói TOÀN BỘ mô hình đã thiết kế, dành
+> Viết 22/09/2026. Đây là bản đóng gói TOÀN BỘ mô hình đã thiết kế, dành
 > để Trio TRIỂN KHAI THẬT — không chỉ đọc hiểu. Mỗi Vessel có checklist
 > hành động riêng ở cuối file. Thay thế tài liệu tham khảo chính cho
 > ARCHITECTURE.md + COMPANY-CHARTER.md (2 file đó vẫn giữ, đọc thêm chi
@@ -31,7 +31,7 @@ Mỗi cái sống ở agents/<ten-agent>/ = đúng 1 section EXPERT-CORE + skill
 
 ## Lớp 3 — 5 Nơi chạy ("Vessel") — trạng thái THẬT, không tô hồng
 
-| Vessel | Việc gì | Trạng thái 22/08/2026 |
+| Vessel | Việc gì | Trạng thái 22/09/2026 |
 |---|---|---|
 | Hermes | Task rời rạc, Python, urllib-only | Sẵn sàng kỹ thuật, chưa xác nhận GITHUB_TOKEN hoạt động thật |
 | OpenClaw 2.0 | Điều phối chính, nhận lệnh Telegram/WhatsApp | Đang chạy, chưa gắn EA Gate vào luồng route thật |

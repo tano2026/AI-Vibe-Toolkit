@@ -1,5 +1,5 @@
 # COMPANY CHARTER — Tano Agency Agent Company
-> Viết 22/08/2026, sau khi nghiên cứu 2 repo mô hình thật: opc_agent
+> Viết 22/09/2026, sau khi nghiên cứu 2 repo mô hình thật: opc_agent
 > (CroTuyuzhe, OPC — One Person Company) và OneManCompany
 > (1mancompany, 422 sao, OMC — One Man Company). Không phát minh lại —
 > gọi đúng tên cho những gì đã xây, vá đúng 2 khoảng trống lộ ra khi

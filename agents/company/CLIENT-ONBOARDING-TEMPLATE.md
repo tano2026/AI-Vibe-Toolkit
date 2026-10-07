@@ -1,5 +1,5 @@
 # CLIENT ONBOARDING TEMPLATE — Bán giải pháp FDE cho khách không biết kỹ thuật
-> Viết 22/08/2026. Đây là bản dịch "70% Primitives / 30% custom" (đã có
+> Viết 22/09/2026. Đây là bản dịch "70% Primitives / 30% custom" (đã có
 > trong forward-deployed-engineer-model + MASTER-TEMPLATE-MANIFEST.md)
 > thành 1 quy trình bán hàng THẬT — khách không bao giờ thấy GitHub, code,
 > hay thuật ngữ "Pro Agent"/"skill"/"EXPERT-CORE". Họ chỉ thấy kết quả.

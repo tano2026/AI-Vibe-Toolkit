@@ -1,5 +1,5 @@
 # CORE META-SKILLS — Nhóm "Đầu Não" bắt buộc tham chiếu
-> Viết 22/08/2026. Phát hiện qua đợt phân loại 590 skill nhưng CHƯA
+> Viết 22/09/2026. Phát hiện qua đợt phân loại 590 skill nhưng CHƯA
 > từng được ghi vào tài liệu chính thức — chỉ nằm trong lịch sử chat.
 > File này vá lỗ hổng đó: đây là danh sách CHUẨN, mọi agent (kể cả
 > agent sinh ra từ agentic-factory) nên kiểm tra nhóm này trước khi
@@ -10,7 +10,7 @@
 
 8 Pro Agent trả lời "làm việc GÌ" (research/content/sales...). Nhóm này trả lời "agent vận hành NHƯ THẾ NÀO" — áp được cho cả 8 cái cùng lúc, không thuộc quyền sở hữu của 1 agent riêng.
 
-## Danh sách đầy đủ (verify còn tồn tại 22/08/2026, sau đợt xoá ecc/)
+## Danh sách đầy đủ (verify còn tồn tại 22/09/2026, sau đợt xoá ecc/)
 
 ### Harness — thiết kế khung điều khiển agent ổn định
 
