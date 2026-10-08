@@ -8,7 +8,7 @@ description: >
 # agency-agents — Skill Dùng Ngay (113k⭐)
 
 **Repo:** github.com/msitarzewski/agency-agents | MIT
-**220 agents | 17 divisions | 87 contributors**
+**~280 agents (08/10/2026, bản cũ ghi 220) — xem repos/agency-agents.md để biết cách cài cho Hermes/OpenClaw/DeepSeek Harness/Antigravity**
 
 ---
 
