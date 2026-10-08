@@ -19,6 +19,9 @@
 
 ```
 TẦNG NÃO (Skills):
+  prompt-motion-reference (MỚI)          — quy tắc tra prompt-motion.com làm
+                                            tham khảo video motion (không cào,
+                                            không train, ghi nguồn)
   cinematic-shot-prompt-core (MỚI)       — công thức 6 phần (SCLCAM) viết prompt
                                             ảnh/VIDEO AI theo ngôn ngữ điện ảnh,
                                             không gắn brand/công cụ nào

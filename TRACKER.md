@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 252 cái
+## Repos — 253 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -261,6 +261,7 @@
 | Prime Agent — GitHub Repo | Coding agent open-source của PrimeIntellect-ai, khác biệt ở chỗ nó tự cải thiện bản thân qua session — nhớ style code, quy tắc dự án, và sub-agent đã tạo, không "quên sạch" mỗi lần đóng terminal như hầu hết coding agent … | `/repos/prime-agent.md` | Có |  |
 | PrintFilm — Research Notes (cho SaaS tương lai, KHÔNG hành động ngay) | PrintFilm là 1 platform SaaS video AI tự host — khác hẳn FlowKit (script cá nhân tự động hoá Google Flow). PrintFilm là kiến trúc **multi-user, có billing, có admin** — đáng tham khảo kiến trúc khi Tano Agency muốn làm s… | `/repos/printfilm-research-notes.md` | Không |  |
 | Product Film Skill — GitHub Repo | Claude Code skill: 1 prompt ra video launch 10-30 giây dựng từ **UI thật của sản phẩm phần mềm** (component React/design token/logo/giá thật) — không phải mockup giả, không phải số liệu bịa. Đúng đối tượng: TMC Corporate Portal, Smart Booking SaaS, Zalo Mini App — khác hẳn pipeline poster/thumbnail vừa xây (đó cho bran… | `/repos/product-film-skill.md` | Không |  |
+| Prompt Motion (prompt-motion.com) — Website / Thư viện tham khảo | Thư viện (gallery) ~230 video motion/launch film làm bằng **Claude Opus 5.5**, mỗi video kèm **prompt** hoặc **skill** đã dùng để tạo ra nó. Do @p4nthera_ tuyển chọn, tác giả từng video được ghi nguồn (link X). Đây là chỗ để **tra prompt/skill mẫu khi cần làm video motion**, không phải công cụ tạo video. Trang tuyên bố… | `/repos/prompt-motion.md` | Có |  |
 | Public APIs — GitHub Repo | Danh sach tong hop 1500+ API mien phi cho developer — 444K stars, top 5 repo GitHub moi thoi dai. Phan loai theo 90+ danh muc: AI, Finance, Weather, Music, Sports, Travel... Moi lam tinh nang moi cho app thi kiem o day t… | `/repos/public-apis.md` | Không |  |
 | PyCaps — GitHub Repo | Thư viện Python tạo phụ đề động, style bằng CSS, cho video TikTok/Shorts/Reels — vừa dùng CLI 1 lệnh với template có sẵn, vừa dùng như thư viện Python để tự custom pipeline. Chạy offline hoàn toàn (transcribe + style + r… | `/repos/pycaps.md` | Có |  |
 | Pydantic AI — GitHub Repo | Framework Python xây agent có kiểm tra kiểu dữ liệu chặt (type-safe) — output của Claude PHẢI khớp đúng cấu trúc đã định nghĩa, sai thì tự động yêu cầu Claude làm lại kèm lỗi cụ thể, không để dữ liệu sai lọt xuống bước sau. Đứng trong nhóm 4 framework agent dẫn đầu thật sự (báo cáo phân tích 44 framework, 2/2026) — khô… | `/repos/pydantic-ai.md` | Không |  |
