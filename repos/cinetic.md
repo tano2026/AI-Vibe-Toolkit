@@ -24,14 +24,15 @@ pip install numpy scipy soundfile pyloudnorm opencv-python librosa fonttools bro
 ```
 Kích hoạt venv TRƯỚC khi chạy agent (script gọi `python3` trần).
 
-## ⚠️ License engine — đọc trước khi dùng cho ABTRIP
-cinetic MIT, nhưng engine mặc định **Remotion có license riêng**: miễn phí cho cá nhân và công ty ≤ 3 người, từ 4 người trở lên phải mua license công ty (theo README cinetic; kiểm lại trang Remotion trước khi dùng thương mại). **HyperFrames là Apache-2.0** → với ABTRIP/Wonder Mart nên bảo agent dùng engine HyperFrames, hoặc kiểm số người trước khi dùng Remotion. Tao không phải luật sư.
+## ⚠️ License engine — đọc trước khi dùng cho dự án thương mại
+cinetic MIT, nhưng engine mặc định **Remotion có license riêng**: miễn phí cho cá nhân và công ty ≤ 3 người, từ 4 người trở lên phải mua license công ty (theo README cinetic; kiểm lại trang Remotion trước khi dùng thương mại). **HyperFrames là Apache-2.0** → khi làm cho khách hàng hay brand của Tano Agency, mặc định bảo agent dùng engine HyperFrames; chỉ dùng Remotion sau khi kiểm license theo quy mô công ty đứng tên dự án. Tao không phải luật sư.
 
 ## Ví dụ thực tế
-Prompt cho Tano (mẫu từ README, đổi sản phẩm):
+Prompt mẫu (từ README, thay sản phẩm/brand của dự án đang làm):
 ```text
-Làm teaser 20 giây dạng dọc 1080x1920 cho ABTRIP về "giữ chỗ vé máy bay 24 giờ không mất phí".
-Dùng brand: ink #101418, paper #FFFFFF, accent #0F9D76. Engine HyperFrames. Có nhạc.
+Làm teaser 20 giây dạng dọc 1080x1920 cho [TÊN SẢN PHẨM] về [TÍNH NĂNG CHÍNH, 1 câu].
+Dùng brand: [ink #HEX, paper #HEX, accent #HEX, font]. Engine HyperFrames. Có nhạc.
+(Không có brand → ghi "Invent the brand" để agent tự dựng.)
 ```
 Đầu ra theo README: master + poster; teaser launch thì kèm bản 9:16 và 1:1 dựng lại bố cục (không cắt từ bản gốc). Phim vẫn là source code: sửa 1 dòng chữ hoặc đổi màu accent rồi render lại.
 
@@ -39,13 +40,13 @@ Dùng brand: ink #101418, paper #FFFFFF, accent #0F9D76. Engine HyperFrames. Có
 - **Tốn**: tác giả ghi trung bình 95 phút và 626K token/phim (gấp ~3 lần chạy không có skill). Motion blur nhân thời gian render 3–8 lần; `render.sh --blur --budget` để giới hạn
 - **Luật cấm cứng** (lint tự bắt): không serif, không chữ nghiêng, không cam/vàng/be/tím, không glow, không emoji, không "Introducing…". Brand bạn đưa luôn thắng. Nghĩa là phim "sạch kiểu cinetic" — không hợp phong cách nhiều màu/nhiều chữ kiểu TikTok VN
 - **Chữ tiếng Việt có dấu**: chưa kiểm font nào trong luồng của cinetic đủ dấu. Làm thử 1 câu có dấu trước khi cam kết
-- Cần máy mạnh có Chromium: không chạy trên điện thoại. Claude Code trên máy Windows của mày chưa chạy được → chạy qua VPS Linux (Antigravity cài), không phải máy cá nhân
+- Cần máy mạnh có Chromium: không chạy trên điện thoại. Nếu máy làm việc là Windows và Claude Code chưa chạy ổn → chạy qua VPS Linux (Antigravity cài)
 - Chưa render phim nào trong kho này; chưa biết thật trên VPS mất bao lâu
 
 ## Đánh giá cá nhân
 - Điểm mạnh: MIT, có quy trình kiểm thật (forensics từng khung, audit đồng bộ âm thanh, ship gate), thư viện kỹ thuật bốc ngẫu nhiên chống phim giống nhau, chọn được engine Apache
 - Điểm yếu: đắt (thời gian + token), dùng Remotion thì dính license công ty, thẩm mỹ bị ép vào một gu, chữ có dấu chưa kiểm, số liệu đánh giá do tác giả tự chấm
-- Có nên dùng: 7/10. Dùng cho 1–2 phim thương hiệu quan trọng (launch ABTRIP, teaser Tano) chứ không phải dây chuyền video hàng ngày. Làm hàng loạt thì `repos/hyperframes.md` + template rẻ hơn nhiều
+- Có nên dùng: 7/10. Dùng cho 1–2 phim thương hiệu quan trọng (launch sản phẩm, teaser thương hiệu của khách) chứ không phải dây chuyền video hàng ngày. Làm hàng loạt thì `repos/hyperframes.md` + template rẻ hơn nhiều
 - Dùng kèm: lấy riêng `pick.py` + `technique-library.md` làm nguồn tra kỹ thuật cho Designer Pro, không cần chạy cả pipeline
 
 ## Link

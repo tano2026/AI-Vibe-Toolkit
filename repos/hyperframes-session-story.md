@@ -26,14 +26,14 @@ Theo chính SKILL.md, skill này:
 - Có cổng duyệt: lập bảng mọi dòng sẽ lên màn hình + nguồn; chưa `"approved": true` thì mỗi khung có dấu DRAFT
 - `harvest.py` có gắn cờ `secret/email/path/url/name?/person?` cho từng tin nhắn, nhưng tự thừa nhận "bỏ sót tên viết thường" → phải đọc từng dòng bằng mắt
 
-**Quy tắc cho kho này**: KHÔNG chạy trên phiên làm việc ABTRIP có dữ liệu khách/PNR/hợp đồng PVN, và KHÔNG chạy trên thư mục dự án chứa token. Nếu muốn thử, dùng dự án sạch hoặc dán tay vài tin nhắn mẫu (skill cho phép).
+**Quy tắc cho kho này**: KHÔNG chạy trên phiên làm việc của bất kỳ khách hàng/brand nào có dữ liệu khách, hợp đồng hay thông tin nội bộ, và KHÔNG chạy trên thư mục dự án chứa token. Nếu muốn thử, dùng dự án sạch hoặc dán tay vài tin nhắn mẫu (skill cho phép).
 
 ## Ví dụ thực tế
-Dùng đúng cách: làm 1 clip ~50 giây "một buổi làm việc của Tan với Claude" cho kênh Tano — từ một phiên trong dự án kho này **sau khi lọc**: bỏ mọi dòng có token, tên khách, số liệu ABTRIP. Mày duyệt bảng từng dòng, đồng ý rồi mới render. Đầu ra: `renders/session-story.mp4` (24 fps, CRF 12). Giá trị: nội dung "behind the scenes vibe coding" cho personal brand, không phải nội dung bán hàng.
+Dùng đúng cách: làm 1 clip ~50 giây "một buổi làm việc của người dùng với agent" làm nội dung behind-the-scenes cho kênh của Tano Agency — từ một phiên trong dự án kho này **sau khi lọc**: bỏ mọi dòng có token, tên khách, số liệu của bất kỳ brand nào. Người sở hữu phiên duyệt bảng từng dòng, đồng ý rồi mới render. Đầu ra: `renders/session-story.mp4` (24 fps, CRF 12). Giá trị: nội dung "vibe coding behind the scenes", không phải nội dung bán hàng.
 
 ## Lưu ý / Lỗi thường gặp
 - Chỉ đọc được lịch sử **Claude Code và Codex**. Hermes / OpenClaw / DeepSeek Harness / Antigravity không được hỗ trợ sẵn (phải tự dựng cùng định dạng — `references/sources.md`)
-- **Claude Code trên máy Windows của mày chưa chạy được** → chưa có lịch sử để harvest. Skill gần như không dùng được lúc này
+- Cần lịch sử Claude Code/Codex thật trên máy chạy skill. Nếu Claude Code chưa chạy ổn (trạng thái hiện tại trên máy Windows của Tano Agency) thì chưa có gì để harvest
 - Đây là skill của agent: phải có agent thật sự nói chuyện với bạn đủ lâu mới có "phiên điển hình"
 - Nhạc trên Linux cần soundfont tự kiếm; chưa kiểm chất lượng
 - Chưa chạy thử lần nào. Lệnh `schedule.mjs` cần thư mục dự án có `story.json` (tạo bằng `new-project.mjs`)
@@ -41,7 +41,7 @@ Dùng đúng cách: làm 1 clip ~50 giây "một buổi làm việc của Tan v�
 ## Đánh giá cá nhân
 - Điểm mạnh: ý tưởng kể chuyện hay, có cổng duyệt quyền riêng tư và danh sách tác dụng phụ viết rõ ràng, trích dẫn nguyên văn không bịa, lockfile ghim phiên bản
 - Điểm yếu: rủi ro dữ liệu cao nếu agent bất cẩn, phụ thuộc lịch sử Claude Code/Codex, nhạc Linux phức tạp, mục đích hẹp (phim về chính bạn)
-- Có nên dùng: 3/10 cho công việc của mày lúc này. Để dành làm nội dung cá nhân Tano khi Claude Code chạy ổn và có dự án sạch. Cái đáng tham khảo hơn trong cùng repo là `vox-explainer` (chưa đọc kỹ)
+- Có nên dùng: 3/10 cho công việc agency lúc này. Để dành làm nội dung nội bộ của Tano Agency khi Claude Code chạy ổn và có dự án sạch. Cái đáng tham khảo hơn trong cùng repo là `vox-explainer` (chưa đọc kỹ)
 
 ## Link
 - Repo: https://github.com/heygen-com/hyperframes-community-skills
@@ -70,6 +70,6 @@ npx skills add heygen-com/hyperframes-community-skills --skill session-story
 ### Antigravity
 ```bash
 # Không deploy. Nếu thử trên VPS: cần ffmpeg, Node 22+, fluidsynth + soundfont.
-# Nhưng VPS không có lịch sử Claude Code của mày → để trống, không có gì để harvest.
+# Nhưng VPS không có lịch sử Claude Code của người dùng → để trống, không có gì để harvest.
 ```
 > ⚠️ Mọi lệnh `snapshot` phải có `--describe false` (tránh gửi khung hình sang Gemini). Không bao giờ commit `session-story-candidates.json` hay thư mục dự án lên kho.

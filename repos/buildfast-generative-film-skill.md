@@ -29,13 +29,13 @@ Raqm bắt buộc vì nó xử lý chữ phức tạp (Devanagari, Ả Rập, Ta
 4. **Khung thử → contact sheet → sửa** (bắt buộc, thường 2–3 vòng), rồi render, kiểm bằng `ffprobe -count_frames`, trả lời cuối: tên phim + 1 dòng ý tưởng + danh sách chương + nhạc + chỗ ước lượng
 
 ## Ví dụ thực tế
-Prompt cho ABTRIP (nội dung kênh, không phải quảng cáo bán vé):
+Prompt mẫu (nội dung giáo dục/explainer cho brand hoặc khách bất kỳ, đổi chủ đề):
 ```text
-Dùng generative-film-skill: làm phim 60 giây về "100 năm vé máy bay" — từ vé giấy
-đến e-ticket. Mỗi chương một ý: PNR 6 ký tự, BSP, chuyển từ vé giấy sang điện tử.
+Dùng generative-film-skill: làm phim 60 giây về "[CHỦ ĐỀ]" (ví dụ: lịch sử của cà phê,
+hoặc 100 năm của vé điện tử). Mỗi chương một ý hình ảnh riêng, không minh hoạ danh từ.
 Tra cứu đủ nguồn mọi số liệu trước khi lên màn hình, ngày chưa chắc ghi "c.".
 ```
-Đầu ra: `film_full.mp4` + contact sheet để duyệt. Chọn chủ đề có nguồn kiểm được; skill buộc tra cứu nhưng agent vẫn có thể sai số liệu — mày duyệt trước khi đăng.
+Đầu ra: `film_full.mp4` + contact sheet để duyệt. Chọn chủ đề có nguồn kiểm được; skill buộc tra cứu nhưng agent vẫn có thể sai số liệu — người duyệt kiểm tay trước khi đăng.
 
 ## Lưu ý / Lỗi thường gặp
 - **Chưa chạy thử** — không biết thời gian render thật; skill có `workers` (dùng hết CPU) nhưng 87 giây × 30 fps ≈ 2.600 khung vẽ bằng cairo/Python, đoán là chậm, chưa đo
@@ -48,7 +48,7 @@ Tra cứu đủ nguồn mọi số liệu trước khi lên màn hình, ngày ch
 ## Đánh giá cá nhân
 - Điểm mạnh: MIT, rất nhẹ (Python + ffmpeg), không phụ thuộc Chromium/Node nên hợp VPS nhỏ, nhạc + hình cùng một lưới nhịp, quy trình có bước kiểm khung bắt buộc, có ví dụ chạy thử 15 giây
 - Điểm yếu: chưa chạy thử, tốc độ render chưa rõ, font có dấu chưa kiểm, gu thẩm mỹ hẹp, số liệu phụ thuộc agent tra cứu, repo mới
-- Có nên dùng: 6/10. Là ứng viên số 1 để thử cho nội dung giáo dục dài 60–90 giây (kênh Tano / ABTRIP) vì chi phí thấp nhất. Làm đúng 1 phim thử `silk-road-demo` 15 giây trước, đo thời gian + kiểm chữ có dấu rồi mới quyết
+- Có nên dùng: 6/10. Là ứng viên số 1 để thử cho nội dung giáo dục dài 60–90 giây (kênh của Tano Agency hoặc của khách) vì chi phí thấp nhất. Làm đúng 1 phim thử `silk-road-demo` 15 giây trước, đo thời gian + kiểm chữ có dấu rồi mới quyết
 
 ## Link
 - Repo: https://github.com/buildfastwithai/buildfast-skills
@@ -94,4 +94,4 @@ pip install --break-system-packages pycairo fonttools numpy scipy pillow
 python3 -c "from PIL import features; print(features.check('raqm'))"   # phải True
 # Thử trước bằng ví dụ 15 giây trong repo: examples/silk-road-demo (đo thời gian render)
 ```
-> ⚠️ Tên gói `libraqm0` / `libcairo2-dev` theo Debian/Ubuntu phổ biến, chưa xác nhận trên VPS của mày. Font tải từ GitHub lúc chạy. Mọi số liệu lên phim phải được người duyệt.
+> ⚠️ Tên gói `libraqm0` / `libcairo2-dev` theo Debian/Ubuntu phổ biến, chưa xác nhận trên VPS đang dùng. Font tải từ GitHub lúc chạy. Mọi số liệu lên phim phải được người duyệt.
