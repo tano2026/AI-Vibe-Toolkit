@@ -56,13 +56,13 @@ Không preload cả roster và không thêm agency-agents vào skills.external_d
 |---|---|---|
 | Bản chất | Vai trò + luật + ranh giới tự chủ + guardrail + kiểm chứng | Persona prompt (giọng, quy trình, deliverable) |
 | Mức tự chủ/guardrail | Có, ghi rõ | Không thống nhất, tuỳ tác giả đóng góp |
-| Dùng khi | Việc thật của Tano (ABTRIP, Tano Cafe, Wonder Mart) | Cần "góc nhìn chuyên gia" nhanh cho 1 bước; mượn ý tưởng |
+| Dùng khi | Việc thật của Tano Agency và khách (brand chỉ là ví dụ) | Cần "góc nhìn chuyên gia" nhanh cho 1 bước; mượn ý tưởng |
 Cách dùng hợp lý: lấy persona đúng nghề làm "lớp giọng" bên dưới luật của kho (`EXPERT-CORE`), không để persona ghi đè luật.
 
-## Ví dụ thực tế (ưu tiên brand của Nobitano)
+## Ví dụ thực tế (brand chỉ để minh hoạ — thay bằng brand/khách đang làm)
 - **ABTRIP:** Social Media Strategist + Offer & Lead Gen Strategist cho kế hoạch nội dung; Xiaohongshu Specialist để theo dõi xu hướng du lịch
 - **Wonder Mart:** PPC Campaign Strategist, Paid Social Strategist, App Store Optimizer
-- **Tano (nội dung):** TikTok Strategist, Content Creator, Growth Hacker
+- **Kênh nội dung (ví dụ Tano):** TikTok Strategist, Content Creator, Growth Hacker
 - **Dev/Infra:** Backend Architect, DevOps Automator; **Security** có nhóm riêng (12) — hữu ích khi review Twenty/portal
 Chuỗi 3 bước điển hình: Research (Xiaohongshu Specialist) → Strategy (TikTok Strategist) → Copy (Content Creator), mỗi bước một phiên/agent.
 
@@ -77,7 +77,7 @@ Chuỗi 3 bước điển hình: Research (Xiaohongshu Specialist) → Strategy 
 ## Đánh giá cá nhân
 - Điểm mạnh: MIT; **hỗ trợ trực tiếp Hermes, OpenClaw, DeepSeek Harness, Antigravity** — hiếm repo phủ đủ Trio; plugin lazy-router của Hermes thiết kế đúng; dễ chọn theo nhóm
 - Điểm yếu: persona ≠ kỷ luật; chất lượng không đều; dễ biến thành "sưu tầm thêm" mà không dùng (đúng điểm yếu Nobitano đã tự nhận)
-- Có nên dùng: **7/10** (bản cũ chấm 9,5 là quá tay). Làm 1 thử nghiệm nhỏ: cài plugin Hermes, gọi `agency_agents_search` với 1 nhu cầu thật của ABTRIP, ghi PASS/FAIL. Chưa PASS thì không cài thêm gì
+- Có nên dùng: **7/10** (bản cũ chấm 9,5 là quá tay). Làm 1 thử nghiệm nhỏ: cài plugin Hermes, gọi `agency_agents_search` với 1 nhu cầu thật của một brand/khách đang làm, ghi PASS/FAIL. Chưa PASS thì không cài thêm gì
 
 ## Link
 - Repo: https://github.com/msitarzewski/agency-agents

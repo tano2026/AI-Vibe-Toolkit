@@ -17,8 +17,8 @@ File LICENSE của repo chia 3 phần:
 3. **MIT** — một số package: `twenty-sdk`, `twenty-client-sdk`, `create-twenty-app`, `twenty-shared`, `twenty-ui`, `twenty-apps`.
 
 Hệ quả thực tế:
-- **Dùng nội bộ ABTRIP** (chỉ nhân viên truy cập) → AGPL không buộc phải công khai code. Đây là cách hiểu phổ biến của AGPL (nghĩa vụ mở nguồn kích hoạt khi người NGOÀI công ty dùng qua mạng). Tao không phải luật sư — cần xác nhận lại nếu tính bán.
-- **Bán/cho khách dùng như dịch vụ** (ví dụ gói TanoOS có Twenty bên trong, khách đăng nhập vào) → rơi vào vùng AGPL kích hoạt + Enterprise. Phải hỏi luật sư hoặc Twenty trước, không tự suy diễn.
+- **Dùng nội bộ** (chỉ nhân viên của công ty vận hành truy cập, ví dụ ABTRIP) → AGPL không buộc phải công khai code. Đây là cách hiểu phổ biến của AGPL (nghĩa vụ mở nguồn kích hoạt khi người NGOÀI công ty dùng qua mạng). Tao không phải luật sư — cần xác nhận lại nếu tính bán.
+- **Bán/cho khách dùng như dịch vụ** (ví dụ một gói sản phẩm của Tano Agency như TanoOS có Twenty bên trong, khách đăng nhập vào) → rơi vào vùng AGPL kích hoạt + Enterprise. Phải hỏi luật sư hoặc Twenty trước, không tự suy diễn.
 - Phần "Twenty Application Exception" (ngoại lệ AGPL §7 cho app mở rộng) tao CHƯA đọc hết — chưa kết luận gì về nó.
 
 ## ⚠️ Bảo mật — sự thật cần nhớ trước khi self-host
@@ -28,7 +28,7 @@ Phân biệt 2 nhóm, vì trước đây tao từng gộp nhầm:
 
 **B. Lỗ hổng riêng của Twenty (2026):** theo trang tổng hợp cve.imfht.com (chưa đối chiếu NVD) có 11 CVE, gồm: command execution 9.9 (CVE-2026-46624, 26/5), SQL injection 9.1 (CVE-2026-73069, 11/8), SSRF 9.1 (CVE-2026-33975), XSS 8.7 (CVE-2026-44729), RCE qua `local-driver.ts` (CVE-2026-26720), SSRF 5.0 (CVE-2026-27023), bypass đọc theo field 7.1 (22/9), và **lộ mật khẩu qua GraphQL 9.6 (CVE-2026-105763, 05/10/2026 — mới 2 ngày)**. Trang GitHub Security Advisories của repo cũng liệt kê SQLi (bản ≤ 1.16.7), XSS, SSRF bypass, IDOR chéo workspace. Chưa xác nhận được bản vá cụ thể cho từng lỗi từ nguồn nào.
 
-**Quy tắc cho ABTRIP (dữ liệu khách + PNR là dữ liệu thật):**
+**Quy tắc khi CRM chứa dữ liệu khách thật (ví dụ ABTRIP: khách + PNR):**
 - Luôn dùng bản release mới nhất, đọc GitHub Security Advisories TRƯỚC khi deploy và định kỳ sau đó
 - KHÔNG mở cổng ra internet công khai — đặt sau VPN/Tailscale hoặc whitelist IP văn phòng
 - Không lưu số hộ chiếu/thẻ thanh toán trong CRM; PNR thì chỉ lưu mã, không lưu nội dung SR DOCS
@@ -45,7 +45,7 @@ docker compose up -d
 ```
 Cần: Docker, ~2GB RAM trống trở lên, domain/HTTPS nếu truy cập từ ngoài văn phòng (qua VPN).
 
-## Ví dụ thực tế (use case ABTRIP)
+## Ví dụ thực tế (một use case cụ thể: ABTRIP — brand khác thay tương tự)
 - Companies: PVN và các cơ quan đặt vé số lượng lớn; People: đầu mối liên hệ
 - Opportunity: "Gia hạn phụ lục hợp đồng PVN" chạy qua stage Tiếp cận → Báo giá → Đàm phán hợp đồng → Ký/Gia hạn → Đang phục vụ
 - Object riêng: Bookings (PNR, hành trình, ngày xuất vé), Dịch vụ Fast Track/Meet & Assist
@@ -56,12 +56,12 @@ Cần: Docker, ~2GB RAM trống trở lên, domain/HTTPS nếu truy cập từ n
 - **Chưa chạy thử thật** — toàn bộ nội dung trên là từ nghiên cứu, 0 lần cài. Không coi là đã verify
 - Object/field tuỳ biến dễ làm rối nếu thiết kế vội — chốt schema trên giấy trước
 - Bản self-host tự lo backup Postgres, tự lo cập nhật bản vá (xem mục bảo mật)
-- ABTrip CRM tự xây tay (9 module): Nobitano đã chốt chuyển sang Twenty (07/10/2026), CRM cũ đóng băng, không xoá. Không ghi dữ liệu mới song song 2 nơi
+- Trường hợp ABTRIP: CRM tự xây tay (9 module), Nobitano đã chốt chuyển sang Twenty (07/10/2026), CRM cũ đóng băng, không xoá. Không ghi dữ liệu mới song song 2 nơi
 
 ## Đánh giá cá nhân
 - Điểm mạnh: giao diện hiện đại, tuỳ biến object không cần code, API đầy đủ, cộng đồng và nhịp release dày
 - Điểm yếu: license trộn (AGPL + Enterprise + MIT) làm khó việc đóng gói bán lại; lỗ hổng bảo mật 2026 nhiều và nặng → tự host phải kỷ luật cập nhật; chưa kiểm hỗ trợ tiếng Việt/định dạng tiền VND/ngày dd/mm
-- Có nên dùng: 7/10 cho nội bộ ABTRIP (đặt sau VPN). Với TanoOS bán cho khách: chưa nên, đến khi có ý kiến pháp lý về license
+- Có nên dùng: 7/10 cho dùng nội bộ sau VPN (ví dụ ABTRIP). Với sản phẩm bán cho khách (ví dụ TanoOS): chưa nên, đến khi có ý kiến pháp lý về license
 
 ## Link
 - Repo: https://github.com/twentyhq/twenty
@@ -79,7 +79,7 @@ Cần: Docker, ~2GB RAM trống trở lên, domain/HTTPS nếu truy cập từ n
 # Kiểm lại đường dẫn endpoint trong docs bản đang chạy trước khi dùng.
 import urllib.request, json
 
-HOST = "https://crm.noi-bo.abtrip.example"   # sau VPN
+HOST = "https://crm.noi-bo.example.com"   # sau VPN
 KEY = "[TWENTY_API_KEY]"                      # lấy từ biến môi trường, không ghi vào file
 
 def twenty_get(path):

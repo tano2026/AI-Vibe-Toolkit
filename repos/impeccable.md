@@ -35,7 +35,7 @@ Cần Node (cho `npx`). Quét URL cần trình duyệt. Chế độ `live` chỉ
 Claude Code, Cursor, GitHub Copilot, Codex CLI, Grok Build, DeepSeek Harness, Gemini CLI, Google Antigravity, Hermes Agent, OpenCode, Pi, Kiro, Trae, Rovo Dev, Qoder, Mistral Vibe, Veto. Hook tự động có ở Claude Code, Copilot, Cursor, Codex, Grok Build. Chưa kiểm từng harness.
 
 ## Điểm kết nối với kho
-- Bổ sung Designer Pro: Designer Pro lo ảnh/poster tĩnh; Impeccable lo **giao diện web/app thật** (TMC Corporate Portal, Smart Booking, trang đích ABTRIP, Twenty tuỳ biến giao diện không phải việc của nó)
+- Bổ sung Designer Pro: Designer Pro lo ảnh/poster tĩnh; Impeccable lo **giao diện web/app thật** (portal B2B, SaaS, trang đích của brand — ví dụ TMC Corporate Portal, Smart Booking; Twenty tuỳ biến giao diện không phải việc của nó)
 - Detector là lưới an toàn rẻ nhất: chạy trước khi demo cho khách B2B/B2G
 
 ## Ví dụ thực tế

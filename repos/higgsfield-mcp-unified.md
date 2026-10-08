@@ -17,7 +17,7 @@ Cho Claude/agent tạo ảnh và video AI qua Higgsfield bằng tool gọi có c
 | Điểm riêng | Đơn giản, không cài gì | Output có cấu trúc, liệt kê model/preflight không tốn credit, chạy được từ agent trên VPS (Hermes) |
 
 ## ⚠️ Cảnh báo quan trọng
-Cloud backend dùng cách gọi suy ngược từ web của Higgsfield, cần token đăng nhập (Clerk, sống khoảng 7 ngày), hay bị chặn bot, endpoint đổi không báo. Chính tác giả ghi "probably against ToS". Dùng nó có thể làm **tài khoản Higgsfield của mày bị khoá**. Khuyến nghị: KHÔNG bật `HIGGSFIELD_ENABLE_WEB_BACKEND` cho tài khoản thật của Tano.
+Cloud backend dùng cách gọi suy ngược từ web của Higgsfield, cần token đăng nhập (Clerk, sống khoảng 7 ngày), hay bị chặn bot, endpoint đổi không báo. Chính tác giả ghi "probably against ToS". Dùng nó có thể làm **tài khoản Higgsfield của mày bị khoá**. Khuyến nghị: KHÔNG bật `HIGGSFIELD_ENABLE_WEB_BACKEND` cho tài khoản thật của Tano Agency hay của khách.
 
 ## Setup
 ```bash
@@ -32,7 +32,7 @@ uv run higgsfield-mcp
 Một nguồn khác ghi cài bằng `uvx higgsfield-mcp` hoặc `pipx install higgsfield-mcp-unified`; chưa xác nhận tên package có trên PyPI — dùng cách clone ở trên cho chắc.
 
 ## Ví dụ thực tế
-Tạo cảnh mở đầu video giới thiệu Fast Track Nội Bài của ABTRIP: `preflight_check` → `get_balance` (biết còn bao nhiêu credit) → `generate_video` với model đã xác nhận có trong `list_models` → `subscribe` chờ xong → tải về ghép bằng `ffmpeg-media-toolkit`.
+Tạo cảnh mở đầu video giới thiệu một dịch vụ/sản phẩm của brand bất kỳ (ví dụ: Fast Track Nội Bài của ABTRIP): `preflight_check` → `get_balance` (biết còn bao nhiêu credit) → `generate_video` với model đã xác nhận có trong `list_models` → `subscribe` chờ xong → tải về ghép bằng `ffmpeg-media-toolkit`.
 
 ## Lưu ý / Lỗi thường gặp
 - Chưa chạy thử lần nào; mọi chi tiết lấy từ README/trang tổng hợp

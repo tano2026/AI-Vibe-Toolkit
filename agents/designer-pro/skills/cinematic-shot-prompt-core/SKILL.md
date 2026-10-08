@@ -15,7 +15,7 @@ description: >
 Mỗi prompt video = 1 shot, mô tả theo 6 phần cố định: **S**ubject → **C**ontext → **L**ens/khung hình → **C**amera motion → **A**tmosphere (ánh sáng) → **M**ood/màu. Một shot chỉ MỘT chuyển động máy chính. Muốn nhiều cảnh = nhiều shot, ghép sau.
 
 ## Khi nào dùng
-- Làm clip mở đầu/chuyển cảnh/b-roll bằng AI cho video của ABTRIP, Tano, Wonder Mart
+- Làm clip mở đầu/chuyển cảnh/b-roll bằng AI cho video của brand/khách bất kỳ (ví dụ ABTRIP, Tano Cafe, Wonder Mart)
 - Prompt cũ cho ra clip "phẳng", máy cứ lắc linh tinh, ánh sáng nhạt
 - KHÔNG dùng cho ảnh poster/infographic có chữ (dùng `image-prompt-formula-core`)
 
@@ -44,7 +44,7 @@ Mỗi prompt video = 1 shot, mô tả theo 6 phần cố định: **S**ubject �
 5. Không nhờ AI vẽ chữ/logo trong clip — thêm bằng dựng hậu kỳ
 6. Người thật cụ thể (nhân viên, khách): chỉ dùng ảnh mình có quyền sử dụng
 
-## Ví dụ hoàn chỉnh (ABTRIP Fast Track)
+## Ví dụ hoàn chỉnh (minh hoạ bằng một brand: ABTRIP Fast Track — đổi chủ thể/bối cảnh cho brand khác)
 > Nữ nhân viên mặc đồng phục xanh navy dẫn vị khách doanh nhân qua cổng ưu tiên. Sảnh đi sân bay Nội Bài T1, sáng sớm. Medium shot ngang tầm mắt, ống 35mm, nền mờ nhẹ. Dolly in chậm. Nắng ban mai xiên qua cửa kính, ánh sáng mềm. Tông ấm, tin cậy, vàng nhạt và xanh navy.
 
 ## Bảng lỗi hay gặp

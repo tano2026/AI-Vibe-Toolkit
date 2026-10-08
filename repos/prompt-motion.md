@@ -24,7 +24,7 @@ Mỗi trang mục thường có: tiêu đề, tác giả (link X), loại (Promp
 - Tín hiệu nội dung: `search=yes`, **`ai-train=no`**, **`use=reference`**
 - Khoảng 35 crawler AI bị chặn hoàn toàn (ClaudeBot, GPTBot, Google-Extended, CCBot, Bytespider, Applebot-Extended...)
 - Trang ghi: video và prompt thuộc về tác giả
-Hệ quả cho Tano:
+Hệ quả cho Tano Agency:
 1. Tra **từng mục khi có nhu cầu thật** (1 người dùng 1 lần), như người đọc tham khảo. KHÔNG cào cả trang, KHÔNG lập lịch quét
 2. KHÔNG sao chép hàng loạt prompt/skill vào kho. Kho chỉ lưu **con trỏ + ghi chú ngắn + link nguồn**
 3. Khi dùng ý tưởng từ 1 prompt: viết lại theo hoàn cảnh của mình, ghi nguồn (tác giả + link), không dán nguyên văn vào sản phẩm bán
@@ -45,7 +45,7 @@ Phần còn lại (~226 mục) chủ yếu là **Prompt**. Muốn đào sâu 1 s
 Chỉ trích ngắn để minh hoạ cấu trúc: yêu cầu "một video motion graphics 15 giây sinh động, như showreel của một motion designer". Bài học: prompt ngắn + mục tiêu rõ + giới hạn thời lượng + để effort cao. Muốn bản đầy đủ → vào trang gốc.
 
 ## Khi nào agent nên tra trang này
-- Cần ý tưởng prompt/cấu trúc cho video motion, launch film, showreel (ABTRIP, Tano, Wonder Mart, TanoOS)
+- Cần ý tưởng prompt/cấu trúc cho video motion, launch film, showreel (brand của Tano Agency hoặc khách — ví dụ ABTRIP, Wonder Mart, TanoOS)
 - Cần tìm skill tạo video bằng code (Remotion/HyperFrames) để so với `repos/remotion.md`, `repos/hyperframes.md`, `repos/product-film-skill.md`
 - KHÔNG tra khi: đã có sẵn trong kho (xem Link), hoặc chỉ cần công thức prompt điện ảnh → `agents/designer-pro/skills/cinematic-shot-prompt-core/SKILL.md`
 
