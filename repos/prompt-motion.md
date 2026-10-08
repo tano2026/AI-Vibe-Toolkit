@@ -36,9 +36,9 @@ Hệ quả cho Tano:
 | Mục | Skill làm gì | Cài | Trạng thái trong kho |
 |---|---|---|---|
 | Anthony Riera — Reddit marketing launch video (26/09/2026) | Học design system của sản phẩm, phỏng vấn người dùng, dựng launch/landing video bằng Remotion với component và logo thật | `/plugin marketplace add Rieranthony/product-film-skill` | **Đã có** `repos/product-film-skill.md` |
-| Leon Lin (@LexnLin) — Cinetic skill launch film (04/10/2026) | Từ concept + brand + "score" render phim ra mắt/motion ngắn bằng code | `npx skills add Leonxlnx/cinetic` | Chưa có entry |
-| Jake Moran — Animated agent session story (24/09/2026) | Đọc lịch sử Claude Code cục bộ → phim hoạt hình ngắn có nhạc bằng HyperFrames | `npx skills add heygen-com/hyperframes-community-skills --skill session-story` | Chưa có entry (liên quan `repos/hyperframes.md`). Lưu ý: đọc lịch sử phiên cục bộ = dữ liệu nhạy cảm, cân nhắc kỹ |
-| Build Fast with AI — Indian civilisation history film (28/09/2026) | Tạo phim MP4 hoạt hình về chủ đề bất kỳ, vẽ từng khung bằng code, nhạc tổng hợp đồng bộ nhịp | `npx skills@latest add https://github.com/buildfastwithai/buildfast-skills` (thư mục `generative-film-skill`) | Chưa có entry |
+| Leon Lin (@LexnLin) — Cinetic skill launch film (04/10/2026) | Từ concept + brand + "score" render phim ra mắt/motion ngắn bằng code | `npx skills add Leonxlnx/cinetic` | `repos/cinetic.md` (7/10) |
+| Jake Moran — Animated agent session story (24/09/2026) | Đọc lịch sử Claude Code cục bộ → phim hoạt hình ngắn có nhạc bằng HyperFrames | `npx skills add heygen-com/hyperframes-community-skills --skill session-story` | `repos/hyperframes-session-story.md` (3/10; đọc lịch sử phiên cục bộ = dữ liệu nhạy cảm) |
+| Build Fast with AI — Indian civilisation history film (28/09/2026) | Tạo phim MP4 hoạt hình về chủ đề bất kỳ, vẽ từng khung bằng code, nhạc tổng hợp đồng bộ nhịp | `npx skills@latest add https://github.com/buildfastwithai/buildfast-skills` (thư mục `generative-film-skill`) | `repos/buildfast-generative-film-skill.md` (6/10) |
 Phần còn lại (~226 mục) chủ yếu là **Prompt**. Muốn đào sâu 1 skill nào → báo Nobitano để tao viết entry riêng, đừng cài thử vì thấy hay.
 
 ## Ví dụ prompt (từ mục @stephanlivera, 25/09/2026, Opus 5.5, effort Max)

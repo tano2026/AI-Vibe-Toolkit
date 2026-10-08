@@ -21,19 +21,19 @@
 
 ---
 
-## Số liệu thực tế (quét full recursive tree, 07/10/2026)
+## Số liệu thực tế (quét full recursive tree, 08/10/2026)
 
 | Folder | Số file thật | Ghi chú |
 |---|---|---|
 | /skills/ | **590** — chia 2 tầng khác hẳn nhau, xem cảnh báo ngay dưới bảng | |
 | /content/ | 335 (319 script đánh số, max hiện tại **#322** + 4 script không đánh số + 1 series HyperFrames riêng `airfare-decoded-hyperframes/`) | |
-| /repos/ | 255 | GitHub repo đã research |
+| /repos/ | 258 | GitHub repo đã research |
 | /agents/ | 221 | Playbook + company/ + 7 Pro agent + 4 instance brand + rio-bot + smb-ai-team |
 | /mcps/ | 57 | MCP server |
 | /stacks/ | 20 | Combo workflow |
 | /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 49 (29+11+4+2+1+2) | Hạ tầng/cấu hình |
 | Root (`TRACKER.md`, `KHO-INDEX.md`...) | 10 | |
-| **Tổng** | **1.537 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
+| **Tổng** | **1.540 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
 
 ### ⚠️ CẢNH BÁO QUAN TRỌNG — `/skills/` có 2 tầng khác hẳn nhau, đừng gộp chung
 
