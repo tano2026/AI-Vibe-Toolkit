@@ -128,7 +128,7 @@ Một bản review đạt khi trả lời được **cả 10 câu** bằng chứ
 9. Có bộ test offline làm cửa chặn và số liệu theo dõi sau khi chạy?
 10. Log không chứa secret hoặc nội dung nhạy cảm nguyên văn?
 
-**Trạng thái:** chưa test. Skill này **chưa được dùng review một dự án agent thật**; lần dùng đầu coi là thử nghiệm và ghi lại chỗ sai. Chưa cài vào agent nào cho tới khi người dùng duyệt theo `agents/company/skills/skill-lifecycle-management/`.
+**Trạng thái:** chưa test. Skill này **chưa được dùng review một dự án agent thật**; lần dùng đầu coi là thử nghiệm và ghi lại chỗ sai. **Đã được Nobitano duyệt ngày 2026-10-10** (theo `agents/company/skills/skill-lifecycle-management/`): được dùng trong gói `infra-ops-agent`. Vòng đời: vẫn là *Candidate* (đã duyệt nhưng chưa dùng thật), chỉ lên *Verified* sau khi đã review ít nhất 1 dự án agent thật và ghi kết quả.
 
 ## Mẫu code lệch / chưa kiểm trong giáo trình (đọc ngày 2026-10-10)
 Đọc từ README các bài, **chưa chạy notebook nào**. Dùng làm danh sách "kiểm lại trước khi tin":

@@ -129,7 +129,7 @@ Mẫu code gốc của bài 14 (📖 trích từ bài): tạo agent bằng
 - Bài setup: https://github.com/microsoft/ai-agents-for-beginners/blob/main/00-course-setup/README.md
 - Khoá nền trước đó của Microsoft: Generative AI for Beginners (21 bài)
 - Entry liên quan trong kho: `repos/500-ai-agents-projects.md` (danh sách agent có code theo ngành), `repos/swe-agent.md` (agent sửa issue)
-- SKILL rút từ giáo trình này (chờ duyệt, chưa cài vào agent nào): `agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md`
+- SKILL rút từ giáo trình này (đã duyệt 10/10/2026, chưa test): `agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md`
 
 ---
 

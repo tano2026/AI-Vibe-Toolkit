@@ -46,7 +46,7 @@ lệnh thật. Agent này chỉ soạn plan + script + rủi ro, Antigravity là
 | `dev-automation-discipline` (mới viết) | no-fabrication (đặc biệt Hermes), luật debug 6 bước, credential, script idempotency |
 | `deploy-review-gate` (mới viết) | dual independent review cho thay đổi hạ tầng rủi ro cao, trước khi Antigravity thực thi |
 | `production-signal-feedback-loop` (mới viết) | vòng lặp khép kín ADLC — tín hiệu vận hành tự tạo intent mới qua Jev cascade, không chờ Nobitano tự phát hiện |
-| `agent-design-playbook` (mới viết 10/10/2026, **chờ duyệt**, chưa test) | review thiết kế agent mới trước khi code: cần agent không, chọn mẫu (tool use/RAG/planning/multi-agent), tool, context + memory, rào an toàn, production, local/hybrid, audit trail. Rút từ giáo trình AI Agents for Beginners (MIT), kèm danh sách chỗ tài liệu gốc còn lệch |
+| `agent-design-playbook` (mới viết 10/10/2026, **đã duyệt 10/10/2026**, chưa test) | review thiết kế agent mới trước khi code: cần agent không, chọn mẫu (tool use/RAG/planning/multi-agent), tool, context + memory, rào an toàn, production, local/hybrid, audit trail. Rút từ giáo trình AI Agents for Beginners (MIT), kèm danh sách chỗ tài liệu gốc còn lệch |
 
 **Tay:**
 | Tool | Vai trò |
