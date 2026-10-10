@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 256 cái
+## Repos — 257 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -87,6 +87,7 @@
 | agent-skills — 24 Engineering Skills Của Senior Engineer Thành AI Agent | Bộ 24 skills mã hóa workflow, quality gates, và best practices mà senior   engineers dùng khi build software — packaged để AI agents follow nhất quán   qua mọi phase development. Vấn đề: AI coding agent thường skip steps | `/repos/agent-skills.md` | Không |  |
 | agents (wshobson) | Một marketplace plugin tác nhân đa nền tảng, cung cấp các khối xây dựng   workflow AI agent sẵn sàng cho sản xuất. | `/repos/agents-wshobson.md` | Không |  |
 | AgentTube / youtube-automation-agent (darkzOGx) — GitHub Repo | Repo mã nguồn mở (MIT, 2.5k sao, Node.js) tự vận hành 1 kênh YouTube từ A-Z: research chủ đề → viết script → tạo giọng đọc + hình ảnh → dựng video thật (MP4) → SEO → chờ duyệt → đăng → đọc analytics → tự học cải thiện vò… | `/repos/agenttube.md` | Có |  |
+| AI Agents for Beginners — GitHub Repo | Giáo trình miễn phí 18 bài của Microsoft dạy build AI agent từ con số 0: mỗi bài có phần đọc, ví dụ code Python (Jupyter Notebook), phần lớn có video. License MIT. Bản hiện tại dùng **Microsoft Agent Framework + Microsoft Foundry** (không còn là bản Semantic Kernel/AutoGen như nhiều bài tóm tắt cũ trên mạng). **Cảnh bá… | `/repos/ai-agents-for-beginners.md` | Có |  |
 | AI Berkshire — GitHub Repo | Framework đầu tư giá trị dựa trên Claude Code — tổng hợp phương pháp của 4 nhà đầu tư huyền thoại (Buffett, Munger, Duan Yongping, Li Lu) thành agent chạy phân tích cổ phiếu. Thực chiến: +69% năm 2024, +66% năm 2025 YTD. | `/repos/ai-berkshire.md` | Không |  |
 | AI Hedge Fund — GitHub Repo | Proof-of-concept 1 "quỹ đầu tư ảo" chạy bằng nhiều AI agent, mỗi agent mô phỏng phong cách đầu tư của 1 nhà đầu tư nổi tiếng (Warren Buffett, Cathie Wood, Michael Burry...) rồi tổng hợp lại thành quyết định giao dịch. 61… | `/repos/ai-hedge-fund.md` | Không |  |
 | AI Marketing Claude — Marketing Ops Toolkit (rediumvex/theromanknox) — GitHub Repo | Bộ marketing ops đầy đủ nhất trong 4 repo public của tác giả — 12 skill, 5 subagent chuyên biệt, script Python, chạy qua 1 lệnh gốc `/market` với nhiều subcommand (audit, CRO, SEO, copy, email, ads, funnel, launch, propo… | `/repos/ai-marketing-claude.md` | Không |  |
