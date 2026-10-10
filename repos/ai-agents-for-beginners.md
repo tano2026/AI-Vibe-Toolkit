@@ -26,7 +26,9 @@ Mỗi bài tự đứng được ("start wherever you like" theo README), không
 
 Lưu ý: có bài tóm tắt cũ ghi ~38,8k sao và 10 bài (dùng Semantic Kernel + AutoGen + GitHub Models free). Đó là ảnh chụp cũ, **không dùng được nữa**.
 
-Trạng thái 18 bài (đọc từ bảng README): bài 1–13 đều có video; **bài 14–18 chưa có link video** (README không ghi "coming soon", chỉ để trống ô). Chưa mở từng bài để xem nội dung đã đầy đủ chưa — trừ bài 14 đã đọc.
+Trạng thái 18 bài (đọc từ bảng README): bài 1–13 đều có video; **bài 14–18 chưa có link video** (README không ghi "coming soon", chỉ để trống ô). 📖 Đã đọc README gốc của cả 18 bài + bài setup (2026-10-10, tải từ nhánh `main`): nội dung các bài đều có thật, không bài nào trống. Riêng bài 18 còn để link video placeholder, và "Securing AI Agents" thực chất chỉ nói về biên nhận ký số cho audit (hẹp hơn tên gọi). Bản rút ý thành SKILL: `agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md`.
+
+Tên thư mục thật của từng bài (✅ khớp file đã tải): `00-course-setup`, `01-intro-to-ai-agents`, `02-explore-agentic-frameworks`, `03-agentic-design-patterns`, `04-tool-use`, `05-agentic-rag`, `06-building-trustworthy-agents`, `07-planning-design`, `08-multi-agent`, `09-metacognition`, `10-ai-agents-production`, `11-agentic-protocols`, `12-context-engineering`, `13-agent-memory`, `14-microsoft-agent-framework`, `15-browser-use`, `16-deploying-scalable-agents`, `17-creating-local-ai-agents`, `18-securing-ai-agents`.
 
 | # | Bài |
 |---|---|
@@ -110,7 +112,8 @@ Mẫu code gốc của bài 14 (📖 trích từ bài): tạo agent bằng
 
 ## Lưu ý / Lỗi thường gặp
 - **Tài liệu cũ trên mạng lệch bản mới:** bài viết cũ nói 10 bài, Semantic Kernel/AutoGen, GitHub Models free. Bản hiện tại là 18 bài, Microsoft Agent Framework + Foundry Agent Service V2.
-- **Bài 14–18 chưa có video** → tự đọc nhiều hơn. Chưa kiểm chất lượng nội dung các bài này.
+- **Bài 14–18 chưa có video** → tự đọc nhiều hơn. Nội dung đã có đủ (đã đọc), nhưng chưa chạy notebook nào để kiểm code.
+- **Code trong README lệch nhau giữa các bài:** cùng khoá mà có 3 kiểu tạo agent (`as_agent`, `create_agent`, `AIProjectClient.agents.create_agent` kiểu cũ), bài 4 có dòng code bị dính, bài 7 gọi biến `client` chưa khai báo, bài 16 cứng `0.8` thay vì dùng `threshold`. Chi tiết trong `agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md`. Đừng chép thẳng vào dự án thật.
 - **Tên package có thể đổi:** bài 14 không in đủ dòng import cho vài đoạn code (nguồn của `AzureOpenAIChatClient`, `OpenAIChatClient` không rõ), nên nếu chép thì phải đối chiếu `requirements.txt` của repo.
 - **macOS lỗi `CERTIFICATE_VERIFY_FAILED`:** xem mục bảo mật ở trên.
 - **Tải nặng nếu clone full** vì có ~54 thư mục bản dịch → luôn dùng sparse clone như ở phần Setup.
@@ -126,6 +129,7 @@ Mẫu code gốc của bài 14 (📖 trích từ bài): tạo agent bằng
 - Bài setup: https://github.com/microsoft/ai-agents-for-beginners/blob/main/00-course-setup/README.md
 - Khoá nền trước đó của Microsoft: Generative AI for Beginners (21 bài)
 - Entry liên quan trong kho: `repos/500-ai-agents-projects.md` (danh sách agent có code theo ngành), `repos/swe-agent.md` (agent sửa issue)
+- SKILL rút từ giáo trình này (chờ duyệt, chưa cài vào agent nào): `agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md`
 
 ---
 
@@ -160,7 +164,7 @@ def sparse_clone(dest: str, folders: list[str]):
 
 # sparse_clone("/opt/ai-agents-course", ["00-course-setup", "04-tool-use", "05-agentic-rag"])
 ```
-> Tên thư mục bài học (ví dụ `04-tool-use`) mới chỉ suy ra từ mẫu `NN-lesson-name`; **chưa kiểm** tên thật, hãy mở bảng README để lấy đúng đường dẫn trước khi `set`.
+> Tên thư mục bài học đã đối chiếu với file tải về thật (xem danh sách ở mục Số liệu), ví dụ `04-tool-use`, `05-agentic-rag`. Lệnh `sparse_clone` ở trên vẫn **chưa chạy**.
 
 ### OpenClaw
 ```bash
