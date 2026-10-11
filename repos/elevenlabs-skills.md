@@ -52,6 +52,7 @@ Cảnh báo của chính README: dùng `@elevenlabs/elevenlabs-js`, **đừng** 
 ## Lưu ý / Lỗi thường gặp
 - Mọi skill đòi API key. Không có key thì cài xong cũng không chạy được gì.
 - Chạy bộ `evals/` của repo cần thêm Cursor Agent CLI và đăng nhập Cursor. Không cần cho việc dùng skill bình thường.
+- ✅ Thử 11/10/2026 qua connector ElevenLabs: tìm giọng tiếng Việt được (15 giọng, ví dụ Văn Thức cho video ngắn), ước tính một đoạn ~25 giây tốn **212 credit (~2 cent)**. Nhưng khi tạo thật thì bị chặn: *"Unusual activity has been detected… Free Tier access has been disabled… can be triggered by using a proxy or VPN"*. Môi trường chạy của tao đi qua proxy nên gói miễn phí bị khoá, **cần gói trả tiền**. Chưa tạo được giọng nào nên vẫn chưa nghe được chất lượng tiếng Việt.
 - Chất lượng giọng tiếng Việt ❓ chưa nghe thử, phải test bằng một đoạn script thật trước khi chọn voice.
 - Tiêu tiền theo ký tự: nên đặt giới hạn dùng trong dashboard trước khi cho agent chạy hàng loạt.
 

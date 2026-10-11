@@ -70,6 +70,9 @@ ffmpeg -y -i video.mp4 -i voice.mp3 -map 0:v -map 1:a -c:v copy -c:a aac -shorte
 - Cắt crop giữa có thể mất chữ ở mép. Video có chữ phải kiểm bằng mắt.
 - GitHub PR bị bỏ qua, muốn báo lỗi hay vá phải đi qua mailing list.
 
+## Thử nghiệm ghép chuỗi (11/10/2026)
+Định chạy trọn chuỗi script → giọng (ElevenLabs) → phụ đề (Whisper) → ghép/crop (ffmpeg). **Chỉ khâu ffmpeg chạy được.** ElevenLabs bị chặn gói miễn phí, Whisper không tải được model trong sandbox. Chuỗi trọn vẹn vẫn ❓ chưa chạy, cần làm trên máy có mạng thoáng và gói ElevenLabs trả tiền.
+
 ## Đánh giá cá nhân
 **9/10 là hạ tầng, không phải tính năng.** Điểm mạnh: ổn định, miễn phí, mọi thứ trong dựng video đều dựa vào nó, agent gọi qua subprocess rất dễ. Điểm yếu: cú pháp khó nhớ, thông báo lỗi khó đọc, license cần chú ý khi đóng gói bán. Điểm này tao chấm theo độ phổ biến và 3 lệnh đã chạy thật, không phải theo kiểm thử toàn diện.
 

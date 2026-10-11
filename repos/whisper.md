@@ -67,6 +67,7 @@ ffmpeg -y -i video.mp4 -vn -ac 1 -ar 16000 audio.wav
 - CPU-only chạy rất chậm với model lớn. Máy yếu thì dùng `small` hoặc `base`, chấp nhận sai nhiều hơn.
 - ❓ Kinh nghiệm chung (chưa tự kiểm trong repo này): Whisper đôi khi "bịa" chữ ở đoạn im lặng hoặc nhạc nền. Luôn đọc soát lại transcript trước khi đăng.
 - ❓ Chưa kiểm chất lượng tên riêng, tên hãng bay, mã sân bay tiếng Việt. Với nội dung hàng không cần soát kỹ.
+- ✅ Thử cài trong sandbox 11/10/2026: `pip download openai-whisper` tải được gói, nhưng sandbox **không tải được trọng số model** (`openaipublic.azureedge.net` và `huggingface.co` đều không kết nối được, GitHub releases trả 403). Nên chưa chạy được whisper ở đây. Máy của mày hoặc VPS có mạng thoáng thì chạy được, cần thử ở đó.
 - ❓ Chưa thử xuất file phụ đề `.srt` hay mốc thời gian từng từ. README có lệnh CLI nhưng tao chưa đọc hết tuỳ chọn.
 
 ## Đánh giá cá nhân
