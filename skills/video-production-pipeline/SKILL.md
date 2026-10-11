@@ -1,10 +1,12 @@
 ---
 name: video-production-pipeline
 category: media
-description: Automated video production workflow for 'Giải Mã Số Phận' project, covering AI script, voice, image, subtitles, rendering, and multi-channel publishing.
+description: "[SUPERSEDED 11/10/2026 - khong dung cho noi dung/brand; chi tham khao phan su co ky thuat] Automated video production workflow for 'Giải Mã Số Phận' project, covering AI script, voice, image, subtitles, rendering, and multi-channel publishing."
 ---
 
 # 🎥 QUY TRÌNH SẢN XUẤT VIDEO TỰ ĐỘNG DỰ ÁN \"GIẢI MÃ SỐ PHẬN\"
+
+> **SUPERSEDED (11/10/2026).** Mục 0 (định vị, công thức kịch bản, trụ cột, phễu doanh thu) mô tả kênh cũ dùng tử vi / nhân tướng và **không còn đúng**. Hướng hiện hành: dự án GMSP, skill `gmsp-content` (không tử vi, nỗi đau trước rồi tấm gương xưa, tập 10-12 phút). **Không dùng mục 0 làm căn cứ viết nội dung hay đặt tên kênh.** Các mục kỹ thuật (II-III: FFmpeg trên Windows, ASS, Telegram 413, v.v.) vẫn có thể tham khảo, nhưng pipeline hiện hành là `studio_kit/tools/episode.py`.
 
 Skill này tổng hợp các phương pháp, khắc phục sự cố và quy trình cụ thể cho việc sản xuất video tự động trong dự án \"Giải Mã Số Phận\", từ kịch bản AI đến xuất bản.
 
