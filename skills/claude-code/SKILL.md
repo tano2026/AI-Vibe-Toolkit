@@ -47,6 +47,20 @@ terminal(command="claude -p 'Add error handling to all API calls in src/' --allo
 
 **Print mode skips ALL interactive dialogs** — no workspace trust prompt, no permission confirmations. This makes it ideal for automation.
 
+#### Unattended runs (VPS, cron, batch loops) — added 2026-10-11 from the official best-practices doc
+
+When nobody is watching, pin the permissions explicitly instead of relying on defaults. Pre-approve only what the job needs with `--allowedTools`, and add `--permission-mode dontAsk` so anything that would have needed approval is denied rather than left waiting:
+
+```
+terminal(command="claude -p 'Review src/auth for token-refresh bugs. Report findings only.' --allowedTools 'Read,Grep,Glob' --permission-mode dontAsk --max-turns 8 --output-format json", workdir="/path/to/project", timeout=300)
+```
+
+- For a read-only job, give read tools only (as above). Give `Edit` or `Bash(git commit *)` only to jobs that must write.
+- Try the prompt on 2-3 items before looping over a long list, then fan out (one `claude -p` per item).
+- `--dangerously-skip-permissions` / `bypassPermissions`: sandboxed environments only.
+- Do not rely on Claude saying "done". Give it a check it can run (tests, build, screenshot) and have it report the output as evidence. In an interactive session a `/goal` condition keeps it working until the check passes; a `Stop` hook can run a script as a gate (see the Hooks section: the example there only logs). Unverified here: the exact way a `Stop` hook blocks the stop; read the hooks docs before relying on it.
+- **`--bare` skips hooks** (see "Bare Mode" below), so a `Stop`-hook gate will not run under `--bare`. Pick one: fast startup or the gate.
+
 ### Mode 2: Interactive PTY via tmux — Multi-Turn Sessions
 
 Interactive mode gives you a full conversational REPL where you can send follow-up prompts, use slash commands, and watch Claude work in real time. **Requires tmux orchestration.**

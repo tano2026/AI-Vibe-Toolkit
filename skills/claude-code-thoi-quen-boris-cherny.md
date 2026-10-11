@@ -103,14 +103,14 @@ Phụ: bật dictation trên macOS (bấm 2 lần phím dictation) để nói th
 ## Áp vào hệ thống của mày (đo thật 2026-10-11)
 | Thứ đã quét | Kết quả |
 |---|---|
-| `skills/claude-code/SKILL.md` (bản Hermes dùng để gọi Claude Code) | Đã có `-p`, `--max-turns`, `--bare`, `--continue`. **Chưa thấy** `dontAsk`, `--worktree`. ✅ chạy grep |
+| `skills/claude-code/SKILL.md` (bản Hermes dùng để gọi Claude Code) | Đã có `-p`, `--max-turns`, `--bare`, `--continue`, `--worktree`, `/batch`, `/rewind`, `/btw`, và mục hooks (Stop hook ở đó chỉ ghi log). `dontAsk` chỉ nằm trong bảng flag, không có ví dụ chạy không người. **Chưa có `/goal`.** Theo chính file đó, `--bare` bỏ qua hooks nên Stop hook kiểu cổng kiểm sẽ không chạy nếu dùng `--bare`. ✅ grep lại 11/10/2026 (lần đầu tao grep sai nên ghi nhầm là thiếu `dontAsk` và `--worktree`, đã sửa) |
 | Toàn thư mục `agents/` | **Không có chỗ nào** nhắc Stop hook, `/goal` hay worktree. ✅ chạy grep |
 | `configs/CLAUDE-md-vibe-coder.md` | 81 dòng. Có cả cụm "Anti-Slop UI" (~15 dòng font/shadow/icon) chỉ cần với project có giao diện. Theo docs, kiến thức chỉ cần đôi khi nên thành skill, không nằm trong file nạp mọi phiên. ✅ đọc file |
 | Chuỗi ADLC trong `OPERATING-MODEL.md` | Có bước "review record" nhưng là văn bản, không phải cổng chạy tự động. Stop hook là đúng chỗ để biến nó thành cổng thật (❓ gợi ý của tao, chưa làm thử) |
 | Claude Code local Windows | `OPERATING-MODEL.md` (22/09) ghi test thật đang treo vì lỗi proxy chưa rõ. Không có thêm dữ liệu từ đó nên tao không đoán. Bước đầu hợp lý là `claude doctor` rồi báo kết quả |
 
 Việc nên làm theo thứ tự lợi nhất:
-1. Thêm `--permission-mode dontAsk` + `--allowedTools` vào skill `claude-code` của Hermes để chạy không người không bị treo chờ duyệt. Hiện chưa có.
+1. ✅ **Đã làm 11/10/2026:** thêm mục "Unattended runs" vào skill `claude-code` của Hermes (mẫu `--allowedTools` + `--permission-mode dontAsk`, cảnh báo `--bare` bỏ qua hooks, nhắc `/goal`). Chưa chạy thử trên VPS.
 2. Tách phần Anti-Slop UI khỏi `CLAUDE-md-vibe-coder.md` thành skill riêng, giữ CLAUDE.md gốc ngắn.
 3. Đưa 1 Stop hook chạy test vào template project cho Dev agent (Claude chỉ được dừng khi test xanh).
 
