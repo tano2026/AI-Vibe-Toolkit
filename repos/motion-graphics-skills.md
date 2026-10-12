@@ -1,7 +1,7 @@
 # motion-graphics-skills — GitHub Repo
 
 ## TL;DR
-13 skill cho Claude Code của Charlie Hills (`charlie947`) để dựng motion graphics "launch-grade" hoàn toàn bằng code, không After Effects, không công cụ sinh video: video giới thiệu sản phẩm, biểu đồ chuyển động, explainer, loop GIF, xuất Reels/TikTok. License MIT. **Cảnh báo lớn nhất:** repo rất nhỏ (9 sao) và README yêu cầu chạy trên **Opus 5.5**, nên tao chưa chạy thử skill nào, mọi đánh giá bên dưới chỉ là đọc README.
+15 skill cho Claude Code của Charlie Hills (`charlie947`) để dựng motion graphics "launch-grade" hoàn toàn bằng code, không After Effects, không công cụ sinh video: video giới thiệu sản phẩm, biểu đồ chuyển động, explainer, loop GIF, xuất Reels/TikTok. License MIT. **Cảnh báo lớn nhất:** repo rất nhỏ (9 sao) và README yêu cầu chạy trên **Opus 5.5**, nên tao chưa chạy thử skill nào, mọi đánh giá bên dưới chỉ là đọc README.
 
 ## Repo này dùng để làm gì
 Cho Claude biết quy trình dựng video chuyển động theo đúng thương hiệu:
@@ -18,13 +18,15 @@ Hợp với việc làm video ngắn cho social, đặc biệt khi đã có Hype
 | Fork | 1 | 📖 cùng nguồn |
 | License | MIT | 📖 trang repo + README |
 | Số commit | 22 | 📖 trang repo |
-| Số skill | 13 | 📖 README |
-| Commit gần nhất | **chưa đo** | ❓ |
+| Số skill | 15 | ✅ `npx skills add <clone cục bộ> --list` + README (2026-10-12). Bản đọc 10/10 ra 13, thêm `motion-prompt-writer` và `reference-to-motion` |
+| Commit gần nhất | 2026-10-11 | ✅ `git log` trên bản clone nông (2026-10-12) |
+
+Sao/fork **chưa đo lại ngày 12/10** (số 9/1 là của 10/10).
 
 Lưu ý: infographic mày gửi ghi **112 sao**, còn trang repo tao đọc ra **9 sao**. Hai con số lệch nhiều. Tao tin số đọc từ trang repo hơn, nhưng chưa đối chiếu bằng API. Có thể infographic chụp lúc khác hoặc lẫn repo khác, kiểm lại trước khi trích.
 
-13 skill (📖 README):
-`brand-intake`, `motion-brief-writer`, `launch-video`, `apple-launch-film`, `vox-explainer`, `animated-chart`, `milestone-reveal`, `motion-effects`, `title-sequence-3d`, `model-showdown`, `newsletter-promo`, `loop-cover`, `reel-export`.
+15 skill (✅ CLI + README, cập nhật 2026-10-12):
+`brand-intake`, `motion-brief-writer`, `motion-prompt-writer`, `reference-to-motion`, `launch-video`, `apple-launch-film`, `vox-explainer`, `animated-chart`, `milestone-reveal`, `motion-effects`, `title-sequence-3d`, `model-showdown`, `newsletter-promo`, `loop-cover`, `reel-export`.
 
 ## Setup
 📖 Theo README, **chưa chạy**:

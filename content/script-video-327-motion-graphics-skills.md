@@ -1,4 +1,4 @@
-# Script: motion-graphics-skills — 13 skill dựng motion graphics bằng code
+# Script: motion-graphics-skills — 15 skill dựng motion graphics bằng code
 
 ---
 
@@ -6,7 +6,7 @@
 
 | | |
 |--|--|
-| **Chủ đề** | Repo `charlie947/motion-graphics-skills`: 13 skill Claude Code dựng motion bằng code |
+| **Chủ đề** | Repo `charlie947/motion-graphics-skills`: 15 skill Claude Code dựng motion bằng code |
 | **Platform** | TikTok / YouTube Shorts |
 | **Thời lượng** | ~50 giây |
 | **Dựa trên** | `/repos/motion-graphics-skills.md` |
@@ -18,9 +18,9 @@
 
 ### [0-3s] HOOK
 ```
-"Mười ba skill dựng motion graphics. Không After Effects. Chỉ có code."
+"Mười lăm skill dựng motion graphics. Không After Effects. Chỉ có code."
 ```
-**Visual:** Danh sách 13 skill chạy nhanh.
+**Visual:** Danh sách 15 skill chạy nhanh.
 
 ---
 
@@ -49,15 +49,15 @@
 ---
 
 ## Ghi chú quay (OBS)
-- Cảnh 1: Danh sách 13 skill
+- Cảnh 1: Danh sách 15 skill
 - Cảnh 2: README và hai file brand
 - Cảnh 3: Số sao, yêu cầu model, bảng "thiếu X thì ra Y"
 
 ## Caption/Sub note (CapCut)
-- Highlight: "13 SKILL", "KHÔNG AFTER EFFECTS", "OPUS 5.5", "9 SAO"
+- Highlight: "15 SKILL", "KHÔNG AFTER EFFECTS", "OPUS 5.5", "9 SAO"
 
 ## Thumbnail idea (Canva)
-Chữ lớn: "MOTION GRAPHICS BẰNG CODE". Nhỏ: "13 skill, 1 cái bẫy". Nền tối.
+Chữ lớn: "MOTION GRAPHICS BẰNG CODE". Nhỏ: "15 skill, 1 cái bẫy". Nền tối.
 
 ## CTA cuối video
 "Follow để xem thêm skill cho người làm video."
