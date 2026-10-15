@@ -11,6 +11,7 @@
 
 
 ## 🔎 Trước khi làm bất kỳ dự án nào: tra danh mục
+> Máy tra theo `capability`: đọc `catalog/AGENT-ROUTER.md` (57 mục đã đọc entry gốc, 398 nhãn nháp, 460 skill nhập hàng loạt chưa gắn nhãn).
 `catalog/PLAYBOOK-DUNG-KHO.md` (cách tra + quy tắc chống sưu tầm không dùng) → `catalog/CATALOG.csv` / `catalog/catalog.json` (915 mục, lọc theo lĩnh vực, loại, trạng thái kiểm chứng) → `catalog/BY-DOMAIN.md` (bản đọc nhanh). Sau dự án ghi `catalog/USAGE-LOG.md`; thiếu gì ghi `catalog/GAP-LOG.md`. Sinh lại danh mục: `python3 tools/build_catalog.py`. `skills/MASTER-INDEX` là bản cũ (06/2026), không còn đúng.
 
 ---

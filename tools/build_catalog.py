@@ -222,6 +222,17 @@ def main():
         })
     for r in rows:
         r["uu_tien_agency"] = priority_of(r["domain"])
+    # Nhãn tra cứu đã tuyển chọn (catalog/curation.json). Không có thì để trống / "chua-gan-nhan".
+    cur = {}
+    if os.path.exists("catalog/curation.json"):
+        cur = json.load(open("catalog/curation.json", encoding="utf-8")).get("items", {})
+    for r in rows:
+        c = cur.get(r["id"])
+        for k in ("capability", "vessel_fit", "needs"):
+            r[k] = ",".join(c[k]) if c else ""
+        for k in ("use_when", "skip_if", "adoption", "dup_group", "confidence"):
+            r[k] = c.get(k, "") if c else ""
+        r["curation_status"] = c["curation_status"] if c else "chua-gan-nhan"
     os.makedirs("catalog", exist_ok=True)
     cols = list(rows[0].keys())
     with open("catalog/CATALOG.csv", "w", newline="", encoding="utf-8-sig") as fh:
