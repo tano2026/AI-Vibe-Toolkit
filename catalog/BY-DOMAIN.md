@@ -4,7 +4,7 @@
 > Domain gán bằng từ khoá nên có thể sai — dùng để lọc. Đầy đủ: `catalog/CATALOG.csv`.
 > Mục ở đây = điểm ≥ 7 hoặc đã chạy thật. Chưa có điểm ≠ dở; chỉ là chưa ai chấm.
 
-## agent-llm (334 mục, 127 nổi bật)
+## agent-llm (335 mục, 127 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -171,47 +171,7 @@
 | claude-motion (whaleyxbt) | repo |  | một phần | license,dữ liệu/ToS | `repos/claude-motion.md` |
 | claude-remotion-skill (haidrrrry) | repo |  | một phần | license,dữ liệu/ToS | `repos/claude-remotion-skill.md` |
 
-## research (105 mục, 35 nổi bật)
-
-| Tên | Loại | Điểm | Xác minh | Rủi ro | File |
-|---|---|---|---|---|---|
-| yt-dlp — Download & Extract Info Mọi Platform | repo | 10.0 | đọc nguồn |  | `repos/yt-dlp.md` |
-| Dify | repo | 9.0 | đọc nguồn |  | `repos/dify.md` |
-| Firecrawl | repo | 9.0 | đọc nguồn | license,tốn tiền | `repos/firecrawl.md` |
-| llamaindex | repo | 9.0 | đọc nguồn |  | `repos/llama_index.md` |
-| PaddleOCR | repo | 9.0 | đọc nguồn |  | `repos/paddleocr.md` |
-| Swarms (kyegomez/swarms) | repo | 9.0 | đọc nguồn |  | `repos/swarms.md` |
-| CEO Stress-Test & Roadmap — Từ báo cáo tới hành độ | skill-agent | 9.0 | chưa chạy | bảo mật | `agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap/SKILL.md` |
-| knowledge-work-plugins — bộ plugin chính thức của  | repo | 8.5 | đọc nguồn |  | `repos/knowledge-work-plugins.md` |
-| awesome-claude-skills (ComposioHQ) | repo | 8.0 | đọc nguồn | license | `repos/awesome-claude-skills.md` |
-| Google TimesFM | repo | 8.0 | đọc nguồn |  | `repos/google-timesfm.md` |
-| LightRAG | repo | 8.0 | đọc nguồn |  | `repos/lightrag.md` |
-| MediaCrawler | repo | 8.0 | đọc nguồn | dữ liệu/ToS | `repos/mediacrawler.md` |
-| ResearchTikPy — TikTok Research API Wrapper | repo | 8.0 | đọc nguồn |  | `repos/researchtikpy.md` |
-| Agent Self-Improvement Loops — 5 Tầng Vòng Lặp | skill-import | 8.0 | đọc nguồn |  | `skills/agent-self-improvement-loops/SKILL.md` |
-| awesome-claude-skills (ComposioHQ) | skill-import | 8.0 | đọc nguồn | license | `skills/awesome-claude-skills/SKILL.md` |
-| Deep Research (samber/cc-skills) | skill-import | 8.0 | đọc nguồn |  | `skills/deep-research-samber-cc/SKILL.md` |
-| Fact-Checker | skill-import | 8.0 | đọc nguồn |  | `skills/fact-checker/SKILL.md` |
-| Deploy Review Gate | skill-agent | 8.0 | đọc nguồn |  | `agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md` |
-| Research Independent Review Gate — Dual review cho | skill-agent | 8.0 | đọc nguồn |  | `agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md` |
-| Primary Research Design — Thiết kế khảo sát & phỏn | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/primary-research-design/SKILL.md` |
-| Social Listening Research — Nghiên cứu thị trường  | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/social-listening-research/SKILL.md` |
-| awesome-claude-code-toolkit (rohitg00) | repo | 7.5 | đọc nguồn |  | `repos/awesome-claude-code-toolkit.md` |
-| Maxun | repo | 7.5 | đọc nguồn |  | `repos/maxun.md` |
-| TikTok for Developers API — Upload, Analytics, Res | mcp | 7.0 | đọc nguồn |  | `mcps/tiktok-api.md` |
-| agency-agents | repo | 7.0 | chưa chạy | tốn tiền | `repos/agency-agents.md` |
-| AgentTube / youtube-automation-agent (darkzOGx) | repo | 7.0 | đọc nguồn | tốn tiền | `repos/agenttube.md` |
-| AI Hedge Fund | repo | 7.0 | đọc nguồn |  | `repos/ai-hedge-fund.md` |
-| Awesome LLM Apps | repo | 7.0 | đọc nguồn | tốn tiền | `repos/awesome-llm-apps.md` |
-| awesome-mcp-servers (punkpeye) | repo | 7.0 | đọc nguồn |  | `repos/awesome-mcp-servers.md` |
-| gpt-crawler | repo | 7.0 | đọc nguồn | tốn tiền | `repos/gpt-crawler.md` |
-| PixelRAG | repo | 7.0 | đọc nguồn |  | `repos/pixelrag.md` |
-| WeKnora | repo | 7.0 | đọc nguồn |  | `repos/weknora.md` |
-| DeepSeek Harness — Bộ tài liệu học & tra cứu | stack | 7.0 | đọc nguồn | dữ liệu/ToS | `stacks/deepseek-harness-bo-tai-lieu.md` |
-| Second Brain — Obsidian + Claude + Git — Combo Too | stack | 7.0 | đọc nguồn | tốn tiền | `stacks/second-brain-obsidian-claude.md` |
-| just-scrape (ScrapeGraphAI) — Skill CLI | skill-kho | 7.0 | đọc nguồn | tốn tiền | `skills/just-scrape.md` |
-
-## marketing (104 mục, 44 nổi bật)
+## marketing (105 mục, 44 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -255,6 +215,46 @@
 | AgentTube / youtube-automation-agent (darkzOGx) | repo | 7.0 | đọc nguồn | tốn tiền | `repos/agenttube.md` |
 | cinetic | repo | 7.0 | một phần | license | `repos/cinetic.md` |
 | Penpot | repo | 7.0 | đọc nguồn | tốn tiền | `repos/penpot.md` |
+
+## research (105 mục, 35 nổi bật)
+
+| Tên | Loại | Điểm | Xác minh | Rủi ro | File |
+|---|---|---|---|---|---|
+| yt-dlp — Download & Extract Info Mọi Platform | repo | 10.0 | đọc nguồn |  | `repos/yt-dlp.md` |
+| Dify | repo | 9.0 | đọc nguồn |  | `repos/dify.md` |
+| Firecrawl | repo | 9.0 | đọc nguồn | license,tốn tiền | `repos/firecrawl.md` |
+| llamaindex | repo | 9.0 | đọc nguồn |  | `repos/llama_index.md` |
+| PaddleOCR | repo | 9.0 | đọc nguồn |  | `repos/paddleocr.md` |
+| Swarms (kyegomez/swarms) | repo | 9.0 | đọc nguồn |  | `repos/swarms.md` |
+| CEO Stress-Test & Roadmap — Từ báo cáo tới hành độ | skill-agent | 9.0 | chưa chạy | bảo mật | `agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap/SKILL.md` |
+| knowledge-work-plugins — bộ plugin chính thức của  | repo | 8.5 | đọc nguồn |  | `repos/knowledge-work-plugins.md` |
+| awesome-claude-skills (ComposioHQ) | repo | 8.0 | đọc nguồn | license | `repos/awesome-claude-skills.md` |
+| Google TimesFM | repo | 8.0 | đọc nguồn |  | `repos/google-timesfm.md` |
+| LightRAG | repo | 8.0 | đọc nguồn |  | `repos/lightrag.md` |
+| MediaCrawler | repo | 8.0 | đọc nguồn | dữ liệu/ToS | `repos/mediacrawler.md` |
+| ResearchTikPy — TikTok Research API Wrapper | repo | 8.0 | đọc nguồn |  | `repos/researchtikpy.md` |
+| Agent Self-Improvement Loops — 5 Tầng Vòng Lặp | skill-import | 8.0 | đọc nguồn |  | `skills/agent-self-improvement-loops/SKILL.md` |
+| awesome-claude-skills (ComposioHQ) | skill-import | 8.0 | đọc nguồn | license | `skills/awesome-claude-skills/SKILL.md` |
+| Deep Research (samber/cc-skills) | skill-import | 8.0 | đọc nguồn |  | `skills/deep-research-samber-cc/SKILL.md` |
+| Fact-Checker | skill-import | 8.0 | đọc nguồn |  | `skills/fact-checker/SKILL.md` |
+| Deploy Review Gate | skill-agent | 8.0 | đọc nguồn |  | `agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md` |
+| Research Independent Review Gate — Dual review cho | skill-agent | 8.0 | đọc nguồn |  | `agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md` |
+| Primary Research Design — Thiết kế khảo sát & phỏn | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/primary-research-design/SKILL.md` |
+| Social Listening Research — Nghiên cứu thị trường  | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/social-listening-research/SKILL.md` |
+| awesome-claude-code-toolkit (rohitg00) | repo | 7.5 | đọc nguồn |  | `repos/awesome-claude-code-toolkit.md` |
+| Maxun | repo | 7.5 | đọc nguồn |  | `repos/maxun.md` |
+| TikTok for Developers API — Upload, Analytics, Res | mcp | 7.0 | đọc nguồn |  | `mcps/tiktok-api.md` |
+| agency-agents | repo | 7.0 | chưa chạy | tốn tiền | `repos/agency-agents.md` |
+| AgentTube / youtube-automation-agent (darkzOGx) | repo | 7.0 | đọc nguồn | tốn tiền | `repos/agenttube.md` |
+| AI Hedge Fund | repo | 7.0 | đọc nguồn |  | `repos/ai-hedge-fund.md` |
+| Awesome LLM Apps | repo | 7.0 | đọc nguồn | tốn tiền | `repos/awesome-llm-apps.md` |
+| awesome-mcp-servers (punkpeye) | repo | 7.0 | đọc nguồn |  | `repos/awesome-mcp-servers.md` |
+| gpt-crawler | repo | 7.0 | đọc nguồn | tốn tiền | `repos/gpt-crawler.md` |
+| PixelRAG | repo | 7.0 | đọc nguồn |  | `repos/pixelrag.md` |
+| WeKnora | repo | 7.0 | đọc nguồn |  | `repos/weknora.md` |
+| DeepSeek Harness — Bộ tài liệu học & tra cứu | stack | 7.0 | đọc nguồn | dữ liệu/ToS | `stacks/deepseek-harness-bo-tai-lieu.md` |
+| Second Brain — Obsidian + Claude + Git — Combo Too | stack | 7.0 | đọc nguồn | tốn tiền | `stacks/second-brain-obsidian-claude.md` |
+| just-scrape (ScrapeGraphAI) — Skill CLI | skill-kho | 7.0 | đọc nguồn | tốn tiền | `skills/just-scrape.md` |
 
 ## design-ui (101 mục, 41 nổi bật)
 

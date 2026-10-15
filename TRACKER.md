@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 273 cái
+## Repos — 274 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -308,6 +308,7 @@
 | stitch-skills (google-labs-code) — GitHub Repo | Bộ skill chính thức của Google cho Stitch (tool AI vẽ UI của Google Labs) — gắn vào Claude Code/Cursor/Codex/Gemini CLI/Antigravity để agent tự sinh design, convert design sang React/React Native/shadcn, và lặp vòng feed… | `/repos/stitch-skills.md` | Có |  |
 | Strix — GitHub Repo | AI pentest agent mo nguon mo — tu dong tim va vai luong khac nhau de phat hien lo hong bao mat trong app cua may, roi de xuat fix. 27.8K stars, Apache 2.0. Tich hop CI/CD: tu dong scan moi pull request. | `/repos/strix.md` | Không |  |
 | Supabase — GitHub Repo | Firebase alternative mã nguồn mở — Postgres database + Auth + Storage + Realtime + Edge Functions trong một platform. 104K stars. Vibe coder dùng Supabase thay vì tự setup backend từ đầu. | `/repos/supabase.md` | Có |  |
+| super-board (EricTechPro) — GitHub Repo | Bộ skill cho **Claude Code** (MIT, v3.1.2, commit mới nhất 13/10/2026) biến GitHub Project thành "bảng kanban tự chạy": bạn thả thẻ vào cột `Ready`, các lane **Build → QA → Review** chạy trong worktree riêng, tạo PR nháp, và chỉ merge khi qua cổng kiểm tra. Hợp với việc **sửa/bảo trì code có test sẵn**; không phải công… | `/repos/super-board.md` | Có |  |
 | Supermemory — GitHub Repo | Engine bộ nhớ dài hạn cho AI agent, chạy được hoàn toàn local, **có plugin chính thức cho OpenClaw** (`supermemoryai/openclaw-supermemory`) và Claude Code — khớp thẳng vào stack đang dùng. Hermes (agent-core Python) dùng… | `/repos/supermemory.md` | Không |  |
 | Superpowers — Plugin Biến Claude Code Thành Senior Dev | 150k GitHub stars, trending 1. Cài vào Claude Code — AI sẽ suy nghĩ, lên kế   hoạch, test trước khi code, thay vì nhảy vào làm bừa. | `/repos/superpowers.md` | Có |  |
 | Supertonic — TTS local siêu nhanh, 31 ngôn ngữ, không cần GPU, không cần API | Stars: 5.3k Forks: 528 License: MIT (code) + OpenRAIL-M (model) Tác giả:   Supertone Inc. (Seoul, $39.4M raised) | `/repos/supertonic.md` | Không |  |

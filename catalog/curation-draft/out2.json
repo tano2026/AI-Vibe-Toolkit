@@ -1,0 +1,1087 @@
+[
+ {
+  "id": "mcps/awslabs-mcp",
+  "capability": [
+   "devops",
+   "backend"
+  ],
+  "use_when": "Dùng khi cần ra lệnh bằng ngôn ngữ tự nhiên để tạo/quản lý tài nguyên AWS (EC2, S3, Lambda, RDS, CloudFormation).",
+  "skip_if": "Bỏ qua nếu hạ tầng không chạy trên AWS (VPS thường).",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "mcps/comfyui-mcp",
+  "capability": [
+   "image-generation",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần điều khiển workflow ComfyUI để tạo ảnh/video AI ngay từ Claude Code.",
+  "skip_if": "Bỏ qua nếu chưa có ComfyUI chạy sẵn (mặc định http://127.0.0.1:8188).",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "gpu"
+  ],
+  "dup_group": "image-video-gen-mcp",
+  "confidence": "vua"
+ },
+ {
+  "id": "mcps/google-flow-mcp",
+  "capability": [
+   "image-generation",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần Claude gọi API chính thức Google tạo ảnh (Nano Banana) và video (Veo) ngay trong lúc chat.",
+  "skip_if": "Bỏ qua nếu không có API key Google AI; video Veo chỉ lưu 2 ngày và có watermark SynthID.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "hermes"
+  ],
+  "needs": [
+   "api-key",
+   "tra-phi"
+  ],
+  "dup_group": "image-video-gen-mcp",
+  "confidence": "cao"
+ },
+ {
+  "id": "mcps/markitdown-mcp",
+  "capability": [
+   "document-office"
+  ],
+  "use_when": "Dùng khi cần chuyển file (PDF, Office, v.v.) sang Markdown để agent đọc, chạy local qua MCP.",
+  "skip_if": "Bỏ qua nếu cần expose ra mạng: chỉ dành cho agent local tin cậy, mặc định bind localhost.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "mcps/notebooklm-mcp-2026",
+  "capability": [
+   "web-research",
+   "productivity"
+  ],
+  "use_when": "Dùng khi cần agent Python truy cập NotebookLM (4 tool cơ bản) mà không muốn cài Node.js.",
+  "skip_if": "Bỏ qua nếu không có Chrome/tài khoản Google: đăng nhập qua Chrome DevTools, phải đóng Chrome.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "claude-code"
+  ],
+  "needs": [
+   "browser"
+  ],
+  "dup_group": "notebooklm",
+  "confidence": "vua"
+ },
+ {
+  "id": "mcps/pollinations-mcp",
+  "capability": [
+   "image-generation",
+   "video-generation",
+   "voice-tts"
+  ],
+  "use_when": "Dùng khi cần tạo ảnh/video/audio (TTS, transcribe) miễn phí, không cần API key, qua MCP.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "openclaw"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "image-video-gen-mcp",
+  "confidence": "vua"
+ },
+ {
+  "id": "mcps/tikhub",
+  "capability": [
+   "scraping",
+   "web-research"
+  ],
+  "use_when": "Dùng khi cần lấy dữ liệu real-time từ TikTok, Douyin, Instagram, YouTube, X, Xiaohongshu... qua 1 REST API/MCP hosted.",
+  "skip_if": "Bỏ qua nếu không muốn trả phí theo request: credit free $0.05 chỉ đủ test.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "openclaw",
+   "claude-code"
+  ],
+  "needs": [
+   "api-key",
+   "tra-phi"
+  ],
+  "dup_group": "social-scrape-api",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/agency-agents-app",
+  "capability": [
+   "prompt-skill-library",
+   "productivity"
+  ],
+  "use_when": "Dùng khi cần đồng bộ kho 232 agent persona sang đúng định dạng/đường dẫn của từng coding tool (Claude Code, Cursor, Codex, Gemini CLI).",
+  "skip_if": "Bỏ qua nếu không dùng app desktop (macOS/Linux/Windows) hoặc coding tool nào trong danh sách.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/agenttube",
+  "capability": [
+   "video-generation",
+   "content-writing",
+   "agent-orchestration-memory"
+  ],
+  "use_when": "Dùng khi cần tự vận hành kênh YouTube end-to-end: research, script, giọng đọc, dựng MP4, SEO, duyệt, đăng, đọc analytics.",
+  "skip_if": "Bỏ qua nếu ngại repo gắn token memecoin; cần Node server, dashboard và key nhiều provider.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "antigravity"
+  ],
+  "needs": [
+   "vps",
+   "api-key"
+  ],
+  "dup_group": "auto-video-pipeline",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/ai-shorts-generator-pipeline",
+  "capability": [
+   "video-render",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần mẫu pipeline Claude Code + Playwright + FFmpeg dựng short MP4 6 cảnh từ URL tool/tin tức.",
+  "skip_if": "Bỏ qua nếu cần repo cài sẵn: đây là pattern kiến trúc, không phải repo cụ thể.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "browser"
+  ],
+  "dup_group": "promo-storyboard-pipeline",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/animasyon-stil-katalogu",
+  "capability": [
+   "reference",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần chọn nhanh 1 trong 20 phong cách animation (Kurzgesagt, Isometric, Bauhaus, Memphis...) và gọi bằng tên khi viết prompt.",
+  "skip_if": "Bỏ qua nếu cần tool tự tạo animation: đây chỉ là catalog, README tên style bằng tiếng Thổ Nhĩ Kỳ.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/awesome-claude-skills",
+  "capability": [
+   "prompt-skill-library",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần tra cứu skill SKILL.md cho một dịch vụ cụ thể (Slack, Jira, Linear, GitHub, Webflow...) rồi copy từng folder.",
+  "skip_if": "Bỏ qua nếu cần chất lượng đồng đều: không ghi license rõ, từng skill phải tự đọc và lọc.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "deepseek-harness"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "claude-skill-collections",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/barty-motion-graphics",
+  "capability": [
+   "video-render",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần thêm B-roll chuyển động bám lời nói, tách người/sản phẩm khỏi nền (SAM 2), làm explainer hay SFX cho video có sẵn.",
+  "skip_if": "Bỏ qua nếu máy yếu: object-separation nặng, và preview chỉ để duyệt, bản cuối phải ghép tay.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "openclaw"
+  ],
+  "needs": [
+   "claude-code-only",
+   "gpu"
+  ],
+  "dup_group": "code-video-motion",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/bumblebee",
+  "capability": [
+   "security-compliance"
+  ],
+  "use_when": "Dùng khi cần quét MCP config, extension, package trên máy dev để phát hiện malware trước khi chạy.",
+  "skip_if": "Bỏ qua nếu dùng Windows (chưa hỗ trợ) hoặc chưa có Go 1.25+; chỉ match known threats.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "antigravity"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "security-scanner",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/claude-code-best-practice",
+  "capability": [
+   "reference",
+   "prompt-skill-library"
+  ],
+  "use_when": "Dùng khi cần tra cheat sheet Claude Code: subagent, command, skill, hook, MCP, plugin, settings, memory kèm ví dụ thật.",
+  "skip_if": "Bỏ qua nếu không dùng Claude Code; code mẫu cần kiểm tra lại theo version mới.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/claude-motion-design",
+  "capability": [
+   "video-render",
+   "design-ui"
+  ],
+  "use_when": "Dùng khi cần dựng video motion 24-45 giây bằng HTML + Playwright + ffmpeg, cắt cảnh khớp nhịp nhạc, không dùng Remotion.",
+  "skip_if": "Bỏ qua nếu cần repo đã kiểm chứng: 0 sao, cài tay, phải có Playwright và ffmpeg.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "browser"
+  ],
+  "dup_group": "code-video-motion",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/codex-security",
+  "capability": [
+   "security-compliance"
+  ],
+  "use_when": "Dùng khi cần quét, xác minh và vá lỗ hổng trong code, dựng threat model riêng cho từng project, kiểm chứng qua sandbox.",
+  "skip_if": "Bỏ qua nếu không có đăng nhập ChatGPT hoặc OPENAI_API_KEY; cẩn thận giả mạo tên gói @openai/*.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "antigravity"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "security-scanner",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/deep-agents",
+  "capability": [
+   "agent-framework",
+   "agent-orchestration-memory"
+  ],
+  "use_when": "Dùng khi cần dựng agent Python nhiều bước có sẵn planning, đọc/ghi file, shell, sub-agent và tự tóm gọn context.",
+  "skip_if": "Bỏ qua nếu không viết code Python/JS hoặc không có key model nào (cần format provider:model).",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/diffusiongemma",
+  "capability": [
+   "local-llm",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần tìm hiểu LLM dạng diffusion của Google sinh text song song, nhanh hơn khoảng 4 lần cùng cỡ.",
+  "skip_if": "Bỏ qua nếu cần chất lượng tốt nhất: digest nói đây là model khác biệt, không phải tốt nhất.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [],
+  "needs": [
+   "unknown"
+  ],
+  "dup_group": "",
+  "confidence": "thap"
+ },
+ {
+  "id": "repos/ever-gauzy",
+  "capability": [
+   "crm-sales",
+   "productivity",
+   "database"
+  ],
+  "use_when": "Dùng khi cần nền tảng self-host gộp ERP, CRM, HRM, ATS, quản lý dự án và chấm công time-tracking trong một hệ thống.",
+  "skip_if": "Bỏ qua nếu cần license đơn giản: có 3 tier (Community/Small Business/Enterprise).",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "antigravity"
+  ],
+  "needs": [
+   "docker",
+   "vps"
+  ],
+  "dup_group": "crm-self-host",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/founder-skills",
+  "capability": [
+   "prompt-skill-library",
+   "content-writing",
+   "email-outreach"
+  ],
+  "use_when": "Dùng khi cần 15 skill prompt thuần: SOP, CRO, go-to-market, định giá, outreach, bài X/LinkedIn, PRD, Product Hunt.",
+  "skip_if": "Bỏ qua nếu làm cho khách Việt cần Zalo/TikTok/Facebook: nội dung thiên Mỹ/EN, phải viết lại.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "deepseek-harness",
+   "openclaw"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "claude-skill-collections",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/graphify",
+  "capability": [
+   "agent-orchestration-memory",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần biến folder code, SQL schema, docs, ảnh, video thành knowledge graph để agent truy vấn thay vì đọc/grep từng file.",
+  "skip_if": "Bỏ qua nếu ngại gửi docs/PDF/ảnh ra ngoài: chỉ code được xử lý local; nhớ cài gói graphifyy.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "openclaw",
+   "antigravity",
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/hermes-agent",
+  "capability": [
+   "agent-framework",
+   "agent-orchestration-memory"
+  ],
+  "use_when": "Dùng khi cần agent tự học, tích lũy skill theo thời gian thay vì bắt đầu lại mỗi phiên như chat wrapper.",
+  "skip_if": "unknown",
+  "adoption": "unknown",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "unknown"
+  ],
+  "dup_group": "",
+  "confidence": "thap"
+ },
+ {
+  "id": "repos/hyperframes-session-story",
+  "capability": [
+   "video-render",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần dựng phim hoạt hình 40-70 giây kể lại một phiên làm việc từ lịch sử chat Claude Code/Codex; kho còn explainer khác.",
+  "skip_if": "Bỏ qua nếu không có lịch sử Claude Code/Codex thật; rủi ro dữ liệu riêng tư.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only"
+  ],
+  "dup_group": "code-video-motion",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/knowledge-work-plugins",
+  "capability": [
+   "prompt-skill-library",
+   "crm-sales",
+   "productivity"
+  ],
+  "use_when": "Dùng khi cần plugin Anthropic theo vai trò (sales, marketing, finance, legal, HR, support, data...) gồm skill, connector MCP, slash command.",
+  "skip_if": "Bỏ qua nếu không dùng Claude Cowork hoặc Claude Code; connector cần tài khoản dịch vụ tương ứng.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only"
+  ],
+  "dup_group": "claude-skill-collections",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/llama_index",
+  "capability": [
+   "agent-framework",
+   "database",
+   "document-office"
+  ],
+  "use_when": "Dùng khi cần dựng RAG: nạp PDF, docs, database, kho markdown riêng để agent/chatbot tra cứu trả lời.",
+  "skip_if": "Bỏ qua nếu kho lớn mà chưa có vector store; phí embedding theo token, phải re-index.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/mattpocock-skills",
+  "capability": [
+   "prompt-skill-library",
+   "front-end"
+  ],
+  "use_when": "Dùng khi cần bộ skill kỷ luật cho Claude Code (TDD, mode trả lời cực ngắn /caveman) cài bằng 1 lệnh để bớt token.",
+  "skip_if": "Bỏ qua nếu không dùng Claude Code: không chạy trên Claude Desktop.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only"
+  ],
+  "dup_group": "claude-skill-collections",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/mission-control",
+  "capability": [
+   "agent-orchestration-memory",
+   "data-dashboard"
+  ],
+  "use_when": "Dùng khi cần dashboard điều phối đội agent OpenClaw: board, task, agent, luồng duyệt hành động nhạy cảm, xem hoạt động một chỗ.",
+  "skip_if": "Bỏ qua nếu không dùng OpenClaw Gateway: build riêng cho OpenClaw.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "openclaw",
+   "antigravity"
+  ],
+  "needs": [
+   "vps"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/narratoai",
+  "capability": [
+   "video-generation",
+   "video-render"
+  ],
+  "use_when": "Dùng khi cần biến video dài (podcast, review, lecture) thành clip recap có lời bình, cắt ghép tự động bằng LLM.",
+  "skip_if": "Bỏ qua nếu thiếu ffmpeg hoặc key LLM; chất lượng tiếng Việt phụ thuộc transcript.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "antigravity"
+  ],
+  "needs": [
+   "api-key",
+   "vps"
+  ],
+  "dup_group": "video-clipping-recap",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/open-seo",
+  "capability": [
+   "seo",
+   "web-research"
+  ],
+  "use_when": "Dùng khi cần keyword research, volume, difficulty, backlink analysis kiểu Semrush/Ahrefs mà trả theo mức dùng, nối agent.",
+  "skip_if": "Bỏ qua nếu không có key data provider (DataForSEO): trả phí theo usage, cần code, không có UI đẹp.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "openclaw",
+   "claude-code"
+  ],
+  "needs": [
+   "api-key",
+   "tra-phi"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/openshorts",
+  "capability": [
+   "video-render",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần cắt video dài thành short 9:16, dựng video UGC AI actor, tối ưu YouTube, publish qua Postiz, tự host.",
+  "skip_if": "Bỏ qua nếu không có docker/VPS; bản cloud tính phí $0,65/video, cần key Gemini.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "antigravity",
+   "hermes"
+  ],
+  "needs": [
+   "docker",
+   "vps",
+   "api-key"
+  ],
+  "dup_group": "video-clipping-recap",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/page-agent",
+  "capability": [
+   "browser-automation",
+   "front-end"
+  ],
+  "use_when": "Dùng khi cần nhúng agent JavaScript vào trang web để điều khiển giao diện bằng ngôn ngữ tự nhiên, không cần backend.",
+  "skip_if": "Bỏ qua nếu trang có captcha (bị chặn) hoặc ngại tốn token LLM mỗi action; chậm hơn Playwright.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "openclaw"
+  ],
+  "needs": [
+   "api-key",
+   "browser"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/printfilm-research-notes",
+  "capability": [
+   "reference",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần tham khảo kiến trúc SaaS video AI multi-user có billing/admin (Next.js, FastAPI, PostgreSQL, BYOK) để làm sản phẩm.",
+  "skip_if": "Bỏ qua nếu cần công cụ dùng ngay: chỉ là ghi chú cho SaaS tương lai, docs tiếng Trung.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/remotion-superpowers",
+  "capability": [
+   "video-render",
+   "voice-tts",
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần Claude Code dựng video Remotion trọn gói: script, voiceover ElevenLabs, nhạc nền, stock footage, caption TikTok, render.",
+  "skip_if": "Bỏ qua nếu không dùng Claude Code; cần Node.js, uv, key ElevenLabs và Pexels; render nặng CPU.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "api-key"
+  ],
+  "dup_group": "code-video-motion",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/seedance-2-5",
+  "capability": [
+   "video-generation"
+  ],
+  "use_when": "Dùng khi cần theo dõi model video ByteDance: clip 30 giây 4K một lần, nhận 50 reference, để làm brand content.",
+  "skip_if": "Bỏ qua nếu cần dùng ngay: enterprise beta, specs là vendor claims, có tranh chấp bản quyền.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [],
+  "needs": [
+   "tra-phi"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/stable-diffusion-3-medium",
+  "capability": [
+   "image-generation"
+  ],
+  "use_when": "Dùng khi cần model tạo ảnh miễn phí, dùng thương mại được, chạy qua thư viện diffusers (Stability AI).",
+  "skip_if": "Bỏ qua nếu không có GPU (chạy bằng torch/diffusers); chưa kiểm tra điều khoản license trong digest.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "gpu"
+  ],
+  "dup_group": "",
+  "confidence": "thap"
+ },
+ {
+  "id": "repos/supertonic",
+  "capability": [
+   "voice-tts",
+   "local-llm"
+  ],
+  "use_when": "Dùng khi cần TTS chạy local trên CPU, 31 ngôn ngữ, không GPU, không API, cài bằng pip.",
+  "skip_if": "Bỏ qua nếu cần giọng cloud chất lượng cao; model theo OpenRAIL-M, cần xem điều khoản.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/tiktokautouploader",
+  "capability": [
+   "browser-automation",
+   "content-writing"
+  ],
+  "use_when": "Dùng khi cần upload và lên lịch video TikTok bằng hàm Python kèm mô tả, hashtag, sound, proxy, nhiều tài khoản.",
+  "skip_if": "Bỏ qua nếu ngại rủi ro khoá tài khoản: không phải API chính thức, README nói có thể vi phạm ToS.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes",
+   "openclaw"
+  ],
+  "needs": [
+   "browser"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/typesafe-jev",
+  "capability": [
+   "agent-framework",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần model trả quyết định có cấu trúc (Choice/Score/Boolean) kèm xác suất thay vì dùng LLM lớn cho câu hỏi có/không.",
+  "skip_if": "Bỏ qua nếu cần số liệu kiểm chứng: benchmark do TypeSafe tự công bố, model rất mới.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "repos/video-use",
+  "capability": [
+   "video-render",
+   "voice-tts"
+  ],
+  "use_when": "Dùng khi cần dựng video từ footage thô bằng chat: đọc transcript, cắt theo ranh giới câu nói, có vòng tự đánh giá lỗi.",
+  "skip_if": "Bỏ qua nếu thiếu key ElevenLabs (bắt buộc cho transcribe) hoặc agent không tìm được SKILL.md.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "api-key"
+  ],
+  "dup_group": "code-video-motion",
+  "confidence": "cao"
+ },
+ {
+  "id": "repos/worldmonitor",
+  "capability": [
+   "data-dashboard",
+   "web-research"
+  ],
+  "use_when": "Dùng khi cần dashboard tình báo tình huống gộp hơn 500 nguồn tin (địa chính trị, tài chính, hàng không, năng lượng) có MCP cho agent.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "hermes"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "stacks/10-skill-bat-buoc-du-an-moi",
+  "capability": [
+   "prompt-skill-library",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần danh sách 10 skill/nguyên tắc nạp vào dự án AI mới: bảo mật, review, tự verify UI, nhớ context.",
+  "skip_if": "Bỏ qua nếu là task nhỏ nội bộ: chỉ cần 3 mục đầu (Karpathy, review, bảo mật).",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [
+   "claude-code",
+   "deepseek-harness"
+  ],
+  "needs": [
+   "unknown"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "stacks/google-antigravity-notebooklm-combo",
+  "capability": [
+   "agent-orchestration-memory",
+   "productivity"
+  ],
+  "use_when": "Dùng khi cần quy trình NotebookLM tổng hợp nguồn thành PRD có căn cứ rồi giao Antigravity viết code thực thi.",
+  "skip_if": "Bỏ qua nếu mong có nút kết nối 1 chạm: thực chất phải tự cấu hình MCP, xác thực, giới hạn quyền.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "antigravity"
+  ],
+  "needs": [
+   "unknown"
+  ],
+  "dup_group": "notebooklm",
+  "confidence": "vua"
+ },
+ {
+  "id": "stacks/video-factory-auto-router",
+  "capability": [
+   "video-generation",
+   "video-render",
+   "agent-orchestration-memory"
+  ],
+  "use_when": "Dùng khi cần tự chọn engine dựng video (Remotion hay Vox Director) theo topic, render rồi dừng 1 lần duyệt trước khi đăng Postiz.",
+  "skip_if": "Bỏ qua nếu ngại phí: Atlas Cloud tính theo giây video; brand lệch gu phải tắt full-auto.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "hermes",
+   "antigravity",
+   "openclaw"
+  ],
+  "needs": [
+   "api-key",
+   "vps",
+   "tra-phi"
+  ],
+  "dup_group": "auto-video-pipeline",
+  "confidence": "cao"
+ },
+ {
+  "id": "skills/claude-dashboards-motion",
+  "capability": [
+   "data-dashboard",
+   "video-generation",
+   "design-ui"
+  ],
+  "use_when": "Dùng khi cần Claude dựng dashboard tự cập nhật từ kho dữ liệu (BigQuery, Snowflake...) hoặc hoạt hoạ giải thích từ prompt.",
+  "skip_if": "Bỏ qua nếu cần số chính xác tuyệt đối: Claude tự tính, phải đối chiếu; đang beta.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code"
+  ],
+  "needs": [
+   "claude-code-only",
+   "tra-phi"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "skills/just-scrape",
+  "capability": [
+   "scraping",
+   "web-research"
+  ],
+  "use_when": "Dùng khi cần agent scrape, extract, search, crawl hoặc monitor trang web bằng CLI, ra JSON/markdown qua ScrapeGraphAI.",
+  "skip_if": "Bỏ qua nếu không có SGAI_API_KEY hoặc không muốn trả phí theo credit.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "openclaw",
+   "hermes"
+  ],
+  "needs": [
+   "api-key",
+   "tra-phi"
+  ],
+  "dup_group": "social-scrape-api",
+  "confidence": "cao"
+ },
+ {
+  "id": "skills/stickman-video-director",
+  "capability": [
+   "video-generation",
+   "content-writing"
+  ],
+  "use_when": "Dùng khi cần viết voiceover, kế hoạch 6 cảnh và prompt Gemini Omni Flash cho video người que tương phản cao.",
+  "skip_if": "Bỏ qua nếu chưa có quyền Gemini Omni Flash; voiceover mặc định tiếng Anh.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "deepseek-harness"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "agents/content-pro/skills/content-pillar-cluster-architecture",
+  "capability": [
+   "seo",
+   "content-writing"
+  ],
+  "use_when": "Dùng khi cần dựng khung 3-5 pillar và cluster bài liên kết nội bộ trước khi viết bài đầu tiên cho một thương hiệu.",
+  "skip_if": "Bỏ qua nếu brand chưa có chuyên môn thật: không chọn pillar theo trend khi thiếu thẩm quyền.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw",
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "content-strategy-planning",
+  "confidence": "cao"
+ },
+ {
+  "id": "agents/sales-ceo/skills/forward-deployed-engineer-model",
+  "capability": [
+   "reference",
+   "crm-sales"
+  ],
+  "use_when": "Dùng khi cần khung bán giải pháp AI trọn gói kiểu Forward Deployed Engineer, khách mua kết quả chạy được thay vì công cụ.",
+  "skip_if": "Bỏ qua nếu chỉ bán tool/tài liệu tự học cho dev; tránh code riêng 100% cho khách đầu tiên.",
+  "adoption": "chi-tham-khao",
+  "vessel_fit": [
+   "deepseek-harness"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "agents/trum-san-bay/skills/content-strategy-ideation",
+  "capability": [
+   "content-writing",
+   "seo"
+  ],
+  "use_when": "Dùng khi cần lọc, xếp hạng topic thô từ Research Agent rồi xuất kế hoạch 7 bài cho tuần kèm brief chi tiết cho Writer Agent.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "content-strategy-planning",
+  "confidence": "vua"
+ },
+ {
+  "id": "agents/trum-san-bay/skills/social-publisher",
+  "capability": [
+   "content-writing",
+   "design-ui"
+  ],
+  "use_when": "Dùng khi cần chuyển 1 content gốc thành 5 phiên bản đúng format từng nền tảng, kèm hướng dẫn hình ảnh để đăng.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "thap"
+ },
+ {
+  "id": "agents/shorts-affiliate-system/skills/storyboard-generator",
+  "capability": [
+   "video-generation",
+   "web-research"
+  ],
+  "use_when": "Dùng khi cần lấy thông tin thật từ URL tool/AI product và soạn storyboard.json 6 scene cho pipeline render Playwright.",
+  "skip_if": "Bỏ qua nếu không có pipeline render Playwright phía sau.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "claude-code",
+   "hermes"
+  ],
+  "needs": [
+   "browser"
+  ],
+  "dup_group": "promo-storyboard-pipeline",
+  "confidence": "vua"
+ },
+ {
+  "id": "agents/designer-pro/skills/cinematic-shot-prompt-core",
+  "capability": [
+   "video-generation",
+   "prompt-skill-library"
+  ],
+  "use_when": "Dùng khi cần viết prompt video mỗi shot theo 6 phần cố định: subject, context, lens, camera motion, ánh sáng, mood.",
+  "skip_if": "Bỏ qua nếu cần prompt nhiều cảnh trong một lần: mỗi shot chỉ một chuyển động máy, ghép sau.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw",
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "agents/infra-ops-agent/skills/dev-automation-discipline",
+  "capability": [
+   "devops",
+   "security-compliance"
+  ],
+  "use_when": "Dùng khi cần luật debug đúng trình tự, giữ credential an toàn, script chạy lại được, không khẳng định khi thiếu bằng chứng.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "antigravity",
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "agents/company/skills/hermes-autonomous-kho-maintenance",
+  "capability": [
+   "agent-orchestration-memory",
+   "devops"
+  ],
+  "use_when": "Dùng khi cần Hermes tự bảo trì kho định kỳ: so TRACKER với file thật qua GitHub API, phát hiện chênh lệch rồi sửa.",
+  "skip_if": "Bỏ qua nếu chưa qua giai đoạn shadow mode; không để Hermes tự xoá/archive khi chưa xác nhận.",
+  "adoption": "can-ha-tang",
+  "vessel_fit": [
+   "hermes"
+  ],
+  "needs": [
+   "api-key"
+  ],
+  "dup_group": "",
+  "confidence": "vua"
+ },
+ {
+  "id": "agents/research-analytics-pro/skills/source-evaluation",
+  "capability": [
+   "web-research",
+   "reference"
+  ],
+  "use_when": "Dùng khi cần phân loại nguồn primary/secondary/tertiary, phát hiện data cũ và nguồn mâu thuẫn trước khi dùng vào research.",
+  "skip_if": "unknown",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw",
+   "claude-code"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ },
+ {
+  "id": "agents/anbinh-travel-ops-analyst/skills/ota-content-strategy",
+  "capability": [
+   "content-writing",
+   "ticketing-aviation"
+  ],
+  "use_when": "Dùng khi cần soạn nháp nội dung cho listing OTA, landing page, mô tả gói dịch vụ đúng giọng thương hiệu An Bình/ABTRIP.",
+  "skip_if": "Bỏ qua nếu không phải nội dung An Bình/ABTRIP: gắn brand voice cố định; chỉ ra nháp, không tự đăng.",
+  "adoption": "cai-ngay-duoc",
+  "vessel_fit": [
+   "deepseek-harness",
+   "hermes",
+   "openclaw"
+  ],
+  "needs": [
+   "none"
+  ],
+  "dup_group": "",
+  "confidence": "cao"
+ }
+]
