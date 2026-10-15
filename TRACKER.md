@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 272 cái
+## Repos — 273 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -179,6 +179,7 @@
 | financial-unit-economics + household-cfo (lyndonkl/claude) — GitHub Repo | Bộ skill "CFO cá nhân/công ty nhỏ" — phân tích CAC, LTV, contribution margin, cohort payback, cộng thêm pipeline đọc sao kê ngân hàng/thẻ tự động phân loại giao dịch, đối soát sổ sách, phát hiện chi phí định kỳ. Đúng dạn… | `/repos/claude-household-cfo.md` | Có |  |
 | Firecrawl — GitHub Repo | Firecrawl là API biến bất kỳ website nào thành markdown/JSON sạch, sẵn sàng nhét vào LLM — không cần tự viết selector, không cần lo JS render hay chống bot. 141K+ stars, dùng bởi hầu hết agent framework lớn hiện nay. | `/repos/firecrawl.md` | Có |  |
 | Flowise (FlowiseAI/Flowise) — GitHub Repo | Flowise la nen tang keo-tha (drag & drop) de xay AI Agent va LLM workflow ma khong can code nhieu, dung LangChain lam engine ben duoi. Diem manh la toc do prototype cuc nhanh (vai phut la co 1 chatbot/agent chay duoc) va… | `/repos/flowise.md` | Có |  |
+| founder-skills (ognjengt) — GitHub Repo | Bộ **15 skill** dạng prompt thuần (MIT, tác giả Ognjen Gatalo) cho founder/marketer: SOP, tối ưu chuyển đổi (CRO), go-to-market, định giá, outreach, viết bài X/LinkedIn, PRD, Product Hunt… Cài bằng 1 lệnh, dùng bằng `/tên-skill`. Không có script hay API — chỉ là các file `SKILL.md` + tài liệu tham chiếu, nên **an toàn… | `/repos/founder-skills.md` | Có |  |
 | FunASR — GitHub Repo | Bộ toolkit nhận diện giọng nói (ASR) mã nguồn mở của Alibaba (DAMO Academy), 19.2k sao, MIT license. Khác Whisper (1 model duy nhất), FunASR là cả bộ công cụ — chọn đúng model theo việc: nhanh nhất (Fun-ASR-Nano, 340x re… | `/repos/funasr.md` | Có |  |
 | GenOffice — GitHub Repo | Bộ office suite AI-native mã nguồn mở (Apache-2.0) của Genspark — Docs/Sheets/Slides/PDF chạy trên macOS/Windows/Linux, mở file .docx/.xlsx/.pptx/.pdf y hệt Microsoft Office nhưng có AI Agent nhúng thẳng trong từng docum… | `/repos/genoffice.md` | Không |  |
 | GitHub Spec Kit — GitHub Repo | Toolkit chinh thuc cua GitHub day Spec-Driven Development — giai phap cho van de "vibe coding" lam AI code loi lien tuc. 116.6K stars, MIT license. Thay vi mo ta mo ho, viet spec ro rang truoc → AI code dung ngay tu dau. | `/repos/spec-kit.md` | Không |  |
