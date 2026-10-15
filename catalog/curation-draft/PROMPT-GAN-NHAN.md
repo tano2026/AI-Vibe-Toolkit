@@ -16,7 +16,7 @@ Mỗi phần tử có đúng các trường:
 - `confidence`: `cao` (digest nói rõ), `vua` (suy luận từ tóm tắt), `thap` (digest quá mỏng, đoán).
 
 Danh sách capability (CHỈ dùng các giá trị này, không tự đặt):
-web-research, scraping, content-writing, seo, ads, email-outreach, crm-sales, customer-support, video-generation, video-render, image-generation, voice-tts, design-ui, front-end, backend, database, devops, agent-framework, agent-orchestration-memory, prompt-skill-library, browser-automation, document-office, data-dashboard, finance-accounting, ticketing-aviation, security-compliance, local-llm, productivity, reference
+web-research, scraping, content-writing, seo, ads, email-outreach, crm-sales, customer-support, video-generation, video-render, image-generation, voice-tts, design-ui, front-end, backend, database, devops, agent-framework, agent-orchestration-memory, prompt-skill-library, browser-automation, document-office, data-dashboard, finance-accounting, ticketing-aviation, security-compliance, local-llm, productivity, reference, social-media
 
 Luật cứng:
 1. Chỉ dựa vào digest trong file. KHÔNG mở thêm file khác, KHÔNG tìm web, KHÔNG bịa số liệu/tính năng. Không đủ căn cứ → "unknown" hoặc confidence `thap`.
