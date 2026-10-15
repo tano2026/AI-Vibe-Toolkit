@@ -1,4 +1,6 @@
-# NHIỆM VỤ RÀ SOÁT KHO — giao cho Antigravity + Trio (Hermes, OpenClaw, DeepSeek Harness)
+# NHIỆM VỤ RÀ SOÁT KHO — tổng quan
+
+> **Antigravity làm chính** theo `catalog/TASK-ANTIGRAVITY.md` (có giai đoạn chạy thử 20 mục, chờ duyệt). Phần B dưới đây (Trio kiểm chéo mẫu) chỉ chạy **sau** khi Antigravity xong. Phần A trong file này đã được thay bằng file Antigravity.
 
 > Người giao: Nobitano. Người nhận báo cáo và là người DUY NHẤT ghi lên kho: Claude.
 > Agent **không push `main`**, không sửa TRACKER tay, không để token trong file. Chỉ ghi file kết quả riêng (tên bên dưới) rồi gửi cho Nobitano chuyển Claude.
