@@ -9,6 +9,10 @@
 
 `OPERATING-MODEL.md` (gốc kho) — brief giao việc trực tiếp, có checklist hành động riêng từng Vessel. Đọc file đó TRƯỚC, quay lại KHO-INDEX này khi cần tra cứu chi tiết.
 
+
+## 🔎 Trước khi làm bất kỳ dự án nào: tra danh mục
+`catalog/PLAYBOOK-DUNG-KHO.md` (cách tra + quy tắc chống sưu tầm không dùng) → `catalog/CATALOG.csv` / `catalog/catalog.json` (915 mục, lọc theo lĩnh vực, loại, trạng thái kiểm chứng) → `catalog/BY-DOMAIN.md` (bản đọc nhanh). Sau dự án ghi `catalog/USAGE-LOG.md`; thiếu gì ghi `catalog/GAP-LOG.md`. Sinh lại danh mục: `python3 tools/build_catalog.py`. `skills/MASTER-INDEX` là bản cũ (06/2026), không còn đúng.
+
 ---
 
 ## Kho là gì
@@ -33,7 +37,7 @@
 | /stacks/ | 20 | Combo workflow |
 | /configs/ /deploy/ /VAULT/ /domain-packs/ /reports/ /tools/ | 49 (29+11+4+2+1+2) | Hạ tầng/cấu hình |
 | Root (`TRACKER.md`, `KHO-INDEX.md`...) | 10 | |
-| **Tổng** | **1.542 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
+| **Tổng** | **1.579 file** | Giảm so với bản cũ báo 1.731 — do các đợt dọn duplicate đã chạy sau 21/08 |
 
 ### ⚠️ CẢNH BÁO QUAN TRỌNG — `/skills/` có 2 tầng khác hẳn nhau, đừng gộp chung
 
