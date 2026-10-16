@@ -1,0 +1,912 @@
+[
+  {
+    "id": "repos/500-ai-agents-projects",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tra cứu bộ sưu tập hơn 500 dự án ứng dụng trí tuệ nhân tạo thực tế phân loại theo ngành",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "vua",
+    "evidence": "Bộ sưu tập lớn nhất hiện tại về AI agent projects — 500+ use case thực tế, có code chạy được",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu bộ sưu tập; skip_if unknown do là kho tra cứu."
+  },
+  {
+    "id": "repos/9router",
+    "capability": [
+      "agent-orchestration-memory",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần cổng định tuyến tập trung kết nối các công cụ lập trình với hơn 40 nhà cung cấp và 100 mô hình",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "llm-gateway",
+    "confidence": "cao",
+    "evidence": "kết nối Claude Code, Cursor, Cline, Copilot... với 40+ AI providers và 100+ models.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "repos/agency-agents",
+    "capability": [
+      "prompt-skill-library",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần kho thư viện khoảng 280 prompt persona chuyên gia chia theo các phòng ban nghiệp vụ doanh nghiệp",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "persona-prompt-library",
+    "confidence": "vua",
+    "evidence": "Thư viện ~280 prompt \"chuyên gia\" (mỗi file = 1 persona có vai trò, quy trình, tiêu chí đánh giá)",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ mô tả thư viện prompt; skip_if unknown do đóng gói sẵn."
+  },
+  {
+    "id": "repos/agency-agents-app",
+    "capability": [
+      "prompt-skill-library",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần ứng dụng giao diện trực quan để tìm kiếm sao chép và xuất prompt từ kho nhân vật chuyên môn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "persona-prompt-library",
+    "confidence": "vua",
+    "evidence": "`agency-agents` (repo goc, da co san trong kho) la 1 kho 232 agent persona chuyen biet",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là mô tả kho nguồn; skip_if unknown."
+  },
+  {
+    "id": "repos/agent-reach",
+    "capability": [
+      "scraping",
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý thu thập nội dung từ các trang web mà không cần đăng ký khóa dịch vụ bên ngoài",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "web-scraper",
+    "confidence": "cao",
+    "evidence": "Cho phép AI agents đọc content từ internet mà không cần API keys.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không nêu rõ điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "repos/agent-research-skills-academic",
+    "capability": [
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng chuyên sâu hỗ trợ toàn bộ chu trình nghiên cứu học thuật từ tìm tài liệu đến tạo bài trình chiếu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "deep-research-skill",
+    "confidence": "cao",
+    "evidence": "31 skills cover toàn bộ academic research paper lifecycle — từ literature search đến slide generation.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì là tập hợp kỹ năng nghiên cứu chuyên sâu."
+  },
+  {
+    "id": "repos/agent-skills",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bộ 24 kỹ năng tiêu chuẩn mã hóa quy trình làm việc cổng kiểm soát chất lượng của kỹ sư phần mềm",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "Bộ 24 skills mã hóa workflow, quality gates, và best practices mà senior engineers dùng khi build software",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ mô tả bộ kỹ năng; skip_if unknown do là tài liệu đóng gói."
+  },
+  {
+    "id": "repos/agent-toolkit-for-aws",
+    "capability": [
+      "devops",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ và máy chủ chính thức từ AWS để trợ lý xây dựng triển khai và quản trị ứng dụng",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Bộ MCP servers + skills + plugins chính thức của AWS — giúp AI agent build, deploy, và manage ứng dụng trên AWS",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu bộ công cụ; skip_if unknown."
+  },
+  {
+    "id": "repos/agents-wshobson",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần sàn giao dịch tiện ích tác nhân đa nền tảng cung cấp các thành phần dựng sẵn cho quy trình sản xuất",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "claude-plugin-marketplace",
+    "confidence": "vua",
+    "evidence": "Một marketplace plugin tác nhân đa nền tảng, cung cấp các khối xây dựng workflow AI agent sẵn sàng cho sản xuất",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu mô tả sàn giao dịch; skip_if unknown."
+  },
+  {
+    "id": "repos/agenttube",
+    "capability": [
+      "video-generation",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần hệ thống tự động hóa vận hành kênh YouTube từ nghiên cứu chủ đề viết kịch bản đến tạo video và tải lên",
+    "skip_if": "Bỏ qua nếu hệ thống máy tính chưa cài đặt đầy đủ công cụ ffmpeg và các khóa kết nối API",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "vps"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Repo mã nguồn mở (MIT, 2.5k sao, Node.js) tự vận hành 1 kênh YouTube từ A-Z",
+    "evidence_skip": "Yêu cầu: Node.js 18+, tài khoản Google + credentials YouTube Data API v3",
+    "ly_do_doi": "skip_if nêu rõ điều kiện về tài khoản Google và YouTube API credentials."
+  },
+  {
+    "id": "repos/ai-agents-for-beginners",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần giáo trình 18 bài học từ Microsoft để học và chép các mẫu thiết kế kiến trúc tác nhân thông minh",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-design-guide",
+    "confidence": "vua",
+    "evidence": "Đây là **giáo trình**, không phải thư viện hay tool để cài vào agent.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence định nghĩa phủ định về công cụ; skip_if unknown do là tài liệu tham khảo."
+  },
+  {
+    "id": "repos/ai-berkshire",
+    "capability": [
+      "finance-accounting",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần khung phân tích cổ phiếu và báo cáo tài chính mô phỏng phương pháp đầu tư giá trị kinh điển",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "trading-agent-framework",
+    "confidence": "cao",
+    "evidence": "Thay vì đọc báo cáo tài chính hàng giờ, mày deploy agent AI phân tích theo đúng framework của các nhà đầu tư",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tránh tin mù quáng là lưu ý đầu tư."
+  },
+  {
+    "id": "repos/ai-engineering-from-scratch",
+    "capability": [
+      "reference",
+      "local-llm"
+    ],
+    "use_when": "Dùng khi cần bộ giáo trình hơn 430 bài học thực hành tự lập trình các thành phần cốt lõi của trí tuệ nhân tạo",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "llm-training-learning",
+    "confidence": "vua",
+    "evidence": "Day khong phai 1 tool de cai, ma la 1 bo giao trinh AI Engineering mien phi, cuc chi tiet",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu giới thiệu giáo trình; skip_if unknown do là tài liệu học."
+  },
+  {
+    "id": "repos/ai-hedge-fund",
+    "capability": [
+      "finance-accounting",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần mô hình thử nghiệm nhiều tác nhân phối hợp mô phỏng các trường phái đầu tư tài chính khác nhau",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "trading-agent-framework",
+    "confidence": "vua",
+    "evidence": "Proof-of-concept 1 \"quỹ đầu tư ảo\" chạy bằng nhiều AI agent, mỗi agent mô phỏng phong cách đầu tư của 1 nhà đầu tư",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu PoC; skip_if unknown do là mô hình thử nghiệm."
+  },
+  {
+    "id": "repos/ai-job-search",
+    "capability": [
+      "productivity",
+      "browser-automation"
+    ],
+    "use_when": "Dùng khi cần quy trình tự động chấm điểm mức độ phù hợp công việc và tạo hồ sơ xin việc cá nhân hóa trên Claude Code",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "job-monitoring",
+    "confidence": "cao",
+    "evidence": "Framework xin việc chạy trên Claude Code — fork về, điền profile 1 lần, xong Claude tự chấm độ phù hợp",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "repos/ai-marketing-claude",
+    "capability": [
+      "prompt-skill-library",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ tiếp thị toàn diện gồm 12 kỹ năng và 5 tác nhân phụ chuyên kiểm toán và tối ưu chuyển đổi",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "claude-marketing-skills",
+    "confidence": "vua",
+    "evidence": "Bộ marketing ops đầy đủ nhất trong 4 repo public của tác giả — 12 skill, 5 subagent chuyên biệt",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu bộ công cụ; skip_if unknown."
+  },
+  {
+    "id": "repos/ai-shorts-generator-pipeline",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần thiết kế quy trình kết hợp Playwright và Claude Code để dựng video ngắn tự động sang định dạng MP4",
+    "skip_if": "Bỏ qua nếu môi trường máy chủ thiếu phần mềm ffmpeg hoặc trình duyệt chạy tự động",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "browser",
+      "vps"
+    ],
+    "dup_group": "auto-short-video",
+    "confidence": "vua",
+    "evidence": "AI Shorts Generator — Pipeline Playwright + Claude Code → MP4 Tự Động",
+    "evidence_skip": "Stack: Claude Code + Playwright + FFmpeg",
+    "ly_do_doi": "Giữ confidence vua vì evidence là tiêu đề pipeline; skip_if nêu rõ điều kiện phần mềm Playwright và FFmpeg."
+  },
+  {
+    "id": "repos/ai-travel-agent-templates",
+    "capability": [
+      "ticketing-aviation",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần 3 mẫu thiết kế trợ lý du lịch từ cơ bản đến nâng cao có ghi nhớ sở thích và phối hợp nhiều tác nhân",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "3 cấp độ AI travel agent có sẵn trong `Shubhamsaboo/awesome-llm-apps` (175K sao)",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu mẫu; skip_if unknown do là mẫu tham khảo."
+  },
+  {
+    "id": "repos/ainovel-cli",
+    "capability": [
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần công cụ dòng lệnh đa tác nhân để tự động lập dàn ý viết từng chương và kiểm tra tính nhất quán tiểu thuyết",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "Multi-agent CLI viết web novel tự dong bang AI — Go, 1.1K stars, dang trending.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "repos/airweave",
+    "capability": [
+      "agent-orchestration-memory",
+      "database"
+    ],
+    "use_when": "Dùng khi cần tầng truy xuất ngữ cảnh thống nhất kết nối hơn 50 nguồn dữ liệu cho trợ lý tìm kiếm qua một API",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key",
+      "vps"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "Airweave là \"lớp truy xuất context\" cho AI agent — nối vào 50+ nguồn dữ liệu (Drive, Notion, Slack, GitHub, CRM...)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc phân quyền kết nối là thiết lập hệ thống."
+  },
+  {
+    "id": "repos/aitoearn",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tham khảo các mô hình ý tưởng tự động hóa sản xuất nội dung và kiếm tiền trên mạng xã hội bằng AI",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Tool giúp AI agents tự tạo content, tự đăng lên mạng xã hội, tự kiếm tiền",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là mô tả tóm tắt ý tưởng; skip_if unknown do chỉ mang tính tham khảo."
+  },
+  {
+    "id": "repos/aiwritex",
+    "capability": [
+      "content-writing",
+      "seo"
+    ],
+    "use_when": "Dùng khi cần nhà máy sản xuất nội dung tự động đa nền tảng tối ưu hóa bài viết cho các kênh truyền thông xã hội",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "vps"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "Đây là 1 content factory hoàn chỉnh chứ không phải 1 tool đơn lẻ",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "repos/andrej-karpathy-skills",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bộ nguyên tắc và phong cách mã hóa tinh gọn đúc kết từ thực tiễn lập trình của chuyên gia Andrej Karpathy",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-behavior-prompt",
+    "confidence": "vua",
+    "evidence": "1 file `CLAUDE.md` duy nhất, đúc kết quan sát của Andrej Karpathy (cựu Tesla AI/OpenAI, cha đẻ khái niệm \"vibe coding\")",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm từ giới thiệu tài liệu tóm tắt; skip_if unknown."
+  },
+  {
+    "id": "repos/animasyon-stil-katalogu",
+    "capability": [
+      "design-ui",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần danh mục 20 phong cách đồ họa chuyển động kèm video minh họa ngắn để lựa chọn trước khi sản xuất",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "motion-design",
+    "confidence": "cao",
+    "evidence": "Catalog 20 phong cách animation cho video — mỗi phong cách có clip mẫu 9-10 giây để xem trước khi chọn.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do là danh mục tham khảo phong cách thiết kế."
+  },
+  {
+    "id": "repos/anthropic-cybersecurity-skills",
+    "capability": [
+      "security-compliance",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bộ hơn 800 kỹ năng an toàn thông tin chuyên sâu đối chiếu với các khung chuẩn bảo mật quốc tế lớn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "security-scanner",
+    "confidence": "cao",
+    "evidence": "817 structured cybersecurity skill files cho AI agent — mapped với 6 framework bảo mật lớn nhất",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì là kho kỹ năng rà soát an toàn thông tin."
+  },
+  {
+    "id": "repos/api-mega-list",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần danh mục tra cứu khổng lồ hơn 6000 giao diện lập trình mở phục vụ tự động hóa và phát triển phần mềm",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "vua",
+    "evidence": "Danh sách APIs khổng lồ cho automation, AI workflow, lead gen, ecommerce",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu mô tả danh sách; skip_if unknown do là kho liên kết tham khảo."
+  },
+  {
+    "id": "repos/apple-container",
+    "capability": [
+      "devops"
+    ],
+    "use_when": "Dùng khi cần công cụ gốc của Apple để vận hành môi trường đóng gói container Linux dạng máy ảo nhẹ trên hệ điều hành Mac",
+    "skip_if": "Bỏ qua nếu máy tính không sử dụng hệ điều hành macOS phiên bản 26 trở lên",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "Apple's native tool chạy Linux containers như lightweight VMs trên Mac.",
+    "evidence_skip": "Cần macOS 26 (beta) — stable tháng 9/2026.",
+    "ly_do_doi": "skip_if nêu rõ điều kiện tương thích phiên bản hệ điều hành macOS 26."
+  },
+  {
+    "id": "repos/archify",
+    "capability": [
+      "design-ui",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi tài liệu kiến trúc hệ thống hoặc mã nguồn thành sơ đồ đồ họa HTML tương tác có kiểm chứng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "Agent skill biến mô tả kiến trúc/codebase thành diagram HTML tương tác, có kiểm chứng",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc viết đúng tên người dùng là lưu ý tránh nhầm lẫn."
+  },
+  {
+    "id": "repos/awesome-claude-5-5-videos",
+    "capability": [
+      "reference",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tài liệu tham khảo tổng hợp phương pháp điều phối tạo video và đồ họa chuyển động bằng mô hình Claude",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Danh mục tham khảo (không phải 1 tool cài đặt) tổng hợp cách dùng Claude Opus/Sonnet 5.5 để điều phối tạo video",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý Claude không tự render video là bản chất kiến trúc điều phối."
+  },
+  {
+    "id": "repos/awesome-claude-code-toolkit",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần danh mục tổng hợp toàn diện hệ sinh thái Claude Code gồm hàng trăm tác nhân tiện ích lệnh và kỹ năng",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Kho tổng hợp lớn nhất hiện tại cho Claude Code: 135 agent, 176+ plugin, 42 command, 35 skill dựng sẵn",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do là kho chỉ mục tổng hợp."
+  },
+  {
+    "id": "repos/awesome-claude-skills",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tuyển tập kỹ năng chuẩn hóa cho trợ lý kết nối với hơn 1000 dịch vụ công nghệ thông tin phổ biến",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "claude-skill-collections",
+    "confidence": "cao",
+    "evidence": "Danh mục tổng hợp lớn nhất về Claude Skills — 70.3K stars, connector cho hơn 1000 dịch vụ",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý kiểm tra bản quyền từng thư mục là hướng dẫn sử dụng."
+  },
+  {
+    "id": "repos/awesome-design-md",
+    "capability": [
+      "design-ui",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần bộ sưu tập các tệp quy chuẩn thiết kế giao diện văn bản để trợ lý tạo trang web đúng phong cách thương hiệu",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "Bộ sưu tập file `DESIGN.md` — khái niệm mới do Google Stitch giới thiệu — mỗi file mô tả bằng văn bản thuần",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý DESIGN.md chỉ chứa style token là đặc điểm kỹ thuật."
+  },
+  {
+    "id": "repos/awesome-harness-engineering",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần danh sách chọn lọc các công cụ chỉ dẫn khung thử nghiệm và tiêu chuẩn đánh giá hệ thống điều khiển tác nhân",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "vua",
+    "evidence": "Danh sach curate cac tool, guide, framework, benchmark tot nhat cho Harness Engineering — 3.3K stars.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu giới thiệu tài liệu; skip_if unknown do là kho liên kết."
+  },
+  {
+    "id": "repos/awesome-llm-apps",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần kho lưu trữ hơn 100 ứng dụng tác nhân và truy xuất thông tin mã nguồn mở hoàn chỉnh để chạy thử nghiệm",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Kho hơn 100 ứng dụng AI agent/RAG mã nguồn mở, làm sẵn end-to-end, clone về chạy được luôn",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do là kho mã nguồn mẫu end-to-end."
+  },
+  {
+    "id": "repos/awesome-llm-apps-shortlist",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần danh mục rút gọn các ứng dụng tác nhân học hỏi kiến trúc phù hợp trực tiếp với nhu cầu doanh nghiệp",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "vua",
+    "evidence": "Đã clone toàn bộ repo, lọc qua 13 category / 100+ app.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown vì lưu ý thay thế nguồn dữ liệu thật là khuyến cáo triển khai."
+  },
+  {
+    "id": "repos/awesome-mcp-servers",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tra cứu danh mục tổng hợp hơn 500 máy chủ giao thức ngữ cảnh mô hình phân loại theo nhiều chủ đề kỹ thuật",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Danh mục tổng hợp mọi MCP server đang tồn tại — 500+ server, phân loại theo category",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc một số repo ngừng cập nhật là tình trạng bảo trì chung."
+  },
+  {
+    "id": "repos/awesome-selfhosted",
+    "capability": [
+      "reference",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần tra cứu danh sách tổng hợp hơn 2000 phần mềm tự lưu trữ trên máy chủ riêng phân loại theo 100 danh mục",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-selfhosted",
+    "confidence": "vua",
+    "evidence": "Danh sach tong hop 2000+ phan mem self-host mien phi — 301K stars, top 10 GitHub moi thoi dai.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu giới thiệu danh sách; skip_if unknown do là kho liên kết."
+  },
+  {
+    "id": "repos/barty-motion-graphics",
+    "capability": [
+      "design-ui",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần bộ 6 kỹ năng tạo hiệu ứng đồ họa chuyển động và video phụ họa tự động bám sát theo lời nói từ phụ đề",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "motion-design",
+    "confidence": "cao",
+    "evidence": "6 skill Claude Code miễn phí của `Barty-Bart`, mỗi skill một việc: `motion-broll`",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý biểu đồ thể hiện kích thước tương đối là đặc tính thiết kế."
+  },
+  {
+    "id": "repos/billionmail",
+    "capability": [
+      "email-outreach",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần nền tảng thư điện tử tiếp thị tự vận hành trên máy chủ riêng không tốn phí định kỳ hàng tháng",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "vps"
+    ],
+    "dup_group": "email-marketing-self-host",
+    "confidence": "cao",
+    "evidence": "Platform email marketing self-hosted hoàn chỉnh: mail server + newsletter + campaign",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc làm ấm địa chỉ IP máy chủ là kỹ thuật cấu hình gửi thư."
+  },
+  {
+    "id": "repos/bmad-method",
+    "capability": [
+      "agent-framework",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần khung quy trình phối hợp đội ngũ tác nhân chuyên trách để phát triển phần mềm theo phương pháp linh hoạt",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "cao",
+    "evidence": "Framework biến \"vibe coding\" (prompt tùy hứng, code chắp vá) thành quy trình agile có bài bản",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì yêu cầu tuân thủ đúng các bước là nguyên tắc quy trình."
+  }
+]
