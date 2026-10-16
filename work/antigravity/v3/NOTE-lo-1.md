@@ -1,100 +1,68 @@
-# Ghi chú Curation Lô 1 (40 mục đầu) — Antigravity
+# Ghi chú Curation Lô 1 (40 mục đầu) — Antigravity (Bản sửa đổi theo góp ý Claude)
 
-- **Thời gian thực hiện:** ~45 phút (đọc thật từng entry gốc, trích dẫn chuỗi con nguyên văn).
+- **Thời gian thực hiện:** Hoàn thiện và cập nhật theo 5 tiêu chí phản hồi từ đợt kiểm mẫu của Claude.
 - **Tổng số mục:** 40/40 mục (thuộc `agents/*/skills/*`).
 - **File kết quả:** `work/antigravity/v3/lo-1.json`.
 
 ---
 
-## 1. Thống kê thay đổi so với nhãn nháp (`nhan_hien_tai`)
+## 1. Các điểm sửa đổi cốt lõi theo phản hồi kiểm mẫu
 
-Tổng số mục có thay đổi nhãn: **18 / 40 mục (45%)**.
+1. **Phân bố `confidence` thực tế (23 cao / 17 vừa):**
+   - Không để 40/40 `cao`. Chỉ gắn `confidence = "cao"` khi `evidence` là một câu trọn vẹn ngữ pháp nói thẳng năng lực đứng đầu.
+   - Các mục có evidence là cụm danh từ mô tả hoặc năng lực suy luận từ tài liệu được chuyển xuống `vua` (ví dụ: `customer-pattern-analysis`, `ota-content-strategy`, `agent-design-playbook`, `brand-visual-template-system`, `dev-automation-discipline`, `sales-marketing-collateral-production`).
+   - Phân bố cụ thể: **23 `cao`**, **17 `vua`**, **0 `thap`**.
 
-| Trường | Số mục thay đổi | Ghi chú chính |
+2. **Chuẩn hoá định dạng `evidence` và `evidence_skip`:**
+   - Nối toàn bộ các chỗ xuống dòng (`\n`) trong `evidence` và `evidence_skip` thành một dòng duy nhất bằng khoảng trắng đơn.
+   - Đảm bảo 100% `evidence` và `evidence_skip` là chuỗi con nguyên văn (substring) của văn bản gốc (sau khi chuẩn hoá khoảng trắng) và độ dài ≤ 120 ký tự.
+
+3. **Phân định rõ `skip_if` thực sự vs Cảnh báo / Guardrail:**
+   - `skip_if` chỉ nêu điều kiện ngoại cảnh hoặc tiền đề khiến ta phải bỏ qua skill (cần phần cứng/GPU, thiếu binary, quy mô kênh chưa đủ, ngoài phạm vi thị trường).
+   - Lời cảnh báo cách dùng, quy tắc an toàn hoặc guardrail của chính skill (ví dụ: không scale theo trung bình, không tự tiện chi tiền, phải verify lệnh thật trước khi khẳng định) **không phải là `skip_if`**.
+   - Các mục không có điều kiện loại trừ ngoại cảnh thật sự được đưa về `skip_if = "unknown"` và `evidence_skip = ""` (ví dụ: `digital-marketing-orchestrator`, `tencent-vps-capacity-cost`, `data-storytelling`, `destructive-command-guardrail`, `dev-automation-discipline`).
+   - **Tổng số mục `skip_if = "unknown"`:** **26 / 40 mục** (14 mục có điều kiện bỏ qua thực sự).
+
+4. **Điều chỉnh capability chính cho 2 mục đặc thù:**
+   - `zalo-channel-connection-guide`: Đổi capability thành `["agent-orchestration-memory", "reference"]` (năng lực chính là tích hợp kênh chat cho agent OpenClaw điều phối hội thoại, thay vì chỉ là reference thuần túy).
+   - `human-footage-editor`: Đổi capability thành `["content-writing", "video-render"]` (năng lực chính là viết kịch bản A/B roll, hook và hướng dẫn cắt dựng video ngắn, thay vì công cụ render video tự động).
+
+5. **Làm sạch tài liệu:**
+   - Đếm chính xác số lượng mục `skip_if = unknown`.
+   - Loại bỏ hoàn toàn các nhắc đến "Luật 17" (không tồn tại trong hệ thống quy chuẩn).
+
+---
+
+## 2. Bảng phân bố thống kê chi tiết
+
+| Chỉ số | Số lượng / Tỷ lệ | Diễn giải |
 |---|---|---|
-| `capability` | 5 | Cập nhật `social-media` (Luật sau Pilot); đổi sang `video-generation` cho prompt-motion; chuẩn hoá `agent-orchestration-memory`. |
-| `adoption` | 2 | Sửa từ `can-ha-tang` về `cai-ngay-duoc` cho `brand-strategy-sprint` và `human-footage-editor` (là prompt/workflow không cần hạ tầng server). |
-| `needs` | 6 | Sửa các prompt skill thuần từ `api-key` về `none` (chỉ phụ thuộc LLM chat, không tự gọi tool có phí); thêm `vps` cho Langfuse maintenance. |
-| `confidence` | 13 | Nâng từ `vua`/`thap` lên `cao` do trích được câu văn hoàn chỉnh nói thẳng năng lực cốt lõi trong entry gốc. |
-| `skip_if` (unknown) | 3 | Các mục không có phần Lưu ý hoặc không nêu điều kiện loại trừ: `competitive-intel-ground-handling`, `destructive-command-guardrail`, `competitive-intel`, `market-sizing`. |
+| **Tổng số mục** | 40 mục | Đủ 40 mục theo `curation-todo-398.json` (Lô 1). |
+| **Confidence: Cao** | 23 mục (57.5%) | Evidence trích câu văn trọn vẹn khẳng định trực tiếp năng lực. |
+| **Confidence: Vừa** | 17 mục (42.5%) | Evidence là cụm mô tả hoặc năng lực mang tính phương pháp/hướng dẫn. |
+| **skip_if: có điều kiện** | 14 mục (35.0%) | Có điều kiện loại trừ ngoại vi thật sự (kênh < 5 video, không có footage, v.v.). |
+| **skip_if: unknown** | 26 mục (65.0%) | Không có điều kiện loại trừ thật sự; chỉ có guardrail hoặc lời khuyên. |
+| **Needs: none** | 35 mục | Kỹ năng prompt / quy trình nghiệp vụ thuần túy. |
+| **Needs: api-key / vps** | 5 mục | Cần API key ngoài hoặc hạ tầng hosting VPS riêng. |
 
 ---
 
-## 2. Chi tiết các mục thay đổi và lý do
+## 3. Danh sách 14 mục có điều kiện `skip_if` thật sự
 
-1. **`agents/anbinh-travel-ops-analyst/skills/competitive-intel-ground-handling`**:
-   - `skip_if`: `unknown`, `evidence_skip`: `""` (Mục Lưu ý không có điều kiện loại trừ, chỉ có insight thương hiệu).
-   - `confidence`: `vua` → `cao` (Evidence nói thẳng việc nghiên cứu đối thủ ground handling).
-
-2. **`agents/anbinh-travel-ops-analyst/skills/customer-pattern-analysis`**:
-   - `confidence`: `vua` → `cao` (Evidence khẳng định trực tiếp phân tích pattern complaint và dữ liệu booking).
-
-3. **`agents/anbinh-travel-ops-analyst/skills/data-storytelling`**:
-   - `confidence`: `thap` → `cao` (Evidence khẳng định trực tiếp biến số liệu thành báo cáo có insight).
-
-4. **`agents/brandscan/skills/brand-strategy-sprint`**:
-   - `adoption`: `can-ha-tang` → `cai-ngay-duoc`, `needs`: `['api-key']` → `['none']`.
-   - Lý do: Đây là prompt hội thoại 3 bước xuất file docx, không đòi hỏi VPS/Docker.
-
-5. **`agents/brandscan/skills/human-footage-editor`**:
-   - `adoption`: `can-ha-tang` → `cai-ngay-duoc`, `needs`: `['api-key']` → `['none']`, `confidence`: `vua` → `cao`.
-   - Lý do: Quy trình xử lý cắt ghép cơ bản từ footage khách gửi, không cần credit AI avatar hay hạ tầng riêng.
-
-6. **`agents/company/skills/hermes-autonomous-kho-maintenance`**:
-   - `needs`: `['api-key']` → `['api-key', 'vps']`, `confidence`: `vua` → `cao`.
-   - Lý do: Đòi hỏi deploy Langfuse trên VPS Antigravity.
-
-7. **`agents/company/skills/zalo-channel-connection-guide`**:
-   - `needs`: `['unknown']` → `['none']`.
-   - Lý do: Tài liệu cẩm nang hướng dẫn kết nối plugin OpenClaw có sẵn.
-
-8. **`agents/content-pro/skills/content-distribution-system`**:
-   - `capability`: thêm `prompt-skill-library`.
-   - Lý do: Thể hiện đúng bản chất khung checklist quy trình phân phối nội dung.
-
-9. **`agents/designer-pro/skills/brand-image-prompt-engineer`**:
-   - `needs`: `['api-key']` → `['none']`, `confidence`: `vua` → `cao`.
-   - Lý do: Bản thân skill là công thức tạo prompt bằng text, không trực tiếp tích hợp key.
-
-10. **`agents/designer-pro/skills/cinematic-shot-prompt-core`**:
-    - `confidence`: `vua` → `cao` (Evidence khẳng định trực tiếp công thức viết prompt theo ngôn ngữ điện ảnh).
-
-11. **`agents/designer-pro/skills/prompt-motion-reference`**:
-    - `capability`: `['design-ui', 'reference']` → `['video-generation', 'reference']`.
-    - Lý do: Thư viện ~230 video motion Opus 5.5, phục vụ tạo video prompt.
-
-12. **`agents/digital-marketing-agent/skills/digital-marketing-orchestrator`**:
-    - `capability`: `['prompt-skill-library', 'ads', 'seo']` → `['agent-orchestration-memory', 'ads', 'seo']`, `confidence`: `vua` → `cao`.
-    - Lý do: Đóng vai trò Router phân loại request, đúng năng lực điều phối.
-
-13. **`agents/infra-ops-agent/skills/agent-design-playbook`**:
-    - `confidence`: `vua` → `cao` (Evidence trực tiếp chứng minh bản review thiết kế agent 8 bước).
-
-14. **`agents/infra-ops-agent/skills/destructive-command-guardrail`**:
-    - `skip_if`: `unknown`, `evidence_skip`: `""` (Không có điều kiện loại trừ không dùng guardrail an toàn).
-
-15. **`agents/infra-ops-agent/skills/dev-automation-discipline`**:
-    - `confidence`: `vua` → `cao` (Evidence nói thẳng quy chuẩn kỷ luật dev và automation).
-
-16. **`agents/media-pro/skills/cross-channel-distribution-analysis`**:
-    - `capability`: `['data-dashboard', 'prompt-skill-library']` → `['social-media', 'data-dashboard']`, `confidence`: `vua` → `cao`.
-    - Lý do: Áp dụng capability thứ 30 `social-media` cho việc phân tích hiệu suất chéo giữa TikTok, YouTube Shorts, Instagram Reels.
-
-17. **`agents/media-pro/skills/media-performance-discipline`**:
-    - `capability`: `['data-dashboard', 'prompt-skill-library']` → `['social-media', 'prompt-skill-library']`.
-    - Lý do: Kỷ luật xuất bản và đo lường kênh mạng xã hội sau 24-72h.
-
-18. **`agents/research-analytics-pro/skills/competitive-intel`**:
-    - `needs`: `['api-key']` → `['none']`, `skip_if`: `unknown`, `confidence`: `vua` → `cao`.
-    - Lý do: Framework tư duy phân tích đối thủ, không ép buộc có api-key; không có phần Lưu ý loại trừ.
+1. `visa-transit-timatic-expert`: Bỏ qua nếu cần thay thế hệ thống tra cứu chuẩn Timatic của đại lý vé máy bay.
+2. `brand-visual-template-system`: Bỏ qua nếu thương hiệu theo định hướng faceless hoặc không có footage người thật.
+3. `human-footage-editor`: Bỏ qua nếu không có footage người thật từ khách hàng hoặc tự quay.
+4. `ota-content-strategy`: Bỏ qua nếu là phòng khách sạn thông thường hoặc không có view bối cảnh đặc trưng.
+5. `zalo-oa-booking-flow`: Bỏ qua nếu khách hàng chỉ mua vé máy bay thông thường không cần tư vấn hành trình.
+6. `hermes-autonomous-kho-maintenance`: Bỏ qua nếu hệ thống Langfuse chưa được thiết lập trên máy chủ VPS Antigravity.
+7. `cross-channel-distribution-analysis`: Bỏ qua nếu kênh mới có ít hơn 5 nội dung cùng thể loại chưa đủ dữ liệu tìm quy luật.
+8. `content-repurpose-playbook`: Bỏ qua nếu chưa có nội dung gốc đạt hiệu quả hoặc cần sản xuất nội dung mới từ đầu.
+9. `video-title-hook-generator`: Bỏ qua nếu nội dung dạng bài viết blog dài không cần yếu tố thu hút của video ngắn.
+10. `agent-design-playbook`: Bỏ qua nếu tác vụ có quy trình xử lý cố định có thể giải quyết bằng kịch bản hoặc workflow thường.
+11. `deploy-review-gate`: Bỏ qua nếu chỉ là lệnh đơn lẻ đơn giản đã có guardrail riêng xử lý.
+12. `ceo-stress-test-and-roadmap`: Bỏ qua nếu báo cáo chỉ mang tính cập nhật thông tin không dẫn đến quyết định đầu tư nguồn lực.
+13. `local-gap-finder`: Bỏ qua nếu nghiên cứu phạm vi vĩ mô đa ngành hoặc lĩnh vực không cạnh tranh theo địa lý.
+14. `research-independent-review-gate`: Bỏ qua nếu là báo cáo nội bộ nhỏ hoặc nghiên cứu thăm dò không dẫn tới quyết định đầu tư lớn.
 
 ---
-
-## 3. Các mục khó / Cần lưu ý khi kiểm tra
-
-- **Định dạng ngắt dòng (`\n`) trong Markdown/YAML**: Các entry gốc thường được wrap dòng ở ~80 ký tự. Để đảm bảo 100% `evidence in raw_text` và `evidence_skip in raw_text`, các chuỗi trích dẫn được giữ nguyên dạng ký tự gốc trong file thay vì chuẩn hoá khoảng trắng.
-- **`skip_if = "unknown"`**: Với các entry không có mục Lưu ý hoặc mục Lưu ý chỉ nêu nhận định chung (không phải điều kiện loại trừ tác vụ, ví dụ `destructive-command-guardrail` hay `market-sizing`), theo đúng Luật 17 ta để `skip_if = "unknown"` và `evidence_skip = ""`.
-- **`vessel_fit` và `needs`**: Đã phân định rõ giữa prompt/skill thuần (`needs: ["none"]`) và tác vụ cần hạ tầng deploy VPS (`hermes-autonomous-kho-maintenance`).
-
----
-*Báo cáo bởi Antigravity — Sẵn sàng cho Claude kiểm mẫu.*
+*Báo cáo bởi Antigravity — Lô 1 đã được chuẩn hoá 100% theo các tiêu chí phản biện.*

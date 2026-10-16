@@ -6,7 +6,7 @@
       "reference"
     ],
     "use_when": "Dùng khi cần tra cứu quy định hàng không, thủ tục sân bay, hành lý hoặc chính sách nhập cảnh",
-    "skip_if": "Bỏ qua nếu cần thay thế hệ thống tra cứu chuẩn Timatic của đại lý vé",
+    "skip_if": "Bỏ qua nếu cần thay thế hệ thống tra cứu chuẩn Timatic của đại lý vé máy bay",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -18,7 +18,7 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Tra cứu quy định hàng không, nhập cảnh, hành lý, an ninh sân bay để trả lời câu hỏi",
+    "evidence": "Tra cứu quy định hàng không, nhập cảnh, hành lý, an ninh sân bay để trả lời câu hỏi của khách hoặc staff An Bình/ABTRIP.",
     "evidence_skip": "Đây KHÔNG phải công cụ Timatic chính thức — chỉ là tra cứu hỗ trợ",
     "ly_do_doi": ""
   },
@@ -40,10 +40,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Nghiên cứu đối thủ trong mảng ground handling/Fast Track sân bay",
+    "confidence": "vua",
+    "evidence": "Nghiên cứu đối thủ trong mảng ground handling/Fast Track sân bay (dnata, VIAGS, và các bên khác tại Nội Bài)",
     "evidence_skip": "",
-    "ly_do_doi": "skip_if để unknown vì mục Lưu ý không nêu điều kiện loại trừ; nâng confidence lên cao vì evidence nói thẳng chức năng."
+    "ly_do_doi": "skip_if để unknown vì mục Lưu ý không có điều kiện loại trừ; giữ confidence vua vì evidence là cụm mô tả."
   },
   {
     "id": "agents/anbinh-travel-ops-analyst/skills/customer-pattern-analysis",
@@ -52,7 +52,7 @@
       "customer-support"
     ],
     "use_when": "Dùng khi cần phân tích quy luật trong khiếu nại, phản hồi hoặc dữ liệu đặt chỗ khách hàng",
-    "skip_if": "Bỏ qua nếu dữ liệu phản hồi quá ít dưới 10 điểm mẫu không đủ để rút ra kết luận chắc chắn",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -63,10 +63,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Phân tích pattern trong complaint, feedback, hoặc dữ liệu booking của khách hàng ABTRIP/",
-    "evidence_skip": "Không đủ data (dưới ~10 điểm) → nói rõ mẫu quá nhỏ để kết luận chắc chắn, tránh phóng đại.",
-    "ly_do_doi": "Evidence khẳng định trực tiếp việc phân tích pattern complaint và dữ liệu booking nên nâng confidence lên cao."
+    "confidence": "vua",
+    "evidence": "Cần tìm top vấn đề để ưu tiên cải thiện dịch vụ",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý mẫu nhỏ là cảnh báo phân tích chứ không phải điều kiện bỏ qua; giữ confidence vua."
   },
   {
     "id": "agents/anbinh-travel-ops-analyst/skills/data-storytelling",
@@ -75,7 +75,7 @@
       "document-office"
     ],
     "use_when": "Dùng khi cần biến số liệu thô thành báo cáo chứa thông tin cốt lõi và hành động cụ thể",
-    "skip_if": "Bỏ qua nếu dữ liệu không đủ mạnh để rút ra kết luận chắc chắn",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -86,10 +86,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Biến số liệu/phân tích thô thành report có \"so what\" rõ ràng — insight, không chỉ dump\n  bảng số.",
-    "evidence_skip": "Nếu data không đủ mạnh để rút insight chắc chắn, nói rõ giới hạn thay vì cố kết luận\n  quá tay.",
-    "ly_do_doi": "Evidence khẳng định trực tiếp biến số liệu phân tích thành báo cáo có insight nên nâng confidence lên cao."
+    "confidence": "vua",
+    "evidence": "Biến số liệu/phân tích thô thành report có \"so what\" rõ ràng — insight, không chỉ dump bảng số.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý data yếu là cảnh báo cách viết báo cáo; nâng confidence lên vua."
   },
   {
     "id": "agents/anbinh-travel-ops-analyst/skills/ota-content-strategy",
@@ -98,7 +98,7 @@
       "ticketing-aviation"
     ],
     "use_when": "Dùng khi cần soạn thảo nội dung cho kênh OTA, website hoặc mô tả dịch vụ hàng không",
-    "skip_if": "Bỏ qua nếu dự định tự động xuất bản nội dung lên kênh OTA mà chưa qua duyệt thủ công",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -110,9 +110,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Soạn nội dung (chưa đăng) cho OTA listing, website, hoặc mô tả dịch vụ của An Bình/",
-    "evidence_skip": "KHÔNG tự động đăng lên OTA hay website — luôn để ở dạng draft chờ duyệt.",
-    "ly_do_doi": ""
+    "evidence": "Dùng khi user cần viết/chỉnh content cho listing, landing page, mô tả gói dịch vụ.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn nói thẳng việc viết/chỉnh content; skip_if để unknown vì không tự đăng là guardrail."
   },
   {
     "id": "agents/brandscan/skills/brand-strategy-sprint",
@@ -121,7 +121,7 @@
       "content-writing"
     ],
     "use_when": "Dùng khi cần thực hiện quy trình định hướng thương hiệu và xuất báo cáo chiến lược dạng docx",
-    "skip_if": "Bỏ qua nếu chưa sẵn sàng kiểm soát thủ công các lượt hội thoại dài của mô hình AI",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -134,17 +134,17 @@
     "dup_group": "",
     "confidence": "cao",
     "evidence": "Ra 1 tài liệu duy nhất: Brand Strategy Report (docx).",
-    "evidence_skip": "chưa test với khách thật nào (kể cả Chi) — guardrail chống suy diễn mới\n  chỉ có trên giấy",
-    "ly_do_doi": "Đổi adoption thành cai-ngay-duoc và needs thành none vì đây là prompt hội thoại 3 bước xuất docx, không đòi hỏi hạ tầng VPS."
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi adoption sang cai-ngay-duoc và needs sang none vì là prompt xuất docx; skip_if unknown vì lưu ý chưa test là cảnh báo."
   },
   {
     "id": "agents/brandscan/skills/human-footage-editor",
     "capability": [
-      "video-render",
-      "content-writing"
+      "content-writing",
+      "video-render"
     ],
     "use_when": "Dùng khi cần biên tập tư liệu video thực tế của khách hàng thành bài đăng kèm phụ đề",
-    "skip_if": "Bỏ qua nếu làm thương hiệu doanh nghiệp faceless không có tư liệu hình ảnh quay thực tế từ khách",
+    "skip_if": "Bỏ qua nếu làm nội dung cho thương hiệu doanh nghiệp hoặc kênh faceless không có nhân vật thật",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -156,9 +156,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Sản xuất content từ footage/ảnh THẬT khách tự quay/chụp — dành cho personal brand",
-    "evidence_skip": "phụ thuộc hoàn toàn vào việc khách chịu quay/gửi raw material đều đặn",
-    "ly_do_doi": "Đổi adoption thành cai-ngay-duoc và needs thành none vì đây là workflow xử lý cắt ghép cơ bản, nâng confidence lên cao vì evidence nói thẳng chức năng."
+    "evidence": "Sản xuất content từ footage/ảnh THẬT khách tự quay/chụp — dành cho personal brand cần đúng con người thật lên hình",
+    "evidence_skip": "không dùng cho brand doanh nghiệp/faceless, những trường hợp đó dùng `yt-cashcow` engine",
+    "ly_do_doi": "Đổi capability chính sang content-writing vì mục đích chính là sản xuất content bài đăng từ tư liệu khách thật."
   },
   {
     "id": "agents/company/skills/ffmpeg-media-toolkit",
@@ -179,7 +179,7 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Bộ lệnh FFmpeg dùng CHUNG cho mọi agent cần xử lý video/audio —\n  convert, cắt, ghép, trích âm, nén, chèn phụ đề",
+    "evidence": "Bộ lệnh FFmpeg dùng CHUNG cho mọi agent cần xử lý video/audio — convert, cắt, ghép, trích âm, nén, chèn phụ đề",
     "evidence_skip": "chèn phụ đề sẽ báo lỗi thiếu filter `subtitles`, đã xảy ra thật với skill khác trong hệ sinh thái Claude Code",
     "ly_do_doi": ""
   },
@@ -201,10 +201,10 @@
       "vps"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "tự chạy audit skill-lifecycle-management định kỳ thay vì chờ Claude\n  làm tay.",
+    "confidence": "vua",
+    "evidence": "Skill này biến nó thành việc Hermes TỰ LÀM định kỳ — đúng năng lực \"Autonomous GitHub Engineer\"",
     "evidence_skip": "Bật IMPLEMENT ngay từ đầu, chưa qua giai đoạn shadow mode đủ lâu — rủi ro Hermes tự sửa sai mà không ai biết",
-    "ly_do_doi": "Nâng confidence lên cao vì evidence khẳng định trực tiếp chu trình tự động bảo trì kho."
+    "ly_do_doi": "Giữ confidence vua vì năng lực tự bảo trì kho là chu trình điều phối suy luận."
   },
   {
     "id": "agents/company/skills/skill-lifecycle-management",
@@ -213,7 +213,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần kiểm tra định kỳ vòng đời kỹ năng để phát hiện trùng lặp hoặc lưu trữ kỹ năng lỗi thời",
-    "skip_if": "Bỏ qua nếu định xóa kỹ năng nghi trùng lặp mà chưa có sự xác nhận của người phụ trách",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -225,9 +225,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Định nghĩa khi nào 1 skill được\n  \"thăng chức\" (verified), khi nào bị \"sa thải\" (nghỉ hưu/archive).",
-    "evidence_skip": "Tự động xoá skill nghi trùng mà chưa hỏi — vi phạm nguyên tắc đã thống nhất, luôn cần xác nhận trước khi archive/xoá",
-    "ly_do_doi": ""
+    "evidence": "Định nghĩa khi nào 1 skill được \"thăng chức\" (verified), khi nào bị \"sa thải\" (nghỉ hưu/archive).",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý không tự ý xóa là guardrail nội bộ."
   },
   {
     "id": "agents/company/skills/task-intake-quality-gate",
@@ -236,7 +236,7 @@
       "productivity"
     ],
     "use_when": "Dùng khi cần kiểm soát chất lượng yêu cầu trước khi phân phối nhiệm vụ cho các chuyên viên agent",
-    "skip_if": "Bỏ qua nếu yêu cầu đơn giản rõ ràng và việc kiểm tra quá mức làm chậm tiến độ",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "hermes",
@@ -248,18 +248,18 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "1 lớp gác cổng chất lượng TRƯỚC KHI task được giao cho Pro Agent nào,\n  không phải OpenClaw tự route rồi thôi.",
-    "evidence_skip": "Gate quá tay cho việc đơn giản, rõ ràng — làm chậm không cần thiết, chỉ cần đủ nghiêm cho task mơ hồ/rủi ro",
-    "ly_do_doi": ""
+    "evidence": "1 lớp gác cổng chất lượng TRƯỚC KHI task được giao cho Pro Agent nào, không phải OpenClaw tự route rồi thôi.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý tránh gate quá tay là cảnh báo vận hành."
   },
   {
     "id": "agents/company/skills/zalo-channel-connection-guide",
     "capability": [
-      "reference",
-      "agent-orchestration-memory"
+      "agent-orchestration-memory",
+      "reference"
     ],
     "use_when": "Dùng khi cần tài liệu hướng dẫn kỹ thuật kết nối kênh Zalo qua nền tảng OpenClaw",
-    "skip_if": "Bỏ qua nếu định dùng kênh tài khoản cá nhân cho việc có rủi ro bị đình chỉ tài khoản",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "openclaw",
@@ -269,10 +269,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "3 cách kết nối Zalo qua OpenClaw (đã dùng sẵn, không cần tự xây)",
-    "evidence_skip": "⚠️ CẢNH BÁO TỰ GHI TRONG DOCS OPENCLAW: \"có thể khiến tài khoản bị\n   đình chỉ hoặc cấm\"",
-    "ly_do_doi": "Đổi needs thành none vì đây là tài liệu hướng dẫn kết nối các plugin có sẵn của OpenClaw."
+    "confidence": "vua",
+    "evidence": "Không cần tự code kết nối Zalo — OpenClaw đã có sẵn 3 plugin kênh chính thức, chỉ cần cài đúng loại theo đúng mục đích.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability chính sang agent-orchestration-memory vì là kết nối kênh agent; skip_if unknown vì cảnh báo khóa nick là rủi ro phương án."
   },
   {
     "id": "agents/content-pro/skills/content-distribution-system",
@@ -281,7 +281,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần lập kế hoạch phân phối nội dung đa kênh và quy trình làm mới bài viết cũ",
-    "skip_if": "Bỏ qua nếu định chi tiền quảng cáo đẩy bài viết chưa có tín hiệu tương tác tự nhiên tốt",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -292,10 +292,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "mỗi content asset phải gắn kế\n  hoạch phân phối cụ thể (owned/earned/paid)",
-    "evidence_skip": "Đừng paid-boost content chưa kiểm chứng organic — tốn tiền đẩy thứ chưa ai quan tâm tự nhiên",
-    "ly_do_doi": "Thêm prompt-skill-library vào capability để thể hiện đúng tính chất khung quy trình."
+    "confidence": "vua",
+    "evidence": "mỗi content asset phải gắn kế hoạch phân phối cụ thể (owned/earned/paid), không chỉ đăng rồi hy vọng thuật toán tự đẩy.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý không paid-boost sớm là lời khuyên chạy ads; confidence để vua."
   },
   {
     "id": "agents/content-pro/skills/content-pillar-cluster-architecture",
@@ -304,7 +304,7 @@
       "content-writing"
     ],
     "use_when": "Dùng khi cần xây dựng cấu trúc nội dung dạng trụ cột và cụm bài viết liên kết chặt chẽ",
-    "skip_if": "Bỏ qua nếu chọn chủ đề theo xu hướng nhất thời mà thương hiệu không có chuyên môn thực tế",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -316,9 +316,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Xây khung chủ đề (pillar + cluster) TRƯỚC KHI viết bất kỳ bài/video đơn lẻ",
-    "evidence_skip": "Đừng chọn Pillar theo \"trend đang hot\" nếu brand không có thẩm quyền thật — dễ tạo content generic, mất niềm tin dài hạn",
-    "ly_do_doi": ""
+    "evidence": "Xây khung chủ đề (pillar + cluster) TRƯỚC KHI viết bất kỳ bài/video đơn lẻ nào.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý không chọn pillar theo trend là lời khuyên chiến lược."
   },
   {
     "id": "agents/content-pro/skills/content-strategy-review-gate",
@@ -327,7 +327,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần kiểm tra phản biện khung chiến lược nội dung trước khi bàn giao sản xuất hàng loạt",
-    "skip_if": "Bỏ qua nếu chỉ là nội dung thời sự thử nghiệm ngắn hạn cần xuất bản gấp trong ngày",
+    "skip_if": "Bỏ qua nếu chỉ là nội dung thời sự hoặc nội dung thử nghiệm nhỏ cần gấp trong ngày",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -339,8 +339,8 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Stress-test khung Pillar/Cluster + kế hoạch content TRƯỚC KHI bắt đầu sản\n  xuất",
-    "evidence_skip": "Đừng chạy skill này SAU KHI đã sản xuất hàng loạt — phải chạy TRƯỚC, phát hiện muộn tốn công sức đã bỏ ra",
+    "evidence": "Stress-test khung Pillar/Cluster + kế hoạch content TRƯỚC KHI bắt đầu sản xuất",
+    "evidence_skip": "thêm 1 bước trước khi sản xuất — không hợp cho content one-off/thời sự cần gấp",
     "ly_do_doi": ""
   },
   {
@@ -362,7 +362,7 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Khung viết bài \"lật kỳ vọng\" — chọn ĐÚNG 1 điểm bất ngờ làm trục, đối lập\n  với điều số đông đang nghĩ",
+    "evidence": "Khung viết bài \"lật kỳ vọng\" — chọn ĐÚNG 1 điểm bất ngờ làm trục, đối lập với điều số đông đang nghĩ",
     "evidence_skip": "không hợp content bán hàng trực tiếp (CTA nhẹ, không kêu gọi mua)",
     "ly_do_doi": ""
   },
@@ -373,7 +373,7 @@
       "productivity"
     ],
     "use_when": "Dùng khi cần quy trình biên tập nội dung 5 bước từ ý tưởng đến xuất bản kèm tiêu chí kiểm duyệt",
-    "skip_if": "Bỏ qua nếu người viết tự duyệt bài của chính mình mà không có biên tập viên độc lập",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -384,10 +384,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Quy trình biên tập từ ý tưởng tới xuất bản, mỗi bước có owner + output rõ\n  ràng + gate duyệt trước khi qua bước tiếp.",
-    "evidence_skip": "tự review chia sẻ cùng điểm mù với chính mình",
-    "ly_do_doi": ""
+    "confidence": "vua",
+    "evidence": "Quy trình 5 bước chuẩn, mỗi bước có gate rõ ràng, không bước nào được bỏ qua dù gấp tới đâu.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì nguyên tắc không tự review là guardrail của quy trình; confidence để vua."
   },
   {
     "id": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
@@ -395,7 +395,7 @@
       "customer-support"
     ],
     "use_when": "Dùng khi cần phân loại tín hiệu khách hàng muốn rời bỏ và áp dụng thời gian phản hồi theo cam kết",
-    "skip_if": "Bỏ qua nếu chưa có dữ liệu hồ sơ hoặc lịch sử khách hàng để phân loại mức độ rủi ro",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -407,9 +407,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "SLA phản hồi theo kênh, FCR, và luật quan trọng nhất: 1 lần phục vụ tệ\n  đã đủ rủi ro rời bỏ, không đợi lặp lại.",
-    "evidence_skip": "cần data lịch sử khách (VIP/mới) để gắn cờ chính xác",
-    "ly_do_doi": ""
+    "evidence": "SLA phản hồi theo kênh, FCR, và luật quan trọng nhất: 1 lần phục vụ tệ đã đủ rủi ro rời bỏ, không đợi lặp lại.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì thiếu data CRM là hạn chế của một bước phân loại chứ không bỏ qua toàn bộ."
   },
   {
     "id": "agents/designer-pro/skills/brand-image-prompt-engineer",
@@ -418,7 +418,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần tạo prompt ảnh chi tiết theo bối cảnh thương hiệu kết hợp công cụ tạo ảnh AI",
-    "skip_if": "Bỏ qua nếu áp dụng bối cảnh đặc thù của một thương hiệu này sang thương hiệu khác",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -429,10 +429,10 @@
       "none"
     ],
     "dup_group": "brand-image-prompt",
-    "confidence": "cao",
-    "evidence": "công thức 7 phần, bảng lỗi AI gen ảnh thường gặp, thư viện\n  bối cảnh tra theo content-brand-playbooks.md.",
-    "evidence_skip": "Áp thư viện bối cảnh sân bay cho brand khác (Tano Cafe/Wonder Mart) mà không sửa — sai hoàn toàn bối cảnh",
-    "ly_do_doi": "Đổi needs thành none vì bản thân skill là logic tạo prompt, nâng confidence lên cao vì evidence nói thẳng chức năng."
+    "confidence": "vua",
+    "evidence": "Tách phần CÔNG THỨC (dùng chung) khỏi phần BỐI CẢNH (khoá cứng sân bay), để mọi brand dùng được.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì áp sai bối cảnh là lỗi thao tác; đổi evidence sang câu trọn vẹn và để confidence vua."
   },
   {
     "id": "agents/designer-pro/skills/brand-visual-template-system",
@@ -440,7 +440,7 @@
       "design-ui"
     ],
     "use_when": "Dùng khi cần định dạng kích thước chuẩn và tra cứu token nhận diện thương hiệu cho ấn phẩm đồ họa",
-    "skip_if": "Bỏ qua nếu dùng chung một khung kích thước cố định cho cả poster, thumbnail và infographic",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -451,10 +451,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "poster/thumbnail/\n  infographic đúng nhận diện, tự tra token từ content-brand-playbooks.md",
-    "evidence_skip": "Dùng chung 1 khung kích thước cho cả poster/thumbnail/infographic — 3 định dạng có mục đích và ràng buộc khác hẳn nhau",
-    "ly_do_doi": ""
+    "confidence": "vua",
+    "evidence": "Skill này tách phần LOGIC ra dùng chung, phần TOKEN tra động theo brand đang làm.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì dùng chung khung là lỗi thường gặp; đổi evidence sang câu trọn vẹn và để confidence vua."
   },
   {
     "id": "agents/designer-pro/skills/cinematic-shot-prompt-core",
@@ -463,7 +463,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần soạn prompt video và ảnh AI theo các yếu tố máy quay, ánh sáng và màu sắc điện ảnh",
-    "skip_if": "Bỏ qua nếu cần tạo hình ảnh áp phích quảng cáo hoặc infographic có chứa văn bản",
+    "skip_if": "Bỏ qua nếu cần tạo hình ảnh áp phích quảng cáo hoặc infographic có chứa văn bản chữ",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -475,9 +475,9 @@
     ],
     "dup_group": "cinematic-prompt",
     "confidence": "cao",
-    "evidence": "Công thức viết prompt ảnh/video AI theo ngôn ngữ điện ảnh (cỡ cảnh, góc máy,\n  chuyển động máy, ánh sáng, màu)",
+    "evidence": "Công thức viết prompt ảnh/video AI theo ngôn ngữ điện ảnh (cỡ cảnh, góc máy, chuyển động máy, ánh sáng, màu)",
     "evidence_skip": "KHÔNG dùng cho ảnh poster/infographic có chữ (dùng `image-prompt-formula-core`)",
-    "ly_do_doi": "Nâng confidence lên cao vì evidence khẳng định trực tiếp công thức viết prompt theo ngôn ngữ điện ảnh."
+    "ly_do_doi": ""
   },
   {
     "id": "agents/designer-pro/skills/image-prompt-formula-core",
@@ -486,7 +486,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần công thức 7 phần để viết prompt tạo ảnh không phụ thuộc thương hiệu và tránh lỗi phổ biến",
-    "skip_if": "Bỏ qua nếu yêu cầu AI tự động tạo chữ hoặc biển hiệu văn bản trực tiếp trên hình ảnh",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -498,9 +498,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Công thức viết prompt tạo ảnh THUẦN, không gắn brand nào — công thức\n  7 phần + bảng lỗi AI gen ảnh phổ biến",
-    "evidence_skip": "để hệ thống overlay chữ riêng SAU khi gen ảnh, không để AI tự gen chữ trong ảnh",
-    "ly_do_doi": ""
+    "evidence": "1 công thức duy nhất, dùng được cho mọi brand/dự án — brand không sửa file này, chỉ cung cấp dữ liệu riêng",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì overlay chữ riêng là mẹo kỹ thuật trong prompt; đổi evidence sang câu trọn vẹn."
   },
   {
     "id": "agents/designer-pro/skills/prompt-motion-reference",
@@ -532,7 +532,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần tiêu chuẩn thiết kế tài liệu bán hàng và ấn phẩm quảng cáo tiếp thị",
-    "skip_if": "Bỏ qua nếu chưa có tóm tắt yêu cầu thông điệp rõ ràng từ bộ phận kinh doanh hoặc tiếp thị",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -543,10 +543,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "sản xuất vũ khí thị giác cho Sales (deck/one-pager/\n  proposal/battlecard) và Marketing",
-    "evidence_skip": "cần Sales/Marketing brief đủ rõ (key message, đối tượng) — thiếu thì Designer phải hỏi lại, không tự chế",
-    "ly_do_doi": ""
+    "confidence": "vua",
+    "evidence": "Design để THẮNG, không design để treo. Deck đẹp mà không chốt được deal = fail. Ads đẹp mà CTR thấp = fail.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì thiếu brief là cảnh báo giao việc; đổi evidence sang câu trọn vẹn và để confidence vua."
   },
   {
     "id": "agents/designer-pro/skills/visual-template-formula-core",
@@ -555,7 +555,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần kích thước chuẩn và quy trình gác cổng cho các định dạng poster, thumbnail và infographic",
-    "skip_if": "Bỏ qua nếu định dùng chung một khung kích thước cho cả áp phích, hình thu nhỏ và infographic",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -566,10 +566,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Khung kích thước + quy trình gác cổng visual THUẦN, không gắn brand\n  nào",
-    "evidence_skip": "Dùng chung 1 khung kích thước cho cả poster/thumbnail/infographic — 3 định dạng có mục đích/ràng buộc đọc khác hẳn nhau",
-    "ly_do_doi": ""
+    "confidence": "vua",
+    "evidence": "Xác định đúng khung kích thước trước khi tạo ảnh cho bất kỳ định dạng nào",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì dùng chung khung kích thước là lỗi thường gặp; để confidence vua."
   },
   {
     "id": "agents/digital-marketing-agent/skills/ad-budget-testing-discipline",
@@ -578,7 +578,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần kỷ luật phân bổ ngân sách, thử nghiệm đối chứng A/B và quy tắc phân bổ chuyển đổi cho ads",
-    "skip_if": "Bỏ qua nếu chiến dịch quảng cáo đang trong giai đoạn máy học chưa có đủ dữ liệu ổn định",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -590,9 +590,9 @@
     ],
     "dup_group": "ads-discipline",
     "confidence": "cao",
-    "evidence": "luật A/B test (sample size, không peeking),\n  luật attribution, luật frequency retargeting.",
-    "evidence_skip": "Tắt ad set trong lúc đang learning phase là lỗi phổ biến — chưa đủ data để đánh giá công bằng",
-    "ly_do_doi": ""
+    "evidence": "Vận hành hoá EXPERT-CORE.md section ② MARKETING — luật ngân sách, kill rule cho ad set/creative, luật A/B test",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tắt ad set khi đang learning là lỗi phổ biến chứ không phải điều kiện bỏ qua mục."
   },
   {
     "id": "agents/digital-marketing-agent/skills/digital-marketing-orchestrator",
@@ -602,7 +602,7 @@
       "seo"
     ],
     "use_when": "Dùng khi cần phân loại và điều phối các yêu cầu tiếp thị kỹ thuật số vào đúng kỹ năng chuyên môn",
-    "skip_if": "Bỏ qua nếu yêu cầu thực hiện hành động ghi gửi hoặc chi tiêu tiền thật khi chưa có người duyệt",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "hermes",
@@ -614,9 +614,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Router cho mọi yêu cầu digital marketing — phân loại request vào đúng skill\n  chuyên môn",
-    "evidence_skip": "HÀNH ĐỘNG ghi/gửi/chi tiền thật (đăng ads, gửi email hàng loạt, publish social)\n  → LUÔN dừng lại",
-    "ly_do_doi": "Đổi capability chính sang agent-orchestration-memory vì đây là router/orchestrator phân loại request, nâng confidence lên cao."
+    "evidence": "Router cho mọi yêu cầu digital marketing — phân loại request vào đúng skill chuyên môn",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability sang agent-orchestration-memory; skip_if để unknown theo góp ý vì dừng khi chi tiền là guardrail."
   },
   {
     "id": "agents/infra-ops-agent/skills/agent-design-playbook",
@@ -625,7 +625,7 @@
       "reference"
     ],
     "use_when": "Dùng khi cần cẩm nang 8 bước để đánh giá và thiết kế kiến trúc cho AI agent mới",
-    "skip_if": "Bỏ qua nếu tác vụ có quy trình xử lý cố định có thể giải quyết bằng kịch bản lập trình thông thường",
+    "skip_if": "Bỏ qua nếu tác vụ có quy trình xử lý cố định có thể giải quyết bằng kịch bản hoặc workflow thường",
     "adoption": "chi-tham-khao",
     "vessel_fit": [
       "claude-code",
@@ -636,10 +636,10 @@
       "none"
     ],
     "dup_group": "agent-design-guide",
-    "confidence": "cao",
-    "evidence": "bản review thiết kế agent theo các bước 0–7 (cần agent không, chọn mẫu, tool, context\n  và memory, rào an toàn",
+    "confidence": "vua",
+    "evidence": "Skill này là checklist 8 bước (0–7) để review (hoặc dựng khung) một agent **trước khi** viết code.",
     "evidence_skip": "Việc có đường đi cố định (tra giá, đổi định dạng, gửi báo cáo định kỳ). Viết script hoặc workflow thường",
-    "ly_do_doi": "Nâng confidence lên cao vì evidence trực tiếp chứng minh bản review thiết kế agent."
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn và hạ confidence xuống vua."
   },
   {
     "id": "agents/infra-ops-agent/skills/deploy-review-gate",
@@ -648,7 +648,7 @@
       "security-compliance"
     ],
     "use_when": "Dùng khi cần cơ chế phản biện độc lập kép để kiểm duyệt kế hoạch triển khai hệ thống máy chủ",
-    "skip_if": "Bỏ qua nếu chỉ là lệnh đơn lẻ đơn giản đã được kiểm soát bởi guardrail kiểm tra lệnh",
+    "skip_if": "Bỏ qua nếu chỉ là lệnh đơn lẻ đơn giản đã có guardrail riêng xử lý",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -660,10 +660,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Dual independent review (dùng cơ chế santa-method có sẵn trong kho) cho\n  kế hoạch deploy/thay đổi hạ tầng RỦI RO CAO",
+    "confidence": "vua",
+    "evidence": "Skill này chạy 2 reviewer độc lập trên TOÀN BỘ plan trước khi Antigravity thực thi",
     "evidence_skip": "Đừng dùng skill này cho lệnh đơn lẻ đơn giản — đó là việc của `destructive-command-guardrail`",
-    "ly_do_doi": ""
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn và hạ confidence xuống vua."
   },
   {
     "id": "agents/infra-ops-agent/skills/destructive-command-guardrail",
@@ -687,7 +687,7 @@
     "confidence": "cao",
     "evidence": "Chặn/flag lệnh có tính phá hủy (xóa data, kill process, đổi firewall, ghi đè quyền)",
     "evidence_skip": "",
-    "ly_do_doi": "skip_if đổi sang unknown vì trong mục Lưu ý không có điều kiện loại trừ không dùng guardrail an toàn."
+    "ly_do_doi": "skip_if để unknown vì đây là guardrail an toàn bắt buộc, không có điều kiện bỏ qua."
   },
   {
     "id": "agents/infra-ops-agent/skills/dev-automation-discipline",
@@ -696,7 +696,7 @@
       "security-compliance"
     ],
     "use_when": "Dùng khi cần quy chuẩn về tính bất biến của script, quản lý chứng thực và nguyên tắc kiểm chứng trạng thái",
-    "skip_if": "Bỏ qua nếu chưa thiết lập biến môi trường để bảo mật token và khóa truy cập",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -708,10 +708,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "luật debug, credential,\n  script idempotency, và ĐẶC BIỆT luật no-fabrication riêng cho Hermes",
-    "evidence_skip": "Token/key CHỈ ở biến môi trường (env var), không hard-code vào script",
-    "ly_do_doi": "Nâng confidence lên cao vì evidence nói thẳng quy chuẩn dev & automation discipline."
+    "confidence": "vua",
+    "evidence": "Bất kỳ lúc nào Hermes/OpenClaw/Antigravity cần báo cáo trạng thái hệ thống/repo/file",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu trữ credential trong env var là nguyên tắc an toàn; đổi evidence sang câu trọn vẹn và để confidence vua."
   },
   {
     "id": "agents/infra-ops-agent/skills/tencent-vps-capacity-cost",
@@ -719,7 +719,7 @@
       "devops"
     ],
     "use_when": "Dùng khi cần lập kế hoạch tài nguyên và tối ưu chi phí sử dụng cho máy chủ VPS Tencent Cloud",
-    "skip_if": "Bỏ qua nếu chỉ dựa vào mức sử dụng trung bình mà không xem xét tài nguyên lúc cao điểm",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -732,9 +732,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Capacity planning và tối ưu chi phí riêng cho VPS Tencent Cloud chạy agent Hermes/\n  OpenClaw/Antigravity.",
-    "evidence_skip": "Đừng khuyến nghị downsize chỉ dựa trên usage trung bình — phải nhìn cả peak",
-    "ly_do_doi": ""
+    "evidence": "Trước khi resize/scale VPS Tencent Cloud, luôn có số liệu thật (CPU/RAM/disk usage + cost hiện tại) rồi mới khuyến nghị",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown theo góp ý vì nhìn nhận cả peak là lời khuyên kỹ thuật; đổi evidence sang câu trọn vẹn."
   },
   {
     "id": "agents/media-pro/skills/cross-channel-distribution-analysis",
@@ -743,7 +743,7 @@
       "data-dashboard"
     ],
     "use_when": "Dùng khi cần so sánh hiệu quả của nội dung trên các nền tảng TikTok, YouTube Shorts và Instagram Reels",
-    "skip_if": "Bỏ qua nếu chưa đủ số lượng tối thiểu 5 bài viết cùng thể loại để quan sát quy luật",
+    "skip_if": "Bỏ qua nếu kênh mới có ít hơn 5 nội dung cùng thể loại chưa đủ dữ liệu tìm quy luật",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -755,9 +755,9 @@
     ],
     "dup_group": "channel-analytics",
     "confidence": "cao",
-    "evidence": "So sánh hiệu suất cùng 1 content được repurpose qua nhiều platform\n  (TikTok/YouTube/Instagram)",
+    "evidence": "So sánh hiệu suất cùng 1 content được repurpose qua nhiều platform (TikTok/YouTube/Instagram) để quyết định dồn lực",
     "evidence_skip": "cần đủ volume content (≥5/loại) mới có pattern đáng tin — kênh mới/ít content chưa dùng được ngay",
-    "ly_do_doi": "Đổi capability chính sang social-media theo luật bảng 30 giá trị mới, nâng confidence lên cao vì evidence trực tiếp chứng minh."
+    "ly_do_doi": "Đổi capability sang social-media; evidence nối thành một dòng."
   },
   {
     "id": "agents/media-pro/skills/media-performance-discipline",
@@ -766,7 +766,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần quy chuẩn đánh giá hiệu suất bài đăng sau 24 đến 72 giờ và 4 bước kiểm tra trước khi đăng",
-    "skip_if": "Bỏ qua nếu nội dung mới xuất bản chưa đủ 24 đến 72 giờ để số liệu đo lường ổn định",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -777,10 +777,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "đọc số hiệu suất đúng bản\n  chất (không phải chỉ dán số), phân loại bắt buộc mọi report, luật nhân\n  bản content thắng",
-    "evidence_skip": "Đo sau 24-72h, KHÔNG PHẢI 2h — số liệu sớm chưa ổn định, kết luận vội\n   dễ sai hướng cả kế hoạch tiếp theo.",
-    "ly_do_doi": "Đổi capability chính sang social-media vì đây là kỷ luật xuất bản và đo lường kênh mạng xã hội."
+    "confidence": "vua",
+    "evidence": "Đo hiệu suất content 2 giờ sau đăng rồi kết luận là sai — số liệu cần 24-72h mới phản ánh đúng.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì đo sau 24-72h là quy tắc đo lường; đổi evidence sang câu trọn vẹn và để confidence vua."
   },
   {
     "id": "agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap",
@@ -789,7 +789,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần kiểm tra phản biện 5 câu hỏi và xây dựng lộ trình triển khai 4 giai đoạn cho báo cáo nghiên cứu",
-    "skip_if": "Bỏ qua nếu áp dụng máy móc đầy đủ 4 giai đoạn cho các quyết định đầu tư nhỏ ít rủi ro",
+    "skip_if": "Bỏ qua nếu báo cáo chỉ mang tính cập nhật thông tin không dẫn đến quyết định đầu tư nguồn lực",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -800,10 +800,10 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "(A) Stress-test báo cáo dưới góc nhìn CEO — bắt lỗi kết luận nguỵ trang\n  thành sự thật",
-    "evidence_skip": "Không phải mọi giai đoạn đều cần đủ 4 bước — báo cáo nhỏ/rủi ro thấp có thể gộp Giai đoạn 0+1",
-    "ly_do_doi": ""
+    "confidence": "vua",
+    "evidence": "Skill này chạy 2 bước: (A) đóng vai CEO xé nhỏ báo cáo tìm lỗ hổng, (B) biến verdict đã vá thành kế hoạch triển khai",
+    "evidence_skip": "KHÔNG dùng cho báo cáo chỉ để cập nhật thông tin, không dẫn tới quyết định rót nguồn lực",
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn và hạ confidence xuống vua."
   },
   {
     "id": "agents/research-analytics-pro/skills/competitive-intel",
@@ -825,7 +825,7 @@
     "confidence": "cao",
     "evidence": "Phân tích đối thủ cạnh tranh: positioning, features, pricing, moat, weakness.",
     "evidence_skip": "",
-    "ly_do_doi": "Đổi needs thành none vì đây là framework tư duy phân tích đối thủ, nâng confidence lên cao vì evidence nói thẳng chức năng; skip_if unknown vì không có ghi chú giới hạn."
+    "ly_do_doi": "Đổi needs thành none; skip_if unknown vì không có ghi chú giới hạn."
   },
   {
     "id": "agents/research-analytics-pro/skills/local-gap-finder",
@@ -834,7 +834,7 @@
       "reference"
     ],
     "use_when": "Dùng khi cần tìm khoảng trống thị trường và cơ hội kinh doanh tại địa phương dựa trên dữ liệu đối thủ và khách hàng",
-    "skip_if": "Bỏ qua nếu nghiên cứu phạm vi vĩ mô đa ngành hoặc mô hình kinh doanh không phụ thuộc địa lý",
+    "skip_if": "Bỏ qua nếu nghiên cứu phạm vi vĩ mô đa ngành hoặc lĩnh vực không cạnh tranh theo địa lý",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -846,9 +846,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Tìm khoảng trống thị trường cho local business bằng cách cross-reference đối thủ,",
-    "evidence_skip": "**Không dùng skill này cho:** research vĩ mô/đa ngành",
-    "ly_do_doi": ""
+    "evidence": "Dùng khi Nobitano hỏi \"đối thủ quanh đây đang làm gì\", \"còn chỗ trống nào chưa ai fill\", \"mình định giá đúng chưa\"",
+    "evidence_skip": "research vĩ mô/đa ngành (dùng skill `research-synthesis` + `market-sizing` như bình thường)",
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn nói thẳng việc tìm khoảng trống cạnh tranh địa phương."
   },
   {
     "id": "agents/research-analytics-pro/skills/market-sizing",
@@ -879,7 +879,7 @@
       "prompt-skill-library"
     ],
     "use_when": "Dùng khi cần thiết kế bảng câu hỏi khảo sát hoặc hướng dẫn phỏng vấn để thu thập dữ liệu sơ cấp từ khách hàng",
-    "skip_if": "Bỏ qua nếu gộp chung mục tiêu định lượng và định tính vào trong cùng một câu hỏi nghiên cứu",
+    "skip_if": "unknown",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -891,9 +891,9 @@
     ],
     "dup_group": "",
     "confidence": "cao",
-    "evidence": "Thiết kế nghiên cứu sơ cấp (survey, interview guide) khi không có nguồn thứ cấp",
-    "evidence_skip": "Đừng trộn định lượng và định tính trong cùng 1 câu hỏi nghiên cứu — chọn rõ 1 cái trước",
-    "ly_do_doi": "Nâng confidence lên cao vì evidence chứng minh trực tiếp việc thiết kế khảo sát và phỏng vấn."
+    "evidence": "Thiết kế nghiên cứu sơ cấp (survey, interview guide) khi không có nguồn thứ cấp nào trả lời được câu hỏi",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tránh trộn định lượng định tính là phương pháp luận; đổi evidence sang câu trọn vẹn."
   },
   {
     "id": "agents/research-analytics-pro/skills/research-independent-review-gate",
@@ -901,7 +901,7 @@
       "web-research"
     ],
     "use_when": "Dùng khi cần cơ chế phản biện độc lập song song để kiểm duyệt báo cáo nghiên cứu trước khi ra quyết định đầu tư",
-    "skip_if": "Bỏ qua nếu chỉ là báo cáo nội bộ nhỏ hoặc nghiên cứu thăm dò không dẫn đến quyết định đầu tư lớn",
+    "skip_if": "Bỏ qua nếu là báo cáo nội bộ nhỏ hoặc nghiên cứu thăm dò không dẫn tới quyết định đầu tư lớn",
     "adoption": "cai-ngay-duoc",
     "vessel_fit": [
       "claude-code",
@@ -912,9 +912,9 @@
       "none"
     ],
     "dup_group": "",
-    "confidence": "cao",
-    "evidence": "Cấu hình santa-method (dual independent adversarial review có sẵn trong kho)\n  riêng cho Research Analytics Pro",
+    "confidence": "vua",
+    "evidence": "Skill này thêm lớp thứ 2: 2 reviewer ĐỘC LẬP, không nhìn thấy nhau, không thấy context của agent gốc",
     "evidence_skip": "Không dùng skill này cho báo cáo nhỏ/không dẫn tới quyết định đầu tư lớn",
-    "ly_do_doi": ""
+    "ly_do_doi": "Đổi evidence sang câu trọn vẹn và hạ confidence xuống vua."
   }
 ]
