@@ -1,0 +1,921 @@
+[
+  {
+    "id": "agents/research-analytics-pro/skills/research-synthesis",
+    "capability": [
+      "web-research",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tổng hợp nhiều nguồn nghiên cứu thành một báo cáo hoàn chỉnh có cấu trúc insight và hành động",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "synthesis-prompts",
+    "confidence": "cao",
+    "evidence": "Tổng hợp thông tin từ nhiều nguồn thành 1 bức tranh coherent.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì phân biệt fact và ước tính là quy tắc phương pháp luận."
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/social-listening-research",
+    "capability": [
+      "web-research",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần quét mạng xã hội tìm kiếm cảm nhận của khách hàng khiếu nại phổ biến và nhu cầu chưa được giải quyết",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "social-trend-research",
+    "confidence": "cao",
+    "evidence": "Nghiên cứu thị trường/khách hàng qua social platform (TikTok, Instagram, Facebook, Reddit, YouTube comments)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì dấu hiệu phát hiện bot là guardrail kiểm chứng; đổi capability chính sang web-research."
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/source-evaluation",
+    "capability": [
+      "web-research",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần chấm điểm độ tin cậy của nguồn thông tin và phân loại nguồn sơ cấp thứ cấp trước khi trích dẫn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "source-reliability-evaluation",
+    "confidence": "cao",
+    "evidence": "Chấm điểm độ tin cậy của nguồn thông tin trước khi dùng vào research.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy tắc tuổi thọ dữ liệu 18 tháng là chuẩn mực thẩm định."
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/statistical-analysis",
+    "capability": [
+      "data-dashboard",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần phân tích số liệu thực tế xử lý tập dữ liệu tìm xu hướng và kiểm định giả thuyết thống kê",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "data-analysis-skills",
+    "confidence": "cao",
+    "evidence": "Phân tích số liệu thực tế bằng code (pandas, scipy, statsmodels).",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì phân biệt tương quan và nhân quả là phương pháp luận thống kê."
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/trend-forecasting",
+    "capability": [
+      "web-research",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần dự báo xu hướng thị trường dựa trên tín hiệu sớm đường cong tiếp nhận công nghệ và mô hình đa ngành",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "Xác định xu hướng đang nổi, phân biệt trend thật vs hype, dự báo scenario.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "agents/sales-ceo/skills/ceo-decision-lens",
+    "capability": [
+      "prompt-skill-library",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần đánh giá quyết định cấp điều hành phân tích đánh đổi phân bổ nguồn lực và tính toán rủi ro một chiều",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "executive-briefing",
+    "confidence": "vua",
+    "evidence": "Trước khi ra bất kỳ quyết định kinh doanh nào có rủi ro, chạy qua 3 trục: **Risk / Return / Reversibility**.",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua vì evidence là cụm mô tả; skip_if unknown vì nguyên tắc quản trị không phải điều kiện bỏ qua."
+  },
+  {
+    "id": "agents/sales-ceo/skills/deal-scoring-forecast-discipline",
+    "capability": [
+      "crm-sales",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần chấm điểm cơ hội bán hàng B2B theo thang điểm khách quan và dự báo doanh thu sát thực tế",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "sales-discipline",
+    "confidence": "cao",
+    "evidence": "Dùng khi cần chấm điểm lead mới, lên lịch touch, xử lý objection, forecast pipeline, hoặc audit CRM.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tránh cộng dồn cảm tính là quy tắc đánh giá."
+  },
+  {
+    "id": "agents/sales-ceo/skills/forward-deployed-engineer-model",
+    "capability": [
+      "prompt-skill-library",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần khung quy chuẩn triển khai kỹ sư trực tiếp làm việc cùng khách hàng để thiết kế và chuyển giao giải pháp",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "FDE = kỹ sư giỏi nhất trực tiếp lắp ráp giải pháp trên nền tảng chung cho khách",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì là mô hình chiến lược tư duy; giữ confidence vua."
+  },
+  {
+    "id": "agents/sales-ceo/skills/gtm-strategy",
+    "capability": [
+      "crm-sales",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần xây dựng chiến lược tiếp cận thị trường tinh gọn xác định khách hàng mục tiêu định giá và kênh ưu tiên",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-strategy-planning",
+    "confidence": "vua",
+    "evidence": "Xây go-to-market cho sản phẩm/dịch vụ mới hoặc mở rộng — chọn ICP, pricing tier, channel ưu tiên, và sequence launch.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability sang crm-sales và prompt-skill-library; hạ confidence xuống vua; skip_if unknown vì lời khuyên không phải điều kiện bỏ qua."
+  },
+  {
+    "id": "agents/sales-ceo/skills/negotiation-deal-structuring",
+    "capability": [
+      "crm-sales",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần cấu trúc thương lượng hợp đồng B2B xác định phương án dự phòng thang nhượng bộ và điều khoản thanh toán",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "sales-discipline",
+    "confidence": "vua",
+    "evidence": "Cấu trúc và đàm phán deal B2B — tính BATNA, xây concession ladder, phát hiện điểm neo giá, thiết kế deal terms",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì agent không tự chốt deal là guardrail an toàn; giữ confidence vua."
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer",
+    "capability": [
+      "security-compliance",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần tạo câu công bố tiếp thị liên kết minh bạch và tuân thủ chính sách của YouTube và TikTok",
+    "skip_if": "Bỏ qua nếu video không có liên kết tiếp thị liên kết",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "ai-disclosure-compliance",
+    "confidence": "cao",
+    "evidence": "Sinh description + pinned comment cho video có affiliate link, kèm disclosure hợp lệ.",
+    "evidence_skip": "Nếu video không có affiliate → bỏ qua toàn bộ skill này, không tạo description rác.",
+    "ly_do_doi": "skip_if nêu rõ điều kiện bỏ qua khi video không có affiliate link."
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/compliance-gate",
+    "capability": [
+      "security-compliance"
+    ],
+    "use_when": "Dùng khi cần kiểm tra script và metadata video trước khi render để ngăn ngừa rủi ro vi phạm chính sách nền tảng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "compliance-gate",
+    "confidence": "cao",
+    "evidence": "Node bắt buộc trong pipeline, đứng giữa Script Variation Engine và MoneyPrinterTurbo.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi needs thành none vì đây là bộ quy tắc kiểm duyệt nội dung; skip_if unknown vì kiểm duyệt là bước bắt buộc."
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/storyboard-generator",
+    "capability": [
+      "content-writing",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần chuyển kịch bản video ngắn thành kịch bản phân cảnh chi tiết từng giây kèm prompt tạo hình ảnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "promo-storyboard-pipeline",
+    "confidence": "cao",
+    "evidence": "soạn storyboard.json 6 scene cho pipeline render Playwright.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi needs thành none vì là kỹ năng sinh prompt kịch bản; skip_if unknown vì tránh đổi góc nhìn là quy tắc thẩm mỹ."
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/trend-scout",
+    "capability": [
+      "web-research",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần tìm kiếm các chủ đề âm thanh và mẫu video ngắn đang thịnh hành trên TikTok và YouTube Shorts",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "viral-content-research",
+    "confidence": "cao",
+    "evidence": "Dùng khi cần tìm topic mới cho video, đầu pipeline yt-cashcow.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi needs thành none vì quét dựa trên từ khoá và công cụ nghiên cứu web; skip_if unknown vì tránh trend nhảm là định hướng."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/affiliate-injector",
+    "capability": [
+      "content-writing",
+      "ads"
+    ],
+    "use_when": "Dùng khi cần chèn liên kết tiếp thị và mã giới thiệu dịch vụ phòng chờ sim du lịch vào bài viết một cách tự nhiên",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Guardrail gắn affiliate link vé máy bay vào caption Trùm Sân Bay",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua vì evidence là cụm danh từ mô tả tính năng; skip_if unknown vì không spam link là quy tắc nội dung."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/api-error-handler",
+    "capability": [
+      "devops",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần xử lý lỗi kết nối tự động thử lại theo cấp số nhân và bảo vệ hạn ngạch gọi API cho hệ thống tự động",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "ops-feedback-loop",
+    "confidence": "cao",
+    "evidence": "Skill này bắt lỗi đúng chỗ, retry đúng cách, báo đúng người.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi needs thành none vì là logic xử lý lỗi trong mã nguồn; skip_if unknown vì circuit breaker là cơ chế bảo vệ."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/aviation-knowledge",
+    "capability": [
+      "ticketing-aviation",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần cẩm nang tri thức chuyên sâu về quy định sân bay thủ tục hải quan và mẹo di chuyển hàng không",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Skill này trang bị cho agent kiến thức nền về hàng không Việt Nam + quốc tế để viết content chính xác",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu khẳng định năng lực tra cứu; skip_if unknown do là tài liệu tra cứu."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/brand-design-system",
+    "capability": [
+      "design-ui",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần hướng dẫn quy chuẩn thiết kế hình ảnh màu sắc phông chữ và bố cục khung hình cho kênh truyền thông",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "ai-design-skill",
+    "confidence": "vua",
+    "evidence": "Skill này là \"gác cổng visual\" — đảm bảo mọi ảnh/video ra khỏi pipeline đều đúng bộ nhận diện",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm mô tả quy chuẩn; skip_if unknown vì là cẩm nang thiết kế."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/brand-discovery-session",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần quy trình 6 mô đun phỏng vấn chuyên sâu để định hình bản sắc giá trị cốt lõi và cá tính thương hiệu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "brand-voice-discovery",
+    "confidence": "vua",
+    "evidence": "dùng để deepen persona TRƯỚC KHI apply full-auto, không phải bắt buộc làm ngay.",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; skip_if unknown vì không phỏng vấn dồn dập là kỹ thuật điều phối."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/brand-voice",
+    "capability": [
+      "content-writing",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần quy chuẩn giọng điệu nhân vật nhân viên sân bay 15 năm kinh nghiệm và ma trận mẫu câu tương tác",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "brand-voice-design",
+    "confidence": "vua",
+    "evidence": "Anh/chú nhân viên sân bay 15 năm kinh nghiệm. Biết hết góc khuất, nói thật, không màu mè.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là câu miêu tả chân dung persona; skip_if unknown vì từ ngữ cấm dùng là quy chuẩn hành văn."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/content-research",
+    "capability": [
+      "web-research",
+      "ticketing-aviation"
+    ],
+    "use_when": "Dùng khi cần nghiên cứu chủ đề nội dung kiểm chứng sự thật về quy định hàng không và tìm kiếm câu chuyện thực tế",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "researched-content-writing",
+    "confidence": "cao",
+    "evidence": "Tự động crawl Facebook Groups, TikTok trending, RSS hãng bay → tổng hợp danh sách chủ đề content mỗi tuần",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi needs thành none do hoạt động nghiên cứu thông tin; skip_if unknown vì quy tắc kiểm chứng kép là phương pháp luận."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/content-strategy-ideation",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần lập kế hoạch nội dung tuần phân bổ tỷ lệ các trụ cột chủ đề và xây dựng phễu chuyển đổi dịch vụ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-strategy-planning",
+    "confidence": "cao",
+    "evidence": "Nhận raw topics từ Research Agent → lọc, rank, gắn brief chi tiết → xuất ra 7 post plan cho tuần.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability sang content-writing và prompt-skill-library; skip_if unknown vì không đăng lan man là định hướng biên tập."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/llm-router",
+    "capability": [
+      "agent-orchestration-memory",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần điều phối thông minh giữa các mô hình ngôn ngữ lớn để tối ưu chi phí tốc độ và chất lượng cho từng tác vụ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "llm-gateway",
+    "confidence": "cao",
+    "evidence": "Skill này định nghĩa: task nào dùng model nào, qua OmniRoute gateway đang chạy sẵn trên VPS",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì fallback dự phòng là tính năng kiến trúc hệ thống."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/media-performance-discipline",
+    "capability": [
+      "social-media",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần theo dõi số liệu video sau 24 đến 72 giờ và phân loại nội dung thành công hay thất bại",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "channel-analytics",
+    "confidence": "vua",
+    "evidence": "Skill `media-performance-discipline` đã chuyển thành skill chính thức của **Media Pro**",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; skip_if unknown vì đo lường sau 24-72h là quy chuẩn nghiệp vụ."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/pipeline-dashboard",
+    "capability": [
+      "data-dashboard",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần bảng điều khiển giám sát trạng thái quy trình sản xuất nội dung tự động và cảnh báo điểm nghẽn",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "vps"
+    ],
+    "dup_group": "data-analysis-skills",
+    "confidence": "vua",
+    "evidence": "mở dashboard trên browser xem trạng thái từng content_id đang ở bước nào, platform nào đã đăng",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; giữ adoption can-ha-tang vì dashboard cần host trên máy chủ; skip_if unknown."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/reply-agent-prompt",
+    "capability": [
+      "customer-support",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần mẫu prompt điều khiển trợ lý tự động phản hồi bình luận và tin nhắn khách hàng theo đúng tính cách thương hiệu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "response-style-prompt",
+    "confidence": "vua",
+    "evidence": "Reply Agent nói chuyện TRỰC TIẾP với khách, real-time, không qua review trước",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; skip_if unknown vì quy tắc không tranh cãi với khách là guardrail."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/social-publisher",
+    "capability": [
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần tự động hóa đăng tải bài viết và video lên các nền tảng mạng xã hội Facebook TikTok Instagram",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "social-post-api",
+    "confidence": "vua",
+    "evidence": "Nhận 1 content core → adapt thành 5 version đúng format từng platform → package sẵn để Publisher Agent đăng.",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; đổi needs thành api-key vì cần kết nối token các nền tảng social."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/video-renderer",
+    "capability": [
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần tự động ghép hình ảnh âm thanh giọng đọc và hiệu ứng chữ động thành video hoàn chỉnh",
+    "skip_if": "Bỏ qua nếu hệ thống máy chủ chưa được cài đặt công cụ xử lý đồ họa ffmpeg",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "vps"
+    ],
+    "dup_group": "html-video-renderer",
+    "confidence": "cao",
+    "evidence": "Nhận caption + topic → gen HTML template → HyperFrames render ra MP4 9:16 sẵn sàng đăng TikTok/Reels/Shorts.",
+    "evidence_skip": "Yêu cầu: Node.js 22+, ffmpeg",
+    "ly_do_doi": "Giữ confidence cao; skip_if có điều kiện thực sự về công cụ ffmpeg trên máy chủ."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/writer-agent-prompt",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần mẫu prompt điều khiển người viết nội dung tạo kịch bản video ngắn và bài đăng mạng xã hội chuẩn phong cách",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "prompt-writing-chain",
+    "confidence": "vua",
+    "evidence": "Đây là agent quan trọng nhất trong pipeline — nó viết ra giọng nói thực sự của \"Trùm Sân Bay\".",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; skip_if unknown do lời khuyên cung cấp bối cảnh cụ thể là chỉ dẫn viết prompt."
+  },
+  {
+    "id": "agents/yt-cashcow/skills/compliance-gate",
+    "capability": [
+      "security-compliance",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần so sánh dấu vân tay cấu trúc của kịch bản video với lịch sử phát hành để tránh bị trùng lặp nội dung",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "compliance-gate",
+    "confidence": "cao",
+    "evidence": "So structural fingerprint script mới với 15 video gần nhất trong Airtable `fingerprint_history`. Fail → bounce lại",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì không nới lỏng ngưỡng là nguyên tắc bảo đảm chất lượng."
+  },
+  {
+    "id": "agents/yt-cashcow/skills/platform-disclosure-adapter",
+    "capability": [
+      "security-compliance",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần bật đúng các cài đặt công bố nội dung do trí tuệ nhân tạo tạo ra trên từng nền tảng trước khi đăng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "ai-disclosure-compliance",
+    "confidence": "cao",
+    "evidence": "route qua adapter này để bật đúng toggle/label theo từng platform — vì cơ chế phát hiện khác nhau",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability sang security-compliance và social-media; skip_if unknown vì không tắt toggle là quy tắc tuân thủ."
+  },
+  {
+    "id": "agents/yt-cashcow/skills/script-variation-engine",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần viết kịch bản video từ gợi ý chủ đề đồng thời chủ động thay đổi cấu trúc và móc câu so với các video cũ",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "short-video-script-structure",
+    "confidence": "cao",
+    "evidence": "Đọc `fingerprint_history` (Airtable) TRƯỚC khi viết, chủ động né structure_type/hook_type đã dùng nhiều",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tự tính tỷ lệ bình luận là quy trình kỹ thuật nội bộ."
+  },
+  {
+    "id": "mcps/aituber",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần tạo video hoàn chỉnh có giọng đọc thuyết minh và phụ đề tự động từ mô tả văn bản thông qua dịch vụ đám mây",
+    "skip_if": "Bỏ qua nếu tài khoản dịch vụ đám mây AITuber đã hết số dư tín dụng để tạo video",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "ai-video-gen",
+    "confidence": "cao",
+    "evidence": "Viết kịch bản + tạo video hoàn chỉnh từ mô tả (\"video 60 giây về 5 sự thật đại dương, giọng nữ Anh\")",
+    "evidence_skip": "Trả phí theo credit (tài khoản AITuber riêng) — check credit trước khi giao task lớn.",
+    "ly_do_doi": "skip_if nêu rõ điều kiện hết tín dụng trả phí của dịch vụ bên thứ ba."
+  },
+  {
+    "id": "mcps/awslabs-mcp",
+    "capability": [
+      "devops",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần gọi trực tiếp các dịch vụ đám mây AWS như máy chủ ảo lưu trữ cơ sở dữ liệu bằng ngôn ngữ tự nhiên",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Bộ MCP server chính chủ AWS Labs, cho phép Claude/Cursor/Cline gọi thẳng dịch vụ AWS",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là cụm mô tả bộ công cụ; skip_if unknown vì chọn server phù hợp là hướng dẫn cài đặt."
+  },
+  {
+    "id": "mcps/brave-search",
+    "capability": [
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý tự động tìm kiếm thông tin thời gian thực trên mạng internet bằng công cụ tìm kiếm Brave",
+    "skip_if": "Bỏ qua nếu đã vượt quá hạn mức 2000 lượt tìm kiếm trong tháng của gói sử dụng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "web-search-api",
+    "confidence": "vua",
+    "evidence": "Claude tự search web real-time để trả lời câu hỏi mới nhất",
+    "evidence_skip": "Free tier: 2,000 searches/tháng — đủ dùng cho cá nhân",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ hạn mức tìm kiếm hàng tháng của API."
+  },
+  {
+    "id": "mcps/claude-ads",
+    "capability": [
+      "ads"
+    ],
+    "use_when": "Dùng khi cần kiểm toán nhanh các chiến dịch quảng cáo trên Google Meta TikTok YouTube trong vòng 15 phút",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "claude-ads-seo-plugins",
+    "confidence": "vua",
+    "evidence": "Audit Quảng Cáo Google/Meta/TikTok/YouTube Trong 15 Phút",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là tiêu đề chức năng; skip_if unknown do không có điều kiện loại trừ."
+  },
+  {
+    "id": "mcps/claude-routines",
+    "capability": [
+      "productivity",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần thiết lập các tác vụ tự động hóa định kỳ chạy trên đám mây của Anthropic mà không cần bật máy chủ",
+    "skip_if": "Bỏ qua nếu xử lý dữ liệu nhạy cảm hoặc tài khoản không đủ quyền chạy tự động",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only",
+      "tra-phi"
+    ],
+    "dup_group": "scheduled-automation",
+    "confidence": "vua",
+    "evidence": "Claude Code chạy **scheduled automation trên cloud của Anthropic**.",
+    "evidence_skip": "Không dùng cho sensitive data.",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ điều kiện về bảo mật dữ liệu nhạy cảm."
+  },
+  {
+    "id": "mcps/cloud-accounting-mcps",
+    "capability": [
+      "finance-accounting"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý trí tuệ nhân tạo với các nền tảng kế toán đám mây như Xero Wave FreshBooks Stripe",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "accounting-mcp",
+    "confidence": "thap",
+    "evidence": "Kết nối Claude với phần mềm kế toán cloud",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence thap vì entry chỉ liệt kê danh sách link repo; skip_if unknown do không nêu rõ điều kiện bỏ qua."
+  },
+  {
+    "id": "mcps/codebase-memory-mcp",
+    "capability": [
+      "agent-orchestration-memory",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần lập chỉ mục toàn bộ mã nguồn dự án thành đồ thị tri thức để trợ lý tra cứu nhanh và tiết kiệm token",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "code-graph-for-ai",
+    "confidence": "cao",
+    "evidence": "index code thành knowledge graph, AI hỏi đâu biết đó, dùng ít token hơn 10 lần.",
+    "evidence_skip": "",
+    "ly_do_doi": "Đổi capability phụ sang productivity; skip_if để unknown vì yêu cầu phiên bản Node.js là điều kiện môi trường chung."
+  },
+  {
+    "id": "mcps/codegraph",
+    "capability": [
+      "agent-orchestration-memory",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần phân tích trước mã nguồn bằng đồ thị tri thức nội bộ để trợ lý đọc chính xác tệp cần thiết trong dự án lớn",
+    "skip_if": "Bỏ qua nếu quy mô mã nguồn dự án nhỏ dưới vài trăm tệp tin",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "code-graph-for-ai",
+    "confidence": "cao",
+    "evidence": "Cho AI coding agent 1 index sẵn của codebase, đỡ phải tự grep/glob dò file",
+    "evidence_skip": "Chỉ đáng gắn với codebase đủ lớn (vài trăm file trở lên)",
+    "ly_do_doi": "Đổi capability sang agent-orchestration-memory và productivity; skip_if có điều kiện rõ ràng về kích thước dự án."
+  }
+]
