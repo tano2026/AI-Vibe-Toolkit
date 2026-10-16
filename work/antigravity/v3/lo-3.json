@@ -1,0 +1,909 @@
+[
+  {
+    "id": "mcps/comfyui-mcp",
+    "capability": [
+      "image-generation"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý trí tuệ nhân tạo để điều khiển quy trình tạo hình ảnh trên ComfyUI",
+    "skip_if": "Bỏ qua nếu hệ thống máy tính không có phần cứng đồ họa GPU hoặc chưa chạy ComfyUI",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "image-gen-local",
+    "confidence": "cao",
+    "evidence": "Claude Code plugin + MCP server cho ComfyUI — generate images và video, chỉnh sửa workflows",
+    "evidence_skip": "ComfyUI cần GPU để render ảnh/video",
+    "ly_do_doi": "skip_if nêu rõ điều kiện máy phải có GPU và ComfyUI đang hoạt động."
+  },
+  {
+    "id": "mcps/context7",
+    "capability": [
+      "agent-orchestration-memory",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tra cứu tài liệu thư viện phần mềm lập trình cập nhật thời gian thực vào ngữ cảnh của trợ lý",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-context-retrieval",
+    "confidence": "cao",
+    "evidence": "Cấp docs mới nhất của mọi thư viện cho AI khi code",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì đây là công cụ tra cứu tài liệu mã nguồn mở."
+  },
+  {
+    "id": "mcps/fal-mcp",
+    "capability": [
+      "image-generation",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo hình ảnh và video chất lượng cao thông qua các mô hình AI điện toán đám mây của fal.ai",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "cao",
+    "evidence": "access 600+ AI models cho image generation, video creation, speech-to-text, TTS, music generation",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do các lưu ý về giá là cảnh báo chi phí."
+  },
+  {
+    "id": "mcps/filesystem",
+    "capability": [
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý quyền đọc viết và tìm kiếm tệp tin an toàn trong thư mục cho phép trên máy tính",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Claude đọc, viết, tìm kiếm files trên máy tính của mày",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là tóm tắt chức năng; skip_if unknown vì giới hạn thư mục là thiết lập an toàn."
+  },
+  {
+    "id": "mcps/firecrawl",
+    "capability": [
+      "scraping",
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cào dữ liệu trang web chuyển đổi thành văn bản định dạng markdown sạch cho trợ lý phân tích",
+    "skip_if": "Bỏ qua nếu đã sử dụng hết hạn mức 500 tín dụng cào trang hàng tháng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "web-scrape-llm",
+    "confidence": "vua",
+    "evidence": "Scrape bất kỳ website nào → text sạch cho AI đọc và phân tích",
+    "evidence_skip": "Free tier: 500 credits/tháng — 1 trang = 1 credit",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ giới hạn tín dụng hàng tháng của dịch vụ."
+  },
+  {
+    "id": "mcps/framecraft",
+    "capability": [
+      "video-render",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi mã kịch bản HTML và lời thuyết minh thành video định dạng MP4",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "video-processing-tools",
+    "confidence": "vua",
+    "evidence": "Describe → Claude Viết HTML → Render MP4",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown do không có ghi chú loại trừ."
+  },
+  {
+    "id": "mcps/github-mcp",
+    "capability": [
+      "devops",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý thao tác trực tiếp với kho mã nguồn GitHub như quản lý nhánh commit và pull request",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "github-ops",
+    "confidence": "vua",
+    "evidence": "Claude thao tác GitHub: commit, PR, issues, branches",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown vì phạm vi token là hướng dẫn cấu hình."
+  },
+  {
+    "id": "mcps/google-flow-mcp",
+    "capability": [
+      "image-generation",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần truy cập API chính thức của Google để tạo hình ảnh và video nghệ thuật",
+    "skip_if": "Bỏ qua nếu tài khoản chưa bật thanh toán cho tính năng tạo video trả phí",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "MCP server cho Claude Desktop/Code truy cập trực tiếp Nano Banana (ảnh) và Veo (video)",
+    "evidence_skip": "Video generation cần gói trả phí riêng (không nằm trong free tier như ảnh) — kiểm tra billing trước khi dùng",
+    "ly_do_doi": "skip_if nêu rõ điều kiện về thanh toán video generation."
+  },
+  {
+    "id": "mcps/google-workspace-mcp",
+    "capability": [
+      "document-office"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với các dịch vụ Gmail Google Drive Sheets Docs và Calendar để đọc ghi dữ liệu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "api-key",
+      "claude-code-only"
+    ],
+    "dup_group": "google-workspace-integration",
+    "confidence": "cao",
+    "evidence": "MCP server cho Claude Code để access toàn bộ Google Workspace — đọc/ghi Gmail, Drive, Sheets, Docs, Calendar.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quyền hạn OAuth là thiết lập bảo mật."
+  },
+  {
+    "id": "mcps/higgsfield",
+    "capability": [
+      "video-generation",
+      "image-generation"
+    ],
+    "use_when": "Dùng khi cần mở khóa hơn 30 mô hình tạo hình ảnh và video điện ảnh thông qua nền tảng Higgsfield",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "cao",
+    "evidence": "MCP chính thức của Higgsfield — mở khoá 30+ model tạo ảnh/video cinematic",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do lưu ý OAuth là hướng dẫn đăng nhập."
+  },
+  {
+    "id": "mcps/hubspot-mcp",
+    "capability": [
+      "crm-sales"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với hệ thống HubSpot CRM để đọc tạo và cập nhật dữ liệu khách hàng và quy trình tiếp thị",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "cao",
+    "evidence": "MCP server cho HubSpot — Claude đọc, tạo, update toàn bộ CRM data và marketing workflows mà không cần mở HubSpot UI.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "mcps/jaz-ai-mcp",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo video quảng cáo sản phẩm tự động thông qua máy chủ đám mây của Jaz AI",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "ai-video-gen",
+    "confidence": "vua",
+    "evidence": "MCP Remote: https://mcp.jaz.ai/mcp (cloud, không cần cài)",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì entry ngắn gọn; skip_if unknown."
+  },
+  {
+    "id": "mcps/kondo",
+    "capability": [
+      "productivity",
+      "customer-support"
+    ],
+    "use_when": "Dùng khi cần phân loại và xử lý hộp thư tin nhắn LinkedIn thông qua trợ lý trí tuệ nhân tạo",
+    "skip_if": "Bỏ qua nếu không mở sẵn tab tiện ích trình duyệt Kondo hoặc chưa nâng cấp gói Business",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "browser",
+      "tra-phi"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "Kondo là tool quản lý inbox LinkedIn kiểu Superhuman (split inbox, label, snooze).",
+    "evidence_skip": "**Bắt buộc phải có tab trình duyệt mở** — không chạy nền độc lập được như MCP server thông thường",
+    "ly_do_doi": "skip_if nêu rõ điều kiện bắt buộc mở tab trình duyệt và gói trả phí Business."
+  },
+  {
+    "id": "mcps/make-mcp",
+    "capability": [
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần thiết kế kiểm tra và triển khai các kịch bản tự động hóa Make.com kết nối hơn 3000 ứng dụng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "workflow-builder-mcp",
+    "confidence": "cao",
+    "evidence": "MCP server để Claude **discover, assemble, validate và deploy** Make.com scenarios",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì giới hạn bản miễn phí là hạn ngạch tài khoản."
+  },
+  {
+    "id": "mcps/markitdown-mcp",
+    "capability": [
+      "document-office"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi các tệp tài liệu Word Excel PDF PowerPoint sang định dạng văn bản markdown nội bộ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "doc-to-markdown",
+    "confidence": "vua",
+    "evidence": "The MarkItDown-MCP package is meant for local use, with local trusted agents.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown vì khuyến cáo chạy local là lưu ý bảo mật."
+  },
+  {
+    "id": "mcps/mcp-video-gen",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo video bằng trí tuệ nhân tạo thông qua cổng kết nối các mô hình mã nguồn mở như CogVideoX",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "ai-video-gen",
+    "confidence": "vua",
+    "evidence": "export ZHIPUAI_API_KEY=\"...\" # CogVideoX — free tier",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown do không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "mcps/meta-ads-mcp-official",
+    "capability": [
+      "ads"
+    ],
+    "use_when": "Dùng khi cần quản lý chiến dịch quảng cáo bộ quảng cáo nội dung và báo cáo Meta Ads trực tiếp bằng ngôn ngữ tự nhiên",
+    "skip_if": "Bỏ qua nếu tài khoản quảng cáo Meta chưa được kích hoạt quyền truy cập tính năng beta",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "meta-ads-mcp",
+    "confidence": "cao",
+    "evidence": "Quản lý campaign/ad set/creative/báo cáo Meta Ads (Facebook + Instagram) trực tiếp từ Claude bằng ngôn ngữ tự nhiên",
+    "evidence_skip": "đang rollout dần, không phải tài khoản ads nào cũng có quyền truy cập ngay — kiểm tra trước khi phụ thuộc",
+    "ly_do_doi": "skip_if nêu rõ điều kiện rollout beta quyền truy cập tài khoản."
+  },
+  {
+    "id": "mcps/meta-mcp-server",
+    "capability": [
+      "social-media",
+      "ads"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với nền tảng Meta để quản lý trang Instagram Threads và quản lý quảng cáo",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "meta-social-ads",
+    "confidence": "vua",
+    "evidence": "Facebook Pages · Instagram · Threads · Ads Manager · Commerce · Insights",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence xuống vua; skip_if unknown vì không có ghi chú loại trừ."
+  },
+  {
+    "id": "mcps/meta-social-api",
+    "capability": [
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần kết nối API chính thức của Meta để đăng nội dung bài viết và phân tích số liệu trên Facebook và Instagram",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "social-post-api",
+    "confidence": "cao",
+    "evidence": "Official Meta API — post content lên FB/IG/Threads, lấy insights, quản lý comment.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc kiểm duyệt app review là quy trình cấp quyền chung."
+  },
+  {
+    "id": "mcps/minimax-mcp",
+    "capability": [
+      "voice-tts",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo giọng đọc thuyết minh nhân bản giọng nói và tạo video từ mô tả văn bản bằng mô hình MiniMax",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "tts-voiceover",
+    "confidence": "cao",
+    "evidence": "MCP server chính thức từ MiniMax — tích hợp text-to-speech, voice cloning, video generation, image generation",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì không có điều kiện loại trừ."
+  },
+  {
+    "id": "mcps/n8n-workflow-builder-mcp",
+    "capability": [
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần xây dựng quản lý và giám sát các luồng tự động hóa n8n bằng ngôn ngữ tự nhiên thông qua trợ lý",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "workflow-builder-mcp",
+    "confidence": "cao",
+    "evidence": "MCP server để build, manage, monitor n8n workflows **bằng ngôn ngữ tự nhiên qua Claude**.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì không có điều kiện loại trừ ngoại cảnh."
+  },
+  {
+    "id": "mcps/notebooklm-mcp-2026",
+    "capability": [
+      "productivity",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tích hợp trợ lý nghiên cứu Google NotebookLM phiên bản Python xác thực thông qua Chrome DevTools",
+    "skip_if": "Bỏ qua nếu chưa đóng hoàn toàn trình duyệt Chrome trước khi thực hiện đăng nhập",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "browser"
+    ],
+    "dup_group": "notebooklm",
+    "confidence": "vua",
+    "evidence": "NotebookLM MCP Python, Auth Qua Chrome DevTools",
+    "evidence_skip": "Phải đóng Chrome hoàn toàn trước khi login. Cookies hết hạn 2-4 tuần.",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ điều kiện bắt buộc đóng Chrome khi đăng nhập cookies."
+  },
+  {
+    "id": "mcps/notebooklm-mcp-pleaseprompto",
+    "capability": [
+      "productivity",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần kết nối Google NotebookLM để truy vấn tài liệu nghiên cứu và tránh hiện tượng bịa đặt thông tin",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "notebooklm",
+    "confidence": "vua",
+    "evidence": "Kết Nối Claude Với NotebookLM, Zero Hallucination",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown do không có điều kiện loại trừ."
+  },
+  {
+    "id": "mcps/notebooklm-mcp-secure",
+    "capability": [
+      "productivity",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần kết nối NotebookLM với tiêu chuẩn bảo mật doanh nghiệp và tích hợp khóa API Gemini chính thức",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "notebooklm",
+    "confidence": "vua",
+    "evidence": "NotebookLM MCP Enterprise Security + Gemini API",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown vì bảo mật là tính năng của công cụ."
+  },
+  {
+    "id": "mcps/notebooklm-mcp-server",
+    "capability": [
+      "productivity",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần máy chủ MCP tiêu chuẩn để kết nối sổ tay tài liệu Google NotebookLM vào trợ lý lập trình",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "notebooklm",
+    "confidence": "vua",
+    "evidence": "kho hiện có 5 bản NotebookLM MCP khác nhau",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua; skip_if unknown do là máy chủ kết nối thông dụng."
+  },
+  {
+    "id": "mcps/notion",
+    "capability": [
+      "productivity",
+      "document-office"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý truy vấn cơ sở dữ liệu tạo trang và quản lý ghi chú trực tiếp trong không gian Notion",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "MCP chính thức của Notion — Claude đọc và ghi thẳng vào database/trang Notion.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc chia sẻ quyền trang thủ công là nguyên tắc bảo mật của Notion."
+  },
+  {
+    "id": "mcps/perplexity",
+    "capability": [
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý tìm kiếm thông tin thời gian thực với phong cách tổng hợp và trích dẫn nguồn của Perplexity",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "web-search-api",
+    "confidence": "cao",
+    "evidence": "MCP chính thức của Perplexity — cho Claude gọi công cụ search real-time của Perplexity",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì trùng lặp với search có sẵn là lời khuyên cân nhắc."
+  },
+  {
+    "id": "mcps/playwright",
+    "capability": [
+      "browser-automation",
+      "scraping"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý điều khiển trình duyệt để kiểm thử giao diện cào dữ liệu web và tự động hóa thao tác người dùng",
+    "skip_if": "Bỏ qua nếu trang đích có hệ thống xác thực người máy Captcha hoặc Cloudflare quá nghiêm ngặt",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "browser"
+    ],
+    "dup_group": "browser-control",
+    "confidence": "vua",
+    "evidence": "AI tự điều khiển browser để test UI, scrape web, tự động hóa thao tác",
+    "evidence_skip": "Không bypass được Captcha hay Cloudflare chặt",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ điều kiện chặn của Captcha hoặc Cloudflare."
+  },
+  {
+    "id": "mcps/pollinations-mcp",
+    "capability": [
+      "image-generation",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo hình ảnh và video nhanh chóng mà không cần đăng ký tài khoản hay sử dụng mã khóa API",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "pollinations-mcp — Image/Video/Audio FREE, Không Cần API Key",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì evidence là tiêu đề; skip_if unknown do dịch vụ mở hoàn toàn."
+  },
+  {
+    "id": "mcps/poppify",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo video quảng cáo bán hàng chuyển động hấp dẫn từ mã HTML canvas và hiệu ứng hoạt họa",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only",
+      "tra-phi"
+    ],
+    "dup_group": "html-canvas-video",
+    "confidence": "vua",
+    "evidence": "GitHub: github.com/Poppify/poppify-claude-plugin Website: poppify.ai License: MIT",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua vì entry ngắn gọn; skip_if unknown do không nêu rõ điều kiện loại trừ."
+  },
+  {
+    "id": "mcps/sequential-thinking",
+    "capability": [
+      "productivity",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần hướng dẫn trợ lý chia nhỏ bài toán phức tạp và suy nghĩ có cấu trúc theo từng bước trước khi viết mã",
+    "skip_if": "Bỏ qua nếu tác vụ quá đơn giản không đòi hỏi nhiều bước tư duy giải quyết",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "Bắt AI chia nhỏ bài toán, suy nghĩ có cấu trúc trước khi làm",
+    "evidence_skip": "**Không cần dùng cho task đơn giản** — nó sẽ chậm hơn không có lý do",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ điều kiện không cần dùng cho bài toán đơn giản."
+  },
+  {
+    "id": "mcps/slack",
+    "capability": [
+      "customer-support",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với không gian làm việc Slack để đọc lịch sử kênh tìm kiếm tin nhắn và gửi thông báo",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "",
+    "confidence": "cao",
+    "evidence": "MCP chính thức cho Slack — Claude đọc lịch sử kênh, tìm tin nhắn, và đăng update thẳng vào Slack workspace",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc hỏi xác nhận trước khi gửi là guardrail an toàn."
+  },
+  {
+    "id": "mcps/stable-diffusion-mcp",
+    "capability": [
+      "image-generation",
+      "local-llm"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với giao diện web Stable Diffusion cục bộ để tạo hình ảnh trực tiếp trên máy tính",
+    "skip_if": "Bỏ qua nếu máy tính không có phần cứng đồ họa chuyên dụng GPU hỗ trợ",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "image-gen-local",
+    "confidence": "cao",
+    "evidence": "MCP server kết nối Claude với **Stable Diffusion WebUI local**",
+    "evidence_skip": "cần GPU để chạy Stable Diffusion, VPS hiện tại không có GPU.",
+    "ly_do_doi": "skip_if nêu rõ điều kiện phần cứng GPU VRAM cục bộ."
+  },
+  {
+    "id": "mcps/taibu-mcp",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ 15 phương pháp luận giải tri thức truyền thống phương Đông như Bát Tự Tử Vi Mai Hoa",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "tu-vi-astrology",
+    "confidence": "cao",
+    "evidence": "MCP server tổng hợp 15 công cụ luận giải: Bát Tự, Tử Vi, Lục Hào, Mai Hoa, Kỳ Môn, Đại Lục Nhâm, Tarot",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy định bản quyền thương mại là lưu ý pháp lý."
+  },
+  {
+    "id": "mcps/tavily-mcp",
+    "capability": [
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cổng tìm kiếm web chuyên biệt trả về cấu trúc dữ liệu JSON sạch sẵn sàng cho trợ lý nghiên cứu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "web-search-api",
+    "confidence": "cao",
+    "evidence": "Search API build riêng cho AI agent chứ không phải cho người — query vào, ra thẳng JSON sạch",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lời khuyên dùng song song với Firecrawl là định hướng phối hợp."
+  },
+  {
+    "id": "mcps/tikhub",
+    "capability": [
+      "scraping",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần trích xuất dữ liệu thời gian thực từ hơn 16 mạng xã hội phổ biến thông qua một điểm kết nối API duy nhất",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "tiktok-analytics-api",
+    "confidence": "cao",
+    "evidence": "Một API key duy nhất để lấy data real-time từ 16+ mạng xã hội (TikTok, Douyin, Instagram, YouTube, Twitter/X",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì định dạng header xác thực là hướng dẫn kỹ thuật."
+  },
+  {
+    "id": "mcps/tiktok-api",
+    "capability": [
+      "social-media",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần tích hợp bộ giao diện lập trình ứng dụng chính thức của TikTok để đăng video phân tích và quản lý bình luận",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "tiktok-analytics-api",
+    "confidence": "cao",
+    "evidence": "Official TikTok APIs gồm 3 loại: Content Posting API (upload video), Research API (analytics dữ liệu lớn), Display API",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì yêu cầu định dạng video là đặc tả kỹ thuật."
+  },
+  {
+    "id": "mcps/wangp-kaggle",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tận dụng phần cứng đồ họa được cấp từ Kaggle để vận hành mô hình tạo video WanGP",
+    "skip_if": "Bỏ qua nếu tài khoản nền tảng điện toán đám mây Kaggle đã sử dụng hết hạn mức thời gian GPU",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "ai-video-gen",
+    "confidence": "vua",
+    "evidence": "GPU: Tesla T4 15GB (FREE từ Kaggle)",
+    "evidence_skip": "Còn GPU quota thì dùng tiếp",
+    "ly_do_doi": "Giữ confidence vua; skip_if nêu rõ điều kiện còn hạn ngạch GPU trên nền tảng Kaggle."
+  },
+  {
+    "id": "mcps/youtube-upload",
+    "capability": [
+      "social-media",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần tự động hóa đăng tải video lên kênh YouTube và quản lý phản hồi bình luận thông qua API chính thức",
+    "skip_if": "Bỏ qua nếu đã sử dụng hết hạn mức 10000 đơn vị hoạt động trong ngày của YouTube API",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "youtube-api",
+    "confidence": "cao",
+    "evidence": "Official Google API cho YouTube — upload video, lấy analytics, quản lý comment, search.",
+    "evidence_skip": "**Quota:** 10,000 units/ngày free. Upload = 1600 units, search = 100 units",
+    "ly_do_doi": "skip_if nêu rõ điều kiện hạn mức quota hàng ngày của Google API."
+  },
+  {
+    "id": "mcps/zapier",
+    "capability": [
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần kết nối trợ lý với hơn 9000 ứng dụng và 40000 hành động tự động trong hệ sinh thái của Zapier",
+    "skip_if": "Bỏ qua nếu nhu cầu tự động hóa quy mô lớn vượt quá hạn mức tác vụ hàng tháng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "workflow-builder-mcp",
+    "confidence": "cao",
+    "evidence": "MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier",
+    "evidence_skip": "**Free tier giới hạn số action/tháng**",
+    "ly_do_doi": "skip_if nêu rõ điều kiện giới hạn số lượng tác vụ hàng tháng của gói miễn phí."
+  }
+]
