@@ -29,8 +29,8 @@
 | Portable Skill Framework — Viết 1 lần, chạy nhiều  | skill-import | 9.0 | chưa chạy |  | `skills/portable-skill-framework/SKILL.md` |
 | Prompt-Master | skill-import | 9.0 | đọc nguồn |  | `skills/prompt-master/SKILL.md` |
 | Write a Skill | skill-import | 9.0 | đọc nguồn |  | `skills/write-a-skill/SKILL.md` |
-| Zalo Channel Connection Guide | skill-agent | 9.0 | đọc nguồn | tốn tiền | `agents/company/skills/zalo-channel-connection-guide/SKILL.md` |
 | Skill Lifecycle Management (vai trò "HR") | skill-agent | 9.0 | chưa chạy | bảo mật | `agents/company/skills/skill-lifecycle-management/SKILL.md` |
+| Zalo Channel Connection Guide | skill-agent | 9.0 | đọc nguồn | tốn tiền | `agents/company/skills/zalo-channel-connection-guide/SKILL.md` |
 | claude-code-best-practice — kho tổng hợp mọi best  | repo | 8.5 | đọc nguồn |  | `repos/claude-code-best-practice.md` |
 | OpenClaw Mission Control (abhi1693) | repo | 8.5 | đọc nguồn | bảo mật | `repos/mission-control.md` |
 | Supermemory | repo | 8.5 | đọc nguồn |  | `repos/supermemory.md` |
@@ -54,24 +54,24 @@
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
 | yt-dlp — Download & Extract Info Mọi Platform | repo | 10.0 | đọc nguồn |  | `repos/yt-dlp.md` |
-| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/yt-cashcow/skills/compliance-gate/SKILL.md` |
-| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md` |
 | Dev & Automation Discipline | skill-agent | 10.0 | chưa chạy |  | `agents/infra-ops-agent/skills/dev-automation-discipline/SKILL.md` |
+| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md` |
+| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/yt-cashcow/skills/compliance-gate/SKILL.md` |
 | Meta Graph API — Facebook, Instagram, Threads | mcp | 9.0 | đọc nguồn | dữ liệu/ToS | `mcps/meta-social-api.md` |
 | YouTube Data API v3 — Upload, Analytics, Managemen | mcp | 9.0 | đọc nguồn |  | `mcps/youtube-upload.md` |
 | Remotion Superpowers — Studio Video Ngay Trong Cla | repo | 9.0 | đọc nguồn |  | `repos/remotion-superpowers.md` |
 | 5 Kỹ Năng Dùng Claude Trả Lương Cao Hơn Bằng Đại H | skill-import | 9.0 | đọc nguồn |  | `skills/5kynang-claude-skill/SKILL.md` |
 | Chuyên gia Digital Marketing — Skill / System Prom | skill-import | 9.0 | đọc nguồn |  | `skills/expert-digital-marketing/SKILL.md` |
 | Natural Writing — Chống văn phong "nghe như AI" | skill-kho | 9.0 | đọc nguồn |  | `skills/natural-writing.md` |
-| Media Performance Discipline | skill-agent | 9.0 | đọc nguồn | tốn tiền | `agents/media-pro/skills/media-performance-discipline/SKILL.md` |
-| Contrarian Insight Structure | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/contrarian-insight-structure/SKILL.md` |
 | Content Pillar/Cluster Architecture | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/content-pillar-cluster-architecture/SKILL.md` |
-| Editorial Workflow & Quality Gates | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/editorial-workflow-quality-gates/SKILL.md` |
 | Content Strategy Review Gate | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/content-strategy-review-gate/SKILL.md` |
-| Script Variation Engine | skill-agent | 9.0 | đọc nguồn | dữ liệu/ToS | `agents/yt-cashcow/skills/script-variation-engine/SKILL.md` |
-| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md` |
-| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/platform-disclosure-adapter/SKILL.md` |
+| Contrarian Insight Structure | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/contrarian-insight-structure/SKILL.md` |
+| Editorial Workflow & Quality Gates | skill-agent | 9.0 | đọc nguồn |  | `agents/content-pro/skills/editorial-workflow-quality-gates/SKILL.md` |
 | Destructive Command Guardrail | skill-agent | 9.0 | đọc nguồn | bảo mật | `agents/infra-ops-agent/skills/destructive-command-guardrail/SKILL.md` |
+| Media Performance Discipline | skill-agent | 9.0 | đọc nguồn | tốn tiền | `agents/media-pro/skills/media-performance-discipline/SKILL.md` |
+| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/platform-disclosure-adapter/SKILL.md` |
+| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md` |
+| Script Variation Engine | skill-agent | 9.0 | đọc nguồn | dữ liệu/ToS | `agents/yt-cashcow/skills/script-variation-engine/SKILL.md` |
 | Agent-Reach — Cho AI Đọc Twitter/LinkedIn Không Cầ | repo | 8.5 | đọc nguồn | tốn tiền | `repos/agent-reach.md` |
 | AI Marketing Claude — Marketing Ops Toolkit (rediu | repo | 8.5 | đọc nguồn |  | `repos/ai-marketing-claude.md` |
 | Codex Security (OpenAI) | repo | 8.5 | đọc nguồn | bảo mật | `repos/codex-security.md` |
@@ -107,8 +107,8 @@
 | video-use (browser-use) | repo | 9.0 | đọc nguồn |  | `repos/video-use.md` |
 | VieNeu-TTS — GitHub/HuggingFace | repo | 9.0 | đọc nguồn |  | `repos/vieneu-tts.md` |
 | Natural Writing — Chống văn phong "nghe như AI" | skill-kho | 9.0 | đọc nguồn |  | `skills/natural-writing.md` |
-| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md` |
 | Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/platform-disclosure-adapter/SKILL.md` |
+| Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md` |
 | OpenMontage | repo | 8.5 | đọc nguồn | tốn tiền | `repos/openmontage.md` |
 | Seedance 2.5 — GitHub Repo / AI Video Model | repo | 8.5 | đọc nguồn | tốn tiền | `repos/seedance-2-5.md` |
 | AI Agents for Beginners | repo | 8.0 | chưa chạy | dữ liệu/ToS,tốn tiền | `repos/ai-agents-for-beginners.md` |
@@ -180,12 +180,12 @@
 | Chuyên gia Digital Marketing — Skill / System Prom | skill-import | 9.0 | đọc nguồn |  | `skills/expert-digital-marketing/SKILL.md` |
 | Info-Product Claims Compliance Gate | skill-import | 9.0 | đọc nguồn |  | `skills/info-product-claims-compliance-gate/SKILL.md` |
 | Marketing Data Sources | skill-import | 9.0 | đọc nguồn | tốn tiền | `skills/marketing-data-sources/SKILL.md` |
+| Brand Image Prompt Engineer | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md` |
+| Image Prompt Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/image-prompt-formula-core/SKILL.md` |
+| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
+| Visual Template Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/visual-template-formula-core/SKILL.md` |
 | Ad Budget & Testing Discipline | skill-agent | 9.0 | đọc nguồn |  | `agents/digital-marketing-agent/skills/ad-budget-testing-discipline/SKILL.md` |
 | Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/platform-disclosure-adapter/SKILL.md` |
-| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
-| Image Prompt Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/image-prompt-formula-core/SKILL.md` |
-| Visual Template Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/visual-template-formula-core/SKILL.md` |
-| Brand Image Prompt Engineer | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md` |
 | AI Marketing Claude — Marketing Ops Toolkit (rediu | repo | 8.5 | đọc nguồn |  | `repos/ai-marketing-claude.md` |
 | knowledge-work-plugins — bộ plugin chính thức của  | repo | 8.5 | đọc nguồn |  | `repos/knowledge-work-plugins.md` |
 | TREK | repo | 8.5 | đọc nguồn |  | `repos/trek.md` |
@@ -206,9 +206,9 @@
 | Hallmark (Nutlope) | skill-import | 8.0 | đọc nguồn |  | `skills/hallmark-design/SKILL.md` |
 | Marketing — 4 Nguyên Tắc Vàng Không Bao Giờ Phá Vỡ | skill-import | 8.0 | đọc nguồn |  | `skills/marketing-4-nguyen-tac-vang/SKILL.md` |
 | Zalo OA — Playbook Vận Hành Du Lịch & Lưu Trú Mùa  | skill-import | 8.0 | đọc nguồn |  | `skills/zalo-oa-du-lich-luu-tru-playbook/SKILL.md` |
-| Trend Scout — Bắt trend sớm cho YT Cashcow | skill-agent | 8.0 | đọc nguồn | dữ liệu/ToS | `agents/shorts-affiliate-system/skills/trend-scout/SKILL.md` |
-| Brand Visual Template System | skill-agent | 8.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-visual-template-system/SKILL.md` |
 | Human Footage Editor — Sản xuất từ footage thật, k | skill-agent | 8.0 | chưa chạy | tốn tiền | `agents/brandscan/skills/human-footage-editor/SKILL.md` |
+| Brand Visual Template System | skill-agent | 8.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-visual-template-system/SKILL.md` |
+| Trend Scout — Bắt trend sớm cho YT Cashcow | skill-agent | 8.0 | đọc nguồn | dữ liệu/ToS | `agents/shorts-affiliate-system/skills/trend-scout/SKILL.md` |
 | awesome-design-md — kho DESIGN.md để AI vẽ UI giốn | repo | 7.5 | đọc nguồn |  | `repos/awesome-design-md.md` |
 | TikTok Ads/Posting MCP | mcp | 7.0 | đọc nguồn | tốn tiền | `mcps/tiktok-mcp.md` |
 | agency-agents | repo | 7.0 | chưa chạy | tốn tiền | `repos/agency-agents.md` |
@@ -238,8 +238,8 @@
 | Deep Research (samber/cc-skills) | skill-import | 8.0 | đọc nguồn |  | `skills/deep-research-samber-cc/SKILL.md` |
 | Fact-Checker | skill-import | 8.0 | đọc nguồn |  | `skills/fact-checker/SKILL.md` |
 | Deploy Review Gate | skill-agent | 8.0 | đọc nguồn |  | `agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md` |
-| Research Independent Review Gate — Dual review cho | skill-agent | 8.0 | đọc nguồn |  | `agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md` |
 | Primary Research Design — Thiết kế khảo sát & phỏn | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/primary-research-design/SKILL.md` |
+| Research Independent Review Gate — Dual review cho | skill-agent | 8.0 | đọc nguồn |  | `agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md` |
 | Social Listening Research — Nghiên cứu thị trường  | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/social-listening-research/SKILL.md` |
 | awesome-claude-code-toolkit (rohitg00) | repo | 7.5 | đọc nguồn |  | `repos/awesome-claude-code-toolkit.md` |
 | Maxun | repo | 7.5 | đọc nguồn |  | `repos/maxun.md` |
@@ -265,10 +265,10 @@
 | Agentic Loop Optimizer | skill-import | 9.0 | đọc nguồn |  | `skills/agentic-loop-optimizer/SKILL.md` |
 | Chuyên gia Coding & Development — Skill / System P | skill-import | 9.0 | đọc nguồn |  | `skills/expert-coding-dev/SKILL.md` |
 | Kiểm tra Bảo mật Trước Deploy — 7 Lỗi Toang Ngầm t | skill-import | 9.0 | chưa chạy | bảo mật | `skills/kiem-tra-bao-mat-truoc-deploy/SKILL.md` |
-| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
-| Image Prompt Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/image-prompt-formula-core/SKILL.md` |
-| Visual Template Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/visual-template-formula-core/SKILL.md` |
 | Brand Image Prompt Engineer | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md` |
+| Image Prompt Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/image-prompt-formula-core/SKILL.md` |
+| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
+| Visual Template Formula (Core — không gắn brand) | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/visual-template-formula-core/SKILL.md` |
 | UI/UX Pro Max Skill — Biến Claude Thành Design Dir | skill-import | 8.5 | đọc nguồn |  | `skills/ui-ux-pro-max/SKILL.md` |
 | BMAD-METHOD | repo | 8.0 | đọc nguồn |  | `repos/bmad-method.md` |
 | DESIGN.md | repo | 8.0 | đọc nguồn |  | `repos/design-md.md` |
@@ -282,9 +282,9 @@
 | Bazi-Ziwei Skill | skill-import | 8.0 | đọc nguồn |  | `skills/bazi-ziwei-skill/SKILL.md` |
 | Hallmark (Nutlope) | skill-import | 8.0 | đọc nguồn |  | `skills/hallmark-design/SKILL.md` |
 | Huashu Design (alchaincyf) | skill-import | 8.0 | đọc nguồn |  | `skills/huashu-design/SKILL.md` |
-| Brand Visual Template System | skill-agent | 8.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-visual-template-system/SKILL.md` |
-| Hermes Autonomous Kho Maintenance | skill-agent | 8.0 | chưa chạy | bảo mật | `agents/company/skills/hermes-autonomous-kho-maintenance/SKILL.md` |
 | FFmpeg Media Toolkit (dùng chung) | skill-agent | 8.0 | đọc nguồn |  | `agents/company/skills/ffmpeg-media-toolkit/SKILL.md` |
+| Hermes Autonomous Kho Maintenance | skill-agent | 8.0 | chưa chạy | bảo mật | `agents/company/skills/hermes-autonomous-kho-maintenance/SKILL.md` |
+| Brand Visual Template System | skill-agent | 8.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-visual-template-system/SKILL.md` |
 | Primary Research Design — Thiết kế khảo sát & phỏn | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/primary-research-design/SKILL.md` |
 | awesome-design-md — kho DESIGN.md để AI vẽ UI giốn | repo | 7.5 | đọc nguồn |  | `repos/awesome-design-md.md` |
 | AI Chatbot React Starter (điều chỉnh cho Tano Agen | skill-import | 7.5 | đọc nguồn | tốn tiền | `skills/ai-chatbot-react-starter/SKILL.md` |
@@ -365,16 +365,16 @@
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
-| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/yt-cashcow/skills/compliance-gate/SKILL.md` |
 | Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md` |
+| Compliance Gate — Chặn Inauthentic Content trước k | skill-agent | 10.0 | đọc nguồn |  | `agents/yt-cashcow/skills/compliance-gate/SKILL.md` |
 | Remotion Superpowers — Studio Video Ngay Trong Cla | repo | 9.0 | đọc nguồn |  | `repos/remotion-superpowers.md` |
 | Agentic Loop Optimizer | skill-import | 9.0 | đọc nguồn |  | `skills/agentic-loop-optimizer/SKILL.md` |
 | Chuyên gia Digital Marketing — Skill / System Prom | skill-import | 9.0 | đọc nguồn |  | `skills/expert-digital-marketing/SKILL.md` |
 | Info-Product Claims Compliance Gate | skill-import | 9.0 | đọc nguồn |  | `skills/info-product-claims-compliance-gate/SKILL.md` |
+| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
 | CEO Decision Lens | skill-agent | 9.0 | đọc nguồn |  | `agents/sales-ceo/skills/ceo-decision-lens/SKILL.md` |
 | Deal Scoring & Forecast Discipline (SMB Việt Nam) | skill-agent | 9.0 | đọc nguồn | license,tốn tiền | `agents/sales-ceo/skills/deal-scoring-forecast-discipline/SKILL.md` |
 | Forward Deployed Engineer (FDE) Model | skill-agent | 9.0 | chưa chạy | tốn tiền | `agents/sales-ceo/skills/forward-deployed-engineer-model/SKILL.md` |
-| Sales & Marketing Collateral Production | skill-agent | 9.0 | đọc nguồn |  | `agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md` |
 | AI Marketing Claude — Marketing Ops Toolkit (rediu | repo | 8.5 | đọc nguồn |  | `repos/ai-marketing-claude.md` |
 | knowledge-work-plugins — bộ plugin chính thức của  | repo | 8.5 | đọc nguồn |  | `repos/knowledge-work-plugins.md` |
 | Langflow | repo | 8.5 | đọc nguồn |  | `repos/langflow.md` |
@@ -384,8 +384,8 @@
 | System Design Primer | repo | 8.0 | đọc nguồn |  | `repos/system-design-primer.md` |
 | YASGU — YouTube Automatised Shorts Generator & Upl | repo | 8.0 | đọc nguồn | dữ liệu/ToS | `repos/yasgu.md` |
 | AI Marketing Adoption Map | skill-kho | 8.0 | đọc nguồn |  | `skills/ai-marketing-adoption-map.md` |
-| Negotiation & Deal Structuring | skill-agent | 8.0 | đọc nguồn |  | `agents/sales-ceo/skills/negotiation-deal-structuring/SKILL.md` |
 | GTM Strategy (SMB Việt Nam) | skill-agent | 8.0 | đọc nguồn | license,tốn tiền | `agents/sales-ceo/skills/gtm-strategy/SKILL.md` |
+| Negotiation & Deal Structuring | skill-agent | 8.0 | đọc nguồn |  | `agents/sales-ceo/skills/negotiation-deal-structuring/SKILL.md` |
 | financial-unit-economics + household-cfo (lyndonkl | repo | 7.5 | đọc nguồn |  | `repos/claude-household-cfo.md` |
 | Airweave | repo | 7.0 | đọc nguồn |  | `repos/airweave.md` |
 | Open Code Review (Alibaba) | repo | 7.0 | đọc nguồn | dữ liệu/ToS,tốn tiền | `repos/open-code-review-alibaba.md` |
@@ -412,8 +412,8 @@
 | SaaS Stack 2026 — GitHub Repo / Infographic Series | stack | 8.0 | đọc nguồn |  | `stacks/saas-stack-2026.md` |
 | Deep Research (samber/cc-skills) | skill-import | 8.0 | đọc nguồn |  | `skills/deep-research-samber-cc/SKILL.md` |
 | Project Starter Rules — Skill / System Prompt | skill-import | 8.0 | chưa chạy |  | `skills/project-starter-rules/SKILL.md` |
-| Production Signal Feedback Loop | skill-agent | 8.0 | chưa chạy |  | `agents/infra-ops-agent/skills/production-signal-feedback-loop/SKILL.md` |
 | Critical Path Briefing | skill-agent | 8.0 | đọc nguồn |  | `agents/customer-satisfaction-pro/skills/critical-path-briefing/SKILL.md` |
+| Production Signal Feedback Loop | skill-agent | 8.0 | chưa chạy |  | `agents/infra-ops-agent/skills/production-signal-feedback-loop/SKILL.md` |
 | Research Independent Review Gate — Dual review cho | skill-agent | 8.0 | đọc nguồn |  | `agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md` |
 | Social Listening Research — Nghiên cứu thị trường  | skill-agent | 8.0 | đọc nguồn | bảo mật | `agents/research-analytics-pro/skills/social-listening-research/SKILL.md` |
 

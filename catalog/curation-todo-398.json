@@ -1,0 +1,6030 @@
+{
+ "ghi_chu": "Danh sach 398 muc can doc that, chia lo 40. Truong 'nhan_hien_tai' la nhan NHAP, de doi chieu, khong phai dap an.",
+ "lo": [
+  {
+   "lo": 1,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup",
+     "duong_dan": "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ticketing-aviation",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/anbinh-travel-ops-analyst/skills/competitive-intel-ground-handling",
+     "duong_dan": "agents/anbinh-travel-ops-analyst/skills/competitive-intel-ground-handling/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "ticketing-aviation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/anbinh-travel-ops-analyst/skills/customer-pattern-analysis",
+     "duong_dan": "agents/anbinh-travel-ops-analyst/skills/customer-pattern-analysis/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "customer-support"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/anbinh-travel-ops-analyst/skills/data-storytelling",
+     "duong_dan": "agents/anbinh-travel-ops-analyst/skills/data-storytelling/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "agents/anbinh-travel-ops-analyst/skills/ota-content-strategy",
+     "duong_dan": "agents/anbinh-travel-ops-analyst/skills/ota-content-strategy/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "ticketing-aviation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/brandscan/skills/brand-strategy-sprint",
+     "duong_dan": "agents/brandscan/skills/brand-strategy-sprint/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "document-office",
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/brandscan/skills/human-footage-editor",
+     "duong_dan": "agents/brandscan/skills/human-footage-editor/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/company/skills/ffmpeg-media-toolkit",
+     "duong_dan": "agents/company/skills/ffmpeg-media-toolkit/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/company/skills/hermes-autonomous-kho-maintenance",
+     "duong_dan": "agents/company/skills/hermes-autonomous-kho-maintenance/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/company/skills/skill-lifecycle-management",
+     "duong_dan": "agents/company/skills/skill-lifecycle-management/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/company/skills/task-intake-quality-gate",
+     "duong_dan": "agents/company/skills/task-intake-quality-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/company/skills/zalo-channel-connection-guide",
+     "duong_dan": "agents/company/skills/zalo-channel-connection-guide/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/content-pro/skills/content-distribution-system",
+     "duong_dan": "agents/content-pro/skills/content-distribution-system/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/content-pro/skills/content-pillar-cluster-architecture",
+     "duong_dan": "agents/content-pro/skills/content-pillar-cluster-architecture/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "seo",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/content-pro/skills/content-strategy-review-gate",
+     "duong_dan": "agents/content-pro/skills/content-strategy-review-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/content-pro/skills/contrarian-insight-structure",
+     "duong_dan": "agents/content-pro/skills/contrarian-insight-structure/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/content-pro/skills/editorial-workflow-quality-gates",
+     "duong_dan": "agents/content-pro/skills/editorial-workflow-quality-gates/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
+     "duong_dan": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "customer-support"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/brand-image-prompt-engineer",
+     "duong_dan": "agents/designer-pro/skills/brand-image-prompt-engineer/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/brand-visual-template-system",
+     "duong_dan": "agents/designer-pro/skills/brand-visual-template-system/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/cinematic-shot-prompt-core",
+     "duong_dan": "agents/designer-pro/skills/cinematic-shot-prompt-core/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/image-prompt-formula-core",
+     "duong_dan": "agents/designer-pro/skills/image-prompt-formula-core/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/prompt-motion-reference",
+     "duong_dan": "agents/designer-pro/skills/prompt-motion-reference/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/sales-marketing-collateral-production",
+     "duong_dan": "agents/designer-pro/skills/sales-marketing-collateral-production/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/designer-pro/skills/visual-template-formula-core",
+     "duong_dan": "agents/designer-pro/skills/visual-template-formula-core/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/digital-marketing-agent/skills/ad-budget-testing-discipline",
+     "duong_dan": "agents/digital-marketing-agent/skills/ad-budget-testing-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ads",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/digital-marketing-agent/skills/digital-marketing-orchestrator",
+     "duong_dan": "agents/digital-marketing-agent/skills/digital-marketing-orchestrator/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "ads",
+       "seo"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/infra-ops-agent/skills/agent-design-playbook",
+     "duong_dan": "agents/infra-ops-agent/skills/agent-design-playbook/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/infra-ops-agent/skills/deploy-review-gate",
+     "duong_dan": "agents/infra-ops-agent/skills/deploy-review-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/infra-ops-agent/skills/destructive-command-guardrail",
+     "duong_dan": "agents/infra-ops-agent/skills/destructive-command-guardrail/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/infra-ops-agent/skills/dev-automation-discipline",
+     "duong_dan": "agents/infra-ops-agent/skills/dev-automation-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/infra-ops-agent/skills/tencent-vps-capacity-cost",
+     "duong_dan": "agents/infra-ops-agent/skills/tencent-vps-capacity-cost/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/media-pro/skills/cross-channel-distribution-analysis",
+     "duong_dan": "agents/media-pro/skills/cross-channel-distribution-analysis/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/media-pro/skills/media-performance-discipline",
+     "duong_dan": "agents/media-pro/skills/media-performance-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap",
+     "duong_dan": "agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/competitive-intel",
+     "duong_dan": "agents/research-analytics-pro/skills/competitive-intel/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/local-gap-finder",
+     "duong_dan": "agents/research-analytics-pro/skills/local-gap-finder/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/market-sizing",
+     "duong_dan": "agents/research-analytics-pro/skills/market-sizing/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/primary-research-design",
+     "duong_dan": "agents/research-analytics-pro/skills/primary-research-design/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/research-independent-review-gate",
+     "duong_dan": "agents/research-analytics-pro/skills/research-independent-review-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 2,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "agents/research-analytics-pro/skills/research-synthesis",
+     "duong_dan": "agents/research-analytics-pro/skills/research-synthesis/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/social-listening-research",
+     "duong_dan": "agents/research-analytics-pro/skills/social-listening-research/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "social-media",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/source-evaluation",
+     "duong_dan": "agents/research-analytics-pro/skills/source-evaluation/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/statistical-analysis",
+     "duong_dan": "agents/research-analytics-pro/skills/statistical-analysis/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/research-analytics-pro/skills/trend-forecasting",
+     "duong_dan": "agents/research-analytics-pro/skills/trend-forecasting/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/sales-ceo/skills/ceo-decision-lens",
+     "duong_dan": "agents/sales-ceo/skills/ceo-decision-lens/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/sales-ceo/skills/deal-scoring-forecast-discipline",
+     "duong_dan": "agents/sales-ceo/skills/deal-scoring-forecast-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/sales-ceo/skills/forward-deployed-engineer-model",
+     "duong_dan": "agents/sales-ceo/skills/forward-deployed-engineer-model/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "crm-sales"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/sales-ceo/skills/gtm-strategy",
+     "duong_dan": "agents/sales-ceo/skills/gtm-strategy/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "ads",
+       "crm-sales"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/sales-ceo/skills/negotiation-deal-structuring",
+     "duong_dan": "agents/sales-ceo/skills/negotiation-deal-structuring/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer",
+     "duong_dan": "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/shorts-affiliate-system/skills/compliance-gate",
+     "duong_dan": "agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/shorts-affiliate-system/skills/storyboard-generator",
+     "duong_dan": "agents/shorts-affiliate-system/skills/storyboard-generator/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/shorts-affiliate-system/skills/trend-scout",
+     "duong_dan": "agents/shorts-affiliate-system/skills/trend-scout/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "scraping"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/affiliate-injector",
+     "duong_dan": "agents/trum-san-bay/skills/affiliate-injector/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "ads"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/api-error-handler",
+     "duong_dan": "agents/trum-san-bay/skills/api-error-handler/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "backend",
+       "social-media",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/aviation-knowledge",
+     "duong_dan": "agents/trum-san-bay/skills/aviation-knowledge/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ticketing-aviation",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/brand-design-system",
+     "duong_dan": "agents/trum-san-bay/skills/brand-design-system/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "content-writing"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/brand-discovery-session",
+     "duong_dan": "agents/trum-san-bay/skills/brand-discovery-session/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/brand-voice",
+     "duong_dan": "agents/trum-san-bay/skills/brand-voice/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/content-research",
+     "duong_dan": "agents/trum-san-bay/skills/content-research/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/content-strategy-ideation",
+     "duong_dan": "agents/trum-san-bay/skills/content-strategy-ideation/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "seo"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/llm-router",
+     "duong_dan": "agents/trum-san-bay/skills/llm-router/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/media-performance-discipline",
+     "duong_dan": "agents/trum-san-bay/skills/media-performance-discipline/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/pipeline-dashboard",
+     "duong_dan": "agents/trum-san-bay/skills/pipeline-dashboard/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/reply-agent-prompt",
+     "duong_dan": "agents/trum-san-bay/skills/reply-agent-prompt/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "customer-support",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/social-publisher",
+     "duong_dan": "agents/trum-san-bay/skills/social-publisher/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "social-media",
+       "content-writing",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/video-renderer",
+     "duong_dan": "agents/trum-san-bay/skills/video-renderer/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/trum-san-bay/skills/writer-agent-prompt",
+     "duong_dan": "agents/trum-san-bay/skills/writer-agent-prompt/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "agents/yt-cashcow/skills/compliance-gate",
+     "duong_dan": "agents/yt-cashcow/skills/compliance-gate/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/yt-cashcow/skills/platform-disclosure-adapter",
+     "duong_dan": "agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "agents/yt-cashcow/skills/script-variation-engine",
+     "duong_dan": "agents/yt-cashcow/skills/script-variation-engine/SKILL.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/aituber",
+     "duong_dan": "mcps/aituber.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/awslabs-mcp",
+     "duong_dan": "mcps/awslabs-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/brave-search",
+     "duong_dan": "mcps/brave-search.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/claude-ads",
+     "duong_dan": "mcps/claude-ads.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ads"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/claude-routines",
+     "duong_dan": "mcps/claude-routines.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "tra-phi"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/cloud-accounting-mcps",
+     "duong_dan": "mcps/cloud-accounting-mcps.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "mcps/codebase-memory-mcp",
+     "duong_dan": "mcps/codebase-memory-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "devops"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/codegraph",
+     "duong_dan": "mcps/codegraph.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 3,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "mcps/comfyui-mcp",
+     "duong_dan": "mcps/comfyui-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "claude-code-only",
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/context7",
+     "duong_dan": "mcps/context7.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/fal-mcp",
+     "duong_dan": "mcps/fal-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/filesystem",
+     "duong_dan": "mcps/filesystem.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/firecrawl",
+     "duong_dan": "mcps/firecrawl.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/framecraft",
+     "duong_dan": "mcps/framecraft.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/github-mcp",
+     "duong_dan": "mcps/github-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/google-flow-mcp",
+     "duong_dan": "mcps/google-flow-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/google-workspace-mcp",
+     "duong_dan": "mcps/google-workspace-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/higgsfield",
+     "duong_dan": "mcps/higgsfield.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "image-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/hubspot-mcp",
+     "duong_dan": "mcps/hubspot-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/jaz-ai-mcp",
+     "duong_dan": "mcps/jaz-ai-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/kondo",
+     "duong_dan": "mcps/kondo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales",
+       "productivity"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "tra-phi",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/make-mcp",
+     "duong_dan": "mcps/make-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "mcps/markitdown-mcp",
+     "duong_dan": "mcps/markitdown-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/mcp-video-gen",
+     "duong_dan": "mcps/mcp-video-gen.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "mcps/meta-ads-mcp-official",
+     "duong_dan": "mcps/meta-ads-mcp-official.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ads"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/meta-mcp-server",
+     "duong_dan": "mcps/meta-mcp-server.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "ads",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/meta-social-api",
+     "duong_dan": "mcps/meta-social-api.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "social-media",
+       "backend",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/minimax-mcp",
+     "duong_dan": "mcps/minimax-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts",
+       "video-generation",
+       "image-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/n8n-workflow-builder-mcp",
+     "duong_dan": "mcps/n8n-workflow-builder-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "mcps/notebooklm-mcp-2026",
+     "duong_dan": "mcps/notebooklm-mcp-2026.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/notebooklm-mcp-pleaseprompto",
+     "duong_dan": "mcps/notebooklm-mcp-pleaseprompto.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/notebooklm-mcp-secure",
+     "duong_dan": "mcps/notebooklm-mcp-secure.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/notebooklm-mcp-server",
+     "duong_dan": "mcps/notebooklm-mcp-server.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "mcps/notion",
+     "duong_dan": "mcps/notion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "database"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/perplexity",
+     "duong_dan": "mcps/perplexity.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/playwright",
+     "duong_dan": "mcps/playwright.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation",
+       "scraping"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/pollinations-mcp",
+     "duong_dan": "mcps/pollinations-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/poppify",
+     "duong_dan": "mcps/poppify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/sequential-thinking",
+     "duong_dan": "mcps/sequential-thinking.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/slack",
+     "duong_dan": "mcps/slack.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/stable-diffusion-mcp",
+     "duong_dan": "mcps/stable-diffusion-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "local-llm"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/taibu-mcp",
+     "duong_dan": "mcps/taibu-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/tavily-mcp",
+     "duong_dan": "mcps/tavily-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/tikhub",
+     "duong_dan": "mcps/tikhub.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/tiktok-api",
+     "duong_dan": "mcps/tiktok-api.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/wangp-kaggle",
+     "duong_dan": "mcps/wangp-kaggle.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "mcps/youtube-upload",
+     "duong_dan": "mcps/youtube-upload.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "mcps/zapier",
+     "duong_dan": "mcps/zapier.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 4,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/500-ai-agents-projects",
+     "duong_dan": "repos/500-ai-agents-projects.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/9router",
+     "duong_dan": "repos/9router.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/agency-agents",
+     "duong_dan": "repos/agency-agents.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/agency-agents-app",
+     "duong_dan": "repos/agency-agents-app.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/agent-reach",
+     "duong_dan": "repos/agent-reach.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "scraping"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/agent-research-skills-academic",
+     "duong_dan": "repos/agent-research-skills-academic.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/agent-skills",
+     "duong_dan": "repos/agent-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/agent-toolkit-for-aws",
+     "duong_dan": "repos/agent-toolkit-for-aws.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/agents-wshobson",
+     "duong_dan": "repos/agents-wshobson.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/agenttube",
+     "duong_dan": "repos/agenttube.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "content-writing",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-agents-for-beginners",
+     "duong_dan": "repos/ai-agents-for-beginners.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-berkshire",
+     "duong_dan": "repos/ai-berkshire.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-engineering-from-scratch",
+     "duong_dan": "repos/ai-engineering-from-scratch.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-hedge-fund",
+     "duong_dan": "repos/ai-hedge-fund.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-job-search",
+     "duong_dan": "repos/ai-job-search.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-marketing-claude",
+     "duong_dan": "repos/ai-marketing-claude.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "seo",
+       "ads",
+       "email-outreach",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ai-shorts-generator-pipeline",
+     "duong_dan": "repos/ai-shorts-generator-pipeline.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "claude-code-only",
+       "browser"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/ai-travel-agent-templates",
+     "duong_dan": "repos/ai-travel-agent-templates.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "ticketing-aviation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/ainovel-cli",
+     "duong_dan": "repos/ainovel-cli.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/airweave",
+     "duong_dan": "repos/airweave.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "database"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/aitoearn",
+     "duong_dan": "repos/aitoearn.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "social-media",
+       "agent-orchestration-memory",
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/aiwritex",
+     "duong_dan": "repos/aiwritex.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "scraping",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/andrej-karpathy-skills",
+     "duong_dan": "repos/andrej-karpathy-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/animasyon-stil-katalogu",
+     "duong_dan": "repos/animasyon-stil-katalogu.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/anthropic-cybersecurity-skills",
+     "duong_dan": "repos/anthropic-cybersecurity-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/api-mega-list",
+     "duong_dan": "repos/api-mega-list.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/apple-container",
+     "duong_dan": "repos/apple-container.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/archify",
+     "duong_dan": "repos/archify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-claude-5-5-videos",
+     "duong_dan": "repos/awesome-claude-5-5-videos.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-claude-code-toolkit",
+     "duong_dan": "repos/awesome-claude-code-toolkit.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-claude-skills",
+     "duong_dan": "repos/awesome-claude-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-design-md",
+     "duong_dan": "repos/awesome-design-md.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-harness-engineering",
+     "duong_dan": "repos/awesome-harness-engineering.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-llm-apps",
+     "duong_dan": "repos/awesome-llm-apps.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-llm-apps-shortlist",
+     "duong_dan": "repos/awesome-llm-apps-shortlist.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-mcp-servers",
+     "duong_dan": "repos/awesome-mcp-servers.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/awesome-selfhosted",
+     "duong_dan": "repos/awesome-selfhosted.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/barty-motion-graphics",
+     "duong_dan": "repos/barty-motion-graphics.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/billionmail",
+     "duong_dan": "repos/billionmail.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "email-outreach"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "docker"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/bmad-method",
+     "duong_dan": "repos/bmad-method.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 5,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/brand-building-skills",
+     "duong_dan": "repos/brand-building-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/browser-harness",
+     "duong_dan": "repos/browser-harness.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/browser-use",
+     "duong_dan": "repos/browser-use.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation",
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/buildfast-generative-film-skill",
+     "duong_dan": "repos/buildfast-generative-film-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/bumblebee",
+     "duong_dan": "repos/bumblebee.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/buzz",
+     "duong_dan": "repos/buzz.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/career-ops",
+     "duong_dan": "repos/career-ops.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "browser-automation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/caveman",
+     "duong_dan": "repos/caveman.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/chattts",
+     "duong_dan": "repos/chattts.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts",
+       "local-llm"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/chatwoot",
+     "duong_dan": "repos/chatwoot.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "customer-support",
+       "crm-sales"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/cinetic",
+     "duong_dan": "repos/cinetic.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-code-best-practice",
+     "duong_dan": "repos/claude-code-best-practice.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-code-router",
+     "duong_dan": "repos/claude-code-router.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "local-llm"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-code-templates",
+     "duong_dan": "repos/claude-code-templates.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-financial-modeling-skill",
+     "duong_dan": "repos/claude-financial-modeling-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-for-legal",
+     "duong_dan": "repos/claude-for-legal.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-household-cfo",
+     "duong_dan": "repos/claude-household-cfo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting",
+       "data-dashboard"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-howto",
+     "duong_dan": "repos/claude-howto.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-motion",
+     "duong_dan": "repos/claude-motion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/claude-motion-design",
+     "duong_dan": "repos/claude-motion-design.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-seo",
+     "duong_dan": "repos/claude-seo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "seo"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/claude-video",
+     "duong_dan": "repos/claude-video.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/clipify",
+     "duong_dan": "repos/clipify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/code-review-graph",
+     "duong_dan": "repos/code-review-graph.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/codex-plugin-cc",
+     "duong_dan": "repos/codex-plugin-cc.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/codex-security",
+     "duong_dan": "repos/codex-security.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/commerce-agents",
+     "duong_dan": "repos/commerce-agents.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "customer-support"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/coolify",
+     "duong_dan": "repos/coolify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "docker"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/crewai",
+     "duong_dan": "repos/crewai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/crustc",
+     "duong_dan": "repos/crustc.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/cth9191-animate",
+     "duong_dan": "repos/cth9191-animate.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/cubesandbox",
+     "duong_dan": "repos/cubesandbox.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "security-compliance"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/deep-agents",
+     "duong_dan": "repos/deep-agents.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/deep-research-skills",
+     "duong_dan": "repos/deep-research-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/deepseek-r1-local",
+     "duong_dan": "repos/deepseek-r1-local.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/deepseek-reasonix",
+     "duong_dan": "repos/deepseek-reasonix.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/deerflow",
+     "duong_dan": "repos/deerflow.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/design-md",
+     "duong_dan": "repos/design-md.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/destructive-command-guard",
+     "duong_dan": "repos/destructive-command-guard.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "devops"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/diffusiongemma",
+     "duong_dan": "repos/diffusiongemma.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 6,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/dify",
+     "duong_dan": "repos/dify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ds2api",
+     "duong_dan": "repos/ds2api.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/dspy",
+     "duong_dan": "repos/dspy.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ecc",
+     "duong_dan": "repos/ecc.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/egolite",
+     "duong_dan": "repos/egolite.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/elevenlabs-skills",
+     "duong_dan": "repos/elevenlabs-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ever-gauzy",
+     "duong_dan": "repos/ever-gauzy.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales",
+       "productivity",
+       "database"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/f5-tts",
+     "duong_dan": "repos/f5-tts.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/ffmpeg",
+     "duong_dan": "repos/ffmpeg.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/files-to-prompt",
+     "duong_dan": "repos/files-to-prompt.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/financial-services",
+     "duong_dan": "repos/financial-services.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/firecrawl",
+     "duong_dan": "repos/firecrawl.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/flowise",
+     "duong_dan": "repos/flowise.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/founder-skills",
+     "duong_dan": "repos/founder-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "content-writing",
+       "email-outreach"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/funasr",
+     "duong_dan": "repos/funasr.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/gods-eye-view",
+     "duong_dan": "repos/gods-eye-view.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/google-skills",
+     "duong_dan": "repos/google-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/google-timesfm",
+     "duong_dan": "repos/google-timesfm.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "local-llm"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/goose",
+     "duong_dan": "repos/goose.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/gpt-crawler",
+     "duong_dan": "repos/gpt-crawler.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/graphify",
+     "duong_dan": "repos/graphify.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/graphrag",
+     "duong_dan": "repos/graphrag.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "data-dashboard"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/gstack",
+     "duong_dan": "repos/gstack.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/hallmark",
+     "duong_dan": "repos/hallmark.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/head-of-content",
+     "duong_dan": "repos/head-of-content.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi",
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/headroom",
+     "duong_dan": "repos/headroom.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "devops"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/healthchecks",
+     "duong_dan": "repos/healthchecks.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/hermes-agent",
+     "duong_dan": "repos/hermes-agent.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "unknown",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/hermes-jev-skills",
+     "duong_dan": "repos/hermes-jev-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/higgsfield-mcp-unified",
+     "duong_dan": "repos/higgsfield-mcp-unified.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "image-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/hr-operations-claude-skills",
+     "duong_dan": "repos/hr-operations-claude-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/html-anything",
+     "duong_dan": "repos/html-anything.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "document-office",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/html-video",
+     "duong_dan": "repos/html-video.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/huashu-design",
+     "duong_dan": "repos/huashu-design.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end",
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/hyperframes-session-story",
+     "duong_dan": "repos/hyperframes-session-story.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/hyperframes-student-kit",
+     "duong_dan": "repos/hyperframes-student-kit.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/impeccable",
+     "duong_dan": "repos/impeccable.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/infinitetalk",
+     "duong_dan": "repos/infinitetalk.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/iptv-org-iptv",
+     "duong_dan": "repos/iptv-org-iptv.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/iztro",
+     "duong_dan": "repos/iztro.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "front-end",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 7,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/jcode",
+     "duong_dan": "repos/jcode.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/knowledge-work-plugins",
+     "duong_dan": "repos/knowledge-work-plugins.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "crm-sales",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/kokoro-82m",
+     "duong_dan": "repos/kokoro-82m.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/langfuse",
+     "duong_dan": "repos/langfuse.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/last30days",
+     "duong_dan": "repos/last30days.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/learn-harness-engineering",
+     "duong_dan": "repos/learn-harness-engineering.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/librechat",
+     "duong_dan": "repos/librechat.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "front-end",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/lightrag",
+     "duong_dan": "repos/lightrag.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "database"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/llama_index",
+     "duong_dan": "repos/llama_index.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "database",
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/lmcache",
+     "duong_dan": "repos/lmcache.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm",
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/loopx",
+     "duong_dan": "repos/loopx.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/lottiefiles-motion-design-skill",
+     "duong_dan": "repos/lottiefiles-motion-design-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/magika",
+     "duong_dan": "repos/magika.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/marketingskills",
+     "duong_dan": "repos/marketingskills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "seo",
+       "ads",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/markitdown",
+     "duong_dan": "repos/markitdown.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/mattpocock-skills",
+     "duong_dan": "repos/mattpocock-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/maxun",
+     "duong_dan": "repos/maxun.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/mediacrawler",
+     "duong_dan": "repos/mediacrawler.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "browser",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/meetily",
+     "duong_dan": "repos/meetily.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/mem0",
+     "duong_dan": "repos/mem0.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/microsoft-presidio",
+     "duong_dan": "repos/microsoft-presidio.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/mirage-tesseract",
+     "duong_dan": "repos/mirage-tesseract.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/mission-control",
+     "duong_dan": "repos/mission-control.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "data-dashboard"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/moneyprinterturbo",
+     "duong_dan": "repos/moneyprinterturbo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/motion-graphics-skills",
+     "duong_dan": "repos/motion-graphics-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/motiondivision-motion",
+     "duong_dan": "repos/motiondivision-motion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "front-end",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/motrix-next",
+     "duong_dan": "repos/motrix-next.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/n8n-claw",
+     "duong_dan": "repos/n8n-claw.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "docker"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/nanochat",
+     "duong_dan": "repos/nanochat.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/narratoai",
+     "duong_dan": "repos/narratoai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/odysseus",
+     "duong_dan": "repos/odysseus.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/ollama",
+     "duong_dan": "repos/ollama.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/omniroute",
+     "duong_dan": "repos/omniroute.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "devops",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/omnishow",
+     "duong_dan": "repos/omnishow.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/omnivoice-studio",
+     "duong_dan": "repos/omnivoice-studio.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts",
+       "local-llm"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/open-code-review-alibaba",
+     "duong_dan": "repos/open-code-review-alibaba.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/open-seo",
+     "duong_dan": "repos/open-seo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "seo",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/open-video-gen-models-2026",
+     "duong_dan": "repos/open-video-gen-models-2026.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "local-llm"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openclaw",
+     "duong_dan": "repos/openclaw.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "browser-automation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/opencut",
+     "duong_dan": "repos/opencut.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "front-end"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 8,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/openhands",
+     "duong_dan": "repos/openhands.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "backend"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openmontage",
+     "duong_dan": "repos/openmontage.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "tra-phi",
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openreel-video",
+     "duong_dan": "repos/openreel-video.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openshorts",
+     "duong_dan": "repos/openshorts.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "video-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openvoice",
+     "duong_dan": "repos/openvoice.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openwork-modelstudioai",
+     "duong_dan": "repos/openwork-modelstudioai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/openworker-andrew-ng",
+     "duong_dan": "repos/openworker-andrew-ng.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/opik",
+     "duong_dan": "repos/opik.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "devops"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/orca",
+     "duong_dan": "repos/orca.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "productivity"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/paddleocr",
+     "duong_dan": "repos/paddleocr.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "document-office"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/page-agent",
+     "duong_dan": "repos/page-agent.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/paperclip",
+     "duong_dan": "repos/paperclip.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/pi-coding-agent",
+     "duong_dan": "repos/pi-coding-agent.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/pixelle-video",
+     "duong_dan": "repos/pixelle-video.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/pixelrag",
+     "duong_dan": "repos/pixelrag.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/plannotator",
+     "duong_dan": "repos/plannotator.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/prime-agent",
+     "duong_dan": "repos/prime-agent.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/printfilm-research-notes",
+     "duong_dan": "repos/printfilm-research-notes.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/product-film-skill",
+     "duong_dan": "repos/product-film-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/prompt-motion",
+     "duong_dan": "repos/prompt-motion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "video-render"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/public-apis",
+     "duong_dan": "repos/public-apis.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/pycaps",
+     "duong_dan": "repos/pycaps.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/pydantic-ai",
+     "duong_dan": "repos/pydantic-ai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/qdrant",
+     "duong_dan": "repos/qdrant.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "database",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/remotion",
+     "duong_dan": "repos/remotion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/remotion-superpowers",
+     "duong_dan": "repos/remotion-superpowers.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "voice-tts",
+       "video-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ruview",
+     "duong_dan": "repos/ruview.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/sanyuan-skills",
+     "duong_dan": "repos/sanyuan-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/sc-datav",
+     "duong_dan": "repos/sc-datav.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/sceneworks",
+     "duong_dan": "repos/sceneworks.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation",
+       "local-llm"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/seedance-2-0-skill-os",
+     "duong_dan": "repos/seedance-2-0-skill-os.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/seedance-2-5",
+     "duong_dan": "repos/seedance-2-5.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "tra-phi"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/short-video-factory",
+     "duong_dan": "repos/short-video-factory.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/skillops",
+     "duong_dan": "repos/skillops.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/skyvern",
+     "duong_dan": "repos/skyvern.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/social-media-caption-generator",
+     "duong_dan": "repos/social-media-caption-generator.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "social-media"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/spec-kit",
+     "duong_dan": "repos/spec-kit.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/srt-whiteboard-animation",
+     "duong_dan": "repos/srt-whiteboard-animation.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation"
+      ],
+      "adoption": "unknown",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/stable-diffusion-3-medium",
+     "duong_dan": "repos/stable-diffusion-3-medium.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/stickman-studio",
+     "duong_dan": "repos/stickman-studio.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 9,
+   "so_muc": 40,
+   "muc": [
+    {
+     "id": "repos/stitch-skills",
+     "duong_dan": "repos/stitch-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/strix",
+     "duong_dan": "repos/strix.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "security-compliance"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/supabase",
+     "duong_dan": "repos/supabase.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "database",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/supermemory",
+     "duong_dan": "repos/supermemory.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/superpowers",
+     "duong_dan": "repos/superpowers.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/supertonic",
+     "duong_dan": "repos/supertonic.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts",
+       "local-llm"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/swarms",
+     "duong_dan": "repos/swarms.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/system-design-primer",
+     "duong_dan": "repos/system-design-primer.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "backend"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/system-prompts",
+     "duong_dan": "repos/system-prompts.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/system-prompts-ai",
+     "duong_dan": "repos/system-prompts-ai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/taste-skill",
+     "duong_dan": "repos/taste-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "design-ui",
+       "front-end",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/tencentdb-agent-memory",
+     "duong_dan": "repos/tencentdb-agent-memory.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/tiktokautouploader",
+     "duong_dan": "repos/tiktokautouploader.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/toonflow",
+     "duong_dan": "repos/toonflow.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "image-generation"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/trek",
+     "duong_dan": "repos/trek.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "backend",
+       "front-end"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps",
+       "docker",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/trending-020826-batch",
+     "duong_dan": "repos/trending-020826-batch.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "thap"
+     }
+    },
+    {
+     "id": "repos/turbodiffusion",
+     "duong_dan": "repos/turbodiffusion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/turbovec",
+     "duong_dan": "repos/turbovec.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "database",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/twenty-crm",
+     "duong_dan": "repos/twenty-crm.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/typesafe-jev",
+     "duong_dan": "repos/typesafe-jev.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-framework",
+       "reference"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/ui-tars-desktop",
+     "duong_dan": "repos/ui-tars-desktop.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "browser-automation",
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "browser"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/vectcutapi",
+     "duong_dan": "repos/vectcutapi.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/vercel-ai-sdk",
+     "duong_dan": "repos/vercel-ai-sdk.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "front-end",
+       "backend"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/vibe-coding-roadmap",
+     "duong_dan": "repos/vibe-coding-roadmap.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/vibe-trading",
+     "duong_dan": "repos/vibe-trading.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "finance-accounting",
+       "agent-framework"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/video-autopilot-kit",
+     "duong_dan": "repos/video-autopilot-kit.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/video-use",
+     "duong_dan": "repos/video-use.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/videofy-minimal",
+     "duong_dan": "repos/videofy-minimal.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "content-writing"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/vimax",
+     "duong_dan": "repos/vimax.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu",
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/voice-pro",
+     "duong_dan": "repos/voice-pro.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts",
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/web-research-mcp",
+     "duong_dan": "repos/web-research-mcp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/weknora",
+     "duong_dan": "repos/weknora.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "database"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/whisper",
+     "duong_dan": "repos/whisper.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "voice-tts"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/worldmonitor",
+     "duong_dan": "repos/worldmonitor.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/x-research-skill",
+     "duong_dan": "repos/x-research-skill.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "web-research",
+       "scraping"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "repos/yc-qm",
+     "duong_dan": "repos/yc-qm.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "agent-framework"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/yt-dlp",
+     "duong_dan": "repos/yt-dlp.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/yue2-studio",
+     "duong_dan": "repos/yue2-studio.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "local-llm",
+       "reference"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "gpu"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "repos/ziwei-doushu",
+     "duong_dan": "repos/ziwei-doushu.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "front-end",
+       "reference"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "skills/4-nguon-y-tuong-content",
+     "duong_dan": "skills/4-nguon-y-tuong-content.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  },
+  {
+   "lo": 10,
+   "so_muc": 38,
+   "muc": [
+    {
+     "id": "skills/ai-second-brain",
+     "duong_dan": "skills/ai-second-brain.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/analytics-data-analysis",
+     "duong_dan": "skills/analytics-data-analysis.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/bo-nao-4-file-claude",
+     "duong_dan": "skills/bo-nao-4-file-claude.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/brand-identity-factory",
+     "duong_dan": "skills/brand-identity-factory.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "design-ui",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/claude-code-thoi-quen-boris-cherny",
+     "duong_dan": "skills/claude-code-thoi-quen-boris-cherny.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/claude-dashboards-motion",
+     "duong_dan": "skills/claude-dashboards-motion.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "video-generation",
+       "design-ui"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "tra-phi"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "skills/content-analysis",
+     "duong_dan": "skills/content-analysis.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/data-analyzer",
+     "duong_dan": "skills/data-analyzer.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/domain-name-brainstormer",
+     "duong_dan": "skills/domain-name-brainstormer.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/gemini-video-content-kit",
+     "duong_dan": "skills/gemini-video-content-kit.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/genmedia-labs-runcomfy",
+     "duong_dan": "skills/genmedia-labs-runcomfy.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "image-generation",
+       "video-generation",
+       "voice-tts"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/i-have-adhd",
+     "duong_dan": "skills/i-have-adhd.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/just-scrape",
+     "duong_dan": "skills/just-scrape.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "scraping",
+       "web-research"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/kpi-dashboard-creator",
+     "duong_dan": "skills/kpi-dashboard-creator.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "data-dashboard",
+       "front-end"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/natural-writing",
+     "duong_dan": "skills/natural-writing.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/ponytail",
+     "duong_dan": "skills/ponytail.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/skill-seekers",
+     "duong_dan": "skills/skill-seekers.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/small-business-skills",
+     "duong_dan": "skills/small-business-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity",
+       "crm-sales"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/social-media-skills",
+     "duong_dan": "skills/social-media-skills.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "social-media",
+       "content-writing",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "skills/stickman-video-director",
+     "duong_dan": "skills/stickman-video-director.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/summarization",
+     "duong_dan": "skills/summarization.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "content-writing",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "skills/voxstyle-prompt-engine",
+     "duong_dan": "skills/voxstyle-prompt-engine.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "api-key"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/10-buoc-thiet-ke-agentic-ai",
+     "duong_dan": "stacks/10-buoc-thiet-ke-agentic-ai.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "agent-framework"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/10-skill-bat-buoc-du-an-moi",
+     "duong_dan": "stacks/10-skill-bat-buoc-du-an-moi.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/20-skill-nen-theo-loai-du-an",
+     "duong_dan": "stacks/20-skill-nen-theo-loai-du-an.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/antigravity-mirage-remotion-combo",
+     "duong_dan": "stacks/antigravity-mirage-remotion-combo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/chuoi-9-buoc-viet-prompt",
+     "duong_dan": "stacks/chuoi-9-buoc-viet-prompt.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "content-writing"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/cinematic-techniques-ai-video",
+     "duong_dan": "stacks/cinematic-techniques-ai-video.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "prompt-skill-library"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/day-chuyen-4-agent-claude-code",
+     "duong_dan": "stacks/day-chuyen-4-agent-claude-code.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "prompt-skill-library"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/deepseek-harness-bo-tai-lieu",
+     "duong_dan": "stacks/deepseek-harness-bo-tai-lieu.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/google-antigravity-notebooklm-combo",
+     "duong_dan": "stacks/google-antigravity-notebooklm-combo.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "agent-orchestration-memory",
+       "productivity"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/motion-design-studio-claude-code",
+     "duong_dan": "stacks/motion-design-studio-claude-code.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render",
+       "reference"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/remotion-template-factory",
+     "duong_dan": "stacks/remotion-template-factory.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-render"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/saas-stack-2026",
+     "duong_dan": "stacks/saas-stack-2026.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "reference",
+       "front-end",
+       "backend"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "none"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/second-brain-obsidian-claude",
+     "duong_dan": "stacks/second-brain-obsidian-claude.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "productivity",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "unknown"
+      ],
+      "confidence": "vua"
+     }
+    },
+    {
+     "id": "stacks/small-business-cowork-skillpacks",
+     "duong_dan": "stacks/small-business-cowork-skillpacks.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "prompt-skill-library",
+       "productivity"
+      ],
+      "adoption": "cai-ngay-duoc",
+      "needs": [
+       "claude-code-only",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/twenty-crm-abtrip-internal",
+     "duong_dan": "stacks/twenty-crm-abtrip-internal.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "crm-sales"
+      ],
+      "adoption": "chi-tham-khao",
+      "needs": [
+       "docker",
+       "vps"
+      ],
+      "confidence": "cao"
+     }
+    },
+    {
+     "id": "stacks/video-factory-auto-router",
+     "duong_dan": "stacks/video-factory-auto-router.md",
+     "nhan_hien_tai": {
+      "capability": [
+       "video-generation",
+       "video-render",
+       "agent-orchestration-memory"
+      ],
+      "adoption": "can-ha-tang",
+      "needs": [
+       "api-key",
+       "vps",
+       "tra-phi"
+      ],
+      "confidence": "cao"
+     }
+    }
+   ]
+  }
+ ]
+}

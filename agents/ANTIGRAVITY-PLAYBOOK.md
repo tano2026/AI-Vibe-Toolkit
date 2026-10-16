@@ -349,3 +349,9 @@ curl -sf -H "Authorization: token $GITHUB_TOKEN" \
 Trước khi code bất kỳ phần nào, đọc và áp dụng `agents/KARPATHY-CODING-GUIDELINES.md` — 4
 nguyên tắc: nghĩ trước khi code, đơn giản là trên hết, sửa đúng phạm vi, thực thi theo mục
 tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sinh thái, không riêng agent nào.
+
+
+---
+
+## 🔎 Tra kho trước khi chọn công cụ
+Đọc `catalog/AGENT-ROUTER.md` rồi lọc `catalog/catalog.json` theo `capability` (không đọc trang artifact). Nhãn là nháp, luôn mở entry gốc trước khi dùng.

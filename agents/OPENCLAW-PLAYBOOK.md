@@ -795,3 +795,9 @@ Không phải cài hết cho mọi project — kiểm tra đúng loại project 
 Nguyên tắc: KHÔNG bật MCP "phòng khi sau này cần" — chỉ bật đúng cái project hiện tại dùng
 thật, tránh phình context/rủi ro bảo mật không cần thiết (đúng tinh thần Karpathy nguyên tắc 2
 "Simplicity First").
+
+
+---
+
+## 🔎 Tra kho trước khi chọn công cụ
+Đọc `catalog/AGENT-ROUTER.md` rồi lọc `catalog/catalog.json` theo `capability` (không đọc trang artifact). Nhãn là nháp, luôn mở entry gốc trước khi dùng.
