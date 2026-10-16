@@ -1,0 +1,908 @@
+[
+  {
+    "id": "repos/openhands",
+    "capability": [
+      "agent-framework",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần kỹ sư phần mềm AI tự động lập trình kiểm thử gỡ lỗi và triển khai dự án mã nguồn mở",
+    "skip_if": "Bỏ qua nếu máy chủ chưa cài đặt Docker trước khi tải gói môi trường thực thi runtime",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "docker",
+      "api-key"
+    ],
+    "dup_group": "coding-agent",
+    "confidence": "cao",
+    "evidence": "AI Software Engineer agent mã nguồn mở — giao task, nó tự code, test, debug, deploy.",
+    "evidence_skip": "# Cài Docker trước, sau đó: docker pull docker.all-hands.dev/all-hands-ai/runtime:0.39-nikol",
+    "ly_do_doi": "Giữ capability và adoption chuẩn; skip_if xác lập điều kiện hạ tầng Docker bắt buộc để cô lập môi trường chạy mã."
+  },
+  {
+    "id": "repos/openmontage",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần hệ thống sản xuất video đa tác nhân mã nguồn mở kết hợp trợ lý lập trình thành studio hoàn chỉnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Hệ thống production video agentic đầu tiên mã nguồn mở.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì hướng dẫn cấu hình pipeline là bước sử dụng."
+  },
+  {
+    "id": "repos/openreel-video",
+    "capability": [
+      "video-render",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần trình dựng video đa rãnh chạy trực tiếp trên trình duyệt web sử dụng WebGPU và WebCodecs",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "video-processing-tools",
+    "confidence": "vua",
+    "evidence": "Editor video chạy thẳng trên browser, bản thay thế mã nguồn mở cho CapCut — không cần cài app, không upload lên cloud",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì khuyến nghị RAM/GPU cho bản 4K là hướng dẫn tối ưu trải nghiệm."
+  },
+  {
+    "id": "repos/openshorts",
+    "capability": [
+      "video-render",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần công cụ cắt video dài thành clip ngắn tự động nhận diện khoảnh khắc hấp dẫn và xuất bản mạng xã hội",
+    "skip_if": "Bỏ qua nếu máy chủ thiếu môi trường Docker Compose để tự lưu trữ dịch vụ",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "docker"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "vua",
+    "evidence": "Tool cắt clip AI mã nguồn mở duy nhất trong nhóm — đối thủ trực tiếp Opus Clip",
+    "evidence_skip": "Cần Docker (MIT license, self-host qua Docker Compose)",
+    "ly_do_doi": "Giữ skip_if với điều kiện tiên quyết bắt buộc phải có hạ tầng Docker Compose."
+  },
+  {
+    "id": "repos/openvoice",
+    "capability": [
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần nhân bản tông giọng nói từ đoạn âm thanh mẫu ngắn và hỗ trợ chuyển đổi đa ngôn ngữ",
+    "skip_if": "Bỏ qua nếu máy chủ thiếu phần cứng đồ họa chuyên dụng GPU để xử lý nhân bản giọng nói",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "tts-voiceover",
+    "confidence": "cao",
+    "evidence": "chỉ cần 1 đoạn audio ngắn để clone giọng, sinh giọng nói đa ngôn ngữ.",
+    "evidence_skip": "- Cần GPU để chạy tốc độ hợp lý — CPU vẫn chạy được nhưng chậm hơn nhiều, không hợp cho batch lớn.",
+    "ly_do_doi": "Giữ skip_if do yêu cầu phần cứng GPU rõ ràng để xử lý batch."
+  },
+  {
+    "id": "repos/openwork-modelstudioai",
+    "capability": [
+      "agent-framework",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính làm giao diện tương tác và quản lý phiên làm việc cho ModelStudio của Alibaba Cloud",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "vua",
+    "evidence": "Desktop app local-first cho hệ sinh thái ModelStudio của Alibaba Cloud (Bailian) — GUI đi kèm cho ModelStudio CLI",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence là cụm danh từ giới thiệu sản phẩm; skip_if unknown vì lưu ý hệ sinh thái là ngữ cảnh."
+  },
+  {
+    "id": "repos/openworker-andrew-ng",
+    "capability": [
+      "agent-framework",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tham khảo kiến trúc trợ lý đồng nghiệp AI trên máy tính với cơ chế phân quyền bốn cấp độ rủi ro",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-framework-core",
+    "confidence": "cao",
+    "evidence": "Desktop AI coworker mã nguồn mở của Andrew Ng (MIT license, ra mắt tháng 7/2026): giao 1 outcome (không phải 1 prompt)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc tham khảo học hỏi kiến trúc không bị chặn bởi nền tảng OS."
+  },
+  {
+    "id": "repos/opik",
+    "capability": [
+      "agent-orchestration-memory",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần nền tảng theo dõi đánh giá và giám sát luồng thực thi của ứng dụng và tác nhân trí tuệ nhân tạo",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "tracing-telemetry",
+    "confidence": "cao",
+    "evidence": "Opik (by Comet) là platform mã nguồn mở để trace, evaluate và monitor LLM app/agent",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì cung cấp cả tùy chọn cloud miễn phí lẫn Docker tự host."
+  },
+  {
+    "id": "repos/orca",
+    "capability": [
+      "agent-orchestration-memory",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần môi trường phát triển điều phối nhiều tác nhân lập trình chạy song song trên các nhánh git độc lập",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "cao",
+    "evidence": "Orca là \"ADE\" (Agent Development Environment) — app desktop/mobile/VPS cho phép chạy nhiều coding agent",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì yêu cầu nhị phân Orca là điều kiện cài đặt thông thường."
+  },
+  {
+    "id": "repos/paddleocr",
+    "capability": [
+      "document-office"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ nhận diện chữ quang học và phân tích bố cục tài liệu đa ngôn ngữ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "doc-to-markdown",
+    "confidence": "cao",
+    "evidence": "Toolkit OCR/document-parsing trưởng thành nhất trong mọi tool đã research phiên này",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì có thể chạy trực tiếp trên trình duyệt hoặc cài qua pip thông dụng."
+  },
+  {
+    "id": "repos/page-agent",
+    "capability": [
+      "browser-automation",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần tác nhân JavaScript điều khiển giao diện web bằng ngôn ngữ tự nhiên chạy trực tiếp trong trình duyệt",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "browser-automation-framework",
+    "confidence": "vua",
+    "evidence": "JavaScript in-page GUI agent của Alibaba — control bất kỳ web interface nào bằng ngôn ngữ tự nhiên",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý không thay thế Playwright cho tác vụ cào nặng là phạm vi tính năng."
+  },
+  {
+    "id": "repos/paperclip",
+    "capability": [
+      "agent-orchestration-memory",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần nền tảng quản lý đội ngũ tác nhân AI theo mục tiêu kinh doanh và ngân sách cho doanh nghiệp",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "vua",
+    "evidence": "Platform quan ly doi AI agent cho doanh nghiep — mo nguon mo, 72K stars.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu giới thiệu không dấu; skip_if unknown."
+  },
+  {
+    "id": "repos/pi-coding-agent",
+    "capability": [
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần tác nhân lập trình dòng lệnh tối giản có khả năng tự mở rộng bằng phần mở rộng TypeScript",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-agent",
+    "confidence": "vua",
+    "evidence": "pi-coding-agent — coding agent tối giản, tự mở rộng bằng chính nó",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence là tiêu đề; skip_if unknown vì triết lý tối giản không phải lỗi hạ tầng."
+  },
+  {
+    "id": "repos/pixelle-video",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần tạo video tự động từ chủ đề bao gồm viết kịch bản tạo ảnh lồng tiếng và ghép nhạc qua ComfyUI",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Pixelle-Video tự viết kịch bản, sinh ảnh/video minh hoạ AI cho từng câu, lồng giọng đọc, thêm nhạc nền",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì cung cấp sẵn gói chạy trực tiếp trên Windows không đòi hỏi cấu hình phức tạp."
+  },
+  {
+    "id": "repos/pixelrag",
+    "capability": [
+      "web-research",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần tìm kiếm thông tin và truy vấn tài liệu bằng hình ảnh chụp trang để giữ nguyên cấu trúc bảng biểu đồ",
+    "skip_if": "Bỏ qua nếu máy chủ thiếu phần cứng đồ họa chuyên dụng GPU để phục vụ mô hình nhúng hình ảnh",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "PixelRAG bỏ qua bước parse HTML/PDF ra text — nó chụp màn hình cả trang rồi tìm kiếm/trả lời trực tiếp trên ảnh",
+    "evidence_skip": "serve API tìm kiếm (cần GPU cho model embedding).",
+    "ly_do_doi": "Giữ skip_if do yêu cầu phần cứng GPU bắt buộc khi chạy pipeline nhúng hình ảnh."
+  },
+  {
+    "id": "repos/plannotator",
+    "capability": [
+      "productivity",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần giao diện trình duyệt trực quan để xem xét chú thích và thảo luận về kế hoạch thực thi của tác nhân AI",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "review UI với annotation, rất khó quay lại gõ \"y\" trong terminal mù quáng.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là mệnh đề mô tả trải nghiệm; skip_if unknown."
+  },
+  {
+    "id": "repos/prime-agent",
+    "capability": [
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần tác nhân lập trình mã nguồn mở chạy trong kernel IPython bền vững và tự hoàn thiện qua từng phiên",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-agent",
+    "confidence": "vua",
+    "evidence": "Coding agent open-source của PrimeIntellect-ai, khác biệt ở chỗ nó tự cải thiện bản thân qua session",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu giới thiệu so sánh; skip_if unknown."
+  },
+  {
+    "id": "repos/printfilm-research-notes",
+    "capability": [
+      "reference",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tham khảo tài liệu kiến trúc nền tảng dịch vụ video trí tuệ nhân tạo đa người dùng có quản trị",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "PrintFilm là 1 platform SaaS video AI tự host — khác hẳn FlowKit (script cá nhân tự động hoá Google Flow).",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý ghi chú nghiên cứu chưa triển khai là trạng thái nội bộ."
+  },
+  {
+    "id": "repos/product-film-skill",
+    "capability": [
+      "video-render",
+      "design-ui"
+    ],
+    "use_when": "Dùng khi cần kỹ năng dựng video giới thiệu sản phẩm phần mềm tự động từ giao diện React và thiết kế thực tế",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "motion-graphics",
+    "confidence": "cao",
+    "evidence": "Claude Code skill: 1 prompt ra video launch 10-30 giây dựng từ **UI thật của sản phẩm phần mềm**",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì giới hạn môi trường Claude Code đã được phản ánh qua vessel_fit."
+  },
+  {
+    "id": "repos/prompt-motion",
+    "capability": [
+      "reference",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần tra cứu các mẫu câu lệnh và kỹ năng tạo video chuyển động mẫu được tuyển chọn chất lượng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "Đây là chỗ để **tra prompt/skill mẫu khi cần làm video motion**, không phải công cụ tạo video.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy định tra cứu từng mục không cào hàng loạt là chính sách sử dụng."
+  },
+  {
+    "id": "repos/public-apis",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tra cứu danh mục tổng hợp các giao diện lập trình ứng dụng công khai phân loại theo nhiều lĩnh vực",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Danh sach tong hop 1500+ API mien phi cho developer — 444K stars, top 5 repo GitHub moi thoi dai.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì kho danh mục mở truy cập tự do."
+  },
+  {
+    "id": "repos/pycaps",
+    "capability": [
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần thư viện Python tạo phụ đề động tạo kiểu bằng CSS chạy ngoại tuyến trên máy tính",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "video-processing-tools",
+    "confidence": "vua",
+    "evidence": "Thư viện Python tạo phụ đề động, style bằng CSS, cho video TikTok/Shorts/Reels",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý giai đoạn phát triển alpha là cảnh báo kỹ thuật."
+  },
+  {
+    "id": "repos/pydantic-ai",
+    "capability": [
+      "agent-framework",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần khung làm việc Python xây dựng tác nhân có kiểm tra kiểu dữ liệu chặt chẽ và cấu trúc đầu ra",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-framework-core",
+    "confidence": "vua",
+    "evidence": "Framework Python xây agent có kiểm tra kiểu dữ liệu chặt (type-safe)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì khung làm việc thư viện cài đặt độc lập."
+  },
+  {
+    "id": "repos/qdrant",
+    "capability": [
+      "database",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần cơ sở dữ liệu véc-tơ hiệu năng cao tự lưu trữ bằng Rust phục vụ tìm kiếm ngữ nghĩa và bộ nhớ tác nhân",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "docker"
+    ],
+    "dup_group": "vector-rag",
+    "confidence": "cao",
+    "evidence": "Vector database self-host hieu suat cao, viet bang Rust — luu du lieu dang embedding de tim kiem theo ngu nghia",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý gắn kết volume lưu trữ dữ liệu là thao tác triển khai Docker chuẩn."
+  },
+  {
+    "id": "repos/remotion",
+    "capability": [
+      "video-render",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần khung làm việc lập trình video bằng React và mã nguồn cho phép render từng khung hình chính xác",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "html-canvas-video",
+    "confidence": "cao",
+    "evidence": "Remotion biết frame nào đang hiển thị, render từng frame thành ảnh, ghép thành MP4 thật.",
+    "evidence_skip": "",
+    "ly_do_doi": "Nâng confidence cao do evidence là câu trọn vẹn mô tả cơ chế render; skip_if unknown."
+  },
+  {
+    "id": "repos/remotion-superpowers",
+    "capability": [
+      "video-render",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần phần bổ trợ biến Remotion thành xưởng sản xuất video gồm máy chủ giao thức bối cảnh và lệnh dựng phim",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Claude Code plugin biến Remotion thành studio video production đầy đủ.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tương thích Claude Code đã thể hiện trong vessel_fit."
+  },
+  {
+    "id": "repos/ruview",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tài liệu tham khảo hệ thống nhận diện chuyển động và nhịp thở qua sóng tín hiệu mạng không dây",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "vua",
+    "evidence": "Biến WiFi thường thành hệ thống \"nhìn xuyên tường\": detect người, đo nhịp thở/tim, track chuyển động",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là cụm mô tả năng lực công nghệ phần cứng; skip_if unknown."
+  },
+  {
+    "id": "repos/sanyuan-skills",
+    "capability": [
+      "prompt-skill-library",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng rà soát chất lượng mã nguồn theo nguyên tắc kiến trúc bảo mật và xử lý ngoại lệ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "Skill code-review chuyên nghiệp — soi SOLID, bảo mật, hiệu năng, xử lý lỗi, edge case trước khi ship.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì kỹ năng nạp trực tiếp vào ngữ cảnh không phụ thuộc hạ tầng ngoài."
+  },
+  {
+    "id": "repos/sc-datav",
+    "capability": [
+      "data-dashboard",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần mẫu bảng điều khiển trực quan hóa dữ liệu không gian ba chiều sử dụng thư viện Three.js và Vue",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "saas-boilerplate",
+    "confidence": "vua",
+    "evidence": "Three.js + Vue3 — tạo dashboard \"màn hình lớn\" 3D cực đẹp như trong phim khoa học viễn tưởng.",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence chứa yếu tố mô tả cảm thán; skip_if unknown."
+  },
+  {
+    "id": "repos/sceneworks",
+    "capability": [
+      "image-generation",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần môi trường sáng tạo ảnh và video chạy trực tiếp cục bộ trên bộ xử lý đồ họa với giao diện web trực quan",
+    "skip_if": "Bỏ qua nếu máy tính thiếu bộ xử lý đồ họa chuyên dụng GPU hỗ trợ tối thiểu 10GB VRAM để nạp mô hình",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "cao",
+    "evidence": "AI Studio chạy hoàn toàn local — tạo ảnh, video, train LoRA ngay trên GPU của mày",
+    "evidence_skip": "Load model Flux.1-schnell (Q8, ~10GB VRAM)",
+    "ly_do_doi": "Giữ skip_if do yêu cầu dung lượng bộ nhớ đồ họa VRAM tối thiểu 10GB."
+  },
+  {
+    "id": "repos/seedance-2-0-skill-os",
+    "capability": [
+      "prompt-skill-library",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng chuyên biệt hướng dẫn tác nhân viết câu lệnh đạo diễn điện ảnh cho mô hình Seedance",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "cao",
+    "evidence": "Bộ 23 skill module hóa dạy AI agent viết prompt cho Seedance 2.0 (model video AI của ByteDance",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì bộ kỹ năng câu lệnh chạy trên môi trường tác nhân thông thường."
+  },
+  {
+    "id": "repos/seedance-2-5",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo video độ phân giải cao bốn nghìn điểm ảnh liên tục ba mươi giây từ nhiều nguồn tham chiếu",
+    "skip_if": "unknown",
+    "adoption": "can-khoa",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "vua",
+    "evidence": "Model tạo video AI mới nhất của ByteDance (công ty mẹ TikTok) — ra mắt 23/6/2026 tại Volcano Engine FORCE Conference.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu giới thiệu sự kiện ra mắt model; skip_if unknown."
+  },
+  {
+    "id": "repos/short-video-factory",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính tự động ghép video ngắn quảng cáo hàng loạt từ tư liệu có sẵn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "App desktop mã nguồn mở, 1 click ra video ngắn quảng cáo sản phẩm/nội dung đại chúng — AI viết văn án, chuyển giọng nói",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì cảnh báo bản quyền AGPL-3.0 là vấn đề pháp lý không phải lỗi hạ tầng."
+  },
+  {
+    "id": "repos/skillops",
+    "capability": [
+      "prompt-skill-library",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần công cụ dòng lệnh quản lý vòng đời kiểm tra định dạng và đồng bộ kỹ năng tác nhân trí tuệ nhân tạo",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "CLI quan ly skill AI agent o quy mo to chuc — \"SkillOps la cai DevOps danh cho ha tang\".",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu định nghĩa ví von; skip_if unknown."
+  },
+  {
+    "id": "repos/skyvern",
+    "capability": [
+      "browser-automation"
+    ],
+    "use_when": "Dùng khi cần tự động hóa thao tác trình duyệt bằng mô hình thị giác trí tuệ nhân tạo thay vì cú pháp đường dẫn phần tử",
+    "skip_if": "Bỏ qua nếu máy chủ thiếu môi trường Docker Desktop để triển khai bản tự lưu trữ",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "docker"
+    ],
+    "dup_group": "browser-automation-framework",
+    "confidence": "cao",
+    "evidence": "Tự động hoá trình duyệt bằng Vision LLM + computer vision thay vì XPath/DOM parsing truyền thống",
+    "evidence_skip": "Cài Docker Desktop (bản self-host chạy qua Docker).",
+    "ly_do_doi": "Giữ skip_if do yêu cầu nền tảng Docker Desktop cho bản tự lưu trữ."
+  },
+  {
+    "id": "repos/social-media-caption-generator",
+    "capability": [
+      "content-writing",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần viết chú thích nội dung mạng xã hội tối ưu hóa theo thuật toán từng nền tảng từ một câu lệnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "Skill này viết riêng caption cho từng nền tảng theo đúng tín hiệu thuật toán đó, không dùng hashtag rác",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý kiểm tra phong cách thương hiệu là hướng dẫn biên tập."
+  },
+  {
+    "id": "repos/spec-kit",
+    "capability": [
+      "prompt-skill-library",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ thực hành phát triển phần mềm dựa trên đặc tả rõ ràng trước khi viết mã nguồn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "Toolkit chinh thuc cua GitHub day Spec-Driven Development — giai phap cho van de \"vibe coding\" lam AI code loi lien tuc.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu giới thiệu không dấu; skip_if unknown."
+  },
+  {
+    "id": "repos/srt-whiteboard-animation",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi tệp phụ đề thành video hoạt hình vẽ tay nét mực phong cách bảng trắng theo từng cảnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Chuyển file phụ đề SRT thành video hoạt hình vẽ tay phong cách bảng trắng (nền giấy vàng kem ấm, nét bút chảy dần)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy trình cơ bản không bắt buộc GPU/SAM phân đoạn."
+  },
+  {
+    "id": "repos/stable-diffusion-3-medium",
+    "capability": [
+      "image-generation"
+    ],
+    "use_when": "Dùng khi cần mô hình tạo ảnh chất lượng cao mã nguồn mở phục vụ nhu cầu cá nhân và thương mại",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "vua",
+    "evidence": "model tạo ảnh chất lượng cao, dùng được cho personal và commercial.",
+    "evidence_skip": "",
+    "ly_do_doi": "Nâng confidence vua do evidence phản ánh đúng năng lực tạo ảnh thương mại; skip_if unknown."
+  },
+  {
+    "id": "repos/stickman-studio",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần quy trình Python tự động từ kịch bản sinh ảnh nhân vật nhất quán tạo video và lồng tiếng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Repo (saiedpod-bot/Stickman-Studio) — pipeline Python full: script (Gemini) → ảnh nhân vật nhất quán (Imagen) → video",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì cung cấp sẵn tùy chọn slideshow miễn phí không cần API trả phí."
+  }
+]
