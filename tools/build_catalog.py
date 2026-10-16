@@ -39,8 +39,9 @@ def collect():
             if os.path.exists(sk) and f not in ("MASTER-INDEX", "README", "_template"):
                 add(sk, "skill-import")
     for dp, dn, fn in os.walk("agents"):
+        dn.sort()  # thứ tự cố định, không phụ thuộc hệ điều hành
         if "SKILL.md" in fn:
-            add(os.path.join(dp, "SKILL.md"), "skill-agent")
+            add(os.path.join(dp, "SKILL.md").replace(os.sep, "/"), "skill-agent")
     return items
 
 # ---------- đọc file ----------
@@ -121,6 +122,14 @@ DOMAINS = [
     ("dev-code", r"\b(kotlin|swift|java\b|golang|\bgo\b|rust|django|laravel|spring|react|next\.?js|flutter|android|ios\b|c\+\+|php|perl|ktor|typescript|python|testing|test-driven|refactor|code review|compose multiplatform|jetpack)\b"),
     ("agent-llm", r"\b(multi-agent|agent framework|orchestrat|harness|claude code|llm\b|hermes|openclaw|antigravity|deepseek|mcp\b|prompt engineering|agent eval)\b"),
 ]
+
+# Bảng capability cố định (nguồn: catalog/curation-draft/PROMPT-GAN-NHAN.md). social-media thêm sau pilot 16/10/2026.
+CAPABILITIES = (
+    "web-research scraping content-writing seo ads email-outreach crm-sales customer-support video-generation "
+    "video-render image-generation voice-tts design-ui front-end backend database devops agent-framework "
+    "agent-orchestration-memory prompt-skill-library browser-automation document-office data-dashboard "
+    "finance-accounting ticketing-aviation security-compliance local-llm productivity reference social-media"
+).split()
 
 def domains_of(text):
     low = text.lower()
@@ -230,9 +239,12 @@ def main():
         c = cur.get(r["id"])
         for k in ("capability", "vessel_fit", "needs"):
             r[k] = ",".join(c[k]) if c else ""
-        for k in ("use_when", "skip_if", "adoption", "dup_group", "confidence"):
+        for k in ("use_when", "skip_if", "adoption", "dup_group", "confidence", "evidence"):
             r[k] = c.get(k, "") if c else ""
         r["curation_status"] = c["curation_status"] if c else "chua-gan-nhan"
+    bad = sorted({v for c in cur.values() for v in c["capability"]} - set(CAPABILITIES))
+    if bad:
+        sys.exit(f"curation.json có capability ngoài bảng 30 giá trị: {bad}")
     os.makedirs("catalog", exist_ok=True)
     cols = list(rows[0].keys())
     with open("catalog/CATALOG.csv", "w", newline="", encoding="utf-8-sig") as fh:
