@@ -1,0 +1,30 @@
+{
+  "_ghi_chu": "Theo schema TENANT-CONFIG cua agents/MASTER-TEMPLATE-MANIFEST.md (7 role) cong khoi opc cho 9 agent ORG v3. roles_enabled anh xa: content->marketing, designer->media trong ORG v3. compliance_overrides LUON null.",
+  "tenant_id": "{{tenant_id}}",
+  "client_name": "{{ten_thuong_hieu}}",
+  "industry": "CHƯA CÓ — hỏi CEO",
+  "brand_voice": {
+    "tone": "CHƯA CÓ — hỏi CEO",
+    "language": "vi",
+    "banned_topics": []
+  },
+  "icp": {
+    "segment": "CHƯA CÓ — hỏi CEO",
+    "deal_size_range": "CHƯA CÓ — hỏi CEO"
+  },
+  "roles_enabled": {{roles_enabled_json}},
+  "brand_playbook_ref": "CHƯA CÓ — hỏi CEO",
+  "compliance_overrides": null,
+  "opc": {
+    "slug": "{{slug}}",
+    "pack": "domain-packs/{{slug}}/PACK.md",
+    "owner": "{{chu_so_huu}}",
+    "revenue_streams": {{doanh_thu_json}},
+    "channels": {{kenh_json}},
+    "extension_packs": {{goi_json}},
+    "agents_enabled": {{agents_enabled_json}},
+    "launch_mode": {"mode": "draft_only", "weeks_per_department": 2, "changed_by": null, "changed_on": null},
+    "kill_switch": {"command": "/stop", "flag": "agents.status=paused", "implemented": false},
+    "env_vars": {{env_vars_json}}
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "_ghi_chu": [
+    "Schema Airtable company-hq cho OPC, dựng từ agents/company/COORDINATION-v2.md (7 bảng) và agents/company/ORG-v2.md v3 (9 agent). Đây là file mà agents/trum-san-bay/README.md nhắc nhưng không tồn tại trong kho.",
+    "Kiểu trường dùng tên kiểu của Airtable (singleLineText, multilineText, singleSelect, multipleSelects, multipleRecordLinks, autoNumber, number, date, checkbox, url, createdTime, lastModifiedTime). Chưa nạp thử vào Airtable thật; người dựng tạo bảng theo thứ tự ở 'tables' (bảng sau link bảng trước).",
+    "Token Airtable nằm ở biến môi trường AIRTABLE_TOKEN và AIRTABLE_BASE_HQ, không bao giờ trong file này.",
+    "Giá trị role trong bảng agents là 9 agent thật của ORG v3; HR&Admin và Legal&Compliance là gói mở rộng, không phải dòng agents.",
+    "Ba trường THÊM so với COORDINATION-v2 (do Agent Factory đề xuất, chưa duyệt): agents.tu_chu, jobs.has_external_input, approvals.gate. Bỏ đi được mà không phá phần còn lại."
+  ],
+  "schema_version": "1.0",
+  "base_name": "company-hq",
+  "pack": "__PACK_SLUG__",
+  "tables": [
+    {
+      "name": "agents",
+      "note": "Sổ nhân sự AI. Tạo TRƯỚC, các bảng khác link vào.",
+      "fields": [
+        {"name": "role", "type": "singleSelect", "options": ["ceo", "research", "dev", "sales", "marketing", "media", "operations", "support", "analytics"]},
+        {"name": "runtime", "type": "multipleSelects", "options": ["hermes", "openclaw", "antigravity", "deepseek-harness", "claude-code"]},
+        {"name": "model_tier", "type": "singleSelect", "options": ["cheap", "balanced", "reasoning", "creative"]},
+        {"name": "role_pack_url", "type": "url", "note": "Đường dẫn tới package/role pack của agent trong repo kho"},
+        {"name": "status", "type": "singleSelect", "options": ["active", "paused"], "note": "paused = nút dừng khẩn; agent phải đọc cờ này trước MỌI hành động ra ngoài"},
+        {"name": "kpi_chinh", "type": "singleLineText"},
+        {"name": "escalation_rule", "type": "multilineText", "note": "Khi nào dừng gọi CEO"},
+        {"name": "tu_chu", "type": "singleSelect", "options": ["L0", "L1", "L2", "L3"], "note": "Mức tự chủ tối đa cho việc nội bộ; việc ra ngoài vẫn theo bảng cổng duyệt"}
+      ]
+    },
+    {
+      "name": "jobs",
+      "note": "Trái tim hệ thống.",
+      "fields": [
+        {"name": "job_id", "type": "autoNumber", "note": "Dùng trong MỌI giao tiếp, kể cả lệnh duyệt OK/NO"},
+        {"name": "pack", "type": "singleSelect", "options": ["__PACKS__"]},
+        {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
+        {"name": "brief", "type": "multilineText", "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong"},
+        {"name": "status", "type": "singleSelect", "options": ["queued", "doing", "review", "awaiting_approval", "done", "blocked"]},
+        {"name": "priority", "type": "singleSelect", "options": ["P0", "P1", "P2"]},
+        {"name": "output_url", "type": "url"},
+        {"name": "depends_on", "type": "multipleRecordLinks", "linked_table": "jobs"},
+        {"name": "requested_by", "type": "singleLineText", "note": "ceo hoặc tên role"},
+        {"name": "sop", "type": "multipleRecordLinks", "linked_table": "sops"},
+        {"name": "has_external_input", "type": "checkbox", "note": "Job có nội dung ngoài (web, bình luận, email, tin nhắn) làm đầu vào: mọi hành động từ L1 trở lên tự nâng một mức"},
+        {"name": "due", "type": "date"},
+        {"name": "created", "type": "createdTime"},
+        {"name": "updated", "type": "lastModifiedTime"}
+      ]
+    },
+    {
+      "name": "sops",
+      "note": "Thư viện quy trình. Việc lặp từ 3 lần mà chưa có SOP thì agent tự soạn nháp, CEO duyệt một lần.",
+      "fields": [
+        {"name": "sop_id", "type": "autoNumber"},
+        {"name": "name", "type": "singleLineText"},
+        {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
+        {"name": "trigger", "type": "singleLineText"},
+        {"name": "steps", "type": "multilineText", "note": "Đánh số từng bước kèm định nghĩa xong"},
+        {"name": "version", "type": "number"},
+        {"name": "updated", "type": "lastModifiedTime"}
+      ]
+    },
+    {
+      "name": "kpis",
+      "note": "Bảng điểm tuần.",
+      "fields": [
+        {"name": "metric", "type": "singleLineText"},
+        {"name": "pack", "type": "singleSelect", "options": ["__PACKS__"]},
+        {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
+        {"name": "target", "type": "number", "note": "Để trống khi chưa có số nền; không điền số đoán"},
+        {"name": "actual", "type": "number"},
+        {"name": "week", "type": "singleLineText", "note": "Ví dụ 2026-W30"},
+        {"name": "note", "type": "multilineText", "note": "Bắt buộc nếu actual thấp hơn 70% target"}
+      ]
+    },
+    {
+      "name": "approvals",
+      "note": "Cổng duyệt. Không có bản ghi approved thì không thực thi.",
+      "fields": [
+        {"name": "job_id", "type": "multipleRecordLinks", "linked_table": "jobs"},
+        {"name": "gate", "type": "singleSelect", "options": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"], "note": "Số hiệu cổng trong GATES.md"},
+        {"name": "action", "type": "multilineText", "note": "Bản CUỐI: gửi ai, nội dung gì, bao nhiêu tiền. Duyệt xong không sửa."},
+        {"name": "risk_type", "type": "singleSelect", "options": ["spend_money", "publish", "send_external", "commit_customer", "production", "credential"]},
+        {"name": "risk_level", "type": "singleSelect", "options": ["L2", "L3"]},
+        {"name": "status", "type": "singleSelect", "options": ["pending", "approved", "rejected", "expired"], "note": "Im lặng 24 giờ = expired = KHÔNG làm; nhắc đúng một lần"},
+        {"name": "decided_at", "type": "date"}
+      ]
+    },
+    {
+      "name": "escalations",
+      "note": "Nhật ký sự cố và vượt cấp.",
+      "fields": [
+        {"name": "ts", "type": "createdTime"},
+        {"name": "job_id", "type": "multipleRecordLinks", "linked_table": "jobs"},
+        {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
+        {"name": "reason", "type": "multilineText"},
+        {"name": "resolution", "type": "multilineText"},
+        {"name": "resolved", "type": "checkbox"}
+      ]
+    },
+    {
+      "name": "activity_log",
+      "note": "Chỉ thêm, không sửa. Mỗi hành động thật từ L1 trở lên ghi một dòng; mỗi lần agent đọc file chứa khoá cũng ghi.",
+      "fields": [
+        {"name": "ts", "type": "createdTime"},
+        {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
+        {"name": "job_id", "type": "multipleRecordLinks", "linked_table": "jobs"},
+        {"name": "event", "type": "multilineText", "note": "Một dòng"},
+        {"name": "tokens", "type": "number", "note": "Ước lượng token của bước (tính P&L)"}
+      ]
+    }
+  ],
+  "views": [
+    {"name": "CEO Cockpit", "table": "jobs", "filter": "status thuộc {awaiting_approval, blocked} cộng done trong 24 giờ", "group_by": "status", "note": "View DUY NHẤT CEO nhìn mỗi sáng"},
+    {"name": "Queue theo role", "table": "jobs", "filter": "status = queued", "group_by": "role"},
+    {"name": "Theo client", "table": "jobs", "group_by": "pack"},
+    {"name": "KPI tuần này", "table": "kpis", "filter": "week = tuần hiện tại"},
+    {"name": "Chờ duyệt", "table": "approvals", "filter": "status = pending"}
+  ],
+  "extension_tables": [],
+  "seed": {
+    "agents": []
+  }
+}
