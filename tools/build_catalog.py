@@ -40,6 +40,8 @@ def collect():
                 add(sk, "skill-import")
     for dp, dn, fn in os.walk("agents"):
         dn.sort()  # thứ tự cố định, không phụ thuộc hệ điều hành
+        if dp.replace(os.sep, "/").startswith("agents/agent-factory/"):
+            continue  # khuôn và ví dụ dựng thử của nhà máy agent, không phải mục kho thật
         if "SKILL.md" in fn:
             add(os.path.join(dp, "SKILL.md").replace(os.sep, "/"), "skill-agent")
     return items

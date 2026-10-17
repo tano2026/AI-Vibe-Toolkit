@@ -92,6 +92,8 @@ TẦNG 1 — 8 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nh
   agents/media-pro/                  (6 file)
   agents/customer-satisfaction-pro/  (6 file) — MỚI, agent thứ 8
   agents/designer-pro/               (5 file)
+  agents/thu-kho/                    (Thủ Kho: tra kho, gợi ý cài và dùng; CLI tools/thu_kho.py)
+  agents/agent-factory/              (Nhà máy agent: công thức 7 bước, khuôn agent và OPC; CLI tools/agent_factory.py)
   -> Mỗi cái tự đủ: README (spec+capability map) + ARCHITECTURE + system-prompt
      + skills/ riêng + HERMES-ADAPTER.md
 

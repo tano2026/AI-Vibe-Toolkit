@@ -20,6 +20,13 @@ research-analytics-pro/ . content-pro/ . sales-ceo/ . digital-marketing-agent/ .
 
 Mỗi Pro Agent = agents/company/EXPERT-CORE.md (luật, section riêng) + skill riêng. Xem đầy đủ Vessel/Talent tại agents/company/COMPANY-CHARTER.md.
 
+
+## Công cụ chung của kho
+
+- **Thủ Kho** (`agents/thu-kho/`, CLI `tools/thu_kho.py`): tra kho theo việc cần làm, in thẻ chi tiết và **kế hoạch cài khô** (không tự cài), ghi GAP-LOG và USAGE-LOG. Luôn đi qua đây trước khi chọn công cụ.
+- **Nhà máy agent** (`agents/agent-factory/`, CLI `tools/agent_factory.py`): dựng và bàn giao một agent riêng lẻ hoặc cả OPC theo công thức 7 bước; `kiem` kiểm cấu trúc và lằn ranh đỏ, `ban-giao` ra gói có checksum. Xem `agents/agent-factory/FACTORY.md`.
+- **Kiểm toán kho** (`tools/audit_kho.py`, kết quả `catalog/AUDIT.md`): kiểm tĩnh và tài nguyên ngoài cho cả 916 mục. Kết quả KHÔNG chứng minh công cụ chạy đúng.
+
 ## Luồng phân công (qua EA Quality Gate — mới, xem task-intake-quality-gate)
 
 ```

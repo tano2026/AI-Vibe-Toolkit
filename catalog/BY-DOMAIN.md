@@ -4,7 +4,7 @@
 > Domain gán bằng từ khoá nên có thể sai — dùng để lọc. Đầy đủ: `catalog/CATALOG.csv`.
 > Mục ở đây = điểm ≥ 7 hoặc đã chạy thật. Chưa có điểm ≠ dở; chỉ là chưa ai chấm.
 
-## agent-llm (335 mục, 127 nổi bật)
+## agent-llm (336 mục, 127 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -94,7 +94,7 @@
 | Bazi-Ziwei Skill | skill-import | 8.0 | đọc nguồn |  | `skills/bazi-ziwei-skill/SKILL.md` |
 | Copywriting Prose Creator | skill-import | 8.0 | đọc nguồn |  | `skills/copywriting-prose-creator/SKILL.md` |
 
-## media-video-audio (153 mục, 83 nổi bật)
+## media-video-audio (154 mục, 83 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -256,6 +256,21 @@
 | Second Brain — Obsidian + Claude + Git — Combo Too | stack | 7.0 | đọc nguồn | tốn tiền | `stacks/second-brain-obsidian-claude.md` |
 | just-scrape (ScrapeGraphAI) — Skill CLI | skill-kho | 7.0 | đọc nguồn | tốn tiền | `skills/just-scrape.md` |
 
+## khác (103 mục, 10 nổi bật)
+
+| Tên | Loại | Điểm | Xác minh | Rủi ro | File |
+|---|---|---|---|---|---|
+| Stirling PDF | repo | 9.0 | đọc nguồn |  | `repos/stirling-pdf.md` |
+| Churn Risk & Escalation Discipline | skill-agent | 9.0 | đọc nguồn |  | `agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md` |
+| 20 Skill Nền — Combo Skill theo Loại Dự Án (nâng c | stack | 8.7 | đọc nguồn |  | `stacks/20-skill-nen-theo-loai-du-an.md` |
+| Tư duy Nhân tính học & Tâm lý học Hành vi cho GMSP | skill-import | 8.5 | đọc nguồn |  | `skills/tu-duy-nhan-tinh-hoc-hanh-vi/SKILL.md` |
+| iztro | repo | 8.0 | đọc nguồn |  | `repos/iztro.md` |
+| Tư duy Tài chính Phát triển Bản thân — Money Scrip | skill-import | 8.0 | đọc nguồn |  | `skills/tu-duy-tai-chinh-phat-trien-ban-than/SKILL.md` |
+| iptv-org/iptv | repo | 7.0 | đọc nguồn |  | `repos/iptv-org-iptv.md` |
+| RuView | repo | 7.0 | đọc nguồn | tốn tiền | `repos/ruview.md` |
+| Trending 02/08/2026 — 4 repo khác (tổng hợp ngắn) | repo | 7.0 | đọc nguồn |  | `repos/trending-020826-batch.md` |
+| Skill Seekers — Auto-convert doc/repo/PDF thành SK | skill-kho | 7.0 | đọc nguồn |  | `skills/skill-seekers.md` |
+
 ## design-ui (101 mục, 41 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
@@ -300,21 +315,6 @@
 | DeepSeek Harness — Bộ tài liệu học & tra cứu | stack | 7.0 | đọc nguồn | dữ liệu/ToS | `stacks/deepseek-harness-bo-tai-lieu.md` |
 | claude-motion-design | repo |  | một phần | license,dữ liệu/ToS | `repos/claude-motion-design.md` |
 | product-launch-motion | repo |  | một phần | license,dữ liệu/ToS | `repos/product-launch-motion.md` |
-
-## khác (101 mục, 10 nổi bật)
-
-| Tên | Loại | Điểm | Xác minh | Rủi ro | File |
-|---|---|---|---|---|---|
-| Stirling PDF | repo | 9.0 | đọc nguồn |  | `repos/stirling-pdf.md` |
-| Churn Risk & Escalation Discipline | skill-agent | 9.0 | đọc nguồn |  | `agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md` |
-| 20 Skill Nền — Combo Skill theo Loại Dự Án (nâng c | stack | 8.7 | đọc nguồn |  | `stacks/20-skill-nen-theo-loai-du-an.md` |
-| Tư duy Nhân tính học & Tâm lý học Hành vi cho GMSP | skill-import | 8.5 | đọc nguồn |  | `skills/tu-duy-nhan-tinh-hoc-hanh-vi/SKILL.md` |
-| iztro | repo | 8.0 | đọc nguồn |  | `repos/iztro.md` |
-| Tư duy Tài chính Phát triển Bản thân — Money Scrip | skill-import | 8.0 | đọc nguồn |  | `skills/tu-duy-tai-chinh-phat-trien-ban-than/SKILL.md` |
-| iptv-org/iptv | repo | 7.0 | đọc nguồn |  | `repos/iptv-org-iptv.md` |
-| RuView | repo | 7.0 | đọc nguồn | tốn tiền | `repos/ruview.md` |
-| Trending 02/08/2026 — 4 repo khác (tổng hợp ngắn) | repo | 7.0 | đọc nguồn |  | `repos/trending-020826-batch.md` |
-| Skill Seekers — Auto-convert doc/repo/PDF thành SK | skill-kho | 7.0 | đọc nguồn |  | `skills/skill-seekers.md` |
 
 ## dev-infra (86 mục, 42 nổi bật)
 
@@ -361,7 +361,7 @@
 | TencentDB Agent Memory (Tencent) | repo | 7.0 | đọc nguồn |  | `repos/tencentdb-agent-memory.md` |
 | Antigravity 2.0 + Mirage Tesseract + Remotion — Co | stack | 7.0 | đọc nguồn |  | `stacks/antigravity-mirage-remotion-combo.md` |
 
-## sales-crm (77 mục, 32 nổi bật)
+## sales-crm (78 mục, 32 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
