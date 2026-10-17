@@ -1,0 +1,1234 @@
+# INSTALL-PLAN — kế hoạch cài KHÔ (không thực thi)
+
+> Kế hoạch này chỉ để người duyệt đọc. Agent Factory KHÔNG cài gì, KHÔNG chạy lệnh nào. Người duyệt đọc từng mục, đồng ý rồi tự cài.
+> Mỗi mục phải qua spike 30 phút trên việc thật trước khi cam kết (ghi `catalog/USAGE-LOG.md`).
+
+## Hồ sơ máy của người dựng hồ sơ
+
+Đây là máy đã chạy công cụ, KHÔNG phải máy đích của khách. Chạy lại `thu_kho.machine_profile()` trên máy đích trước khi duyệt cài. Chỉ liệt kê những gì cần để đọc kế hoạch; đường dẫn, tên người dùng và biến môi trường của máy dựng được lược bỏ.
+
+- **he_dieu_hanh**: Windows 11
+- **kien_truc**: AMD64
+- **python**: 3.14.4
+- **cong_cu_co_san**:
+  - git
+  - node
+  - npm
+  - python
+  - pip
+  - docker
+  - ffmpeg
+- **cong_cu_thieu**: []
+
+## `kho:repos/tencentdb-agent-memory`
+
+- **id**: repos/tencentdb-agent-memory
+- **ten**: TencentDB Agent Memory (Tencent)
+- **loai_muc**: repo
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: repos/tencentdb-agent-memory.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: git clone https://github.com/Tencent/TencentDB-Agent-Memory
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - git
+  - **thieu**: []
+  - **co**:
+    - **git**: True
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: tos
+    - **noi_dung**: Entry nhắc điều khoản dịch vụ/giới hạn/không chính thức - kiểm ToS của nền tảng đích.
+  -
+    - **loai**: bao-mat
+    - **noi_dung**: Entry/nhãn nhắc đến bảo mật, quyền truy cập hoặc khoá - đọc phần Lưu ý.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - nhãn chưa chắc (không phải đã-đọc-entry-gốc) -> nâng lên L2 (không chắc thì coi là mức cao hơn)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Nếu xác minh đúng là framework OpenClaw thật đang dùng — import toàn bộ conversation lịch sử + codebase kho AI-Vibe-Toolkit vào, CodeGraph tự index symbol/file/call relationship, LLM-Wiki tự sinh tài liệu có link graph từ các file `.md` đã có — agent mới không phải "học lại từ đầu" project mỗi lần, tiết kiệm đúng chi phí "mỗi agent đều mất công học lại" đã ghi nhận trong `UNIFIED-ARCHITECTURE.md`.
+  - **lenh_goi_y**:
+    - git --version
+- **go_cai_dat**:
+  - xoá thư mục 'TencentDB-Agent-Memory' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:repos/web-research-mcp`
+
+- **id**: repos/web-research-mcp
+- **ten**: web-research — Token-Efficient Research MCP (99% Ít Token Hơn)
+- **loai_muc**: repo
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: repos/web-research-mcp.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-darwin-arm64 -o ~/.local/bin/wr && chmod +x ~/.local/bin/wr
+    - **kieu**: shell
+    - **nguon_muc**: Cài Đặt
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-mcp-darwin-arm64 -o ~/.local/bin/wr-mcp && chmod +x ~/.local/bin/wr-mcp
+    - **kieu**: shell
+    - **nguon_muc**: Cài Đặt
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-linux-amd64 -o ~/.local/bin/wr && chmod +x ~/.local/bin/wr
+    - **kieu**: shell
+    - **nguon_muc**: Cài Đặt
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-mcp-linux-amd64 -o ~/.local/bin/wr-mcp && chmod +x ~/.local/bin/wr-mcp
+    - **kieu**: shell
+    - **nguon_muc**: Cài Đặt
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 4
+  -
+    - **loai**: lenh-khac
+    - **lenh**: echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+    - **kieu**: shell
+    - **nguon_muc**: Cài Đặt
+    - **co_do**:
+      - ghi ra ngoài thư mục dự án (hệ thống/thư mục người dùng)
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: True
+    - **chua_chay**: True
+    - **so**: 5
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: TINYFISH_API_KEY
+    - **da_dat**: False
+  -
+    - **ten**: GROQ_API_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: khoa-api
+    - **noi_dung**: Cần khoá/token API - tạo, đặt, đổi khoá là việc L3 (CEO).
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**:
+  -
+    - **buoc**: 5
+    - **ly_do**: ghi ra ngoài thư mục dự án (hệ thống/thư mục người dùng)
+    - **lenh**: echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+    - **can_nguoi_doc_ky**: True
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có lệnh nguy hiểm cờ đỏ -> tối thiểu L2 và người phải đọc kỹ
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: (trống)
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:repos/coolify`
+
+- **id**: repos/coolify
+- **ten**: Coolify
+- **loai_muc**: repo
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: repos/coolify.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: lenh-khac
+    - **lenh**: curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**:
+      - curl|sh: chạy thẳng mã tải từ mạng, chưa đọc
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: True
+    - **chua_chay**: True
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - docker
+  - **thieu**: []
+  - **co**:
+    - **docker**: True
+  - **can_khac**:
+    - vps
+- **bien_moi_truong**:
+  -
+    - **ten**: COOLIFY_TOKEN
+    - **da_dat**: False
+  -
+    - **ten**: COOLIFY_API_TOKEN
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: ton-tien
+    - **noi_dung**: Có thể phát sinh chi phí (dịch vụ trả phí/credit).
+  -
+    - **loai**: bao-mat
+    - **noi_dung**: Entry/nhãn nhắc đến bảo mật, quyền truy cập hoặc khoá - đọc phần Lưu ý.
+  -
+    - **loai**: vps
+    - **noi_dung**: Cần VPS/máy chủ.
+  -
+    - **loai**: ha-tang
+    - **noi_dung**: adoption = can-ha-tang (VPS/docker/DB/nhiều bước).
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**:
+  -
+    - **buoc**: 1
+    - **ly_do**: curl|sh: chạy thẳng mã tải từ mạng, chưa đọc
+    - **lenh**: curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+    - **can_nguoi_doc_ky**: True
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có chi tiền > 0đ (trả phí/credit) -> L2 (DECISION-MATRIX, trục Tiền)
+    - cần VPS: nếu VPS đang có khách dùng thì tối thiểu L2
+    - có lệnh nguy hiểm cờ đỏ -> tối thiểu L2 và người phải đọc kỹ
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Stack ABTRIP trên một VPS $10/tháng:** - Coolify quản lý: Open WebUI + Stirling PDF + TREK + Resona API + n8n - Mỗi service có domain riêng, SSL tự động - GitHub push → auto redeploy trong 2 phút - Monitoring built-in: xem logs, metrics từ dashboard Chi phí: $10/tháng VPS thay vì $50-100/tháng cho từng service riêng lẻ.
+  - **lenh_goi_y**:
+    - docker --version
+- **go_cai_dat**: []
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu máy chủ ảo có dung lượng bộ nhớ dưới 2GB RAM
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:agents/shorts-affiliate-system/skills/compliance-gate`
+
+- **id**: agents/shorts-affiliate-system/skills/compliance-gate
+- **ten**: Compliance Gate — Chặn Inauthentic Content trước khi render
+- **loai_muc**: skill-agent
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) agents/shorts-affiliate-system/skills/compliance-gate -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - nhãn chưa chắc (không phải đã-đọc-entry-gốc) -> nâng lên L2 (không chắc thì coi là mức cao hơn)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Input:** Script mới về "Top 5 AI tool 2026", structure_type = `intro-list-outro`, hook_type = `shock-stat`. **History gần nhất:** 9/15 video trước cũng là `intro-list-outro`, 7/15 cũng `shock-stat`. **Kết quả:** FAIL cả 2 điều kiện. Compliance Gate trả về: "structure_type lặp lại quá nhiều, đổi format" + "hook_type lặp lại, dùng viral-hooks skill chọn trigger khác". **Sửa:** Script Variation Engine đổi sang structure `case-study` (kể chuyện 1 người dùng thử tool thay vì liệt kê), hook đổi sang
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:repos/twenty-crm`
+
+- **id**: repos/twenty-crm
+- **ten**: Twenty CRM
+- **loai_muc**: repo
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: repos/twenty-crm.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: git clone --depth 1 https://github.com/twentyhq/twenty
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước (self-host, Docker)
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+  -
+    - **loai**: dieu-huong
+    - **lenh**: cd twenty/packages/twenty-docker
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước (self-host, Docker)
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: chep-file
+    - **lenh**: cp .env.example .env     # đặt APP_SECRET + mật khẩu Postgres mạnh, ngẫu nhiên
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước (self-host, Docker)
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+  -
+    - **loai**: chay-docker
+    - **lenh**: docker compose up -d
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước (self-host, Docker)
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 4
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - git
+    - docker
+  - **thieu**: []
+  - **co**:
+    - **git**: True
+    - **docker**: True
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: APP_SECRET
+    - **da_dat**: False
+  -
+    - **ten**: TWENTY_API_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License hạn chế (AGPL) - đọc điều khoản trước khi dùng thương mại.
+  -
+    - **loai**: bao-mat
+    - **noi_dung**: Entry/nhãn nhắc đến bảo mật, quyền truy cập hoặc khoá - đọc phần Lưu ý.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: - Companies: PVN và các cơ quan đặt vé số lượng lớn; People: đầu mối liên hệ - Opportunity: "Gia hạn phụ lục hợp đồng PVN" chạy qua stage Tiếp cận → Báo giá → Đàm phán hợp đồng → Ký/Gia hạn → Đang phục vụ - Object riêng: Bookings (PNR, hành trình, ngày xuất vé), Dịch vụ Fast Track/Meet & Assist - Chi tiết thiết kế: `stacks/twenty-crm-abtrip-internal.md` - Cài chạy được ngay (script + backup + test PASS/FAIL): `deploy/twenty-abtrip/HUONG-DAN-TRIEN-KHAI.md`
+  - **lenh_goi_y**:
+    - git --version
+- **go_cai_dat**:
+  - docker compose down (thêm -v nếu muốn xoá cả dữ liệu - cần người duyệt)
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+  - xoá thư mục '--depth' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu đóng gói bán lại dạng dịch vụ đóng mã nguồn do ràng buộc bản quyền AGPLv3 và Enterprise
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:repos/billionmail`
+
+- **id**: repos/billionmail
+- **ten**: BillionMail
+- **loai_muc**: repo
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: repos/billionmail.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: git clone https://github.com/Billionmail/BillionMail.git
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+  -
+    - **loai**: dieu-huong
+    - **lenh**: cd BillionMail
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: chep-file
+    - **lenh**: cp .env.example .env
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+  -
+    - **loai**: chay-docker
+    - **lenh**: docker compose up -d
+    - **kieu**: shell
+    - **nguon_muc**: Setup từng bước
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 4
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - git
+    - docker
+  - **thieu**: []
+  - **co**:
+    - **git**: True
+    - **docker**: True
+  - **can_khac**:
+    - vps
+- **bien_moi_truong**:
+  -
+    - **ten**: BMAIL_KEY
+    - **da_dat**: False
+  -
+    - **ten**: BILLIONMAIL_API_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: ton-tien
+    - **noi_dung**: Có thể phát sinh chi phí (dịch vụ trả phí/credit).
+  -
+    - **loai**: bao-mat
+    - **noi_dung**: Entry/nhãn nhắc đến bảo mật, quyền truy cập hoặc khoá - đọc phần Lưu ý.
+  -
+    - **loai**: vps
+    - **noi_dung**: Cần VPS/máy chủ.
+  -
+    - **loai**: ha-tang
+    - **noi_dung**: adoption = can-ha-tang (VPS/docker/DB/nhiều bước).
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có chi tiền > 0đ (trả phí/credit) -> L2 (DECISION-MATRIX, trục Tiền)
+    - cần VPS: nếu VPS đang có khách dùng thì tối thiểu L2
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Một indie hacker đang trả $89/tháng cho Mailchimp (15k subscribers). Chuyển sang BillionMail: chi phí còn lại chỉ là VPS $10-20/tháng. Setup mất khoảng 2-3 tiếng lần đầu, sau đó chạy tự động. Gửi được 50k-100k email/ngày tùy cấu hình VPS và reputation của IP.
+  - **lenh_goi_y**:
+    - git --version
+- **go_cai_dat**:
+  - docker compose down (thêm -v nếu muốn xoá cả dữ liệu - cần người duyệt)
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+  - xoá thư mục 'BillionMail' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu chưa có máy chủ ảo VPS và ngân sách duy trì hạ tầng gửi thư riêng
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:skills/natural-writing`
+
+- **id**: skills/natural-writing
+- **ten**: Natural Writing — Chống văn phong "nghe như AI"
+- **loai_muc**: skill-kho
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/natural-writing.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/natural-writing.md -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - nhãn chưa chắc (không phải đã-đọc-entry-gốc) -> nâng lên L2 (không chắc thì coi là mức cao hơn)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Trước (script cho video ABTRIP về Fast Track):** > "Fast Track không chỉ là một dịch vụ, mà còn là biểu tượng cho sự tận tâm của ABTRIP trong việc mang đến trải nghiệm sân bay liền mạch và đẳng cấp cho hành khách, phản ánh cam kết không ngừng nghỉ về chất lượng dịch vụ." **Sau khi áp skill:** > "Fast Track của ABTRIP đưa mày qua an ninh trong 5 phút, không phải xếp hàng 40 phút như bình thường." Ngắn hơn, cụ thể hơn (5 phút vs 40 phút), không có từ "biểu tượng/đẳng cấp/liền mạch/cam kết" nào c
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:skills/social-media-skills`
+
+- **id**: skills/social-media-skills
+- **ten**: Social Media Skills
+- **loai_muc**: skill-kho
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/social-media-skills.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/social-media-skills.md -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - nhãn chưa chắc (không phải đã-đọc-entry-gốc) -> nâng lên L2 (không chắc thì coi là mức cao hơn)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Chạy `voice-builder` cho kênh **Airfare Decoded** (tiếng Anh, B2B, aviation) riêng biệt với kênh **Trùm Sân Bay** (tiếng Việt, TikTok, casual) — 2 file `voice.md` khác nhau. Sau đó mọi skill viết caption/script cho từng kênh tự động bám đúng giọng riêng, không lẫn giữa 2 kênh dù dùng chung bộ skill.
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:agents/designer-pro/skills/image-prompt-formula-core`
+
+- **id**: agents/designer-pro/skills/image-prompt-formula-core
+- **ten**: Image Prompt Formula (Core — không gắn brand)
+- **loai_muc**: skill-agent
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: agents/designer-pro/skills/image-prompt-formula-core/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) agents/designer-pro/skills/image-prompt-formula-core -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: ANTHROPIC_API_KEY
+    - **da_dat**: True
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Dự án A (quán cà phê) và Dự án B (cửa hàng bán lẻ) đều dùng chung công thức 7 phần này — chỉ khác nhau ở file brand-context riêng (bối cảnh quán cà phê vs bối cảnh cửa hàng). File skill này không đổi dù thêm bao nhiêu brand mới.
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:stacks/video-factory-auto-router`
+
+- **id**: stacks/video-factory-auto-router
+- **ten**: Video Factory Auto-Router — 1 Topic Vào, Video Ra, Tự Chọn Engine
+- **loai_muc**: stack
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: stacks/video-factory-auto-router.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: cai-goi
+    - **lenh**: npx create-video@latest my-video --template blank
+    - **kieu**: shell
+    - **nguon_muc**: Đã test thực tế
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+  -
+    - **loai**: cai-goi
+    - **lenh**: npm install remotion @remotion/cli react react-dom
+    - **kieu**: shell
+    - **nguon_muc**: Đã test thực tế
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: cai-goi
+    - **lenh**: npx remotion render src/entry.tsx DataCard out/video.mp4
+    - **kieu**: shell
+    - **nguon_muc**: Đã test thực tế
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - node
+    - npm
+    - ffmpeg
+  - **thieu**: []
+  - **co**:
+    - **node**: True
+    - **npm**: True
+    - **ffmpeg**: True
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: ATLASCLOUD_API_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: ton-tien
+    - **noi_dung**: Có thể phát sinh chi phí (dịch vụ trả phí/credit).
+  -
+    - **loai**: preview
+    - **noi_dung**: Nhắc bản alpha/beta/preview/thử nghiệm - API có thể đổi.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có chi tiền > 0đ (trả phí/credit) -> L2 (DECISION-MATRIX, trục Tiền)
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Input:** `"So sánh giá SIM du lịch ABTRIP vs mua tại quầy sân bay"` → Router match keyword "so sánh", "giá" → chọn **Remotion** → Render data card 2 cột, số liệu thật từ bảng giá → MP4 trong ~30 giây (không tốn API gen ảnh) **Input:** `"Vì sao Fast Track lại nhanh hơn xếp hàng thường ở Nội Bài"` → Router match "vì sao" → chọn **Vox Director** → Beat map tự sinh (auto-pick), style "clean-navy" theo preset ABTRIP → visual + voice + nhạc → Dừng lại xin duyệt trước khi push Postiz **Input:** `"Fas
+  - **lenh_goi_y**:
+    - npx -y create-video@latest --help
+- **go_cai_dat**:
+  - npx/uvx chạy tạm, không cài lâu dài; xoá cache nếu cần (người tự làm)
+  - npm uninstall remotion
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:stacks/second-brain-obsidian-claude`
+
+- **id**: stacks/second-brain-obsidian-claude
+- **ten**: Second Brain — Obsidian + Claude + Git — Combo Tools theo Use Case
+- **loai_muc**: stack
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: stacks/second-brain-obsidian-claude.md
+- **doc_entry_goc**: True
+- **buoc**: []
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: ton-tien
+    - **noi_dung**: Có thể phát sinh chi phí (dịch vụ trả phí/credit).
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có chi tiền > 0đ (trả phí/credit) -> L2 (DECISION-MATRIX, trục Tiền)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Áp cho chính kho AI-Vibe-Toolkit của mày: thay vì chỉ lưu .md trên GitHub thuần, có thể mirror thêm 1 vault Obsidian ở máy local — mỗi lần research xong 1 tool mới, viết note nháp trong Obsidian trước (nhanh, offline, không cần mở Claude), Claude sau đó đọc note nháp đó qua MCP để viết lại thành file chuẩn template rồi push GitHub như quy trình cũ. Vault Obsidian đóng vai trò "bộ nhớ nháp" trước khi vào kho chính thức.
+  - **lenh_goi_y**: []
+- **go_cai_dat**: []
+- **canh_bao**:
+  - Không trích được lệnh cài từ entry (không có khối lệnh trong mục Setup/Ví dụ); đọc entry gốc.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline`
+
+- **id**: agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline
+- **ten**: Churn Risk & Escalation Discipline
+- **loai_muc**: skill-agent
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L1
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: Khách Wonder Mart nhắn "đặt hàng 3 ngày chưa thấy, định huỷ luôn không mua nữa" — dù đây là LẦN ĐẦU khách phàn nàn, câu "định huỷ" là tín hiệu rời bỏ thật → escalate ngay, không đợi xem có phàn nàn lần 2 không. Ngược lại, khách hỏi "shop có ship COD không" 3 lần liên tiếp (không phải dấu hiệu rời bỏ) → áp luật thường, escalate ở lần thứ 3 để xem lại vì sao câu trả lời cũ không rõ.
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:skills/kpi-dashboard-creator`
+
+- **id**: skills/kpi-dashboard-creator
+- **ten**: KPI Dashboard Creator — Build dashboard cho quyết định, không phải trang trí
+- **loai_muc**: skill-kho
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/kpi-dashboard-creator.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/kpi-dashboard-creator.md -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L2
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - nhãn chưa chắc (không phải đã-đọc-entry-gốc) -> nâng lên L2 (không chắc thì coi là mức cao hơn)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Case:** Mở rộng Mission Control dashboard (đang chạy tại `127.0.0.1:3100`) thêm 1 view KPI content — trước khi code, viết metric contract: | Metric | Định nghĩa | Nguồn | Refresh | Baseline | |---|---|---|---|---| | Video/tuần | Số script video publish trong 7 ngày | GitHub content/ folder count | Mỗi lần push | So với tuần trước | | Zalo OA lead | Số lead capture qua Zalo OA | Zalo OA Manager (thủ công, chưa có API do bot offline) | Thủ công cập nhật | So với target sprint 2 tuần | → Layout: 
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:mcps/cloud-accounting-mcps`
+
+- **id**: mcps/cloud-accounting-mcps
+- **ten**: Cloud Accounting MCPs — Xero + Wave + FreshBooks + Stripe
+- **loai_muc**: mcp
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: mcps/cloud-accounting-mcps.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: git clone https://github.com/wyre-technology/xero-mcp
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 1
+  -
+    - **loai**: dieu-huong
+    - **lenh**: cd xero-mcp && npm install
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: dat-bien-moi-truong
+    - **lenh**: export XERO_CLIENT_ID="..."
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+  -
+    - **loai**: dat-bien-moi-truong
+    - **lenh**: export XERO_CLIENT_SECRET="<GIA_TRI_KHOA>"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 4
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "List tất cả customers active trong Xero"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 5
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Tạo contact mới: Công ty ABC, MST 123456789"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 6
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Get contact details cho Công ty XYZ"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 7
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Tạo invoice cho [client]: 3 items, due 30 ngày"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 8
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "List invoices overdue > 30 ngày"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 9
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Apply payment $5000 vào invoice INV-2026-050"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 10
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Void invoice INV-2026-040 với note 'Duplicate'"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 11
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Get tất cả bank transactions tháng 5"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 12
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Reconcile: match bank transactions với invoices"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 13
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Get unreconciled transactions"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 14
+  -
+    - **loai**: lenh-khac
+    - **lenh**: "Get P&L tháng 5"
+    - **kieu**: shell
+    - **nguon_muc**: 1. XERO MCP
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 15
+  - (rút gọn: còn 28 mục nữa; xem entry gốc hoặc chạy lại `thu_kho.install_plan`)
+- **dieu_kien_tien_quyet**:
+  - **can**:
+    - git
+  - **thieu**: []
+  - **co**:
+    - **git**: True
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: XERO_CLIENT_ID
+    - **da_dat**: False
+  -
+    - **ten**: XERO_CLIENT_SECRET
+    - **da_dat**: False
+  -
+    - **ten**: WAVE_API_KEY
+    - **da_dat**: False
+  -
+    - **ten**: STRIPE_SECRET_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: ton-tien
+    - **noi_dung**: Có thể phát sinh chi phí (dịch vụ trả phí/credit).
+  -
+    - **loai**: bao-mat
+    - **noi_dung**: Entry/nhãn nhắc đến bảo mật, quyền truy cập hoặc khoá - đọc phần Lưu ý.
+  -
+    - **loai**: khoa-api
+    - **noi_dung**: Cần khoá/token API - tạo, đặt, đổi khoá là việc L3 (CEO).
+  -
+    - **loai**: ha-tang
+    - **noi_dung**: adoption = can-ha-tang (VPS/docker/DB/nhiều bước).
+  -
+    - **loai**: nhan
+    - **noi_dung**: Nhãn chưa dựa trên đọc nguyên entry (da-doc-dau-entry).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - có chi tiền > 0đ (trả phí/credit) -> L2 (DECISION-MATRIX, trục Tiền)
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: (trống)
+  - **lenh_goi_y**:
+    - git --version
+- **go_cai_dat**:
+  - bỏ biến môi trường 'STRIPE_SECRET_KEY' (xoá khỏi .env/profile)
+  - xoá thư mục 'stripe-mcp-server' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+  - xoá thư mục 'freshbooks-mcp' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+  - bỏ biến môi trường 'WAVE_API_KEY' (xoá khỏi .env/profile)
+  - xoá thư mục 'waveapps-mcp' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+  - bỏ biến môi trường 'XERO_CLIENT_SECRET' (xoá khỏi .env/profile)
+  - bỏ biến môi trường 'XERO_CLIENT_ID' (xoá khỏi .env/profile)
+  - xoá thư mục 'xero-mcp' (người tự làm, kiểm kỹ đường dẫn trước khi xoá)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup`
+
+- **id**: agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup
+- **ten**: Aviation Policy Lookup
+- **loai_muc**: skill-agent
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L1
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: **Input:** "Khách quá cảnh ở Nội Bài đi tiếp quốc tế cần visa quá cảnh không?" **Xử lý:** Web search quy định quá cảnh mới nhất áp dụng cho quốc tịch khách (nếu biết) → nếu không biết quốc tịch, hỏi lại 1 câu trước khi trả lời chung chung → trả lời có nguồn + khuyến nghị xác nhận lại với hãng bay/Đại sứ quán.
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu cần thay thế hệ thống tra cứu chuẩn Timatic của đại lý vé máy bay
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+

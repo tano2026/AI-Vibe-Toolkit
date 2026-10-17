@@ -22,7 +22,8 @@
 
 Phân loại gần đúng theo tiền tố đường dẫn mục kho: Não = skill, prompt, stack (luật và cách nghĩ);
 Tay = MCP, repo (công cụ làm việc với thế giới ngoài); Cơ = runtime của vessel. Cách phân loại này
-là quy ước của công cụ, không phải thuộc tính do kho ghi.
+là quy ước của công cụ, không phải thuộc tính do kho ghi. Thủ kho chọn theo nhãn khả năng, không hiểu ngữ cảnh
+của agent: có thể có mục chính hoặc dự phòng lệch việc. Người duyệt phải đọc entry gốc và gạt mục không hợp.
 
 {{NAO_TAY_CO}}
 

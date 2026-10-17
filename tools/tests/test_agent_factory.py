@@ -164,6 +164,18 @@ class TestDungAgent(Co):
         self.assertEqual(cm["kha_nang"][0]["nguon"], "thu_kho.search")
         self.assertIsNotNone(cm["kha_nang"][0]["chinh"])
 
+    def test_banner_va_kpi_rieng(self):
+        rc, out, err, d = self.moi_agent("co-banner", ["--banner", "DEMO thử", "--kpi", "Số bài nháp=|đếm nháp|hàng đợi",
+                                                       "--khong-lam", "không inbox;không boost"])
+        self.assertEqual(rc, 0, out + err)
+        self.assertIn("> **DEMO thử**", (d / "README.md").read_text(encoding="utf-8"))
+        self.assertIn("> **DEMO thử**", (d / "HANDOVER.md").read_text(encoding="utf-8"))
+        jd = (d / "JD-KPI-SOP-ESCALATION.md").read_text(encoding="utf-8")
+        self.assertIn("| Số bài nháp |", jd)
+        self.assertNotIn("Thời gian từ brief đến nháp", jd)  # có KPI riêng thì bỏ KPI mặc định
+        self.assertIn("Số vi phạm ba lằn ranh đỏ", jd)       # KPI bắt buộc luôn có
+        self.assertIn("- không boost", jd)
+
     def test_tham_so_sai(self):
         for argv in (["--slug", "Sai Slug"], ["--vessel", "khong-co"], ["--tu-chu", "L9"]):
             base = ["moi-agent", "--slug", "ok-1", "--job", "a → b → c", "--kha-nang", "social-media", "--dau-ra", str(self.tmp)]
@@ -414,6 +426,57 @@ class TestGhiDeVaBanGiao(Co):
         rc, out, err = chay(["ban-giao", str(d), "--dau-ra", str(self.tmp / "bg3")])
         self.assertEqual(rc, 0, out + err)
         self.assertTrue((self.tmp / "bg3" / "demo-opc" / "CHECKSUMS.sha256").exists())
+
+
+class TestHongKhongVot(Co):
+    def test_recommend_noi_hong_thi_khong_goi_search(self):
+        rc, out, err = chay(["moi-agent", "--slug", "hong-2", "--job", "a → b → c", "--kha-nang", "khong-co-gi",
+                             "--dau-ra", str(self.tmp)], tk=self.tk)
+        self.assertEqual(rc, 0, out + err)
+        self.assertNotIn(("search", "khong-co-gi"), self.tk.goi)
+        cm = json.loads((self.tmp / "hong-2" / "capability-map.json").read_text(encoding="utf-8"))
+        self.assertTrue(cm["kha_nang"][0]["hong"])
+        self.assertEqual(cm["kha_nang"][0]["nguon"], "thu_kho.recommend")
+
+    def test_canh_bao_thieu_tay(self):
+        # thủ kho giả cho 'content-writing' mục Não; kiểm cảnh báo chưa có công cụ tác động ra ngoài khi không có Tay
+        kq = [{"capability": "x", "hong": False, "canh_bao": [], "nguon": "t", "gap_line": "",
+               "chinh": {"id": "skills/abc", "ten": "", "ly_do": "", "dieu_kien_can": "", "bo_qua_neu": "", "evidence": "",
+                         "adoption": "", "confidence": "", "curation_status": "", "duong_dan": "", "capability": ""},
+               "du_phong": None}]
+        self.assertIn("chưa có mục loại Tay", af.md_nao_tay_co(kq, "hermes"))
+
+
+def _co_thu_kho_that():
+    try:
+        return af.nap_thu_kho()
+    except Exception:
+        return None
+
+
+@unittest.skipIf(_co_thu_kho_that() is None, "chưa có tools/thu_kho.py")
+class TestThuKhoThat(Co):
+    """Chạy với tools/thu_kho.py thật (đọc catalog/catalog.json thật, không mạng)."""
+
+    def test_agent_voi_thu_kho_that(self):
+        rc, out, err = chay(["moi-agent", "--slug", "that-1", "--job", "đăng bài → nháp → CEO", "--kha-nang",
+                             "social-media,content-writing", "--dau-ra", str(self.tmp)])
+        self.assertEqual(rc, 0, out + err)
+        d = self.tmp / "that-1"
+        cm = json.loads((d / "capability-map.json").read_text(encoding="utf-8"))
+        ids = {i["id"] for i in CATALOG}
+        for e in cm["kha_nang"]:
+            self.assertEqual(e["nguon"], "thu_kho.recommend")
+            self.assertIn(e["chinh"]["id"], ids)
+        plan = (d / "INSTALL-PLAN.md").read_text(encoding="utf-8")
+        self.assertIn("CHƯA CHẠY THẬT", plan)
+        self.assertNotIn("Nguyen Ngoc", plan)
+        self.assertNotIn("bien_khoa", plan)
+
+    def test_opc_voi_thu_kho_that(self):
+        rc, out, err = chay(["moi-opc", "--slug", "that-opc", "--thuong-hieu", "Thương Hiệu Mẫu", "--doanh-thu", "affiliate",
+                             "--kenh", "facebook", "--dau-ra", str(self.tmp)])
+        self.assertEqual(rc, 0, out + err)
 
 
 class TestTaiLieu(unittest.TestCase):

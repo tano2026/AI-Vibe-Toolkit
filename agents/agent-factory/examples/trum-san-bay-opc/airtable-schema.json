@@ -1,0 +1,676 @@
+{
+  "_ghi_chu": [
+    "Schema Airtable company-hq cho OPC, dựng từ agents/company/COORDINATION-v2.md (7 bảng) và agents/company/ORG-v2.md v3 (9 agent). Đây là file mà agents/trum-san-bay/README.md nhắc nhưng không tồn tại trong kho.",
+    "Kiểu trường dùng tên kiểu của Airtable (singleLineText, multilineText, singleSelect, multipleSelects, multipleRecordLinks, autoNumber, number, date, checkbox, url, createdTime, lastModifiedTime). Chưa nạp thử vào Airtable thật; người dựng tạo bảng theo thứ tự ở 'tables' (bảng sau link bảng trước).",
+    "Token Airtable nằm ở biến môi trường AIRTABLE_TOKEN và AIRTABLE_BASE_HQ, không bao giờ trong file này.",
+    "Giá trị role trong bảng agents là 9 agent thật của ORG v3; HR&Admin và Legal&Compliance là gói mở rộng, không phải dòng agents.",
+    "Ba trường THÊM so với COORDINATION-v2 (do Agent Factory đề xuất, chưa duyệt): agents.tu_chu, jobs.has_external_input, approvals.gate. Bỏ đi được mà không phá phần còn lại."
+  ],
+  "schema_version": "1.0",
+  "base_name": "company-hq",
+  "pack": "trum-san-bay-opc",
+  "tables": [
+    {
+      "name": "agents",
+      "note": "Sổ nhân sự AI. Tạo TRƯỚC, các bảng khác link vào.",
+      "fields": [
+        {
+          "name": "role",
+          "type": "singleSelect",
+          "options": [
+            "ceo",
+            "research",
+            "dev",
+            "sales",
+            "marketing",
+            "media",
+            "operations",
+            "support",
+            "analytics"
+          ]
+        },
+        {
+          "name": "runtime",
+          "type": "multipleSelects",
+          "options": [
+            "hermes",
+            "openclaw",
+            "antigravity",
+            "deepseek-harness",
+            "claude-code"
+          ]
+        },
+        {
+          "name": "model_tier",
+          "type": "singleSelect",
+          "options": [
+            "cheap",
+            "balanced",
+            "reasoning",
+            "creative"
+          ]
+        },
+        {
+          "name": "role_pack_url",
+          "type": "url",
+          "note": "Đường dẫn tới package/role pack của agent trong repo kho"
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "active",
+            "paused"
+          ],
+          "note": "paused = nút dừng khẩn; agent phải đọc cờ này trước MỌI hành động ra ngoài"
+        },
+        {
+          "name": "kpi_chinh",
+          "type": "singleLineText"
+        },
+        {
+          "name": "escalation_rule",
+          "type": "multilineText",
+          "note": "Khi nào dừng gọi CEO"
+        },
+        {
+          "name": "tu_chu",
+          "type": "singleSelect",
+          "options": [
+            "L0",
+            "L1",
+            "L2",
+            "L3"
+          ],
+          "note": "Mức tự chủ tối đa cho việc nội bộ; việc ra ngoài vẫn theo bảng cổng duyệt"
+        }
+      ]
+    },
+    {
+      "name": "jobs",
+      "note": "Trái tim hệ thống.",
+      "fields": [
+        {
+          "name": "job_id",
+          "type": "autoNumber",
+          "note": "Dùng trong MỌI giao tiếp, kể cả lệnh duyệt OK/NO"
+        },
+        {
+          "name": "pack",
+          "type": "singleSelect",
+          "options": [
+            "trum-san-bay-opc",
+            "noi-bo"
+          ]
+        },
+        {
+          "name": "role",
+          "type": "multipleRecordLinks",
+          "linked_table": "agents"
+        },
+        {
+          "name": "brief",
+          "type": "multilineText",
+          "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong"
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "queued",
+            "doing",
+            "review",
+            "awaiting_approval",
+            "done",
+            "blocked"
+          ]
+        },
+        {
+          "name": "priority",
+          "type": "singleSelect",
+          "options": [
+            "P0",
+            "P1",
+            "P2"
+          ]
+        },
+        {
+          "name": "output_url",
+          "type": "url"
+        },
+        {
+          "name": "depends_on",
+          "type": "multipleRecordLinks",
+          "linked_table": "jobs"
+        },
+        {
+          "name": "requested_by",
+          "type": "singleLineText",
+          "note": "ceo hoặc tên role"
+        },
+        {
+          "name": "sop",
+          "type": "multipleRecordLinks",
+          "linked_table": "sops"
+        },
+        {
+          "name": "has_external_input",
+          "type": "checkbox",
+          "note": "Job có nội dung ngoài (web, bình luận, email, tin nhắn) làm đầu vào: mọi hành động từ L1 trở lên tự nâng một mức"
+        },
+        {
+          "name": "due",
+          "type": "date"
+        },
+        {
+          "name": "created",
+          "type": "createdTime"
+        },
+        {
+          "name": "updated",
+          "type": "lastModifiedTime"
+        }
+      ]
+    },
+    {
+      "name": "sops",
+      "note": "Thư viện quy trình. Việc lặp từ 3 lần mà chưa có SOP thì agent tự soạn nháp, CEO duyệt một lần.",
+      "fields": [
+        {
+          "name": "sop_id",
+          "type": "autoNumber"
+        },
+        {
+          "name": "name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "role",
+          "type": "multipleRecordLinks",
+          "linked_table": "agents"
+        },
+        {
+          "name": "trigger",
+          "type": "singleLineText"
+        },
+        {
+          "name": "steps",
+          "type": "multilineText",
+          "note": "Đánh số từng bước kèm định nghĩa xong"
+        },
+        {
+          "name": "version",
+          "type": "number"
+        },
+        {
+          "name": "updated",
+          "type": "lastModifiedTime"
+        }
+      ]
+    },
+    {
+      "name": "kpis",
+      "note": "Bảng điểm tuần.",
+      "fields": [
+        {
+          "name": "metric",
+          "type": "singleLineText"
+        },
+        {
+          "name": "pack",
+          "type": "singleSelect",
+          "options": [
+            "trum-san-bay-opc",
+            "noi-bo"
+          ]
+        },
+        {
+          "name": "role",
+          "type": "multipleRecordLinks",
+          "linked_table": "agents"
+        },
+        {
+          "name": "target",
+          "type": "number",
+          "note": "Để trống khi chưa có số nền; không điền số đoán"
+        },
+        {
+          "name": "actual",
+          "type": "number"
+        },
+        {
+          "name": "week",
+          "type": "singleLineText",
+          "note": "Ví dụ 2026-W30"
+        },
+        {
+          "name": "note",
+          "type": "multilineText",
+          "note": "Bắt buộc nếu actual thấp hơn 70% target"
+        }
+      ]
+    },
+    {
+      "name": "approvals",
+      "note": "Cổng duyệt. Không có bản ghi approved thì không thực thi.",
+      "fields": [
+        {
+          "name": "job_id",
+          "type": "multipleRecordLinks",
+          "linked_table": "jobs"
+        },
+        {
+          "name": "gate",
+          "type": "singleSelect",
+          "options": [
+            "G1",
+            "G2",
+            "G3",
+            "G4",
+            "G5",
+            "G6",
+            "G7"
+          ],
+          "note": "Số hiệu cổng trong GATES.md"
+        },
+        {
+          "name": "action",
+          "type": "multilineText",
+          "note": "Bản CUỐI: gửi ai, nội dung gì, bao nhiêu tiền. Duyệt xong không sửa."
+        },
+        {
+          "name": "risk_type",
+          "type": "singleSelect",
+          "options": [
+            "spend_money",
+            "publish",
+            "send_external",
+            "commit_customer",
+            "production",
+            "credential",
+            "payout",
+            "refund"
+          ]
+        },
+        {
+          "name": "risk_level",
+          "type": "singleSelect",
+          "options": [
+            "L2",
+            "L3"
+          ]
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "pending",
+            "approved",
+            "rejected",
+            "expired"
+          ],
+          "note": "Im lặng 24 giờ = expired = KHÔNG làm; nhắc đúng một lần"
+        },
+        {
+          "name": "decided_at",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "name": "escalations",
+      "note": "Nhật ký sự cố và vượt cấp.",
+      "fields": [
+        {
+          "name": "ts",
+          "type": "createdTime"
+        },
+        {
+          "name": "job_id",
+          "type": "multipleRecordLinks",
+          "linked_table": "jobs"
+        },
+        {
+          "name": "role",
+          "type": "multipleRecordLinks",
+          "linked_table": "agents"
+        },
+        {
+          "name": "reason",
+          "type": "multilineText"
+        },
+        {
+          "name": "resolution",
+          "type": "multilineText"
+        },
+        {
+          "name": "resolved",
+          "type": "checkbox"
+        }
+      ]
+    },
+    {
+      "name": "activity_log",
+      "note": "Chỉ thêm, không sửa. Mỗi hành động thật từ L1 trở lên ghi một dòng; mỗi lần agent đọc file chứa khoá cũng ghi.",
+      "fields": [
+        {
+          "name": "ts",
+          "type": "createdTime"
+        },
+        {
+          "name": "role",
+          "type": "multipleRecordLinks",
+          "linked_table": "agents"
+        },
+        {
+          "name": "job_id",
+          "type": "multipleRecordLinks",
+          "linked_table": "jobs"
+        },
+        {
+          "name": "event",
+          "type": "multilineText",
+          "note": "Một dòng"
+        },
+        {
+          "name": "tokens",
+          "type": "number",
+          "note": "Ước lượng token của bước (tính P&L)"
+        }
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "CEO Cockpit",
+      "table": "jobs",
+      "filter": "status thuộc {awaiting_approval, blocked} cộng done trong 24 giờ",
+      "group_by": "status",
+      "note": "View DUY NHẤT CEO nhìn mỗi sáng"
+    },
+    {
+      "name": "Queue theo role",
+      "table": "jobs",
+      "filter": "status = queued",
+      "group_by": "role"
+    },
+    {
+      "name": "Theo client",
+      "table": "jobs",
+      "group_by": "pack"
+    },
+    {
+      "name": "KPI tuần này",
+      "table": "kpis",
+      "filter": "week = tuần hiện tại"
+    },
+    {
+      "name": "Chờ duyệt",
+      "table": "approvals",
+      "filter": "status = pending"
+    }
+  ],
+  "extension_tables": [
+    {
+      "name": "partners",
+      "note": "ĐỀ XUẤT (gói Quản lý đối tác, chưa duyệt). Không lưu dữ liệu nhạy cảm thô trong ghi chú.",
+      "fields": [
+        {
+          "name": "name",
+          "type": "singleLineText"
+        },
+        {
+          "name": "service_types",
+          "type": "multipleSelects",
+          "options": [
+            "CHƯA CÓ — hỏi CEO"
+          ]
+        },
+        {
+          "name": "commission_note",
+          "type": "multilineText",
+          "note": "Mức chia: CHƯA CÓ — hỏi CEO"
+        },
+        {
+          "name": "contract_status",
+          "type": "singleSelect",
+          "options": [
+            "none",
+            "draft",
+            "signed"
+          ]
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "active",
+            "paused"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "orders",
+      "note": "ĐỀ XUẤT (gói Tài chính và thanh toán, chưa duyệt).",
+      "fields": [
+        {
+          "name": "order_id",
+          "type": "autoNumber"
+        },
+        {
+          "name": "pack",
+          "type": "singleSelect",
+          "options": [
+            "trum-san-bay-opc",
+            "noi-bo"
+          ]
+        },
+        {
+          "name": "customer_ref",
+          "type": "singleLineText",
+          "note": "Mã tham chiếu khách, không lưu dữ liệu cá nhân thô ở đây"
+        },
+        {
+          "name": "items",
+          "type": "multilineText"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "draft",
+            "awaiting_payment",
+            "paid",
+            "sent_to_partner",
+            "fulfilled",
+            "refund_requested",
+            "refunded",
+            "closed"
+          ]
+        },
+        {
+          "name": "partner",
+          "type": "multipleRecordLinks",
+          "linked_table": "partners"
+        },
+        {
+          "name": "created",
+          "type": "createdTime"
+        }
+      ]
+    },
+    {
+      "name": "payouts",
+      "note": "ĐỀ XUẤT. Mỗi lệnh trả phải link tới bản ghi approvals (G4) đã approved.",
+      "fields": [
+        {
+          "name": "order",
+          "type": "multipleRecordLinks",
+          "linked_table": "orders"
+        },
+        {
+          "name": "partner",
+          "type": "multipleRecordLinks",
+          "linked_table": "partners"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "proposed",
+            "approved",
+            "paid",
+            "rejected"
+          ]
+        },
+        {
+          "name": "approval",
+          "type": "multipleRecordLinks",
+          "linked_table": "approvals"
+        },
+        {
+          "name": "paid_ref",
+          "type": "singleLineText"
+        }
+      ]
+    },
+    {
+      "name": "refunds",
+      "note": "ĐỀ XUẤT. Mỗi ca link tới approvals (G5, L3).",
+      "fields": [
+        {
+          "name": "order",
+          "type": "multipleRecordLinks",
+          "linked_table": "orders"
+        },
+        {
+          "name": "reason",
+          "type": "multilineText"
+        },
+        {
+          "name": "amount",
+          "type": "number"
+        },
+        {
+          "name": "status",
+          "type": "singleSelect",
+          "options": [
+            "requested",
+            "approved",
+            "refunded",
+            "rejected"
+          ]
+        },
+        {
+          "name": "approval",
+          "type": "multipleRecordLinks",
+          "linked_table": "approvals"
+        }
+      ]
+    }
+  ],
+  "seed": {
+    "agents": [
+      {
+        "role": "ceo",
+        "runtime": "Hermes",
+        "model_tier": "balanced (suy ra của công cụ; ORG v3 không ghi)",
+        "role_pack_url": "agents/company/HERMES-SOUL.md",
+        "status": "paused",
+        "kpi_chinh": "Việc chờ duyệt không tồn quá 24 giờ; bản tin sáng gửi đủ (đề xuất của công cụ, ORG v3 không ghi KPI cho ceo)",
+        "escalation_rule": "Hai agent xung đột kết quả, job kẹt hơn 24 giờ, CEO không phản hồi bản duyệt: tạo escalation lên CEO.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "research",
+        "runtime": "ceo (Hermes)",
+        "model_tier": "reasoning",
+        "role_pack_url": "agents/research-analytics-pro/",
+        "status": "paused",
+        "kpi_chinh": "Số insight report được agent khác dùng (cited)",
+        "escalation_rule": "Nguồn mâu thuẫn hoặc không kiểm được: gắn [CẦN VERIFY], không dùng, escalate.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "dev",
+        "runtime": "Cả 3 runtime (Hermes, OpenClaw, Antigravity)",
+        "model_tier": "balanced",
+        "role_pack_url": "agents/infra-ops-agent/",
+        "status": "paused",
+        "kpi_chinh": "Uptime 3 runtime + ticket tồn dưới 7 ngày",
+        "escalation_rule": "Healthcheck fail 3 lần, token/khoá hết hạn, chạm production có khách, đổi credential: escalate.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "sales",
+        "runtime": "ceo + OpenClaw",
+        "model_tier": "balanced (reasoning khi chạm hợp đồng)",
+        "role_pack_url": "agents/sales-ceo/system-prompt.md",
+        "status": "paused",
+        "kpi_chinh": "Số deal chốt + pipeline value + 100% hợp đồng sàng lọc trước ký",
+        "escalation_rule": "Khách đòi giá ngoài bảng chuẩn, giảm giá, phạm vi ngoài chuẩn, hợp đồng/NDA: chuyển CEO (L3); gửi outreach thật là L2.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "marketing",
+        "runtime": "ceo + OpenClaw",
+        "model_tier": "creative (content) / balanced (SEO, ads)",
+        "role_pack_url": "agents/digital-marketing-agent/",
+        "status": "paused",
+        "kpi_chinh": "Lead/traffic so với target + content sẵn sàng đăng đúng hạn",
+        "escalation_rule": "Bài lệch lịch đã duyệt, đề xuất chi ngân sách, claim không có nguồn: quay lại hỏi, không tự tiếp tục.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "media",
+        "runtime": "OpenClaw",
+        "model_tier": "creative (design) / cheap (đăng)",
+        "role_pack_url": "agents/company/roles/media.md",
+        "status": "paused",
+        "kpi_chinh": "Số visual đúng spec + số bài đăng đúng lịch",
+        "escalation_rule": "Thiếu design token/bộ nhận diện: hỏi CEO, không tự chốt. Bấm đăng luôn qua cổng duyệt.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "operations",
+        "runtime": "ceo (Hermes)",
+        "model_tier": "cheap -> balanced (reasoning khi tranh chấp lao động)",
+        "role_pack_url": "agents/company/roles/ops-finance.md",
+        "status": "paused",
+        "kpi_chinh": "Đơn xử lý dưới SLA + % ca trực đủ người",
+        "escalation_rule": "Đơn kẹt quá SLA, lệch số tiền, tranh chấp: escalate; mọi lệnh chi tiền là L2.",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "support",
+        "runtime": "OpenClaw",
+        "model_tier": "cheap",
+        "role_pack_url": "agents/customer-satisfaction-pro/",
+        "status": "paused",
+        "kpi_chinh": "Ticket resolve dưới SLA",
+        "escalation_rule": "Khách phàn nàn, đòi hoàn tiền, khủng hoảng: không tự trả lời, chuyển nguyên văn cho CEO (L3).",
+        "tu_chu": "L1"
+      },
+      {
+        "role": "analytics",
+        "runtime": "ceo (Hermes)",
+        "model_tier": "reasoning",
+        "role_pack_url": "agents/company/roles/ops-finance.md",
+        "status": "paused",
+        "kpi_chinh": "Báo cáo KPI/forecast đúng hạn tuần",
+        "escalation_rule": "Số liệu bất thường (anomaly), thiếu nguồn số thật, KPI lệch dưới 70% target: ghi giải thích và escalate.",
+        "tu_chu": "L1"
+      }
+    ],
+    "_ghi_chu": "Mọi agent seed ở trạng thái paused; CEO bật theo PHASES.md. runtime/tier là văn bản mô tả theo ORG v3, đổi sang giá trị chọn của Airtable khi dựng."
+  }
+}

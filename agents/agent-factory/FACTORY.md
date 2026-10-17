@@ -125,6 +125,7 @@ python tools/agent_factory.py kiem <thư-mục>
 python tools/agent_factory.py ban-giao <thư-mục> --dau-ra <nơi-đặt-gói>
 ```
 
+- Tham số tuỳ chọn của `moi-agent`: `--ten`, `--thuong-hieu` (chỉ vào tenant-config), `--chu-so-huu`, `--kenh`, `--khong-lam "a;b"`, `--kpi "tên=mục tiêu|cách đo|nguồn số"` (lặp lại được; có KPI riêng thì bỏ KPI mặc định; KPI "số vi phạm ba lằn ranh đỏ = 0" luôn có), `--bien-moi-truong A,B`, `--banner "..."` (dòng cảnh báo in đậm dưới tiêu đề README/HANDOVER). Của `moi-opc`: `--kha-nang-them a,b` (khả năng riêng của ngành, ví dụ `ticketing-aviation`), `--mo-ta`, `--chu-so-huu`, `--banner`.
 - Mặc định ghi vào thư mục tạm của hệ điều hành, không ghi vào `agents/`. Thư mục đích đã tồn tại thì từ chối; `--ghi-de` chỉ ghi đè được thư mục do chính công cụ tạo (có `factory-manifest.json`).
 - Công cụ cần `tools/thu_kho.py` (nhánh `claude/thu-kho`). Thiếu nó thì báo lỗi và gợi ý `--khong-thu-kho`.
 - Mã thoát: `kiem` trả 0 khi PASS, 1 khi FAIL; `moi-*` trả 4 nếu hồ sơ vừa sinh không qua `kiem`; lỗi tham số trả 3.

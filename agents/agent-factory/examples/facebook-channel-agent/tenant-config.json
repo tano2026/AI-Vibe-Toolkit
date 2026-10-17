@@ -1,0 +1,31 @@
+{
+  "_ghi_chu": "Theo schema TENANT-CONFIG cua agents/MASTER-TEMPLATE-MANIFEST.md, cong khoi agent. compliance_overrides LUON null: nguong compliance chi admin he thong sua, khong expose cho tenant.",
+  "tenant_id": "d3e20b0c-28f6-5e23-920e-d63b474a74b8",
+  "client_name": "CHƯA CÓ — hỏi CEO",
+  "industry": "CHƯA CÓ — hỏi CEO",
+  "brand_voice": {
+    "tone": "CHƯA CÓ — hỏi CEO",
+    "language": "vi",
+    "banned_topics": []
+  },
+  "icp": {
+    "segment": "CHƯA CÓ — hỏi CEO",
+    "deal_size_range": "CHƯA CÓ — hỏi CEO"
+  },
+  "roles_enabled": {"research": false, "marketing": true, "sales": false, "content": true, "dev": false, "designer": false, "media": false},
+  "brand_playbook_ref": "CHƯA CÓ — hỏi CEO",
+  "compliance_overrides": null,
+  "agent": {
+    "slug": "facebook-channel-agent",
+    "autonomy": "L1",
+    "vessel": "hermes",
+    "owner": "CHƯA CÓ — hỏi CEO",
+    "channels": ["facebook"],
+    "approval_channel": "CHƯA CÓ — hỏi CEO",
+    "status": "active",
+    "launch_mode": {"mode": "draft_only", "weeks": 2, "changed_by": null, "changed_on": null},
+    "kill_switch": {"command": "/stop", "flag": "status=paused", "implemented": false},
+    "env_vars": ["LLM_API_KEY", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID_CEO", "FB_PAGE_ACCESS_TOKEN"],
+    "capabilities": ["social-media", "content-writing", "customer-support"]
+  }
+}

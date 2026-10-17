@@ -1,0 +1,115 @@
+{
+  "slug": "facebook-channel-agent",
+  "vessel": "hermes",
+  "nguon": "thu_kho",
+  "kha_nang": [
+    {
+      "capability": "social-media",
+      "chinh": {
+        "id": "skills/social-media-skills",
+        "ten": "Social Media Skills",
+        "ly_do": "Dùng khi cần bộ kỹ năng toàn diện cho chu trình sáng tạo nội dung mạng xã hội dựa trên phong cách thương hiệu thống nhất",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Bộ skill mã nguồn mở (charlie947/social-media-skills, mở rộng thành social-media-skills/skills với 106 skill)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/social-media-skills.md",
+        "capability": "social-media,content-writing"
+      },
+      "du_phong": {
+        "id": "mcps/buffer-mcp",
+        "ten": "buffer-mcp — Schedule Social Media Posts Qua Claude (Buffer GraphQL)",
+        "ly_do": "Dùng khi cần tự động lên lịch và đăng bài viết lên nhiều kênh mạng xã hội như Twitter, LinkedIn, Facebook từ chat hoặc agent.",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "Bỏ qua nếu không có tài khoản Buffer hoặc không có mã BUFFER_ACCESS_TOKEN.",
+        "evidence": "Schedule Social Media Posts Qua Claude (Buffer GraphQL)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "mcps/buffer-mcp.md",
+        "capability": "social-media"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/social-media-skills: mới đọc phần đầu entry",
+        "mcps/buffer-mcp: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "content-writing",
+      "chinh": {
+        "id": "skills/natural-writing",
+        "ten": "Natural Writing — Chống văn phong \"nghe như AI\"",
+        "ly_do": "Dùng khi cần bảng tiêu chí loại bỏ các cấu trúc văn phong rập khuôn sáo rỗng để văn bản tự nhiên hơn",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Checklist cụ thể để sửa mọi đoạn text (script video, bài .md trong kho, caption, email) khỏi bị \"mùi AI\"",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/natural-writing.md",
+        "capability": "content-writing,prompt-skill-library"
+      },
+      "du_phong": {
+        "id": "skills/content-research-writer",
+        "ten": "Content Research Writer — Quy trình viết bài có nguồn kiểm chứng được",
+        "ly_do": "Dùng khi cần quy trình viết bài chuyên sâu từ dữ liệu nghiên cứu có trích dẫn nguồn kiểm chứng rõ ràng.",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu chỉ cần viết bài đăng ngắn đơn giản không yêu cầu kiểm chứng nguồn tài liệu.",
+        "evidence": "Quy trình viết content (blog, báo cáo, newsletter, case study) từ nghiên cứu có nguồn rõ ràng",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "skills/content-research-writer.md",
+        "capability": "content-writing,web-research"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/natural-writing: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "customer-support",
+      "chinh": {
+        "id": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
+        "ten": "Churn Risk & Escalation Discipline",
+        "ly_do": "Dùng khi cần phân loại tín hiệu khách hàng muốn rời bỏ và áp dụng thời gian phản hồi theo cam kết",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "SLA phản hồi theo kênh, FCR, và luật quan trọng nhất: 1 lần phục vụ tệ đã đủ rủi ro rời bỏ, không đợi lặp lại.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md",
+        "capability": "customer-support"
+      },
+      "du_phong": {
+        "id": "repos/chatwoot",
+        "ten": "Chatwoot",
+        "ly_do": "Dùng khi cần nền tảng hỗ trợ khách hàng đa kênh tự lưu trữ để tích hợp vào hệ thống trợ lý chăm sóc",
+        "dieu_kien_can": "docker,vps",
+        "bo_qua_neu": "unknown",
+        "evidence": "Platform cham soc khach hang mo nguon mo — thay the Intercom, Zendesk, Freshdesk.",
+        "adoption": "can-ha-tang",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/chatwoot.md",
+        "capability": "customer-support,crm-sales"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/chatwoot: mới đọc phần đầu entry",
+        "repos/chatwoot: cần VPS",
+        "repos/chatwoot: cần hạ tầng"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    }
+  ]
+}

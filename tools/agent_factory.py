@@ -199,7 +199,7 @@ KENH = {
 }
 # tên biến môi trường theo kênh (nguồn tên ghi kèm)
 ENV_THEO_KENH = {
-    "facebook": [("FB_PAGE_ACCESS_TOKEN", "Đăng bài và đọc bình luận Facebook Page", "đề xuất của công cụ; kho trum-san-bay ghi cần Page Access Token")],
+    "facebook": [("FB_PAGE_ACCESS_TOKEN", "Đăng bài và đọc bình luận Facebook Page", "đề xuất của công cụ; agents/trum-san-bay/deploy-checklist.md ghi cần Page Access Token")],
     "instagram": [("IG_USER_ID", "Định danh tài khoản Instagram Business (không phải bí mật nhưng là cấu hình)", "đề xuất của công cụ")],
     "zalo": [
         ("ZALO_APP_ID", "Zalo OA", "agents/company/SECURITY-WALL.md"),
@@ -454,6 +454,9 @@ def ke_hoach_cai(tk, ket_qua):
     return machine, plans
 
 
+MAX_LIST = 15
+
+
 def md_dict(d, cap=0):
     pad = "  " * cap
     if isinstance(d, dict):
@@ -467,18 +470,31 @@ def md_dict(d, cap=0):
         return "\n".join(dong)
     if isinstance(d, list):
         dong = []
-        for v in d:
+        for v in d[:MAX_LIST]:
             if isinstance(v, (dict, list)):
                 dong.append(f"{pad}-")
                 dong.append(md_dict(v, cap + 1))
             else:
                 dong.append(f"{pad}- {v}")
+        if len(d) > MAX_LIST:
+            dong.append(f"{pad}- (rút gọn: còn {len(d) - MAX_LIST} mục nữa; xem entry gốc hoặc chạy lại `thu_kho.install_plan`)")
         return "\n".join(dong)
     return f"{pad}{d}"
 
 
 def tang(item_id):
     return "Tay" if item_id.split("/")[0] in ("mcps", "repos") else "Não"
+
+
+def tom_tat_may(m):
+    if not isinstance(m, dict):
+        return m
+    out = {k: m[k] for k in ("he_dieu_hanh", "kien_truc", "python", "loi") if k in m}
+    ct = m.get("cong_cu")
+    if isinstance(ct, dict):
+        out["cong_cu_co_san"] = [k for k, v in ct.items() if isinstance(v, dict) and v.get("co")]
+        out["cong_cu_thieu"] = [k for k, v in ct.items() if isinstance(v, dict) and not v.get("co")]
+    return out
 
 
 def md_ke_hoach_cai(machine, plans, ket_qua, co_thu_kho):
@@ -494,9 +510,12 @@ def md_ke_hoach_cai(machine, plans, ket_qua, co_thu_kho):
         for e in ket_qua:
             out.append(f"- [ ] `{e['capability']}`: chưa có mục kho; kế hoạch cài: TODO")
         return "\n".join(out) + "\n"
-    out.append("## Máy đích")
+    out.append("## Hồ sơ máy của người dựng hồ sơ")
     out.append("")
-    out.append(md_dict(machine) if machine else "(thủ kho không trả hồ sơ máy)")
+    out.append("Đây là máy đã chạy công cụ, KHÔNG phải máy đích của khách. Chạy lại `thu_kho.machine_profile()` trên máy đích trước khi duyệt cài. "
+               "Chỉ liệt kê những gì cần để đọc kế hoạch; đường dẫn, tên người dùng và biến môi trường của máy dựng được lược bỏ.")
+    out.append("")
+    out.append(md_dict(tom_tat_may(machine)) if machine else "(thủ kho không trả hồ sơ máy)")
     out.append("")
     if not plans:
         out.append("Không có mục chính nào để lập kế hoạch cài (mọi khả năng là HỔNG, xem capability-map).")
@@ -506,6 +525,22 @@ def md_ke_hoach_cai(machine, plans, ket_qua, co_thu_kho):
         out.append(md_dict(p))
         out.append("")
     return "\n".join(out) + "\n"
+
+
+def dich_needs(v):
+    v = (v or "").strip()
+    if v in ("", "unknown"):
+        return "chưa rõ (catalog ghi unknown hoặc để trống)"
+    if v == "none":
+        return "không cần gì thêm (needs = none)"
+    return v
+
+
+def dich_skip(v):
+    v = (v or "").strip()
+    if v in ("", "unknown"):
+        return "catalog chưa ghi; điều này KHÔNG có nghĩa là không có điều kiện loại trừ, phải đọc mục Lưu ý của entry gốc"
+    return v
 
 
 def md_cap_block(ket_qua):
@@ -519,8 +554,8 @@ def md_cap_block(ket_qua):
                 out.append(f"  - Lý do chọn: {it['ly_do'] or 'thủ kho không ghi'}")
                 if it["evidence"]:
                     out.append(f"  - Bằng chứng trong entry: {it['evidence']}")
-                out.append(f"  - Điều kiện cần: {it['dieu_kien_can'] or 'không ghi'}; cách dùng: {it['adoption'] or 'không ghi'}")
-                out.append(f"  - Bỏ qua nếu: {it['bo_qua_neu'] or 'không ghi (không có nghĩa là không có điều kiện loại trừ)'}")
+                out.append(f"  - Điều kiện cần: {dich_needs(it['dieu_kien_can'])}; cách dùng: {it['adoption'] or 'không ghi'}")
+                out.append(f"  - Bỏ qua nếu: {dich_skip(it['bo_qua_neu'])}")
                 out.append(f"  - Độ chắc nhãn: {it['confidence'] or 'không ghi'} / {it['curation_status'] or 'không ghi'} (nhãn do model gắn, chưa kiểm bằng dùng thật)")
                 if it["duong_dan"]:
                     out.append(f"  - Đọc entry gốc: `{it['duong_dan']}`")
@@ -532,7 +567,7 @@ def md_cap_block(ket_qua):
             else:
                 out.append("- **Dự phòng:** không có.")
         for w in e["canh_bao"]:
-            out.append(f"  - Cảnh báo: {w}")
+            out.append(f"- **Cảnh báo:** {w}")
         out.append("")
     return "\n".join(out)
 
@@ -543,12 +578,16 @@ def md_nao_tay_co(ket_qua, vessel):
     hong = [e["capability"] for e in ket_qua if e["hong"]]
     v = VESSELS[vessel]
     f = lambda xs: ", ".join(f"`kho:{x}`" for x in xs) if xs else "chưa có"
+    canh = ""
+    if not tay:
+        canh = ("\n- **Cảnh báo:** chưa có mục loại Tay nào được chọn: hồ sơ này mới có phần Não, tức là chỉ soạn được nháp, "
+                f"chưa có công cụ tác động ra ngoài. Người chọn công cụ thực thi: {CHUA_CO}")
     return "\n".join([
         f"- **Não** (luật, cách nghĩ, skill): {f(nao)}",
         f"- **Tay** (công cụ làm việc với thế giới ngoài): {f(tay)}",
         f"- **Cơ** (nơi chạy): {v['ten']}, {v['runtime']}",
         f"- **HỔNG** (chưa có mục): {', '.join(hong) if hong else 'không'}",
-    ])
+    ]) + canh
 
 
 def cap_json(ket_qua):
@@ -697,13 +736,16 @@ def dung_agent(args, tk=None, repo=REPO, hom=None):
     kl_rows += [f"- {x}" for x in khong_lam] if khong_lam else [f"- {CHUA_CO} (việc cụ thể agent này không được làm)"]
     kpis = []
     for k in (args.kpi or []):
-        ten_k, _, mt = k.partition("=")
-        kpis.append(f"| {ten_k.strip()} | {mt.strip() or CHUA_CO} | {CHUA_CO} | {CHUA_CO} | Hằng tuần |")
-    kpis += [
-        f"| Tỉ lệ đầu ra qua cổng được duyệt không phải sửa | {CHUA_CO} (đặt sau 2 tuần số nền) | approved không sửa chia tổng bản ghi duyệt | Bảng duyệt | Hằng tuần |",
-        "| Số vi phạm ba lằn ranh đỏ | 0 | Đối chiếu bản ghi duyệt với log hành động ra ngoài | Bảng duyệt và log | Hằng tuần |",
-        f"| Thời gian từ brief đến nháp | {CHUA_CO} (đặt sau 2 tuần số nền) | Từ lúc nhận job đến lúc nộp nháp | Log job | Hằng tuần |",
-    ]
+        ten_k, _, rest = k.partition("=")
+        mt, _, rest2 = rest.partition("|")
+        cach, _, nguon = rest2.partition("|")
+        kpis.append(f"| {ten_k.strip()} | {mt.strip() or CHUA_CO} | {cach.strip() or CHUA_CO} | {nguon.strip() or CHUA_CO} | Hằng tuần |")
+    if not kpis:
+        kpis += [
+            f"| Tỉ lệ đầu ra qua cổng được duyệt không phải sửa | {CHUA_CO} (đặt sau 2 tuần số nền) | approved không sửa chia tổng bản ghi duyệt | Bảng duyệt | Hằng tuần |",
+            f"| Thời gian từ brief đến nháp | {CHUA_CO} (đặt sau 2 tuần số nền) | Từ lúc nhận job đến lúc nộp nháp | Log job | Hằng tuần |",
+        ]
+    kpis.append("| Số vi phạm ba lằn ranh đỏ (KPI bắt buộc) | 0 | Đối chiếu bản ghi duyệt với log hành động ra ngoài | Bảng duyệt và log | Hằng tuần |")
     sops = [f"| SOP-C{i} | Khi cần khả năng `{c}` | Đọc `skills/{c}/SKILL.md`, dùng mục kho chính; bước chi tiết {CHUA_CO} | {CHUA_CO} |"
             for i, c in enumerate(caps, 1)]
     kenh = tach_csv(getattr(args, "kenh", ""))
@@ -758,19 +800,33 @@ def dung_agent(args, tk=None, repo=REPO, hom=None):
             m += (f"- Dự phòng: `kho:{e['du_phong']['id']}`" if e["du_phong"] else "- Dự phòng: không có")
         else:
             m = f"- HỔNG: chưa có mục kho cho khả năng này. Người chọn: {CHUA_CO}"
-        c_ctx = {"ten_ky_nang": c, "khi_nao_dung": f"Khi job của agent cần khả năng `{c}`. Chi tiết: {CHUA_CO}", "muc_kho_dung": m}
+        c_ctx = {"slug": args.slug, "ten_ky_nang": c, "khi_nao_dung": f"Khi job của agent cần khả năng `{c}`. Chi tiết: {CHUA_CO}", "muc_kho_dung": m}
         ghi(dich / "skills" / c / "SKILL.md", ket_thuc_cho_trong(render(skill_t, c_ctx)))
     ghi(dich / "tests" / "test-cases.json", json.dumps(cases, ensure_ascii=False, indent=2) + "\n")
     ghi(dich / "capability-map.json", json.dumps({
         "slug": args.slug, "vessel": vessel, "nguon": "thu_kho" if co_tk else "khong-thu-kho",
         "kha_nang": cap_json(kq)}, ensure_ascii=False, indent=2) + "\n")
     ghi(dich / "INSTALL-PLAN.md", md_ke_hoach_cai(machine, plans, kq, co_tk))
+    chen_banner(dich, getattr(args, "banner", None), ["README.md", "HANDOVER.md"])
     ghi(dich / "factory-manifest.json", json.dumps({
         "cong_cu": "agent_factory", "phien_ban": PHIEN_BAN, "kind": "agent", "slug": args.slug, "ngay": ngay,
         "vessel": vessel, "tu_chu": tu_chu, "thu_kho": co_tk, "kha_nang": caps, "ids": ids_cua(kq),
         "hong": [e["capability"] for e in kq if e["hong"]], "env_vars": env_names,
     }, ensure_ascii=False, indent=2) + "\n")
     return dich
+
+
+def chen_banner(dich, banner, files):
+    """Chèn một dòng cảnh báo in đậm ngay dưới tiêu đề của các file được chọn."""
+    if not banner:
+        return
+    for rel in files:
+        p = Path(dich) / rel
+        if not p.exists():
+            continue
+        lines = doc(p).split("\n")
+        lines[1:1] = ["", f"> **{banner}**"]
+        ghi(p, "\n".join(lines))
 
 
 def ghi_cay(tdir, dich, ctx, ctx_json, bo_qua=(), map_dir=None, bo_qua_json=()):
@@ -1130,9 +1186,13 @@ def dung_opc(args, tk=None, repo=REPO, hom=None):
         ensure_ascii=False, indent=2) + "\n")
     ghi(dich / "CAPABILITY-MAP.md",
         f"# CAPABILITY-MAP — OPC `{args.slug}`\n\n> Mục kho chọn cho từng khả năng (1 chính + 1 dự phòng). Nhãn do model gắn, chưa mục nào được dùng thật. "
+        f"Thủ kho chọn theo nhãn khả năng, không hiểu ngữ cảnh của OPC: có mục chính hoặc dự phòng lệch việc. "
+        f"Người duyệt phải gạt mục không hợp trước khi lập kế hoạch cài. "
         f"Công cụ không tự ghi `catalog/GAP-LOG.md`; người dán các dòng HỔNG.\n\n"
         + md_nao_tay_co(kq, "hermes") + "\n\n" + md_cap_block(kq))
     ghi(dich / "INSTALL-PLAN.md", md_ke_hoach_cai(machine, plans, kq, co_tk))
+    chen_banner(dich, getattr(args, "banner", None),
+                ["README.md", "HANDOVER.md", "PHASES.md", "RISKS-LEGAL.md", f"domain-packs/{args.slug}/PACK.md"])
     ghi(dich / "factory-manifest.json", json.dumps({
         "cong_cu": "agent_factory", "phien_ban": PHIEN_BAN, "kind": "opc", "slug": args.slug, "ngay": ngay,
         "thuong_hieu": args.thuong_hieu, "thu_kho": co_tk, "agents": agents, "goi_mo_rong": goi,
@@ -1655,9 +1715,10 @@ def main(argv=None, tk=None):
     a.add_argument("--ten")
     a.add_argument("--thuong-hieu", help="tên khách (chỉ vào tenant-config)")
     a.add_argument("--chu-so-huu")
+    a.add_argument("--banner", help="dòng cảnh báo chèn dưới tiêu đề README và HANDOVER")
     a.add_argument("--kenh", help="kênh agent dùng, ví dụ facebook")
     a.add_argument("--khong-lam", help='các việc cấm riêng, ngăn cách bằng ";"')
-    a.add_argument("--kpi", action="append", help='"tên=mục tiêu", lặp lại được')
+    a.add_argument("--kpi", action="append", help='"tên=mục tiêu|cách đo|nguồn số" (hai phần sau tuỳ chọn), lặp lại được; có KPI riêng thì bỏ KPI mặc định')
     a.add_argument("--bien-moi-truong", help="tên biến môi trường thêm, ngăn cách bằng phẩy")
 
     o = sub.add_parser("moi-opc", help="dựng một OPC hoàn chỉnh")
@@ -1669,6 +1730,7 @@ def main(argv=None, tk=None):
     o.add_argument("--kha-nang-them", default="")
     o.add_argument("--mo-ta")
     o.add_argument("--chu-so-huu")
+    o.add_argument("--banner", help="dòng cảnh báo chèn dưới tiêu đề README, HANDOVER, PHASES, RISKS-LEGAL, PACK")
     o.add_argument("--dau-ra")
     o.add_argument("--ghi-de", action="store_true")
     o.add_argument("--khong-thu-kho", action="store_true")
