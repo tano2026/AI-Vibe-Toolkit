@@ -1,0 +1,1072 @@
+[
+ {
+  "id": "mcps/framecraft",
+  "can_xem": [
+   "gpu",
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/barty-motion-graphics",
+  "can_xem": [
+   "gpu",
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/deepseek-r1-local",
+  "can_xem": [
+   "gpu",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/hyperframes-student-kit",
+  "can_xem": [
+   "license",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/meetily",
+  "can_xem": [
+   "gpu",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/omnivoice-studio",
+  "can_xem": [
+   "gpu",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/open-code-review-alibaba",
+  "can_xem": [
+   "beta",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/openmontage",
+  "can_xem": [
+   "gpu",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/openreel-video",
+  "can_xem": [
+   "gpu",
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/pixelle-video",
+  "can_xem": [
+   "gpu",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/short-video-factory",
+  "can_xem": [
+   "license",
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "skills/claude-code-thoi-quen-boris-cherny",
+  "can_xem": [
+   "beta",
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "agents/trum-san-bay/skills/content-research",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "agents/trum-san-bay/skills/video-renderer",
+  "can_xem": [
+   "gpu",
+   "api-key"
+  ]
+ },
+ {
+  "id": "mcps/context7",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/agent-reach",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/api-mega-list",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/awesome-llm-apps",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/awesome-selfhosted",
+  "can_xem": [
+   "license",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/billionmail",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/claude-motion",
+  "can_xem": [
+   "license",
+   "beta"
+  ]
+ },
+ {
+  "id": "repos/claude-seo",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/clipify",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/codex-security",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ecc",
+  "can_xem": [
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/ever-gauzy",
+  "can_xem": [
+   "license",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/gods-eye-view",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/graphify",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/head-of-content",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/hermes-agent",
+  "can_xem": [
+   "gpu",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/kokoro-82m",
+  "can_xem": [
+   "gpu",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/librechat",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/mem0",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/mirage-tesseract",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/motiondivision-motion",
+  "can_xem": [
+   "gpu",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/odysseus",
+  "can_xem": [
+   "gpu",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/omniroute",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/opencut",
+  "can_xem": [
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/paperclip",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/pycaps",
+  "can_xem": [
+   "gpu",
+   "beta"
+  ]
+ },
+ {
+  "id": "repos/stickman-studio",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/supertonic",
+  "can_xem": [
+   "gpu",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/twenty-crm",
+  "can_xem": [
+   "license",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ui-tars-desktop",
+  "can_xem": [
+   "gpu",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/video-use",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/videofy-minimal",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/vimax",
+  "can_xem": [
+   "gpu",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/voice-pro",
+  "can_xem": [
+   "gpu",
+   "license"
+  ]
+ },
+ {
+  "id": "repos/worldmonitor",
+  "can_xem": [
+   "license",
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/x-research-skill",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "skills/summarization",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "skills/voxstyle-prompt-engine",
+  "can_xem": [
+   "api-key",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "stacks/google-antigravity-notebooklm-combo",
+  "can_xem": [
+   "beta",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "stacks/motion-design-studio-claude-code",
+  "can_xem": [
+   "license",
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "stacks/twenty-crm-abtrip-internal",
+  "can_xem": [
+   "license",
+   "api-key"
+  ]
+ },
+ {
+  "id": "stacks/video-factory-auto-router",
+  "can_xem": [
+   "beta",
+   "api-key"
+  ]
+ },
+ {
+  "id": "agents/research-analytics-pro/skills/research-synthesis",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "agents/research-analytics-pro/skills/social-listening-research",
+  "can_xem": [
+   "beta"
+  ]
+ },
+ {
+  "id": "agents/sales-ceo/skills/gtm-strategy",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "agents/shorts-affiliate-system/skills/compliance-gate",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "agents/shorts-affiliate-system/skills/trend-scout",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "agents/trum-san-bay/skills/api-error-handler",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "agents/trum-san-bay/skills/content-strategy-ideation",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "agents/trum-san-bay/skills/pipeline-dashboard",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "mcps/claude-ads",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/fal-mcp",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "mcps/filesystem",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/github-mcp",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/jaz-ai-mcp",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/markitdown-mcp",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "mcps/mcp-video-gen",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/minimax-mcp",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/notebooklm-mcp-secure",
+  "can_xem": [
+   "beta"
+  ]
+ },
+ {
+  "id": "mcps/perplexity",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "mcps/pollinations-mcp",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "mcps/taibu-mcp",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "mcps/tavily-mcp",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/500-ai-agents-projects",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/9router",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/agency-agents",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/ai-agents-for-beginners",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ai-berkshire",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ai-job-search",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ai-travel-agent-templates",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/anthropic-cybersecurity-skills",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/awesome-claude-skills",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "repos/awesome-llm-apps-shortlist",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/buzz",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/chattts",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/chatwoot",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/cinetic",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "repos/claude-code-router",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/claude-motion-design",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "repos/claude-video",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/codex-plugin-cc",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/coolify",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/cth9191-animate",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/cubesandbox",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/dify",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ds2api",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/financial-services",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/funasr",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/google-timesfm",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/goose",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/gpt-crawler",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/hermes-jev-skills",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/html-anything",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/hyperframes-session-story",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/impeccable",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/jcode",
+  "can_xem": [
+   "beta"
+  ]
+ },
+ {
+  "id": "repos/last30days",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/learn-harness-engineering",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/magika",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/marketingskills",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/markitdown",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/maxun",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/microsoft-presidio",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/mission-control",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/moneyprinterturbo",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/motion-graphics-skills",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/n8n-claw",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/nanochat",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/narratoai",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/ollama",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/omnishow",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/openclaw",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/openshorts",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/openwork-modelstudioai",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/openworker-andrew-ng",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/page-agent",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/pi-coding-agent",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/prime-agent",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/printfilm-research-notes",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/public-apis",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/qdrant",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/remotion-superpowers",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/seedance-2-0-skill-os",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/skillops",
+  "can_xem": [
+   "beta"
+  ]
+ },
+ {
+  "id": "repos/skyvern",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/srt-whiteboard-animation",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/stable-diffusion-3-medium",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/stitch-skills",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/supabase",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/supermemory",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/superpowers",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/swarms",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/system-prompts-ai",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "repos/toonflow",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/trek",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/turbovec",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "repos/typesafe-jev",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/vectcutapi",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/vercel-ai-sdk",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/vibe-trading",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/web-research-mcp",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "repos/whisper",
+  "can_xem": [
+   "gpu"
+  ]
+ },
+ {
+  "id": "repos/yue2-studio",
+  "can_xem": [
+   "license"
+  ]
+ },
+ {
+  "id": "repos/ziwei-doushu",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "skills/bo-nao-4-file-claude",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "skills/brand-identity-factory",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "skills/domain-name-brainstormer",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "skills/gemini-video-content-kit",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "skills/stickman-video-director",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "stacks/cinematic-techniques-ai-video",
+  "can_xem": [
+   "tra-phi"
+  ]
+ },
+ {
+  "id": "stacks/deepseek-harness-bo-tai-lieu",
+  "can_xem": [
+   "beta"
+  ]
+ },
+ {
+  "id": "stacks/saas-stack-2026",
+  "can_xem": [
+   "api-key"
+  ]
+ },
+ {
+  "id": "stacks/second-brain-obsidian-claude",
+  "can_xem": [
+   "tra-phi"
+  ]
+ }
+]
