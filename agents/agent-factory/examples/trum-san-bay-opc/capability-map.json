@@ -1,0 +1,537 @@
+{
+  "slug": "trum-san-bay-opc",
+  "nguon": "thu_kho",
+  "kha_nang": [
+    {
+      "capability": "agent-orchestration-memory",
+      "chinh": {
+        "id": "repos/tencentdb-agent-memory",
+        "ten": "TencentDB Agent Memory (Tencent)",
+        "ly_do": "Dùng khi cần hệ thống bộ nhớ agent bốn tầng chạy cục bộ trên cơ sở dữ liệu SQLite hỗ trợ tìm kiếm kết hợp",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Hệ thống bộ nhớ dài hạn 4 tầng cho AI agent, chạy local hoàn toàn (SQLite + sqlite-vec, zero dependency ngoài)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/tencentdb-agent-memory.md",
+        "capability": "agent-orchestration-memory"
+      },
+      "du_phong": {
+        "id": "skills/bo-nao-4-file-claude",
+        "ten": "Bộ não 4 file cho Claude (AGENTS.md + context.md + memory.md + Skills)",
+        "ly_do": "Dùng khi cần thiết lập cấu trúc 4 tệp bối cảnh vai trò và bộ nhớ để duy trì cách làm việc nhất quán cho agent",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "dựng cho Claude 4 thứ để nó không phải học lại bối cảnh mỗi lần mở chat mới.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/bo-nao-4-file-claude.md",
+        "capability": "agent-orchestration-memory,prompt-skill-library"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/tencentdb-agent-memory: mới đọc phần đầu entry",
+        "skills/bo-nao-4-file-claude: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "web-research",
+      "chinh": {
+        "id": "repos/web-research-mcp",
+        "ten": "web-research — Token-Efficient Research MCP (99% Ít Token Hơn)",
+        "ly_do": "Dùng khi cần MCP server hỗ trợ tìm kiếm và tóm tắt thông tin web tiết kiệm lượng token ngữ cảnh",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "unknown",
+        "evidence": "Stack: TinyFish (search) + Groq Llama 3.1 8B (summarize) = cheap + fast + clean.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/web-research-mcp.md",
+        "capability": "web-research"
+      },
+      "du_phong": {
+        "id": "agents/research-analytics-pro/skills/primary-research-design",
+        "ten": "Primary Research Design — Thiết kế khảo sát & phỏng vấn",
+        "ly_do": "Dùng khi cần thiết kế bảng câu hỏi khảo sát hoặc hướng dẫn phỏng vấn để thu thập dữ liệu sơ cấp từ khách hàng",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Thiết kế nghiên cứu sơ cấp (survey, interview guide) khi không có nguồn thứ cấp nào trả lời được câu hỏi",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/research-analytics-pro/skills/primary-research-design/SKILL.md",
+        "capability": "web-research,prompt-skill-library"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/web-research-mcp: mới đọc phần đầu entry",
+        "repos/web-research-mcp: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "devops",
+      "chinh": {
+        "id": "repos/coolify",
+        "ten": "Coolify",
+        "ly_do": "Dùng khi cần nền tảng tự lưu trữ để triển khai ứng dụng cơ sở dữ liệu và dịch vụ lên máy chủ riêng",
+        "dieu_kien_can": "vps,docker",
+        "bo_qua_neu": "Bỏ qua nếu máy chủ ảo có dung lượng bộ nhớ dưới 2GB RAM",
+        "evidence": "Self-hosted PaaS thay thế Vercel, Heroku, Netlify — deploy app, database, service lên VPS riêng chỉ cần một click.",
+        "adoption": "can-ha-tang",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/coolify.md",
+        "capability": "devops"
+      },
+      "du_phong": {
+        "id": "agents/infra-ops-agent/skills/destructive-command-guardrail",
+        "ten": "Destructive Command Guardrail",
+        "ly_do": "Dùng khi cần cảnh báo và gắn cờ các câu lệnh có khả năng gây mất mát dữ liệu hoặc dừng dịch vụ VPS",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Chặn/flag lệnh có tính phá hủy (xóa data, kill process, đổi firewall, ghi đè quyền)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/infra-ops-agent/skills/destructive-command-guardrail/SKILL.md",
+        "capability": "devops,security-compliance"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/coolify: mới đọc phần đầu entry",
+        "repos/coolify: cần VPS",
+        "repos/coolify: cần hạ tầng"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "security-compliance",
+      "chinh": {
+        "id": "agents/shorts-affiliate-system/skills/compliance-gate",
+        "ten": "Compliance Gate — Chặn Inauthentic Content trước khi render",
+        "ly_do": "Dùng khi cần kiểm tra script và metadata video trước khi render để ngăn ngừa rủi ro vi phạm chính sách nền tảng",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Node bắt buộc trong pipeline, đứng giữa Script Variation Engine và MoneyPrinterTurbo.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "agents/shorts-affiliate-system/skills/compliance-gate/SKILL.md",
+        "capability": "security-compliance"
+      },
+      "du_phong": {
+        "id": "repos/codex-security",
+        "ten": "Codex Security (OpenAI)",
+        "ly_do": "Dùng khi cần kiểm tra an toàn bảo mật quét lỗ hổng và rà soát mã độc trước khi triển khai phần mềm",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "Bỏ qua nếu không có khóa API để quét mã nguồn qua mô hình phân tích bảo mật",
+        "evidence": "CLI + SDK chính thức của OpenAI để tự động tìm/xác minh/vá lỗ hổng bảo mật trong code",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/codex-security.md",
+        "capability": "security-compliance"
+      },
+      "hong": false,
+      "canh_bao": [
+        "agents/shorts-affiliate-system/skills/compliance-gate: mới đọc phần đầu entry",
+        "repos/codex-security: mới đọc phần đầu entry",
+        "repos/codex-security: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "crm-sales",
+      "chinh": {
+        "id": "repos/twenty-crm",
+        "ten": "Twenty CRM",
+        "ly_do": "Dùng khi cần hệ thống quản trị quan hệ khách hàng mã nguồn mở tự lưu trữ với quy trình linh hoạt và giao diện trực quan",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu đóng gói bán lại dạng dịch vụ đóng mã nguồn do ràng buộc bản quyền AGPLv3 và Enterprise",
+        "evidence": "CRM mã nguồn mở, tự host được, kiểu \"Notion/Airtable gặp Salesforce\": object tuỳ biến, pipeline kéo-thả",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/twenty-crm.md",
+        "capability": "crm-sales"
+      },
+      "du_phong": {
+        "id": "agents/sales-ceo/skills/deal-scoring-forecast-discipline",
+        "ten": "Deal Scoring & Forecast Discipline (SMB Việt Nam)",
+        "ly_do": "Dùng khi cần chấm điểm cơ hội bán hàng B2B theo thang điểm khách quan và dự báo doanh thu sát thực tế",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Dùng khi cần chấm điểm lead mới, lên lịch touch, xử lý objection, forecast pipeline, hoặc audit CRM.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "agents/sales-ceo/skills/deal-scoring-forecast-discipline/SKILL.md",
+        "capability": "crm-sales,prompt-skill-library"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/twenty-crm: mới đọc phần đầu entry",
+        "agents/sales-ceo/skills/deal-scoring-forecast-discipline: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "email-outreach",
+      "chinh": {
+        "id": "repos/billionmail",
+        "ten": "BillionMail",
+        "ly_do": "Dùng khi cần nền tảng thư điện tử tiếp thị tự vận hành trên máy chủ riêng không tốn phí định kỳ hàng tháng",
+        "dieu_kien_can": "vps,tra-phi",
+        "bo_qua_neu": "Bỏ qua nếu chưa có máy chủ ảo VPS và ngân sách duy trì hạ tầng gửi thư riêng",
+        "evidence": "Platform email marketing self-hosted hoàn chỉnh: mail server + newsletter + campaign",
+        "adoption": "can-ha-tang",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/billionmail.md",
+        "capability": "email-outreach,devops"
+      },
+      "du_phong": null,
+      "hong": false,
+      "canh_bao": [
+        "repos/billionmail: mới đọc phần đầu entry",
+        "repos/billionmail: tốn tiền -> L2",
+        "repos/billionmail: cần VPS",
+        "repos/billionmail: cần hạ tầng"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "content-writing",
+      "chinh": {
+        "id": "skills/natural-writing",
+        "ten": "Natural Writing — Chống văn phong \"nghe như AI\"",
+        "ly_do": "Dùng khi cần bảng tiêu chí loại bỏ các cấu trúc văn phong rập khuôn sáo rỗng để văn bản tự nhiên hơn",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Checklist cụ thể để sửa mọi đoạn text (script video, bài .md trong kho, caption, email) khỏi bị \"mùi AI\"",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/natural-writing.md",
+        "capability": "content-writing,prompt-skill-library"
+      },
+      "du_phong": {
+        "id": "skills/content-research-writer",
+        "ten": "Content Research Writer — Quy trình viết bài có nguồn kiểm chứng được",
+        "ly_do": "Dùng khi cần quy trình viết bài chuyên sâu từ dữ liệu nghiên cứu có trích dẫn nguồn kiểm chứng rõ ràng.",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu chỉ cần viết bài đăng ngắn đơn giản không yêu cầu kiểm chứng nguồn tài liệu.",
+        "evidence": "Quy trình viết content (blog, báo cáo, newsletter, case study) từ nghiên cứu có nguồn rõ ràng",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "skills/content-research-writer.md",
+        "capability": "content-writing,web-research"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/natural-writing: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "social-media",
+      "chinh": {
+        "id": "skills/social-media-skills",
+        "ten": "Social Media Skills",
+        "ly_do": "Dùng khi cần bộ kỹ năng toàn diện cho chu trình sáng tạo nội dung mạng xã hội dựa trên phong cách thương hiệu thống nhất",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Bộ skill mã nguồn mở (charlie947/social-media-skills, mở rộng thành social-media-skills/skills với 106 skill)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/social-media-skills.md",
+        "capability": "social-media,content-writing"
+      },
+      "du_phong": {
+        "id": "mcps/buffer-mcp",
+        "ten": "buffer-mcp — Schedule Social Media Posts Qua Claude (Buffer GraphQL)",
+        "ly_do": "Dùng khi cần tự động lên lịch và đăng bài viết lên nhiều kênh mạng xã hội như Twitter, LinkedIn, Facebook từ chat hoặc agent.",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "Bỏ qua nếu không có tài khoản Buffer hoặc không có mã BUFFER_ACCESS_TOKEN.",
+        "evidence": "Schedule Social Media Posts Qua Claude (Buffer GraphQL)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "mcps/buffer-mcp.md",
+        "capability": "social-media"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/social-media-skills: mới đọc phần đầu entry",
+        "mcps/buffer-mcp: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "image-generation",
+      "chinh": {
+        "id": "agents/designer-pro/skills/image-prompt-formula-core",
+        "ten": "Image Prompt Formula (Core — không gắn brand)",
+        "ly_do": "Dùng khi cần công thức 7 phần để viết prompt tạo ảnh không phụ thuộc thương hiệu và tránh lỗi phổ biến",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "1 công thức duy nhất, dùng được cho mọi brand/dự án — brand không sửa file này, chỉ cung cấp dữ liệu riêng",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/designer-pro/skills/image-prompt-formula-core/SKILL.md",
+        "capability": "image-generation,prompt-skill-library"
+      },
+      "du_phong": {
+        "id": "agents/trum-san-bay/skills/image-prompt-engineer",
+        "ten": "Image Prompt Engineer — Ảnh Sân Bay",
+        "ly_do": "Dùng khi cần viết câu lệnh (prompt) tạo ảnh thumbnail và bài đăng mạng xã hội theo chuẩn nhận diện thương hiệu.",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu yêu cầu tạo video chuyển động hoặc hình ảnh không thuộc chủ đề sân bay du lịch.",
+        "evidence": "Viết prompt gen ảnh chuẩn cho thumbnail Facebook/Instagram Feed — đúng bối cảnh sân bay Việt Nam",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/trum-san-bay/skills/image-prompt-engineer/SKILL.md",
+        "capability": "image-generation,prompt-skill-library,social-media"
+      },
+      "hong": false,
+      "canh_bao": [],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "video-render",
+      "chinh": {
+        "id": "stacks/video-factory-auto-router",
+        "ten": "Video Factory Auto-Router — 1 Topic Vào, Video Ra, Tự Chọn Engine",
+        "ly_do": "Dùng khi cần hệ thống tự động phân loại chủ đề và định tuyến sang công cụ dựng video thích hợp từ dữ liệu đầu vào",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Biến 2 stack rời (Remotion, Vox Director) thành 1 công thức auto duy nhất.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "stacks/video-factory-auto-router.md",
+        "capability": "video-generation,video-render"
+      },
+      "du_phong": {
+        "id": "mcps/scrptly",
+        "ten": "Scrptly Video Generator",
+        "ly_do": "Dùng khi cần tạo video AI từ mô tả văn bản kèm ảnh tham chiếu ngữ cảnh và giới hạn ngân sách chi phí.",
+        "dieu_kien_can": "api-key,tra-phi",
+        "bo_qua_neu": "Bỏ qua nếu không có API key của Scrptly hoặc cần kết quả đồng bộ tức thì không qua polling.",
+        "evidence": "1 prompt văn bản + ảnh ngữ cảnh tùy chọn ra video chuyên nghiệp, có cơ chế duyệt ngân sách token",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "mcps/scrptly.md",
+        "capability": "video-generation"
+      },
+      "hong": false,
+      "canh_bao": [
+        "stacks/video-factory-auto-router: mới đọc phần đầu entry",
+        "mcps/scrptly: tốn tiền -> L2",
+        "mcps/scrptly: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "productivity",
+      "chinh": {
+        "id": "stacks/second-brain-obsidian-claude",
+        "ten": "Second Brain — Obsidian + Claude + Git — Combo Tools theo Use Case",
+        "ly_do": "Dùng khi cần mô hình lưu trữ và tổ chức kiến thức cá nhân lâu dài bằng định dạng Markdown kết hợp trợ lý thông minh",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Vault Obsidian đóng vai trò \"bộ nhớ nháp\" trước khi vào kho chính thức.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "stacks/second-brain-obsidian-claude.md",
+        "capability": "productivity,agent-orchestration-memory"
+      },
+      "du_phong": {
+        "id": "mcps/n8n-workflow-builder-mcp",
+        "ten": "mcp-n8n-workflow-builder — Tạo n8n Workflows Bằng Ngôn Ngữ Thường (226⭐)",
+        "ly_do": "Dùng khi cần xây dựng quản lý và giám sát các luồng tự động hóa n8n bằng ngôn ngữ tự nhiên thông qua trợ lý",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "unknown",
+        "evidence": "MCP server để build, manage, monitor n8n workflows **bằng ngôn ngữ tự nhiên qua Claude**.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "mcps/n8n-workflow-builder-mcp.md",
+        "capability": "productivity"
+      },
+      "hong": false,
+      "canh_bao": [
+        "stacks/second-brain-obsidian-claude: mới đọc phần đầu entry",
+        "mcps/n8n-workflow-builder-mcp: mới đọc phần đầu entry",
+        "mcps/n8n-workflow-builder-mcp: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "customer-support",
+      "chinh": {
+        "id": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
+        "ten": "Churn Risk & Escalation Discipline",
+        "ly_do": "Dùng khi cần phân loại tín hiệu khách hàng muốn rời bỏ và áp dụng thời gian phản hồi theo cam kết",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "SLA phản hồi theo kênh, FCR, và luật quan trọng nhất: 1 lần phục vụ tệ đã đủ rủi ro rời bỏ, không đợi lặp lại.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline/SKILL.md",
+        "capability": "customer-support"
+      },
+      "du_phong": {
+        "id": "repos/chatwoot",
+        "ten": "Chatwoot",
+        "ly_do": "Dùng khi cần nền tảng hỗ trợ khách hàng đa kênh tự lưu trữ để tích hợp vào hệ thống trợ lý chăm sóc",
+        "dieu_kien_can": "docker,vps",
+        "bo_qua_neu": "unknown",
+        "evidence": "Platform cham soc khach hang mo nguon mo — thay the Intercom, Zendesk, Freshdesk.",
+        "adoption": "can-ha-tang",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/chatwoot.md",
+        "capability": "customer-support,crm-sales"
+      },
+      "hong": false,
+      "canh_bao": [
+        "repos/chatwoot: mới đọc phần đầu entry",
+        "repos/chatwoot: cần VPS",
+        "repos/chatwoot: cần hạ tầng"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "data-dashboard",
+      "chinh": {
+        "id": "skills/kpi-dashboard-creator",
+        "ten": "KPI Dashboard Creator — Build dashboard cho quyết định, không phải trang trí",
+        "ly_do": "Dùng khi cần thiết kế bảng điều khiển chỉ số kinh doanh tập trung vào việc ra quyết định hành động",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "nên làm gì tiếp — thay vì nhồi hết mọi số liệu có sẵn lên màn hình cho đẹp.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "skills/kpi-dashboard-creator.md",
+        "capability": "data-dashboard,front-end"
+      },
+      "du_phong": {
+        "id": "repos/sc-datav",
+        "ten": "sc-datav — Dashboard 3D Trực Quan Hóa Dữ Liệu Kiểu Màn Hình Lớn",
+        "ly_do": "Dùng khi cần mẫu bảng điều khiển trực quan hóa dữ liệu không gian ba chiều sử dụng thư viện Three.js và Vue",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Three.js + Vue3 — tạo dashboard \"màn hình lớn\" 3D cực đẹp như trong phim khoa học viễn tưởng.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/sc-datav.md",
+        "capability": "data-dashboard,front-end"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/kpi-dashboard-creator: mới đọc phần đầu entry",
+        "repos/sc-datav: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "finance-accounting",
+      "chinh": {
+        "id": "mcps/cloud-accounting-mcps",
+        "ten": "Cloud Accounting MCPs — Xero + Wave + FreshBooks + Stripe",
+        "ly_do": "Dùng khi cần kết nối trợ lý AI với các nền tảng kế toán đám mây như Xero Wave FreshBooks Stripe",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "unknown",
+        "evidence": "Kết nối Claude với phần mềm kế toán cloud",
+        "adoption": "can-ha-tang",
+        "confidence": "thap",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "mcps/cloud-accounting-mcps.md",
+        "capability": "finance-accounting"
+      },
+      "du_phong": {
+        "id": "repos/tradingagents",
+        "ten": "TradingAgents — Phòng Giao Dịch AI Đa-Agent (86k⭐)",
+        "ly_do": "Dùng khi cần mô phỏng phòng phân tích tài chính đa agent để đánh giá dữ liệu cổ phiếu và tiền số.",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "Bỏ qua nếu không có API key tài chính hoặc không muốn trả chi phí gọi nhiều mô hình cùng lúc.",
+        "evidence": "Framework đa-agent mô phỏng phòng giao dịch thật",
+        "adoption": "can-ha-tang",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "repos/tradingagents.md",
+        "capability": "finance-accounting,agent-framework"
+      },
+      "hong": false,
+      "canh_bao": [
+        "mcps/cloud-accounting-mcps: mới đọc phần đầu entry",
+        "mcps/cloud-accounting-mcps: cần khoá API -> L3",
+        "mcps/cloud-accounting-mcps: cần hạ tầng",
+        "repos/tradingagents: cần khoá API -> L3",
+        "repos/tradingagents: cần hạ tầng"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "ticketing-aviation",
+      "chinh": {
+        "id": "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup",
+        "ten": "Aviation Policy Lookup",
+        "ly_do": "Dùng khi cần tra cứu quy định hàng không, thủ tục sân bay, hành lý hoặc chính sách nhập cảnh",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu cần thay thế hệ thống tra cứu chuẩn Timatic của đại lý vé máy bay",
+        "evidence": "Tra cứu quy định hàng không, nhập cảnh, hành lý, an ninh sân bay để trả lời câu hỏi của khách hoặc staff An Bình/ABTRIP.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup/SKILL.md",
+        "capability": "ticketing-aviation,reference"
+      },
+      "du_phong": {
+        "id": "agents/anbinh-travel-ops-analyst/skills/source-evaluation",
+        "ten": "Source Evaluation",
+        "ly_do": "Dùng khi cần kiểm tra và đánh giá độ tin cậy của nguồn dữ liệu trước khi trích dẫn chính sách và quy định.",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu câu hỏi thuộc dạng kiến thức phổ thông cố định không có khả năng bị thay đổi chính sách.",
+        "evidence": "Chấm độ tin cậy nguồn trước khi dùng bất kỳ thông tin nào để trả lời.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/anbinh-travel-ops-analyst/skills/source-evaluation/SKILL.md",
+        "capability": "security-compliance,web-research,ticketing-aviation"
+      },
+      "hong": false,
+      "canh_bao": [],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "cong_cu": "agent_factory",
+  "phien_ban": "0.1",
+  "kind": "agent",
+  "slug": "facebook-channel-agent",
+  "ngay": "2026-10-17",
+  "vessel": "hermes",
+  "tu_chu": "L1",
+  "thu_kho": true,
+  "kha_nang": [
+    "social-media",
+    "content-writing",
+    "customer-support"
+  ],
+  "ids": [
+    "skills/social-media-skills",
+    "mcps/buffer-mcp",
+    "skills/natural-writing",
+    "skills/content-research-writer",
+    "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
+    "repos/chatwoot"
+  ],
+  "hong": [],
+  "env_vars": [
+    "LLM_API_KEY",
+    "TELEGRAM_BOT_TOKEN",
+    "TELEGRAM_CHAT_ID_CEO",
+    "FB_PAGE_ACCESS_TOKEN"
+  ]
+}

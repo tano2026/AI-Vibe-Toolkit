@@ -1,0 +1,30 @@
+{
+  "_ghi_chu": "Theo schema TENANT-CONFIG cua agents/MASTER-TEMPLATE-MANIFEST.md (7 role) cong khoi opc cho 9 agent ORG v3. roles_enabled anh xa: content->marketing, designer->media trong ORG v3. compliance_overrides LUON null.",
+  "tenant_id": "8c926702-97a9-5935-9ca7-0f1529d843a7",
+  "client_name": "Trùm Sân Bay",
+  "industry": "CHƯA CÓ — hỏi CEO",
+  "brand_voice": {
+    "tone": "CHƯA CÓ — hỏi CEO",
+    "language": "vi",
+    "banned_topics": []
+  },
+  "icp": {
+    "segment": "CHƯA CÓ — hỏi CEO",
+    "deal_size_range": "CHƯA CÓ — hỏi CEO"
+  },
+  "roles_enabled": {"research": true, "marketing": true, "sales": true, "content": true, "dev": true, "designer": true, "media": true},
+  "brand_playbook_ref": "CHƯA CÓ — hỏi CEO",
+  "compliance_overrides": null,
+  "opc": {
+    "slug": "trum-san-bay-opc",
+    "pack": "domain-packs/trum-san-bay-opc/PACK.md",
+    "owner": "CHƯA CÓ — hỏi CEO",
+    "revenue_streams": ["affiliate", "dich-vu"],
+    "channels": ["facebook", "zalo", "instagram"],
+    "extension_packs": ["tai-chinh", "doi-tac"],
+    "agents_enabled": ["ceo", "research", "dev", "sales", "marketing", "media", "operations", "support", "analytics"],
+    "launch_mode": {"mode": "draft_only", "weeks_per_department": 2, "changed_by": null, "changed_on": null},
+    "kill_switch": {"command": "/stop", "flag": "agents.status=paused", "implemented": false},
+    "env_vars": ["AIRTABLE_TOKEN", "AIRTABLE_BASE_HQ", "LLM_API_KEY", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID_CEO", "FB_PAGE_ACCESS_TOKEN", "ZALO_APP_ID", "ZALO_SECRET_KEY", "ZALO_ACCESS_TOKEN", "IG_USER_ID", "PAYMENT_GATEWAY_API_KEY", "WEB_RESEARCH_MCP_API_KEY", "CLOUD_ACCOUNTING_MCPS_API_KEY"]
+  }
+}
