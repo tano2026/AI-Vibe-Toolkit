@@ -1,0 +1,871 @@
+[
+  {
+    "id": "skills/ai-second-brain",
+    "capability": [
+      "productivity",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi lịch sử trò chuyện với mô hình ngôn ngữ thành kho tri thức cá nhân liên kết trong Obsidian",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "Skill biến lịch sử trò chuyện với Claude/ChatGPT thành 1 wiki cá nhân có tổ chức, dạng đồ thị tri thức liên kết",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc cài Obsidian local là điều kiện sử dụng ứng dụng thông thường."
+  },
+  {
+    "id": "skills/analytics-data-analysis",
+    "capability": [
+      "data-dashboard",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bộ chuẩn viết mã phân tích dữ liệu có tính tái lặp và kiểm toán đầy đủ các bước xử lý",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "data-dashboard",
+    "confidence": "vua",
+    "evidence": "Chuẩn viết code/notebook phân tích data sao cho người khác (hoặc chính mình 3 tháng sau) chạy lại và audit được",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence là cụm danh từ mô tả chuẩn; skip_if unknown."
+  },
+  {
+    "id": "skills/bo-nao-4-file-claude",
+    "capability": [
+      "agent-orchestration-memory",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần thiết lập cấu trúc bốn tệp bối cảnh vai trò và bộ nhớ để duy trì cách làm việc nhất quán cho tác nhân",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "dựng cho Claude 4 thứ để nó không phải học lại bối cảnh mỗi lần mở chat mới.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì đây là phương pháp tổ chức tệp bối cảnh không có lỗi hạ tầng."
+  },
+  {
+    "id": "skills/brand-identity-factory",
+    "capability": [
+      "content-writing",
+      "design-ui"
+    ],
+    "use_when": "Dùng khi cần chuỗi câu lệnh tạo trọn bộ nhận diện thương hiệu từ chiến lược khách hàng tên gọi đến thiết kế và nội dung",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "cao",
+    "evidence": "Chuỗi 8 prompt chạy tuần tự biến 1 câu mô tả doanh nghiệp thành trọn bộ nhận diện thương hiệu",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì chuỗi câu lệnh chạy trực tiếp trong ngữ cảnh tác nhân."
+  },
+  {
+    "id": "skills/claude-code-thoi-quen-boris-cherny",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tham khảo các thói quen và phương pháp làm việc hiệu quả với tác nhân lập trình dòng lệnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "File này gộp cả hai thành 1 bộ thói quen dùng được ngay.",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence là câu giới thiệu tài liệu tổng hợp; skip_if unknown."
+  },
+  {
+    "id": "skills/claude-dashboards-motion",
+    "capability": [
+      "data-dashboard",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần xây dựng bảng điều khiển trực quan từ dữ liệu hoặc tạo video hoạt họa giải thích bằng mã nguồn",
+    "skip_if": "Bỏ qua nếu tài khoản Claude chưa đăng ký gói trả phí Team hoặc Enterprise để mở tính năng Motion",
+    "adoption": "can-khoa",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "data-dashboard",
+    "confidence": "vua",
+    "evidence": "**Dashboards**: hỏi bằng tiếng thường, Claude nối vào kho dữ liệu",
+    "evidence_skip": "Điểm cần nhớ: **Motion chỉ có ở gói Team và Enterprise**, Dashboards cho gói trả phí.",
+    "ly_do_doi": "Giữ skip_if do yêu cầu cấp độ tài khoản Claude Team/Enterprise trả phí rõ ràng."
+  },
+  {
+    "id": "skills/content-analysis",
+    "capability": [
+      "content-writing",
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần khung phân tích chuyên sâu nội dung bài viết video hoặc tài liệu theo sáu lăng kính phản biện",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "vua",
+    "evidence": "Khung phân tích bài viết/video/podcast theo 6 \"lens\" khác nhau",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì hướng dẫn chọn lens phù hợp là bước sử dụng."
+  },
+  {
+    "id": "skills/data-analyzer",
+    "capability": [
+      "data-dashboard",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần quy trình phân tích dữ liệu từ kiểm tra chất lượng đến thống kê và xác minh số liệu trước khi kết luận",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "data-dashboard",
+    "confidence": "cao",
+    "evidence": "Khung phân tích data (CSV/spreadsheet/JSON) đi từ câu hỏi rõ ràng → kiểm tra chất lượng data → thống kê đáng tin",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì các bước phân tích thực thi trong phiên làm việc."
+  },
+  {
+    "id": "skills/domain-name-brainstormer",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần sáng tạo và kiểm tra khả năng đăng ký thực tế của tên miền qua giao thức dữ liệu đăng ký không cần khóa API",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "cao",
+    "evidence": "Sinh 15-30 tên miền khả dụng cho brand/sản phẩm mới theo brief (mục đích, tone, TLD ưu tiên)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì kịch bản Python kiểm tra trực tiếp qua RDAP không cần khóa API."
+  },
+  {
+    "id": "skills/gemini-video-content-kit",
+    "capability": [
+      "prompt-skill-library",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần bộ câu lệnh lên kế hoạch kịch bản ý tưởng hình ảnh và nội dung chú thích cho video đa nền tảng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "Bộ 7 prompt độc lập (không cần chạy tuần tự) dùng Gemini/Claude để lên toàn bộ phần \"chữ\" của 1 video: kịch bản",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý đây là bộ prompt lập kế hoạch không phải công cụ cắt dựng là phạm vi nội dung."
+  },
+  {
+    "id": "skills/genmedia-labs-runcomfy",
+    "capability": [
+      "image-generation",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng định tuyến tác nhân tự động chọn mô hình hình ảnh và video phù hợp theo mục đích",
+    "skip_if": "Bỏ qua nếu chưa có tài khoản RunComfy có số dư tín dụng để chi trả theo lượt yêu cầu",
+    "adoption": "can-khoa",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "cao",
+    "evidence": "Bộ skill router thông minh cho RunComfy — tự chọn đúng model AI (ảnh/video/nhạc/edit) theo ý định người dùng",
+    "evidence_skip": "Cần tài khoản RunComfy + trả phí theo request (không free).",
+    "ly_do_doi": "Giữ skip_if do yêu cầu tài khoản RunComfy có trả phí theo yêu cầu."
+  },
+  {
+    "id": "skills/i-have-adhd",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần chỉ dẫn tác nhân lập trình phản hồi ngắn gọn đi thẳng vào hành động và theo dõi tiến độ từng bước",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "Skill nhỏ nhưng viral (26.3k star) ép AI coding agent trả lời kiểu \"đưa hành động trước, giải thích sau\"",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì câu lệnh hệ thống áp dụng trực tiếp không điều kiện."
+  },
+  {
+    "id": "skills/just-scrape",
+    "capability": [
+      "web-research",
+      "browser-automation"
+    ],
+    "use_when": "Dùng khi cần công cụ dòng lệnh trích xuất dữ liệu trang web bằng lệnh tự nhiên dựa trên nền tảng trí tuệ nhân tạo",
+    "skip_if": "Bỏ qua nếu tài khoản ScrapeGraphAI không còn hạn mức tín dụng để thực hiện trích xuất dữ liệu",
+    "adoption": "can-khoa",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "web-scraper",
+    "confidence": "cao",
+    "evidence": "CLI scrape/extract/search/crawl/monitor cho AI agent, chạy bằng lệnh tự nhiên qua ScrapeGraphAI backend",
+    "evidence_skip": "Trả phí theo credit ScrapeGraphAI, không free — cân đối lượng gọi khi research nhiều tool 1 lúc.",
+    "ly_do_doi": "Sửa capability hợp lệ (bỏ scraping); giữ skip_if do yêu cầu hạn mức credit API."
+  },
+  {
+    "id": "skills/kpi-dashboard-creator",
+    "capability": [
+      "data-dashboard",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần thiết kế bảng điều khiển chỉ số kinh doanh tập trung vào việc ra quyết định hành động",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "data-dashboard",
+    "confidence": "cao",
+    "evidence": "nên làm gì tiếp — thay vì nhồi hết mọi số liệu có sẵn lên màn hình cho đẹp.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì việc xác định metric contract là bước thiết kế."
+  },
+  {
+    "id": "skills/natural-writing",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bảng tiêu chí loại bỏ các cấu trúc văn phong rập khuôn sáo rỗng để văn bản tự nhiên hơn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "Checklist cụ thể để sửa mọi đoạn text (script video, bài .md trong kho, caption, email) khỏi bị \"mùi AI\"",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì bộ quy tắc áp dụng cho mọi tác vụ biên tập văn bản."
+  },
+  {
+    "id": "skills/ponytail",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần bộ quy tắc thúc đẩy tác nhân lập trình ưu tiên các giải pháp tối giản sẵn có và tránh thiết kế quá mức",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "nhồi vào AI coding agent tính cách \"ông senior lười biếng nhất công ty\"",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì bộ quy tắc prompt nhúng thẳng vào chỉ dẫn hệ thống."
+  },
+  {
+    "id": "skills/skill-seekers",
+    "capability": [
+      "prompt-skill-library",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần tự động trích xuất quy trình và quy tắc từ tài liệu hoặc kho mã nguồn để đóng gói thành kỹ năng chuẩn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "Đúng cái việc Nobitano đang làm tay ở Bước 1-3 của Quy trình kho, giờ có khung sẵn để bán tự động hóa.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy trình meta-skill thực thi qua các bước đọc tài liệu chuẩn."
+  },
+  {
+    "id": "skills/small-business-skills",
+    "capability": [
+      "productivity",
+      "crm-sales"
+    ],
+    "use_when": "Dùng khi cần gói quy trình điều hành tác nghiệp doanh nghiệp nhỏ tích hợp sẵn trong môi trường tác nhân lập trình",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "cao",
+    "evidence": "Mọi workflow bắt buộc dừng lại xin duyệt trước khi gửi/đăng/thanh toán — không có gì tự động chạy ngầm.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì yêu cầu dừng xin duyệt là chốt an toàn thao tác."
+  },
+  {
+    "id": "skills/social-media-skills",
+    "capability": [
+      "social-media",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng toàn diện cho chu trình sáng tạo nội dung mạng xã hội dựa trên phong cách thương hiệu thống nhất",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "vua",
+    "evidence": "Bộ skill mã nguồn mở (charlie947/social-media-skills, mở rộng thành social-media-skills/skills với 106 skill)",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là mệnh đề mô tả bộ kỹ năng; skip_if unknown."
+  },
+  {
+    "id": "skills/stickman-video-director",
+    "capability": [
+      "video-generation",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần kỹ năng biên kịch và phân cảnh tạo video người que hoạt hình ngắn kèm câu lệnh tạo hình ảnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "biến script/ý tưởng thành video người que 1 phút: hook + storyboard 6 cảnh + prompt sẵn cho Gemini Omni Flash.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì giới hạn 6 cảnh cố định là quy cách khuôn mẫu."
+  },
+  {
+    "id": "skills/summarization",
+    "capability": [
+      "content-writing",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần khung tóm tắt thông tin định dạng chuẩn hóa theo từng loại tài liệu nguồn và bảo toàn tính trung thực",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "vua",
+    "evidence": "Bộ khung chọn format tóm tắt phù hợp theo loại nguồn (báo cáo, cuộc họp, bài nghiên cứu, đa nguồn)",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là cụm danh từ mô tả bộ khung; skip_if unknown."
+  },
+  {
+    "id": "skills/voxstyle-prompt-engine",
+    "capability": [
+      "video-generation",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần câu lệnh hệ thống đa bước để sản xuất trọn bộ kịch bản và câu lệnh video phong cách phim tài liệu cắt dán",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "System prompt dạng state machine (10 bước) dán vào bất kỳ AI agent nào (Claude/ChatGPT/Gemini)",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì chạy trực tiếp trong phiên trò chuyện không đòi hỏi cài đặt riêng."
+  },
+  {
+    "id": "stacks/10-buoc-thiet-ke-agentic-ai",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần tài liệu tham khảo mười bước thiết kế hệ thống tác nhân tự chủ từ xác định mục tiêu đến vận hành an toàn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "vua",
+    "evidence": "Khung 10 bước đi từ ý tưởng tới triển khai an toàn cho 1 hệ thống Agentic AI",
+    "evidence_skip": "",
+    "ly_do_doi": "Hạ confidence vua do evidence là cụm danh từ giới thiệu khung tài liệu; skip_if unknown."
+  },
+  {
+    "id": "stacks/10-skill-bat-buoc-du-an-moi",
+    "capability": [
+      "prompt-skill-library",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng và nguyên tắc nền tảng nạp vào các dự án mới nhằm kế thừa kinh nghiệm phát triển",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "Mục tiêu: mọi project mới không phải \"tái phát minh\" các nguyên tắc cơ bản đã học được từ project trước.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu nêu mục tiêu tài liệu; skip_if unknown."
+  },
+  {
+    "id": "stacks/20-skill-nen-theo-loai-du-an",
+    "capability": [
+      "prompt-skill-library",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tuyển tập kỹ năng nền tảng có phân loại theo đặc thù dự án để lựa chọn linh hoạt theo yêu cầu",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "Không còn \"bundle cứng nạp hết\" — thành **bộ lọc theo đặc điểm dự án**.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu mô tả cải tiến cấu trúc; skip_if unknown."
+  },
+  {
+    "id": "stacks/antigravity-mirage-remotion-combo",
+    "capability": [
+      "video-render",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần quy trình phối hợp giữa điều phối tác nhân đồ họa chuyển động và kết xuất hàng loạt trên máy tính cá nhân",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Không thay thế pipeline VPS 24/7 hiện có, là quy trình bán tự động dùng khi ngồi máy cá nhân xử lý hậu kỳ kỹ hơn.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý chạy trên máy cá nhân là ngữ cảnh vận hành."
+  },
+  {
+    "id": "stacks/chuoi-9-buoc-viet-prompt",
+    "capability": [
+      "prompt-skill-library",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần chuỗi chín bước tinh chỉnh câu lệnh tuần tự để biến ý tưởng sơ khai thành yêu cầu tác vụ rõ ràng",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "Không bắt buộc chạy đủ cả 9 bước — chọn bước cần theo tình huống.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì các bước câu lệnh độc lập linh hoạt theo tình huống."
+  },
+  {
+    "id": "stacks/cinematic-techniques-ai-video",
+    "capability": [
+      "video-generation",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tài liệu so sánh và áp dụng kỹ thuật ngôn ngữ điện ảnh cho các mô hình tạo video trí tuệ nhân tạo",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "vua",
+    "evidence": "Công thức thuần đã gói trong designer-pro/cinematic-shot-prompt-core.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu giới thiệu gói công thức; skip_if unknown."
+  },
+  {
+    "id": "stacks/day-chuyen-4-agent-claude-code",
+    "capability": [
+      "agent-orchestration-memory",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần mô hình dây chuyền bốn tác nhân chuyên trách phân chia từ lập kế hoạch viết mã kiểm thử đến đánh giá",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "Mày duyệt đúng 1 lần ở khâu cuối, có thể để nó chạy qua đêm.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy trình chạy qua CLI của Claude Code sẵn có."
+  },
+  {
+    "id": "stacks/deepseek-harness-bo-tai-lieu",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần bộ tài liệu hướng dẫn học tập và tra cứu toàn diện để phát triển phần mở rộng cho DeepSeek Harness",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "Chạy `npx @deepseek-ai/dsh web` để test môi trường trước",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tài liệu tham khảo và lệnh thử nghiệm chạy tự do."
+  },
+  {
+    "id": "stacks/google-antigravity-notebooklm-combo",
+    "capability": [
+      "agent-orchestration-memory",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần mô hình phối hợp giữa nghiên cứu tổng hợp tài liệu và tác nhân lập trình tự động phát triển phần mềm",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "vua",
+    "evidence": "Vai trò: nhận PRD, tự scaffold app, viết code, chạy lệnh, ship ra sản phẩm chạy được.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu mô tả vai trò tác nhân; skip_if unknown."
+  },
+  {
+    "id": "stacks/motion-design-studio-claude-code",
+    "capability": [
+      "video-render",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tài liệu phân loại và lựa chọn các kho lưu trữ phục vụ thiết kế đồ họa chuyển động với trợ lý lập trình",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "vua",
+    "evidence": "10 repo còn lại để sau hoặc bỏ.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu nhận định phân loại repo; skip_if unknown."
+  },
+  {
+    "id": "stacks/remotion-template-factory",
+    "capability": [
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần thiết lập khuôn mẫu video dựng sẵn bằng mã nguồn để tự động kết xuất tệp video từ dữ liệu văn bản",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Xong 1 lần, dùng lại vô hạn cho content factory (Trùm Sân Bay, GMSP, ABTRIP...).",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì khuôn mẫu render tự động từ dữ liệu văn bản."
+  },
+  {
+    "id": "stacks/saas-stack-2026",
+    "capability": [
+      "reference",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần tài liệu tổng hợp hệ sinh thái công nghệ hoàn chỉnh để xây dựng sản phẩm phần mềm dịch vụ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "saas-boilerplate",
+    "confidence": "cao",
+    "evidence": "Được thiết kế bởi cộng đồng dev Việt, format infographic tiếng Việt dễ hiểu.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì tài liệu tham khảo kiến trúc công nghệ toàn diện."
+  },
+  {
+    "id": "stacks/second-brain-obsidian-claude",
+    "capability": [
+      "productivity",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần mô hình lưu trữ và tổ chức kiến thức cá nhân lâu dài bằng định dạng Markdown kết hợp trợ lý thông minh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "Vault Obsidian đóng vai trò \"bộ nhớ nháp\" trước khi vào kho chính thức.",
+    "evidence_skip": "",
+    "ly_do_doi": "Nâng confidence cao do evidence là câu trọn vẹn xác định vai trò kho dữ liệu; skip_if unknown."
+  },
+  {
+    "id": "stacks/small-business-cowork-skillpacks",
+    "capability": [
+      "prompt-skill-library",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng tự động hóa các tác vụ quản lý tài chính quan hệ khách hàng và văn phòng doanh nghiệp nhỏ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "vua",
+    "evidence": "Cài xong là có nguyên bộ automation cho sổ sách, CRM, content, email — không phải tự viết prompt từ đầu.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì lưu ý cần connector bên ngoài là hướng dẫn mở rộng tính năng tự động."
+  },
+  {
+    "id": "stacks/twenty-crm-abtrip-internal",
+    "capability": [
+      "crm-sales"
+    ],
+    "use_when": "Dùng khi cần đặc tả kỹ thuật và kịch bản triển khai hệ thống quản trị quan hệ khách hàng tùy biến cho doanh nghiệp nội bộ",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "vua",
+    "evidence": "CHƯA triển khai, CHƯA chạy thử — việc đầu tiên là cài theo deploy/twenty-abtrip rồi test PASS/FAIL ở mục 7.",
+    "evidence_skip": "",
+    "ly_do_doi": "Giữ confidence vua do evidence là câu mô tả tình trạng triển khai nội bộ; skip_if unknown."
+  },
+  {
+    "id": "stacks/video-factory-auto-router",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần hệ thống tự động phân loại chủ đề và định tuyến sang công cụ dựng video thích hợp từ dữ liệu đầu vào",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Biến 2 stack rời (Remotion, Vox Director) thành 1 công thức auto duy nhất.",
+    "evidence_skip": "",
+    "ly_do_doi": "skip_if để unknown vì quy trình kết hợp các công cụ dựng video có sẵn."
+  }
+]
