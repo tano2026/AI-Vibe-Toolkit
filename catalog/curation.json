@@ -3029,7 +3029,7 @@
     "openclaw"
    ],
    "needs": [
-    "gpu"
+    "unknown"
    ],
    "dup_group": "llm-gateway",
    "confidence": "vua",
@@ -9429,19 +9429,20 @@
     "voice-tts"
    ],
    "use_when": "Dùng khi cần tạo giọng đọc tiếng Việt tự nhiên và sao chép giọng nói chạy ngoại tuyến trên máy.",
-   "skip_if": "Bỏ qua nếu máy có cấu hình phần cứng yếu không có GPU hỗ trợ hoặc cần dịch vụ cloud API sẵn.",
+   "skip_if": "unknown",
    "adoption": "cai-ngay-duoc",
    "vessel_fit": [
     "hermes",
     "antigravity"
    ],
    "needs": [
-    "gpu"
+    "none"
    ],
    "dup_group": "vietnamese-tts",
    "confidence": "cao",
    "evidence": "TTS tiếng Việt on-device, clone giọng tức thời",
-   "curation_status": "da-doc-entry-goc"
+   "curation_status": "da-doc-entry-goc",
+   "evidence_skip": ""
   },
   "repos/yasgu": {
    "capability": [
