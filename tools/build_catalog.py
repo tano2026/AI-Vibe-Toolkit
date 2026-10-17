@@ -254,6 +254,14 @@ def main():
         for k in ("use_when", "skip_if", "adoption", "dup_group", "confidence", "evidence"):
             r[k] = c.get(k, "") if c else ""
         r["curation_status"] = c["curation_status"] if c else "chua-gan-nhan"
+    # Kết quả kiểm toán tự động (tools/audit_kho.py). Không có file thì để trống 2 cột cuối.
+    aud = {}
+    if os.path.exists("catalog/audit.json"):
+        aud = json.load(open("catalog/audit.json", encoding="utf-8")).get("items", {})
+    for r in rows:
+        a = aud.get(r["id"])
+        r["kiem_tu_dong"] = a["usable"] if a else ""
+        r["kiem_ly_do"] = ",".join(x["ma"] for x in a["ly_do"] if x["muc"] != "info") if a else ""
     bad = sorted({v for c in cur.values() for v in c["capability"]} - set(CAPABILITIES))
     if bad:
         sys.exit(f"curation.json có capability ngoài bảng 30 giá trị: {bad}")
