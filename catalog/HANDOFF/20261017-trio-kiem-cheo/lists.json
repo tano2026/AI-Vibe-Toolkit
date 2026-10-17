@@ -1,0 +1,98 @@
+{
+  "generated": "2026-10-17",
+  "rule": "xem muc 'Cach chon' trong TASK-*.md",
+  "pool_sizes": {
+    "deepseek": 38,
+    "openclaw": 376,
+    "hermes": 383
+  },
+  "lists": {
+    "deepseek": {
+      "main": [
+        "agents/sales-ceo/skills/forward-deployed-engineer-model",
+        "agents/trum-san-bay/skills/aviation-knowledge",
+        "agents/trum-san-bay/skills/brand-design-system",
+        "mcps/cloud-accounting-mcps",
+        "repos/500-ai-agents-projects",
+        "repos/ai-agents-for-beginners",
+        "repos/ai-engineering-from-scratch",
+        "repos/ai-travel-agent-templates",
+        "repos/aitoearn",
+        "repos/diffusiongemma",
+        "repos/learn-harness-engineering",
+        "repos/nanochat",
+        "repos/omnishow",
+        "repos/open-video-gen-models-2026",
+        "repos/seedance-2-5",
+        "agents/trum-san-bay/skills/brand-voice",
+        "repos/awesome-design-md",
+        "repos/animasyon-stil-katalogu",
+        "repos/awesome-gpt-image-2",
+        "stacks/ai-content-stack-viet"
+      ],
+      "reserve": [
+        "agents/infra-ops-agent/skills/agent-design-playbook",
+        "repos/claude-code-skills-list",
+        "stacks/ploy-ai"
+      ]
+    },
+    "openclaw": {
+      "main": [
+        "agents/sales-ceo/skills/negotiation-deal-structuring",
+        "agents/trum-san-bay/skills/reply-agent-prompt",
+        "mcps/firecrawl",
+        "mcps/meta-mcp-server",
+        "mcps/playwright",
+        "repos/agent-skills",
+        "repos/andrej-karpathy-skills",
+        "repos/browser-use",
+        "repos/files-to-prompt",
+        "repos/healthchecks",
+        "repos/lmcache",
+        "repos/odysseus",
+        "repos/pi-coding-agent",
+        "repos/ruview",
+        "repos/strix",
+        "repos/typesafe-jev",
+        "repos/web-research-mcp",
+        "skills/analytics-data-analysis",
+        "stacks/10-buoc-thiet-ke-agentic-ai",
+        "stacks/motion-design-studio-claude-code"
+      ],
+      "reserve": [
+        "mcps/mcp-video-gen",
+        "repos/impeccable",
+        "repos/worldmonitor"
+      ]
+    },
+    "hermes": {
+      "main": [
+        "agents/trum-san-bay/skills/affiliate-injector",
+        "agents/trum-san-bay/skills/social-publisher",
+        "mcps/filesystem",
+        "mcps/notebooklm-mcp-2026",
+        "mcps/pollinations-mcp",
+        "repos/agency-agents-app",
+        "repos/ai-shorts-generator-pipeline",
+        "repos/caveman",
+        "repos/crustc",
+        "repos/hallmark",
+        "repos/lottiefiles-motion-design-skill",
+        "repos/openreel-video",
+        "repos/paperclip",
+        "repos/sc-datav",
+        "repos/swarms",
+        "repos/turbovec",
+        "repos/videofy-minimal",
+        "skills/claude-code-thoi-quen-boris-cherny",
+        "skills/summarization",
+        "stacks/google-antigravity-notebooklm-combo"
+      ],
+      "reserve": [
+        "mcps/markitdown-mcp",
+        "repos/html-anything",
+        "repos/weknora"
+      ]
+    }
+  }
+}
