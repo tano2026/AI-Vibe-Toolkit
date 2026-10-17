@@ -1,0 +1,2095 @@
+[
+  {
+    "id": "mcps/framecraft",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/barty-motion-graphics",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/deepseek-r1-local",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/hyperframes-student-kit",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/meetily",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/omnivoice-studio",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/open-code-review-alibaba",
+    "capability": [
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần công cụ dòng lệnh đánh giá chất lượng mã nguồn kết hợp quy tắc kiểm định cố định với agent linh hoạt",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "code-review-skills",
+    "confidence": "cao",
+    "evidence": "Công cụ review code chạy CLI của Alibaba, vừa mã nguồn hoá — 2 năm dùng nội bộ cho hàng chục nghìn dev",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/openmontage",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần hệ thống sản xuất video đa agent mã nguồn mở kết hợp coding agent thành studio hoàn chỉnh",
+    "skip_if": "Bỏ qua nếu không có khóa API của mô hình ngôn ngữ lớn hoặc tài khoản ElevenLabs có hạn mức",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Hệ thống production video agentic đầu tiên mã nguồn mở.",
+    "evidence_skip": "- ElevenLabs free tier có giới hạn ký tự — cần plan trả phí để làm video dài",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do yêu cầu khóa API và tài khoản giọng đọc trả phí."
+  },
+  {
+    "id": "repos/openreel-video",
+    "capability": [
+      "video-render",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần trình dựng video đa rãnh chạy trực tiếp trên trình duyệt web sử dụng WebGPU và WebCodecs",
+    "skip_if": "Bỏ qua nếu cần một trình dựng video ổn định thay vì phiên bản thử nghiệm Beta đang phát triển",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "video-processing-tools",
+    "confidence": "vua",
+    "evidence": "Editor video chạy thẳng trên browser, bản thay thế mã nguồn mở cho CapCut — không cần cài app, không upload lên cloud",
+    "evidence_skip": "README tự ghi \"Status: Beta\" — repo mới, còn nhiều tính năng \"In Progress\"",
+    "ly_do_doi": "Đổi adoption thành can-ha-tang và bổ sung skip_if do dự án đang ở giai đoạn Beta chưa ổn định."
+  },
+  {
+    "id": "repos/pixelle-video",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần tạo video tự động từ chủ đề bao gồm viết kịch bản tạo ảnh lồng tiếng và ghép nhạc qua ComfyUI",
+    "skip_if": "Bỏ qua nếu không có GPU cục bộ và không có kinh phí chi trả API đám mây RunningHub và LLM",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Pixelle-Video tự viết kịch bản, sinh ảnh/video minh hoạ AI cho từng câu, lồng giọng đọc, thêm nhạc nền",
+    "evidence_skip": "bắt buộc dùng cloud (RunningHub cho ảnh, OpenAI/Qwen cho LLM) — mất phí",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và skip_if do hạ tầng không GPU bắt buộc dùng API cloud trả phí."
+  },
+  {
+    "id": "repos/short-video-factory",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính tự động ghép video ngắn quảng cáo hàng loạt từ tư liệu có sẵn",
+    "skip_if": "Bỏ qua nếu dự định đóng gói cung cấp dịch vụ mạng đóng mã nguồn do ràng buộc bản quyền AGPL-3.0",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "App desktop mã nguồn mở, 1 click ra video ngắn quảng cáo sản phẩm/nội dung đại chúng — AI viết văn án, chuyển giọng nói",
+    "evidence_skip": "- **License AGPL-3.0** — copyleft mạnh, khác hẳn MIT/Apache các tool khác trong kho.",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do ràng buộc giấy phép copyleft AGPL-3.0."
+  },
+  {
+    "id": "skills/claude-code-thoi-quen-boris-cherny",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tham khảo các thói quen và phương pháp làm việc hiệu quả với agent lập trình dòng lệnh",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "File này gộp cả hai thành 1 bộ thói quen dùng được ngay.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/content-research",
+    "capability": [
+      "web-research",
+      "ticketing-aviation"
+    ],
+    "use_when": "Dùng khi cần nghiên cứu chủ đề nội dung kiểm chứng sự thật về quy định hàng không và tìm kiếm câu chuyện thực tế",
+    "skip_if": "Bỏ qua nếu tài khoản Apify đã hết hạn mức sử dụng tín dụng hàng tháng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "researched-content-writing",
+    "confidence": "cao",
+    "evidence": "Tự động crawl Facebook Groups, TikTok trending, RSS hãng bay → tổng hợp danh sách chủ đề content mỗi tuần",
+    "evidence_skip": "- **Apify free tier:** 5 USD credit/tháng — đủ cho ~50 scraping runs",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do giới hạn credit của tài khoản Apify."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/video-renderer",
+    "capability": [
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần tự động ghép hình ảnh âm thanh giọng đọc và hiệu ứng chữ động thành video hoàn chỉnh",
+    "skip_if": "Bỏ qua nếu máy chủ chưa cài ffmpeg hoặc thiếu khóa API Anthropic để tạo mẫu kịch bản",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "vps",
+      "api-key"
+    ],
+    "dup_group": "html-video-renderer",
+    "confidence": "cao",
+    "evidence": "Nhận caption + topic → gen HTML template → HyperFrames render ra MP4 9:16 sẵn sàng đăng TikTok/Reels/Shorts.",
+    "evidence_skip": "\"x-api-key\": os.environ.get(\"ANTHROPIC_API_KEY\")",
+    "ly_do_doi": "Thêm needs api-key và cập nhật skip_if do yêu cầu cả ffmpeg lẫn khóa API Anthropic."
+  },
+  {
+    "id": "mcps/context7",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/agent-reach",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/api-mega-list",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/awesome-llm-apps",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần kho lưu trữ hơn 100 ứng dụng agent và truy xuất thông tin mã nguồn mở hoàn chỉnh để chạy thử nghiệm",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "cao",
+    "evidence": "Kho hơn 100 ứng dụng AI agent/RAG mã nguồn mở, làm sẵn end-to-end, clone về chạy được luôn",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/awesome-selfhosted",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/billionmail",
+    "capability": [
+      "email-outreach",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần nền tảng thư điện tử tiếp thị tự vận hành trên máy chủ riêng không tốn phí định kỳ hàng tháng",
+    "skip_if": "Bỏ qua nếu chưa có máy chủ ảo VPS và ngân sách duy trì hạ tầng gửi thư riêng",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "vps",
+      "tra-phi"
+    ],
+    "dup_group": "email-marketing-self-host",
+    "confidence": "cao",
+    "evidence": "Platform email marketing self-hosted hoàn chỉnh: mail server + newsletter + campaign",
+    "evidence_skip": "Mày tự host trên VPS của mình, có toàn quyền",
+    "ly_do_doi": "Cập nhật skip_if và evidence_skip do yêu cầu bắt buộc tự thuê hạ tầng máy chủ VPS."
+  },
+  {
+    "id": "repos/claude-motion",
+    "capability": [
+      "video-render",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần kỹ năng hướng dẫn tạo các hiệu ứng chuyển động mượt mà bằng mã nguồn giao diện web",
+    "skip_if": "Bỏ qua nếu sử dụng trong doanh nghiệp có quy mô vượt ngưỡng cho phép của giấy phép Remotion",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "motion-design",
+    "confidence": "vua",
+    "evidence": "Bộ công cụ motion cho coding agent của `whaleyxbt` (MIT).",
+    "evidence_skip": "- **Remotion:** README ghi miễn phí cho cá nhân và nhóm nhỏ, công ty trên ngưỡng cần license công ty",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do phụ thuộc Remotion có giấy phép thương mại riêng."
+  },
+  {
+    "id": "repos/claude-seo",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/clipify",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/codex-security",
+    "capability": [
+      "security-compliance"
+    ],
+    "use_when": "Dùng khi cần kiểm tra an toàn bảo mật quét lỗ hổng và rà soát mã độc trước khi triển khai phần mềm",
+    "skip_if": "Bỏ qua nếu không có khóa API để quét mã nguồn qua mô hình phân tích bảo mật",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "security-scanner",
+    "confidence": "cao",
+    "evidence": "CLI + SDK chính thức của OpenAI để tự động tìm/xác minh/vá lỗ hổng bảo mật trong code",
+    "evidence_skip": "quét **1.2 triệu commit** trong 30 ngày beta",
+    "ly_do_doi": "Thêm needs api-key do công cụ quét mã nguồn bảo mật dựa trên mô hình LLM."
+  },
+  {
+    "id": "repos/ecc",
+    "capability": [
+      "prompt-skill-library",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần bổ sung đội ngũ 68 agent chuyên trách và gần 300 kỹ năng chuẩn hóa cho Claude Code",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "cao",
+    "evidence": "ECC là plugin miễn phí (MIT) cài thêm vào Claude Code: 68 agent chuyên trách",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/ever-gauzy",
+    "capability": [
+      "crm-sales",
+      "productivity",
+      "database"
+    ],
+    "use_when": "Dùng khi cần nền tảng quản trị tổng thể doanh nghiệp mã nguồn mở tích hợp quản lý dự án nhân sự và quan hệ khách hàng",
+    "skip_if": "Bỏ qua nếu cần giải pháp mở cho mọi tính năng doanh nghiệp do giấy phép Community Edition phân tầng",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "docker",
+      "vps",
+      "tra-phi"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "cao",
+    "evidence": "Nền tảng quản lý doanh nghiệp mã nguồn mở (ERP/CRM/HRM/ATS/PM) all-in-one của Ever Co.",
+    "evidence_skip": "mặc định repo dùng \"Community Edition License\"",
+    "ly_do_doi": "Thêm needs tra-phi và skip_if do mô hình giấy phép phân tầng giới hạn tính năng trả phí."
+  },
+  {
+    "id": "repos/gods-eye-view",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/graphify",
+    "capability": [
+      "agent-orchestration-memory",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần chuyển đổi toàn bộ cấu trúc mã nguồn tài liệu và cơ sở dữ liệu thành đồ thị tri thức có thể truy vấn",
+    "skip_if": "Bỏ qua nếu cần trích xuất tài liệu ngữ nghĩa mà không có khóa API và hạn mức chi trả",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "Graphify biến cả folder code/SQL schema/docs/ảnh/video thành 1 knowledge graph truy vấn được",
+    "evidence_skip": "- **Cần API key cho phần semantic extraction** (docs/ảnh)",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do phần trích xuất ngữ nghĩa yêu cầu API key trả phí."
+  },
+  {
+    "id": "repos/head-of-content",
+    "capability": [
+      "web-research",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần kỹ năng tự động quét các bài viết lan truyền trên mạng xã hội bóc tách cấu trúc và lập kế hoạch nội dung",
+    "skip_if": "Bỏ qua nếu không có tài khoản trả phí và khóa API của Apify và TubeLab",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "cao",
+    "evidence": "nó tự quét Twitter/X, Instagram, YouTube, TikTok tìm bài/video đang viral vượt trội mức trung bình ngành",
+    "evidence_skip": "- Bắt buộc trả phí Apify + TubeLab mới chạy được — không có bản free-tier đủ dùng",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do bắt buộc có tài khoản trả phí dịch vụ cào dữ liệu."
+  },
+  {
+    "id": "repos/hermes-agent",
+    "capability": [
+      "agent-framework",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần khung agent tự học hỏi tích lũy kỹ năng qua từng phiên làm việc và điều phối tác vụ theo bảng công việc",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-framework-core",
+    "confidence": "cao",
+    "evidence": "Hermes Agent có **closed learning loop** — agent tạo skill từ kinh nghiệm, cải tiến skill trong lúc dùng",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/kokoro-82m",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/librechat",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/mem0",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/mirage-tesseract",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/motiondivision-motion",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/odysseus",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/omniroute",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/opencut",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/paperclip",
+    "capability": [
+      "agent-orchestration-memory",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần nền tảng quản lý đội ngũ agent AI theo mục tiêu kinh doanh và ngân sách cho doanh nghiệp",
+    "skip_if": "Bỏ qua nếu yêu cầu tính năng vận hành doanh nghiệp đã ổn định thay vì các tính năng đang beta",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "vua",
+    "evidence": "Platform quan ly doi AI agent cho doanh nghiep — mo nguon mo, 72K stars.",
+    "evidence_skip": "- Con moi (72K stars trong thoi gian ngan) — mot so tinh nang con beta",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do một số tính năng vẫn đang ở giai đoạn thử nghiệm beta."
+  },
+  {
+    "id": "repos/pycaps",
+    "capability": [
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần thư viện Python tạo phụ đề động tạo kiểu bằng CSS chạy ngoại tuyến trên máy tính",
+    "skip_if": "Bỏ qua nếu cần thư viện ổn định trên PyPI thay vì bản thử nghiệm alpha cài trực tiếp từ mã nguồn",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "video-processing-tools",
+    "confidence": "vua",
+    "evidence": "Thư viện Python tạo phụ đề động, style bằng CSS, cho video TikTok/Shorts/Reels",
+    "evidence_skip": "Repo đang ở giai đoạn **rất alpha** (\"very alpha stage\"), tự ghi rõ trong README — chưa publish lên PyPI",
+    "ly_do_doi": "Đổi adoption thành can-ha-tang và bổ sung skip_if do thư viện ở giai đoạn alpha chưa lên PyPI."
+  },
+  {
+    "id": "repos/stickman-studio",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần quy trình Python tự động từ kịch bản sinh ảnh nhân vật nhất quán tạo video và lồng tiếng",
+    "skip_if": "Bỏ qua nếu không có khóa API của mô hình ngôn ngữ lớn để tạo kịch bản và hoạt cảnh người que",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Repo (saiedpod-bot/Stickman-Studio) — pipeline Python full: script (Gemini) → ảnh nhân vật nhất quán (Imagen) → video",
+    "evidence_skip": "API key",
+    "ly_do_doi": "Thêm needs api-key do quy trình tạo video người que yêu cầu khóa API tạo kịch bản."
+  },
+  {
+    "id": "repos/supertonic",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/twenty-crm",
+    "capability": [
+      "crm-sales"
+    ],
+    "use_when": "Dùng khi cần hệ thống quản trị quan hệ khách hàng mã nguồn mở tự lưu trữ với quy trình linh hoạt và giao diện trực quan",
+    "skip_if": "Bỏ qua nếu đóng gói bán lại dạng dịch vụ đóng mã nguồn do ràng buộc bản quyền AGPLv3 và Enterprise",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "cao",
+    "evidence": "CRM mã nguồn mở, tự host được, kiểu \"Notion/Airtable gặp Salesforce\": object tuỳ biến, pipeline kéo-thả",
+    "evidence_skip": "1. **AGPLv3** — phần lớn code.",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do mã nguồn chứa thành phần AGPLv3 và Enterprise trả phí."
+  },
+  {
+    "id": "repos/ui-tars-desktop",
+    "capability": [
+      "browser-automation",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính điều khiển giao diện đồ họa và agent duyệt web đa phương thức",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "browser-automation-framework",
+    "confidence": "cao",
+    "evidence": "Desktop app (Mac/Win/Linux) dùng model UI-TARS để điều khiển giao diện đồ họa.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/video-use",
+    "capability": [
+      "video-render",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần dựng video từ các đoạn tư liệu thô dựa trên văn bản phiên âm qua giao tiếp ngôn ngữ tự nhiên",
+    "skip_if": "Bỏ qua nếu không có khóa API của mô hình ngôn ngữ lớn để phân tích kịch bản video",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Dựng video từ footage thô bằng Claude Code, chỉ cần chat bằng tiếng tự nhiên",
+    "evidence_skip": "LLM reasoning",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do quy trình yêu cầu LLM reasoning."
+  },
+  {
+    "id": "repos/videofy-minimal",
+    "capability": [
+      "video-generation",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần quy trình tự động chuyển đổi tin tức thành video ngắn kèm kịch bản giọng đọc và kết xuất Remotion",
+    "skip_if": "Bỏ qua nếu không có khóa API trả phí của OpenAI và ElevenLabs để tạo nội dung và giọng đọc",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "vua",
+    "evidence": "Tool local bien bai bao/tin tuc thanh video ngan cho man hinh digital signage",
+    "evidence_skip": "- Diem yeu: can 2 API key tra phi (OpenAI + ElevenLabs) moi khi chay",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do bắt buộc có 2 khóa API trả phí."
+  },
+  {
+    "id": "repos/vimax",
+    "capability": [
+      "video-generation",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần hệ thống đa agent tự động thực hiện toàn bộ quy trình viết kịch bản đạo diễn và tạo video",
+    "skip_if": "Bỏ qua nếu không có GPU tối thiểu 24GB VRAM hoặc không có khóa API dịch vụ video đám mây",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu",
+      "api-key"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "Agent AI tạo video hoàn chỉnh từ đầu đến cuối: tự viết kịch bản, tự đạo diễn, tự sản xuất và generate video",
+    "evidence_skip": "Cần GPU 24GB+ hoặc dùng API của CogVideo/Wan",
+    "ly_do_doi": "Thêm needs gpu, api-key và skip_if do yêu cầu GPU 24GB+ hoặc API bên ngoài."
+  },
+  {
+    "id": "repos/voice-pro",
+    "capability": [
+      "voice-tts",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần giao diện web tổng hợp xử lý giọng nói gồm phiên âm tách lời dịch thuật và nhân bản giọng",
+    "skip_if": "Bỏ qua nếu không có GPU rời để xử lý âm thanh hoặc tích hợp phần mềm đóng do giấy phép GPL-3.0",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "tts-voiceover",
+    "confidence": "cao",
+    "evidence": "WebUI Gradio \"tất cả trong 1\" cho xử lý giọng nói — transcribe (Whisper), tách vocal (Demucs), dịch 100+ ngôn ngữ",
+    "evidence_skip": "Cần GPU để chạy nhanh (voice cloning + Whisper nặng) — có báo cáo chạy tốt trên RTX 3080.",
+    "ly_do_doi": "Thêm needs gpu và skip_if do yêu cầu GPU rời và ràng buộc giấy phép GPL-3.0."
+  },
+  {
+    "id": "repos/worldmonitor",
+    "capability": [
+      "data-dashboard",
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần bảng điều khiển theo dõi tin tức tình báo thời gian thực từ nhiều nguồn dữ liệu toàn cầu",
+    "skip_if": "Bỏ qua nếu phân phối lại bản sửa đổi dưới dạng dịch vụ mạng đóng mã nguồn do ràng buộc AGPL-3.0",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "data-dashboard",
+    "confidence": "vua",
+    "evidence": "Dashboard tinh bao toan cau real-time — 500+ nguon tin, 15 category",
+    "evidence_skip": "- **License AGPL-3.0** - quan trong phai doc ky",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do ràng buộc giấy phép AGPL-3.0 khi cung cấp dịch vụ SaaS."
+  },
+  {
+    "id": "repos/x-research-skill",
+    "capability": [
+      "web-research",
+      "social-media"
+    ],
+    "use_when": "Dùng khi cần kỹ năng nghiên cứu tìm kiếm và trích xuất dữ liệu bài viết thảo luận trên mạng xã hội X cho agent",
+    "skip_if": "Bỏ qua nếu không có khóa API của X hoặc không sẵn sàng chi trả gói Basic 100 USD mỗi tháng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "content-marketing-stack",
+    "confidence": "vua",
+    "evidence": "X/Twitter research agent cho Claude Code và OpenClaw.",
+    "evidence_skip": "Điểm trừ: Cần X API key. Free tier rất giới hạn, Basic tier $100/tháng khá đắt.",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do yêu cầu API key X và chi phí trả phí hàng tháng."
+  },
+  {
+    "id": "skills/summarization",
+    "giu_nguyen": true
+  },
+  {
+    "id": "skills/voxstyle-prompt-engine",
+    "capability": [
+      "video-generation",
+      "content-writing"
+    ],
+    "use_when": "Dùng khi cần câu lệnh hệ thống đa bước để sản xuất trọn bộ kịch bản và câu lệnh video phong cách phim tài liệu cắt dán",
+    "skip_if": "Bỏ qua nếu không có khóa API ElevenLabs để thực hiện lồng tiếng theo mẫu phong cách",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "System prompt dạng state machine (10 bước) dán vào bất kỳ AI agent nào (Claude/ChatGPT/Gemini)",
+    "evidence_skip": "không cần API key riêng ngoài ElevenLabs đã có sẵn trong",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API ElevenLabs để lồng tiếng."
+  },
+  {
+    "id": "stacks/google-antigravity-notebooklm-combo",
+    "capability": [
+      "agent-orchestration-memory",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần mô hình phối hợp giữa nghiên cứu tổng hợp tài liệu và agent lập trình tự động phát triển phần mềm",
+    "skip_if": "Bỏ qua nếu muốn xây dựng quy trình ổn định lâu dài thay vì thử nghiệm với phiên bản beta",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "vua",
+    "evidence": "Vai trò: nhận PRD, tự scaffold app, viết code, chạy lệnh, ship ra sản phẩm chạy được.",
+    "evidence_skip": "Antigravity hiện là sản phẩm free/beta của Google",
+    "ly_do_doi": "Đổi adoption thành can-ha-tang và bổ sung skip_if do nền tảng đang ở giai đoạn thử nghiệm beta."
+  },
+  {
+    "id": "stacks/motion-design-studio-claude-code",
+    "capability": [
+      "video-render",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tài liệu phân loại và lựa chọn các kho lưu trữ phục vụ thiết kế đồ họa chuyển động với coding agent",
+    "skip_if": "Bỏ qua nếu sử dụng cho doanh nghiệp vượt quy mô cho phép của Remotion mà chưa mua bản quyền",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "vua",
+    "evidence": "10 repo còn lại để sau hoặc bỏ.",
+    "evidence_skip": "Remotion | License riêng: cá nhân/nhóm nhỏ miễn phí, công ty trên ngưỡng cần license thương mại",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do phụ thuộc Remotion với ràng buộc thương mại doanh nghiệp."
+  },
+  {
+    "id": "stacks/twenty-crm-abtrip-internal",
+    "capability": [
+      "crm-sales"
+    ],
+    "use_when": "Dùng khi cần đặc tả kỹ thuật và kịch bản triển khai hệ thống quản trị quan hệ khách hàng tùy biến cho doanh nghiệp nội bộ",
+    "skip_if": "Bỏ qua nếu cần sử dụng tính năng doanh nghiệp Enterprise mà chưa mua giấy phép thương mại riêng",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "crm-connector",
+    "confidence": "vua",
+    "evidence": "CHƯA triển khai, CHƯA chạy thử — việc đầu tiên là cài theo deploy/twenty-abtrip rồi test PASS/FAIL ở mục 7.",
+    "evidence_skip": "Không dùng các file/tính năng đánh dấu `@license Enterprise`",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do các tính năng nâng cao yêu cầu giấy phép Enterprise."
+  },
+  {
+    "id": "stacks/video-factory-auto-router",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/research-synthesis",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/research-analytics-pro/skills/social-listening-research",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/sales-ceo/skills/gtm-strategy",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/compliance-gate",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/shorts-affiliate-system/skills/trend-scout",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/trum-san-bay/skills/api-error-handler",
+    "giu_nguyen": true
+  },
+  {
+    "id": "agents/trum-san-bay/skills/content-strategy-ideation",
+    "capability": [
+      "content-writing",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần lập kế hoạch nội dung tuần phân bổ tỷ lệ các trụ cột chủ đề và xây dựng phễu chuyển đổi dịch vụ",
+    "skip_if": "Bỏ qua nếu không có khóa API Anthropic để chạy mô hình sinh ý tưởng nội dung",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "content-strategy-planning",
+    "confidence": "cao",
+    "evidence": "Nhận raw topics từ Research Agent → lọc, rank, gắn brief chi tiết → xuất ra 7 post plan cho tuần.",
+    "evidence_skip": "\"x-api-key\": os.environ.get(\"ANTHROPIC_API_KEY\")",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API Anthropic trong mã nguồn."
+  },
+  {
+    "id": "agents/trum-san-bay/skills/pipeline-dashboard",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/claude-ads",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/fal-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/filesystem",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/github-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/jaz-ai-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/markitdown-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/mcp-video-gen",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/minimax-mcp",
+    "capability": [
+      "voice-tts",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần tạo giọng đọc thuyết minh nhân bản giọng nói và tạo video từ mô tả văn bản bằng mô hình MiniMax",
+    "skip_if": "Bỏ qua nếu tài khoản MiniMax đã hết hạn mức tín dụng hoặc không muốn chi trả chi phí tạo video",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "tts-voiceover",
+    "confidence": "cao",
+    "evidence": "MCP server chính thức từ MiniMax — tích hợp text-to-speech, voice cloning, video generation, image generation",
+    "evidence_skip": "- **Điểm yếu:** Tốn credit (không free nhiều), video gen có delay vì async.",
+    "ly_do_doi": "Thêm needs tra-phi và bổ sung skip_if do dịch vụ tạo video tiêu tốn credit trả phí."
+  },
+  {
+    "id": "mcps/notebooklm-mcp-secure",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/perplexity",
+    "capability": [
+      "web-research"
+    ],
+    "use_when": "Dùng khi cần cho trợ lý tìm kiếm thông tin thời gian thực với phong cách tổng hợp và trích dẫn nguồn của Perplexity",
+    "skip_if": "Bỏ qua nếu không có khóa API Perplexity trả phí riêng để thực hiện tìm kiếm",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "web-search-api",
+    "confidence": "cao",
+    "evidence": "MCP chính thức của Perplexity — cho Claude gọi công cụ search real-time của Perplexity",
+    "evidence_skip": "- Cần API key trả phí riêng — thêm chi phí vận hành nếu chỉ dùng thay thế cho tính năng đã có sẵn",
+    "ly_do_doi": "Thêm needs tra-phi và bổ sung skip_if do yêu cầu API key trả phí riêng."
+  },
+  {
+    "id": "mcps/pollinations-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/taibu-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "mcps/tavily-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/500-ai-agents-projects",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/9router",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/agency-agents",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/ai-agents-for-beginners",
+    "capability": [
+      "reference",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần giáo trình 18 bài học từ Microsoft để học và chép các mẫu thiết kế kiến trúc agent thông minh",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-design-guide",
+    "confidence": "vua",
+    "evidence": "Đây là **giáo trình**, không phải thư viện hay tool để cài vào agent.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/ai-berkshire",
+    "capability": [
+      "finance-accounting",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần khung phân tích cổ phiếu và báo cáo tài chính mô phỏng phương pháp đầu tư giá trị kinh điển",
+    "skip_if": "Bỏ qua nếu không có khóa API của Anthropic để chạy mô phỏng hội đồng đầu tư",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "trading-agent-framework",
+    "confidence": "cao",
+    "evidence": "Thay vì đọc báo cáo tài chính hàng giờ, mày deploy agent AI phân tích theo đúng framework của các nhà đầu tư",
+    "evidence_skip": "export ANTHROPIC_API_KEY=your_key",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API Anthropic."
+  },
+  {
+    "id": "repos/ai-job-search",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/ai-travel-agent-templates",
+    "capability": [
+      "ticketing-aviation",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần 3 mẫu thiết kế trợ lý du lịch từ cơ bản đến nâng cao có ghi nhớ sở thích và phối hợp nhiều agent",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "",
+    "confidence": "vua",
+    "evidence": "3 cấp độ AI travel agent có sẵn trong `Shubhamsaboo/awesome-llm-apps` (175K sao)",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/anthropic-cybersecurity-skills",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/awesome-claude-skills",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/awesome-llm-apps-shortlist",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần danh mục rút gọn các ứng dụng agent học hỏi kiến trúc phù hợp trực tiếp với nhu cầu doanh nghiệp",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "awesome-catalog",
+    "confidence": "vua",
+    "evidence": "Đã clone toàn bộ repo, lọc qua 13 category / 100+ app.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/buzz",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/chattts",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/chatwoot",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/cinetic",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần khung kết hợp nhiều mô hình để tự động hóa quy trình dựng video quảng cáo hoặc giải thích",
+    "skip_if": "Bỏ qua nếu sử dụng trong doanh nghiệp có từ 4 người trở lên do ràng buộc bản quyền của Remotion",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "vua",
+    "evidence": "bắt agent **đạo diễn một phim ngắn** thay vì ghép component animation:",
+    "evidence_skip": "Remotion cần license nếu công ty ≥ 4 người.",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do engine Remotion giới hạn quy mô tổ chức."
+  },
+  {
+    "id": "repos/claude-code-router",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/claude-motion-design",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/claude-video",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/codex-plugin-cc",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/coolify",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/cth9191-animate",
+    "capability": [
+      "video-render",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần quy trình tạo video hoạt hình giải thích ngắn từ 30 đến 90 giây không cần phần mềm đồ họa",
+    "skip_if": "Bỏ qua nếu không có tài khoản và khóa API ElevenLabs trả phí để tạo giọng đọc thuyết minh",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "motion-design",
+    "confidence": "vua",
+    "evidence": "làm video hoạt hình ngắn **bằng một `<canvas>` duy nhất**, vẽ và chấm nhạc theo thủ tục",
+    "evidence_skip": "> ⚠️ Bước lồng tiếng cần ElevenLabs. Không đặt key trong repo, chỉ dùng biến môi trường.",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do phụ thuộc dịch vụ lồng tiếng ElevenLabs trả phí."
+  },
+  {
+    "id": "repos/cubesandbox",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/dify",
+    "capability": [
+      "agent-framework",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần nền tảng phát triển ứng dụng agent kết hợp quy trình RAG điều phối mô hình và giám sát vận hành",
+    "skip_if": "Bỏ qua nếu máy chủ ảo có dung lượng bộ nhớ dưới 4GB RAM khi tự lưu trữ",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "docker",
+      "vps"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "cao",
+    "evidence": "Production-ready platform build AI app và agent workflow — kết hợp RAG, LLM, tool calling, monitoring",
+    "evidence_skip": "Self-host cần ít nhất 4GB RAM — 8GB nếu chạy embedding local",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/ds2api",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/financial-services",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/funasr",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/google-timesfm",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/goose",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/gpt-crawler",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/hermes-jev-skills",
+    "capability": [
+      "agent-orchestration-memory",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần cầu nối tích hợp sẵn giữa các coding agent với hệ thống phản xạ tín hiệu điều khiển kiểm soát an toàn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "Bridge làm sẵn giữa Hermes/Claude Code/Codex với Jev (TypeSafe)",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/html-anything",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/hyperframes-session-story",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/impeccable",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/jcode",
+    "capability": [
+      "agent-framework",
+      "devops"
+    ],
+    "use_when": "Dùng khi cần khung điều phối lập trình tốc độ cao viết bằng Rust hỗ trợ xem sơ đồ trực tiếp và cộng tác nhiều agent",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-agent-cli",
+    "confidence": "cao",
+    "evidence": "jcode la 1 \"coding agent harness\" — tuc la lop giao dien + dieu phoi agent code",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/last30days",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/learn-harness-engineering",
+    "capability": [
+      "prompt-skill-library",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần khóa học thực hành 12 bài giảng để tự thiết kế khung điều khiển agent từ đầu đến triển khai",
+    "skip_if": "unknown",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-design-guide",
+    "confidence": "vua",
+    "evidence": "Khoa hoc project-based day tu 0 den 1 ve Harness Engineering cho AI coding agent",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/magika",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/marketingskills",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/markitdown",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/maxun",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/microsoft-presidio",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/mission-control",
+    "capability": [
+      "agent-orchestration-memory",
+      "data-dashboard"
+    ],
+    "use_when": "Dùng khi cần bảng điều khiển tập trung để quản lý đội ngũ agent theo dõi bảng việc và phê duyệt các hành động nhạy cảm",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "docker",
+      "vps"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "cao",
+    "evidence": "Dashboard điều phối AI agent fleet, xây RIÊNG cho OpenClaw Gateway — quản tổ chức/board/task/agent",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/moneyprinterturbo",
+    "capability": [
+      "video-generation",
+      "voice-tts"
+    ],
+    "use_when": "Dùng khi cần công cụ tự động hóa toàn bộ quy trình sản xuất video ngắn từ chủ đề kịch bản đến lồng tiếng và phụ đề",
+    "skip_if": "Bỏ qua nếu không có khóa API của nhà cung cấp mô hình ngôn ngữ lớn hoặc dịch vụ giọng đọc",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-short-video",
+    "confidence": "cao",
+    "evidence": "Tool tự động tạo short-form video từ topic → script → voiceover → subtitles → video hoàn chỉnh.",
+    "evidence_skip": "# Điền API keys trong config.toml",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API LLM và TTS."
+  },
+  {
+    "id": "repos/motion-graphics-skills",
+    "capability": [
+      "video-render",
+      "design-ui"
+    ],
+    "use_when": "Dùng khi cần bộ 15 kỹ năng cho coding agent để tạo đồ họa chuyển động và video giới thiệu sản phẩm bằng mã nguồn",
+    "skip_if": "Bỏ qua nếu tài khoản Claude Code không có quyền sử dụng mô hình Claude 3 Opus",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "claude-code-only"
+    ],
+    "dup_group": "motion-design",
+    "confidence": "vua",
+    "evidence": "15 skill cho Claude Code của Charlie Hills (`charlie947`) để dựng motion graphics \"launch-grade\" hoàn toàn bằng code",
+    "evidence_skip": "README yêu cầu chạy trên **Opus 5.5**",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/n8n-claw",
+    "capability": [
+      "agent-framework",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần xây dựng hệ thống agent tự vận hành bằng giao diện luồng công việc trực quan tự lưu trữ",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw",
+      "antigravity"
+    ],
+    "needs": [
+      "docker",
+      "vps"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "cao",
+    "evidence": "OpenClaw nhưng chạy bằng n8n — visual workflow, không cần terminal, self-hosted, kết nối Telegram/Slack",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/nanochat",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/narratoai",
+    "capability": [
+      "video-generation",
+      "video-render"
+    ],
+    "use_when": "Dùng khi cần tự động cắt ghép các đoạn nổi bật từ video dài và tạo thêm lời bình dẫn truyện bằng AI",
+    "skip_if": "Bỏ qua nếu không có khóa API của Google Gemini hoặc OpenAI để tạo nội dung",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "auto-short-video",
+    "confidence": "vua",
+    "evidence": "Repo ~10k sao giúp biến video dài thành video recap có lời dẫn (commentary) và cắt ghép tự động bằng AI",
+    "evidence_skip": "4. Điền API key vào `.env` (Gemini hoặc OpenAI key)",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu cấu hình khóa API Gemini hoặc OpenAI."
+  },
+  {
+    "id": "repos/ollama",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/omnishow",
+    "capability": [
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần nghiên cứu mô hình tạo video tương tác chi tiết giữa nhân vật và vật thể phục vụ học thuật",
+    "skip_if": "Bỏ qua nếu không có GPU mạnh chuyên dụng A100 để chạy mô hình nghiên cứu",
+    "adoption": "chi-tham-khao",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "vua",
+    "evidence": "Model video generation cua ByteDance, paper duoc accept tai ICML 2026 — tao video tuong tac nhan vat-vat the",
+    "evidence_skip": "Can GPU manh (paper-grade model thuong can A100 hoac tuong duong) — khong chay tot tren may thuong",
+    "ly_do_doi": "Thêm needs gpu, skip_if và adoption chi-tham-khao do yêu cầu GPU chuyên dụng A100."
+  },
+  {
+    "id": "repos/openclaw",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/openshorts",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/openwork-modelstudioai",
+    "capability": [
+      "agent-framework",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính làm giao diện tương tác và quản lý phiên làm việc cho ModelStudio của Alibaba Cloud",
+    "skip_if": "Bỏ qua nếu không có tài khoản Alibaba Cloud và khóa API ModelStudio Bailian",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "vua",
+    "evidence": "Desktop app local-first cho hệ sinh thái ModelStudio của Alibaba Cloud (Bailian) — GUI đi kèm cho ModelStudio CLI",
+    "evidence_skip": "1. Cần tài khoản Alibaba Cloud + API key từ ModelStudio (Bailian console) — bắt buộc",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do bắt buộc tài khoản Alibaba Cloud ModelStudio."
+  },
+  {
+    "id": "repos/openworker-andrew-ng",
+    "capability": [
+      "agent-framework",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần tham khảo kiến trúc trợ lý đồng nghiệp AI trên máy tính với cơ chế phân quyền 4 cấp độ rủi ro",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "agent-framework-core",
+    "confidence": "cao",
+    "evidence": "Desktop AI coworker mã nguồn mở của Andrew Ng (MIT license, ra mắt tháng 7/2026): giao 1 outcome (không phải 1 prompt)",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/page-agent",
+    "capability": [
+      "browser-automation",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần agent JavaScript điều khiển giao diện web bằng ngôn ngữ tự nhiên chạy trực tiếp trong trình duyệt",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "browser-automation-framework",
+    "confidence": "vua",
+    "evidence": "JavaScript in-page GUI agent của Alibaba — control bất kỳ web interface nào bằng ngôn ngữ tự nhiên",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/pi-coding-agent",
+    "capability": [
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần agent lập trình dòng lệnh tối giản có khả năng tự mở rộng bằng phần mở rộng TypeScript",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-agent",
+    "confidence": "vua",
+    "evidence": "pi-coding-agent — coding agent tối giản, tự mở rộng bằng chính nó",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/prime-agent",
+    "capability": [
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần agent lập trình mã nguồn mở chạy trong kernel IPython bền vững và tự hoàn thiện qua từng phiên",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-agent",
+    "confidence": "vua",
+    "evidence": "Coding agent open-source của PrimeIntellect-ai, khác biệt ở chỗ nó tự cải thiện bản thân qua session",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/printfilm-research-notes",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/public-apis",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/qdrant",
+    "capability": [
+      "database",
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần cơ sở dữ liệu véc-tơ hiệu năng cao tự lưu trữ bằng Rust phục vụ tìm kiếm ngữ nghĩa và bộ nhớ agent",
+    "skip_if": "unknown",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "docker"
+    ],
+    "dup_group": "vector-rag",
+    "confidence": "cao",
+    "evidence": "Vector database self-host hieu suat cao, viet bang Rust — luu du lieu dang embedding de tim kiem theo ngu nghia",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/remotion-superpowers",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/seedance-2-0-skill-os",
+    "capability": [
+      "prompt-skill-library",
+      "video-generation"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng chuyên biệt hướng dẫn agent viết câu lệnh đạo diễn điện ảnh cho mô hình Seedance",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "cao",
+    "evidence": "Bộ 23 skill module hóa dạy AI agent viết prompt cho Seedance 2.0 (model video AI của ByteDance",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/skillops",
+    "capability": [
+      "prompt-skill-library",
+      "productivity"
+    ],
+    "use_when": "Dùng khi cần công cụ dòng lệnh quản lý vòng đời kiểm tra định dạng và đồng bộ kỹ năng agent AI",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "vua",
+    "evidence": "CLI quan ly skill AI agent o quy mo to chuc — \"SkillOps la cai DevOps danh cho ha tang\".",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/skyvern",
+    "capability": [
+      "browser-automation"
+    ],
+    "use_when": "Dùng khi cần tự động hóa thao tác trình duyệt bằng mô hình thị giác AI thay vì cú pháp đường dẫn phần tử",
+    "skip_if": "Bỏ qua nếu không có khóa API của OpenAI hoặc tài khoản dịch vụ Skyvern Cloud",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "browser-automation-framework",
+    "confidence": "cao",
+    "evidence": "Tự động hoá trình duyệt bằng Vision LLM + computer vision thay vì XPath/DOM parsing truyền thống",
+    "evidence_skip": "> ⚠️ Cần cấu hình API key model (Vision LLM) trong `.env` trước khi chạy",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do bắt buộc khóa API OpenAI hoặc tài khoản Skyvern."
+  },
+  {
+    "id": "repos/srt-whiteboard-animation",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/stable-diffusion-3-medium",
+    "capability": [
+      "image-generation"
+    ],
+    "use_when": "Dùng khi cần mô hình tạo ảnh chất lượng cao mã nguồn mở phục vụ nhu cầu cá nhân và thương mại",
+    "skip_if": "Bỏ qua nếu máy tính không có GPU chuyên dụng với tối thiểu 8GB VRAM",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "gpu"
+    ],
+    "dup_group": "higgsfield-fal-genmedia",
+    "confidence": "vua",
+    "evidence": "model tạo ảnh chất lượng cao, dùng được cho personal và commercial.",
+    "evidence_skip": "Python (cần GPU 8GB+)",
+    "ly_do_doi": "Thêm needs gpu và skip_if do yêu cầu GPU tối thiểu 8GB VRAM."
+  },
+  {
+    "id": "repos/stitch-skills",
+    "capability": [
+      "design-ui",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần bộ kỹ năng của Google để tạo thiết kế giao diện và chuyển đổi sang thành phần React trong agent lập trình",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "Bộ skill chính thức của Google cho Stitch (tool AI vẽ UI của Google Labs)",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/supabase",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/supermemory",
+    "capability": [
+      "agent-orchestration-memory"
+    ],
+    "use_when": "Dùng khi cần động cơ bộ nhớ dài hạn cục bộ cho agent AI giúp ghi nhớ bối cảnh qua nhiều phiên làm việc",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "rag-memory",
+    "confidence": "cao",
+    "evidence": "Engine bộ nhớ dài hạn cho AI agent, chạy được hoàn toàn local, **có plugin chính thức cho OpenClaw**",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/superpowers",
+    "capability": [
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần phần bổ trợ giúp agent lập trình suy nghĩ lập kế hoạch và kiểm thử trước khi viết mã nguồn",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "Cài vào Claude Code — AI sẽ suy nghĩ, lên kế hoạch, test trước khi code, thay vì nhảy vào làm bừa.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "repos/swarms",
+    "capability": [
+      "agent-orchestration-memory",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần khung làm việc điều phối nhiều agent phối hợp theo các mô hình kiến trúc phân cấp tuần tự hoặc song song",
+    "skip_if": "Bỏ qua nếu không có khóa API của nhà cung cấp mô hình ngôn ngữ lớn như Anthropic hoặc OpenAI",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "agent-workflow-platform",
+    "confidence": "vua",
+    "evidence": "Framework điều phối đa agent trưởng thành nhất đã research trong phiên này",
+    "evidence_skip": "2. Cấu hình `.env`: `ANTHROPIC_API_KEY=...` (xác nhận có support thẳng, không chỉ OpenAI)",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu cấu hình khóa API mô hình ngôn ngữ lớn."
+  },
+  {
+    "id": "repos/system-prompts-ai",
+    "capability": [
+      "reference",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tham khảo cấu trúc câu lệnh hệ thống và ràng buộc hành vi từ các công cụ lập trình thực tế",
+    "skip_if": "Bỏ qua nếu tái phân phối hoặc thương mại hóa nội dung trích xuất do ràng buộc giấy phép GPL-3.0",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "vua",
+    "evidence": "Kho system prompt bị leak/công bố của 25+ công cụ AI coding thật",
+    "evidence_skip": "- Repo dạng GPL-3.0 — cân nhắc điều khoản license nếu định dùng lại nội dung",
+    "ly_do_doi": "Bổ sung skip_if và evidence_skip do kho lưu trữ áp dụng giấy phép GPL-3.0."
+  },
+  {
+    "id": "repos/toonflow",
+    "capability": [
+      "video-generation",
+      "image-generation"
+    ],
+    "use_when": "Dùng khi cần ứng dụng máy tính chuyển đổi kịch bản văn bản thành phim hoạt hình ngắn tự động",
+    "skip_if": "Bỏ qua nếu không có khóa API và ngân sách trả phí cho dịch vụ tạo ảnh FLUX hoặc Stable Diffusion",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "auto-video-pipeline",
+    "confidence": "cao",
+    "evidence": "AI viết kịch bản, tạo storyboard, generate character và video.",
+    "evidence_skip": "- Cần API key cho image/video generation (FLUX, SD, hoặc các model tương thích) — đây là chi phí chính",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do yêu cầu khóa API và chi phí tạo ảnh tạo video."
+  },
+  {
+    "id": "repos/trek",
+    "capability": [
+      "backend",
+      "front-end"
+    ],
+    "use_when": "Dùng khi cần ứng dụng tự lưu trữ lập kế hoạch chuyến đi hỗ trợ cộng tác thời gian thực bản đồ và theo dõi ngân sách",
+    "skip_if": "Bỏ qua nếu không có khóa API Google Maps đã kích hoạt đầy đủ các quyền bản đồ cần thiết",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "saas-boilerplate",
+    "confidence": "cao",
+    "evidence": "Self-hosted trip planner với real-time collaboration, interactive maps, budget tracker, packing lists, PWA support",
+    "evidence_skip": "- Google Maps API key cần bật: Maps JavaScript API, Places API, Directions API",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API Google Maps tích hợp."
+  },
+  {
+    "id": "repos/turbovec",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/typesafe-jev",
+    "capability": [
+      "agent-framework",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần mô hình phản xạ ra quyết định có cấu trúc siêu nhanh với chi phí thấp trong vòng lặp agent",
+    "skip_if": "Bỏ qua nếu chưa được cấp quyền truy cập danh sách chờ và khóa API sớm của TypeSafe Jev",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "agent-framework-core",
+    "confidence": "vua",
+    "evidence": "trả về quyết định có cấu trúc (Choice/Score/Boolean) kèm xác suất/độ tin cậy.",
+    "evidence_skip": "2. Set API key (hiện có waitlist truy cập sớm, cần đăng ký):",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do dịch vụ đang ở giai đoạn waitlist cần cấp API key."
+  },
+  {
+    "id": "repos/vectcutapi",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/vercel-ai-sdk",
+    "capability": [
+      "front-end",
+      "backend"
+    ],
+    "use_when": "Dùng khi cần bộ công cụ TypeScript thống nhất để tích hợp luồng phản hồi truyền trực tiếp và gọi hàm từ mô hình AI",
+    "skip_if": "Bỏ qua nếu không có khóa API của các nhà cung cấp mô hình ngôn ngữ lớn được tích hợp",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "coding-workflow-frameworks",
+    "confidence": "cao",
+    "evidence": "Bộ SDK thống nhất để gọi nhiều model AI khác nhau (OpenAI, Claude, Gemini...) ngay trong app React/Next.js",
+    "evidence_skip": "- Cần API key riêng cho từng provider dùng",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API của từng provider."
+  },
+  {
+    "id": "repos/vibe-trading",
+    "capability": [
+      "productivity",
+      "agent-framework"
+    ],
+    "use_when": "Dùng khi cần hệ thống agent đa luồng hỗ trợ phân tích định lượng và quản trị rủi ro giao dịch tài chính",
+    "skip_if": "Bỏ qua nếu không có khóa API của sàn giao dịch hỗ trợ giao dịch thật và quyền giao dịch an toàn",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "financial-analysis",
+    "confidence": "vua",
+    "evidence": "Personal AI trading agent — \"one command empowers your agent with comprehensive trading capabilities.\"",
+    "evidence_skip": "- Live trading (Binance, Alpaca) can API key co quyen trading",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do yêu cầu khóa API sàn giao dịch có quyền trading."
+  },
+  {
+    "id": "repos/web-research-mcp",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/whisper",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/yue2-studio",
+    "giu_nguyen": true
+  },
+  {
+    "id": "repos/ziwei-doushu",
+    "capability": [
+      "front-end",
+      "reference"
+    ],
+    "use_when": "Dùng khi cần ứng dụng web Next.js kèm tập dữ liệu lá số mẫu để xây dựng sản phẩm tính toán tử vi",
+    "skip_if": "Bỏ qua nếu không có khóa API của mô hình ngôn ngữ lớn để thực hiện luận giải lá số",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key"
+    ],
+    "dup_group": "tu-vi-astrology",
+    "confidence": "vua",
+    "evidence": "Web app Next.js đầy đủ + dataset 518,400 lá số mẫu cho Tử Vi Đẩu Số, build trên chính iztro",
+    "evidence_skip": "điền API key LLM của mày vào",
+    "ly_do_doi": "Thêm needs api-key và bổ sung skip_if do cần khóa API LLM riêng để luận giải lá số."
+  },
+  {
+    "id": "skills/bo-nao-4-file-claude",
+    "capability": [
+      "agent-orchestration-memory",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần thiết lập cấu trúc 4 tệp bối cảnh vai trò và bộ nhớ để duy trì cách làm việc nhất quán cho agent",
+    "skip_if": "unknown",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "coding-workflow-skills",
+    "confidence": "cao",
+    "evidence": "dựng cho Claude 4 thứ để nó không phải học lại bối cảnh mỗi lần mở chat mới.",
+    "evidence_skip": "",
+    "ly_do_doi": "Chuẩn hóa thuật ngữ use_when (tác nhân -> agent, trợ lý lập trình -> coding agent, số thành chữ số)."
+  },
+  {
+    "id": "skills/brand-identity-factory",
+    "giu_nguyen": true
+  },
+  {
+    "id": "skills/domain-name-brainstormer",
+    "giu_nguyen": true
+  },
+  {
+    "id": "skills/gemini-video-content-kit",
+    "giu_nguyen": true
+  },
+  {
+    "id": "skills/stickman-video-director",
+    "giu_nguyen": true
+  },
+  {
+    "id": "stacks/cinematic-techniques-ai-video",
+    "capability": [
+      "video-generation",
+      "prompt-skill-library"
+    ],
+    "use_when": "Dùng khi cần tài liệu so sánh và áp dụng kỹ thuật ngôn ngữ điện ảnh cho các mô hình tạo video AI",
+    "skip_if": "Bỏ qua nếu không có tài khoản fal.ai có sẵn hạn mức tín dụng để chạy các công cụ tạo video",
+    "adoption": "cai-ngay-duoc",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "api-key",
+      "tra-phi"
+    ],
+    "dup_group": "branding-skills",
+    "confidence": "vua",
+    "evidence": "Công thức thuần đã gói trong designer-pro/cinematic-shot-prompt-core.",
+    "evidence_skip": "Phần chạy tool cần fal (tài khoản/credit), cần Claude Code",
+    "ly_do_doi": "Thêm needs api-key, tra-phi và bổ sung skip_if do yêu cầu tài khoản và credit fal.ai."
+  },
+  {
+    "id": "stacks/deepseek-harness-bo-tai-lieu",
+    "capability": [
+      "reference"
+    ],
+    "use_when": "Dùng khi cần bộ tài liệu hướng dẫn học tập và tra cứu toàn diện để phát triển phần mở rộng cho DeepSeek Harness",
+    "skip_if": "Bỏ qua nếu muốn triển khai ngay cho sản xuất mà không chấp nhận rủi ro từ bản developer preview",
+    "adoption": "can-ha-tang",
+    "vessel_fit": [
+      "claude-code",
+      "hermes",
+      "openclaw"
+    ],
+    "needs": [
+      "none"
+    ],
+    "dup_group": "design-md-reference",
+    "confidence": "cao",
+    "evidence": "Chạy `npx @deepseek-ai/dsh web` để test môi trường trước",
+    "evidence_skip": "- **dsh vẫn ở giai đoạn rc (developer preview)** — breaking changes liên tục",
+    "ly_do_doi": "Đổi adoption thành can-ha-tang và bổ sung skip_if do framework đang ở bản developer preview."
+  },
+  {
+    "id": "stacks/saas-stack-2026",
+    "giu_nguyen": true
+  },
+  {
+    "id": "stacks/second-brain-obsidian-claude",
+    "giu_nguyen": true
+  }
+]
