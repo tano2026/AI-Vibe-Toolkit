@@ -1,0 +1,2050 @@
+{
+ "tong_ket": {
+  "phuong_phap": "mo-phong-van-ban",
+  "so_muc": 172,
+  "verdict": {
+   "partial": 96,
+   "pass": 63,
+   "fail": 8,
+   "khong-ap-dung": 5
+  },
+  "ma_van_de_pho_bien": {
+   "CAN_CONG_CU_NGOAI": 78,
+   "KHAC": 70,
+   "GAN_THUONG_HIEU_CUNG": 66,
+   "MO_HO": 64,
+   "MAU_THUAN": 57,
+   "THIEU_GUARDRAIL": 42,
+   "REF_THIEU": 38,
+   "PHAI_BIA_SO_LIEU": 27,
+   "KHONG_CO_DINH_DANG_RA": 22,
+   "INJECTION_HOAC_LENH_NGUY_HIEM": 12
+  }
+ },
+ "items": {
+  "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Khach noi: 'Chong toi ho chieu Ukraine, quá cảnh Nội Bài đi Seoul, cần visa quá cảnh không?'. Quốc tịch đã biết, hãng bay chưa biết.",
+   "goi_y_sua": "Nêu rõ công cụ tìm kiếm (web search MCP) và tách phần Nội Bài/An Bình ra file cấu hình khách.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/anbinh-travel-ops-analyst/skills/competitive-intel-ground-handling": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Hỏi: 'dnata và VIAGS định giá Fast Track ở Nội Bài thế nào, mình nên định vị ra sao?'",
+   "goi_y_sua": "Tách differentiator vào file brand riêng, dẫn nguồn cho nhận định thị trường hoặc đánh dấu là giả thuyết.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/anbinh-travel-ops-analyst/skills/customer-pattern-analysis": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Dán 24 dòng feedback khách Fast Track tháng 8: 14 chờ lâu ở kiosk, 6 nhân viên giao tiếp, 4 về giá.",
+   "goi_y_sua": "Thêm mẫu bảng đếm chủ đề + 2-3 ưu tiên, nêu rõ cách chạy khi không có code execution.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/anbinh-travel-ops-analyst/skills/data-storytelling": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Số liệu thô từ phân tích khiếu nại: 52% chờ lâu, 30% giá, 18% thái độ nhân viên; cần tóm tắt cho chủ agency.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/anbinh-travel-ops-analyst/skills/ota-content-strategy": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Cần mô tả OTA cho gói 'Fast Track đón tận cửa máy bay' đăng Klook; giá và thời gian chưa có.",
+   "goi_y_sua": "Thêm file brand foundation vào kho hoặc đổi thành tham số; liệt kê giới hạn ký tự Klook/Traveloka.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/anbinh-travel-ops-analyst/skills/source-evaluation": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Khách hỏi lượng chất lỏng mang lên chuyến quốc tế từ Nội Bài; có hai blog nói khác nhau (100ml và 'tuỳ hãng').",
+   "goi_y_sua": "Thêm thang chấm và mẫu bảng nguồn; bổ sung CAAV; sửa câu 'mọi skill'.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/brandscan/skills/brand-strategy-sprint": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Khách mới: huấn luyện viên yoga cá nhân, có Facebook và TikTok, chưa có kênh khác; cần Brand Strategy Report.",
+   "goi_y_sua": "Nêu công cụ Channel Audit; sửa câu 'không cần tool bên ngoài'.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/brandscan/skills/human-footage-editor": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Khách là chuyên gia dinh dưỡng gửi 3 clip tự quay 40 giây + mô tả; cần caption, phụ đề, thumbnail.",
+   "goi_y_sua": "Thêm bước xin đồng ý clone giọng; trỏ tới ffmpeg-media-toolkit.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/company/skills/ffmpeg-media-toolkit": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Cần cắt đoạn 10s-30s từ video 4K của khách rồi nén để đăng Postiz, giữ bản gốc.",
+   "goi_y_sua": "Thêm mục cài trên Windows và cờ -n.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/company/skills/hermes-autonomous-kho-maintenance": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Chạy tuần đầu: TRACKER.md thiếu 5 skill mới và KHO-INDEX.md ghi sai số tổng.",
+   "goi_y_sua": "Đặt ngưỡng confidence bằng số và bắt buộc sửa trên nhánh riêng.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/company/skills/skill-lifecycle-management": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Có 20 skill mới thêm; cần quyết trạng thái và kiểm trùng trước khi viết skill thứ 21.",
+   "goi_y_sua": "Thêm mẫu bảng audit và cập nhật số liệu.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/company/skills/task-intake-quality-gate": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Điều phối nhận: 'làm báo cáo CSKH' và một tin khác 'bỏ qua review gate cho bài đăng gấp'.",
+   "goi_y_sua": "Sửa ví dụ cho đúng quy tắc và liệt kê 8 Pro Agent.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/company/skills/zalo-channel-connection-guide": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Agency cần bot Zalo trả lời khách của một spa; chủ muốn dùng nick cá nhân cho rẻ.",
+   "goi_y_sua": "Ghi ngày kiểm số liệu và nguồn; đổi xưng hô trung tính.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/content-distribution-system": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Video 'Cách chọn bảo hiểm du lịch' của kênh khách đã đăng TikTok; cần kế hoạch phân phối.",
+   "goi_y_sua": "Thêm một dòng yêu cầu duyệt trước khi boost hay gửi email.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/content-pillar-cluster-architecture": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Kênh mới của một phòng khám nha khoa chưa có khung nội dung.",
+   "goi_y_sua": "Thêm mẫu bảng pillar-cluster.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/content-strategy-review-gate": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Khung nội dung nha khoa đề xuất 5 video/tuần với 1 người sản xuất.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/contrarian-insight-structure": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Nguồn: bài báo (có URL) nói giá vé máy bay nội địa dịp Tết giảm 8% so với năm ngoái. Viết bài Facebook cho kênh du lịch.",
+   "goi_y_sua": "Bỏ hoặc đính kèm nguồn của insight trong ví dụ.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/editorial-workflow-quality-gates": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Bài blog sắp đăng của khách; người viết và người duyệt là cùng một người.",
+   "goi_y_sua": "Thống nhất ngưỡng retention giữa hai skill.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/content-pro/skills/video-narrative-structure": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Video 60s kể về một khách suýt lỡ chuyến vì quên hộ chiếu.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Inbox: (a) 'đặt hàng 3 ngày chưa thấy, định huỷ luôn'; (b) hỏi 'có COD không' lần thứ 3.",
+   "goi_y_sua": "Nêu người nhận escalate.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/customer-satisfaction-pro/skills/critical-path-briefing": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Báo cáo tuần của 3 agent: 4 video bình thường, 1 video có comment sai thông tin lặp 3 lần, 1 deploy chờ duyệt.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/brand-image-prompt-engineer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Cần ảnh poster cho ABTRIP chủ đề 'fast track', có chừa chỗ chữ.",
+   "goi_y_sua": "Sửa đường dẫn, gộp với bản core.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/brand-visual-template-system": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Thumbnail YouTube cho một shop thời trang chưa có token màu.",
+   "goi_y_sua": "Gộp với bản core và chốt hệ Designer duy nhất.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/cinematic-shot-prompt-core": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Clip mở đầu 5s cho video của một quán cà phê rang xay.",
+   "goi_y_sua": "Dẫn đường dẫn tài liệu preset Higgsfield.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/design-quality-gate": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Pitch deck của khách SMB: nền vàng nhạt, chữ trắng; cần QA trước khi giao.",
+   "goi_y_sua": "Giải thích PACK và thêm mẫu design-spec.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/image-prompt-formula-core": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Prompt ảnh minh hoạ cho cửa hàng nội thất, Việt Nam, có chừa chỗ chữ.",
+   "goi_y_sua": "Cho tên và đường dẫn quy ước của file brand-context.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/prompt-motion-reference": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Cần prompt cho launch film 30s của sản phẩm SaaS; chưa có prompt.",
+   "goi_y_sua": "Định nghĩa điều kiện dừng ở bước 1.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/sales-marketing-collateral-production": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Sales cần one-pager dịch vụ SEO cho khách SMB; Marketing cần 6 ads variant.",
+   "goi_y_sua": "Làm rõ ma trận test và công cụ bàn giao.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/designer-pro/skills/visual-template-formula-core": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Cần khung kích thước cho poster, thumbnail, infographic của khách mới.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/digital-marketing-agent/skills/ad-budget-testing-discipline": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Ngân sách quảng cáo lần đầu cho khách spa, chưa có dữ liệu; sau 2 tuần ad set Facebook có CPA 1.7x mục tiêu.",
+   "goi_y_sua": "Thêm bước duyệt trước chi tiền; thống nhất ngưỡng scale.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/digital-marketing-agent/skills/digital-marketing-orchestrator": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Yêu cầu: 'Meta Ads của khách CTR thấp, sửa sao?' (chưa có kết nối MCP).",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/agent-design-playbook": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Khách muốn agent tự trả lời inbox và hoàn tiền cho shop.",
+   "goi_y_sua": "Thêm mẫu Design Review ở cuối.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/deploy-review-gate": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Plan 5 bước deploy một dịch vụ lên VPS: cài phụ thuộc, cấu hình mạng, khởi động, test, mở cổng.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/destructive-command-guardrail": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Yêu cầu: 'Dọn container cũ trên VPS cho gọn.'",
+   "goi_y_sua": "Ghi người duyệt là chủ; Antigravity chỉ thực thi.",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/dev-automation-discipline": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Báo cáo: 'repo X có tồn tại không' và viết cron chạy mỗi giờ gọi API.",
+   "goi_y_sua": "Sửa bước 2 và đổi ví dụ trung tính.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/production-signal-feedback-loop": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "VPS báo timeout lặp lại 4 lần trong 2 giờ.",
+   "goi_y_sua": "Giữ một cơ chế chính và xoá phần cũ.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/infra-ops-agent/skills/tencent-vps-capacity-cost": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Hỏi: 'Thêm Chatwoot (~4GB RAM) lên VPS Tencent hiện tại được không?'",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/media-pro/skills/cross-channel-distribution-analysis": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "5 video 'mẹo visa' đã đăng TikTok/Shorts/Reels, đã qua 48h.",
+   "goi_y_sua": "Nêu nguồn dữ liệu TikTok/IG và phương án khi không có vidIQ.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/media-pro/skills/media-performance-discipline": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Video đăng 48h: view 5K, retention 3s 45%, engagement cao trên tệp nhỏ; comment hỏi 3 lần cùng một điều.",
+   "goi_y_sua": "Thêm ngưỡng số cho (a)(b)(c).",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/research-analytics-pro/skills/ceo-stress-test-and-roadmap": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Báo cáo thị trường cho khách F&B kết luận 'nên mở chuỗi 3 điểm', dựa trên giả định 5% chuyển đổi.",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a1"
+  },
+  "agents/research-analytics-pro/skills/competitive-intel": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Phân tích đối thủ cho một phần mềm quản lý phòng khám tại Việt Nam.",
+   "goi_y_sua": "Thêm luật 'thiếu dữ liệu thì để trống' và nguồn.",
+   "do_chac": "vua",
+   "lo": "skill-a1"
+  },
+  "agents/research-analytics-pro/skills/primary-research-design": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Khách spa 3 chi nhánh hỏi vì sao khách cũ không quay lại sau liệu trình 5 buổi; đã có số liệu bán hàng nhưng không có lý do. Cần chọn survey hay interview.",
+   "goi_y_sua": "Đổi ví dụ ABTRIP thành ví dụ trung lập hoặc ghi rõ là minh hoạ.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/research-independent-review-gate": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Báo cáo nghiên cứu thị trường đồ uống cho khách, đề xuất rót 400 triệu quảng cáo; cần qua review độc lập trước khi gửi khách.",
+   "goi_y_sua": "Đưa người duyệt thành biến [NGUOI_DUYET]; thêm mẫu JSON verdict cho B và C.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/research-synthesis": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Có 12 bài về thị trường kem chống nắng Việt Nam, cần tổng hợp cho brief chiến lược của khách mỹ phẩm.",
+   "goi_y_sua": "Sửa ví dụ để hai con số thực sự khớp hoặc chuyển thành ví dụ 'Disputed'; bỏ 'mày/tao'.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/social-listening-research": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Fanpage chuỗi gym muốn biết khách phàn nàn gì về đối thủ; chọn kênh và đọc tín hiệu.",
+   "goi_y_sua": "Sửa 'Tầng Tay' thành tên công cụ thật hoặc 'tự thu thập thủ công'; bỏ khẳng định interview thật; thêm lưu ý ẩn danh.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/source-evaluation": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Có 3 nguồn về quy mô thị trường thương mại điện tử mỹ phẩm VN: blog không tác giả 2022, Statista 2023, báo cáo bộ ngành 2024 không số tuyệt đối.",
+   "goi_y_sua": "Làm lại ví dụ output theo đúng format 2 lớp của Bước 4 và thêm tuổi data.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/statistical-analysis": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHONG_CO_DINH_DANG_RA",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Khách gửi file CSV doanh thu 14 tháng của 2 kênh bán, hỏi kênh B có tăng thật so với A không.",
+   "goi_y_sua": "Thêm mẫu báo cáo ra, điều kiện kích thước mẫu, ghi log dòng bị loại, đường dẫn TimesFM.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/research-analytics-pro/skills/trend-forecasting": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Khách F&B hỏi xu hướng đồ uống ít đường 18-24 tháng tới tại Việt Nam.",
+   "goi_y_sua": "Cho phép dải xác suất theo bằng chứng, thêm ví dụ và bỏ năm cứng.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/sales-ceo/skills/ceo-decision-lens": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Chủ agency cân nhắc ký hợp đồng retainer 12 tháng giá cố định với khách mới trong ngành F&B.",
+   "goi_y_sua": "Đổi tên người/thương hiệu thành biến cấu hình.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/sales-ceo/skills/deal-scoring-forecast-discipline": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Lead mới nhắn Zalo hỏi giá gói chatbot cho cửa hàng nội thất; chủ shop tự nhắn. Chấm lead và lên cadence.",
+   "goi_y_sua": "Tách điểm FIT thành 5 tiêu chí có/không; định nghĩa PACK; dùng biến người duyệt.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/sales-ceo/skills/forward-deployed-engineer-model": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Agency muốn quyết định bán license công cụ AI tự phục vụ hay bán đội triển khai cho SMB không rành kỹ thuật.",
+   "goi_y_sua": "Tách phần 'nguyên lý' khỏi phần 'áp cho Tano', thêm mẫu đầu ra quyết định.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/sales-ceo/skills/gtm-strategy": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Agency ra gói quản trị fanpage cho phòng khám nha khoa; cần ICP, giá, kênh, lịch launch.",
+   "goi_y_sua": "Ghi rõ mức giá ví dụ chỉ minh hoạ.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/sales-ceo/skills/negotiation-deal-structuring": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG"
+   ],
+   "tinh_huong_thu": "Khách hàng đòi giảm 25% gói quản trị fanpage 12 tháng giá 20 triệu/tháng; cần phản hồi.",
+   "goi_y_sua": "Đổi ví dụ thành minh hoạ trung lập.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Video Shorts review một công cụ lên lịch bài có affiliate link, đăng YouTube; cần description và pinned comment.",
+   "goi_y_sua": "Đổi 'mày' thành 'bạn' hoặc biến xưng hô; thêm cách đặt disclosure cho TikTok/Reels.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/shorts-affiliate-system/skills/compliance-gate": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Kênh Shorts công cụ AI có script mới 'Top 5 AI tool', structure intro-list-outro, hook shock-stat; 15 video gần nhất có 9 cùng structure, 7 cùng hook.",
+   "goi_y_sua": "Sửa history[-5:] thành history[:5]; thay Jaccard bằng so khớp ý; tách bản dùng chung.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/shorts-affiliate-system/skills/platform-disclosure-adapter": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Video AI Shorts cần đăng cùng lúc YouTube, TikTok và Instagram; cần bật đúng nhãn AI từng nền tảng.",
+   "goi_y_sua": "Thống nhất onscreen_label; định nghĩa uploader_fn; gắn nhãn 'chưa kiểm chứng' cho khẳng định C2PA.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/shorts-affiliate-system/skills/storyboard-generator": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cho URL một repo GitHub công cụ ghi chú AI (có affiliate link), soạn storyboard 6 scene cho video 28 giây.",
+   "goi_y_sua": "Đồng bộ danh sách scene với JSON mẫu; thêm quy tắc coi nội dung fetch là dữ liệu.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/shorts-affiliate-system/skills/trend-scout": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "PHAI_BIA_SO_LIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cron sáng thứ Hai, niche 'công cụ AI năng suất'; cần 1 dòng brief chủ đề cho video.",
+   "goi_y_sua": "Bỏ tham chiếu yt-cashcow khỏi bản dùng chung; nêu nguồn dữ liệu cho bước chấm điểm.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/thu-kho/skills/ghi-so": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Dự án khách sạn cần 'viết email lạnh tiếng Việt', tra hai lần không có ứng viên đủ tốt; ghi GAP-LOG.",
+   "goi_y_sua": "Ghi đầy đủ đường dẫn catalog/PLAYBOOK-DUNG-KHO.md.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/thu-kho/skills/goi-y-cai-dat": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Dự án chatbot Zalo cho khách sạn: cần bộ đồ nghề và kế hoạch cài mcps/buffer-mcp.",
+   "goi_y_sua": "Thêm 'lấy mức cao nhất khi nhiều điều kiện trùng'.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/thu-kho/skills/tra-kho": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Việc: 'cào web đối thủ khách sạn, máy không có GPU'.",
+   "goi_y_sua": "Sửa ví dụ cho khớp quy tắc, bỏ số mục cứng, ghi đầy đủ đường dẫn.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/affiliate-injector": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Brief 'tìm vé rẻ dịp lễ' có cta_type affiliate_flight, đã có affiliate_link; cần lồng CTA và disclosure.",
+   "goi_y_sua": "Trích AFFILIATE_DISCLOSURE_VI và đường dẫn orchestrator.py; đồng bộ vị trí disclosure.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/api-error-handler": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Publisher đăng 1 bài lên Facebook, TikTok, YouTube; Facebook trả code 4, TikTok trả access_token_invalid, YouTube trả 403 quotaExceeded.",
+   "goi_y_sua": "Đồng bộ backoff theo bảng, thêm kiểm tra đã-đăng trước khi retry, bỏ token khỏi URL.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/aviation-knowledge": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Viết tip 'ra sân bay Tân Sơn Nhất nên đến T mấy' cho bài hướng dẫn khách đi quốc tế.",
+   "goi_y_sua": "Sửa terminal SGN/DAD, bỏ câu laptop, thêm ngày kiểm từng mục; tester chưa có mạng để đối chiếu nguồn chính thức.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/brand-design-system": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Video 1080x1920 do Visual Agent tạo, cần kiểm trước khi Adapter đóng gói.",
+   "goi_y_sua": "Nêu bước trích màu/font hoặc để người duyệt ghi tay; đồng bộ opacity logo.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/brand-discovery-session": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Thực hiện phiên khám phá thương hiệu cho một fanpage mới theo 6 module.",
+   "goi_y_sua": "Tách khung 6 module thành mẫu dùng cho thương hiệu bất kỳ; bỏ tham chiếu không tồn tại.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/brand-voice": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Viết reply cho comment 'Fast track có mắc không anh' theo giọng thương hiệu.",
+   "goi_y_sua": "Thêm lưu ý minh bạch persona và thống nhất xưng hô.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/content-research": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Chạy research tuần cho fanpage du lịch: cần 10 chủ đề từ nhóm Facebook, TikTok và tin hãng bay.",
+   "goi_y_sua": "Thống nhất RSS và tỉ lệ pillar; thêm điều kiện dừng khi scrape.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/content-strategy-ideation": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Nhận 10 topic thô tuần này, cần chọn 7 bài và viết brief JSON.",
+   "goi_y_sua": "Sửa JSON mẫu, so khớp ngữ nghĩa khi lọc trùng.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/image-prompt-engineer": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cần ảnh 1080x1080 cho bài cảnh báo 'đến muộn bị trễ giờ check-in'.",
+   "goi_y_sua": "Thêm nhắc gắn nhãn AI và đồng bộ negative prompt.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/media-performance-discipline": {
+   "verdict": "khong-ap-dung",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Cần đánh giá hiệu quả bài đăng tuần qua theo luật 'media performance'.",
+   "goi_y_sua": "Bỏ khỏi catalog hoặc đánh dấu dup với bản media-pro.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/llm-router": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Chọn model cho 5 tác vụ của fanpage: phân loại comment, viết caption, tóm tắt tin, viết reply, kiểm sự thật.",
+   "goi_y_sua": "Sửa guarded_llm_call để ghi chi phí, bỏ số chi phí hoặc ghi 'ước tính', thêm lưu ý riêng tư.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/pipeline-dashboard": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Muốn xem tiến độ pipeline đăng bài qua dashboard web trên VPS.",
+   "goi_y_sua": "Mặc định bind 127.0.0.1, escape HTML, mô tả schema JSON.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/reply-agent-prompt": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Comment 'Fast track có mắc không anh' (nhãn PURCHASE_INTENT) trên fanpage; cần reply.",
+   "goi_y_sua": "Thêm điều khoản không phủ nhận mình là AI khi được hỏi; thống nhất ngưỡng độ dài.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/sentiment-classifier": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Batch 3 comment: 'Giá bao nhiêu vậy', 'Lừa đảo, mất tiền rồi', link quảng cáo lạ.",
+   "goi_y_sua": "Bọc comment bằng thẻ dữ liệu, ghi log auto-hide, sửa chú thích batch.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/social-publisher": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Một nội dung core 'tip check-in online' cần đóng gói cho 5 nền tảng.",
+   "goi_y_sua": "Đồng bộ giới hạn ký tự với writer, định nghĩa SceneWorks, thêm nhãn AI.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/video-renderer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Caption TikTok -> video 9:16 55 giây có hook, 3 bullet, CTA.",
+   "goi_y_sua": "Dùng placeholder duy nhất cho khối bullet, escape HTML, ghi cách kiểm lệnh render.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/trum-san-bay/skills/writer-agent-prompt": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Brief 'Giữ hành lý ký gửi dịp lễ', pillar TOFU, needs_factcheck true; cần caption 4 nền tảng.",
+   "goi_y_sua": "Định nghĩa fact lookup, thêm caption Reels, đồng bộ icon với brand-design-system.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/yt-cashcow/skills/compliance-gate": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Script 'AI tool đáng tiền' structure comparison, hook question; lịch sử 15 video: 5 comparison, 3 question.",
+   "goi_y_sua": "Sửa history[:5], thay đo trùng lặp bằng ngữ nghĩa, dùng chung một bản.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/yt-cashcow/skills/platform-disclosure-adapter": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Video AI long-form đăng YouTube, cắt Shorts đăng TikTok và Reels.",
+   "goi_y_sua": "Thống nhất onscreen_label, định nghĩa uploader_fn.",
+   "do_chac": "vua",
+   "lo": "skill-a2"
+  },
+  "agents/yt-cashcow/skills/script-variation-engine": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Brief 'công cụ AI đáng tiền hay quảng cáo quá lố', lịch sử: 9/15 intro-list-outro, 7 shock-stat.",
+   "goi_y_sua": "Thêm quy tắc claim phải có nguồn; sửa mâu thuẫn tự khai commentary_ratio.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "agents/yt-cashcow/skills/trend-scout": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "PHAI_BIA_SO_LIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cron sáng thứ Hai, niche review công cụ AI.",
+   "goi_y_sua": "Dùng chung một bản, nêu nguồn dữ liệu cho bước chấm điểm.",
+   "do_chac": "cao",
+   "lo": "skill-a2"
+  },
+  "skills/4-nguon-y-tuong-content": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Nguồn 1: khách inbox hỏi \"Vé khuyến mãi đổi ngày có bị tính phí không?\". Cần 1 headline cho trang tư vấn vé máy bay của agency.",
+   "goi_y_sua": "Tách danh sách brand ra phần ví dụ; thêm câu \"số trong headline là số mục, không phải số liệu chưa kiểm\".",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/ai-marketing-adoption-map": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Chủ spa nhỏ 3 nhân sự, đăng FB/TikTok 4 bài/tuần, tốn thời gian nghĩ caption, không biết quảng cáo hiệu quả hay không.",
+   "goi_y_sua": "Bổ sung hoặc bỏ tham chiếu file thiếu; thống nhất quy tắc hỏi lại (chỉ hỏi ngân sách).",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/ai-second-brain": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHONG_CO_DINH_DANG_RA",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Agency muốn gom các quyết định chọn công cụ video từ nhiều cuộc chat vào wiki Obsidian có liên kết.",
+   "goi_y_sua": "Thêm mẫu note + quy tắc liên kết ngay trong kho, hoặc chuyển loại thành tham khảo.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/analytics-data-analysis": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "File CSV 1.200 dòng booking [date, service_type, revenue], cần script tìm tháng cao điểm cho báo cáo khách hằng tháng.",
+   "goi_y_sua": "Thêm 2-3 tiêu chí chọn phương pháp theo loại biến.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/bo-nao-4-file-claude": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Team content 4 người dùng Claude Pro, muốn dựng \"bộ não 4 file\" trong 1 tuần để khỏi dặn lại bối cảnh mỗi lần.",
+   "goi_y_sua": "Chép đủ 3 prompt mồi; tách phần đối chiếu nội bộ sang file riêng.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/brand-identity-factory": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Quán cà phê specialty ở Đà Lạt, khách 22-35 tuổi, giá 45-70k, cần bộ nhận diện khởi đầu trước buổi gặp khách.",
+   "goi_y_sua": "Thêm bước hỏi khách 2-3 thương hiệu tham chiếu trước Prompt 4.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/claude-code-thoi-quen-boris-cherny": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Dev mới vào repo web đặt tour, cần giao Claude Code việc \"thêm trường mã công ty vào form đặt chỗ\" theo thói quen trong tài liệu.",
+   "goi_y_sua": "Tách khối dán CLAUDE.md và prompt phỏng vấn thành mục đầu; chuyển đối chiếu nội bộ sang file khác.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/claude-dashboards-motion": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Có CSV doanh thu tuần của khách (ngày, kênh, đơn, doanh thu); muốn dashboard xem nhanh và gửi khách.",
+   "goi_y_sua": "Đánh dấu rõ là bài giới thiệu tính năng; thêm checklist kiểm số liệu thành mục riêng.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/content-analysis": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHONG_CO_DINH_DANG_RA",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Transcript video 4 phút của đối thủ bán eSIM du lịch; cần học cách họ chốt bán, dùng lens Practical + Comparative.",
+   "goi_y_sua": "Thêm khuôn đầu ra mẫu và 3-4 câu hỏi mỗi lens.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/content-research-writer": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Bài blog so sánh 2 nhà cung cấp eSIM cho khách; cần có nguồn rõ ràng, không bịa số.",
+   "goi_y_sua": "Thêm mẫu reference list và ghi rõ công cụ tìm nguồn.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/data-analyzer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "CSV 230 dòng lượt xem video theo chủ đề; hỏi dạng nội dung nào hiệu quả nhất cho kênh của khách.",
+   "goi_y_sua": "Sửa ví dụ cho nhất quán và gắn nhãn \"số minh hoạ\"; gộp với analytics-data-analysis.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/domain-name-brainstormer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Cần tên cho dịch vụ đưa đón sân bay Đà Nẵng, ưu tiên .vn/.com, brief tone thân thiện.",
+   "goi_y_sua": "Đưa script vào kho hoặc ghi rõ phần check là thủ công; sửa TL;DR.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/gemini-video-content-kit": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Video TikTok 45 giây \"3 lỗi khi mua vé giờ chót\" cho khách ngành du lịch; dùng Prompt 1, 4, 6.",
+   "goi_y_sua": "Thêm tham số (nền tảng, độ dài, giọng) vào từng prompt.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/genmedia-labs-runcomfy": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cần ảnh sản phẩm bình giữ nhiệt nền studio cho fanpage của khách bán lẻ.",
+   "goi_y_sua": "Chép bảng intent->model vào kho; thêm bước báo giá/duyệt trước khi chạy.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/i-have-adhd": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Nhân viên hỏi agent \"cách thêm redirect cho landing page\"; bật skill để trả lời theo kiểu hành động trước.",
+   "goi_y_sua": "Thêm 1 ví dụ phi-code; bỏ cờ --trust khỏi hướng dẫn mặc định.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/just-scrape": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Cần lấy bảng giá và tính năng từ trang công khai của 1 đối thủ để so sánh cho khách.",
+   "goi_y_sua": "Thống nhất tên lệnh; thêm lưu ý pháp lý và trần credit.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/kpi-dashboard-creator": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Dashboard KPI tuần cho khách: số lead, chi phí mỗi lead, tỉ lệ chốt; nguồn là CSV xuất từ CRM.",
+   "goi_y_sua": "Thêm đầu ra tối thiểu (bảng contract + wireframe) khi chưa có code; bỏ tham chiếu thiếu.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/markdown-converter": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "PDF báo giá 12 trang của nhà cung cấp cần chuyển sang Markdown để phân tích.",
+   "goi_y_sua": "Đưa script vào kho cùng kiểm thử, hoặc bỏ skill nếu chỉ dùng MarkItDown gốc.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/natural-writing": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Đoạn mô tả dịch vụ tiếng Việt cho website khách nghe như văn AI (\"mang đến trải nghiệm liền mạch và đẳng cấp\").",
+   "goi_y_sua": "Chép đủ checklist và self-check; thêm mục tiếng Việt; sửa ví dụ gắn nhãn số minh hoạ.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/ponytail": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Dev cần form chọn ngày cho trang đặt lịch landing của khách, muốn agent không over-engineer.",
+   "goi_y_sua": "Chép nguyên SKILL.md gốc có pin commit; bỏ lệnh curl khỏi hướng dẫn.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/skill-seekers": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN"
+   ],
+   "tinh_huong_thu": "Biến trang docs của 1 công cụ lên lịch đăng bài thành SKILL.md cho kho của agency.",
+   "goi_y_sua": "Sửa số bước, thêm mẫu SKILL.md và tiêu chí validate.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/small-business-skills": {
+   "verdict": "khong-ap-dung",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Chủ shop nhỏ nói \"sắp tới không đủ tiền trả lương\"; muốn dùng bộ skill small business chọn đúng quy trình.",
+   "goi_y_sua": "Đổi loại thành danh mục tham khảo, trỏ tới repo, không gắn nhãn skill.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/social-media-skills": {
+   "verdict": "khong-ap-dung",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Dựng giọng thương hiệu cho kênh du lịch của khách bằng voice-builder rồi dùng caption-writer.",
+   "goi_y_sua": "Đổi loại thành danh mục tham khảo; ghi rõ URL chuẩn và commit đã duyệt.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/stickman-video-director": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA"
+   ],
+   "tinh_huong_thu": "Ý tưởng \"3 lý do vé rẻ bị đổi giờ\" cho video người que 1 phút của khách du lịch.",
+   "goi_y_sua": "Thêm mẫu 1 prompt cảnh hoàn chỉnh; sửa snippet bằng lệnh đã kiểm.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/summarization": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Ghi chú họp 20 phút với khách: duyệt ngân sách content tháng sau, chưa chốt ngày gửi bản nháp, còn tranh luận số bài video.",
+   "goi_y_sua": "Thêm bảng chọn mức nén theo độ dài nguồn.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/vox-director": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Video 20 giây 9:16 giải thích \"Fast Track là gì\" bằng tiếng Việt kiểu paper-collage cho khách.",
+   "goi_y_sua": "Chép SKILL.md gốc (pin commit), thêm bước báo giá và kiểm hỗ trợ tiếng Việt.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/voxstyle-prompt-engine": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Dán ENGINE PROMPT vào agent để dựng video documentary paper-collage 2 phút cho kênh của khách.",
+   "goi_y_sua": "Chép nguyên văn ENGINE PROMPT hoặc đổi loại thành tham khảo.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/5-vai-tro-solo-operator": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Mỗi tối account manager đưa ghi chú tin nhắn khách trong ngày cho \"Người vận hành\" để có danh sách việc sáng mai.",
+   "goi_y_sua": "Thêm 1 ví dụ cho mỗi vai và mẫu checklist.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/agentic-loop-optimizer": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Agent tự trả lời comment fanpage cho khách, tốn token và lặp lại; cần thiết kế lại vòng lặp.",
+   "goi_y_sua": "Thêm human gate vào ví dụ; thống nhất số lần thử lại; bỏ tham chiếu thiếu.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/api-mega-list-skill": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Cần gửi email xác nhận khi khách đăng ký webinar; tìm API trước khi tự build.",
+   "goi_y_sua": "Gắn ngày kiểm số liệu, thêm tiêu chí chọn và cảnh báo dữ liệu khách.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/business-guru": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "KHONG_CO_DINH_DANG_RA",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Chủ tiệm spa hỏi nên mở thêm chi nhánh hay dồn tiền vào quảng cáo.",
+   "goi_y_sua": "Viết lại thành quy trình hỏi-đáp có khuôn đầu ra và cảnh báo.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/competitor-research": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "PHAI_BIA_SO_LIEU",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Khảo sát 3 đối thủ dịch vụ đưa đón sân bay Đà Nẵng cho khách, cần bảng so sánh và 1 nhận định.",
+   "goi_y_sua": "Thêm references/, tách mục kênh và Facebook thành skill riêng, bỏ Phase 5 hoặc đưa vào guardrail.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/conversion-ops": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Audit trang landing dịch vụ bảo hiểm của khách theo 8 chiều (giá trị, rõ ràng, tin cậy...).",
+   "goi_y_sua": "Chép script hoặc viết rubric 8 chiều ngay trong SKILL.md.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/digital-product-factory": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Tạo bộ guide PDF + ảnh bìa + mô tả bán trên Gumroad cho 1 ngách của khách.",
+   "goi_y_sua": "Đưa app vào kho hoặc xoá; thêm duyệt trước bán và kiểm claim.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/enterprise-agent-ops": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHONG_CO_DINH_DANG_RA",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Bot trả lời khách của agency đột nhiên lỗi tăng; cần xử lý sự cố theo quy trình.",
+   "goi_y_sua": "Thêm ngưỡng ví dụ và mẫu báo cáo sự cố.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/frontend-design-direction": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHONG_CO_DINH_DANG_RA",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Landing page đặt lịch cho spa của khách, hiện giao diện chung chung kiểu mẫu AI.",
+   "goi_y_sua": "Giải thích \"ECC\", thêm mẫu 1 trang direction brief.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/harness-engineering": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHONG_CO_DINH_DANG_RA",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Agent trả lời DM khách của agency làm đúng bước 1 rồi sai từ bước 2; cần thiết kế khung chạy ổn định.",
+   "goi_y_sua": "Gắn nguồn số liệu; thêm mẫu bản thiết kế harness.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/humanizer": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "MO_HO",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Bài blog 150 chữ về eSIM nghe như AI; khách muốn giọng chuyên nghiệp, không bị detector gắn cờ.",
+   "goi_y_sua": "Bỏ mục đích lách detector; sửa quy tắc 4 thành giữ giọng thương hiệu, không bịa; gộp vào natural-writing.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/kotlin-exposed-patterns": {
+   "verdict": "khong-ap-dung",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Agency có dự án backend Kotlin cho khách; cần mẫu truy vấn Exposed và phân trang.",
+   "goi_y_sua": "Giữ như tham khảo kỹ thuật; sửa ví dụ và ghi ngày kiểm phiên bản.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/marketing-4-nguyen-tac-vang": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Chấm caption FB của trung tâm Anh ngữ: \"Trung tâm có giáo viên giỏi, lớp nhỏ, học phí hợp lý, hỗ trợ tận tâm.\"",
+   "goi_y_sua": "Thêm dòng \"định vị hiện tại: [..]\" vào prompt.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/nanoclaw-repl": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Mở REPL phiên làm việc, tách nhánh trước khi thử thay đổi rủi ro cao, rồi export.",
+   "goi_y_sua": "Đưa script vào kho hoặc xoá; nếu giữ thì thêm mô tả từng lệnh.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/orch-pipeline": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Dev nội bộ thêm nút \"Nhắn Zalo\" vào landing page nhỏ của khách (1 file, vài dòng).",
+   "goi_y_sua": "Chép rules/ liên quan hoặc ghi rõ mức tối thiểu để dùng độc lập.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/product-lens": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHONG_CO_DINH_DANG_RA",
+    "MAU_THUAN",
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Ý tưởng gói báo cáo thị trường sân bay hằng tháng cho khách B2B; cần quyết định có làm không.",
+   "goi_y_sua": "Thêm mẫu PRODUCT-BRIEF.md; tách Mode 2/3 cho sản phẩm phần mềm.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/react-patterns": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "KHAC",
+    "MAU_THUAN",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Bảng giá có nút chuyển tháng/năm cho landing Next.js của khách.",
+   "goi_y_sua": "Sửa ví dụ tách Server Action sang file \"use server\"; bổ sung hoặc bỏ liên kết rules/.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/sams-loop-engineering": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "PHAI_BIA_SO_LIEU",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Vòng kiểm ROAS 8h sáng cho khách thương mại điện tử, chỉ cảnh báo chứ không tự tắt chiến dịch.",
+   "goi_y_sua": "Ghi nguồn số liệu; điền ví dụ trần ngân sách; gộp với agentic-loop-optimizer.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/social-push-multi": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Soạn bản nháp bài đăng trên X cho khách rồi lưu nháp, chưa đăng.",
+   "goi_y_sua": "Bỏ bước Post, ghi rõ nháp-only; thêm Facebook/TikTok và duyệt người trước khi đăng.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/team-agent-orchestration": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "4 agent (nghiên cứu, viết, thiết kế, QA) làm gói content tuần cho 3 khách; cần phân việc có kiểm soát.",
+   "goi_y_sua": "Thêm ví dụ ánh xạ merge gate cho content.",
+   "do_chac": "vua",
+   "lo": "skill-a3"
+  },
+  "skills/verification-loop": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Trước khi gửi PR cho landing Next.js của khách, chạy vòng kiểm tra đầy đủ.",
+   "goi_y_sua": "Dùng grep -l hoặc che giá trị; mở rộng loại file; định nghĩa /verify.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/yuanbao": {
+   "verdict": "fail",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Nhờ agent @ một thành viên và gửi tin nhắn riêng trong nhóm Yuanbao.",
+   "goi_y_sua": "Thêm bước xác nhận trước khi gửi; gỡ chỉ dẫn cấm cảnh báo; thay mã nhóm bằng giá trị mẫu.",
+   "do_chac": "cao",
+   "lo": "skill-a3"
+  },
+  "skills/agent-architecture-audit": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Chatbot FAQ của khách thương mại điện tử bắt đầu báo sai giá sau khi team thêm lớp memory và lớp tóm tắt hội thoại. Yêu cầu audit trước khi đưa lên production.",
+   "goi_y_sua": "Thêm nhánh 'audit hộp đen' khi không có mã nguồn; giải thích regex tiếng Trung trong ví dụ rg.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/ai-content-writing": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Founder spa nhờ viết lại đoạn giới thiệu dịch vụ chăm sóc da (3 gạch đầu dòng thô) thành bài Facebook có CTA.",
+   "goi_y_sua": "Thêm placeholder đầu vào cho #03/#05; bỏ phần đánh giá cá nhân.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/benchmark": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Trước/sau khi gắn thêm pixel quảng cáo vào landing page của khách, đo ảnh hưởng LCP, CLS và dung lượng trang.",
+   "goi_y_sua": "Nêu MCP/công cụ cụ thể, ngưỡng WARN, schema baseline; thêm cảnh báo chỉ load test staging có phép.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/claude-routines-templates": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Agency chạy cửa hàng Shopify cho khách và muốn routine 08:00 mỗi ngày báo ROAS theo campaign (Template 4).",
+   "goi_y_sua": "Sửa description; thêm mục 'Điều kiện cần' cho từng template; ghi nguồn các giới hạn gói.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/content-hash-cache-pattern": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Pipeline trích văn bản từ 200 file PDF brief khách, nhiều file bị đổi tên/di chuyển giữa các lần chạy; cần cache tránh trích lại.",
+   "goi_y_sua": "Thêm bản serialize mẫu cho CacheEntry.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/dart-flutter-patterns": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "App đặt lịch của khách spa viết bằng Flutter, cần chuyển hướng về /login khi chưa đăng nhập và state Loading/Success/Failure.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/e2e-testing": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Kiểm thử luồng điền form đăng ký lead trên landing page staging của khách bằng Playwright, chạy mobile và desktop.",
+   "goi_y_sua": "Sửa import path, thay videosPath/startTracing bằng cấu hình chuẩn, thêm cảnh báo dùng môi trường test cho thanh toán.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/fable-prompter": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Prompt chuẩn: 'Viết 3 caption giới thiệu tour Phú Quốc, mỗi caption 50 từ' cần chỉnh cho model sáng tạo.",
+   "goi_y_sua": "Nói rõ điều kiện tiên quyết và dùng mô tả 'model thiên sáng tạo' thay tên model.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/golang-patterns": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Team dev của agency review đoạn Go cho API webhook nhận lead; cần chuẩn lỗi bọc ngữ cảnh và thiết kế package.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/homelab-network-setup": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Văn phòng agency 12 người dùng router nhà mạng, hay đứt Wi-Fi, NAS đổi IP; cần quy hoạch mạng nội bộ.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/iterative-retrieval": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Sub-agent cần tìm đúng tài liệu brand guideline và các bài đăng cũ trong thư mục chia sẻ lớn của một khách để viết caption mới.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/latency-critical-systems": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Dashboard báo cáo quảng cáo realtime của khách bị chậm 8 giây và đôi khi hiển thị số cũ; cần chẩn đoán.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/ml-concepts-explainer": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Làm carousel TikTok 8 slide giải thích 'Decision Tree' cho khách ngành giáo dục AI, người xem không có nền tảng toán.",
+   "goi_y_sua": "Thay ví dụ bác sĩ bằng yêu cầu dẫn nguồn khi so sánh độ chính xác.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/nodejs-keccak256": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Khách chạy chương trình thưởng token; dev cần tính selector hàm transfer(address,uint256) trong TypeScript.",
+   "goi_y_sua": "Thêm toUtf8Bytes vào dòng import.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/plankton-code-quality": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Dev của agency dựng website Next.js cho khách và muốn tự động format/lint sau mỗi lần Claude sửa file.",
+   "goi_y_sua": "Nêu rõ đây là tài liệu tham chiếu, thêm trần chi phí và mục tắt hook theo dự án.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/python-patterns": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Script nội bộ gom báo cáo quảng cáo cần chuẩn code: type hint, đặt tên, xử lý lỗi.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/research-ops": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "So sánh 3 công cụ email marketing cho khách F&B quy mô 5.000 liên hệ, cần khuyến nghị dựa trên thông tin công khai hiện tại.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/seo-plan": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Lập kế hoạch SEO 12 tháng cho phòng khám nha khoa mới ở TP.HCM, 5 đối thủ, ngân sách vừa.",
+   "goi_y_sua": "Thêm nguồn dữ liệu, định nghĩa quality gate và mẫu từng file đầu ra; thêm mục SEO local/tiếng Việt.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/swift-concurrency-6-2": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Dev iOS của agency chuyển app đặt tour của khách lên Swift 6.2 và gặp lỗi data race ở class PhotoProcessor.",
+   "goi_y_sua": "",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/tuvi-agent": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "MAU_THUAN",
+    "REF_THIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Khách muốn bán gói luận giải 199k: cần hook Telegram và bản luận giải Cơ bản cho mẫu: nam, sinh 12/05/1990, 08:30.",
+   "goi_y_sua": "Bổ sung các subskill thiếu, bỏ số tài chính cụ thể, trung lập hóa tên/giá, thống nhất giọng văn.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/voice-profile-builder": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Founder một khách muốn có file giọng nói riêng để team content viết bài đúng giọng anh ấy.",
+   "goi_y_sua": "Thêm mục quyền riêng tư và cách tách profile theo khách; bỏ tên model cố định.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/accounting-skills-cynco": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MAU_THUAN",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Kế toán agency cần đối chiếu sao kê ngân hàng tháng 5 với hóa đơn (Phase 2) theo quy định Việt Nam.",
+   "goi_y_sua": "Kiểm lại thuế suất theo luật hiện hành; thêm bước duyệt của kế toán trưởng.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/accounting-stack-guide": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Quy trình đóng sổ tháng 5 cho agency: hóa đơn giấy, sao kê CSV, bút toán và nhắc hạn VAT.",
+   "goi_y_sua": "Thêm cổng duyệt cho thao tác ghi sổ/gửi; sửa quy tắc hoàn thuế và thuật ngữ.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/agent-browser": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "KHAC",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Kiểm tra form đăng ký và nút 'đặt lịch' trên landing page staging của khách bằng agent-browser.",
+   "goi_y_sua": "Thêm frontmatter, bảng lệnh chính và cảnh báo staging/thanh toán test.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/agent-reach-skill": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "GAN_THUONG_HIEU_CUNG",
+    "PHAI_BIA_SO_LIEU",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Thu thập phản hồi cộng đồng về công cụ X trên X/Reddit/YouTube trước khi làm video review cho khách.",
+   "goi_y_sua": "Nêu rõ xác thực, ToS và bỏ các số tiết kiệm không nguồn.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/agent-research-skills-academic-skill": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO"
+   ],
+   "tinh_huong_thu": "Làm báo cáo thị trường 'xu hướng chatbot chăm sóc khách hàng' cho khách ngân hàng bằng bộ lệnh /literature-search... áp dụng phi học thuật.",
+   "goi_y_sua": "Thêm mô tả một dòng cho mỗi lệnh và ví dụ đầu ra.",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/bumblebee": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Trước khi cài MCP lạ cho agency, kiểm tra nó bằng bumblebee rồi quyết định theo checklist.",
+   "goi_y_sua": "Bỏ ngưỡng sao làm tiêu chí tin cậy; thêm bước sandbox và nguồn xác minh công cụ.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/caveman": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Dev của agency muốn Claude trả lời cụt, ít token khi review nhanh code của khách.",
+   "goi_y_sua": "Chép quy tắc cốt lõi vào file; thay lệnh pipe-to-shell bằng bước tải về, đọc, rồi chạy.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/claude-code-skills-list-skill": {
+   "verdict": "khong-ap-dung",
+   "ma_van_de": [
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Nhân viên mới hỏi 'bộ skill nào nên cài trước cho dự án landing page SEO?'",
+   "goi_y_sua": "",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/claude-devfleet": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Dev nội bộ muốn giao 3 mission song song: dựng landing page, API form lead, và test cho khách.",
+   "goi_y_sua": "Thêm cổng test/review trước auto-merge và trần số mission/chi phí.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/claude-mem": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Agency làm dự án refactor nhiều ngày cho một khách và muốn Claude nhớ bối cảnh giữa các phiên.",
+   "goi_y_sua": "Thêm mục quyền riêng tư: tách theo dự án, lọc khóa/PII, cách xóa.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/copywriting-prose-creator": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Xây PROSE.md (cách viết) cho thương hiệu cà phê của một khách, chuẩn bị cho 3 người viết bài.",
+   "goi_y_sua": "Thêm frontmatter, chép quy trình 3 mode, ghim commit khi tải ngoài.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/deep-research-samber-cc": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Nghiên cứu thị trường 'chăm sóc thú cưng online tại Việt Nam' cho khách ngành pet, chế độ Standard.",
+   "goi_y_sua": "Chép quy trình vào file, thêm frontmatter, ghim phiên bản khi tải.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/django-celery": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Gửi báo cáo tuần tự động cho khách mỗi thứ Hai 8h từ một ứng dụng Django bằng Celery Beat.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/gateguard": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "PHAI_BIA_SO_LIEU",
+    "REF_THIEU"
+   ],
+   "tinh_huong_thu": "Yêu cầu Claude sửa file cấu hình giá dịch vụ trong repo website khách; muốn ép nó điều tra trước khi sửa.",
+   "goi_y_sua": "Kèm hook hoặc bản giao thức thủ công đầy đủ; nêu rõ cách đo +2.25.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/invoice-extractor": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "MO_HO",
+    "THIEU_GUARDRAIL"
+   ],
+   "tinh_huong_thu": "Nhập 30 hóa đơn nhà cung cấp tháng 5 (PDF/ảnh) của agency thành JSON kiểm tra tổng tiền.",
+   "goi_y_sua": "Thêm schema đầy đủ, xử lý nhiều thuế suất và cổng duyệt trước khi ghi sổ.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/lmcache-skill": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "CAN_CONG_CU_NGOAI",
+    "KHAC",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Khách hỏi có nên dùng LMCache để giảm chi phí cho chatbot dùng Claude API với system prompt 2k token.",
+   "goi_y_sua": "Nêu điều kiện phần cứng, nguồn số liệu và phiên bản tương thích vLLM.",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/magika-skill": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "MAU_THUAN",
+    "PHAI_BIA_SO_LIEU"
+   ],
+   "tinh_huong_thu": "Xác định kiểu thật của file khách gửi lên (đuôi .dat/.bin) trước khi đưa vào pipeline trích văn bản.",
+   "goi_y_sua": "Sửa hai khối mã (dùng \\n trong chuỗi, thêm pass), ghim phiên bản magika.",
+   "do_chac": "cao",
+   "lo": "skill-a4"
+  },
+  "skills/motion-ui": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Làm hero landing page Next.js của khách có hiệu ứng vào mượt, tôn trọng người dùng giảm chuyển động.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  },
+  "skills/prism-scanner": {
+   "verdict": "partial",
+   "ma_van_de": [
+    "GAN_THUONG_HIEU_CUNG",
+    "INJECTION_HOAC_LENH_NGUY_HIEM",
+    "KHAC"
+   ],
+   "tinh_huong_thu": "Quét một skill mới nhập từ nguồn ngoài trước khi đưa vào kho của agency.",
+   "goi_y_sua": "Thêm frontmatter, mẫu báo cáo A-F và ngưỡng loại; cài trong venv.",
+   "do_chac": "vua",
+   "lo": "skill-a4"
+  },
+  "skills/prisma-patterns": {
+   "verdict": "pass",
+   "ma_van_de": [
+    "KHAC"
+   ],
+   "tinh_huong_thu": "API lead cho khách dùng Prisma: cần chọn kiểu ID, phân trang và tránh bẫy updateMany.",
+   "goi_y_sua": "",
+   "do_chac": "thap",
+   "lo": "skill-a4"
+  }
+ }
+}

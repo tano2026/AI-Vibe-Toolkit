@@ -267,6 +267,14 @@ def main():
     bad = sorted({v for c in cur.values() for v in c["capability"]} - set(CAPABILITIES))
     if bad:
         sys.exit(f"curation.json có capability ngoài bảng 30 giá trị: {bad}")
+    # Kết quả kiểm sử dụng (mô phỏng văn bản, catalog/smoke.json). Không có thì để trống.
+    smoke = {}
+    if os.path.exists("catalog/smoke.json"):
+        smoke = json.load(open("catalog/smoke.json", encoding="utf-8")).get("items", {})
+    for r in rows:
+        sm = smoke.get(r["id"])
+        r["kiem_su_dung"] = sm["verdict"] if sm else ""
+        r["kiem_su_dung_ly_do"] = ",".join(sm["ma_van_de"]) if sm else ""
     os.makedirs("catalog", exist_ok=True)
     cols = list(rows[0].keys())
     with open("catalog/CATALOG.csv", "w", newline="", encoding="utf-8-sig") as fh:

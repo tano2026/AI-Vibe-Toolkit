@@ -2,7 +2,7 @@
 
 > Đọc file này trước khi tra. Nguồn dữ liệu cho máy: `catalog/catalog.json` (hoặc `CATALOG.csv`). **Không đọc trang artifact** (trang riêng tư, agent không vào được). Sinh lại: `python3 tools/build_catalog.py`.
 
-> **Cách nhanh:** dùng Thủ Kho thay vì tra tay: `python tools/thu_kho.py tim "<việc cần làm>" --vessel <tên> --bo-can gpu,vps`, rồi `chi-tiet <id>` và `ke-hoach-cai <id>` (chỉ in kế hoạch, không chạy). Cột `kiem_tu_dong` trong CATALOG.csv là kết quả kiểm toán tự động (`dung-duoc-ngay`, `cai-duoc-o-day`, `thieu-dieu-kien`, `nghi-ngo`, `chua-xac-dinh`); nó chỉ chứng minh điều kiện cần, chưa chứng minh chạy đúng. Muốn dựng agent hay OPC từ kho: `agents/agent-factory/FACTORY.md`.
+> **Cách nhanh:** dùng Thủ Kho thay vì tra tay: `python tools/thu_kho.py tim "<việc cần làm>" --vessel <tên> --bo-can gpu,vps`, rồi `chi-tiet <id>` và `ke-hoach-cai <id>` (chỉ in kế hoạch, không chạy). Cột `kiem_tu_dong` trong CATALOG.csv là kết quả kiểm toán tự động (`dung-duoc-ngay`, `cai-duoc-o-day`, `thieu-dieu-kien`, `nghi-ngo`, `chua-xac-dinh`); nó chỉ chứng minh điều kiện cần, chưa chứng minh chạy đúng. Cột `kiem_su_dung` (pass/partial/fail/khong-ap-dung, 172 mục) là kết quả mô phỏng sử dụng bằng văn bản, xem `catalog/SMOKE-REPORT.md`; mục trống là chưa kiểm. Muốn dựng agent hay OPC từ kho: `agents/agent-factory/FACTORY.md`.
 
 ## 1. Quy trình 4 bước
 1. Viết 1 câu: "làm [việc] → ra [đầu ra]". Tách 3–5 **khả năng cần** (`capability`, bảng bên dưới).
