@@ -1,0 +1,838 @@
+{
+ "lo": "skill-a4",
+ "ngay": "2026-10-19",
+ "phuong_phap": "mo-phong-van-ban",
+ "ket_qua": [
+  {
+   "id": "skills/agent-architecture-audit",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Chatbot FAQ của khách thương mại điện tử bắt đầu báo sai giá sau khi team thêm lớp memory và lớp tóm tắt hội thoại. Yêu cầu audit trước khi đưa lên production.",
+   "dau_ra_trich": "Phase 1 Scope: chatbot FAQ, 2 lớp mới. Finding 1 (high, layer 3+4): bộ nhớ dài hạn lưu giá cũ qua distillation, chưa có ưu tiên sửa của người dùng. Fix: code-gate tool tra giá, tắt distillation cho trường giá. Báo cáo theo schema ecc.agent-architecture-audit.report.v1.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Phase 2 giả định có mã nguồn và log; không nói cách làm khi agency chỉ có quyền truy cập giao diện chatbot (không có repo)."
+    }
+   ],
+   "goi_y_sua": "Thêm nhánh 'audit hộp đen' khi không có mã nguồn; giải thích regex tiếng Trung trong ví dụ rg.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/ai-content-writing",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Founder spa nhờ viết lại đoạn giới thiệu dịch vụ chăm sóc da (3 gạch đầu dòng thô) thành bài Facebook có CTA.",
+   "dau_ra_trich": "Chạy #05 (gạch đầu dòng thành bài) rồi #01 (tự nhiên) rồi #02 (CTA) rồi #06 (proofread) đúng workflow; ra bài 120 từ, mở bằng tình huống da khô mùa hanh, kết bằng CTA đặt lịch. Thiếu dữ kiện khuyến mãi nên để [giá] thay vì bịa.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Prompt #05 và #03 không có chỗ dán [văn bản gốc] như các prompt khác, người dùng phải tự đoán chỗ chèn nội dung."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Phần 'Đánh giá cá nhân' xưng mày/tao và chấm 8/10 là nhiễu, không nên nằm trong skill dùng cho khách."
+    }
+   ],
+   "goi_y_sua": "Thêm placeholder đầu vào cho #03/#05; bỏ phần đánh giá cá nhân.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/benchmark",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Trước/sau khi gắn thêm pixel quảng cáo vào landing page của khách, đo ảnh hưởng LCP, CLS và dung lượng trang.",
+   "dau_ra_trich": "Mode 1 + Mode 4: cần browser MCP để đo; không có công cụ nên chỉ lập bảng Metric/Before/After/Delta/Verdict ở dạng rỗng và liệt kê 5 Core Web Vitals với ngưỡng. Không bịa số đo. Lưu baseline vào .ecc/benchmarks/ (chưa thực hiện được).",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Mode 1 cần 'browser MCP' nhưng không nêu MCP nào và cách bật; lệnh /benchmark baseline|compare không có định nghĩa thực thi."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Mode 2 yêu cầu gọi mỗi endpoint 100 lần và 10 request đồng thời, không nhắc xin phép chủ API hay chỉ chạy trên staging."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Không nêu ngưỡng quyết định nhãn WARN/BETTER trong bảng ví dụ, cũng không có schema JSON của baseline."
+    }
+   ],
+   "goi_y_sua": "Nêu MCP/công cụ cụ thể, ngưỡng WARN, schema baseline; thêm cảnh báo chỉ load test staging có phép.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/claude-routines-templates",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Agency chạy cửa hàng Shopify cho khách và muốn routine 08:00 mỗi ngày báo ROAS theo campaign (Template 4).",
+   "dau_ra_trich": "Điền <store_url>, <target_roas>=3, <budget_threshold>; thực hiện 5 bước. Không có connector Shopify/Meta nên không có số; xuất khung '# Daily ROAS Check' với bảng trống và ghi 'thiếu dữ liệu: orders, spend'. Hard Rules (không tự pause/đổi budget) giữ nguyên.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Template 4/5/6 cần connector Shopify, Meta Ads, 'claude-seo plugin', 'last30days skill' nhưng không hướng dẫn cách nối hoặc cài."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Frontmatter description chỉ là dòng URL/Feature rác; các khẳng định 'Release 15/4/2026', '5 runs/ngày (Pro)' không có nguồn kiểm chứng."
+    }
+   ],
+   "goi_y_sua": "Sửa description; thêm mục 'Điều kiện cần' cho từng template; ghi nguồn các giới hạn gói.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/content-hash-cache-pattern",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Pipeline trích văn bản từ 200 file PDF brief khách, nhiều file bị đổi tên/di chuyển giữa các lần chạy; cần cache tránh trích lại.",
+   "dau_ra_trich": "Áp 4 bước: compute_file_hash (SHA-256 theo chunk 64KB), CacheEntry frozen, lưu {hash}.json, bọc extract_with_cache giữ extract_text thuần. File đổi tên vẫn cache hit; file sửa nội dung tự vô hiệu. Lỗi JSON coi như miss.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "serialize_entry, deserialize_entry, ExtractedDocument, extract_text dùng trong mã nhưng không định nghĩa; người dùng phải tự viết."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Hai mục 'When to Activate' và 'When to Use' trùng nội dung."
+    }
+   ],
+   "goi_y_sua": "Thêm bản serialize mẫu cho CacheEntry.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/dart-flutter-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "App đặt lịch của khách spa viết bằng Flutter, cần chuyển hướng về /login khi chưa đăng nhập và state Loading/Success/Failure.",
+   "dau_ra_trich": "Dùng sealed class AsyncState (Loading/Success/Failure) và GoRouter có refreshListenable theo authCubit.stream, redirect về '/login' nếu chưa Authenticated. Tránh toán tử '!' và late. Chọn BLoC hay Riverpod theo bảng so sánh.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "Nội dung 563 dòng, tester chỉ đọc kỹ 110 dòng đầu và quét tự động phần còn lại; không đánh giá được các mục Dio/token refresh."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/e2e-testing",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Kiểm thử luồng điền form đăng ký lead trên landing page staging của khách bằng Playwright, chạy mobile và desktop.",
+   "dau_ra_trich": "Dựng tests/e2e/features/lead-form.spec.ts với Page Object LeadFormPage (data-testid), playwright.config 4 project (chromium, firefox, webkit, Pixel 5), BASE_URL=staging, retries 2 trên CI, screenshot khi lỗi. Đánh dấu test.fixme cho test flaky.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Cây thư mục không có thư mục pages/ nhưng ví dụ import '../../pages/ItemsPage'; đường dẫn sẽ hỏng."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Ví dụ video dùng 'videosPath' trong use{}, tùy chọn này có vẻ không phải cấu hình Playwright hợp lệ (nên là outputDir); browser.startTracing không phải API trace chuẩn (context.tracing). Tester không chạy để xác nhận."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Ví dụ trade execution chỉ chặn bằng NODE_ENV=production; không có hướng dẫn dùng tài khoản/dữ liệu test cho luồng thanh toán."
+    }
+   ],
+   "goi_y_sua": "Sửa import path, thay videosPath/startTracing bằng cấu hình chuẩn, thêm cảnh báo dùng môi trường test cho thanh toán.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/fable-prompter",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Prompt chuẩn: 'Viết 3 caption giới thiệu tour Phú Quốc, mỗi caption 50 từ' cần chỉnh cho model sáng tạo.",
+   "dau_ra_trich": "Giữ ràng buộc 3 caption x 50 từ; thay danh sách quy tắc giọng điệu bằng gợi ý 'kể cho người bạn nghe về chuyến đi đầu tiên, được lạc đề nhẹ'; bỏ cấu trúc Bước 1/2. Kèm 1 dòng: bản này nới giọng văn, không tối giản như bước 04.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Giả định đầu vào đã qua bước 04 (prompt-optimizer); nếu chưa thì skill không nói nên chạy bước 04 trước hay xử lý luôn."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Gắn cứng tên model 'Claude Fable 5, Mythos-tier' và 'content GMSP'; sẽ lỗi thời hoặc không áp dụng cho khách khác."
+    }
+   ],
+   "goi_y_sua": "Nói rõ điều kiện tiên quyết và dùng mô tả 'model thiên sáng tạo' thay tên model.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/golang-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Team dev của agency review đoạn Go cho API webhook nhận lead; cần chuẩn lỗi bọc ngữ cảnh và thiết kế package.",
+   "dau_ra_trich": "Áp quy tắc: wrap lỗi bằng fmt.Errorf('load config %s: %w', ...), nhận interface trả struct, giá trị zero dùng được. Đề xuất sửa hàm trả io.Reader thành *Result.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File 674 dòng, tester đọc kỹ 110 dòng đầu, phần còn lại chỉ quét tự động (không có dấu hiệu chỉ dẫn độc hại)."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/homelab-network-setup",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Văn phòng agency 12 người dùng router nhà mạng, hay đứt Wi-Fi, NAS đổi IP; cần quy hoạch mạng nội bộ.",
+   "dau_ra_trich": "Đề xuất bỏ dải 192.168.1.0/24: 192.168.10 (nhân viên), .20 (IoT), .30 (NAS/server), .40 (khách), .99 (quản trị); gateway .1, reservation .2-.49, DHCP .50-.240; tên miền home.arpa; AP đi dây, bật reservation cho NAS. Chưa bật VLAN ngay.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "Viết cho mạng gia đình, không có phần bảo mật văn phòng (Wi-Fi doanh nghiệp, ghi nhật ký) và không nhắc sao lưu cấu hình trước khi đổi gateway."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/iterative-retrieval",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Sub-agent cần tìm đúng tài liệu brand guideline và các bài đăng cũ trong thư mục chia sẻ lớn của một khách để viết caption mới.",
+   "dau_ra_trich": "Chu kỳ 1: từ khóa 'brand voice, tone, hashtag' trên /khach/** loại file ảnh; chấm điểm: guideline.pdf 0.9, bai-cu-q2.docx 0.4. Chu kỳ 2: thêm từ 'xưng hô', loại file rác; còn thiếu danh sách từ cấm. Dừng ở tối đa 3 chu kỳ, trả file >=0.7.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "retrieveFiles, scoreRelevance, extractPatterns... là mã giả không định nghĩa; chỉ dùng được như quy trình văn bản."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Phần Related trỏ tới thư mục agents/ của ECC và một link tweet ngoài kho, không có trong kho."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/latency-critical-systems",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dashboard báo cáo quảng cáo realtime của khách bị chậm 8 giây và đôi khi hiển thị số cũ; cần chẩn đoán.",
+   "dau_ra_trich": "Tách số đo p50/p95/p99, freshness age, queue depth, cache hit; vẽ đường: API quảng cáo -> worker -> queue -> cache -> edge -> trình duyệt; đo từng đoạn; thứ tự tối ưu: bỏ round trip thừa, cache có freshness metadata, backpressure. Không đổi validation để nhanh.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "Không có mẫu định dạng đầu ra cho báo cáo chẩn đoán (chỉ danh sách việc cần đo)."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/ml-concepts-explainer",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Làm carousel TikTok 8 slide giải thích 'Decision Tree' cho khách ngành giáo dục AI, người xem không có nền tảng toán.",
+   "dau_ra_trich": "Hook 'Sáng nay bạn có nên mang ô không?', reveal 'đó là Decision Tree', cơ chế 3 bước, 3 ứng dụng (ví dụ app duyệt vay, lọc spam), điểm mạnh/yếu, one-liner 'Decision Tree là chuỗi câu hỏi có/không dẫn tới một quyết định'. Mỗi slide có tiêu đề và gợi ý visual.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Tip 2 gợi ý câu 'chính xác hơn bác sĩ thường trong phát hiện ung thư da' làm ví dụ nói thay số liệu, là khẳng định y tế không nguồn, không nên khuyến khích."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Tên và phong cách tác giả (@chipmastervn) bị mô phỏng; phần 'Đánh giá cá nhân' xưng mày/tao."
+    }
+   ],
+   "goi_y_sua": "Thay ví dụ bác sĩ bằng yêu cầu dẫn nguồn khi so sánh độ chính xác.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/nodejs-keccak256",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Khách chạy chương trình thưởng token; dev cần tính selector hàm transfer(address,uint256) trong TypeScript.",
+   "dau_ra_trich": "Dùng ethers: id('transfer(address,uint256)').slice(0,10), không dùng crypto.createHash('sha3-256'). Kiểm tra mã hiện có bằng hai lệnh grep trong mục Audit. Quy tắc: luôn dùng helper Keccak của ethers/viem/web3.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Ví dụ 'Common patterns' dùng toUtf8Bytes nhưng dòng import chỉ có id, keccak256, AbiCoder; chạy sẽ lỗi thiếu import."
+    }
+   ],
+   "goi_y_sua": "Thêm toUtf8Bytes vào dòng import.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/plankton-code-quality",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dev của agency dựng website Next.js cho khách và muốn tự động format/lint sau mỗi lần Claude sửa file.",
+   "dau_ra_trich": "Mô tả 3 pha: auto-format, thu thập vi phạm JSON, ủy quyền subprocess claude -p theo tầng Haiku/Sonnet/Opus; bảo vệ file cấu hình linter. Không thể cài hay chạy: cần repo Plankton ngoài; ghi nhận danh sách việc cần chuẩn bị (ruff, biome...).",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Toàn bộ hook (multi_linter.sh, protect_linter_configs.sh, config.json) nằm ở repo Plankton bên ngoài, skill chỉ là tài liệu tích hợp, không kèm file."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Nói 'No install command' nhưng ngay trên đó có brew install và uv sync --all-extras."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Tự spawn claude -p với Opus timeout 600s mỗi lần sửa file mà không có trần chi phí; chặn npm/pip có thể xung đột quy chuẩn dự án khách."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Mục 'ECC v1.8 Additions' dùng biến ECC_HOOK_PROFILE, ECC_QUALITY_GATE_* không giải thích."
+    }
+   ],
+   "goi_y_sua": "Nêu rõ đây là tài liệu tham chiếu, thêm trần chi phí và mục tắt hook theo dự án.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/python-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Script nội bộ gom báo cáo quảng cáo cần chuẩn code: type hint, đặt tên, xử lý lỗi.",
+   "dau_ra_trich": "Áp EAFP cho tra cứu dict, type hint hiện đại list[str]/dict[str,int], logging.basicConfig tường minh, bỏ hàm tên một chữ cái. Đề xuất viết lại get_active_users có docstring.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File 750 dòng, tester đọc kỹ 110 dòng đầu và quét tự động phần còn lại."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/research-ops",
+   "loai": "skill-import",
+   "tinh_huong_thu": "So sánh 3 công cụ email marketing cho khách F&B quy mô 5.000 liên hệ, cần khuyến nghị dựa trên thông tin công khai hiện tại.",
+   "dau_ra_trich": "QUESTION TYPE: comparison. EVIDENCE: user-provided (5.000 liên hệ, ngân sách chưa có); sourced facts: chưa có vì không tra cứu được trong mô phỏng. INFERENCE: chỉ nêu tiêu chí. RECOMMENDATION: chưa kết luận, đề nghị chạy exa-search rồi deep-research, ghi ngày. Có thể thành monitor giá.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Phụ thuộc exa-search/deep-research (đều có trong kho) nhưng không nói rõ cần công cụ web search nào khi không có Exa."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Không nêu ngưỡng chọn giữa làn nhanh và làn deep-research."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/seo-plan",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Lập kế hoạch SEO 12 tháng cho phòng khám nha khoa mới ở TP.HCM, 5 đối thủ, ngân sách vừa.",
+   "dau_ra_trich": "Discovery (mục tiêu đặt lịch, KPI), liệt kê 5 đối thủ cần nhập, kiến trúc URL theo dịch vụ + quận, Phase 1-4 theo tuần/tháng, kèm SEO-STRATEGY.md, CONTENT-CALENDAR.md... Không có công cụ nên không ước tính domain authority, ghi 'thiếu dữ liệu'.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Bước 2 'Estimate their domain authority' không nêu công cụ hay nguồn; làm theo buộc phải ước đoán."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "'Sitemap structure with quality gates applied' không định nghĩa quality gate; 5 file đầu ra chỉ có tên, không có mẫu nội dung."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Phân tích đối thủ/từ khóa cần Ahrefs/Semrush/GSC nhưng không nêu cách lấy dữ liệu."
+    }
+   ],
+   "goi_y_sua": "Thêm nguồn dữ liệu, định nghĩa quality gate và mẫu từng file đầu ra; thêm mục SEO local/tiếng Việt.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/swift-concurrency-6-2",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dev iOS của agency chuyển app đặt tour của khách lên Swift 6.2 và gặp lỗi data race ở class PhotoProcessor.",
+   "dau_ra_trich": "Bật Approachable Concurrency (SE-0466, SE-0461), để async ở lại MainActor, đánh dấu @MainActor cho global/static, chỉ dùng @concurrent trên hàm xử lý ảnh nặng sau khi profile, kiểu chứa là nonisolated.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Anti-pattern 'Skipping model.availability checks in Foundation Models code' xuất hiện mà không có mục nào giải thích."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/tuvi-agent",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Khách muốn bán gói luận giải 199k: cần hook Telegram và bản luận giải Cơ bản cho mẫu: nam, sinh 12/05/1990, 08:30.",
+   "dau_ra_trich": "Không thể lập lá số: thiếu MCP tuvi/iztro và AN_SAO.md. Viết hook theo mẫu (kèm disclaimer, 'quyết định cuối cùng là của bạn') và khung luận giải 5 phần, đánh dấu [cần lá số] thay vì bịa sao. Tránh lời khuyên đầu tư cụ thể.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "5/6 skill liên quan (tuvi-tu-tru-expert, kinh-dich, phong-thuy, luu-nguyet-nhat, chart-renderer) và AN_SAO.md không có trong kho; mcp_tuvi_calculate_chart chỉ nói tên."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Mục ĐẦU TƯ đưa mức cụ thể (margin tối đa 20%, stop-loss 8%, mỗi lệnh 5%) và 'không ký hợp đồng dài hạn' từ lá số; disclaimer có nhưng đây vẫn là lời khuyên tài chính/pháp lý."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Tên và giá sản phẩm cố định (Giải Mã Số Phận 199k, Kiến Tạo Đế Vương 3.999.000-6.999.000)."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Dặn 'tiếng Việt thuần, nói dễ hiểu' nhưng gói Cơ bản dùng 'Mày' và gói Cao cấp 'gai góc, không nể nang'; hook 'vạch trần sự thật' mâu thuẫn mục 'không hứa viển vông'."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Ví dụ 'Đồng nghiệp đang âm mưu' khẳng định hành vi của người thật từ lá số, rủi ro phỉ báng."
+    }
+   ],
+   "goi_y_sua": "Bổ sung các subskill thiếu, bỏ số tài chính cụ thể, trung lập hóa tên/giá, thống nhất giọng văn.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/voice-profile-builder",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Founder một khách muốn có file giọng nói riêng để team content viết bài đúng giọng anh ấy.",
+   "dau_ra_trich": "Giai đoạn 1: chạy Prompt 1 phỏng vấn (chia 100 câu theo phiên, ghi chỗ từ chối trả lời). Giai đoạn 2: Prompt 2 xuất file 7 mục, nén 20.000 từ về khoảng 4.000 token, kiểm tra ở phiên trống bằng câu 'Tôi là ai?'. Lưu ở thư mục dự án của khách.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Transcript phỏng vấn là dữ liệu cá nhân nhạy cảm; skill không nói xin phép, nơi lưu, hay cách tách theo từng khách."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Gắn cứng 'Claude Opus 4.7', chế độ 'Cowork' và ví dụ DiffusionGemma; xưng mày/tao."
+    }
+   ],
+   "goi_y_sua": "Thêm mục quyền riêng tư và cách tách profile theo khách; bỏ tên model cố định.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/accounting-skills-cynco",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Kế toán agency cần đối chiếu sao kê ngân hàng tháng 5 với hóa đơn (Phase 2) theo quy định Việt Nam.",
+   "dau_ra_trich": "Mô phỏng bằng văn bản, không chạy npx. Theo mục 'Adapt Cho Việt Nam' thêm prompt VAS/GTGT 10-5-0, mẫu 03/TNDN. Phase 2: phân loại theo hệ thống tài khoản, ghép sao kê với hóa đơn; không có file nên không có số. Cần kế toán trưởng duyệt.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Chỉ có sơ đồ 8 phase; hướng dẫn chi tiết từng phase nằm trong gói cài npx @cynco/accounting-skills (không chạy, lệnh cài để nguyên)."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Thiết kế cho Malaysia (Form C, S44(6), ITA 1967); phần thích ứng Việt Nam ghi 'TNDN 20% (SME), 25% (lớn)' có vẻ sai/lỗi thời, cần kế toán xác nhận."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Phase 5 tính thuế và tờ khai không có bước chuyên viên duyệt trước khi nộp."
+    }
+   ],
+   "goi_y_sua": "Kiểm lại thuế suất theo luật hiện hành; thêm bước duyệt của kế toán trưởng.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/accounting-stack-guide",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Quy trình đóng sổ tháng 5 cho agency: hóa đơn giấy, sao kê CSV, bút toán và nhắc hạn VAT.",
+   "dau_ra_trich": "Chọn nhánh: có chứng từ giấy -> Recite + Invoice Extractor; có CSV -> ke-toan-automation (có trong kho); chạy Prompt Reconcile ±1 ngày, ±1.000đ, xuất 3 tab. Không thực hiện cài hay đăng bút toán; liệt kê 'cần duyệt' trước bước Jaz và gửi email.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Step 3-5 'Post journal entries', upload Drive và 'Gửi email cho kế toán trưởng' không có bước người duyệt trước khi ghi sổ/gửi."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Setup cài 6 plugin bên thứ ba (jaz-ai, cynco, worker-k, recite, invoice-extractor) và 3 MCP kế toán (xero, wave, freshbooks) không có trong kho, chưa có kiểm tra an toàn."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Dùng thuật ngữ ITC (không phải thuật ngữ thuế VN) và 'VAT được hoàn nếu đầu vào > đầu ra liên tục 3 tháng' nhiều khả năng sai điều kiện hoàn thuế hiện hành; cần kế toán xác nhận."
+    }
+   ],
+   "goi_y_sua": "Thêm cổng duyệt cho thao tác ghi sổ/gửi; sửa quy tắc hoàn thuế và thuật ngữ.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/agent-browser",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Kiểm tra form đăng ký và nút 'đặt lịch' trên landing page staging của khách bằng agent-browser.",
+   "dau_ra_trich": "Mô phỏng văn bản: cài CLI (không chạy), thêm 'Use agent-browser for web automation' vào CLAUDE.md, ra lệnh test luồng điền form, chụp màn hình từng bước. Phải dừng trước bước thanh toán thật và chỉ chạy trên staging.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File không có frontmatter (name/description) nên không thể tự kích hoạt như skill."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Ví dụ chạy test 'từ chọn ngày tới xác nhận thanh toán' không dặn dùng môi trường/thẻ test."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Nhắc cứng site ABTRIP, Wonder Mart và 'CEO'; mục 'Có nên dùng' nói bắt buộc cho mọi project."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Không có bảng lệnh agent-browser; buộc đọc --help sau khi cài."
+    }
+   ],
+   "goi_y_sua": "Thêm frontmatter, bảng lệnh chính và cảnh báo staging/thanh toán test.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/agent-reach-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Thu thập phản hồi cộng đồng về công cụ X trên X/Reddit/YouTube trước khi làm video review cho khách.",
+   "dau_ra_trich": "Theo mẫu: thu thập reach.twitter/reddit/youtube, lọc likes>100, gom 5-10 mục, rồi đưa vào Claude hỏi pain point để làm hook. Không chạy pip hay gọi API; không có dữ liệu nên chỉ trình bày kế hoạch lọc và chỉ số, không tạo trích dẫn.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần pip install agent-reach và truy cập X/LinkedIn nhưng không nói gì về đăng nhập, giới hạn tốc độ hay điều khoản; trường likes/upvotes được giả định."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Tuyên bố '$0', 'tiết kiệm 80%/95% token' và quy tắc '<5 video tiếng Việt = blue ocean' không có dữ kiện hỗ trợ."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Có reach.linkedin_profile và theo dõi nhắc đến thương hiệu, không có lưu ý quyền riêng tư/ToS."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ gắn cứng 'AI Vibe Toolkit', 'hermes-agent'."
+    }
+   ],
+   "goi_y_sua": "Nêu rõ xác thực, ToS và bỏ các số tiết kiệm không nguồn.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/agent-research-skills-academic-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Làm báo cáo thị trường 'xu hướng chatbot chăm sóc khách hàng' cho khách ngân hàng bằng bộ lệnh /literature-search... áp dụng phi học thuật.",
+   "dau_ra_trich": "Theo phần Adapt: /literature-search 'chatbot CSKH', /data-analysis, /table-generation 'so sánh đối thủ', /survey-generation. Không có gói cài nên không thể tạo nội dung thật; đầu ra chỉ là kế hoạch lệnh. Ghi thiếu: định nghĩa từng lệnh.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Mọi lệnh /... thuộc gói ngoài cài bằng npx skills add; file này không mô tả lệnh làm gì, tham số, đầu ra."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "/novelty-assessment, /research-planning, /self-review... chỉ nêu tên; làm theo phải đoán hành vi."
+    }
+   ],
+   "goi_y_sua": "Thêm mô tả một dòng cho mỗi lệnh và ví dụ đầu ra.",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/bumblebee",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Trước khi cài MCP lạ cho agency, kiểm tra nó bằng bumblebee rồi quyết định theo checklist.",
+   "dau_ra_trich": "Mô phỏng văn bản: theo checklist 5 ô (scan package, publisher, quyền, sao/commit, đọc mã nếu <1k sao). Không chạy pip/npx hay bumblebee. Kết luận mẫu: MCP 0 sao, mới tạo => bỏ hoặc cách ly sandbox.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cài pip bumblebee-scanner / npx bumblebee-scan nhưng không có cách kiểm chứng gói và nhà phát hành; phần 'Output Ví Dụ' là minh họa, không phải kết quả thật."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Quy tắc '>1k sao + publisher verified => scan rồi cài' dựa vào số sao, bỏ qua việc cài ở môi trường cách ly; 'scan --repo trước khi clone' không nói có tải mã về hay không."
+    }
+   ],
+   "goi_y_sua": "Bỏ ngưỡng sao làm tiêu chí tin cậy; thêm bước sandbox và nguồn xác minh công cụ.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/caveman",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dev của agency muốn Claude trả lời cụt, ít token khi review nhanh code của khách.",
+   "dau_ra_trich": "Mô phỏng: bật /caveman full, trả lời kiểu 'Ref mới mỗi render. Prop inline = re-render. Dùng useMemo.' Không chạy lệnh cài; quy tắc chi tiết nằm ở repo ngoài nên mức lite/ultra/wenyan phải đoán. Không dùng cho nội dung gửi khách (skill tự dặn).",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Hướng dẫn cài dùng 'curl ... | bash' và 'irm ... | iex' từ GitHub raw, kèm mẹo bảo agent 'Read CLAUDE.md and INSTALL.md, install caveman for me'; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Nội dung skill thật nằm ở repo JuliusBrussee/caveman; file kho chỉ là tóm tắt."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Số '65%', '74k sao', benchmark 10 task không có nguồn dẫn kiểm chứng."
+    }
+   ],
+   "goi_y_sua": "Chép quy tắc cốt lõi vào file; thay lệnh pipe-to-shell bằng bước tải về, đọc, rồi chạy.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/claude-code-skills-list-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Nhân viên mới hỏi 'bộ skill nào nên cài trước cho dự án landing page SEO?'",
+   "dau_ra_trich": "Đọc danh sách: gợi ý taste-skill (UI), marketingskills, claude-seo, superpowers. Đây là danh mục tham khảo, không có bước thực hiện; không cài. Khuyến nghị đối chiếu từng mục với kho trước khi cài.",
+   "verdict": "khong-ap-dung",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "'Top 5 Phải Cài Ngay' khuyến khích cài plugin bên thứ ba mà không nhắc kiểm tra an toàn (trong khi bumblebee nằm ngay trong danh sách)."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Cột Install lẫn nhiều dạng ('/last30days command', '(trong agent-skills)'); xếp hạng sao không có tiêu chí."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/claude-devfleet",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dev nội bộ muốn giao 3 mission song song: dựng landing page, API form lead, và test cho khách.",
+   "dau_ra_trich": "Mô phỏng: plan_project -> hiện kế hoạch cho người dùng duyệt -> dispatch_mission cho mission gốc; các mission sau auto-dispatch. Không kết nối MCP http://localhost:18801. Theo Guidelines: xác nhận kế hoạch, kiểm tra tiến trình bằng get_mission_status, đọc get_report trước khi retry.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần chạy server DevFleet riêng (repo LEC-AI/claude-devfleet) rồi claude mcp add qua HTTP localhost; không bundle trong kho."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Mission hoàn thành sẽ auto-merge; chỉ có cổng duyệt kế hoạch, không có bước chạy test hay review trước khi merge; 'unless they said to go ahead' bỏ qua cổng duyệt."
+    }
+   ],
+   "goi_y_sua": "Thêm cổng test/review trước auto-merge và trần số mission/chi phí.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/claude-mem",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Agency làm dự án refactor nhiều ngày cho một khách và muốn Claude nhớ bối cảnh giữa các phiên.",
+   "dau_ra_trich": "Mô phỏng: cài bằng npx claude-mem install (không chạy). Hiểu cơ chế 5 hook, worker cổng 37777, SQLite + Chroma, mem-search theo 3 lớp. Nêu rủi ro: dữ liệu khách sẽ nằm trong DB cục bộ; cần tách theo dự án.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Skill mem-search và hook nằm ngoài kho; yêu cầu Bun, uv, worker chạy nền, không có trong file."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Ghi lại mọi hành động/kết quả tool vào DB vector và web viewer localhost:37777, không nói gì về lọc bí mật, dữ liệu khách hay rò rỉ chéo giữa các dự án."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Không nêu cách tách bộ nhớ theo dự án/khách hoặc xóa dữ liệu."
+    }
+   ],
+   "goi_y_sua": "Thêm mục quyền riêng tư: tách theo dự án, lọc khóa/PII, cách xóa.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/copywriting-prose-creator",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Xây PROSE.md (cách viết) cho thương hiệu cà phê của một khách, chuẩn bị cho 3 người viết bài.",
+   "dau_ra_trich": "Mô phỏng BUILD: SOUL.md/TONE.md chưa có nên phải phỏng vấn từng câu: độ dài câu trung bình, emoji, từ cấm, cách mở đoạn; khung PROSE.md theo 4 nhóm kênh (bài dài, social, email, marketing copy). Không có quy tắc chi tiết của skill gốc nên bảng quy tắc chỉ là khung.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File không có frontmatter nên không kích hoạt được như skill; quy trình BUILD/ADAPT/AUDIT chỉ được tóm tắt, bản gốc ở repo samber/cc-skills."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Cứng tên Trùm Sân Bay, ABTRIP, Tano, Wonder Mart, GMSP, Hermes/OpenClaw."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Phụ thuộc copywriting-tone-of-voice-creator (tạo TONE.md) và humaniseur-fr; cả hai không có trong kho."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Mục Agent Integration tải SKILL.md từ raw.githubusercontent bằng urllib rồi ghi vào skills_local, và git clone vào thư mục skills của agent, không ghim phiên bản hay băm; chỉ ghi nhận, không chạy."
+    }
+   ],
+   "goi_y_sua": "Thêm frontmatter, chép quy trình 3 mode, ghim commit khi tải ngoài.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/deep-research-samber-cc",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Nghiên cứu thị trường 'chăm sóc thú cưng online tại Việt Nam' cho khách ngành pet, chế độ Standard.",
+   "dau_ra_trich": "Theo skill: không có WebSearch thì dừng và báo lỗi, không bịa số. Vì mô phỏng offline: ghi giả định phạm vi, 3 hướng cần tìm (quy mô, đối thủ, giá), quy tắc 'mỗi claim >=2 nguồn, thiếu thì No sources found, confidence: Low'. Không có số liệu.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File không có frontmatter; quy trình 5 bước, 11 loại nghiên cứu và 3 mode chỉ được tóm tắt, bản gốc ở repo ngoài."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ gắn cứng ABTRIP, Nobitano, OpenClaw."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Agent Integration tải SKILL.md từ raw.githubusercontent bằng urllib và clone repo vào thư mục skills; không ghim phiên bản; chỉ ghi nhận."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Tuyên bố 'giảm error rate 51%' và '153 sao' không có nguồn."
+    }
+   ],
+   "goi_y_sua": "Chép quy trình vào file, thêm frontmatter, ghim phiên bản khi tải.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/django-celery",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Gửi báo cáo tuần tự động cho khách mỗi thứ Hai 8h từ một ứng dụng Django bằng Celery Beat.",
+   "dau_ra_trich": "Cấu hình CELERY_BROKER_URL Redis, DatabaseScheduler, task shared_task có retry; ACKS_LATE=True, time limit 30 phút, giữ kết quả 24h; worker và beat chạy riêng ở production. Idempotent: bỏ qua nếu bản ghi không còn.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File 457 dòng, tester đọc kỹ 130 dòng đầu; phần retry, canvas, monitoring, testing chỉ quét tự động."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/gateguard",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Yêu cầu Claude sửa file cấu hình giá dịch vụ trong repo website khách; muốn ép nó điều tra trước khi sửa.",
+   "dau_ra_trich": "Mô phỏng Edit Gate: trước khi sửa pricing.json phải nêu (1) file import nó (Grep), (2) hàm/lớp bị ảnh hưởng, (3) cấu trúc trường dữ liệu bằng giá trị đã ẩn, (4) trích nguyên văn yêu cầu hiện tại. Sau đó mới cho phép. Không bật hook thật.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Hook scripts/hooks/gateguard-fact-force.js và hooks.json của ECC không có trong kho; chỉ làm theo giao thức thủ công được."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần ECC hoặc pip install gateguard-ai (không chạy); biến ECC_GATEGUARD, ECC_DISABLED_HOOKS giải thích sơ sài."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "'+2.25 điểm' lấy từ 2 bài A/B, không nêu thang chấm hay cỡ mẫu; 'No competitor does all three' là tuyên bố tiếp thị."
+    }
+   ],
+   "goi_y_sua": "Kèm hook hoặc bản giao thức thủ công đầy đủ; nêu rõ cách đo +2.25.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/invoice-extractor",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Nhập 30 hóa đơn nhà cung cấp tháng 5 (PDF/ảnh) của agency thành JSON kiểm tra tổng tiền.",
+   "dau_ra_trich": "Mô phỏng: một hóa đơn thiết kế web 10.000.000 + VAT 10% = 11.000.000 theo mẫu JSON (vendor, line_items, subtotal, tax_rate, total, validation.math_check). Khi total != subtotal+thuế thì FAIL và gắn cờ review. Không chạy plugin, không đưa số thật.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Hành vi trích xuất nằm ở plugin ngoài Viprasol-Tech/invoice-extractor; file chỉ có mẫu JSON, không có quy tắc/schema đầy đủ hay xử lý hóa đơn điện tử XML Việt Nam."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Luồng 'PASS thì tạo bill entry trong Xero' ghi sổ tự động, không có bước người duyệt trước khi tạo."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "tax_rate cứng 0.10, không nói xử lý nhiều mức thuế suất trên một hóa đơn."
+    }
+   ],
+   "goi_y_sua": "Thêm schema đầy đủ, xử lý nhiều thuế suất và cổng duyệt trước khi ghi sổ.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/lmcache-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Khách hỏi có nên dùng LMCache để giảm chi phí cho chatbot dùng Claude API với system prompt 2k token.",
+   "dau_ra_trich": "Theo mục 'Khi nào KHÔNG cần': dùng Claude API thì không cần LMCache, Anthropic đã có prompt caching; chỉ dùng khi tự host vLLM với system prompt dài/RAG. Kết luận: không cài.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Bảng 'Savings Thực Tế' (-50%, -65%, -70%...) và '40-70% latency' không có nguồn hay điều kiện phần cứng."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần GPU và model gated (Llama-3.1) nhưng không nói; cờ --lmcache-config-file và khóa YAML không kiểm chứng được offline."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Skill chủ yếu không áp dụng cho agency dùng API đám mây."
+    }
+   ],
+   "goi_y_sua": "Nêu điều kiện phần cứng, nguồn số liệu và phiên bản tương thích vLLM.",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/magika-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Xác định kiểu thật của file khách gửi lên (đuôi .dat/.bin) trước khi đưa vào pipeline trích văn bản.",
+   "dau_ra_trich": "Dùng Magika().identify_path(f) lấy output.ct_label và score; nếu pdf thì trích văn bản, ảnh thì xử lý ảnh, còn lại thì cảnh báo. Không chạy pip; kiểm cú pháp ví dụ cho thấy lỗi.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Hai khối Python trong file không biên dịch được: chuỗi bytes ở identify_bytes bị xuống dòng thật giữa literal (dòng 35-36), và safe_process_file có nhánh if chỉ chứa chú thích (IndentationError). Tester chỉ phân tích cú pháp, không chạy."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "'Reliable hơn 99%' và '200+ file types' không có nguồn; thuộc tính ct_label có thể lệch theo phiên bản magika (không kiểm chứng được)."
+    }
+   ],
+   "goi_y_sua": "Sửa hai khối mã (dùng \\n trong chuỗi, thêm pass), ghim phiên bản magika.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/motion-ui",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Làm hero landing page Next.js của khách có hiệu ứng vào mượt, tôn trọng người dùng giảm chuyển động.",
+   "dau_ra_trich": "Cài 'motion', import từ motion/react (không trộn framer-motion), dùng motionTokens (duration 0.18/0.35/0.6, easing smooth), initial {opacity:0,y:16} -> animate; hỗ trợ reduced motion; bỏ hiệu ứng nếu chỉ để trang trí.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File 575 dòng, tester đọc kỹ 130 dòng đầu; phần pattern nâng cao quét tự động. Tên 'Motion System v4.2' là phiên bản tự đặt."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  },
+  {
+   "id": "skills/prism-scanner",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Quét một skill mới nhập từ nguồn ngoài trước khi đưa vào kho của agency.",
+   "dau_ra_trich": "Mô phỏng: theo mục Setup, chạy prism-scanner scan <đường dẫn> (không chạy), đọc điểm A-F và các rule bị flag; điểm B vẫn phải tự đọc phần bị trừ. Dùng như lớp lọc đầu, không thay thế đọc mã.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Khuyến nghị 'pip install prism-scanner --break-system-packages' (ghi đè môi trường hệ thống) cho gói 13 sao chưa kiểm chứng; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "File không có frontmatter nên không kích hoạt được; không có mẫu đầu ra hay ngưỡng A-F nào để quyết định nhập/loại."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Bám cứng quy trình 'kho AI Vibe Toolkit', VPS, Hermes/OpenClaw."
+    }
+   ],
+   "goi_y_sua": "Thêm frontmatter, mẫu báo cáo A-F và ngưỡng loại; cài trong venv.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/prisma-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "API lead cho khách dùng Prisma: cần chọn kiểu ID, phân trang và tránh bẫy updateMany.",
+   "dau_ra_trich": "Chọn @default(cuid()), @@index cho khóa ngoại, select thay include ở đường nóng, map DTO không trả passwordHash; dùng $transaction dạng interactive chỉ với tx; không đặt gọi email/HTTP trong transaction; nhớ updateMany trả count và không chạy @updatedAt.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "File 371 dòng, tester đọc kỹ 130 dòng đầu; phần bẫy serverless và migrate chỉ quét tự động."
+    }
+   ],
+   "goi_y_sua": "",
+   "do_chac_cua_tester": "thap"
+  }
+ ]
+}
