@@ -1,0 +1,531 @@
+{
+  "_ghi_chu": "Đặc tả kiểm cách ly cho các mục kho cần cài đặt bên thứ ba. Người dùng đọc từng spec rồi tự đổi trang_thai_duyet từ \"chua-duyet\" sang \"da-duyet\" cho mục mình chấp nhận chạy. Mục \"can-nguoi-doc-ky\" (cờ đỏ, cần khoá API hoặc trả phí, hay bộ chạy không hỗ trợ) luôn bị bộ chạy bỏ qua, kể cả khi bị đổi tay. lenh_cai trích từ entry gốc (qua tools/thu_kho.py install_plan hoặc đọc thẳng entry); bộ chạy KHÔNG thực thi lenh_cai nguyên văn mà dịch sang lệnh an toàn theo cach_cai/goi/buoc_cai (npm --ignore-scripts, pip --only-binary). Xem catalog/SMOKE-RUNBOOK.md.",
+  "ngay": "2026-10-19",
+  "specs": [
+    {
+      "id": "mcps/tavily-mcp",
+      "cach_cai": "npx",
+      "lenh_cai": "npx -y tavily-mcp",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "tavily-mcp"
+      ],
+      "lenh_thu_nhe": "npm ls --prefix /work/npm tavily-mcp",
+      "mau_pass": "tavily\\-mcp@\\d",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": true,
+      "ten_bien_khoa": [
+        "TAVILY_API_KEY"
+      ],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "MCP server tìm web (starter-kit: dự phòng cho Nghiên cứu đối thủ). Cần khoá API Tavily (gói free 1.000 credit/tháng theo entry) nên bộ chạy mặc định bỏ qua. Dù có chạy, chỉ kiểm cài được (npm ls), không gọi API.",
+      "trang_thai_duyet": "can-nguoi-doc-ky"
+    },
+    {
+      "id": "repos/claude-seo",
+      "cach_cai": "khac",
+      "lenh_cai": "git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [],
+      "lenh_thu_nhe": "git -C /work/src/claude-seo rev-parse --short HEAD",
+      "mau_pass": "^[0-9a-f]{7,}",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Là plugin Claude Code (cài bằng /plugin, hoặc bash claude-seo/install.sh theo entry). Container không kiểm được phần plugin; chỉ clone được hay không. Lệnh nâng cao cần DataForSEO (trả phí) hoặc Firecrawl. Entry còn lệnh bash install.sh: cần người đọc kỹ file đó trước.",
+      "trang_thai_duyet": "can-nguoi-doc-ky",
+      "image": "python:3.12-bookworm",
+      "buoc_cai": [
+        [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/AgriciDaniel/claude-seo.git",
+          "/work/src/claude-seo"
+        ]
+      ]
+    },
+    {
+      "id": "repos/hyperframes",
+      "cach_cai": "npx",
+      "lenh_cai": "npx hyperframes init my-video",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "hyperframes"
+      ],
+      "lenh_thu_nhe": "hyperframes --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit mục chính (video). Chỉ kiểm CLI hyperframes cài và chạy --help. KHÔNG kiểm init/preview/render (cần trình duyệt/ffmpeg). Lệnh \"npx skills add heygen-com/hyperframes\" trong entry là bước khác (cài skill vào Claude Code), không kiểm ở đây. Nếu --ignore-scripts làm hỏng cài đặt, đặt \"cho_phep_script\": true sau khi đọc.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "mcps/pollinations-mcp",
+      "cach_cai": "npx",
+      "lenh_cai": "npx pollinations-mcp",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "pollinations-mcp"
+      ],
+      "lenh_thu_nhe": "npm ls --prefix /work/npm pollinations-mcp",
+      "mau_pass": "pollinations\\-mcp@\\d",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (tạo ảnh). Entry nói dùng miễn phí không cần khoá. Chỉ kiểm cài được (npm ls); không chạy server vì sẽ gọi dịch vụ Pollinations bên ngoài. Entry mới đọc phần đầu (da-doc-dau-entry).",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/vieneu-tts",
+      "cach_cai": "pip",
+      "lenh_cai": "pip install vieneu",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "vieneu"
+      ],
+      "lenh_thu_nhe": "pip show vieneu",
+      "mau_pass": "(?i)Name:\\s*vieneu",
+      "timeout_giay": 1200,
+      "ram": "4g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit mục chính (giọng đọc tiếng Việt). Gói có thể kéo thư viện học máy nặng (vài GB, tốn thời gian); nếu hết RAM hãy tăng \"ram\". Chỉ kiểm cài được (pip show); KHÔNG tải mô hình giọng (việc đó xảy ra khi dùng Vieneu() lần đầu, cần mạng).",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/elevenlabs-skills",
+      "cach_cai": "npx",
+      "lenh_cai": "npx skills add elevenlabs/skills",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "skills"
+      ],
+      "lenh_thu_nhe": "skills --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": true,
+      "ten_bien_khoa": [
+        "ELEVENLABS_API_KEY"
+      ],
+      "tra_phi": true,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (giọng đọc). Cần khoá ElevenLabs và trả phí theo mức dùng. Entry cũng có pip install elevenlabs và npm install @elevenlabs/elevenlabs-js. Bộ chạy bỏ qua; nếu muốn thử cài thì người dùng tự chạy tay sau khi đọc.",
+      "trang_thai_duyet": "can-nguoi-doc-ky"
+    },
+    {
+      "id": "mcps/buffer-mcp",
+      "cach_cai": "khac",
+      "lenh_cai": "pip install mcp httpx pydantic",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [],
+      "lenh_thu_nhe": "pip show mcp",
+      "mau_pass": "(?i)Name:\\s*mcp",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": true,
+      "ten_bien_khoa": [
+        "BUFFER_ACCESS_TOKEN"
+      ],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (lên lịch đăng). Cần token Buffer; công cụ đăng bài lên mạng xã hội nên mọi lần chạy thật là việc người duyệt. Repo cá nhân nhỏ, đọc server.py trước khi chạy. Entry: git clone rồi pip install mcp httpx pydantic.",
+      "trang_thai_duyet": "can-nguoi-doc-ky",
+      "image": "python:3.12-bookworm",
+      "buoc_cai": [
+        [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/jakemeany523/buffer-mcp",
+          "/work/src/buffer-mcp"
+        ],
+        [
+          "pip",
+          "install",
+          "--only-binary=:all:",
+          "--no-input",
+          "--disable-pip-version-check",
+          "--target",
+          "/work/pylib",
+          "mcp",
+          "httpx",
+          "pydantic"
+        ]
+      ]
+    },
+    {
+      "id": "mcps/hubspot-mcp",
+      "cach_cai": "khac",
+      "lenh_cai": "npm install && npm run build",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [],
+      "lenh_thu_nhe": "npm ls --prefix /work/src/hubspot-mcp --depth 0",
+      "mau_pass": "hubspot",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": true,
+      "ten_bien_khoa": [
+        "HUBSPOT_ACCESS_TOKEN"
+      ],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit mục chính (CRM). Cần token HubSpot (động vào dữ liệu khách). \"npm run build\" chạy script do repo định nghĩa: đọc package.json trước. Entry mới đọc phần đầu.",
+      "trang_thai_duyet": "can-nguoi-doc-ky",
+      "image": "node:22-bookworm",
+      "buoc_cai": [
+        [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/ZLeventer/hubspot-mcp",
+          "/work/src/hubspot-mcp"
+        ],
+        [
+          "npm",
+          "--prefix",
+          "/work/src/hubspot-mcp",
+          "install",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        [
+          "npm",
+          "--prefix",
+          "/work/src/hubspot-mcp",
+          "run",
+          "build"
+        ]
+      ]
+    },
+    {
+      "id": "repos/twenty-crm",
+      "cach_cai": "docker",
+      "lenh_cai": "docker compose up -d",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [],
+      "lenh_thu_nhe": "",
+      "mau_pass": "",
+      "timeout_giay": 600,
+      "ram": "4g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": true,
+      "ten_bien_khoa": [
+        "APP_SECRET"
+      ],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (CRM tự host). Là cụm nhiều container (docker compose + Postgres), bộ chạy cách ly này KHÔNG hỗ trợ (cần Docker-in-Docker hoặc chạy thẳng compose trên máy chủ). License AGPL. Người dùng tự dựng theo entry trên một máy riêng. Chỉ để trong danh sách cho đủ bộ khởi đầu.",
+      "trang_thai_duyet": "can-nguoi-doc-ky"
+    },
+    {
+      "id": "repos/markitdown",
+      "cach_cai": "pip",
+      "lenh_cai": "pip install markitdown[all]",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "markitdown[all]"
+      ],
+      "lenh_thu_nhe": "markitdown --help",
+      "mau_pass": "(?i)usage",
+      "timeout_giay": 900,
+      "ram": "2g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit mục chính (chuyển tài liệu sang Markdown). Chỉ kiểm CLI markitdown cài và chạy --help. Không chuyển file thật. Phần [all] kéo nhiều phụ thuộc; nếu thiếu bánh xe dựng sẵn thì pip --only-binary sẽ báo lỗi (khi đó đặt \"cho_phep_sdist\": true sau khi đọc).",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/stirling-pdf",
+      "cach_cai": "docker",
+      "lenh_cai": "docker run -d -p 8080:8080 -v ./trainingData:/usr/share/tessdata -v ./configs:/configs --name stirling-pdf frooodle/s-pdf:latest",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "frooodle/s-pdf:latest"
+      ],
+      "lenh_thu_nhe": "docker image inspect frooodle/s-pdf:latest",
+      "mau_pass": "sha256:[0-9a-f]{12,}",
+      "timeout_giay": 900,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (PDF). Bộ chạy chỉ KÉO image và kiểm image tồn tại (docker image inspect), KHÔNG chạy container của họ (là máy chủ web). Image lớn (cỡ GB). Tên image theo entry có thể đã cũ; nếu pull lỗi thì ghi lại, đừng sửa bừa. Image kéo mới sẽ bị xoá sau khi kiểm.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "mcps/crawl4ai",
+      "cach_cai": "docker",
+      "lenh_cai": "docker run -d -p 11235:11235 --name crawl4ai --shm-size=1g unclecode/crawl4ai:latest",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "unclecode/crawl4ai:latest"
+      ],
+      "lenh_thu_nhe": "docker image inspect unclecode/crawl4ai:latest",
+      "mau_pass": "sha256:[0-9a-f]{12,}",
+      "timeout_giay": 1200,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit mục chính (thu thập web). Như stirling-pdf: chỉ kéo image và kiểm tồn tại, không chạy. Image rất lớn (vài GB, có trình duyệt). Entry ghi adoption can-ha-tang. Phần MCP (npx -y mcp-crawl4ai) trong entry là bước khác, chưa kiểm.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/agent-browser",
+      "cach_cai": "npm",
+      "lenh_cai": "npm install -g agent-browser",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "agent-browser"
+      ],
+      "lenh_thu_nhe": "agent-browser --help",
+      "mau_pass": "(?i)usage|commands",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Starter-kit dự phòng (kiểm thử trình duyệt). Chỉ kiểm CLI cài và chạy --help. KHÔNG chạy \"agent-browser install\" (tải Chrome for Testing). Gói có thể cần postinstall để lấy binary; nếu fail vì --ignore-scripts thì ghi nhận, đừng tự bật script mà không đọc.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "mcps/mcp-youtube",
+      "cach_cai": "npx",
+      "lenh_cai": "npx -y @anaisbetts/mcp-youtube",
+      "nguon_lenh_cai": "install_plan(json)",
+      "goi": [
+        "@anaisbetts/mcp-youtube"
+      ],
+      "lenh_thu_nhe": "npm ls --prefix /work/npm @anaisbetts/mcp-youtube",
+      "mau_pass": "@anaisbetts/mcp\\-youtube@\\d",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Lệnh ghép từ khối JSON mcpServers trong entry (command npx, args -y @anaisbetts/mcp-youtube). Entry nói không cần khoá API nhưng cần yt-dlp cài sẵn trên máy: kiểm này chỉ chứng minh gói npm cài được, KHÔNG chứng minh lấy transcript được.",
+      "trang_thai_duyet": "chua-duyet",
+      "lenh_cai_tu_json": true
+    },
+    {
+      "id": "repos/capcut-tts-api",
+      "cach_cai": "khac",
+      "lenh_cai": "pip install requests",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [],
+      "lenh_thu_nhe": "python3 /work/src/capcut-tts-api/capcut_common_task_client.py --help",
+      "mau_pass": "(?i)usage",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Gọi API không chính thức của CapCut (entry tự ghi rủi ro; cần file device.json giả lập thiết bị): có thể vi phạm điều khoản dịch vụ và rủi ro khoá tài khoản. Cần người đọc kỹ và quyết định có nên dùng cho khách hay không, nên bộ chạy mặc định bỏ qua.",
+      "trang_thai_duyet": "can-nguoi-doc-ky",
+      "image": "python:3.12-bookworm",
+      "buoc_cai": [
+        [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/K07VN/capcut-tts-api",
+          "/work/src/capcut-tts-api"
+        ],
+        [
+          "pip",
+          "install",
+          "--only-binary=:all:",
+          "--no-input",
+          "--disable-pip-version-check",
+          "--target",
+          "/work/pylib",
+          "requests"
+        ]
+      ]
+    },
+    {
+      "id": "repos/claude-remotion-skill",
+      "cach_cai": "npx",
+      "lenh_cai": "npx skills add haidrrrry/claude-remotion-skill",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "skills"
+      ],
+      "lenh_thu_nhe": "skills --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Chỉ kiểm CLI \"skills\" (npm) cài và chạy --help trong container. Bước \"skills add\" thật ghi skill vào thư mục của Claude Code nên không thể kiểm cách ly. Skill chỉ chạy trong Claude Code (needs claude-code-only).",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/gsap-skills",
+      "cach_cai": "npx",
+      "lenh_cai": "npx skills add https://github.com/greensock/gsap-skills",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "skills"
+      ],
+      "lenh_thu_nhe": "skills --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Chỉ kiểm CLI \"skills\" (npm) cài và chạy --help trong container. Bước \"skills add\" thật ghi skill vào thư mục của Claude Code nên không thể kiểm cách ly. Entry còn đường /plugin marketplace add (chỉ trong Claude Code), không kiểm ở đây.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/product-launch-motion",
+      "cach_cai": "npx",
+      "lenh_cai": "npx skills add AbubakrChan/product-launch-motion",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "skills"
+      ],
+      "lenh_thu_nhe": "skills --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Chỉ kiểm CLI \"skills\" (npm) cài và chạy --help trong container. Bước \"skills add\" thật ghi skill vào thư mục của Claude Code nên không thể kiểm cách ly. Skill chỉ chạy trong Claude Code, cần trình duyệt để dựng video.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/motion-dev-animations-skill",
+      "cach_cai": "npx",
+      "lenh_cai": "npx skills add 199-biotechnologies/motion-dev-animations-skill",
+      "nguon_lenh_cai": "entry-truc-tiep",
+      "goi": [
+        "skills"
+      ],
+      "lenh_thu_nhe": "skills --help",
+      "mau_pass": "(?i)usage|options|commands|--help",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Chỉ kiểm CLI \"skills\" (npm) cài và chạy --help trong container. Bước \"skills add\" thật ghi skill vào thư mục của Claude Code nên không thể kiểm cách ly. Lệnh nằm ngoài mục Setup của entry (đã trích thẳng từ entry gốc).",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/hermes-skills-hub",
+      "cach_cai": "npm",
+      "lenh_cai": "npm install -g hermes-agent",
+      "nguon_lenh_cai": "install_plan",
+      "goi": [
+        "hermes-agent"
+      ],
+      "lenh_thu_nhe": "npm ls --prefix /work/npm hermes-agent",
+      "mau_pass": "hermes\\-agent@\\d",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Chỉ kiểm gói hermes-agent cài được (npm ls). Không chạy \"npx hermes-agent\" vì đó là agent tương tác, không biết cờ --help an toàn. Các lệnh /skills trong entry chạy bên trong Hermes, chưa kiểm.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "repos/mcp-use",
+      "cach_cai": "pip",
+      "lenh_cai": "pip install mcp-use",
+      "nguon_lenh_cai": "entry-truc-tiep",
+      "goi": [
+        "mcp-use"
+      ],
+      "lenh_thu_nhe": "pip show mcp-use",
+      "mau_pass": "(?i)Name:\\s*mcp[-_]use",
+      "timeout_giay": 600,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [],
+      "ghi_chu": "Lệnh nằm ở mục Setup của entry nhưng install_plan không trích được (định dạng danh sách lồng); đã lấy thẳng chuỗi từ entry. Chỉ kiểm cài được.",
+      "trang_thai_duyet": "chua-duyet"
+    },
+    {
+      "id": "skills/markdown-converter",
+      "cach_cai": "pip",
+      "lenh_cai": "pip install markitdown --break-system-packages",
+      "nguon_lenh_cai": "entry-truc-tiep",
+      "goi": [
+        "markitdown"
+      ],
+      "lenh_thu_nhe": "markitdown --help",
+      "mau_pass": "(?i)usage",
+      "timeout_giay": 900,
+      "ram": "1g",
+      "can_mang_khi_cai": true,
+      "can_khoa_api": false,
+      "ten_bien_khoa": [],
+      "tra_phi": false,
+      "co_co_do": [
+        "tắt/giảm bảo mật"
+      ],
+      "ghi_chu": "Entry khuyên pip install kèm --break-system-packages (ghi đè bảo vệ của Python hệ thống) nên lệnh gốc có cờ đỏ. Trong container bộ chạy dùng lệnh pip an toàn của nó (không có cờ đó) nhưng vẫn giữ trạng thái chờ người đọc kỹ. Trùng công cụ với repos/markitdown.",
+      "trang_thai_duyet": "can-nguoi-doc-ky"
+    }
+  ]
+}
