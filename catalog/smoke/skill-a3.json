@@ -1,0 +1,1158 @@
+{
+ "lo": "skill-a3",
+ "ngay": "2026-10-19",
+ "phuong_phap": "mo-phong-van-ban",
+ "ket_qua": [
+  {
+   "id": "skills/4-nguon-y-tuong-content",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Nguồn 1: khách inbox hỏi \"Vé khuyến mãi đổi ngày có bị tính phí không?\". Cần 1 headline cho trang tư vấn vé máy bay của agency.",
+   "dau_ra_trich": "B1 nguyên văn câu hỏi. B2 khách sợ đổi vé mà mất tiền. B3 (3 câu phụ) đổi trước bao nhiêu giờ thì hết phí? phí đổi tính theo hãng hay hạng vé? đổi sang ngày giá cao thì bù thế nào? B4 \"Vé khuyến mãi đổi ngày: 3 tình huống khách hay bị tính phí\".",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Mục \"Khi nào dùng\" và ví dụ gắn cứng tên brand (Trùm Sân Bay, ABTRIP, Tano Cafe...) nên không trung lập cho khách khác."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Quy tắc \"headline phải có số\" dễ khiến mô hình bịa số; chưa nói rõ số lượng mục (3 tình huống) là chấp nhận được còn số liệu thật thì cần nguồn."
+    }
+   ],
+   "goi_y_sua": "Tách danh sách brand ra phần ví dụ; thêm câu \"số trong headline là số mục, không phải số liệu chưa kiểm\".",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/ai-marketing-adoption-map",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Chủ spa nhỏ 3 nhân sự, đăng FB/TikTok 4 bài/tuần, tốn thời gian nghĩ caption, không biết quảng cáo hiệu quả hay không.",
+   "dau_ra_trich": "Map 8 khâu: khâu 3 [Làm tay], khâu 5 [Làm tay], khâu 6 [Chưa làm], khâu 1 [Chưa làm]. Roadmap: tuần 1-2 viết 5 caption/ngày để test; tháng 1-2 ghép khâu 1+3; từ tháng 3 agent tóm tắt hiệu quả ads hằng tuần. Hỏi ngân sách trước khi đề xuất agent. Giá/gói để người của agency chốt.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Agent Integration trỏ tới skills/ai-marketing-adoption-map-system.txt và SKILL_AGENTIC_FACTORY.md, cả hai không có trong kho."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Setup bước 3 bảo \"không hỏi lại client muốn ưu tiên gì\", trong khi Lưu ý lại bảo \"hỏi ngân sách trước khi gợi ý build agent\"."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Định vị \"bán agent pipeline\" của Tano Agency cứng trong Bước 3 và Lưu ý, không dùng được nguyên cho agency khác."
+    }
+   ],
+   "goi_y_sua": "Bổ sung hoặc bỏ tham chiếu file thiếu; thống nhất quy tắc hỏi lại (chỉ hỏi ngân sách).",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/ai-second-brain",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Agency muốn gom các quyết định chọn công cụ video từ nhiều cuộc chat vào wiki Obsidian có liên kết.",
+   "dau_ra_trich": "Không thể thực hiện từ tài liệu: phần \"Nội dung skill\" chỉ mô tả cơ chế, không có bước phân loại, mẫu note hay quy tắc wikilink. Chỉ làm được việc cài (clone repo ngoài, trỏ vào vault). Tạm đề xuất cấu trúc note thủ công, ghi rõ là tự đặt, không phải của skill.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Mục \"Nội dung skill / prompt\" nói thẳng \"không phải 1 prompt đơn\", không có quy trình hay định dạng ghi note để làm theo."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần Obsidian, Claude Code và clone repo GitHub ngoài; không dùng được trên claude.ai."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không nêu mẫu file Markdown đầu ra hay quy tắc đặt tên."
+    }
+   ],
+   "goi_y_sua": "Thêm mẫu note + quy tắc liên kết ngay trong kho, hoặc chuyển loại thành tham khảo.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/analytics-data-analysis",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "File CSV 1.200 dòng booking [date, service_type, revenue], cần script tìm tháng cao điểm cho báo cáo khách hằng tháng.",
+   "dau_ra_trich": "Kế hoạch theo 7 bước: inventory (nguồn, cột, kiểu, số dòng, key); validate (ngày lỗi, giá trị lạ); transform ghi ra month_aggregate.csv, giữ raw; analyze median theo tháng; chart ghi đơn vị/khung thời gian/n; config tách logic; verify tổng tháng = tổng năm. Chưa có số liệu thật nên không báo kết quả.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần môi trường chạy code (pandas); tài liệu tự nhận không dùng được ở tầng Hermes, nhưng không nêu thay thế."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Bước Analyze chỉ nói \"chọn phương pháp đúng loại biến\", không có tiêu chí chọn cụ thể."
+    }
+   ],
+   "goi_y_sua": "Thêm 2-3 tiêu chí chọn phương pháp theo loại biến.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/bo-nao-4-file-claude",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Team content 4 người dùng Claude Pro, muốn dựng \"bộ não 4 file\" trong 1 tuần để khỏi dặn lại bối cảnh mỗi lần.",
+   "dau_ra_trich": "Ngày 1: viết AGENTS.md 6 mục (ai, cách làm, giọng, quy trình, ghi nhớ, việc cấm). Ngày 2: context.md làm mục lục tài liệu. Ngày 3-5: để memory.md tích luỹ. Cuối tuần: đóng gói skill đầu. \"3 prompt mồi\" chỉ được mô tả, không có văn bản nên không dùng được nguyên.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Nói \"có sẵn 3 prompt để bắt đầu\" nhưng chỉ tóm tắt chức năng, không có nội dung 3 prompt."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Mục \"Áp vào hệ thống của mình\" là đối chiếu nội bộ và nhắc tới việc lộ khoá trong Project Instructions của chủ kho; không tái sử dụng được, cần revoke khoá ngoài phạm vi skill."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Nhiều số liệu gắn nhãn chưa kiểm (100 token/skill, 60 nghìn dự án, giá Pro); bài gốc có phần quảng cáo khoá học."
+    }
+   ],
+   "goi_y_sua": "Chép đủ 3 prompt mồi; tách phần đối chiếu nội bộ sang file riêng.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/brand-identity-factory",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Quán cà phê specialty ở Đà Lạt, khách 22-35 tuổi, giá 45-70k, cần bộ nhận diện khởi đầu trước buổi gặp khách.",
+   "dau_ra_trich": "Prompt 1 ra mục đích, sứ mệnh, 3 giá trị, định vị (tránh \"chất lượng cao\" trừ khi giải thích). Prompt 2 hồ sơ khách + câu chuyện một ngày. Prompt 3 20 tên + top 5, nhắc tự kiểm nhãn hiệu, tên miền, handle. Dừng sau Prompt 3 để người kiểm. Số liệu/lời chứng thực để [cần bổ sung].",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ thực tế và Hermes snippet dùng cứng Wonder Mart, OmniRoute, route creative."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Prompt 4 cần \"thương hiệu ngưỡng mộ\" làm tham chiếu nhưng chưa nói lấy từ đâu khi khách không cung cấp."
+    }
+   ],
+   "goi_y_sua": "Thêm bước hỏi khách 2-3 thương hiệu tham chiếu trước Prompt 4.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/claude-code-thoi-quen-boris-cherny",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Dev mới vào repo web đặt tour, cần giao Claude Code việc \"thêm trường mã công ty vào form đặt chỗ\" theo thói quen trong tài liệu.",
+   "dau_ra_trich": "Theo khối CLAUDE.md ngắn: đọc code và hỏi trước, chưa sửa. Việc đụng nhiều file nên đưa plan chờ duyệt. Dùng prompt phỏng vấn viết SPEC.md, mở phiên mới thực thi. Ba lệnh test/typecheck/build còn để [lệnh], phải điền theo repo, nếu không thì ghi \"chưa kiểm được\".",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần Claude Code CLI bản mới (nhắc v2.1.283) và quyền cấu hình; ví dụ Antigravity dùng npm install -g và cài trên VPS."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Nhiều mục gắn ❓ chưa kiểm (phím #, ultrathink, nút xuất Motion); bảng \"đã đổi\" dựa vào docs đọc một thời điểm."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Phần lớn nội dung (19KB) là đối chiếu nội bộ và bối cảnh talk, lẫn với khối có thể dùng ngay, làm khó tìm phần cốt lõi."
+    }
+   ],
+   "goi_y_sua": "Tách khối dán CLAUDE.md và prompt phỏng vấn thành mục đầu; chuyển đối chiếu nội bộ sang file khác.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/claude-dashboards-motion",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Có CSV doanh thu tuần của khách (ngày, kênh, đơn, doanh thu); muốn dashboard xem nhanh và gửi khách.",
+   "dau_ra_trich": "Prompt mẫu: \"Dựng dashboard doanh thu theo kênh, hoàn/đổi theo ngày; mỗi số ghi rõ lấy từ cột nào\". Ẩn cột nhạy cảm trước khi tải lên; tự cộng lại 3 số bằng Excel để đối chiếu. Không xác nhận được tính năng vì là beta và Motion chỉ có gói Team/Enterprise.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Phụ thuộc tính năng beta trong app Claude (gói trả phí; Motion chỉ Team/Enterprise), không có API; tài liệu tự ghi chưa test."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Giới hạn dung lượng (~8MB), tên nút xuất sang HeyGen/Runway đều đánh dấu ❓ chưa thấy tận mắt."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Có đoạn nói về \"tài khoản Claude của mày\" và ví dụ ABTRIP/Wonder Mart, mang tính cá nhân."
+    }
+   ],
+   "goi_y_sua": "Đánh dấu rõ là bài giới thiệu tính năng; thêm checklist kiểm số liệu thành mục riêng.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/content-analysis",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Transcript video 4 phút của đối thủ bán eSIM du lịch; cần học cách họ chốt bán, dùng lens Practical + Comparative.",
+   "dau_ra_trich": "Nguồn: transcript đủ, thiếu đoạn cuối (ghi rõ). Claim chính: giá rẻ, kích hoạt 2 phút. Practical: CTA đặt trong app giảm bước. Comparative: so định vị của khách. Tách \"nguồn nói\" và \"suy luận thêm\". Không có khuôn trình bày nên tự chọn bảng 3 cột.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Có quy trình 6 bước và 6 lens nhưng không có khuôn đầu ra (mục, độ dài, bảng)."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Mỗi lens chỉ có một dòng, không có câu hỏi hay tiêu chí cụ thể để làm theo."
+    }
+   ],
+   "goi_y_sua": "Thêm khuôn đầu ra mẫu và 3-4 câu hỏi mỗi lens.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/content-research-writer",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Bài blog so sánh 2 nhà cung cấp eSIM cho khách; cần có nguồn rõ ràng, không bịa số.",
+   "dau_ra_trich": "Brief: chủ đề, audience, độ dài, giọng. Ledger: S1 trang giá NCC A (chưa mở, trạng thái chưa verify), S2 trang giá NCC B (chưa verify). Outline gắn S1/S2 vào từng mục; claim chưa có nguồn đánh dấu [cần nguồn]. Thesis 1-2 câu. Chưa viết số cụ thể vì chưa có bằng chứng.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Bước mở lại từng nguồn cần truy cập web nhưng không nêu công cụ."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có mẫu bản nháp hoàn chỉnh hay định dạng danh sách tham khảo."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ cứng Duffel vs Gotadi cho ABTRIP."
+    }
+   ],
+   "goi_y_sua": "Thêm mẫu reference list và ghi rõ công cụ tìm nguồn.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/data-analyzer",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "CSV 230 dòng lượt xem video theo chủ đề; hỏi dạng nội dung nào hiệu quả nhất cho kênh của khách.",
+   "dau_ra_trich": "Scope: so sánh chủ đề theo median lượt xem. Data Quality: nêu số dòng thiếu view (chưa có số). Findings: để trống vì chưa chạy tính; nếu có sẽ kèm giá trị, so sánh, mẫu n. Actions + Methods ghi cách tái tạo. Không đưa kết luận nào khi chưa có số.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Bắt buộc code thật (pandas) để verify tổng nhưng không nêu môi trường nào có; Hermes không có."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Ví dụ nói \"view trung bình cao hơn 40%\" nhưng đồng thời bảo dùng median thay mean, tự lệch nhau; số 40%, n=12 vs 18 không gắn nhãn minh hoạ."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Trùng lớn với analytics-data-analysis."
+    }
+   ],
+   "goi_y_sua": "Sửa ví dụ cho nhất quán và gắn nhãn \"số minh hoạ\"; gộp với analytics-data-analysis.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/domain-name-brainstormer",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Cần tên cho dịch vụ đưa đón sân bay Đà Nẵng, ưu tiên .vn/.com, brief tone thân thiện.",
+   "dau_ra_trich": "15 tên theo 5 nhóm (ghép trực tiếp, rút gọn, tự bịa dễ đọc, theo kết quả, song ngữ), loại tên khó đọc/giống đối thủ. Trạng thái tên miền: unknown cho tất cả vì không có mạng và không có script check; không kết luận \"còn trống\". Nhắc xác nhận ở registrar và kiểm nhãn hiệu.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "scripts/check_domains.py nằm trong mọi lệnh Setup nhưng không có trong kho."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Check RDAP cần mạng ra ngoài; endpoint RDAP .vn trong snippet chưa kiểm chứng."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "TL;DR nói sinh \"tên miền khả dụng\" trong khi sinh tên diễn ra trước bước check."
+    }
+   ],
+   "goi_y_sua": "Đưa script vào kho hoặc ghi rõ phần check là thủ công; sửa TL;DR.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/gemini-video-content-kit",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Video TikTok 45 giây \"3 lỗi khi mua vé giờ chót\" cho khách ngành du lịch; dùng Prompt 1, 4, 6.",
+   "dau_ra_trich": "Prompt 1: hook nêu lỗi phổ biến, 3 lỗi mỗi lỗi 1 câu, CTA cuối. Prompt 4: 4 B-roll (màn hình giá nhảy, đồng hồ, hàng chờ). Prompt 6: 10 ý thumbnail, đánh dấu cần người duyệt vì dễ giật gân. Kết quả chỉ là kế hoạch bằng chữ, chưa đăng.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Các prompt rất ngắn, không nêu độ dài, ngôn ngữ, cấu trúc đầu ra; Prompt 3 phải tự thêm nền tảng."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ gắn cứng Trùm Sân Bay, GMSP, Airfare Decoded."
+    }
+   ],
+   "goi_y_sua": "Thêm tham số (nền tảng, độ dài, giọng) vào từng prompt.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/genmedia-labs-runcomfy",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Cần ảnh sản phẩm bình giữ nhiệt nền studio cho fanpage của khách bán lẻ.",
+   "dau_ra_trich": "Không tìm thấy bảng \"ý định -> model\" hay schema JSON trong tài liệu, nên không chọn được model/field đúng. Chỉ đề xuất: cài CLI, đăng nhập, cài skill ai-image-generation rồi để skill gốc chọn model. Ước tính chi phí: chưa có. Dừng, hỏi duyệt chi phí trước khi chạy.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Điểm mạnh được quảng bá là bảng intent -> model nằm trong SKILL.md gốc của repo ngoài, kho chỉ có bản tóm tắt."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần tài khoản RunComfy trả phí, npm CLI và token RUNCOMFY_TOKEN."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Mỗi lệnh runcomfy run tốn tiền nhưng không có bước xác nhận chi phí hay trần ngân sách; snippet Hermes gọi thẳng."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Lệnh \"echo RUNCOMFY_TOKEN=... >> /etc/hermes.env\" ghi token vào file hệ thống và \"npx skills add\" tải skill ngoài; chỉ ghi nhận, không chạy."
+    }
+   ],
+   "goi_y_sua": "Chép bảng intent->model vào kho; thêm bước báo giá/duyệt trước khi chạy.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/i-have-adhd",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Nhân viên hỏi agent \"cách thêm redirect cho landing page\"; bật skill để trả lời theo kiểu hành động trước.",
+   "dau_ra_trich": "1. Mở file cấu hình redirect, thêm quy tắc 301 từ /cu sang /moi. 2. Lưu và triển khai lại. 3. Mở /cu kiểm tra. Tiến độ: bước 3/3 xong. Separately: có trang 404 cũ, muốn xử lý tiếp không? Không mở bài, không tóm tắt cuối.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Nguyên tắc 4 (nhắc tiến độ mỗi lượt) và nguyên tắc 5 (không tóm tắt lại) dễ chồng nhau, chưa phân định."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Hướng dẫn cài có \"grok plugin install ... --trust\" và \"git clone\" repo ngoài; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Dành cho coding agent; ví dụ về npm và src/auth.ts ít liên quan việc agency."
+    }
+   ],
+   "goi_y_sua": "Thêm 1 ví dụ phi-code; bỏ cờ --trust khỏi hướng dẫn mặc định.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/just-scrape",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Cần lấy bảng giá và tính năng từ trang công khai của 1 đối thủ để so sánh cho khách.",
+   "dau_ra_trich": "Sẽ dùng: just-scrape scrape <url> --json (hoặc extract với prompt \"lấy tên gói, giá, tính năng\"). Điều kiện: đặt SGAI_API_KEY (trả phí theo credit). Không chạy được trong mô phỏng. Chưa nêu kiểm tra robots/điều khoản của trang đích, nên ghi chú để người duyệt.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần CLI qua npx skills add và SGAI_API_KEY trả phí; tài liệu ghi audit mức MEDIUM."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Danh sách lệnh nêu scrape/extract/search/crawl/monitor nhưng ví dụ và code dùng \"smart-scraper\" không có trong danh sách."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Tốn credit và cào trang bên thứ ba nhưng không có lưu ý về robots/điều khoản hay trần chi phí."
+    }
+   ],
+   "goi_y_sua": "Thống nhất tên lệnh; thêm lưu ý pháp lý và trần credit.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/kpi-dashboard-creator",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Dashboard KPI tuần cho khách: số lead, chi phí mỗi lead, tỉ lệ chốt; nguồn là CSV xuất từ CRM.",
+   "dau_ra_trich": "Metric contract: Lead = số bản ghi trạng thái mới trong 7 ngày (nguồn CRM, làm mới mỗi lần nhập CSV, so tuần trước, cao là tốt, thiếu dữ liệu hiện \"chưa cập nhật\" chứ không phải 0). Layout: KPI trên cùng, trend, breakdown. Đủ trạng thái loading/empty/error/stale; dữ liệu mẫu gắn nhãn \"sample\".",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ gắn Mission Control 127.0.0.1:3100 và Zalo OA nội bộ."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Giả định repo React/Tailwind; không nêu đầu ra cụ thể khi không có codebase."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Phần phân biệt với dashboard-builder chiếm chỗ; có tham chiếu ui-component-forge nhưng skill này không có trong kho."
+    }
+   ],
+   "goi_y_sua": "Thêm đầu ra tối thiểu (bảng contract + wireframe) khi chưa có code; bỏ tham chiếu thiếu.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/markdown-converter",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "PDF báo giá 12 trang của nhà cung cấp cần chuyển sang Markdown để phân tích.",
+   "dau_ra_trich": "Không chạy được theo tài liệu: các bước 2-4 gọi scripts/markitdown_local.py (doctor/convert/batch) mà file này không có trong kho nên không kiểm được guardrail (chặn URL, chặn ghi đè). Chỉ còn đường dùng MarkItDown gốc qua pip, ghi rõ khác với mô tả.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "scripts/markitdown_local.py là lõi của skill nhưng vắng trong kho."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần pip install markitdown --break-system-packages; không có OCR cho file scan."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Các guardrail được quảng bá (chặn URL, ghi tạm rồi thay) không kiểm chứng được khi thiếu mã."
+    }
+   ],
+   "goi_y_sua": "Đưa script vào kho cùng kiểm thử, hoặc bỏ skill nếu chỉ dùng MarkItDown gốc.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/natural-writing",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Đoạn mô tả dịch vụ tiếng Việt cho website khách nghe như văn AI (\"mang đến trải nghiệm liền mạch và đẳng cấp\").",
+   "dau_ra_trich": "Áp được mục 1, 2, 10, 11, 13: bỏ \"liền mạch/đẳng cấp/cam kết\", thay bằng chi tiết cụ thể từ khách ([cần số liệu]). Không áp được mục 3-5 vì là từ vựng tiếng Anh (delve, tapestry). \"Quick Self-Check 7 câu\" không có trong tài liệu nên bỏ qua.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Nhắc \"Quick Self-Check cuối skill (7 câu)\" và \"file gốc\" đầy đủ nhưng phần đó không có trong kho."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Hầu hết 15 pattern là từ vựng tiếng Anh; chưa có danh sách \"mùi AI\" tiếng Việt."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Ví dụ Sau thay câu chung chung bằng \"5 phút vs 40 phút\" không nguồn, vô tình dạy chèn số tự nghĩ."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Ví dụ Sau dùng xưng \"mày\" cho voiceover thương hiệu, lệch với cảnh báo \"mất giọng thương hiệu\"."
+    }
+   ],
+   "goi_y_sua": "Chép đủ checklist và self-check; thêm mục tiếng Việt; sửa ví dụ gắn nhãn số minh hoạ.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/ponytail",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Dev cần form chọn ngày cho trang đặt lịch landing của khách, muốn agent không over-engineer.",
+   "dau_ra_trich": "Theo ladder: ưu tiên native <input type=\"date\"> rồi thư viện chuẩn rồi tài sản có sẵn rồi mới code mới; giữ validation/accessibility; để chú thích đánh dấu chỗ rút gọn. Không dùng chế độ ultra. Quy tắc thật nằm ở SKILL.md repo ngoài nên chỉ áp được phần tóm tắt.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Mục \"Nội dung\" nói nguồn thật nằm ở skills/ponytail/SKILL.md của repo ngoài; kho chỉ có tóm tắt, chế độ ultra không được định nghĩa."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cài theo từng host, MCP ponytail-mcp, biến PONYTAIL_SUBAGENT_MATCHER."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Lệnh \"curl -fsSL .../main/AGENTS.md -o AGENTS.md\" tải và ghi đè file gốc, không ghim phiên bản; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Dành cho coding agent, ít liên quan việc nội dung của agency; số liệu 44k sao/80-94% đã tự cảnh báo là mức trần."
+    }
+   ],
+   "goi_y_sua": "Chép nguyên SKILL.md gốc có pin commit; bỏ lệnh curl khỏi hướng dẫn.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/skill-seekers",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Biến trang docs của 1 công cụ lên lịch đăng bài thành SKILL.md cho kho của agency.",
+   "dau_ra_trich": "Ghi nguồn (URL, ngày, phiên bản). Chỉ trích phần ổn định (quy trình, lệnh, quy tắc). Tách: SKILL.md ngắn; chi tiết sang references/. Đổi tên tool cụ thể thành năng lực chung, ghi tác giả gốc và giấy phép. Validate bằng 1 câu hỏi thực tế. Không có mẫu SKILL.md nên theo format TL;DR/Setup/Ví dụ/Đánh giá của kho.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Setup bước 2 và Đánh giá nói \"quy trình 7 bước\" nhưng danh sách chỉ có 6 bước."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có mẫu SKILL.md hay tiêu chí đạt khi \"validate bằng prompt thực tế\"."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Viết cho người soạn kho (\"mày\", \"Bước 1-3 của Quy trình kho\"), không phải cho tác vụ chung của agency."
+    }
+   ],
+   "goi_y_sua": "Sửa số bước, thêm mẫu SKILL.md và tiêu chí validate.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/small-business-skills",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Chủ shop nhỏ nói \"sắp tới không đủ tiền trả lương\"; muốn dùng bộ skill small business chọn đúng quy trình.",
+   "dau_ra_trich": "Đây là trang giới thiệu plugin ngoài, không có quy trình nào để làm theo trong kho. Chỉ nêu được cách cài (/plugin marketplace add, /plugin install, /smb-onboard) và rằng workflow bắt buộc xin duyệt trước khi gửi/đăng/thanh toán. Nội dung workflow dòng tiền không có ở đây.",
+   "verdict": "khong-ap-dung",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Tên thư mục và số lượng workflow (31/43/15) chỉ là mô tả; nội dung từng skill ở repo ngoài."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Chính tài liệu thừa nhận con số skill/workflow khác nhau giữa các nguồn."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần Claude Cowork/Claude Code và connector trả phí; ví dụ gắn ABTRIP/Wonder Mart."
+    }
+   ],
+   "goi_y_sua": "Đổi loại thành danh mục tham khảo, trỏ tới repo, không gắn nhãn skill.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/social-media-skills",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Dựng giọng thương hiệu cho kênh du lịch của khách bằng voice-builder rồi dùng caption-writer.",
+   "dau_ra_trich": "Không thực hiện được: nội dung voice-builder, caption-writer không có trong kho; chỉ có bảng tên và vai trò. Quy tắc dùng được: chạy voice-builder trước để tạo about-me.md/voice.md, cài chọn lọc. Cần xác định đúng repo vì có ít nhất 3 fork trùng tên.",
+   "verdict": "khong-ap-dung",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Mỗi skill (SKILL.md, evals, references, scripts) nằm ở repo ngoài; kho chỉ liệt kê tên."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần upload ZIP vào Claude và bật code execution, hoặc chép vào ~/.openclaw/skills."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Tài liệu tự cảnh báo nhiều fork trùng tên (17 hay 106 skill), dễ cài nhầm nguồn."
+    }
+   ],
+   "goi_y_sua": "Đổi loại thành danh mục tham khảo; ghi rõ URL chuẩn và commit đã duyệt.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/stickman-video-director",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Ý tưởng \"3 lý do vé rẻ bị đổi giờ\" cho video người que 1 phút của khách du lịch.",
+   "dau_ra_trich": "Voiceover tiếng Anh ~150 từ. Bảng đề xuất 6 cảnh (cảnh, ẩn dụ, chuyển cảnh). DỪNG, hỏi xác nhận trước khi sinh prompt. Sau xác nhận mới xuất 6 prompt Gemini Omni Flash. Định dạng prompt Gemini và \"ngôn ngữ hình ảnh\" không được mô tả nên không viết được phần này.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không nêu cấu trúc 6 prompt Gemini Omni Flash hay mô tả phong cách đen-trắng chi tiết."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần quyền Gemini Omni Flash, \"npx skills add\"; lệnh \"codex run\" trong snippet không rõ."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ cứng GMSP/\"Kẻ Soi Gương\"; voiceover mặc định tiếng Anh, tiếng Việt phải tự dịch."
+    }
+   ],
+   "goi_y_sua": "Thêm mẫu 1 prompt cảnh hoàn chỉnh; sửa snippet bằng lệnh đã kiểm.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/summarization",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Ghi chú họp 20 phút với khách: duyệt ngân sách content tháng sau, chưa chốt ngày gửi bản nháp, còn tranh luận số bài video.",
+   "dau_ra_trich": "Format Meeting, mức Brief (ghi 1 dòng). Quyết định: tăng ngân sách content. Action item: gửi bản nháp, owner/deadline \"chưa nêu rõ\". Lý do chính: ưu tiên video ngắn. Bất đồng: 8 hay 12 video. Chưa giải quyết: ai duyệt. Tự audit lại tên/số/ngày so với ghi chú.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Không nêu khi nào chọn Snapshot, Brief hay Detailed ngoài mặc định."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ dùng Zalo OA/ZALO_ACCESS_TOKEN của nội bộ (chỉ tên biến, không có giá trị)."
+    }
+   ],
+   "goi_y_sua": "Thêm bảng chọn mức nén theo độ dài nguồn.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/vox-director",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Video 20 giây 9:16 giải thích \"Fast Track là gì\" bằng tiếng Việt kiểu paper-collage cho khách.",
+   "dau_ra_trich": "Không chạy được. Theo tài liệu: Cổng 1 duyệt beat map (14 narrative arc, không liệt kê), Cổng 2 chọn style (9 preset, không liệt kê), rồi keyframe/motion/voice/music/ghép ffmpeg. Chi phí API chưa biết. Hỗ trợ giọng đọc tiếng Việt chưa xác nhận. Dừng, báo chi phí trước.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Quy trình thật nằm trong SKILL.md của repo ngoài; kho không có 14 arc, 9 preset hay hướng dẫn từng bước."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần ATLASCLOUD_API_KEY trả phí theo model, ffmpeg, pillow."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Có 2 cổng duyệt nội dung nhưng không có trần hay xác nhận chi phí cho các lệnh render tốn tiền."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Hướng dẫn \"git clone ... ~/.claude/skills/vox-director\" và tải file .skill từ repo 7 sao; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Chưa kiểm model giọng (xai/tts-v1) có hỗ trợ tiếng Việt."
+    }
+   ],
+   "goi_y_sua": "Chép SKILL.md gốc (pin commit), thêm bước báo giá và kiểm hỗ trợ tiếng Việt.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/voxstyle-prompt-engine",
+   "loai": "skill-kho",
+   "tinh_huong_thu": "Dán ENGINE PROMPT vào agent để dựng video documentary paper-collage 2 phút cho kênh của khách.",
+   "dau_ra_trich": "Không thể thực hiện: tài liệu bảo copy \"ENGINE PROMPT\" từ \"You are an Elite Documentary Writer...\" đến STATE 9 nhưng thân prompt không có trong file. Chỉ có mô tả các STATE rời rạc, thiếu luật STATE 0-9, ngôn ngữ, cách tính từ/giây. Không làm tiếp, không đoán nội dung prompt.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Thân ENGINE PROMPT (state machine 10 bước) vắng hoàn toàn; chỉ còn phần giới thiệu, Setup và ví dụ."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Setup tham chiếu tên STATE nhưng nội dung từng STATE không có nên không biết đầu vào/đầu ra."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Nguồn Google Doc ngoài, kèm link tool trả phí 13,8 triệu; mặc định tiếng Anh, tài liệu tự nhận phải sửa LANGUAGE RULE."
+    }
+   ],
+   "goi_y_sua": "Chép nguyên văn ENGINE PROMPT hoặc đổi loại thành tham khảo.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/5-vai-tro-solo-operator",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Mỗi tối account manager đưa ghi chú tin nhắn khách trong ngày cho \"Người vận hành\" để có danh sách việc sáng mai.",
+   "dau_ra_trich": "Prompt điền sẵn: vai Người vận hành, đầu vào ghi chú khách, đầu ra checklist sáng mai xếp ưu tiên (khách đang chờ > mới hỏi giá > follow-up), không tự trả lời khách. Hỏi tối đa 3 câu nếu thiếu thông tin. Chạy thử 3-5 lần chỉnh [giới hạn], chưa mở vai thứ 2.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Chỉ vai Người vận hành có ví dụ; 4 vai còn lại một dòng, chưa có mẫu đầu ra."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ cứng ABTRIP, Nobitano, Mission Control, Paperclip."
+    }
+   ],
+   "goi_y_sua": "Thêm 1 ví dụ cho mỗi vai và mẫu checklist.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/agentic-loop-optimizer",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Agent tự trả lời comment fanpage cho khách, tốn token và lặp lại; cần thiết kế lại vòng lặp.",
+   "dau_ra_trich": "Pattern Reactive (sự kiện -> hành động -> kiểm -> xong/thử lại 1 lần). Goal 1 câu có cadence. Exit: max 3 vòng + cost cap. Human gate trước khi đăng trả lời. Memory ra file status.md/done-log.md. Maker/Checker tách. Model rẻ cho phân loại. Đánh dấu 10 mục checklist.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Ví dụ cuối (push GitHub, notify) chạy tự động không qua human gate dù checklist yêu cầu Human gate."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Mô tả Level 2 \"retry 1 lần\" nhưng ví dụ lại dừng sau \"fail 2 lần\"."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Nguồn tổng hợp trỏ skills/loop-engineering-addy.md không có trong kho; model id cứng claude-haiku-4-5/sonnet-4-6 dễ lỗi thời."
+    }
+   ],
+   "goi_y_sua": "Thêm human gate vào ví dụ; thống nhất số lần thử lại; bỏ tham chiếu thiếu.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/api-mega-list-skill",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Cần gửi email xác nhận khi khách đăng ký webinar; tìm API trước khi tự build.",
+   "dau_ra_trich": "Theo workflow: tìm \"email\" trong api-mega-list. Gợi ý Resend (free ~3000/tháng) làm ví dụ; không xác nhận được giá hoặc giới hạn vì không clone repo và các số liệu trong skill có thể cũ. Chưa nêu tiêu chí chọn (bảo mật, dữ liệu khách). Dừng ở danh sách ứng viên.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Số liệu gói miễn phí/giá (Groq, Together $5, Brave $3/1000, Twilio $15...) và \"80% chance đã có API\" không nguồn, dễ lỗi thời."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần git clone repo ngoài và truy cập mạng."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Không có tiêu chí chọn API (bảo mật, chuyển dữ liệu khách ra ngoài, điều khoản)."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Chân trang ghi sai đường dẫn \"skills/api-mega-list-skill.md\"."
+    }
+   ],
+   "goi_y_sua": "Gắn ngày kiểm số liệu, thêm tiêu chí chọn và cảnh báo dữ liệu khách.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/business-guru",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Chủ tiệm spa hỏi nên mở thêm chi nhánh hay dồn tiền vào quảng cáo.",
+   "dau_ra_trich": "Đóng vai cố vấn, hỏi lại doanh thu, biên lợi nhuận, tiền mặt, vị trí; đưa 2 phương án với rủi ro chung. Không có quy trình hay khuôn đầu ra nên tự chọn. Phần \"Instructions to Create\" (test, refine, bảo mật dữ liệu) không áp dụng được khi trả lời nên bỏ qua. Không bịa số, chưa có số liệu thật.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Nửa sau là hướng dẫn \"tạo\" consultant (\"Program yourself\", \"Implement robust security measures\"), không phải cách dùng."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có bước, tiêu chí kích hoạt hay định dạng đầu ra."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Tư vấn tài chính/nhân sự mà không có cảnh báo không thay chuyên gia hay xin xác nhận dữ liệu."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Description và phần Capabilities lặp nguyên văn; là persona LobeHub chung chung."
+    }
+   ],
+   "goi_y_sua": "Viết lại thành quy trình hỏi-đáp có khuôn đầu ra và cảnh báo.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/competitor-research",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Khảo sát 3 đối thủ dịch vụ đưa đón sân bay Đà Nẵng cho khách, cần bảng so sánh và 1 nhận định.",
+   "dau_ra_trich": "Phase 1: 4-5 truy vấn (tổng quan, đối thủ A, giá, mô hình). Phase 2: chọn 2-3 đối thủ, xem trang chủ và trang sản phẩm. Phase 3: khuôn danh sách + ma trận tính năng. Phase 4: 1-2 câu insight. Không chạy thật nên để trống số liệu, không bịa giá. Thiếu references/ nên bỏ phần phân khúc khách.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Hai file references/travel-customer-segments-comparison.md và travel-digital-product-competitors.md không có; thư mục references/ vắng. Quy trình chính vẫn chạy được chỉ với SKILL.md nhưng mất dữ liệu 5 phân khúc."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Dựa vào execute_code với ddgs, browser_navigate, browser_vision, pip install ddgs mà không mô tả cách có công cụ."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Bảng \"Realistic growth projections\" (follower, tương tác theo tháng) và giá $12-19 không nguồn."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Phase 5 có scp/ssh tới VPS và \"sudo cp ... && chown\" thư mục khác; mục \"Bypass methods\" vượt login wall Facebook. Chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ cứng sim du lịch/Gigago/kênh tâm lý-huyền học; giọng \"thằng\"."
+    }
+   ],
+   "goi_y_sua": "Thêm references/, tách mục kênh và Facebook thành skill riêng, bỏ Phase 5 hoặc đưa vào guardrail.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/conversion-ops",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Audit trang landing dịch vụ bảo hiểm của khách theo 8 chiều (giá trị, rõ ràng, tin cậy...).",
+   "dau_ra_trich": "Không chạy được: cả 3 lệnh gọi python tại \"D:/AI Store/digital-marketing-repos/ai-marketing-skills/conversion-ops/*.py\" ngoài kho. Tên 8 chiều chấm có nhưng không có thang điểm hay tiêu chí; không đoán rubric. Dừng, báo thiếu script và rubric.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Ba script cro_audit.py, survey_segment.py, lead_magnet_generator.py nằm ở ổ D: ngoài kho; SKILL.md không còn gì khác."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Tám chiều (Value Prop, Clarity, Trust...) không định nghĩa thang hay tiêu chí chấm."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Khai báo allowed-tools Bash/Python và chạy script từ đường dẫn ngoài với tham số --url bất kỳ; chỉ ghi nhận, không chạy."
+    }
+   ],
+   "goi_y_sua": "Chép script hoặc viết rubric 8 chiều ngay trong SKILL.md.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/digital-product-factory",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Tạo bộ guide PDF + ảnh bìa + mô tả bán trên Gumroad cho 1 ngách của khách.",
+   "dau_ra_trich": "Không làm được: Quick Start là cd vào \"D:\\AI Store\\Hermes Agent\\digital-product-factory\" và chạy http.server; không có app trong kho. Backend 127.0.0.1:8082 chỉ mô tả 1 endpoint, không có mã; nguồn data lấy từ API B2B nội bộ. Không có bước duyệt trước khi bán.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Web app (index.html, app.js, products/) và Content Brain API không có trong kho."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần máy cục bộ ổ D:, API nội bộ ABTRIP và token AI."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Quy trình tạo và bán sản phẩm số không có bước kiểm claim hay duyệt người trước khi đăng."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Gắn cứng ABTRIP và MMO Gumroad."
+    }
+   ],
+   "goi_y_sua": "Đưa app vào kho hoặc xoá; thêm duyệt trước bán và kiểm claim.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/enterprise-agent-ops",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Bot trả lời khách của agency đột nhiên lỗi tăng; cần xử lý sự cố theo quy trình.",
+   "dau_ra_trich": "Theo Incident Pattern: 1 dừng rollout mới, 2 lấy trace đại diện, 3 cô lập route lỗi, 4 vá thay đổi nhỏ nhất, 5 chạy regression + kiểm bảo mật, 6 mở lại dần. Theo dõi tỉ lệ thành công, số lần thử lại, thời gian khôi phục. Không có ngưỡng \"tăng đột biến\" hay mẫu báo cáo nên tự đặt.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "\"Failure spikes\", \"smallest safe change\" không có ngưỡng hay ví dụ."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có mẫu báo cáo sự cố hay đầu ra."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Nhắc PM2, systemd, CI/CD nhưng không nói cách thực hiện."
+    }
+   ],
+   "goi_y_sua": "Thêm ngưỡng ví dụ và mẫu báo cáo sự cố.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/frontend-design-direction",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Landing page đặt lịch cho spa của khách, hiện giao diện chung chung kiểu mẫu AI.",
+   "dau_ra_trich": "Chọn hướng: purpose đặt lịch nhanh, audience nữ 28-45 quét điện thoại, tone calm-refined, 1 chi tiết nhớ được. Dùng token/biến CSS sẵn, tránh gradient tím và thẻ lồng thẻ. Màn hình đầu thể hiện dịch vụ + nút đặt lịch. Kiểm chữ không tràn ở mobile.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Nhắc skill frontend-design chính chủ Anthropic và PR #1659 nằm ngoài kho; \"ECC-specific\" không giải thích."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có mẫu tài liệu hướng thiết kế đầu ra."
+    }
+   ],
+   "goi_y_sua": "Giải thích \"ECC\", thêm mẫu 1 trang direction brief.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/harness-engineering",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Agent trả lời DM khách của agency làm đúng bước 1 rồi sai từ bước 2; cần thiết kế khung chạy ổn định.",
+   "dau_ra_trich": "B1 file progress ghi task/status/step. B2 ALLOWED: tra cứu FAQ, soạn nháp; FORBIDDEN: gửi tin trực tiếp, xoá dữ liệu; REQUIRE HUMAN APPROVAL: gửi cho khách. B3 verify sau mỗi bước, thử lại tối đa 3 lần rồi báo người. B4 audit hằng tuần.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Số liệu \"88% dự án agent không lên production (Deloitte 2026)\" và trích dẫn Hashimoto không kèm nguồn kiểm chứng."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ và áp dụng cứng Hermes/OpenClaw/TRACKER của chủ kho; ALLOWED TOOLS ghi theo môi trường cụ thể."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Không có đầu ra tổng hợp (bản thiết kế khung) mà chỉ rời rạc từng bước."
+    }
+   ],
+   "goi_y_sua": "Gắn nguồn số liệu; thêm mẫu bản thiết kế harness.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/humanizer",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Bài blog 150 chữ về eSIM nghe như AI; khách muốn giọng chuyên nghiệp, không bị detector gắn cờ.",
+   "dau_ra_trich": "Phần 1: bản viết lại câu ngắn dài xen kẽ, bỏ \"Furthermore/Moreover\". Quy tắc 4 buộc thêm \"Tao nghĩ/Theo kinh nghiệm\", không dùng được cho văn thương hiệu và thành trải nghiệm bịa. Phần 2: 3 bullet đã đổi. Từ chối thêm quan điểm cá nhân không có thật.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Mục đích nêu rõ là \"bypass AI content detector\" và quy tắc thêm quan điểm/kinh nghiệm cá nhân (bịa trải nghiệm) mà không có cảnh báo trung thực hay công bố AI."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Mục tiêu \"giữ nguyên ý\" mâu thuẫn quy tắc \"thêm quan điểm\", và ví dụ Sau thêm ý mới (\"vừa thú vị vừa hơi lo\")."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Có nhắc \"Level mặc định Medium\" nhưng không định nghĩa các level khác."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Link \"/skills/humanizer.md\" không tồn tại; trùng nhiều với natural-writing."
+    }
+   ],
+   "goi_y_sua": "Bỏ mục đích lách detector; sửa quy tắc 4 thành giữ giọng thương hiệu, không bịa; gộp vào natural-writing.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/kotlin-exposed-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Agency có dự án backend Kotlin cho khách; cần mẫu truy vấn Exposed và phân trang.",
+   "dau_ra_trich": "Tham khảo kỹ thuật tự chứa: DSL, DAO, transaction suspend, phân trang, Flyway, HikariCP, kiểm thử H2. Không phải quy trình để agent agency làm theo. Có chỗ tự mâu thuẫn: transferFunds dùng thuộc tính balance không có trong UserEntity.",
+   "verdict": "khong-ap-dung",
+   "van_de": [
+    {
+     "ma": "KHAC",
+     "mo_ta": "Ngoài phạm vi agency (marketing/nội dung/sales); là tham khảo cho dev Kotlin."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Ví dụ transferFunds dùng from.balance/to.balance không khai báo trong UserEntity; findActiveAdmins không có điều kiện \"active\"."
+    },
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "Phiên bản thư viện pin cứng (Exposed 1.0.0, Flyway 10.22.0...) chưa kiểm."
+    }
+   ],
+   "goi_y_sua": "Giữ như tham khảo kỹ thuật; sửa ví dụ và ghi ngày kiểm phiên bản.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/marketing-4-nguyen-tac-vang",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Chấm caption FB của trung tâm Anh ngữ: \"Trung tâm có giáo viên giỏi, lớp nhỏ, học phí hợp lý, hỗ trợ tận tâm.\"",
+   "dau_ra_trich": "Nguyên tắc 1 FAIL: chưa nhắm nhóm cụ thể (phụ huynh hay người đi làm). 2 FAIL: 4 ý, không rõ lợi ích chính trong 3 giây. 3 FAIL: toàn tính năng. 4 không đánh giá được vì chưa có định vị cũ. Rewrite: \"Con lớp 6 sợ nói tiếng Anh? Lớp 8 bạn, 6 tháng nói được 1 phút tự tin\". Số chỉ minh hoạ, cần xác nhận.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Prompt không yêu cầu nhập định vị cũ nên nguyên tắc 4 chỉ được nêu ở phần Lưu ý, dễ bỏ qua."
+    },
+    {
+     "ma": "GAN_THUONG_HIEU_CUNG",
+     "mo_ta": "Ví dụ và Agent Integration gắn ABTRIP, Nobitano, pipeline trum-san-bay."
+    }
+   ],
+   "goi_y_sua": "Thêm dòng \"định vị hiện tại: [..]\" vào prompt.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/nanoclaw-repl",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Mở REPL phiên làm việc, tách nhánh trước khi thử thay đổi rủi ro cao, rồi export.",
+   "dau_ra_trich": "Không thể thực hiện: skill chỉ tham chiếu scripts/claw.js (không có trong kho). Có danh sách lệnh /model, /load, /branch, /search, /compact, /export, /metrics nhưng không mô tả cú pháp hay hành vi. Chỉ lặp lại 4 lời khuyên vận hành.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "scripts/claw.js vắng nên không có REPL để vận hành hay mở rộng."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Chỉ liệt kê tên lệnh, không có cú pháp, tham số hay ví dụ."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Là công cụ nội bộ ECC cho dev, không liên quan việc agency."
+    }
+   ],
+   "goi_y_sua": "Đưa script vào kho hoặc xoá; nếu giữ thì thêm mô tả từng lệnh.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/orch-pipeline",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Dev nội bộ thêm nút \"Nhắn Zalo\" vào landing page nhỏ của khách (1 file, vài dòng).",
+   "dau_ra_trich": "Bước 0: tier \"small\" (1 file, không phụ thuộc mới, rõ khi đọc code), nêu 1 dòng để người ghi đè. Chạy phase 1 nhẹ, 4 (TDD), 5 (review), 6 (commit) và dừng ở GATE 2 để người xác nhận trước khi commit. Không cần planner/security-reviewer vì không chạm điểm bảo mật.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Phụ thuộc agent planner/tdd-guide/code-reviewer, lệnh /gan-build, /feature-dev và rules/common/*.md không có trong kho (thư mục rules/ vắng). Có skill orch-add-feature, orch-fix-defect... nhưng engine không dùng riêng được."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Research dùng gh search, Context7, Exa."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Tier trivial/small bỏ phase Plan nên GATE 1 không kích hoạt; chưa nói có gate nào khác cho thay đổi nhỏ chạm public API."
+    }
+   ],
+   "goi_y_sua": "Chép rules/ liên quan hoặc ghi rõ mức tối thiểu để dùng độc lập.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/product-lens",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Ý tưởng gói báo cáo thị trường sân bay hằng tháng cho khách B2B; cần quyết định có làm không.",
+   "dau_ra_trich": "Mode 1: trả lời 7 câu (ai, nỗi đau, vì sao bây giờ, bản 10 sao, MVP, anti-goal, thước đo). Dữ kiện chưa có thì ghi \"cần hỏi khách\" thay vì bịa. Kết PRODUCT-BRIEF.md với go/no-go có điều kiện. Mode 2/3 (đọc README/package.json, clone-install) không áp được cho dịch vụ.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "Mode 2 và 3 giả định có repo/sản phẩm phần mềm để cài; không dùng cho dịch vụ của agency."
+    },
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Mode 4 gọi là \"ICE\" nhưng công thức impact x confidence / effort không phải ICE chuẩn."
+    },
+    {
+     "ma": "KHONG_CO_DINH_DANG_RA",
+     "mo_ta": "Nói đầu ra PRODUCT-BRIEF.md nhưng không có mẫu mục."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Tích hợp /browser-qa, /design-system audit, /canary-watch không có trong kho."
+    }
+   ],
+   "goi_y_sua": "Thêm mẫu PRODUCT-BRIEF.md; tách Mode 2/3 cho sản phẩm phần mềm.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/react-patterns",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Bảng giá có nút chuyển tháng/năm cho landing Next.js của khách.",
+   "dau_ra_trich": "Giá tính trong render từ props (không useState+useEffect); toggle là useState cục bộ ở Client Component; nút <button> ngữ nghĩa có nhãn; không memo khi chưa cần; Suspense gần dữ liệu. Phần form React 19 có ví dụ \"use client\" kèm hàm \"use server\" cùng file, không tin để chép.",
+   "verdict": "partial",
+   "van_de": [
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Ví dụ Form actions đặt \"use client\" ở đầu file nhưng khai báo hàm \"use server\" cùng file; Server Action không thể định nghĩa trong file Client Component."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Liên kết ../../rules/react/hooks.md và rules/react/ không có trong kho; thư mục references/ vắng, skill vẫn tự chứa."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Chủ yếu cho dev frontend, liên quan agency chỉ khi làm landing page."
+    }
+   ],
+   "goi_y_sua": "Sửa ví dụ tách Server Action sang file \"use server\"; bổ sung hoặc bỏ liên kết rules/.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/sams-loop-engineering",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Vòng kiểm ROAS 8h sáng cho khách thương mại điện tử, chỉ cảnh báo chứ không tự tắt chiến dịch.",
+   "dau_ra_trich": "Goal = mục đích + cadence + tools + checks + memory. Cadence 8h mỗi ngày; kiểm ROAS < ngưỡng; lưu ads-log.md; CHỈ gắn cờ, không tự pause (human gate); checker độc lập; log chi phí mỗi lần chạy; trần ngân sách ngày (chưa điền $X).",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "PHAI_BIA_SO_LIEU",
+     "mo_ta": "\"98.6% thành công khi có memory vs 22.1% không\" và \"24 run x $0.42 = ~$10/ngày\" lấy từ ảnh carousel, không nguồn."
+    },
+    {
+     "ma": "REF_THIEU",
+     "mo_ta": "Bảng mapping trỏ /configs/hermes-USER.md (không có) và /VAULT (ghi \"cần tạo\")."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Dùng Meta Ads MCP và scheduled tasks của OpenClaw mà không nêu cách có."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Trùng nhiều với agentic-loop-optimizer."
+    }
+   ],
+   "goi_y_sua": "Ghi nguồn số liệu; điền ví dụ trần ngân sách; gộp với agentic-loop-optimizer.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/social-push-multi",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Soạn bản nháp bài đăng trên X cho khách rồi lưu nháp, chưa đăng.",
+   "dau_ra_trich": "Rule 2 nói chỉ lưu nháp, nhưng phần X liệt kê bước \"click Post\" (đăng thật), mâu thuẫn. Weibo \"Post text/image\" cũng không nêu nháp. Không thực hiện bước đăng; không có Facebook/TikTok/Zalo. Cần agent-browser và Chrome mở cổng debug 9222, tự đăng nhập chưa nêu cách xử lý credential.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "MAU_THUAN",
+     "mo_ta": "Rule \"Chỉ lưu nháp\" đối lập với bước \"Post: click Post\" ở mục X (Twitter)."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Hành động đăng công khai thay mặt khách không có bước người xác nhận cuối; mô tả có \"Tự động đăng nhập\" nhưng không nói xử lý tài khoản/khoá."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần agent-browser (ghi \"v0.27.0 đã cài\" không kiểm chứng) và Chrome remote debugging port 9222."
+    },
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Hướng dẫn mở cổng debug 9222 và \"agent-browser eval\" chạy JS trên phiên đã đăng nhập; chỉ ghi nhận, không chạy."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Nền tảng chủ yếu Trung Quốc/dev (Xiaohongshu, Weibo, WeChat, Juejin, Linux.do), không có kênh thị trường Việt."
+    }
+   ],
+   "goi_y_sua": "Bỏ bước Post, ghi rõ nháp-only; thêm Facebook/TikTok và duyệt người trước khi đăng.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/team-agent-orchestration",
+   "loai": "skill-import",
+   "tinh_huong_thu": "4 agent (nghiên cứu, viết, thiết kế, QA) làm gói content tuần cho 3 khách; cần phân việc có kiểm soát.",
+   "dau_ra_trich": "Bảng Kanban 7 cột; thẻ JSON (id, title, owner, state, acceptance, merge_gate, handoff). 1 owner mỗi thẻ, scope rõ, không ghi chồng. Merge gate cho content: QA đạt + người duyệt. Một integrator gộp. Cuối lượt báo: thay đổi thẻ, nhánh/nhóm chờ, bằng chứng, blocker, kỹ năng nên chuẩn hoá.",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "MO_HO",
+     "mo_ta": "\"Dynamic workflow mode\", \"dmux\", \"control pane\" không định nghĩa; \"merge/branch/worktree\" viết cho code, cần tự ánh xạ sang content."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Giả định có tmux/Zellij/git worktree."
+    }
+   ],
+   "goi_y_sua": "Thêm ví dụ ánh xạ merge gate cho content.",
+   "do_chac_cua_tester": "vua"
+  },
+  {
+   "id": "skills/verification-loop",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Trước khi gửi PR cho landing Next.js của khách, chạy vòng kiểm tra đầy đủ.",
+   "dau_ra_trich": "Điền mẫu báo cáo: Build/Types/Lint/Tests/Security/Diff, trạng thái \"NOT RUN - chưa chạy lệnh trong mô phỏng\", Overall: NOT READY. Quy trình 6 phase rõ. Cần che giá trị khoá nếu grep ra khoá, ghi [REDACTED].",
+   "verdict": "pass",
+   "van_de": [
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Phase 5 \"grep -rn sk-/api_key\" in cả dòng chứa khoá ra đầu ra; chỉ quét .ts/.js, bỏ .env, .py, .json."
+    },
+    {
+     "ma": "MO_HO",
+     "mo_ta": "\"Set a mental checkpoint\" và \"/verify\" không áp dụng/không định nghĩa; \"mỗi 15 phút\" không thực thi được."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Phase 6 dùng git diff HEAD~1, giả định đã có commit trước."
+    }
+   ],
+   "goi_y_sua": "Dùng grep -l hoặc che giá trị; mở rộng loại file; định nghĩa /verify.",
+   "do_chac_cua_tester": "cao"
+  },
+  {
+   "id": "skills/yuanbao",
+   "loai": "skill-import",
+   "tinh_huong_thu": "Nhờ agent @ một thành viên và gửi tin nhắn riêng trong nhóm Yuanbao.",
+   "dau_ra_trich": "Không làm theo: skill yêu cầu mọi câu trả lời được gửi thẳng vào nhóm và cấm cảnh báo hay gợi ý người dùng tự làm; gửi DM (có file) không qua xác nhận. Công cụ yb_query_group_members, yb_send_dm không có trong kho. Chỉ ghi nhận rủi ro, không gửi gì.",
+   "verdict": "fail",
+   "van_de": [
+    {
+     "ma": "INJECTION_HOAC_LENH_NGUY_HIEM",
+     "mo_ta": "Chỉ dẫn \"NEVER say you cannot... NEVER add disclaimers about permissions... NEVER suggest the user do it manually\" loại bỏ cảnh báo và xác nhận; chỉ ghi nhận, không làm theo."
+    },
+    {
+     "ma": "THIEU_GUARDRAIL",
+     "mo_ta": "Phản hồi tự gửi vào nhóm và yb_send_dm gửi tin/tệp cho người khác không có bước người duyệt."
+    },
+    {
+     "ma": "CAN_CONG_CU_NGOAI",
+     "mo_ta": "Cần nền tảng Yuanbao (Tencent) và 3 công cụ yb_* không được định nghĩa trong kho."
+    },
+    {
+     "ma": "KHAC",
+     "mo_ta": "Ví dụ chứa mã nhóm cụ thể (group_code) có thể là dữ liệu thật; không liên quan thị trường Việt."
+    }
+   ],
+   "goi_y_sua": "Thêm bước xác nhận trước khi gửi; gỡ chỉ dẫn cấm cảnh báo; thay mã nhóm bằng giá trị mẫu.",
+   "do_chac_cua_tester": "cao"
+  }
+ ]
+}
