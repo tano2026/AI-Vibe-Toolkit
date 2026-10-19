@@ -19,7 +19,7 @@
 | gstack | repo | 9.0 | chưa chạy |  | `repos/gstack.md` |
 | Healthchecks | repo | 9.0 | đọc nguồn | bảo mật | `repos/healthchecks.md` |
 | Odysseus — Self-Hosted AI Workspace Thay ChatGPT/C | repo | 9.0 | đọc nguồn |  | `repos/odysseus.md` |
-| Open WebUI | repo | 9.0 | đọc nguồn | tốn tiền | `repos/open-webui.md` |
+| Open WebUI | repo | 9.0 | đọc nguồn |  | `repos/open-webui.md` |
 | video-use (browser-use) | repo | 9.0 | đọc nguồn |  | `repos/video-use.md` |
 | agent-browser (Vercel Labs) | skill-import | 9.0 | đọc nguồn |  | `skills/agent-browser/SKILL.md` |
 | Anthropic Skills — Agent Skills Chính Thức | skill-import | 9.0 | đọc nguồn |  | `skills/anthropic-skills/SKILL.md` |
@@ -72,7 +72,7 @@
 | Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/shorts-affiliate-system/skills/platform-disclosure-adapter/SKILL.md` |
 | Platform Disclosure Adapter | skill-agent | 9.0 | đọc nguồn |  | `agents/yt-cashcow/skills/platform-disclosure-adapter/SKILL.md` |
 | Script Variation Engine | skill-agent | 9.0 | đọc nguồn | dữ liệu/ToS | `agents/yt-cashcow/skills/script-variation-engine/SKILL.md` |
-| Agent-Reach — Cho AI Đọc Twitter/LinkedIn Không Cầ | repo | 8.5 | đọc nguồn | tốn tiền | `repos/agent-reach.md` |
+| Agent-Reach — Cho AI Đọc Twitter/LinkedIn Không Cầ | repo | 8.5 | đọc nguồn |  | `repos/agent-reach.md` |
 | AI Marketing Claude — Marketing Ops Toolkit (rediu | repo | 8.5 | đọc nguồn |  | `repos/ai-marketing-claude.md` |
 | Codex Security (OpenAI) | repo | 8.5 | đọc nguồn | bảo mật | `repos/codex-security.md` |
 | Seedance 2.5 — GitHub Repo / AI Video Model | repo | 8.5 | đọc nguồn | tốn tiền | `repos/seedance-2-5.md` |
@@ -155,7 +155,7 @@
 | CrewAI | repo | 8.0 | đọc nguồn |  | `repos/crewai.md` |
 | Deep Agents | repo | 8.0 | đọc nguồn |  | `repos/deep-agents.md` |
 | Goose | repo | 8.0 | đọc nguồn |  | `repos/goose.md` |
-| OpenSEO | repo | 8.0 | đọc nguồn | tốn tiền | `repos/open-seo.md` |
+| OpenSEO | repo | 8.0 | đọc nguồn |  | `repos/open-seo.md` |
 | ResearchTikPy — TikTok Research API Wrapper | repo | 8.0 | đọc nguồn |  | `repos/researchtikpy.md` |
 | vercel/ai (AI SDK) | repo | 8.0 | đọc nguồn |  | `repos/vercel-ai-sdk.md` |
 | ziwei-doushu (Renhuai123) | repo | 8.0 | đọc nguồn |  | `repos/ziwei-doushu.md` |
@@ -193,7 +193,7 @@
 | BillionMail | repo | 8.0 | đọc nguồn | tốn tiền | `repos/billionmail.md` |
 | DESIGN.md | repo | 8.0 | đọc nguồn |  | `repos/design-md.md` |
 | Hallmark (Nutlope) | repo | 8.0 | đọc nguồn |  | `repos/hallmark.md` |
-| OpenSEO | repo | 8.0 | đọc nguồn | tốn tiền | `repos/open-seo.md` |
+| OpenSEO | repo | 8.0 | đọc nguồn |  | `repos/open-seo.md` |
 | Opik | repo | 8.0 | đọc nguồn |  | `repos/opik.md` |
 | Product Film Skill | repo | 8.0 | đọc nguồn |  | `repos/product-film-skill.md` |
 | Short Video Factory (YILS-LIN) | repo | 8.0 | đọc nguồn | license,tốn tiền | `repos/short-video-factory.md` |
@@ -206,7 +206,7 @@
 | Hallmark (Nutlope) | skill-import | 8.0 | đọc nguồn |  | `skills/hallmark-design/SKILL.md` |
 | Marketing — 4 Nguyên Tắc Vàng Không Bao Giờ Phá Vỡ | skill-import | 8.0 | đọc nguồn |  | `skills/marketing-4-nguyen-tac-vang/SKILL.md` |
 | Zalo OA — Playbook Vận Hành Du Lịch & Lưu Trú Mùa  | skill-import | 8.0 | đọc nguồn |  | `skills/zalo-oa-du-lich-luu-tru-playbook/SKILL.md` |
-| Human Footage Editor — Sản xuất từ footage thật, k | skill-agent | 8.0 | chưa chạy | tốn tiền | `agents/brandscan/skills/human-footage-editor/SKILL.md` |
+| Human Footage Editor — Sản xuất từ footage thật, k | skill-agent | 8.0 | chưa chạy |  | `agents/brandscan/skills/human-footage-editor/SKILL.md` |
 | Brand Visual Template System | skill-agent | 8.0 | đọc nguồn |  | `agents/designer-pro/skills/brand-visual-template-system/SKILL.md` |
 | Trend Scout — Bắt trend sớm cho YT Cashcow | skill-agent | 8.0 | đọc nguồn | dữ liệu/ToS | `agents/shorts-affiliate-system/skills/trend-scout/SKILL.md` |
 | awesome-design-md — kho DESIGN.md để AI vẽ UI giốn | repo | 7.5 | đọc nguồn |  | `repos/awesome-design-md.md` |
@@ -261,7 +261,7 @@
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
 | Design Quality Gate | skill-agent | 10.0 | đọc nguồn |  | `agents/designer-pro/skills/design-quality-gate/SKILL.md` |
-| Open WebUI | repo | 9.0 | đọc nguồn | tốn tiền | `repos/open-webui.md` |
+| Open WebUI | repo | 9.0 | đọc nguồn |  | `repos/open-webui.md` |
 | Agentic Loop Optimizer | skill-import | 9.0 | đọc nguồn |  | `skills/agentic-loop-optimizer/SKILL.md` |
 | Chuyên gia Coding & Development — Skill / System P | skill-import | 9.0 | đọc nguồn |  | `skills/expert-coding-dev/SKILL.md` |
 | Kiểm tra Bảo mật Trước Deploy — 7 Lỗi Toang Ngầm t | skill-import | 9.0 | chưa chạy | bảo mật | `skills/kiem-tra-bao-mat-truoc-deploy/SKILL.md` |
@@ -357,7 +357,7 @@
 | awesome-mcp-servers (punkpeye) | repo | 7.0 | đọc nguồn |  | `repos/awesome-mcp-servers.md` |
 | CubeSandbox | repo | 7.0 | đọc nguồn | dữ liệu/ToS,tốn tiền | `repos/cubesandbox.md` |
 | mcp-use | repo | 7.0 | đọc nguồn |  | `repos/mcp-use.md` |
-| Orca (stablyai/orca) | repo | 7.0 | đọc nguồn | tốn tiền | `repos/orca.md` |
+| Orca (stablyai/orca) | repo | 7.0 | đọc nguồn |  | `repos/orca.md` |
 | TencentDB Agent Memory (Tencent) | repo | 7.0 | đọc nguồn |  | `repos/tencentdb-agent-memory.md` |
 | Antigravity 2.0 + Mirage Tesseract + Remotion — Co | stack | 7.0 | đọc nguồn |  | `stacks/antigravity-mirage-remotion-combo.md` |
 

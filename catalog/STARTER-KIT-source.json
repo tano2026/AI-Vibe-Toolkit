@@ -1,0 +1,304 @@
+{
+  "_ghi_chu": "Nguồn dữ liệu cho catalog/STARTER-KIT.md. Mỗi 'trich' phải là chuỗi con của entry gốc (duong_dan trong catalog.json, chuẩn hoá khoảng trắng). Sinh/kiểm bằng script cục bộ; không sửa tay bảng trong STARTER-KIT.md mà quên file này.",
+  "ngay": "2026-10-17",
+  "viec": [
+    {
+      "ten": "Nghiên cứu đối thủ / thị trường",
+      "capability": "web-research",
+      "chinh": {
+        "id": "agents/research-analytics-pro/skills/competitive-intel",
+        "vi_sao": "Khung 4 bước (liệt kê người chơi, ma trận tính năng/giá, bản đồ định vị, rào cản) kèm mẫu báo cáo, viết riêng cho agent của agency và không cần cài gì.",
+        "can": "Không cần cài; bản thân là prompt. Entry nhắc dùng Brave Search, Firecrawl, x-research và Crunchbase/LinkedIn để lấy dữ liệu nhưng không ghi vào phần điều kiện (catalog ghi needs=none) nên phải có sẵn công cụ tìm web.",
+        "bo_qua": "Entry không có mục Lưu ý hay điều kiện loại trừ.",
+        "trich": "Firecrawl: Scrape trang",
+        "trich_nhan": "Trích entry về công cụ bên ngoài",
+        "nghi_ngo": "Entry không nêu rõ cách lấy dữ liệu khi thiếu công cụ tìm web; số liệu đối thủ phải tự kiểm."
+      },
+      "du_phong": {
+        "id": "mcps/tavily-mcp",
+        "vi_sao": "Nguồn tìm web thứ hai để đối chiếu chéo khi cần kiểm số liệu đối thủ; có gói miễn phí.",
+        "can": "Khoá API Tavily (đăng ký tavily.com); gói miễn phí 1.000 credit/tháng theo entry; chạy qua npx.",
+        "bo_qua": "Entry tự đánh giá chỉ nên dùng làm nguồn tìm thứ hai, không thay công cụ khác, và ghi chất lượng kém với truy vấn kỹ thuật/ngách.",
+        "trich": "Không phải phải-có, chỉ là nice-to-have nếu cần thêm 1 nguồn search độc lập để đối chiếu chéo",
+        "nghi_ngo": "Entry ghi rate limit gói miễn phí hay chạm trần và chuyện Nebius mua lại chưa chốt, có thể đổi giá/chính sách."
+      }
+    },
+    {
+      "ten": "Khung chủ đề nội dung và SEO",
+      "capability": "seo",
+      "chinh": {
+        "id": "agents/content-pro/skills/content-pillar-cluster-architecture",
+        "vi_sao": "Dựng khung pillar/cluster và kế hoạch liên kết nội bộ trước khi viết bài, có bảng kiểm để không chọn chủ đề thiếu thẩm quyền.",
+        "can": "Không cần cài; prompt thuần. Cần có thông tin thật về khách (chuyên môn, câu hỏi khách hàng hay hỏi) và nơi lưu khung (Airtable/Sheet).",
+        "bo_qua": "Không dùng cho nội dung cần gấp trong ngày hoặc nội dung thời sự một lần.",
+        "trich": "không hợp cho case cần content gấp trong ngày"
+      },
+      "du_phong": {
+        "id": "repos/claude-seo",
+        "vi_sao": "Khi cần kiểm tra SEO một site thật (audit, schema, content brief, cluster từ kết quả tìm kiếm) bằng một plugin MIT thay vì tự viết quy trình.",
+        "can": "Claude Code 1.0.33 trở lên (cài bằng /plugin). Lệnh nâng cao cần DataForSEO (trả phí) hoặc Firecrawl; bản gốc dùng được không cần các tiện ích này.",
+        "bo_qua": "Không dùng nếu agent không chạy trong Claude Code.",
+        "trich": "Cần Claude Code — không chạy standalone, không dùng được nếu mày không có Claude Code setup.",
+        "nghi_ngo": "Entry viết giọng quảng bá (chấm 9/10, 'không bàn'), số sao/kết quả lấy từ README, chưa ai trong kho chạy. Catalog gắn rủi ro dữ liệu/ToS và tốn tiền nhưng entry không giải thích vì sao."
+      }
+    },
+    {
+      "ten": "Viết caption mạng xã hội và bài dài",
+      "capability": "content-writing",
+      "chinh": {
+        "id": "repos/social-media-caption-generator",
+        "vi_sao": "Từ một đầu vào ra caption riêng cho từng nền tảng (Reels, TikTok, Threads, Facebook, Shorts) kèm lý do công thức, khớp việc lặp hằng tuần.",
+        "can": "Claude Code (clone vào ~/.claude/skills rồi gọi /social-captions); không cần khoá API. Licence MIT theo entry.",
+        "bo_qua": "Không dùng khi đầu vào chỉ là mô tả mơ hồ, và không thay được giọng văn riêng của khách.",
+        "trich": "Input tốt nhất là script/text/screenshot có nội dung rõ ràng — mô tả mơ hồ ra caption chung chung.",
+        "nghi_ngo": "Entry phần lớn trích lời tác giả repo (tài khoản 280K follower, tiết kiệm 30 phút/bài), chưa có kết quả độc lập; caption tiếng Việt chưa được kiểm."
+      },
+      "du_phong": {
+        "id": "skills/content-research-writer",
+        "vi_sao": "Cho bài dài/báo cáo/case study: bảng ghi nguồn (source ledger) để không bịa số liệu, rồi mới viết.",
+        "can": "Không cần cài; prompt thuần. Cần mẫu giọng văn của khách nếu muốn giữ giọng gốc.",
+        "bo_qua": "Không áp cho nội dung ngắn hằng ngày vì quá nặng.",
+        "trich": "chỉ nên dùng cho content dài (báo cáo, bài research .md)",
+        "trich_nhan": "Trích entry (phạm vi dùng)"
+      }
+    },
+    {
+      "ten": "Video ngắn",
+      "capability": "video-render",
+      "chinh": {
+        "id": "repos/hyperframes",
+        "vi_sao": "Claude Code viết HTML rồi render ra MP4 từ kịch bản; Apache 2.0, không tính phí theo lần render, nên không vướng giấy phép thương mại.",
+        "can": "Claude Code, Node.js 22+, FFmpeg (catalog ghi thêm cần trình duyệt Chromium); không cần khoá API.",
+        "bo_qua": "Không dùng nếu máy thiếu FFmpeg/Chromium hoặc không chạy trong Claude Code.",
+        "trich": "Đang active development — update liên tục",
+        "nghi_ngo": "Catalog gắn rủi ro 'tốn tiền' nhưng entry ghi miễn phí, Apache 2.0, không tính phí per-render; cần xem lại khi spike. Chưa có bằng chứng chất lượng video thực tế."
+      },
+      "du_phong": {
+        "id": "stacks/remotion-template-factory",
+        "vi_sao": "Dựng template React một lần rồi nhét văn bản/số liệu để render hàng loạt cùng một định dạng (thẻ số liệu, intro/outro).",
+        "can": "Node.js, Remotion, biết React cơ bản để viết template đầu tiên; render cần tải Chrome Headless Shell (khoảng 300MB). Tuỳ chọn LLM để sinh dữ liệu đầu vào.",
+        "bo_qua": "Không dùng cho video cần chỉnh tay nhiều theo cảnh quay thô, và phải xét giấy phép thương mại của Remotion.",
+        "trich": "công ty 4+ người phải mua commercial license",
+        "nghi_ngo": "Giấy phép: agency từ 4 người trở lên phải mua license thương mại của Remotion theo chính entry; cần chủ agency quyết trước khi chọn. Ví dụ trong entry gắn thương hiệu cụ thể nhưng kỹ thuật dùng chung được."
+      }
+    },
+    {
+      "ten": "Ảnh và prompt ảnh",
+      "capability": "image-generation",
+      "chinh": {
+        "id": "agents/designer-pro/skills/image-prompt-formula-core",
+        "vi_sao": "Công thức prompt 7 phần và bảng lỗi ảnh AI hay gặp (chữ méo, mặt lỗi, thiếu chỗ chèn chữ), viết trung lập thương hiệu: mỗi khách có file brand-context riêng.",
+        "can": "Không cần cài; prompt thuần, cần một công cụ tạo ảnh bên ngoài chạy prompt. Code mẫu gọi Claude API qua ANTHROPIC_API_KEY (tuỳ chọn).",
+        "bo_qua": "Entry không nêu điều kiện loại trừ; chỉ là công thức nên không tự tạo ảnh.",
+        "trich": "bản core này trừu tượng hơn, cần đọc kèm ví dụ brand thật để hiểu đầy đủ",
+        "trich_nhan": "Trích entry (điểm yếu)"
+      },
+      "du_phong": {
+        "id": "mcps/pollinations-mcp",
+        "vi_sao": "Công cụ tạo ảnh không cần khoá API để chạy bản nháp và thumbnail thử, ghép với công thức ở trên.",
+        "can": "npx pollinations-mcp, không cần khoá API; license ISC cho gói MCP.",
+        "bo_qua": "Không dùng cho sản phẩm cuối của khách cần chất lượng cao.",
+        "trich": "chất lượng thấp hơn Fal.ai/Stable Diffusion, chỉ hợp draft nhanh",
+        "nghi_ngo": "Entry không nói điều khoản dùng ảnh sinh ra cho mục đích thương mại; mâu thuẫn nội bộ (mục đầu 'không giới hạn', mục sau 'chỉ hợp draft'). Chưa chọn được công cụ tạo ảnh chất lượng cao: google-flow-mcp bị loại vì Alpha, fal-mcp cần trả phí và chưa được xét."
+      }
+    },
+    {
+      "ten": "Giọng đọc tiếng Việt",
+      "capability": "voice-tts",
+      "chinh": {
+        "id": "repos/vieneu-tts",
+        "vi_sao": "TTS tiếng Việt chạy offline, Apache-2.0, hỗ trợ trộn Việt-Anh và nhân bản giọng từ 3-5 giây mẫu, không tốn phí theo ký tự.",
+        "can": "pip install vieneu; chạy trên máy, không khoá API. Catalog ghi cần GPU, nhưng entry nói có thể chạy CPU với precision int8 và chỉ cần máy đủ mạnh.",
+        "bo_qua": "Không dùng nếu máy yếu hoặc cần dịch vụ API đám mây sẵn.",
+        "trich": "cần máy đủ mạnh để chạy mượt (dù nhẹ hơn nhiều so với tạo nhạc/video)",
+        "nghi_ngo": "Catalog ghi needs=gpu còn entry cho thấy chạy CPU được, cần đo thực tế. Nhân bản giọng cần có sự đồng ý của người có giọng: entry không nhắc, đây là lưu ý của người soạn bộ này."
+      },
+      "du_phong": {
+        "id": "repos/elevenlabs-skills",
+        "vi_sao": "Chính chủ ElevenLabs, một nơi lo cả đọc, phiên âm, hiệu ứng âm thanh; entry ghi có 15 giọng tiếng Việt.",
+        "can": "Khoá API ElevenLabs và gói trả phí; npx skills add elevenlabs/skills. Tiêu tiền theo ký tự nên đặt hạn mức trong dashboard.",
+        "bo_qua": "Không dùng nếu chưa có tài khoản và khoá API trả phí.",
+        "trich": "Code MIT không có nghĩa là audio sinh ra được dùng thương mại miễn phí.",
+        "nghi_ngo": "Entry ghi gói miễn phí bị khoá khi người kiểm đi qua proxy và chưa nghe được chất lượng giọng Việt; quyền thương mại theo gói chưa kiểm."
+      }
+    },
+    {
+      "ten": "Đăng mạng xã hội",
+      "capability": "social-media",
+      "chinh": {
+        "id": "mcps/meta-social-api",
+        "vi_sao": "API chính thức của Meta: một token đăng Facebook/Instagram/Threads, lấy insight, quản lý bình luận, không qua dịch vụ trung gian.",
+        "can": "Tài khoản nhà phát triển Meta, ứng dụng loại Business, Facebook Page, tài khoản Instagram Business/Creator liên kết, token (nên dùng System User cho môi trường chạy thật); video Reels cần URL công khai.",
+        "bo_qua": "Không dùng nếu khách không có Page/Instagram Business hoặc không muốn quản lý token.",
+        "trich": "Điểm yếu: Token management phức tạp, hay thay đổi permissions policy",
+        "trich_nhan": "Trích entry (điểm yếu)",
+        "nghi_ngo": "Code mẫu dùng Graph API v19.0, cần đối chiếu tài liệu hiện hành. Entry ghi Threads API còn hạn chế. Mỗi khách một token riêng: không dùng chung."
+      },
+      "du_phong": {
+        "id": "mcps/buffer-mcp",
+        "vi_sao": "Lên lịch đăng nhiều nền tảng (X, LinkedIn, Facebook, Instagram, TikTok...) qua một tài khoản Buffer, đỡ tự xử lý từng API.",
+        "can": "Tài khoản Buffer và BUFFER_ACCESS_TOKEN; Python với mcp, httpx, pydantic.",
+        "bo_qua": "Không dùng nếu không có tài khoản Buffer hoặc không có token.",
+        "trich": "Lấy token tại buffer.com → Settings → Apps and Integrations → Create App.",
+        "trich_nhan": "Trích entry (điều kiện cần)",
+        "nghi_ngo": "Entry mỏng, không có mục Lưu ý và không nói giá/giới hạn của Buffer; mô tả là GraphQL nhưng đoạn code mẫu gọi đường dẫn kiểu REST, cần đối chiếu. Mã nguồn bên thứ ba."
+      }
+    },
+    {
+      "ten": "CRM (khách, deal, nhắc việc)",
+      "capability": "crm-sales",
+      "chinh": {
+        "id": "mcps/hubspot-mcp",
+        "vi_sao": "Cho agent đọc/tạo/cập nhật contact, company, deal, danh sách và email marketing trong HubSpot mà không mở giao diện; chỉ có ý nghĩa khi khách (hoặc agency) đã dùng HubSpot.",
+        "can": "Tài khoản HubSpot và Private App token (HUBSPOT_ACCESS_TOKEN); Node.js; clone và build từ GitHub.",
+        "bo_qua": "Entry không có mục Lưu ý; chỉ có cảnh báo dùng token Private App, không dùng khoá API cũ.",
+        "trich": "Dùng Private App Token (HubSpot Settings → Integrations → Private Apps), không dùng API key cũ đã deprecated.",
+        "trich_nhan": "Trích entry (cảnh báo)",
+        "nghi_ngo": "Mã nguồn bên thứ ba (không phải của HubSpot), entry mỏng, không nêu chi phí HubSpot. Công cụ có thể lên lịch gửi email marketing: đặt quy tắc phải có người duyệt trước khi gửi."
+      },
+      "du_phong": {
+        "id": "repos/twenty-crm",
+        "vi_sao": "Nếu agency cần CRM riêng thay vì thuê dịch vụ: nguồn mở, tự host, có API cho agent đọc ghi.",
+        "can": "Docker, khoảng 2GB RAM trống, Postgres, đặt sau VPN; license trộn AGPL, Enterprise và MIT.",
+        "bo_qua": "Chỉ dùng nội bộ sau VPN; chưa nên đóng gói cho khách dùng như dịch vụ khi chưa có ý kiến pháp lý.",
+        "trich": "KHÔNG mở cổng ra internet công khai — đặt sau VPN/Tailscale hoặc whitelist IP văn phòng",
+        "nghi_ngo": "Entry ghi nhiều lỗ hổng bảo mật 2026 và chính nó nói chưa chạy thử thật. Ví dụ trong entry gắn thương hiệu cụ thể nhưng sản phẩm dùng chung."
+      }
+    },
+    {
+      "ten": "Chăm sóc khách và xử lý bình luận",
+      "capability": "customer-support",
+      "chinh": {
+        "id": "agents/customer-satisfaction-pro/skills/churn-risk-escalation-discipline",
+        "vi_sao": "Phân biệt tín hiệu khách sắp rời bỏ (báo ngay lần đầu) với phàn nàn nhỏ, kèm ngưỡng thời gian trả lời theo kênh và cách báo cáo bằng median/P90.",
+        "can": "Không cần cài; prompt thuần. Cần dữ liệu lịch sử khách để gắn cờ chính xác; ngưỡng SLA trong entry (chat 40 giây, email 4 giờ, mạng xã hội 60 phút) là mặc định, phải đối chiếu hợp đồng từng khách.",
+        "bo_qua": "Entry không nêu điều kiện loại trừ.",
+        "trich": "cần data lịch sử khách (VIP/mới) để gắn cờ chính xác"
+      },
+      "du_phong": {
+        "id": "agents/trum-san-bay/skills/sentiment-classifier",
+        "vi_sao": "Phân loại bình luận mới thành khiếu nại gấp, câu hỏi, ý định mua, spam để xếp hàng xử lý; dùng làm khung nhãn.",
+        "can": "Prompt trong code gắn cứng một fanpage cụ thể và mẫu trả lời cụ thể nên phải viết lại cho từng khách; cần hàm đẩy hàng đợi (Airtable) và báo (Telegram), khoá API Claude.",
+        "bo_qua": "Không dùng nếu kênh không có bình luận mới hoặc đã xử lý tay từng phản hồi.",
+        "trich": "thà báo nhầm còn hơn bỏ sót",
+        "trich_nhan": "Trích entry (quy tắc)",
+        "nghi_ngo": "Mục vốn gắn thương hiệu (viết cho một fanpage): chỉ mượn khung nhãn và ngưỡng, không dùng nguyên văn. Không tự trả lời bình luận khi chưa có người duyệt."
+      }
+    },
+    {
+      "ten": "Báo cáo và dashboard",
+      "capability": "data-dashboard",
+      "chinh": {
+        "id": "agents/research-analytics-pro/skills/data-storytelling",
+        "vi_sao": "Khung 'Gì - Vì sao quan trọng - Làm gì' và bố cục tóm tắt 5 phần (tối đa 3 khuyến nghị) để báo cáo cho khách có kết luận, không chỉ bảng số.",
+        "can": "Không cần cài; prompt thuần. Cần số liệu đã phân tích xong làm đầu vào. Entry nhắc EXPERT-CORE.md và sc-datav của kho nội bộ.",
+        "bo_qua": "Không dùng khi khách chỉ cần bảng số liệu thô; dùng sau khi phân tích xong.",
+        "trich": "Dùng sau khi có analysis xong, trước khi present output cho user.",
+        "trich_nhan": "Trích entry (thời điểm dùng)"
+      },
+      "du_phong": {
+        "id": "skills/kpi-dashboard-creator",
+        "vi_sao": "Khi cần dựng dashboard: quy tắc định nghĩa từng chỉ số (nguồn, tần suất, mốc so sánh) trước khi vẽ giao diện.",
+        "can": "Không cần cài; hướng dẫn thiết kế, người/agent tự viết giao diện (React/Tailwind). Ví dụ trong entry gắn với dashboard nội bộ của kho.",
+        "bo_qua": "Entry tự đánh giá chỉ 5/10 vì không có gì đặc thù kỹ thuật.",
+        "trich": "nhưng không phải capability mới",
+        "trich_nhan": "Trích entry (đánh giá)",
+        "nghi_ngo": "Chủ yếu là tư duy thiết kế chung, không đưa ra công cụ dashboard cho khách; xem mục HỔNG."
+      }
+    },
+    {
+      "ten": "Đọc và chuyển tài liệu khách gửi",
+      "capability": "document-office",
+      "chinh": {
+        "id": "repos/markitdown",
+        "vi_sao": "Công cụ của Microsoft đổi PDF, Word, Excel, PowerPoint, HTML sang Markdown để agent đọc, MIT, không cần Docker.",
+        "can": "pip install markitdown (hoặc markitdown[all]); không cần khoá API để đổi văn bản; mô tả ảnh bằng AI cần khoá API.",
+        "bo_qua": "Entry không nêu điều kiện loại trừ; bảng định dạng chỉ ghi PDF là trích văn bản và bố cục cơ bản.",
+        "trich": "OCR + AI description (cần API key)",
+        "trich_nhan": "Trích entry (phần cần khoá API)",
+        "nghi_ngo": "Số sao và xếp hạng trong entry là lời quảng bá, chưa kiểm chất lượng với tài liệu tiếng Việt hay PDF quét."
+      },
+      "du_phong": {
+        "id": "repos/stirling-pdf",
+        "vi_sao": "Khi cần thao tác lên chính file PDF (gộp, tách, nén, OCR tiếng Việt, đóng dấu) mà không tải lên dịch vụ ngoài.",
+        "can": "Docker; khoảng 2GB bộ nhớ Java cho file lớn; thêm gói ngôn ngữ vie cho OCR tiếng Việt.",
+        "bo_qua": "Không dùng nếu không chạy được Docker hoặc chỉ xử lý vài file đơn giản.",
+        "trich": "Điểm yếu: Cần Docker để self-host; UI không đẹp bằng ILovePDF; OCR chậm với file lớn",
+        "nghi_ngo": "Entry không ghi license (catalog cũng để trống); cần xem LICENSE trước khi dùng cho việc của khách. Tag image trong entry cần kiểm lại."
+      }
+    },
+    {
+      "ten": "Cào dữ liệu web và điều khiển trình duyệt",
+      "capability": "scraping, browser-automation",
+      "chinh": {
+        "id": "mcps/crawl4ai",
+        "vi_sao": "Cào nhiều trang web rồi đổi sang Markdown cho agent đọc, tự host nên không giới hạn số trang và không tốn credit.",
+        "can": "Docker Desktop chạy nền, RAM trống từ 4GB, tải image khoảng 500MB; MCP chạy qua npx mcp-crawl4ai.",
+        "bo_qua": "Không dùng nếu không chạy được Docker hoặc máy ít RAM.",
+        "trich": "RAM cần ít nhất 4GB trống",
+        "nghi_ngo": "Catalog gắn rủi ro 'tốn tiền' nhưng entry ghi miễn phí, cần xem lại khi spike. Entry không nói gì về điều khoản trang đích hay robots.txt; cào dữ liệu đối thủ/khách phải tự cân nhắc."
+      },
+      "du_phong": {
+        "id": "repos/agent-browser",
+        "vi_sao": "Điều khiển trình duyệt thật bằng CLI nhẹ (Apache-2.0) để click, điền form, chụp màn hình; dùng khi cần kiểm tra trang đích của khách hoặc trang cần thao tác.",
+        "can": "npm install -g agent-browser rồi agent-browser install (tải Chrome for Testing); Node.js 24+ chỉ khi build từ nguồn; dùng trong Claude Code hoặc OpenClaw.",
+        "bo_qua": "Không dùng khi cần mô phỏng mạng, nhiều tab phức tạp hoặc xuất PDF.",
+        "trich": "là CLI mới của Vercel, cần theo dõi độ ổn định lâu dài",
+        "nghi_ngo": "Entry chỉ nói về kiểm thử giao diện của chính ứng dụng; dùng để cào hoặc thao tác trên site người khác là suy luận của người soạn, entry không đề cập. Phương án khác cùng nhóm: mcps/playwright."
+      }
+    }
+  ],
+  "hong": [
+    {
+      "ngay": "2026-10-17",
+      "kha_nang": "email-outreach: viết và gửi chuỗi email lạnh cho khách của agency",
+      "du_an": "Bộ khởi đầu (chưa gắn dự án)",
+      "da_tra": "capability email-outreach, adoption khác chi-tham-khao; từ khoá cold email, outreach, newsletter",
+      "vi_sao": "Chỉ có 2 mục được gắn nhãn: repos/billionmail cần VPS và trả phí, repos/founder-skills (outreach-specialist) tự chấm 5/10, thiên thị trường Mỹ, entry nói không cài thành bộ cho agent. Hai skill nhập hàng loạt chưa gắn nhãn (skills/cold-email cần khoá MachFive, skills/outbound-engine trỏ đường dẫn máy cục bộ) chưa được đọc kỹ nên không chọn.",
+      "trang_thai": "mở"
+    },
+    {
+      "ngay": "2026-10-17",
+      "kha_nang": "document-office: soạn tài liệu giao khách (đề xuất, báo giá, slide) dạng .docx/.pptx",
+      "du_an": "Bộ khởi đầu (chưa gắn dự án)",
+      "da_tra": "capability document-office, adoption khác chi-tham-khao; từ khoá docx, pptx, proposal",
+      "vi_sao": "repos/genoffice ghi rõ bản alpha, qua hạ tầng bên thứ ba và chỉ nên dùng nội bộ; repos/markitdown và repos/stirling-pdf chỉ đọc/xử lý file, không soạn tài liệu mới. Chưa thấy mục nào đủ tốt để giao cho khách.",
+      "trang_thai": "mở"
+    },
+    {
+      "ngay": "2026-10-17",
+      "kha_nang": "data-dashboard: dựng dashboard báo cáo cho khách từ dữ liệu quảng cáo/mạng xã hội",
+      "du_an": "Bộ khởi đầu (chưa gắn dự án)",
+      "da_tra": "capability data-dashboard, adoption khác chi-tham-khao",
+      "vi_sao": "Các mục đã đọc đều là khung tư duy/quy trình: skills/data-analyzer (6/10), skills/analytics-data-analysis (chuẩn viết code phân tích), skills/kpi-dashboard-creator (5/10). Chưa có mục nối trực tiếp dữ liệu quảng cáo/mạng xã hội của khách ra báo cáo hoặc dashboard định kỳ. Bộ đã chọn chỉ lo phần viết báo cáo.",
+      "trang_thai": "mở"
+    }
+  ],
+  "da_loai": [
+    {
+      "id": "repos/genoffice",
+      "ly_do": "Bản alpha, nội dung đi qua hạ tầng bên thứ ba, entry chỉ cho dùng nội bộ.",
+      "trich": "bản alpha do đúng 1 kỹ sư build trong 1 tuần"
+    },
+    {
+      "id": "mcps/google-flow-mcp",
+      "ly_do": "Entry ghi trạng thái Alpha trên PyPI; ngoài ra cần trả phí cho video.",
+      "trich": "Development Status: 3 - Alpha"
+    },
+    {
+      "id": "repos/capcut-tts-api",
+      "ly_do": "API không chính thức (dịch ngược), có thể ngừng hoạt động và vướng điều khoản của CapCut; license chưa rõ.",
+      "trich": "Khong phai API chinh thuc"
+    },
+    {
+      "id": "repos/kokoro-82m",
+      "ly_do": "Không hỗ trợ tiếng Việt.",
+      "trich": "Tiếng Việt không hỗ trợ"
+    },
+    {
+      "id": "repos/founder-skills",
+      "ly_do": "Entry tự đánh giá 5/10 và khuyên không cài thành bộ cho agent (thiên thị trường Mỹ, 5 tháng không cập nhật).",
+      "trich": "Không cài thành bộ cho agent"
+    }
+  ]
+}

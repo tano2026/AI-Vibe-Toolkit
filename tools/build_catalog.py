@@ -184,12 +184,24 @@ def license_of(txt):
     g = [x for x in m.groups() if x]
     return g[0] if g else ""
 
+COST = re.compile(r"trả phí|\bpaid\b|tính phí|credit|\$(?!0(?![.\d]))\d", re.I)
+NEG_BEFORE = re.compile(r"(không|\bko\b|chẳng|khỏi|lo hết|miễn)\s*(cần|tốn|muốn|bị|mất|lo|phải)?\s*(\w+\s+)?$", re.I)
+LABEL = re.compile(r"free (hay|or) (trả )?(phí|paid)", re.I)
+def has_cost(txt):
+    """Có ít nhất một lần nhắc chi phí thật. Bỏ qua: phủ định ngay trước ('không tính phí', 'không tốn credit'),
+    nhãn bảng 'Free hay trả phí', và '$0' (miễn phí)."""
+    txt = LABEL.sub(" ", txt)
+    for m in COST.finditer(txt):
+        if not NEG_BEFORE.search(txt[max(0, m.start() - 22):m.start()]):
+            return True
+    return False
+
 def risks_of(txt):
     r = []
     if re.search(r"AGPL|license (thương mại|riêng)|Enterprise\)", txt, re.I): r.append("license")
     if re.search(r"CVE-\d{4}|lỗ hổng|bảo mật nghiêm|prompt injection", txt, re.I): r.append("bảo mật")
     if re.search(r"dữ liệu nhạy cảm|quyền riêng tư|đọc lịch sử|token đăng nhập|ToS|vi phạm điều khoản", txt, re.I): r.append("dữ liệu/ToS")
-    if re.search(r"trả phí|\bpaid\b|tính phí|credit|\$\d", txt, re.I): r.append("tốn tiền")
+    if has_cost(txt): r.append("tốn tiền")
     return ",".join(r)
 
 def has_ai(txt):

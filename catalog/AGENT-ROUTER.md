@@ -18,7 +18,7 @@
 | `needs` | api-key, tra-phi, vps, gpu, docker, claude-code-only, browser, none, unknown |
 | `dup_group` | các mục cùng nhóm làm cùng một việc: chọn 1 + 1 dự phòng |
 | `confidence` | độ chắc của **nhãn** (không phải chất lượng công cụ) |
-| `curation_status` | `da-doc-entry-goc` (98 mục: đọc nguyên entry, Claude kiểm mẫu) · `da-doc-dau-entry` (358 mục: Antigravity đọc chủ yếu phần đầu entry, `evidence` nguyên văn nhưng `skip_if`/`needs` chưa dò kỹ phần Lưu ý, cảnh báo, license; đang chờ vòng sửa hẹp) · `nhap-tu-tom-tat` (không còn mục nào, nhãn nháp đã được thay) · `chua-gan-nhan` (460 skill nhập hàng loạt + mục mới: chỉ có mô tả) |
+| `curation_status` | `da-doc-entry-goc` (98 mục: đọc nguyên entry, Claude kiểm mẫu) · `da-doc-dau-entry` (358 mục: Antigravity đọc chủ yếu phần đầu entry, `evidence` nguyên văn nhưng đã qua vòng sửa hẹp 167 mục về GPU, license, beta, khoá API, trả phí; phần Lưu ý còn lại chưa dò hết, `skip_if = unknown` vẫn chưa có nghĩa là không có điều kiện loại trừ) · `nhap-tu-tom-tat` (không còn mục nào, nhãn nháp đã được thay) · `chua-gan-nhan` (460 skill nhập hàng loạt + mục mới: chỉ có mô tả) |
 
 ## 3. Bảng capability (30)
 web-research · scraping · content-writing · seo · ads · social-media · email-outreach · crm-sales · customer-support · video-generation · video-render · image-generation · voice-tts · design-ui · front-end · backend · database · devops · agent-framework · agent-orchestration-memory · prompt-skill-library · browser-automation · document-office · data-dashboard · finance-accounting · ticketing-aviation · security-compliance · local-llm · productivity · reference
@@ -40,7 +40,7 @@ def tra(capability, vessel=None, bo_tham_khao=True, top=5, repo="/opt/kho/AI-Vib
 ```
 
 ## 5. Giới hạn trung thực
-- Nhãn do model/agent gắn, **không phải kết luận**. 358 mục `da-doc-dau-entry` có thể thiếu điều kiện loại trừ (license, beta, GPU, khoá API) — luôn đọc entry gốc trước khi dùng; 460 skill nhập hàng loạt chưa gắn nhãn (tra bằng `tom_tat`, `domain`).
+- Nhãn do model/agent gắn, **không phải kết luận**. 358 mục `da-doc-dau-entry` đã dò GPU/license/beta/khoá API nhưng vẫn có thể thiếu điều kiện loại trừ khác — luôn đọc entry gốc trước khi dùng; 460 skill nhập hàng loạt chưa gắn nhãn (tra bằng `tom_tat`, `domain`).
 - `adoption`/`needs`/`vessel_fit` chỉ ghi điều entry nói rõ; "chưa chạy trong kho" ≠ "khó cài".
 - Chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem `USAGE-LOG.md`).
 - `dup_group` do mỗi lô gắn riêng nên một số nhóm cùng nghĩa mang tên khác nhau (vd `motion-video-code` / `code-video-motion`); coi chúng là một.
