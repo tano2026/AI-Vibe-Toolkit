@@ -620,7 +620,8 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "gpu",
+    "tra-phi"
    ],
    "dup_group": "llm-training-learning",
    "confidence": "vua",
@@ -888,7 +889,7 @@
    ],
    "use_when": "Dùng khi cần tài liệu tham khảo 10 bước thiết kế hệ thống agent tự chủ từ xác định mục tiêu đến vận hành an toàn",
    "skip_if": "unknown",
-   "adoption": "cai-ngay-duoc",
+   "adoption": "chi-tham-khao",
    "vessel_fit": [
     "claude-code",
     "hermes",
@@ -952,7 +953,7 @@
    ],
    "use_when": "Dùng khi cần tham khảo các thói quen và phương pháp làm việc hiệu quả với agent lập trình dòng lệnh",
    "skip_if": "unknown",
-   "adoption": "cai-ngay-duoc",
+   "adoption": "chi-tham-khao",
    "vessel_fit": [
     "claude-code",
     "hermes",
@@ -3152,14 +3153,15 @@
    ],
    "use_when": "Dùng khi cần nền tảng quản lý đội ngũ agent AI theo mục tiêu kinh doanh và ngân sách cho doanh nghiệp",
    "skip_if": "Bỏ qua nếu yêu cầu tính năng vận hành doanh nghiệp đã ổn định thay vì các tính năng đang beta",
-   "adoption": "cai-ngay-duoc",
+   "adoption": "can-ha-tang",
    "vessel_fit": [
     "claude-code",
     "hermes",
     "openclaw"
    ],
    "needs": [
-    "none"
+    "docker",
+    "api-key"
    ],
    "dup_group": "agent-workflow-platform",
    "confidence": "vua",
@@ -3395,7 +3397,7 @@
    ],
    "use_when": "Dùng khi cần tài liệu phân loại và lựa chọn các kho lưu trữ phục vụ thiết kế đồ họa chuyển động với coding agent",
    "skip_if": "Bỏ qua nếu sử dụng cho doanh nghiệp vượt quy mô cho phép của Remotion mà chưa mua bản quyền",
-   "adoption": "cai-ngay-duoc",
+   "adoption": "chi-tham-khao",
    "vessel_fit": [
     "claude-code",
     "hermes",
@@ -4431,7 +4433,7 @@
    ],
    "use_when": "Dùng khi cần tài liệu tham khảo hệ thống nhận diện chuyển động và nhịp thở qua sóng tín hiệu mạng không dây",
    "skip_if": "unknown",
-   "adoption": "cai-ngay-duoc",
+   "adoption": "can-ha-tang",
    "vessel_fit": [
     "claude-code",
     "hermes",
