@@ -40,3 +40,6 @@ Chi tiết: `catalog/smoke/behavior.json`, `agents/agent-factory/examples/KET-QU
 - Mô phỏng bằng model có thể chấm sai; ranh giới pass và partial là phán đoán. Tôi chỉ kiểm lại vài phát hiện cụ thể trong file gốc, không kiểm hết 172 mục.
 - skill-import chỉ kiểm mẫu 63 trong 460 mục; 338 mục `dung-duoc-ngay` của kiểm toán tĩnh chưa mô phỏng hết.
 - Chưa mục kho nào có dòng `USAGE-LOG` (dùng thật trong dự án).
+
+## 6. Cập nhật sau khi sửa (2026-10-19)
+Hai nhóm lỗi nghiêm trọng ở mục 2 và 3 đã được sửa và có test (mock, mô phỏng): 162 test trong `tools/tests`, 37 test trong `agents/trum-san-bay/tests`; hai ví dụ nhà máy `kiem` PASS với thêm 4 mục kiểm mới. Giới hạn: bằng chứng vẫn là mock và mô phỏng trên giấy; bộ lọc che dữ liệu nhạy cảm, nút dừng, hàng đợi duyệt và chống đăng đôi chưa có mã; Postiz mặc định chỉ tạo bản nháp cho đến khi đặt `POSTIZ_POST_TYPE=now`; chưa chạy với credential thật.
