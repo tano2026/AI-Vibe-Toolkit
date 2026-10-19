@@ -1,0 +1,892 @@
+{
+ "lo": "smoke-code",
+ "ngay": "2026-10-19",
+ "phuong_phap": "chay-that-cuc-bo-co-mock",
+ "pham_vi": "ma first-party: agents/ (tru agent-factory/examples), tools/, deploy/, configs/, convert_skills.py, catalog/HANDOFF/*/make_lists.py; bo qua repos/ skills/ mcps/",
+ "luu_y": "Khong mang, khong credential that; thu vien thieu va API ngoai duoc thay bang mock; sh/ps1 chay trong thu muc tam voi HOME tam. 'chay_thu=khong-chay-duoc' = khong the/khong duoc phep chay that trong phien nay (ly do trong bang_chung).",
+ "ket_qua": [
+  {
+   "duong_dan": "agents/trum-san-bay/agent.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "loi",
+   "chay_thu": "loi",
+   "bang_chung": "py_compile ok. `import agent` tren Windows: ModuleNotFoundError fcntl; voi fcntl gia (sys.modules) import ok. Chay that voi mock api_call/urlopen/time.sleep + STATE_FILE tam: (1) enforce_pipeline_gate: 9/9 status khac APPROVED bi chan cho buoc publish, buoc la bi chan -> DUNG. (2) publish_post_safe: PENDING_REVIEW/DRAFT_BRIEF/POSTED deu raise PipelineGateError, khong co POST nao toi Postiz -> DUNG; APPROVED -> status success, Airtable POSTED, progress.json status=success -> DUNG. (3) save_state/resume_incomplete: ghi progress.json, chi tra muc in_progress -> DUNG. (4) _retry_call: ma loi retryable (4) cho ngu 5s,25s,125s roi failed_after_retries; ma khong retry (190) that bai ngay -> DUNG nhung xem van de. (5) idempotency: state co facebook trong posted_platforms -> 0 POST lap -> DUNG. (6) loi 401 -> status failed, Airtable PARTIAL_FAIL, canh bao Telegram duoc goi -> DUNG. (7) token refresh YouTube/TikTok + cache + rotate refresh_token + check_all_tokens_health (mock urlopen) -> DUNG. (8) publishers instagram/facebook-graph/tiktok/youtube (mock) -> DUNG. (9) handle_command queue/approve/lenh la -> DUNG; handle_command('post') chi chay khi tiem llm_call vao module, nguyen ban NameError.",
+   "van_de": [
+    {
+     "ma": "LLM_CALL_KHONG_DINH_NGHIA",
+     "muc": "chan",
+     "mo_ta": "llm_call khong duoc dinh nghia o dau trong agent.py (chi co trong skills/llm-router/SKILL.md, la tai lieu); llm_call_json va gen_content_with_claude nem NameError, va orchestrator.py ImportError ngay khi import."
+    },
+    {
+     "ma": "FCNTL_CHI_LINUX",
+     "muc": "trung-binh",
+     "mo_ta": "import fcntl o dau phan HARNESS: khong import duoc tren Windows (README noi chay tren VPS Linux nen chap nhan duoc, nhung may dev Windows khong thu nghiem duoc)."
+    },
+    {
+     "ma": "BAO_THANH_CONG_KHI_KHONG_DANG",
+     "muc": "cao",
+     "mo_ta": "publish_post_safe khi khong co credential Postiz (configured_platforms rong): all_done = (0 == 0) = True nen tra status 'success', Airtable duoc ghi POSTED, canh bao 'da dang thanh cong 0 platform' - trong khi khong dang gi."
+    },
+    {
+     "ma": "POSTIZ_DRAFT_NHUNG_GHI_POSTED",
+     "muc": "cao",
+     "mo_ta": "_publish_facebook_postiz gui payload type='draft' (comment trong code cung noi doi 'now'/'schedule' khi test that) nhung neu Postiz tra id thi he thong danh dau POSTED -> bai moi chi la ban nhap. README cung ghi chua test voi credential that; loi nay khong kiem duoc offline."
+    },
+    {
+     "ma": "RETRY_NGU_THUA",
+     "muc": "thap",
+     "mo_ta": "_retry_call ngu base_backoff*5**attempt ke ca sau lan thu cuoi: 5+25+125 = 155s (+1s) moi platform loi retryable truoc khi bao failed; max_retries=0 -> UnboundLocalError (error_code chua gan)."
+    },
+    {
+     "ma": "THONG_BAO_LOI_SAI_NGU_CANH",
+     "muc": "thap",
+     "mo_ta": "ERROR_MESSAGES[401] noi 'Token YouTube het han' nhung 401 cung la ma Postiz API key sai cua Facebook (publish Facebook qua Postiz) nen canh bao Telegram gay hieu nham."
+    },
+    {
+     "ma": "MA_HOA_KHONG_KHAI_BAO",
+     "muc": "trung-binh",
+     "mo_ta": "open(STATE_FILE,'w') + json.dump(ensure_ascii=False) khong khai bao encoding: tren may co ma hoa mac dinh khong phai UTF-8 (Windows cp1252) save_state nem UnicodeEncodeError khi co thong bao tieng Viet trong failed_platforms (da tai hien). Linux UTF-8 khong loi."
+    },
+    {
+     "ma": "DUONG_DAN_TUYET_DOI_CUNG",
+     "muc": "thap",
+     "mo_ta": "STATE_FILE, STATE_LOCK, TOKEN_CACHE_FILE gan cung /opt/trum-san-bay/state/ (khong doc tu env), nen phai sua code hoac tao thu muc dung tren moi may."
+    },
+    {
+     "ma": "JSON_LLM_HONG_KHONG_BAT",
+     "muc": "thap",
+     "mo_ta": "llm_call_json thu lai 1 lan; neu lan 2 van sai JSON thi JSONDecodeError bay ra (da tai hien), orchestrator khong bat o cap moi comment/bai."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "fcntl.flock that (chong 2 tien trinh), moi lenh goi HTTP that toi Airtable/Postiz/Meta/TikTok/YouTube va dinh dang response that CHUA chay duoc (khong mang, khong credential); chi kiem logic noi bo voi mock."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/trum-san-bay/orchestrator.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "loi",
+   "chay_thu": "loi",
+   "bang_chung": "py_compile ok. `import orchestrator` nguyen ban: ImportError: cannot import name 'llm_call' from 'agent'. Sau khi tiem agent.llm_call gia thi import ok va chay thu (mock Airtable/LLM/urlopen/sleep): run_brand_check (4 loi phat hien tren metadata sai, pass tren metadata dung) DUNG; inject_affiliate_block (them link+disclosure cho facebook/shorts, bo qua ig da du, bo qua khi link rong hoac cta khac) DUNG; run_writer_agent (format prompt khong loi, needs_manual_review khi has_unverified_claims) DUNG; run_comment_pipeline: 4 comment {URGENT_COMPLAINT, SPAM, QUESTION, PURCHASE_INTENT} -> urgent=1, SPAM khong tra loi, urgent bat buoc human review, 1 canh bao Telegram DUNG; fetch_all_comments khong credential -> [] ; facebook mock -> 1 comment DUNG; run_weekly_content_pipeline mock toan bo I/O: Research->Ideation->Writer->Visual->Brand->Adapter, ket thuc PENDING_REVIEW, state co rec1 + research_YYYYMMDD DUNG; run_visual_agent_image: thieu GEMINI_API_KEY tra loi ro; 429 x3 -> 'het 3 lan retry' DUNG; run_visual_agent_video khong co template -> bao loi ro DUNG.",
+   "van_de": [
+    {
+     "ma": "LLM_CALL_KHONG_DINH_NGHIA",
+     "muc": "chan",
+     "mo_ta": "`from agent import ... llm_call ...` that bai vi agent.py khong co llm_call: toan bo orchestrator khong import duoc, nghia la khong luong nao (research, writer, comment, weekly) chay duoc nguyen ban."
+    },
+    {
+     "ma": "COMMENT_KEYERROR_CA_LO",
+     "muc": "trung-binh",
+     "mo_ta": "run_comment_pipeline truy cap classification['label'] truc tiep va khong try/except theo tung comment: 1 phan hoi LLM thieu 'label' lam KeyError va bo ca lo (da tai hien); confidence tra ve nhung khong duoc dung de leo thang."
+    },
+    {
+     "ma": "BRAND_CHECK_RONG",
+     "muc": "trung-binh",
+     "mo_ta": "Trong run_weekly_content_pipeline run_brand_check duoc goi voi colors_used=[] va has_logo=False co dinh (TODO): luon bao 'thieu logo' roi van chuyen ASSET_APPROVED -> buoc nay khong chan gi va khong kiem mau that."
+    },
+    {
+     "ma": "GATE_KHONG_AP_DUNG_DAY_DU",
+     "muc": "thap",
+     "mo_ta": "GATE_RULES co visual/brand_check/adapter nhung pipeline chi goi enforce_pipeline_gate cho 'writer' (va 'publish' trong agent.py); cac buoc giua tu cap nhat status khong qua cong."
+    },
+    {
+     "ma": "ID_COMMENT_TIKTOK_KHONG_ON_DINH",
+     "muc": "thap",
+     "mo_ta": "_fetch_tiktok_comments dung str(hash(text)) lam id khi thieu cid: hash() cua str doi moi lan chay (PYTHONHASHSEED) nen khong the loc comment trung."
+    },
+    {
+     "ma": "CHU_THICH_CU",
+     "muc": "thap",
+     "mo_ta": "Comment trong pipeline/visual noi 'Pollinations' trong khi code goi Gemini (di tich doi nha cung cap)."
+    },
+    {
+     "ma": "DUONG_DAN_TUYET_DOI_CUNG",
+     "muc": "thap",
+     "mo_ta": "/opt/trum-san-bay/assets va /opt/trum-san-bay/video-workspace gan cung."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Cong thuc Airtable (created_at >= 'ISO', IS_AFTER/DATEADD), schema cot Airtable (hashtag dang list), Gemini/Apify/HyperFrames that, npx hyperframes render: chua kiem duoc."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/trum-san-bay/postiz-docker-compose.yml",
+   "ngon_ngu": "yaml",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "`docker compose -f postiz-docker-compose.yml config` ra cau hinh hop le (name: trum-san-bay, 3 service + healthcheck). Canh bao: thuoc tinh `version` loi thoi; POSTIZ_DOMAIN, DB_PASSWORD, JWT_SECRET chua dat nen mac dinh chuoi rong. Khong docker compose up (can keo image mang + ten mien).",
+   "van_de": [
+    {
+     "ma": "BI_MAT_MAC_DINH_RONG",
+     "muc": "trung-binh",
+     "mo_ta": "${JWT_SECRET} va ${DB_PASSWORD} khong co `:?` nen quen dat bien van khoi dong voi bi mat/mat khau rong (compose chi canh bao)."
+    },
+    {
+     "ma": "IMAGE_LATEST",
+     "muc": "thap",
+     "mo_ta": "ghcr.io/gitroomhq/postiz-app:latest khong ghim phien ban (khac install-twenty.sh co ghim VERSION)."
+    },
+    {
+     "ma": "CONG_MO_RA_NGOAI",
+     "muc": "thap",
+     "mo_ta": "ports 5000:5000 lang nghe moi giao dien va DISABLE_REGISTRATION=false mac dinh; chi an toan neu co reverse proxy/tuong lua theo postiz-selfhost-deploy.md."
+    },
+    {
+     "ma": "VERSION_LOI_THOI",
+     "muc": "thap",
+     "mo_ta": "`version: \"3.8\"` bi Compose v2 bo qua (canh bao)."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/rio-bot/memory.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Dat RIO_DB sang thu muc tam roi import. init/log_research/get_history/cache_set-get (TTL, khong phan biet hoa-thuong)/bump_source+source_score (<3 mau = 0.5)/log_lesson+retrieve_lessons chay dung tren SQLite that.",
+   "van_de": [
+    {
+     "ma": "TAC_DUNG_PHU_KHI_IMPORT",
+     "muc": "thap",
+     "mo_ta": "init_db() chay ngay khi import va tao rio_memory.db canh module (neu khong dat RIO_DB): import lam sinh file trong thu muc kho."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/rio-bot/validator.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "sanitize() cat 2 mau injection (ignore previous instructions, you are now), score_source (reuters > reddit), rate_facts (✅ 2 domain / 🟡 1 / 🔄 0), detect_generic, orphan_numbers chay dung tren du lieu gia.",
+   "van_de": [
+    {
+     "ma": "SO_CO_DAU_CAU_DINH_KEM",
+     "muc": "thap",
+     "mo_ta": "extract_numbers giu dau cau cuoi ('2026,' '1,000.'): orphan_numbers coi '2026,' la so mo coi vi regex bo-qua-nam khong khop (da tai hien)."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/rio-bot/ratelimit.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "throttled_search voi ham gia: loi 2 lan roi thanh cong (ngu 2s,4s), lan goi 2 lay tu cache (khong goi lai), loi ca 3 lan -> [] va ghi lesson; time.sleep duoc mock.",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/rio-bot/web_search.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Mock urlopen voi HTML tong hop: parse dung title/url (giai ma uddg)/snippet khi `class` dung truoc `href`; khi `href` dung truoc `class` tra [] (regex phu thuoc thu tu thuoc tinh). KHONG goi DuckDuckGo that.",
+   "van_de": [
+    {
+     "ma": "REGEX_PHU_THUOC_THU_TU_THUOC_TINH",
+     "muc": "thap",
+     "mo_ta": "_RESULT_BLOCK chi khop <a ... class=\"result__a\" ... href=...>; neu DDG doi thu tu thuoc tinh hoac cau truc se tra [] am tham (docstring da canh bao)."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Dinh dang HTML that cua html.duckduckgo.com chua doi chieu duoc."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "agents/rio-bot/brain.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Voi adapter search gia: run('market',...) ra bao cao co 'RIO Research', so lieu xac nhan da nguon; khong co evidence -> vong 2 mo rong sub-question (6 lan search) kem canh bao 'Draft vong 1 chua du chac'; search nem loi -> van tra bao cao co canh bao (khong sap); resolve_rtype/chunk_telegram dung.",
+   "van_de": [
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Chat luong bao cao tren du lieu that (DDG) khong kiem duoc offline."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/rio-bot/rio_bot.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Import khong mang. handle_command: /help /history /domain /cn /market /swot... lenh la, thieu doi so, loi trong brain.run deu tra loi dung (tg_call mock, 12 tin nhan); send() Markdown loi -> gui lai plain; poll_forever: thieu TELEGRAM_BOT_TOKEN -> SystemExit; loc RIO_ALLOWED_CHAT_ID dung (chi chat duoc phep).",
+   "van_de": [
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Goi Telegram getUpdates/sendMessage that khong chay."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/smb-ai-team/01-research-agent/research_agent.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Import ok. research() voi urlopen mock: duong truy van (DDG+RSS+Wikipedia+Reddit) ra 'Source 1', duong URL ra 'Scraped content', LLM loi ra '[LLM ERROR]' kem du lieu tho, khong khoa thi tra du lieu tho; evaluate_sources loai muc loi/rac; CLI khong doi so in Usage va exit 1.",
+   "van_de": [
+    {
+     "ma": "RSS_CDATA_KHONG_BOC",
+     "muc": "thap",
+     "mo_ta": "Parse RSS bang regex: <title><![CDATA[T2]]></title> giu nguyen '<![CDATA[T2]]>' (da tai hien); Google News thuong dung CDATA."
+    },
+    {
+     "ma": "OUTPUT_FILE_TMP_CUNG",
+     "muc": "thap",
+     "mo_ta": "OUTPUT_FILE = /tmp/research_output.md (Linux); tren Windows ghi vao \\tmp tren o hien tai hoac loi."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "API DuckDuckGo instant answer / Wikipedia REST (dung ca cau hoi lam ten trang) / Reddit / Firecrawl / DeepSeek that khong kiem; nghi ngo Wikipedia summary hiem khi khop voi cau hoi tu nhien."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "agents/shorts-affiliate-system/render/build_render_html.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "loi",
+   "bang_chung": "Chay voi examples/storyboard-example.json (9x16 va 16x9): tao HTML 5 canh, JS nhung qua `node --check` ok, scene la khong co -> ValueError dung. NHUNG HTML ra con 3 chuoi `{{#stats}}` va chu thua ' label/value -->': comment HTML trong scene-templates.html (`<!-- ... lặp {{#stats}} label/value -->`) bi regex vong lap {{#key}}...{{/key}} bat nham lam diem mo -> khoi stats-grid bi sinh sai (hien chu rac tren video).",
+   "van_de": [
+    {
+     "ma": "COMMENT_TEMPLATE_BI_RENDER",
+     "muc": "cao",
+     "mo_ta": "fill_scene khop `{{#stats}}` trong chu thich HTML o dau khoi stats-grid (scenes/scene-templates.html dong 30) lam dau vao vong lap, nen ket qua co ' label/value -->' lap 3 lan va 3 chuoi {{#stats}} con sot; scene stats-grid se hien chu rac."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Khong mo trinh duyet de nhin anh ket qua; ket luan dua tren noi dung HTML."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/shorts-affiliate-system/render/record.js",
+   "ngon_ngu": "javascript",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "node --check ok. Khong co module playwright trong may (require that bai) nen khong quay that. Chay voi playwright GIA (NODE_PATH tam): doc dung --width/--height/--duration, goi goto file://, waitForTimeout(2000), dong context; thieu --input/--output -> exit 1.",
+   "van_de": [
+    {
+     "ma": "KHONG_DOI_TEN_FILE_RA",
+     "muc": "thap",
+     "mo_ta": "Header noi ghi ra --output nhung recordVideo dat ten tu dong trong thu muc; script chi in loi nhac tu doi ten .webm, khong tu doi (merge.sh sau do mong dung ten dau vao)."
+    },
+    {
+     "ma": "PLAYWRIGHT_THIEU",
+     "muc": "thong-tin",
+     "mo_ta": "Can `npm install playwright && npx playwright install chromium`; khong cai trong phien kiem tra."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "agents/shorts-affiliate-system/render/merge.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "bash -n ok (sau khi doi CRLF->LF). Chay that bang Git Bash voi ffmpeg GIA tren PATH: thieu doi so -> exit 1 + usage; day du doi so -> goi ffmpeg 2 lan (ghep voice, roi scale+pad 1080:1920) va tao output_16x9.mp4, output_9x16.mp4. ffmpeg that co o may (C:/ProgramData/chocolatey/bin/ffmpeg) nhung chua chay voi media that.",
+   "van_de": [
+    {
+     "ma": "CRLF_O_CHECKOUT_WINDOWS",
+     "muc": "trung-binh",
+     "mo_ta": "Index luu LF nhung checkout Windows (autocrlf, khong co .gitattributes) thanh CRLF; bash -n bao loi (vd `$'do\\r'`, `if`...) o ca 7/7 file .sh khi o dang CRLF (merge.sh van chay thu duoc voi Git Bash nhung khong dang tin)."
+    },
+    {
+     "ma": "BAN_9X16_LA_LETTERBOX",
+     "muc": "thap",
+     "mo_ta": "9:16 lam bang scale+pad den tu ban 16:9 (khung hinh nho, vien den), khong phai render lai bo cuc doc; trai voi ten 'TikTok/Reels' mong doi."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "configs/sync-to-openclaw.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "loi",
+   "bang_chung": "bash -n ok (LF). Chay that voi HOME tam tren ban sao cua cay thu muc: do repo KHONG co skills/ecc nen `cp -r skills/ecc/*` loi va `set -e` dung script ngay sau dong '✅ ai-vibe-toolkit skill' (rc=1, chi 1 file duoc chep). Khi tao gia skills/ecc: chay het (rc=0), chep agent-skills, taste-skill, affiliate-skills, viral-hooks, claude-ads, skill goc, USER-CONTEXT.",
+   "van_de": [
+    {
+     "ma": "THAM_CHIEU_KHONG_TON_TAI",
+     "muc": "cao",
+     "mo_ta": "skills/ecc khong ton tai trong repo (chi co ecc-agents, ecc-guide...), nen buoc sync dau tien se dung toan bo script do `set -e`."
+    },
+    {
+     "ma": "SO_DEM_CU",
+     "muc": "thap",
+     "mo_ta": "echo cung '262 files', '24 files'... khong khop thuc te."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "configs/push-skills-local.ps1",
+   "ngon_ngu": "powershell",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "Parser PowerShell ok. KHONG chay: vi co `git add .` + `git commit` + `git push origin main` tu dong va ghi vao C:\\Users\\Nguyen Ngoc Tan\\... that se thay doi repo/remote that.",
+   "van_de": [
+    {
+     "ma": "DUONG_DAN_TUYET_DOI_CUNG",
+     "muc": "trung-binh",
+     "mo_ta": "C:\\Users\\Nguyen Ngoc Tan\\AI-Vibe-Toolkit, ...\\AppData\\Local\\hermes\\skills, ...\\.openclaw\\skills gan cung ten nguoi dung."
+    },
+    {
+     "ma": "GIT_ADD_ALL_PUSH_MAIN",
+     "muc": "cao",
+     "mo_ta": "`git add .` roi push thang len main khong loc: moi file moi (ke ca .env, file nhap) co the len remote; khong co buoc xem lai."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "configs/antigravity-preset/install.ps1",
+   "ngon_ngu": "powershell",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "Parser ok. Chay -DryRun voi -Project la thu muc tam rong: rc=0, in ke hoach, khong ghi gi (thu muc project van rong). Duong ghi that ($HOME/.gemini, project) chua chay.",
+   "van_de": [],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "configs/antigravity-preset/global/kho-fetch.ps1",
+   "ngon_ngu": "powershell",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "Parser ok. Khong dat KHO_READONLY_TOKEN: thoat rc=1 voi thong bao ro (guard dung). Phan goi api.github.com that khong chay (can mang+token).",
+   "van_de": [],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "configs/openclaw-mcp-config.json",
+   "ngon_ngu": "json",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "json.load ok; khoa bi mat la placeholder [YOUR_...] (khong lo khoa that).",
+   "van_de": [
+    {
+     "ma": "PACKAGE_KHONG_XAC_MINH",
+     "muc": "trung-binh",
+     "mo_ta": "Ten goi npx nhu @anthropic-ai/mcp-server-brave-search, @anthropic-ai/mcp-server-github, @anthropic-ai/mcp-server-sequential-thinking khong xac minh duoc offline (nghi ngo la ten khong co that; ban chinh thuc thuong o @modelcontextprotocol/*)."
+    },
+    {
+     "ma": "PLACEHOLDER_DUONG_DAN",
+     "muc": "thap",
+     "mo_ta": "google-workspace dung /path/to/claude-code-google-workspace/index.js chua thay."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "deploy/pm2.config.js",
+   "ngon_ngu": "javascript",
+   "cu_phap": "ok",
+   "import": "loi",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "node --check ok. require() that bai neu thieu `dotenv` (MODULE_NOT_FOUND). Voi dotenv GIA + HOME=/home/x: module.exports co 3 app (openclaw, hermes, kho-sync), cwd/script tro ve ~/ai-vibe-toolkit. Khong chay pm2.",
+   "van_de": [
+    {
+     "ma": "THIEU_DOTENV_NODE",
+     "muc": "cao",
+     "mo_ta": "pm2.config.js bat dau bang require('dotenv') nhung setup-vps.sh chi `pip3 install python-dotenv` (Python) va chep file ra $HOME/pm2.config.js: khong co npm dotenv nen `pm2 start` that bai ngay."
+    },
+    {
+     "ma": "PHU_THUOC_HOME",
+     "muc": "thap",
+     "mo_ta": "Dung process.env.HOME (khong co tren Windows)."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "deploy/auto-sync.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "loi",
+   "bang_chung": "bash -n ok (LF). Chay that voi HOME tam + origin bare cuc bo: khi co skills/ecc va ~/logs -> pull + chep skill moi + log dung, lan 2 'Khong co gi moi'. Nhung: (a) thieu ~/logs thi dong ghi log dau tien that bai (rc=1); (b) nhu repo that khong co skills/ecc -> `cp -r skills/ecc/*` loi, `set -e` thoat sau git pull, b.md khong duoc chep, khong co dong 'Sync xong' (rc=1), lan sau khong con commit moi nen khong bao gio sync lai.",
+   "van_de": [
+    {
+     "ma": "THAM_CHIEU_KHONG_TON_TAI",
+     "muc": "cao",
+     "mo_ta": "skills/ecc khong ton tai; cp loi + set -e -> script thoat sau khi da pull, bo qua sync va thong bao."
+    },
+    {
+     "ma": "THIEU_MKDIR_LOGS",
+     "muc": "trung-binh",
+     "mo_ta": "$HOME/logs khong duoc mkdir; lan chay dau tren VPS moi loi."
+    },
+    {
+     "ma": "XUONG_DONG_TELEGRAM",
+     "muc": "thap",
+     "mo_ta": "MSG co '\\n' trong chuoi thuong nen curl -d gui ky tu \\n nguyen, khong xuong dong."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "deploy/setup-vps.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "bash -n ok (LF). KHONG chay: dnf/yum update, curl|sudo bash, npm -g, pip3 install, pm2 startup (sua he thong + can mang). Tham chieu tinh: deploy/env.example co, configs/openclaw-ai-vibe-skill.md co, skills/ecc KHONG co, deploy/hermes-setup.md KHONG co.",
+   "van_de": [
+    {
+     "ma": "THAM_CHIEU_KHONG_TON_TAI",
+     "muc": "trung-binh",
+     "mo_ta": "warn tro toi deploy/hermes-setup.md khong ton tai; cp skills/ecc/* 2>/dev/null && log: loi bi nuot am tham."
+    },
+    {
+     "ma": "CURL_PIPE_SUDO_BASH",
+     "muc": "trung-binh",
+     "mo_ta": "curl https://rpm.nodesource.com/setup_22.x | sudo bash - va `pm2 startup ... | tail -1 | bash` chay thang van ban tai/sinh ra."
+    },
+    {
+     "ma": "PHU_THUOC_DOTENV",
+     "muc": "cao",
+     "mo_ta": "Khong cai npm dotenv cho pm2.config.js (xem pm2.config.js)."
+    },
+    {
+     "ma": "CLONE_REPO_PRIVATE",
+     "muc": "thap",
+     "mo_ta": "git clone https://github.com/tano2026/AI-Vibe-Toolkit khong kem xac thuc; neu repo private se hoi mat khau/that bai."
+    },
+    {
+     "ma": "GLOB_DEM_SAI",
+     "muc": "thap",
+     "mo_ta": "ls $OPENCLAW_SKILLS/**/*.md khong bat globstar nen so 'Tong skills' khong dang tin."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "deploy/twenty-abtrip/install-twenty.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "bash -n ok (LF). Khong chay: can docker, curl tai docker-compose.yml/.env tu raw.githubusercontent.com, docker compose pull/up. Header tu ghi 'CHUA chay thu tren VPS that'.",
+   "van_de": [
+    {
+     "ma": "PHIEN_BAN_KHONG_XAC_MINH",
+     "muc": "thap",
+     "mo_ta": "VERSION=v2.45.0 va duong dan twentyhq/twenty/twenty/${VERSION} khong kiem duoc offline."
+    },
+    {
+     "ma": "SED_GNU",
+     "muc": "thap",
+     "mo_ta": "sed -i khong hau to chi dung GNU sed (Linux), khong chay tren macOS."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "deploy/twenty-abtrip/backup-twenty.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "bash -n ok (LF). Khong chay: can stack docker Twenty dang chay (docker compose exec db pg_dump).",
+   "van_de": [
+    {
+     "ma": "TEN_VOLUME_GIA_DINH",
+     "muc": "thap",
+     "mo_ta": "twenty_server-local-data gia dinh theo ten thu muc compose; da co fallback thong bao."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "deploy/twenty-abtrip/test-twenty-api.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "Khong co TWENTY_API_KEY: exit 2. Voi urlopen gia (POST 201 -> GET 200 -> DELETE 204): in 'PASS: tao -> doc lai -> xoa thanh cong', exit 0, dung 3 request (POST companies, GET companies/abc, DELETE companies/abc). Schema REST that cua Twenty CHUA kiem.",
+   "van_de": [
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Duong dan /rest/companies va dinh dang response that cua Twenty chua doi chieu."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "tools/sync-skills.sh",
+   "ngon_ngu": "bash",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "bash -n ok (LF). Khong chay: moi nhanh deu goi api.github.com voi token; TOKEN van la placeholder `[GITHUB_TOKEN]` (script thoat exit 1 theo thiet ke khi chua thay).",
+   "van_de": [
+    {
+     "ma": "GHI_TAI_LIEU_THANH_SKILL",
+     "muc": "trung-binh",
+     "mo_ta": "Tai moi file .md trong skills/mcps/repos/stacks/agents ve ~/.claude/skills/<ten>/SKILL.md nguyen xi (khong frontmatter); phan lon la tai lieu cong cu khong phai skill (convert_skills.py sinh ra de sua van de nay)."
+    },
+    {
+     "ma": "EXCEPT_TRAN",
+     "muc": "thap",
+     "mo_ta": "Python nhung dung `except:` tran, nuot moi loi tai ve."
+    }
+   ],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "convert_skills.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Chay that tren ban sao repo: --dry-run: 'Skill: 515 | added-fm=24, fixed=15, ok=476 | bo qua=36' (khong ghi gi); ghi 4 skill vao thu muc tam roi chay lai (idempotent, khong ghi de thu muc khong do script tao); --dst nam trong nguon -> TU CHOI rc=2. Chi dung thu vien chuan.",
+   "van_de": [
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Khong nap thu cac skill da chuyen vao Claude Code that."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/build_catalog.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Chay tren ban sao repo (khong .git): 919 muc = so muc catalog.json dang commit; chi khac cot cap_nhat (919 muc) vi ban sao khong co lich su git; khong muc nao thieu/thua.",
+   "van_de": [
+    {
+     "ma": "TAC_DUNG_PHU_GHI_FILE",
+     "muc": "thong-tin",
+     "mo_ta": "os.chdir(ROOT) va ghi de catalog/CATALOG.csv, catalog.json, BY-DOMAIN.md; da chay tren ban sao de khong dong vao kho."
+    },
+    {
+     "ma": "COMMIT_FILE_PYC",
+     "muc": "thap",
+     "mo_ta": "tools/__pycache__/build_catalog.cpython-313.pyc dang duoc git theo doi (bytecode khong nen commit)."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/build_index.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "Chay `python tools/build_index.py --check` tren ban sao: 'giu 374 dong cu, them 0 moi, bo 0' (rc=0) - TRACKER.md khop file that.",
+   "van_de": [
+    {
+     "ma": "CHAY_O_MUC_IMPORT",
+     "muc": "thap",
+     "mo_ta": "main() goi o cuoi file khong co guard __main__: import file la chay luon, khong kiem thu don vi duoc."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/merge_trio_reports.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Chay voi REPORT-hermes.md tong hop (20 dong, 13 dung): in ti le, truong sai nhieu nhat, de xuat sua, ket luan; khong doi so -> in usage rc=2; file khong ton tai -> bao loi rc=1.",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/thu_kho.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "96 unittest chung cua tools/tests PASS (test_thu_kho trong do). CLI tren repo that (doc-only): tim, tim --json, chi-tiet (+loi khi id khong co, rc=1), ke-hoach-cai (in 'CHUA CHAY THAT'), goi-y, ghi-gap (chi in, khong ghi), ghi-usage (tu choi khi thieu 'tiet kiem', rc=1), may (chi in ten bien moi truong giong khoa, khong in gia tri).",
+   "van_de": [
+    {
+     "ma": "NHAN_UNKNOWN_HIEN_THI",
+     "muc": "thap",
+     "mo_ta": "Ket qua `tim` hien 'Bo qua neu: unknown' cho muc chua co skip_if (du lieu nhan, khong phai loi ma)."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/audit_kho.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "Chay `--offline` (85s) ra file tam: 919 muc, {dung-duoc-ngay 482, chua-xac-dinh 272, thieu-dieu-kien 141, nghi-ngo 24}; bash -n 1441 khoi, 0 loi. 615 tai nguyen ngoai bo qua (khong mang). So sanh voi catalog/audit.json dang commit: file commit chi co 916 muc trong khi catalog 919.",
+   "van_de": [
+    {
+     "ma": "AUDIT_JSON_CU",
+     "muc": "thap",
+     "mo_ta": "catalog/audit.json (916 muc) lech catalog.json (919 muc); can chay lai audit_kho de dong bo."
+    },
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Tang 1 (kiem mang chi-doc) khong chay."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/agent_factory.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "moi-agent (slug, job, kha-nang) ra goi 11 muc, `kiem` PASS 12/12; tenant-config.json da render parse duoc; `ban-giao` tao goi 14 file + CHECKSUMS.sha256, tu kiem lai SHA-256 khop 14/14; moi-opc (--doanh-thu dich-vu) PASS 13/13 voi airtable-schema.json va tenant-config.json parse duoc; slug '../evil' bi tu choi (rc=3, khong tao thu muc ngoai); kiem thu muc khong co -> FAIL ro. Cung bo 96 unittest PASS.",
+   "van_de": [
+    {
+     "ma": "KHONG_KIEM_DUOC_OFFLINE",
+     "muc": "thong-tin",
+     "mo_ta": "Chat luong noi dung prompt/skill agent sinh ra khong thuoc pham vi kiem ma."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/tests/test_agent_factory.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "`python -m unittest discover -s tools/tests` -> Ran 96 tests in 12.9s, OK (3 file test gop lai).",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/tests/test_audit_kho.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "`python -m unittest discover -s tools/tests` -> Ran 96 tests in 12.9s, OK (3 file test gop lai).",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "tools/tests/test_thu_kho.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "ok",
+   "chay_thu": "ok",
+   "bang_chung": "`python -m unittest discover -s tools/tests` -> Ran 96 tests in 12.9s, OK (3 file test gop lai).",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "catalog/HANDOFF/20261017-trio-kiem-cheo/make_lists.py",
+   "ngon_ngu": "python",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "Chay tren ban sao (cay catalog/ + CATALOG.csv + catalog.json): lists.json sinh lai trung khop 100% voi file commit (ca pool_sizes); TASK-hermes.md, TASK-deepseek.md trung khop; TASK-openclaw.md lech 1 dong (repos/lmcache needs 'gpu' luc sinh -> 'unknown' hien tai trong CATALOG.csv do curation sua sau).",
+   "van_de": [
+    {
+     "ma": "NHAN_TROI_SAU_KHI_SINH",
+     "muc": "thap",
+     "mo_ta": "Danh sach tai lap duoc nhung nhan hien thi trong TASK-openclaw.md da cu so voi CATALOG.csv hien tai (1 muc)."
+    },
+    {
+     "ma": "GHI_VAO_THU_MUC_NGUON",
+     "muc": "thong-tin",
+     "mo_ta": "Script ghi lists.json va TASK-*.md vao cung thu muc; da chay tren ban sao."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/agent-factory/templates/agent/tenant-config.json",
+   "ngon_ngu": "json",
+   "cu_phap": "loi",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "json.load tho bao loi (cho trong {{roles_enabled_json}} khong trong dau nhay) - day la KHUON co y. Sau khi `agent_factory moi-agent` render: tenant-config.json parse ok va qua `kiem` (schema, compliance_overrides=null).",
+   "van_de": [
+    {
+     "ma": "KHUON_KHONG_PHAI_JSON_HOP_LE",
+     "muc": "thong-tin",
+     "mo_ta": "Khuon chua {{...}}; cong cu doc JSON chung (linter, jq) se bao loi - chi hop le sau khi render."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/agent-factory/templates/opc/tenant-config.json",
+   "ngon_ngu": "json",
+   "cu_phap": "loi",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "Nhu tren: tho khong parse (cho trong {{...}}); render qua moi-opc roi parse ok va `kiem` PASS 13/13.",
+   "van_de": [
+    {
+     "ma": "KHUON_KHONG_PHAI_JSON_HOP_LE",
+     "muc": "thong-tin",
+     "mo_ta": "Khuon chua {{...}} khong trong dau nhay."
+    }
+   ],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/agent-factory/templates/opc/airtable-schema.json",
+   "ngon_ngu": "json",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "json.load ok; ban render tu moi-opc: 'airtable-schema: 7 bang loi + 0 bang mo rong, link hop le' (kiem cua factory).",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/shorts-affiliate-system/examples/storyboard-example.json",
+   "ngon_ngu": "json",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "json.load ok; la dau vao cua build_render_html.py va render ra 5 canh (xem van de COMMENT_TEMPLATE_BI_RENDER o file do).",
+   "van_de": [],
+   "do_chac": "cao"
+  },
+  {
+   "duong_dan": "agents/yt-cashcow/tenant-configs/nobitano-ai-tools-01.json",
+   "ngon_ngu": "json",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "json.load ok. Khong co ma doc file nay trong pham vi kiem tra de chay thu.",
+   "van_de": [],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "agents/brandscan/clients/chi/brand-config.yaml",
+   "ngon_ngu": "yaml",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "khong-chay-duoc",
+   "bang_chung": "yaml.safe_load (PyYAML 6.0.3) ok. Khong co ma doc file nay trong pham vi kiem tra de chay thu.",
+   "van_de": [],
+   "do_chac": "vua"
+  },
+  {
+   "duong_dan": "catalog/**/*.json (15 file du lieu)",
+   "ngon_ngu": "json",
+   "cu_phap": "ok",
+   "import": "khong-ap-dung",
+   "chay_thu": "ok",
+   "bang_chung": "json.load ok cho catalog.json (919 muc), audit.json (916 muc), curation.json, STARTER-KIT-source.json, curation-todo-398.json, curation-draft/*.json (8), HANDOFF/*/lists.json, worklist.json. Day la du lieu, khong phai ma; catalog.json duoc build_catalog.py tai lap dung (xem muc do).",
+   "van_de": [],
+   "do_chac": "cao"
+  }
+ ],
+ "tong_ket": {
+  "so_file": 43,
+  "cu_phap": {
+   "ok": 41,
+   "loi": 2
+  },
+  "import": {
+   "loi": 3,
+   "khong-ap-dung": 23,
+   "ok": 17
+  },
+  "chay_thu": {
+   "loi": 5,
+   "khong-chay-duoc": 12,
+   "ok": 26
+  },
+  "van_de_pho_bien": [
+   [
+    "DUONG_DAN_TUYET_DOI_CUNG",
+    3
+   ],
+   [
+    "THAM_CHIEU_KHONG_TON_TAI",
+    3
+   ],
+   [
+    "LLM_CALL_KHONG_DINH_NGHIA",
+    2
+   ],
+   [
+    "FCNTL_CHI_LINUX",
+    1
+   ],
+   [
+    "BAO_THANH_CONG_KHI_KHONG_DANG",
+    1
+   ],
+   [
+    "POSTIZ_DRAFT_NHUNG_GHI_POSTED",
+    1
+   ],
+   [
+    "RETRY_NGU_THUA",
+    1
+   ],
+   [
+    "THONG_BAO_LOI_SAI_NGU_CANH",
+    1
+   ],
+   [
+    "MA_HOA_KHONG_KHAI_BAO",
+    1
+   ],
+   [
+    "JSON_LLM_HONG_KHONG_BAT",
+    1
+   ],
+   [
+    "COMMENT_KEYERROR_CA_LO",
+    1
+   ],
+   [
+    "BRAND_CHECK_RONG",
+    1
+   ]
+  ]
+ }
+}
