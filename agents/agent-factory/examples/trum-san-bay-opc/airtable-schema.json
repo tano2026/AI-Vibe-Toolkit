@@ -111,7 +111,7 @@
         {
           "name": "brief",
           "type": "multilineText",
-          "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong"
+          "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong. Nếu trích tin khách thì chỉ bản đã che dữ liệu nhạy cảm"
         },
         {
           "name": "status",
@@ -269,7 +269,9 @@
             "G4",
             "G5",
             "G6",
-            "G7"
+            "G7",
+            "G8",
+            "G9"
           ],
           "note": "Số hiệu cổng trong GATES.md"
         },
@@ -288,6 +290,8 @@
             "commit_customer",
             "production",
             "credential",
+            "sensitive_data",
+            "partner_data",
             "payout",
             "refund"
           ]
@@ -342,6 +346,16 @@
         {
           "name": "resolution",
           "type": "multilineText"
+        },
+        {
+          "name": "message_masked",
+          "type": "multilineText",
+          "note": "Tin khách trích dẫn LUÔN là bản đã che dữ liệu nhạy cảm; không có cột nguyên văn (GATES Luật vận hành 10)"
+        },
+        {
+          "name": "sensitive_flag",
+          "type": "checkbox",
+          "note": "Tin gốc có dữ liệu nhạy cảm; đề xuất người xoá tin gốc (G9)"
         },
         {
           "name": "resolved",

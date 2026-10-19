@@ -362,6 +362,245 @@ class TestOpc(Co):
         self.assertEqual(rc, 3)
 
 
+class TestLuatThietKe(Co):
+    """Các luật rút từ kiểm hành vi bằng mô phỏng (45 tình huống): kiem phải FAIL nếu hồ sơ dựng mới thiếu."""
+
+    def sua(self, d, rel, ham):
+        p = d / rel
+        p.write_text(ham(p.read_text(encoding="utf-8")), encoding="utf-8")
+
+    def sua_test(self, d, bo_nhan):
+        p = d / "tests" / "test-cases.json"
+        cases = json.loads(p.read_text(encoding="utf-8"))
+        for c in cases:
+            c["nhan"] = [n for n in c.get("nhan", []) if n != bo_nhan]
+        p.write_text(json.dumps(cases, ensure_ascii=False), encoding="utf-8")
+
+    # ---- agent
+    def test_agent_moi_dung_pass_ca_ba_muc(self):
+        _, _, _, d = self.moi_agent()
+        k = self.kiem(d)
+        for ten in ("dữ-liệu-nhạy-cảm", "câu-xác-nhận-tạm", "fail-closed"):
+            self.assertEqual(k[ten].trang_thai, "PASS", str(k[ten]))
+        self.assertNotIn("cổng-đối-tác", k)  # chỉ OPC có gói đối tác
+
+    def test_agent_fail_thieu_quy_tac_du_lieu_nhay_cam(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "system-prompt.md", lambda t: t.replace("[ĐÃ ẨN:", "[AN:"))
+        self.assertEqual(self.kiem(d)["dữ-liệu-nhạy-cảm"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_mau_tra_loi_kenh_thanh_toan(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "system-prompt.md", lambda t: t.replace("kênh thanh toán chính thức", "nơi khác"))
+        self.assertEqual(self.kiem(d)["dữ-liệu-nhạy-cảm"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_ga7(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "JD-KPI-SOP-ESCALATION.md", lambda t: "\n".join(l for l in t.splitlines() if not l.startswith("| GA7 ")))
+        k = self.kiem(d)["dữ-liệu-nhạy-cảm"]
+        self.assertEqual(k.trang_thai, "FAIL")
+        self.assertIn("GA7", k.chi_tiet)
+
+    def test_agent_fail_thieu_test_du_lieu_nhay_cam(self):
+        _, _, _, d = self.moi_agent()
+        self.sua_test(d, "du-lieu-nhay-cam")
+        self.assertEqual(self.kiem(d)["dữ-liệu-nhạy-cảm"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_cau_xac_nhan_tam(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "system-prompt.md", lambda t: t.replace("câu xác nhận tạm", "lời nhắn"))
+        self.assertEqual(self.kiem(d)["câu-xác-nhận-tạm"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_sla(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "JD-KPI-SOP-ESCALATION.md", lambda t: t.replace("SLA", "hạn"))
+        self.assertEqual(self.kiem(d)["câu-xác-nhận-tạm"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_fail_closed(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "system-prompt.md", lambda t: t.replace("Fail-closed", "Cứ chạy tiếp").replace("fail-closed", "cứ chạy"))
+        self.assertEqual(self.kiem(d)["fail-closed"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_chong_dang_doi_va_kenh_thay_the(self):
+        _, _, _, d = self.moi_agent()
+        self.sua(d, "system-prompt.md", lambda t: t.replace("đăng đôi", "trùng"))
+        self.assertEqual(self.kiem(d)["fail-closed"].trang_thai, "FAIL")
+        _, _, _, d2 = self.moi_agent("fb-agent-2")
+        self.sua(d2, "system-prompt.md", lambda t: t.replace("Telegram trực tiếp", "kênh khác"))
+        self.assertEqual(self.kiem(d2)["fail-closed"].trang_thai, "FAIL")
+
+    def test_agent_fail_thieu_test_fail_closed(self):
+        _, _, _, d = self.moi_agent()
+        self.sua_test(d, "fail-closed")
+        self.assertEqual(self.kiem(d)["fail-closed"].trang_thai, "FAIL")
+
+    def test_agent_mau_cau_xac_nhan_tam_khong_hua(self):
+        _, _, _, d = self.moi_agent()
+        tj = json.loads((d / "tenant-config.json").read_text(encoding="utf-8"))
+        h = tj["agent"]["handoff"]
+        self.assertFalse(h["templates_approved_by_ceo"])
+        self.assertIn("CHƯA CÓ", h["approver_sla_hours"])
+        self.assertFalse(any(ch.isdigit() for ch in h["holding_reply"]), "câu xác nhận tạm không được chứa số (giá, mốc thời gian)")
+        self.assertIn("chưa thể xác nhận giá", h["holding_reply"])
+        self.assertIn("kênh thanh toán chính thức", h["sensitive_data_reply"])
+
+    def test_agent_quy_tac_tra_loi_cong_khai_nhat_quan(self):
+        _, _, _, d = self.moi_agent()
+        sp = (d / "system-prompt.md").read_text(encoding="utf-8")
+        jd = (d / "JD-KPI-SOP-ESCALATION.md").read_text(encoding="utf-8")
+        self.assertIn("ngoài KB đó", sp)
+        self.assertIn("L1, và chỉ sau khi hết hai tuần `draft_only`", sp)
+        ga1 = next(l for l in jd.splitlines() if l.startswith("| GA1 "))
+        self.assertIn("NGOÀI mẫu KB đã duyệt", ga1)
+        self.assertIn("L2", ga1)
+        self.assertIn("chỉ hợp lệ khi đến từ `TELEGRAM_CHAT_ID_CEO`", sp)
+
+    def test_agent_test_ids_moi(self):
+        _, _, _, d = self.moi_agent()
+        ids = {c["id"]: c for c in json.loads((d / "tests" / "test-cases.json").read_text(encoding="utf-8"))}
+        for i, nhan in (("T11", "du-lieu-nhay-cam"), ("T12", "chuyen-nguoi"), ("T13", "fail-closed")):
+            self.assertIn(nhan, ids[i]["nhan"])
+            self.assertEqual(ids[i]["ket_qua"], "CHUA-CHAY")
+        self.assertIn("4111", ids["T11"]["dau_vao"])  # số thẻ thử nghiệm công khai
+
+    def test_khung_hoang_khong_nhan_cau_xac_nhan_tam(self):
+        # phát hiện khi chạy lại tình huống 8: trả lời khủng hoảng truyền thông là L3, không được gửi kể cả câu xác nhận tạm
+        _, _, _, d = self.moi_agent()
+        sp = (d / "system-prompt.md").read_text(encoding="utf-8")
+        jd = (d / "JD-KPI-SOP-ESCALATION.md").read_text(encoding="utf-8")
+        self.assertIn("KHÔNG nhận câu này", sp)
+        row = next(l for l in jd.splitlines() if l.startswith("| Khủng hoảng truyền thông"))
+        self.assertIn("KHÔNG gửi gì cho khách", row)
+        self.assertIn("nháp chưa vào được hàng đợi", sp)
+        _, _, _, o = self.moi_opc()
+        self.assertIn("KHÔNG nhận câu này", (o / "GATES.md").read_text(encoding="utf-8"))
+
+    # ---- OPC
+    def test_opc_moi_dung_pass(self):
+        _, _, _, d = self.moi_opc()
+        k = self.kiem(d)
+        for ten in ("dữ-liệu-nhạy-cảm", "câu-xác-nhận-tạm", "fail-closed", "cổng-đối-tác", "cổng-duyệt"):
+            self.assertEqual(k[ten].trang_thai, "PASS", str(k[ten]))
+
+    def test_opc_fail_thieu_du_lieu_nhay_cam_gates(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: t.replace("[ĐÃ ẨN:", "[AN:"))
+        self.assertEqual(self.kiem(d)["dữ-liệu-nhạy-cảm"].trang_thai, "FAIL")
+
+    def test_opc_fail_thieu_g9(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: "\n".join(l for l in t.splitlines() if not l.startswith("| G9 ")))
+        self.assertEqual(self.kiem(d)["dữ-liệu-nhạy-cảm"].trang_thai, "FAIL")
+        self.assertEqual(self.kiem(d)["cổng-duyệt"].trang_thai, "FAIL")
+
+    def test_opc_fail_thieu_cau_xac_nhan_tam_va_fail_closed(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: t.replace("câu xác nhận tạm", "lời nhắn").replace("Fail-closed", "Chạy tiếp"))
+        k = self.kiem(d)
+        self.assertEqual(k["câu-xác-nhận-tạm"].trang_thai, "FAIL")
+        self.assertEqual(k["fail-closed"].trang_thai, "FAIL")
+
+    def test_opc_co_doi_tac_fail_thieu_g8(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: "\n".join(l for l in t.splitlines() if not l.startswith("| G8 ")))
+        k = self.kiem(d)["cổng-đối-tác"]
+        self.assertEqual(k.trang_thai, "FAIL")
+        self.assertIn("G8", k.chi_tiet)
+
+    def test_opc_co_doi_tac_fail_g8_khong_ap_dung(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: t.replace("Có (gói Quản lý đối tác bật)", "KHÔNG ÁP DỤNG (chưa bật)"))
+        self.assertEqual(self.kiem(d)["cổng-đối-tác"].trang_thai, "FAIL")
+
+    def test_opc_co_doi_tac_fail_g8_ha_xuong_L1(self):
+        _, _, _, d = self.moi_opc()
+        self.sua(d, "GATES.md", lambda t: "\n".join(l.replace("| L2 |", "| L1 |") if l.startswith("| G8 ") else l for l in t.splitlines()))
+        self.assertEqual(self.kiem(d)["cổng-đối-tác"].trang_thai, "FAIL")
+
+    def test_opc_co_doi_tac_fail_thieu_test_doi_tac(self):
+        _, _, _, d = self.moi_opc()
+        self.sua_test(d, "doi-tac")
+        self.assertEqual(self.kiem(d)["cổng-đối-tác"].trang_thai, "FAIL")
+
+    def test_opc_khong_goi_doi_tac_khong_bi_hoi_g8(self):
+        rc, out, err = chay(["moi-opc", "--slug", "chi-affiliate", "--thuong-hieu", "X Thử", "--doanh-thu", "affiliate",
+                             "--kenh", "facebook", "--dau-ra", str(self.tmp)], tk=self.tk)
+        self.assertEqual(rc, 0, out + err)
+        d = self.tmp / "chi-affiliate"
+        k = self.kiem(d)
+        self.assertNotIn("cổng-đối-tác", k)
+        self.assertEqual(k["dữ-liệu-nhạy-cảm"].trang_thai, "PASS")
+        g8 = next(l for l in (d / "GATES.md").read_text(encoding="utf-8").splitlines() if l.startswith("| G8 "))
+        self.assertIn("KHÔNG ÁP DỤNG", g8)
+        ids = {c["id"] for c in json.loads((d / "tests" / "test-cases.json").read_text(encoding="utf-8"))}
+        self.assertNotIn("OT21", ids)
+
+    def test_opc_test_ids_va_schema(self):
+        _, _, _, d = self.moi_opc()
+        lst = json.loads((d / "tests" / "test-cases.json").read_text(encoding="utf-8"))
+        cases = {c["id"]: c for c in lst}
+        self.assertEqual(len(cases), len(lst), "id test trùng")
+        self.assertIn("doi-tac", cases["OT21"]["nhan"])
+        self.assertIn("du-lieu-nhay-cam", cases["OT11"]["nhan"])
+        s = json.loads((d / "airtable-schema.json").read_text(encoding="utf-8"))
+        esc = [t for t in s["tables"] if t["name"] == "escalations"][0]["fields"]
+        self.assertIn("message_masked", [f["name"] for f in esc])
+        self.assertNotIn("message", [f["name"] for f in esc])
+        gates = [f for t in s["tables"] if t["name"] == "approvals" for f in t["fields"] if f["name"] == "gate"][0]["options"]
+        self.assertEqual(gates, [f"G{i}" for i in range(1, 10)])
+
+    def test_opc_compliance_gate_khong_con_la_kiem_chu_thich(self):
+        _, _, _, d = self.moi_opc()
+        rl = (d / "RISKS-LEGAL.md").read_text(encoding="utf-8")
+        wf = (d / "workflow-skeleton.md").read_text(encoding="utf-8")
+        cm = (d / "CAPABILITY-MAP.md").read_text(encoding="utf-8")
+        self.assertNotIn("đưa qua `compliance-gate` trước khi", rl)
+        self.assertIn("KHÔNG kiểm chú thích", rl)
+        for t in (rl, cm):
+            self.assertIn("platform-disclosure-adapter", t)
+            self.assertIn("affiliate-disclosure-writer", t)
+        self.assertIn("HỔNG", rl)
+        self.assertIn("HỔNG", cm)
+        self.assertIn("compliance-gate chỉ chặn lặp", wf)
+        self.assertIn("catalog/GAP-LOG.md", cm)
+        man = json.loads((d / "factory-manifest.json").read_text(encoding="utf-8"))
+        self.assertIn(af.KIEM_CHU_THICH_HONG, man["hong"])
+        self.assertEqual(self.kiem(d)["hổng"].trang_thai, "WARN")
+
+    def test_opc_khong_affiliate_khong_co_muc_kiem_chu_thich(self):
+        rc, out, err = chay(["moi-opc", "--slug", "chi-dich-vu", "--thuong-hieu", "Y Thử", "--doanh-thu", "dich-vu",
+                             "--kenh", "zalo", "--dau-ra", str(self.tmp)], tk=self.tk)
+        self.assertEqual(rc, 0, out + err)
+        cm = (self.tmp / "chi-dich-vu" / "CAPABILITY-MAP.md").read_text(encoding="utf-8")
+        self.assertNotIn("Kiểm chú thích affiliate", cm)
+
+    def test_chuc_nang_hep_canh_bao_compliance_gate(self):
+        class TK(ThuKhoGia):
+            def recommend(self, brief, *, vessel=None, exclude_needs=(), per_need=1):
+                it = dict(next(i for i in CATALOG if i["id"] == "agents/shorts-affiliate-system/skills/compliance-gate"))
+                return {"kha_nang": [{"capability": brief, "chinh": [it], "du_phong": None}], "hong": [], "canh_bao": []}
+        kq = af.tra_kha_nang(TK(), ["security-compliance"], "hermes")
+        md = af.md_cap_block(kq)
+        self.assertIn("chỉ chặn lặp cấu trúc script YouTube", md)
+        self.assertIn("KHÔNG kiểm chú thích", md)
+
+    def test_luat_nganh_hang_khong(self):
+        rc, out, err, d = self.moi_opc("opc-hk", extra=("--kha-nang-them", "ticketing-aviation"))
+        self.assertEqual(rc, 0, out + err)
+        pack = (d / "domain-packs" / "opc-hk" / "PACK.md").read_text(encoding="utf-8")
+        gates = (d / "GATES.md").read_text(encoding="utf-8")
+        self.assertIn("KHÔNG trả thẳng kết quả tra web cho khách", pack)
+        self.assertIn("chỉ để soạn NHÁP kèm nguồn", gates)
+        self.assertIn("mục KB đã duyệt có ngày kiểm", pack)
+        self.assertIn("Bot chỉ đọc nguyên dòng giá", pack)
+
+    def test_opc_roster_co_cau_lenh_chung(self):
+        _, _, _, d = self.moi_opc()
+        r = (d / "OPC-ROSTER.md").read_text(encoding="utf-8")
+        self.assertIn("Câu lệnh chung nhúng cho mọi agent", r)
+        self.assertIn("chỉ hợp lệ từ chat id của CEO", r)
+
+
 class TestGhiDeVaBanGiao(Co):
     def test_ghi_de_bi_tu_choi(self):
         rc, _, _, d = self.moi_agent()

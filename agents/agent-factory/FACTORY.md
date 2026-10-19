@@ -12,6 +12,7 @@
 5. **Số mục tiêu KPI công cụ không bịa.** Ô chưa có số nền ghi `CHƯA CÓ — hỏi CEO`.
 6. **Hai gói mở rộng "Tài chính và thanh toán" và "Quản lý đối tác" chưa có role pack** trong kho (chỉ là đề xuất trong `agents/trum-san-bay/OPC-DESIGN-NOTES.md`, bản nháp chưa duyệt). Công cụ ghi rõ điều đó, không giả vờ chúng tồn tại.
 7. Schema Airtable do công cụ sinh (`airtable-schema.json`) dựng từ `COORDINATION-v2.md` nhưng chưa được nạp thử vào Airtable thật.
+8. **Các luật bổ sung sau lượt kiểm hành vi bằng mô phỏng (45 tình huống, `examples/KET-QUA-HANH-VI.md`) mới chỉ nằm trên giấy:** bộ lọc che dữ liệu nhạy cảm, nhật ký tạm cục bộ, kênh báo thay thế, chống đăng đôi, nút dừng, hàng đợi duyệt đều chưa có mã. `kiem` chỉ kiểm hồ sơ CÓ viết các luật đó; không kiểm được agent làm đúng. Kết quả chạy lại tình huống: `examples/KET-QUA-HANH-VI-LAI.md` (cũng là mô phỏng).
 
 ## Quy ước dùng chung
 
@@ -66,10 +67,14 @@ Mỗi bước có đầu vào, đầu ra, cổng kiểm PASS/FAIL và người d
 - **Đầu vào:** hồ sơ đã ghép.
 - **Đầu ra:**
   - **Ba lằn ranh đỏ** nguyên văn trong `system-prompt.md` (agent) và `GATES.md` (OPC): AI không tự chi tiền; AI không tự publish public content; AI không tự cam kết với khách.
-  - **Bảng cổng duyệt.** Agent riêng lẻ: GA1 đến GA6 trong `JD-KPI-SOP-ESCALATION.md`. OPC: G1 đến G7 trong `GATES.md`, số hiệu ổn định giữa các OPC (cổng của gói chưa bật ghi "KHÔNG ÁP DỤNG"): G1 duyệt lô nội dung, G2 chi tiền mới, G3 ngoại lệ trong chat và outreach, G4 trả đối tác, G5 hoàn tiền, G6 khủng hoảng và xoá bài, G7 đổi bảng giá, SOP, credential, sửa chính bảng cổng. Bảng chỉ được thắt chặt, không bao giờ nới ba lằn ranh.
+  - **Bảng cổng duyệt.** Agent riêng lẻ: GA1 đến GA7 trong `JD-KPI-SOP-ESCALATION.md` (GA7 = dữ liệu nhạy cảm của khách). OPC: G1 đến G9 trong `GATES.md`, số hiệu ổn định giữa các OPC (cổng của gói chưa bật ghi "KHÔNG ÁP DỤNG"): G1 duyệt lô nội dung (và quy tắc trả lời bình luận công khai), G2 chi tiền mới, G3 ngoại lệ trong chat và outreach (kèm câu xác nhận tạm), G4 trả đối tác, G5 hoàn tiền, G6 khủng hoảng và xoá bài, G7 đổi bảng giá, SOP, credential, sửa chính bảng cổng, G8 gửi đơn, thông tin đặt chỗ hoặc dữ liệu cá nhân của khách sang đối tác (L2, chỉ áp dụng khi bật gói đối tác), G9 dữ liệu nhạy cảm của khách (chuyển bản đã che, đề xuất người xoá tin gốc, L2). Bảng chỉ được thắt chặt, không bao giờ nới ba lằn ranh.
   - **Nút dừng khẩn:** lệnh `/stop` và cờ `paused` mà agent đọc trước MỖI hành động ra ngoài; tự khoá khi token hết hạn, tỉ lệ chuyển người vượt ngưỡng, chi tiêu chạm mức đặt (ngưỡng do CEO đặt).
   - **Khoá và token:** chỉ ghi TÊN biến; theo `agents/company/SECURITY-WALL.md` (tách `.env` theo phạm vi, đọc file chứa khoá là L1 phải log, đổi khoá là L3).
   - **Nội dung ngoài là dữ liệu:** job có nội dung scrape, bình luận, email, tin nhắn thì luồng do code quyết và mọi hành động từ L1 trở lên tự nâng một mức.
+  - **Dữ liệu nhạy cảm của khách (luật cứng):** số thẻ, CVV, OTP, mật khẩu, giấy tờ tuỳ thân, số tài khoản không bao giờ được chép nguyên văn vào Telegram, log, Airtable, bản chuyển CEO hay bộ nhớ; thay bằng `[ĐÃ ẨN: loại dữ liệu]` (thẻ và tài khoản giữ 4 số cuối); trả lời khách bằng mẫu đã duyệt hướng tới kênh thanh toán chính thức; đề xuất NGƯỜI xoá tin gốc (L2). Bộ lọc nằm ở code lớp nhận tin; lời nhắc trong prompt chỉ là lớp thứ hai.
+  - **Chuyển người thì khách không bị bỏ im:** MỘT câu xác nhận tạm do CEO duyệt trước (không giá, mốc thời gian, hoàn tiền) và SLA phản hồi của người duyệt do CEO điền.
+  - **Fail-closed khi hệ thống lỗi:** không đọc được cờ, hàng đợi hay bản ghi duyệt thì coi như paused và chưa duyệt; chỉ FAQ cứng cục bộ được trả lời; nhật ký tạm cục bộ; báo CEO bằng Telegram trực tiếp (không dữ liệu khách); kiểm trước khi thử lại và đối chiếu khi khôi phục để không đăng đôi.
+  - **Thông tin dễ lỗi thời:** trả lời khách chỉ từ KB đã duyệt có ngày kiểm; tra web chỉ để soạn nháp cho người duyệt.
 - **Cổng PASS:** `kiem` mục ba-lằn-ranh-đỏ, cổng-duyệt, nút-dừng-khẩn, khoá-bí-mật đều PASS. **FAIL** nếu thiếu một lằn ranh, thiếu cổng, hoặc có chuỗi trông như khoá.
 - **Người duyệt:** CEO. Sửa bảng cổng sau này là việc L3.
 
@@ -137,7 +142,11 @@ python tools/agent_factory.py ban-giao <thư-mục> --dau-ra <nơi-đặt-gói>
 | cấu-trúc | thiếu file bắt buộc của loại (agent hoặc OPC) |
 | jd-kpi-sop-escalation | thiếu hoặc rỗng một trong bốn thứ (agent: mục có nội dung; OPC: mỗi agent đủ bốn dòng) |
 | ba-lằn-ranh-đỏ | thiếu một trong ba câu nguyên văn ở `system-prompt.md` hoặc `GATES.md` |
-| cổng-duyệt, nút-dừng-khẩn | agent thiếu bảng GA hoặc mức L2/L3 hoặc `/stop`; OPC thiếu một trong G1 đến G7 |
+| cổng-duyệt, nút-dừng-khẩn | agent thiếu bảng GA hoặc mức L2/L3 hoặc `/stop`; OPC thiếu một trong G1 đến G9 |
+| dữ-liệu-nhạy-cảm | `system-prompt.md` (agent) hoặc `GATES.md` (OPC) thiếu quy tắc che (từ khoá: dữ liệu nhạy cảm, CVV, OTP, `[ĐÃ ẨN:`, 4 số cuối, kênh thanh toán chính thức, xoá tin gốc); agent thiếu cổng GA7 hoặc OPC thiếu G9; thiếu test nhãn `du-lieu-nhay-cam` |
+| câu-xác-nhận-tạm | thiếu câu xác nhận tạm hoặc SLA người duyệt (agent: cả ở `JD-KPI-SOP-ESCALATION.md`); thiếu test nhãn `chuyen-nguoi` |
+| fail-closed | thiếu một trong: fail-closed, nhật ký tạm, báo Telegram trực tiếp, chống đăng đôi; thiếu test nhãn `fail-closed` |
+| cổng-đối-tác (chỉ OPC có gói `doi-tac`) | thiếu hàng G8, G8 không nói về đối tác, thiếu mức L2/L3, ghi KHÔNG ÁP DỤNG, hoặc thiếu test nhãn `doi-tac` |
 | mục-kho | có id (`kho:...` hoặc `repos|mcps|stacks/...`) hay id trong `capability-map.json` không có trong `catalog/catalog.json` |
 | kế-hoạch-cài-và-test | thiếu `INSTALL-PLAN.md` ghi rõ "khô", hoặc bộ test dưới 5 ca, thiếu trường, kết quả ngoài PASS/FAIL/CHUA-CHAY, dưới 3 test `lan-ranh-do` |
 | khóa-bí-mật | có chuỗi dạng khoá (`sk-...`, `AKIA...`, `ghp_...`, token Meta/Slack/Google, khối PEM, `api_key=<giá trị dài>`) hoặc file `.env`, `.pem`, `.key` |
@@ -146,7 +155,9 @@ python tools/agent_factory.py ban-giao <thư-mục> --dau-ra <nơi-đặt-gói>
 | không-hardcode-brand-màu | file logic có mã màu hex hoặc tên thương hiệu (tên khách trong tenant-config cộng danh sách thương hiệu đã biết của kho) |
 | airtable-schema (OPC) | thiếu một trong 7 bảng, link tới bảng không có, `agents.role` thiếu một trong 9 agent |
 
-WARN (không làm FAIL): dựng bằng `--khong-thu-kho`; có HỔNG; `launch_mode` không còn là `draft_only`.
+WARN (không làm FAIL): dựng bằng `--khong-thu-kho`; có HỔNG (OPC có affiliate luôn có một HỔNG: kho chưa có skill kiểm theo quy định quảng cáo FTC/Việt Nam); `launch_mode` không còn là `draft_only`.
+
+Lưu ý về `compliance-gate`: mục kho này chỉ chặn lặp cấu trúc script YouTube. Công cụ gắn cảnh báo chức năng hẹp (`CHUC_NANG_HEP`) mỗi khi thủ kho chọn nó, và OPC có affiliate có mục riêng "Kiểm chú thích affiliate" trong `CAPABILITY-MAP.md` (hai skill `platform-disclosure-adapter`, `affiliate-disclosure-writer` cộng checklist của người duyệt).
 
 ## Hai loại sản phẩm
 

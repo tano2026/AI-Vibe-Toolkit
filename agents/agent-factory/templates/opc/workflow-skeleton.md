@@ -43,6 +43,29 @@ Tự khoá khi: token nền tảng hết hạn/bị từ chối | tỉ lệ chuy
 
 Trạng thái: thiết kế, chưa có mã.
 
+### 3.1 Khi Airtable hoặc kênh duyệt hỏng (fail-closed)
+
+```
+Không đọc được approvals / agents.status / escalations (hoặc API ghi lỗi giữa chừng):
+  -> coi agents.status = paused và mọi job chưa approved; KHÔNG đăng, KHÔNG gửi, KHÔNG trả lời tự động
+     (ngoại lệ duy nhất: FAQ cứng trong file cấu hình cục bộ, không cần Airtable)
+  -> ghi nhật ký tạm cục bộ (chỉ nối cuối, đã che dữ liệu nhạy cảm): thời điểm, job-id, việc, kết quả
+  -> báo CEO bằng kênh thay thế: Telegram trực tiếp, tin ngắn KHÔNG chứa dữ liệu khách
+  -> thử lại tối đa 3 lần cách nhau tăng dần; trước mỗi lần thử sau lỗi ghi: kiểm bài/tin đã lên chưa (khoá theo job-id)
+Khi khôi phục:
+  -> đối chiếu nhật ký tạm với approvals; hành động đã có dấu đã thực thi thì KHÔNG phát lại (chống đăng đôi)
+  -> hành động quá 24 giờ = expired; chỉ nối lại hành động ra ngoài sau khi CEO xác nhận
+Telegram cũng hỏng: dừng hẳn, giữ nháp, không làm gì thêm
+```
+
+### 3.2 Tin có dữ liệu nhạy cảm (code lớp nhận tin)
+
+```
+tin vào -> bộ lọc che (thẻ, CVV, OTP, mật khẩu, giấy tờ, số tài khoản) -> chỉ bản đã che đi tiếp
+  -> lưu cột message_masked; bot trả lời bằng mẫu nhắc không gửi thẻ qua chat (PACK mục 7)
+  -> [G9] đề xuất người xoá tin gốc nếu nền tảng cho phép; log chỉ có loại dữ liệu
+```
+
 ## 4. Luồng theo bộ phận đã bật
 
 {{FLOW_BLOCKS}}

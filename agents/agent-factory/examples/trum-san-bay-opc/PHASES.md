@@ -19,7 +19,7 @@
 - **Mục tiêu:** Dựng móng, chưa chạy việc ra ngoài.
 - **Bật gì:** Domain Pack, Airtable `company-hq` theo `airtable-schema.json`, kênh lệnh CEO, `ceo`, `research`, `dev`, `analytics`; seed agents ở trạng thái `paused`.
 - **Điều kiện vào:** Chưa có (pha đầu)
-- **Mốc ra (đề xuất, CEO chốt):** Điền xong `PACK.md` các mục chặn; Airtable dựng xong; test `OT05` (nút dừng) và `OT08` (không approved thì không chạy) PASS; báo cáo nền của `research` nộp. Cộng các mốc chung M0 đến M3.
+- **Mốc ra (đề xuất, CEO chốt):** Điền xong `PACK.md` các mục chặn (gồm mục 7: câu xác nhận tạm, SLA, kênh thanh toán chính thức); Airtable dựng xong; test `OT05` (nút dừng), `OT08` (không approved thì không chạy), `OT11` (dữ liệu nhạy cảm) và `OT13` (fail-closed) PASS; báo cáo nền của `research` nộp. Cộng các mốc chung M0 đến M3.
 - **Cổng liên quan:** G7 (cấu hình), G2 (nếu mua gì)
 - **Bằng chứng ghi ở:** bảng `kpis`, `HANDOVER.md` mục Trạng thái pha, `catalog/USAGE-LOG.md`
 
@@ -36,7 +36,7 @@
 
 - **Mục tiêu:** Có kênh chat trả lời khách, đơn nháp.
 - **Bật gì:** `sales`, `support`, hộp thư chung, KB/FAQ, bảng giá chuẩn do CEO duyệt
-- **Điều kiện vào:** Bảng giá chuẩn và KB đã được CEO duyệt
+- **Điều kiện vào:** Bảng giá chuẩn, KB, câu xác nhận tạm và mẫu trả lời dữ liệu nhạy cảm (PACK mục 7) đã được CEO duyệt
 - **Mốc ra (đề xuất, CEO chốt):** Hai tuần bot ở chế độ nháp; tỉ lệ tin bot xử lý trọn đạt CHƯA CÓ — hỏi CEO; mọi ngoại lệ qua G3; không lần nào bot báo giá ngoài bảng. Cộng các mốc chung M0 đến M3.
 - **Cổng liên quan:** G3
 - **Bằng chứng ghi ở:** bảng `kpis`, `HANDOVER.md` mục Trạng thái pha, `catalog/USAGE-LOG.md`

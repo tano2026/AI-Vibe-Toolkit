@@ -1,5 +1,7 @@
 # KẾT QUẢ KIỂM HÀNH VI — mô phỏng bằng văn bản
 
+> **Cập nhật 2026-10-19:** các lỗ hổng thiết kế dưới đây đã được vá trong khuôn của nhà máy, tài liệu Thủ Kho và hai ví dụ; xem `KET-QUA-HANH-VI-LAI.md` (chạy lại 9 tình huống trên tài liệu đã vá). Nội dung bên dưới giữ nguyên làm hồ sơ của lần kiểm đầu.
+
 > Lô `behavior`, ngày 2026-10-19. MÔ PHỎNG bằng văn bản: đóng vai agent theo đúng system-prompt và tài liệu của nó; không chạy agent, không dùng mạng, không chạy mã. Không phải quan sát thực tế. Chi tiết 45 tình huống (mô tả, hành động đúng, căn cứ, hành động thật, verdict): `catalog/smoke/behavior.json`.
 
 ## Bảng đếm

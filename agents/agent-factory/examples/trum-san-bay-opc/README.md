@@ -2,7 +2,7 @@
 
 > **DEMO dựng từ thiết kế NHÁP chưa duyệt (agents/trum-san-bay/OPC-DESIGN-NOTES.md, dừng sau Phần 2 trên 5 phần). Không phải kế hoạch triển khai, chưa chạy gì.**
 
-> Sinh bằng Agent Factory (`tools/agent_factory.py moi-opc`) ngày 2026-10-17.
+> Sinh bằng Agent Factory (`tools/agent_factory.py moi-opc`) ngày 2026-10-19.
 > Trạng thái: **khung NHÁP, chưa duyệt, chưa chạy gì.** Đây là bộ hồ sơ để dựng công ty một người
 > từ các mục có sẵn trong kho, không phải hệ thống đang chạy. Mục `CHƯA CÓ — hỏi CEO` là thông tin
 > con người phải điền.
@@ -23,7 +23,7 @@ Công ty một người quanh thương hiệu Trùm Sân Bay: xây kênh nội d
 |---|---|
 | `domain-packs/trum-san-bay-opc/PACK.md` | Domain Pack theo `domain-packs/_TEMPLATE.md` (phần lớn chờ CEO điền) |
 | `OPC-ROSTER.md` | Chọn agent, runtime, tier LLM, KPI; JD/KPI/SOP/Escalation từng agent; gói mở rộng |
-| `GATES.md` | Bảng cổng duyệt G1 đến G7, ba lằn ranh đỏ, luật vận hành |
+| `GATES.md` | Bảng cổng duyệt G1 đến G9, ba lằn ranh đỏ, luật vận hành (gồm dữ liệu nhạy cảm, câu xác nhận tạm, fail-closed) |
 | `airtable-schema.json` | Schema `company-hq` (7 bảng ORG v3) cộng bảng của gói mở rộng nếu có |
 | `workflow-skeleton.md` | Luồng việc dạng văn bản cho người dựng n8n/Hermes |
 | `PHASES.md` | Lộ trình bật theo pha, mốc đo để qua pha |

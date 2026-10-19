@@ -31,7 +31,7 @@
         {"name": "job_id", "type": "autoNumber", "note": "Dùng trong MỌI giao tiếp, kể cả lệnh duyệt OK/NO"},
         {"name": "pack", "type": "singleSelect", "options": ["__PACKS__"]},
         {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
-        {"name": "brief", "type": "multilineText", "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong"},
+        {"name": "brief", "type": "multilineText", "note": "Handoff 5 phần: bối cảnh, yêu cầu, đầu vào kèm, hạn, định nghĩa xong. Nếu trích tin khách thì chỉ bản đã che dữ liệu nhạy cảm"},
         {"name": "status", "type": "singleSelect", "options": ["queued", "doing", "review", "awaiting_approval", "done", "blocked"]},
         {"name": "priority", "type": "singleSelect", "options": ["P0", "P1", "P2"]},
         {"name": "output_url", "type": "url"},
@@ -75,9 +75,9 @@
       "note": "Cổng duyệt. Không có bản ghi approved thì không thực thi.",
       "fields": [
         {"name": "job_id", "type": "multipleRecordLinks", "linked_table": "jobs"},
-        {"name": "gate", "type": "singleSelect", "options": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"], "note": "Số hiệu cổng trong GATES.md"},
+        {"name": "gate", "type": "singleSelect", "options": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9"], "note": "Số hiệu cổng trong GATES.md"},
         {"name": "action", "type": "multilineText", "note": "Bản CUỐI: gửi ai, nội dung gì, bao nhiêu tiền. Duyệt xong không sửa."},
-        {"name": "risk_type", "type": "singleSelect", "options": ["spend_money", "publish", "send_external", "commit_customer", "production", "credential"]},
+        {"name": "risk_type", "type": "singleSelect", "options": ["spend_money", "publish", "send_external", "commit_customer", "production", "credential", "sensitive_data", "partner_data"]},
         {"name": "risk_level", "type": "singleSelect", "options": ["L2", "L3"]},
         {"name": "status", "type": "singleSelect", "options": ["pending", "approved", "rejected", "expired"], "note": "Im lặng 24 giờ = expired = KHÔNG làm; nhắc đúng một lần"},
         {"name": "decided_at", "type": "date"}
@@ -92,6 +92,8 @@
         {"name": "role", "type": "multipleRecordLinks", "linked_table": "agents"},
         {"name": "reason", "type": "multilineText"},
         {"name": "resolution", "type": "multilineText"},
+        {"name": "message_masked", "type": "multilineText", "note": "Tin khách trích dẫn LUÔN là bản đã che dữ liệu nhạy cảm; không có cột nguyên văn (GATES Luật vận hành 10)"},
+        {"name": "sensitive_flag", "type": "checkbox", "note": "Tin gốc có dữ liệu nhạy cảm; đề xuất người xoá tin gốc (G9)"},
         {"name": "resolved", "type": "checkbox"}
       ]
     },
