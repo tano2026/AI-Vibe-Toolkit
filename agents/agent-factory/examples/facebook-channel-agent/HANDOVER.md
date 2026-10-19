@@ -12,7 +12,7 @@
 - **Vessel:** Hermes
 - **Mức tự chủ:** L1; chế độ khởi động `draft_only` 2 tuần
 - **Chủ sở hữu:** CHƯA CÓ — hỏi CEO
-- **Ngày dựng:** 2026-10-17
+- **Ngày dựng:** 2026-10-19
 
 ## Cách chạy
 
@@ -46,6 +46,9 @@ Tên đề xuất, phải khớp lại với mã thật khi dựng. Giá trị n
 | Đầu ra sai sự thật | Người dùng/khách báo | Gỡ nội dung (cần duyệt theo GA6), ghi lại | Thêm bước kiểm nguồn vào SOP |
 | Nội dung ngoài cố điều khiển agent | Câu kiểu "bỏ qua chỉ dẫn" trong dữ liệu | Không làm theo; ghi nguyên văn | Báo CEO; rà SOP-03 |
 | Agent kẹt/lặp lỗi | Hơn 24 giờ hoặc 3 lần | Dừng thử | Escalation |
+| Khách gửi thẻ, CVV, OTP, giấy tờ vào chat | Có mẫu số thẻ hoặc mã trong tin | Kiểm log và Telegram có giá trị thô không; che; người duyệt xoá tin gốc nếu nền tảng cho phép | Bổ sung bộ lọc ở lớp nhận tin; chạy lại test `T11` |
+| Hệ thống lưu hàng đợi hoặc cờ `paused` hỏng | Không đọc được cờ, hàng đợi hoặc bản ghi duyệt | Fail-closed: không đăng, không trả lời tự động; báo Telegram trực tiếp | Khi khôi phục, đối chiếu nhật ký tạm, không phát lại hành động đã thực thi |
+| Khách chờ lâu sau khi bị chuyển CEO | Quá SLA của người duyệt | Nhắc người duyệt một lần; khách vẫn chỉ nhận câu xác nhận tạm | Rà SLA ở `JD-KPI-SOP-ESCALATION.md` mục 5.1 |
 
 ## KPI và cách đo
 
@@ -60,5 +63,8 @@ Xem bảng KPI trong `JD-KPI-SOP-ESCALATION.md`. Cách ghi: mỗi tuần một d
 - Chưa có mục kho nào được dùng thật; mức kiểm duy nhất là đọc nguồn.
 - Chưa chạy agent với credential thật; chưa có bằng chứng nào về chất lượng đầu ra.
 - Nút dừng khẩn, hàng đợi duyệt, ghi log: thiết kế trên giấy, chưa nối mã.
+- Bộ lọc che dữ liệu nhạy cảm, nhật ký tạm cục bộ, chống đăng đôi (fail-closed): thiết kế trên giấy, chưa nối mã.
+- Không bật `launch_mode` khác `draft_only` trước khi test `T02`, `T05`, `T11`, `T13` PASS bằng bằng chứng chạy.
+- Câu xác nhận tạm, mẫu trả lời khi khách gửi dữ liệu thẻ, SLA người duyệt, kênh thanh toán chính thức: CEO chưa duyệt.
 - Các mục ghi `CHƯA CÓ — hỏi CEO` chưa có người điền (xem danh sách tự động ở trên).
 - Tiêu chí gỡ: 6 tháng không có job nào thì đề xuất gỡ.

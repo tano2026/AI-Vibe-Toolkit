@@ -2,7 +2,7 @@
 
 > **DEMO dựng từ chính CLI để minh hoạ Agent Factory. Chưa duyệt, chưa spike, chưa chạy với credential thật.**
 
-> Sinh bằng Agent Factory (`tools/agent_factory.py moi-agent`) ngày 2026-10-17.
+> Sinh bằng Agent Factory (`tools/agent_factory.py moi-agent`) ngày 2026-10-19.
 > Trạng thái: **NHÁP chưa duyệt, chưa spike, chưa chạy với credential thật.** Mọi mục kho được chọn
 > chỉ mới được ĐỌC nguồn, chưa mục nào được dùng thật. Mục nào ghi `CHƯA CÓ — hỏi CEO` là thông tin
 > con người phải điền; agent và công cụ không được tự bịa.

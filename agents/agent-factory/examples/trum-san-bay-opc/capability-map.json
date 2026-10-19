@@ -143,7 +143,8 @@
       "canh_bao": [
         "agents/shorts-affiliate-system/skills/compliance-gate: mới đọc phần đầu entry",
         "repos/codex-security: mới đọc phần đầu entry",
-        "repos/codex-security: cần khoá API -> L3"
+        "repos/codex-security: cần khoá API -> L3",
+        "agents/shorts-affiliate-system/skills/compliance-gate: Entry gốc chỉ chặn lặp cấu trúc script YouTube bằng so dấu vân tay với 15 video gần nhất. Nó KHÔNG kiểm chú thích quảng cáo/affiliate, KHÔNG kiểm tuân thủ luật quảng cáo và KHÔNG phải công cụ bảo mật mã. Không được coi \"đã qua compliance-gate\" là đã kiểm chú thích; xem mục \"Kiểm chú thích affiliate\" nếu OPC có affiliate."
       ],
       "nguon": "thu_kho.recommend",
       "gap_line": ""
@@ -529,9 +530,20 @@
         "capability": "security-compliance,web-research,ticketing-aviation"
       },
       "hong": false,
-      "canh_bao": [],
+      "canh_bao": [
+        "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup: Skill này tra web quy định hàng không rồi trả lời kèm miễn trừ. Trong OPC, kết quả tra CHỈ để soạn NHÁP cho người duyệt (L2); bot trả khách chỉ từ KB đã duyệt có ngày kiểm (GATES Luật vận hành 13)."
+      ],
       "nguon": "thu_kho.recommend",
       "gap_line": ""
     }
-  ]
+  ],
+  "kiem_chu_thich": {
+    "co_trong_kho": [
+      "agents/shorts-affiliate-system/skills/platform-disclosure-adapter",
+      "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer"
+    ],
+    "hong": [
+      "kiểm quy định quảng cáo và affiliate (FTC, quy định quảng cáo Việt Nam)"
+    ]
+  }
 }

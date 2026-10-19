@@ -84,6 +84,7 @@
 - **Cảnh báo:** agents/shorts-affiliate-system/skills/compliance-gate: mới đọc phần đầu entry
 - **Cảnh báo:** repos/codex-security: mới đọc phần đầu entry
 - **Cảnh báo:** repos/codex-security: cần khoá API -> L3
+- **Cảnh báo:** agents/shorts-affiliate-system/skills/compliance-gate: Entry gốc chỉ chặn lặp cấu trúc script YouTube bằng so dấu vân tay với 15 video gần nhất. Nó KHÔNG kiểm chú thích quảng cáo/affiliate, KHÔNG kiểm tuân thủ luật quảng cáo và KHÔNG phải công cụ bảo mật mã. Không được coi "đã qua compliance-gate" là đã kiểm chú thích; xem mục "Kiểm chú thích affiliate" nếu OPC có affiliate.
 
 #### `crm-sales`
 
@@ -290,3 +291,16 @@
   - Bỏ qua nếu: Bỏ qua nếu câu hỏi thuộc dạng kiến thức phổ thông cố định không có khả năng bị thay đổi chính sách.
   - Độ chắc nhãn: cao / da-doc-entry-goc (nhãn do model gắn, chưa kiểm bằng dùng thật)
   - Đọc entry gốc: `agents/anbinh-travel-ops-analyst/skills/source-evaluation/SKILL.md`
+- **Cảnh báo:** agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup: Skill này tra web quy định hàng không rồi trả lời kèm miễn trừ. Trong OPC, kết quả tra CHỈ để soạn NHÁP cho người duyệt (L2); bot trả khách chỉ từ KB đã duyệt có ngày kiểm (GATES Luật vận hành 13).
+
+## Kiểm chú thích affiliate (khả năng riêng, không nằm trong 30 khả năng của thủ kho)
+
+- **Có trong kho:** `kho:agents/shorts-affiliate-system/skills/platform-disclosure-adapter` (bật nhãn nội dung AI theo từng nền tảng, chạy trước khi đăng) và `kho:agents/shorts-affiliate-system/skills/affiliate-disclosure-writer` (viết description và pinned comment có dòng công bố affiliate khi có link). Cả hai viết cho pipeline video ngắn (YouTube, TikTok, Reels); chưa kiểm cho bài Facebook dạng chữ/ảnh hay tin Zalo.
+- **Đây không phải kiểm tuân thủ luật:** hai skill trên viết và bật nhãn; không skill nào đối chiếu bài với FTC hay quy định quảng cáo Việt Nam.
+- **`compliance-gate` không thuộc nhóm này:** entry gốc chỉ chặn lặp cấu trúc script YouTube; không được dùng dấu "đã qua compliance-gate" thay cho kiểm chú thích.
+- **HỔNG:** kiểm quy định quảng cáo và affiliate (FTC, quy định quảng cáo Việt Nam). Chừng nào chưa có, người duyệt (CEO hoặc luật sư) kiểm bằng checklist: CHƯA CÓ — hỏi CEO
+- **Dòng đề xuất cho `catalog/GAP-LOG.md` (công cụ không tự ghi):** `| 2026-10-19 | kiểm quy định quảng cáo và affiliate (FTC, quy định quảng cáo Việt Nam) | trum-san-bay-opc | thu_kho tim; capability: ads; từ khoá: quy dinh quang cao affiliate ftc quy dinh | Agent Factory: kho có skill viết và bật nhãn công bố, không có skill kiểm tuân thủ quy định quảng cáo | mở |`
+
+## Luật ngành đi kèm khả năng `ticketing-aviation`
+
+- **Thông tin hàng không (giờ bay, hành lý, quy định, nhà ga):** bot chỉ trả lời khách bằng mục KB đã duyệt có ngày kiểm. Ngoài KB: skill tra cứu quy định hàng không (`aviation-policy-lookup`) chỉ để soạn NHÁP kèm nguồn và câu miễn trừ cho người duyệt (L2); bot KHÔNG trả thẳng kết quả tra web cho khách (GATES Luật vận hành 13).

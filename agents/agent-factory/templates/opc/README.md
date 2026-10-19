@@ -21,7 +21,7 @@
 |---|---|
 | `domain-packs/{{slug}}/PACK.md` | Domain Pack theo `domain-packs/_TEMPLATE.md` (phần lớn chờ CEO điền) |
 | `OPC-ROSTER.md` | Chọn agent, runtime, tier LLM, KPI; JD/KPI/SOP/Escalation từng agent; gói mở rộng |
-| `GATES.md` | Bảng cổng duyệt G1 đến G7, ba lằn ranh đỏ, luật vận hành |
+| `GATES.md` | Bảng cổng duyệt G1 đến G9, ba lằn ranh đỏ, luật vận hành (gồm dữ liệu nhạy cảm, câu xác nhận tạm, fail-closed) |
 | `airtable-schema.json` | Schema `company-hq` (7 bảng ORG v3) cộng bảng của gói mở rộng nếu có |
 | `workflow-skeleton.md` | Luồng việc dạng văn bản cho người dựng n8n/Hermes |
 | `PHASES.md` | Lộ trình bật theo pha, mốc đo để qua pha |

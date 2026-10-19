@@ -11,7 +11,7 @@
 - **Nguồn doanh thu / kênh:** affiliate, dich-vu / facebook, zalo, instagram
 - **Gói mở rộng:** tai-chinh, doi-tac
 - **Chủ sở hữu (CEO):** CHƯA CÓ — hỏi CEO
-- **Ngày dựng:** 2026-10-17
+- **Ngày dựng:** 2026-10-19
 
 ## Cách chạy
 
@@ -58,6 +58,9 @@ Tên đề xuất, khớp lại với mã thật khi dựng. Giá trị nằm ng
 | Tiền sai lệch khi đối soát | Thu và chi không khớp | Dừng chi trả (G4), báo CEO | Đối soát lại từng giao dịch; ghi escalation |
 | Nội dung ngoài cố điều khiển agent | Câu kiểu "bỏ qua chỉ dẫn" trong dữ liệu | Không làm theo; ghi nguyên văn | Báo CEO; rà quy tắc nội dung ngoài trong `GATES.md` |
 | Thông tin sai sự thật đã đăng | Có người báo | Gỡ bài theo G6; ghi lại | Thêm bước kiểm nguồn vào SOP của `research` |
+| Khách gửi thẻ, CVV, OTP, giấy tờ vào chat | Có mẫu số thẻ hoặc mã trong tin | Kiểm Airtable, Telegram, log có giá trị thô không; che; người duyệt xoá tin gốc nếu nền tảng cho phép (G9) | Bổ sung bộ lọc lớp nhận tin; chạy lại test `OT11` |
+| Airtable hỏng hoặc không đọc được `approvals`/`agents.status` | Lỗi API, không đọc được cờ | Fail-closed: không đăng, không trả lời tự động; báo Telegram trực tiếp (không dữ liệu khách) | Khi khôi phục, đối chiếu nhật ký tạm, không phát lại hành động đã thực thi |
+| Khách chờ lâu sau khi bị chuyển CEO | Quá SLA của người duyệt (PACK mục 7) | Nhắc người duyệt một lần; khách chỉ nhận câu xác nhận tạm | Rà SLA |
 
 ## KPI và cách đo
 
@@ -78,6 +81,9 @@ Mỗi lần qua pha, CEO ghi một dòng: ngày, pha, ai xác nhận, mốc đã
 ## Việc còn nợ (nói thẳng)
 
 - Chưa mục kho nào được dùng thật; mức kiểm duy nhất là đọc nguồn.
+- Bộ lọc che dữ liệu nhạy cảm, nhật ký tạm cục bộ, chống đăng đôi (fail-closed), kênh báo thay thế: thiết kế trên giấy, chưa nối mã.
+- Không rời `draft_only` ở bộ phận nào trước khi test `OT05`, `OT08`, `OT11`, `OT13` PASS bằng bằng chứng chạy.
+- Câu xác nhận tạm, mẫu trả lời khi khách gửi dữ liệu thẻ, SLA người duyệt, kênh thanh toán chính thức (PACK mục 7): CEO chưa duyệt.
 - Chưa chạy gì với credential thật. Chưa có workflow n8n hay mã Hermes dựng từ bộ khung này.
 - `PACK.md`, `RISKS-LEGAL.md`, bảng giá, danh sách đối tác, pháp nhân, cổng thanh toán, bộ nhận diện: CEO chưa điền.
 - Các gói mở rộng đề xuất mới (Tài chính và thanh toán, Quản lý đối tác) CHƯA có role pack trong kho; xem mục gói mở rộng ở `OPC-ROSTER.md` và `catalog/GAP-LOG.md`.

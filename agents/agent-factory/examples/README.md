@@ -1,12 +1,22 @@
 # Ví dụ dựng bằng chính CLI của Agent Factory
 
-> Hai ví dụ dưới đây do `tools/agent_factory.py` sinh ra với `tools/thu_kho.py` thật. Không sửa tay sau khi sinh (trừ README này và `KET-QUA-KIEM.md`).
+> Hai ví dụ dưới đây do `tools/agent_factory.py` sinh ra với `tools/thu_kho.py` thật. Không sửa tay sau khi sinh (trừ README này, `KET-QUA-KIEM.md`, `KET-QUA-HANH-VI.md` và `KET-QUA-HANH-VI-LAI.md`).
 > Trạng thái chung: **chưa duyệt, chưa spike, chưa chạy với credential thật.** Xem `KET-QUA-KIEM.md` để biết kết quả `kiem` thật và những chỗ sinh ra còn lệch.
 
 | Thư mục | Loại | Ghi chú |
 |---|---|---|
 | `facebook-channel-agent/` | Agent riêng lẻ | Đăng bài và trả lời bình luận Facebook, tự chủ L1, vessel Hermes, chế độ `draft_only` hai tuần đầu |
 | `trum-san-bay-opc/` | OPC | **DEMO dựng từ thiết kế NHÁP chưa duyệt** (`agents/trum-san-bay/OPC-DESIGN-NOTES.md`, dừng sau Phần 2 trên 5 phần). Không phải kế hoạch triển khai |
+
+## Hồ sơ kiểm
+
+| File | Nội dung |
+|---|---|
+| `KET-QUA-KIEM.md` | Đầu ra thật của `kiem` và `ban-giao` trên hai ví dụ (đã sinh lại 2026-10-19 sau khi vá khuôn) |
+| `KET-QUA-HANH-VI.md` | Lượt kiểm hành vi bằng mô phỏng lần đầu (45 tình huống) và các lỗ hổng thiết kế tìm được |
+| `KET-QUA-HANH-VI-LAI.md` | Chạy lại 9 tình huống của facebook-channel-agent trên tài liệu đã vá (vẫn là mô phỏng trên giấy) |
+
+Hai ví dụ này đã được SINH LẠI bằng CLI ngày 2026-10-19 sau khi vá khuôn (dữ liệu nhạy cảm của khách, câu xác nhận tạm, fail-closed, cổng cho tin gửi đối tác, trả lời công khai nhất quán, kiểm chú thích affiliate). Ngày trong hồ sơ vì thế là 2026-10-19.
 
 ## Lệnh đã dùng
 

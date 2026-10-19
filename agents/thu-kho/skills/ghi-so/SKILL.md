@@ -17,6 +17,8 @@ description: >
 - Chưa tra đủ (chưa thử `--ca-chua-nhan`, chưa đổi cách diễn đạt) → tra tiếp rồi mới ghi GAP
 
 ## Quy trình
+**Trước mọi dòng ghi:** truy vấn và ghi chú phải ĐÃ che dữ liệu nhạy cảm của khách (thẻ, CVV, OTP, mật khẩu, giấy tờ, số tài khoản thành `[ĐÃ ẨN: loại dữ liệu]`) và không chứa khoá/token. Dòng sổ lưu lâu và nhiều người đọc.
+
 ### GAP-LOG
 1. Đảm bảo đã: thử ≥ 2 cách diễn đạt, thử `--ca-chua-nhan`, bỏ ràng buộc mềm xem có ứng viên không.
 2. Tạo dòng: `python tools/thu_kho.py ghi-gap "<khả năng cần>" --du-an "<khách/dự án>" --ghi-chu "<vì sao chưa đủ>"`
@@ -30,6 +32,10 @@ description: >
 4. Được đồng ý → thêm `--ghi`.
 5. Sau 2 dòng "dùng được" cho cùng một mục, báo người duy trì kho để nâng nhãn từ "điểm đọc" sang "điểm dùng".
 
+## Dòng sai hoặc ghi dở
+- Dòng nhập sai: nối thêm một dòng đính chính ở cuối bảng, cột ghi chú ghi `đính chính dòng ngày X`. Không sửa, không xoá dòng cũ.
+- Dòng ghi dở do lỗi file: người duy trì kho xử lý; Thủ Kho không sửa.
+
 ## Ví dụ
 ```
 $ python tools/thu_kho.py ghi-gap "viết email lạnh tiếng Việt" --du-an "Khách sạn A" --ghi-chu "mục gắn nhãn chỉ có billionmail (máy chủ gửi mail), không có công cụ soạn"
@@ -41,4 +47,4 @@ $ python tools/thu_kho.py ghi-usage mcps/buffer-mcp --du-an "Fanpage Khách B" -
 
 ## PASS / FAIL
 - **PASS:** dòng đúng 6 cột như bảng gốc; chỉ nối cuối; kết quả hợp lệ; GAP có đủ "đã tra" và "vì sao chưa đủ"
-- **FAIL:** ghi USAGE cho thứ chưa dùng thật; bịa số giờ tiết kiệm; xoá/sửa dòng cũ; ghi khi người dùng chưa đồng ý
+- **FAIL:** ghi USAGE cho thứ chưa dùng thật; bịa số giờ tiết kiệm; xoá/sửa dòng cũ; ghi khi người dùng chưa đồng ý; dòng chứa dữ liệu nhạy cảm của khách hoặc khoá chưa che

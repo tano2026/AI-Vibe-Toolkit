@@ -3,7 +3,7 @@
   "phien_ban": "0.1",
   "kind": "opc",
   "slug": "trum-san-bay-opc",
-  "ngay": "2026-10-17",
+  "ngay": "2026-10-19",
   "thuong_hieu": "Trùm Sân Bay",
   "thu_kho": true,
   "agents": [
@@ -76,9 +76,13 @@
     "mcps/cloud-accounting-mcps",
     "repos/tradingagents",
     "agents/anbinh-travel-ops-analyst/skills/aviation-policy-lookup",
-    "agents/anbinh-travel-ops-analyst/skills/source-evaluation"
+    "agents/anbinh-travel-ops-analyst/skills/source-evaluation",
+    "agents/shorts-affiliate-system/skills/platform-disclosure-adapter",
+    "agents/shorts-affiliate-system/skills/affiliate-disclosure-writer"
   ],
-  "hong": [],
+  "hong": [
+    "kiểm quy định quảng cáo và affiliate (FTC, quy định quảng cáo Việt Nam)"
+  ],
   "env_vars": [
     "AIRTABLE_TOKEN",
     "AIRTABLE_BASE_HQ",
