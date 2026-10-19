@@ -31,7 +31,9 @@ def load_scene_templates() -> dict:
 
 def fill_scene(template: str, content: dict) -> str:
     """Thay {{field}} bằng giá trị thật. Xử lý riêng block lặp {{#stats}}...{{/stats}}."""
-    html = template
+    # Bỏ chú thích HTML trước: nếu chú thích nhắc tới {{#stats}} thì regex vòng lặp
+    # bên dưới sẽ coi đó là điểm mở và sinh chữ rác + để sót {{#stats}} trên video.
+    html = re.sub(r"<!--.*?-->", "", template, flags=re.S)
 
     # Block lặp {{#key}}...{{/key}} — dùng cho stats-grid
     for m in re.finditer(r"{{#(\w+)}}(.*?){{/\1}}", html, re.S):
@@ -96,7 +98,11 @@ def build(storyboard_path: str, output_path: str, viewport: str = "16x9"):
 </body></html>"""
 
     Path(output_path).write_text(full_html, encoding="utf-8")
-    print(f"Đã tạo {output_path} ({viewport}, {len(storyboard['scenes'])} scenes)")
+    msg = f"Đã tạo {output_path} ({viewport}, {len(storyboard['scenes'])} scenes)"
+    try:
+        print(msg)
+    except UnicodeEncodeError:  # console cp1252 (Windows) không in được tiếng Việt
+        print(msg.encode("ascii", "replace").decode("ascii"))
 
 
 if __name__ == "__main__":

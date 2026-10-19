@@ -1,0 +1,3 @@
+# Ép LF cho script chạy trên Linux/VPS; checkout Windows (autocrlf) làm bash -n hỏng
+*.sh text eol=lf
+*.py text eol=lf

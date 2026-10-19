@@ -84,8 +84,27 @@ từng agent rời rạc. Comment pipeline (`run_comment_pipeline`) cần
   code thêm bước overlay logo (ffmpeg/PIL) trước khi coi là "brand compliant" thật
 - ⚠️ Gemini free tier rate limit ~15 req/phút — đủ cho nhịp content hiện tại 
   nhưng nếu research batch nhiều bài cùng lúc, code đã có retry backoff cho 429
-- ⚠️ Toàn bộ code compile sạch nhưng CHƯA chạy với credential thật — bước 
-  tiếp theo là Phase 5 trong `deploy-checklist.md`
+- ✅ **Đã sửa sau lượt kiểm chạy mock** (xem `catalog/smoke/CODE-REPORT.md`; test ở
+  `agents/trum-san-bay/tests/`, chạy `python -m unittest discover -s agents/trum-san-bay/tests`):
+  - `llm_call` nay có thật trong `llm_router.py` (tier → model, Claude trực tiếp, còn lại qua
+    OmniRoute; `CostTracker` ghi chi phí mỗi lần gọi và chặn khi vượt `TSB_BUDGET_MONTHLY_USD`,
+    mặc định $10). `import orchestrator` chạy được. Giá model trong `PRICING_PER_MTOK` là
+    ƯỚC TÍNH, chỉnh theo bảng giá thật.
+  - `publish_post_safe`: 0 platform cấu hình → `config_error` (không ghi Airtable, không báo
+    "đã đăng"); Postiz `type: draft` (mặc định, đổi bằng `POSTIZ_POST_TYPE=now`) → trạng thái
+    `draft_only` / Airtable `DRAFT_IN_POSTIZ`, KHÔNG ghi `POSTED`; backoff không ngủ sau lần cuối;
+    `max_retries=0` hết `UnboundLocalError`; thông báo lỗi 401 đúng platform; state ghi UTF-8;
+    `import agent` chạy được trên Windows (không có `fcntl` → dùng `msvcrt`, không có cả hai →
+    no-op có cảnh báo). Đường dẫn state đổi được bằng `TSB_STATE_DIR`.
+  - Bình luận: thiếu/sai `label` → `NEEDS_REVIEW` + người duyệt, không làm hỏng cả lô; id bình
+    luận TikTok dùng SHA-1 ổn định (không `hash()`); `run_brand_check` không còn hardcode màu
+    rỗng/`has_logo=False`: đọc từ kết quả Visual, thiếu thì trả `unchecked`.
+    (Cột `label` Airtable cần chấp nhận giá trị `NEEDS_REVIEW` nếu là single-select.)
+- ⚠️ **VẪN CHƯA chạy với credential thật.** Mọi bằng chứng trên là mock (Airtable/Postiz/LLM
+  giả). Chưa kiểm: `flock`/`msvcrt` thật, định dạng phản hồi thật của Airtable, Postiz (field
+  `type`, giá trị `now`/`schedule`), Meta, TikTok, YouTube, Gemini, Apify, OmniRoute/Anthropic,
+  công thức lọc Airtable, giá token thật. Brand Check vẫn chưa overlay logo tự động.
+  Bước tiếp theo là Phase 5 trong `deploy-checklist.md`.
 
 ## Chạy thử nhanh (sau khi có đủ credential)
 

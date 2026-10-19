@@ -27,7 +27,23 @@ sudo dnf install -y git curl wget unzip tmux htop nano 2>/dev/null || \
 # ============================================================
 log "Bước 2: Cài Node.js 22..."
 if ! command -v node &>/dev/null || [[ $(node -v | cut -d. -f1 | tr -d 'v') -lt 20 ]]; then
-  curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+  # KHÔNG `curl | sudo bash`: tải về file, để người đọc rồi mới chạy bằng sudo.
+  # URL ghim major 22 (setup_22.x). Sau khi đọc file, chạy lại với NODESOURCE_REVIEWED=1
+  # (hoặc trả lời y khi được hỏi). Có thể thay bằng cài Node từ gói của distro nếu muốn.
+  NODESOURCE_SCRIPT="$(mktemp /tmp/nodesource-setup-XXXXXX.sh)"
+  curl -fsSL -o "$NODESOURCE_SCRIPT" https://rpm.nodesource.com/setup_22.x
+  echo "sha256: $(sha256sum "$NODESOURCE_SCRIPT" | cut -d' ' -f1)"
+  echo "Đã tải script NodeSource về $NODESOURCE_SCRIPT — hãy ĐỌC nó trước khi chạy:"
+  echo "  less $NODESOURCE_SCRIPT"
+  if [ "${NODESOURCE_REVIEWED:-0}" != "1" ]; then
+    if [ -r /dev/tty ]; then
+      read -r -p "Đã đọc và đồng ý chạy bằng sudo? [y/N] " ANS < /dev/tty
+      [ "$ANS" = "y" ] || [ "$ANS" = "Y" ] || err "Dừng: chưa xác nhận script NodeSource. Đọc xong thì chạy lại với NODESOURCE_REVIEWED=1"
+    else
+      err "Không có terminal để xác nhận. Đọc $NODESOURCE_SCRIPT rồi chạy lại với NODESOURCE_REVIEWED=1"
+    fi
+  fi
+  sudo bash "$NODESOURCE_SCRIPT"
   sudo dnf install -y nodejs 2>/dev/null || sudo yum install -y nodejs
 fi
 node -v && npm -v
@@ -69,7 +85,7 @@ openclaw --version && log "OpenClaw ready"
 log "Bước 6: Cài Hermes Agent..."
 npm install -g hermes-agent 2>/dev/null || \
   npm install -g @nousresearch/hermes-agent 2>/dev/null || \
-  warn "Hermes cần cài thủ công — xem deploy/hermes-setup.md"
+  warn "Hermes cần cài thủ công (deploy/hermes-setup.md CHƯA có trong kho — dùng tài liệu của Hermes)"
 
 # ============================================================
 # BƯỚC 7: Cài ClawHub + Skills
@@ -131,7 +147,10 @@ fi
 # ============================================================
 log "Bước 10: Cài PM2..."
 npm install -g pm2
-pm2 startup systemd -u $USER --hp $HOME | tail -1 | bash 2>/dev/null || warn "PM2 startup cần sudo"
+# Không pipe thẳng vào bash: pm2 in ra 1 lệnh sudo, in lại cho người đọc rồi tự chạy.
+PM2_STARTUP_CMD="$(pm2 startup systemd -u "$USER" --hp "$HOME" 2>/dev/null | tail -1)"
+warn "Để PM2 tự chạy khi reboot, đọc rồi chạy tay lệnh sau:"
+echo "  $PM2_STARTUP_CMD"
 log "PM2 ready"
 
 # ============================================================

@@ -2,7 +2,36 @@
 // Chạy: pm2 start pm2.config.js
 // Monitor: pm2 status | pm2 logs | pm2 monit
 
-require('dotenv').config({ path: `${process.env.HOME}/ai-vibe-toolkit/.env` });
+// Đọc .env bằng mã thuần (fs) — KHÔNG dùng gói npm `dotenv` vì setup-vps.sh
+// chỉ cài `python-dotenv`; require('dotenv') sẽ lỗi ngay khi `pm2 start`.
+// Quy tắc giống dotenv: bỏ dòng trống/#, cho phép `export KEY=...`, bỏ cặp nháy
+// bao ngoài, bỏ chú thích ` # ...` ở giá trị không nháy, KHÔNG ghi đè biến đã có.
+function loadEnvFile(file) {
+  let text;
+  try {
+    text = require('fs').readFileSync(file, 'utf8');
+  } catch (e) {
+    console.warn(`[pm2.config] Không đọc được ${file}: ${e.code || e.message}`);
+    return;
+  }
+  for (const rawLine of text.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const m = line.match(/^(?:export\s+)?([\w.-]+)\s*=\s*(.*)$/);
+    if (!m) continue;
+    const key = m[1];
+    let val = m[2];
+    const q = val[0];
+    if ((q === '"' || q === "'") && val.lastIndexOf(q) > 0) {
+      val = val.slice(1, val.lastIndexOf(q));
+    } else {
+      val = val.replace(/\s+#.*$/, '').trim();
+    }
+    if (process.env[key] === undefined) process.env[key] = val;
+  }
+}
+
+loadEnvFile(`${process.env.HOME}/ai-vibe-toolkit/.env`);
 
 module.exports = {
   apps: [

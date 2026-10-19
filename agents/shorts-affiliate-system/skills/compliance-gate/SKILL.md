@@ -43,11 +43,17 @@ commentary_ratio : % câu trong script là góc nhìn/phân tích riêng (không
 
 ### Bước 2 — So với 15 video gần nhất (Airtable `fingerprint_history`)
 ```python
+def flatten(list_of_lists):
+    return [x for sub in list_of_lists for x in sub]
+
 def check_compliance(new_fp, history):
+    # QUY ƯỚC THỨ TỰ: history lấy từ get_fingerprint_history() (Hermes, bên dưới) đã
+    # sort timestamp GIẢM DẦN => history[0] là video MỚI NHẤT. 5 video gần nhất là
+    # history[:5] (history[-5:] sẽ lấy nhầm 5 video CŨ NHẤT trong 15).
     same_structure = sum(1 for h in history if h['structure_type'] == new_fp['structure_type'])
     same_hook = sum(1 for h in history if h['hook_type'] == new_fp['hook_type'])
     claim_overlap = jaccard_similarity(new_fp['unique_claims'],
-                                        flatten([h['unique_claims'] for h in history[-5:]]))
+                                        flatten([h['unique_claims'] for h in history[:5]]))
 
     # Ngưỡng chặn — điều chỉnh được, mặc định bảo thủ
     if same_structure >= 8:  # quá 8/15 video cùng structure_type
@@ -125,6 +131,7 @@ def jaccard_similarity(list_a, list_b):
     return len(set_a & set_b) / len(set_a | set_b)
 
 # check_compliance() — xem thuật toán Bước 2 ở trên, copy thẳng vào
+# (history trả về mới nhất ĐẦU danh sách — check_compliance dùng history[:5])
 ```
 
 ### OpenClaw

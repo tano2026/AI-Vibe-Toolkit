@@ -8,7 +8,13 @@ import json
 import base64
 import time
 import os
+import sys
+import warnings
 from datetime import datetime
+
+# llm_call / ngân sách nằm ở llm_router.py (hiện thực của skills/llm-router/SKILL.md)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from llm_router import llm_call, BudgetExceededError  # noqa: E402,F401
 
 # === CONFIG (set qua pm2 env) ===
 FB_PAGE_ID = os.environ.get("FB_PAGE_ID")
@@ -107,6 +113,11 @@ def handle_command(cmd, args=""):
             # telegram_alert_fn thật sẽ được OpenClaw wire vào lúc gọi hàm này
             # (Hermes không tự gửi Telegram trực tiếp — trả message, OpenClaw gửi)
             result = publish_post_safe(args, telegram_alert_fn=None)
+            if result.get("status") == "config_error":
+                return f"🔴 Chưa đăng được: {result.get('error')}"
+            if result.get("status") == "draft_only":
+                return ("📝 Mới tạo bản nháp trong Postiz "
+                        f"({', '.join(result.get('drafted_platforms', []))}), chưa đăng thật")
             posted = len(result.get("posted_platforms", []))
             failed = result.get("failed_platforms", {})
             msg = f"🚀 Đã đăng lên {posted} platform"
@@ -138,20 +149,47 @@ if __name__ == "__main__":
 
 # === HARNESS — Progress persistence + Pipeline gate (xem HARNESS.md) ===
 
-import fcntl
 import time as _time
 
-STATE_FILE = "/opt/trum-san-bay/state/progress.json"
-STATE_LOCK = "/opt/trum-san-bay/state/progress.lock"
+# fcntl chỉ có trên Linux/macOS (đích triển khai là VPS Linux). Trên Windows
+# dùng msvcrt; không có cả hai thì khoá file là no-op và có cảnh báo.
+try:
+    import fcntl
+except ImportError:  # Windows
+    fcntl = None
+    try:
+        import msvcrt
+    except ImportError:  # nền tảng lạ
+        msvcrt = None
+
+STATE_DIR = os.environ.get("TSB_STATE_DIR", "/opt/trum-san-bay/state")
+STATE_FILE = os.path.join(STATE_DIR, "progress.json")
+STATE_LOCK = os.path.join(STATE_DIR, "progress.lock")
 
 class PipelineGateError(Exception):
     pass
 
-class BudgetExceededError(Exception):
-    def __init__(self, current, limit):
-        self.current = current
-        self.limit = limit
-        super().__init__(f"Budget exceeded: ${current:.2f} / ${limit:.2f}")
+
+def _lock_file(lockfile):
+    """Khoá độc quyền; trả về hàm mở khoá."""
+    if fcntl is not None:
+        fcntl.flock(lockfile, fcntl.LOCK_EX)
+        return lambda: fcntl.flock(lockfile, fcntl.LOCK_UN)
+    if msvcrt is not None:
+        lockfile.seek(0)
+        while True:
+            try:
+                msvcrt.locking(lockfile.fileno(), msvcrt.LK_LOCK, 1)
+                break
+            except OSError:
+                continue  # LK_LOCK tự thử 10 lần/10 giây rồi ném OSError; thử tiếp
+        def _unlock():
+            lockfile.seek(0)
+            msvcrt.locking(lockfile.fileno(), msvcrt.LK_UNLCK, 1)
+        return _unlock
+    warnings.warn("Không có fcntl/msvcrt: khoá state là no-op, "
+                  "đừng chạy 2 instance cùng lúc", RuntimeWarning)
+    return lambda: None
 
 
 def _with_state_lock(fn):
@@ -162,19 +200,19 @@ def _with_state_lock(fn):
     """
     def wrapper(*args, **kwargs):
         os.makedirs(os.path.dirname(STATE_LOCK), exist_ok=True)
-        with open(STATE_LOCK, "w") as lockfile:
-            fcntl.flock(lockfile, fcntl.LOCK_EX)
+        with open(STATE_LOCK, "a+", encoding="utf-8") as lockfile:
+            unlock = _lock_file(lockfile)
             try:
                 return fn(*args, **kwargs)
             finally:
-                fcntl.flock(lockfile, fcntl.LOCK_UN)
+                unlock()
     return wrapper
 
 
 def _load_state():
     if not os.path.exists(STATE_FILE):
         return {}
-    with open(STATE_FILE) as f:
+    with open(STATE_FILE, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -189,7 +227,7 @@ def save_state(content_id, step, status, extra=None):
         "extra": extra or {}
     }
     os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
-    with open(STATE_FILE, "w") as f:
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
 
 
@@ -239,21 +277,24 @@ def _retry_call(platform, fn, max_retries=3, base_backoff=5):
     """
     Wrapper retry cho MỌI publish call — theo bảng lỗi trong api-error-handler.
     fn phải trả về (success, response, error_code).
+    max_retries = tổng số lần thử (tối thiểu 1). Chỉ ngủ GIỮA các lần thử,
+    không ngủ sau lần cuối (5s + 25s = 30s thay vì 155s với 3 lần).
     """
-    attempt = 0
-    while attempt < max_retries:
+    attempts = max(1, max_retries)
+    error_code = None
+    response = None
+    for attempt in range(attempts):
         success, response, error_code = fn()
         if success:
             return {"status": "success", "response": response}
 
         retryable = RETRYABLE_ERRORS.get(platform, [])
-        if error_code in retryable:
+        if error_code not in retryable:
+            return {"status": "failed", "error_code": error_code, "response": response}
+        if attempt + 1 < attempts:
             _time.sleep(base_backoff * (5 ** attempt))
-            attempt += 1
-            continue
-        return {"status": "failed", "error_code": error_code, "response": response}
 
-    return {"status": "failed_after_retries", "error_code": error_code}
+    return {"status": "failed_after_retries", "error_code": error_code, "response": response}
 
 
 def _publish_facebook_postiz(fields):
@@ -267,9 +308,13 @@ def _publish_facebook_postiz(fields):
     POSTIZ_API_KEY thật, chạy thử 1 lần và chỉnh lại field nếu response lỗi
     schema — không giả định code này chạy đúng ngay lần đầu.
     """
+    # POSTIZ_POST_TYPE: "draft" (mặc định, an toàn — chỉ tạo bản nháp trong Postiz,
+    # KHÔNG phải đã đăng) | "now" | "schedule". Chỉ "now" mới được tính là đã đăng.
+    post_type = os.environ.get("POSTIZ_POST_TYPE", "draft")
+
     def call():
         payload = {
-            "type": "draft",  # đổi "now"/"schedule" tùy Postiz hỗ trợ khi test thật
+            "type": post_type,
             "content": fields.get("caption_fb"),
             "integrations": [POSTIZ_FB_INTEGRATION_ID],
         }
@@ -281,6 +326,9 @@ def _publish_facebook_postiz(fields):
             {"Authorization": f"Bearer {POSTIZ_API_KEY}"}
         )
         if result.get("id") or result.get("status") == "success":
+            if post_type == "draft":
+                # đánh dấu để publish_post_safe không ghi POSTED cho một bản nháp
+                result = {**result, "_draft_only": True}
             return True, result, None
         return False, result, result.get("error_code") or result.get("status")
     return _retry_call("facebook", call)
@@ -436,10 +484,27 @@ ERROR_MESSAGES = {
     368: "Nội dung bị Facebook flag — cần review thủ công",
     "access_token_invalid": "Token TikTok hết hạn — cần re-auth",
     "video_format_invalid": "Video TikTok lỗi format/thiếu URL public",
-    401: "Token YouTube hết hạn — cần refresh OAuth, hoặc Postiz API key sai/hết hạn",
-    403: "YouTube hết quota API hôm nay hoặc thiếu permission",
+    401: "Token/API key hết hạn hoặc sai (401) — cần refresh hoặc cấp lại",
+    403: "Hết quota API hôm nay hoặc thiếu permission (403)",
     "postiz_no_integration": "Chưa connect Facebook Page trong Postiz — vào postiz.com connect lại",
 }
+
+# Thông điệp riêng theo (platform, mã) — ưu tiên hơn ERROR_MESSAGES chung
+PLATFORM_ERROR_MESSAGES = {
+    ("youtube", 401): "Token YouTube hết hạn — cần refresh OAuth",
+    ("youtube", 403): "YouTube hết quota API hôm nay hoặc thiếu permission",
+    ("facebook", 401): "Postiz API key sai/hết hạn (hoặc Page chưa được connect) — kiểm POSTIZ_API_KEY",
+    ("facebook_graph_direct", 401): "Token Facebook hết hạn — cần refresh",
+    ("instagram", 401): "Token Instagram hết hạn — cần refresh",
+    ("tiktok", 401): "Token TikTok hết hạn — cần re-auth",
+}
+
+
+def error_message(platform, error_code):
+    """Thông điệp lỗi đúng platform, rơi về bảng chung rồi 'không xác định'."""
+    return (PLATFORM_ERROR_MESSAGES.get((platform, error_code))
+            or ERROR_MESSAGES.get(error_code)
+            or f"Lỗi không xác định: {error_code}")
 
 
 def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
@@ -474,13 +539,29 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
     # if os.environ.get("YOUTUBE_REFRESH_TOKEN"):
     #     configured_platforms.append("youtube")
 
+    # Không có platform nào được cấu hình = lỗi cấu hình, KHÔNG phải "đã đăng xong".
+    # Không ghi POSTED, không gửi tin "đã đăng"; record vẫn APPROVED để chạy lại
+    # sau khi sửa env.
+    if not configured_platforms:
+        msg = ("Chưa cấu hình platform nào (cần POSTIZ_API_KEY + POSTIZ_FB_INTEGRATION_ID) "
+               "— KHÔNG đăng gì")
+        save_state(airtable_record_id, "publish", "config_error", {"error": msg})
+        if telegram_alert_fn:
+            telegram_alert_fn(f"🔴 Publish CONFIG ERROR — {airtable_record_id}\n{msg}")
+        return {"status": "config_error", "error": msg, "post_ids": {},
+                "posted_platforms": [], "failed_platforms": {}, "drafted_platforms": []}
+
     # Idempotency — check đã đăng platform nào rồi (từ progress.json)
     state = _load_state().get(airtable_record_id, {})
-    already_posted = state.get("extra", {}).get("posted_platforms", [])
-    already_failed = state.get("extra", {}).get("failed_platforms", {})
+    already_posted = list(state.get("extra", {}).get("posted_platforms", []))
+    already_failed = dict(state.get("extra", {}).get("failed_platforms", {}))
+    drafted = []
 
-    save_state(airtable_record_id, "publish", "in_progress",
-               {"posted_platforms": already_posted, "failed_platforms": already_failed})
+    def _extra():
+        return {"posted_platforms": already_posted, "failed_platforms": already_failed,
+                "drafted_platforms": drafted}
+
+    save_state(airtable_record_id, "publish", "in_progress", _extra())
 
     post_ids = {}
     newly_failed = {}
@@ -493,14 +574,18 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
         result = publisher_fn(fields)
 
         if result["status"] == "success":
-            post_id = result["response"].get("id") or result["response"].get("publish_id")
+            resp = result["response"]
+            post_id = resp.get("id") or resp.get("publish_id")
             post_ids[platform] = post_id
-            already_posted.append(platform)
-            save_state(airtable_record_id, "publish", "in_progress",
-                       {"posted_platforms": already_posted, "failed_platforms": already_failed})
+            already_failed.pop(platform, None)
+            if resp.get("_draft_only"):
+                drafted.append(platform)  # chỉ là bản nháp: KHÔNG tính là đã đăng
+            else:
+                already_posted.append(platform)
+            save_state(airtable_record_id, "publish", "in_progress", _extra())
         else:
             error_code = result.get("error_code")
-            message = ERROR_MESSAGES.get(error_code, f"Lỗi không xác định: {error_code}")
+            message = error_message(platform, error_code)
             newly_failed[platform] = message
             already_failed[platform] = message
             if telegram_alert_fn:
@@ -511,20 +596,32 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
 
         _time.sleep(1)  # tránh burst request liên tiếp giữa các platform
 
-    all_done = len(already_posted) == len(configured_platforms)
-    final_status = "success" if all_done else ("partial" if already_posted else "failed")
-    save_state(airtable_record_id, "publish", final_status,
-               {"posted_platforms": already_posted, "failed_platforms": already_failed})
+    all_done = all(p in already_posted for p in configured_platforms)
+    if all_done:
+        final_status = "success"
+    elif already_posted:
+        final_status = "partial"
+    elif drafted and not already_failed:
+        final_status = "draft_only"
+    else:
+        final_status = "failed"
+    save_state(airtable_record_id, "publish", final_status, _extra())
 
+    airtable_status = {"success": "POSTED", "draft_only": "DRAFT_IN_POSTIZ"}.get(
+        final_status, "PARTIAL_FAIL")
     airtable_update("content_queue", airtable_record_id, {
-        "status": "POSTED" if all_done else "PARTIAL_FAIL",
+        "status": airtable_status,
         "post_ids": json.dumps(post_ids),
-        "publish_errors": json.dumps(already_failed) if already_failed else ""
+        "publish_errors": json.dumps(already_failed, ensure_ascii=False) if already_failed else ""
     })
 
     if telegram_alert_fn:
         if all_done:
             telegram_alert_fn(f"✅ {airtable_record_id}: đã đăng thành công {len(already_posted)} platform")
+        elif final_status == "draft_only":
+            telegram_alert_fn(
+                f"📝 {airtable_record_id}: mới tạo BẢN NHÁP trên {', '.join(drafted)} "
+                f"(POSTIZ_POST_TYPE=draft) — chưa đăng thật")
         else:
             telegram_alert_fn(
                 f"⚠️ {airtable_record_id}: {len(already_posted)}/{len(configured_platforms)} platform "
@@ -535,7 +632,8 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
         "status": final_status,
         "post_ids": post_ids,
         "posted_platforms": already_posted,
-        "failed_platforms": already_failed
+        "failed_platforms": already_failed,
+        "drafted_platforms": drafted,
     }
 
 
@@ -543,13 +641,13 @@ def publish_post_safe(airtable_record_id, telegram_alert_fn=None):
 # Facebook long-lived token sống 60 ngày, không cần refresh tự động —
 # chỉ cần cảnh báo trước hạn (đã có trong check_token_health bên dưới).
 
-TOKEN_CACHE_FILE = "/opt/trum-san-bay/state/tokens.json"
+TOKEN_CACHE_FILE = os.path.join(STATE_DIR, "tokens.json")
 
 
 def _load_token_cache():
     if not os.path.exists(TOKEN_CACHE_FILE):
         return {}
-    with open(TOKEN_CACHE_FILE) as f:
+    with open(TOKEN_CACHE_FILE, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -558,8 +656,8 @@ def _save_token_cache(platform, access_token, expires_at):
     cache = _load_token_cache()
     cache[platform] = {"access_token": access_token, "expires_at": expires_at}
     os.makedirs(os.path.dirname(TOKEN_CACHE_FILE), exist_ok=True)
-    with open(TOKEN_CACHE_FILE, "w") as f:
-        json.dump(cache, f, indent=2)
+    with open(TOKEN_CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
 def get_youtube_access_token():

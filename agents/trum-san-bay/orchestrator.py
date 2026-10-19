@@ -7,10 +7,14 @@ mỗi agent chỉ tồn tại như code mẫu rời rạc trong từng SKILL.md.
 Import agent.py để dùng lại các hàm nền (api_call, airtable_*, llm_call,
 publish_post_safe, token refresh...) — file này chỉ lo phần ĐIỀU PHỐI.
 """
+import hashlib
 import json
 import os
+import sys
 import time
 from datetime import datetime, timedelta
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from agent import (
     api_call, airtable_create, airtable_update, airtable_list,
@@ -471,22 +475,50 @@ ALLOWED_COLORS = ["#0A1628", "#1A3A5C", "#FFD700", "#FFFFFF", "#8A96A3", "#E6394
 
 def run_brand_check(asset_metadata):
     """
-    asset_metadata: {"colors_used": [...], "font": "...", "has_logo": bool,
-                      "logo_position": "..."}
+    asset_metadata: {"colors_used": [...] | None, "font": "..." | None,
+                      "has_logo": bool | None, "logo_position": "..." | None}
+    Giá trị None/vắng = CHƯA KIỂM (không giả định sai hay đúng); chỉ giá trị có
+    thật mới bị chấm. Trả "unchecked" liệt kê phần chưa kiểm và "fully_checked".
+    "passed" = không có vi phạm trong phần ĐÃ kiểm — đọc kèm "fully_checked".
     Rule-based — KHÔNG gọi LLM, chạy tức thời.
     """
     issues = []
-    for color in asset_metadata.get("colors_used", []):
-        if color.upper() not in ALLOWED_COLORS:
-            issues.append(f"Màu {color} không thuộc bảng màu TSB")
-    if asset_metadata.get("font") not in ["Be Vietnam Pro", "Inter"]:
-        issues.append(f"Font sai chuẩn: {asset_metadata.get('font')}")
-    if not asset_metadata.get("has_logo"):
-        issues.append("Thiếu logo/watermark")
-    if asset_metadata.get("logo_position") != "bottom-right":
-        issues.append("Logo sai vị trí")
+    unchecked = []
 
-    return {"passed": len(issues) == 0, "issues": issues}
+    colors = asset_metadata.get("colors_used")
+    if colors is None:
+        unchecked.append("colors")
+    else:
+        for color in colors:
+            if color.upper() not in ALLOWED_COLORS:
+                issues.append(f"Màu {color} không thuộc bảng màu TSB")
+
+    font = asset_metadata.get("font")
+    if font is None:
+        unchecked.append("font")
+    elif font not in ["Be Vietnam Pro", "Inter"]:
+        issues.append(f"Font sai chuẩn: {font}")
+
+    has_logo = asset_metadata.get("has_logo")
+    if has_logo is None:
+        unchecked.append("logo")
+    elif not has_logo:
+        issues.append("Thiếu logo/watermark")
+    else:
+        pos = asset_metadata.get("logo_position")
+        if pos is None:
+            unchecked.append("logo_position")
+        elif pos != "bottom-right":
+            issues.append("Logo sai vị trí")
+
+    return {"passed": len(issues) == 0, "issues": issues,
+            "unchecked": unchecked, "fully_checked": not unchecked}
+
+
+def _stable_id(*parts):
+    """Băm ổn định giữa các lần chạy (hash() của Python đổi theo PYTHONHASHSEED)."""
+    raw = "\x1f".join(str(p) for p in parts).encode("utf-8")
+    return hashlib.sha1(raw).hexdigest()[:16]
 
 
 # ============================================================
@@ -568,17 +600,23 @@ def run_weekly_content_pipeline(telegram_notify_fn=None):
         # KHÔNG có logo/watermark tự động — cần overlay bằng ffmpeg/PIL trước
         # khi check pass. Ở đây validate metadata cơ bản, phần overlay thật
         # (thêm logo góc dưới phải) cần code riêng theo skill brand-design-system.
+        # Metadata lấy từ kết quả Visual (nếu có) hoặc cấu hình; thứ nào chưa biết
+        # thì để None = CHƯA KIỂM, không giả định "không có logo / không có màu".
         brand_result = run_brand_check({
-            "colors_used": [], "font": "Be Vietnam Pro",
-            "has_logo": False,  # TODO: overlay logo trước, hiện ảnh raw chưa có
-            "logo_position": "bottom-right"
+            "colors_used": visual_result.get("colors_used"),
+            "font": os.environ.get("TSB_BRAND_FONT", "Be Vietnam Pro"),
+            "has_logo": visual_result.get("has_logo"),
+            "logo_position": visual_result.get("logo_position"),
         })
-        if not brand_result["passed"]:
-            log.append(f"Brand check flag {content_id}: {brand_result['issues']} — cần overlay logo trước khi APPROVED")
-            # Không chặn cứng pipeline — vẫn cho qua nhưng flag để người review biết thiếu logo
+        if not brand_result["passed"] or not brand_result["fully_checked"]:
+            notes = list(brand_result["issues"])
+            if brand_result["unchecked"]:
+                notes.append("CHƯA KIỂM: " + ", ".join(brand_result["unchecked"]))
+            log.append(f"Brand check flag {content_id}: {notes} — người review cần xem tay")
+            # Không chặn cứng pipeline — vẫn cho qua nhưng flag để người review biết
             airtable_update("content_queue", content_id, {
                 "status": "ASSET_APPROVED",
-                "brand_check_issues": json.dumps(brand_result["issues"])
+                "brand_check_issues": json.dumps(notes, ensure_ascii=False)
             })
         else:
             airtable_update("content_queue", content_id, {"status": "ASSET_APPROVED"})
@@ -604,6 +642,29 @@ def run_weekly_content_pipeline(telegram_notify_fn=None):
 # ⑦⑧ COMMENT MONITOR + SENTIMENT + REPLY — chạy mỗi 2h
 # ============================================================
 
+VALID_LABELS = ["URGENT_COMPLAINT", "QUESTION", "PURCHASE_INTENT", "POSITIVE",
+                "NEGATIVE_MILD", "SPAM", "IRRELEVANT"]
+UNCLASSIFIED_LABEL = "NEEDS_REVIEW"  # LLM trả thiếu/sai label -> người xem, không bỏ cả lô
+
+
+def _try_llm_json(prompt, tier, max_tokens):
+    """llm_call_json nhưng JSON hỏng/None thì trả None; lỗi ngân sách/mạng vẫn bay ra."""
+    try:
+        return llm_call_json(prompt, tier=tier, max_tokens=max_tokens)
+    except (json.JSONDecodeError, TypeError, ValueError):
+        return None
+
+
+def _safe_classification(raw):
+    """Chuẩn hoá phản hồi phân loại; thiếu/sai label -> NEEDS_REVIEW, priority P2."""
+    if not isinstance(raw, dict) or raw.get("label") not in VALID_LABELS:
+        return {"label": UNCLASSIFIED_LABEL, "priority": "P2", "confidence": 0.0,
+                "suggested_action": "LLM không trả label hợp lệ — người xem tay"}
+    out = dict(raw)
+    out.setdefault("priority", "P3")
+    return out
+
+
 def run_comment_pipeline(fetch_comments_fn, telegram_alert_fn=None):
     """
     fetch_comments_fn: hàm lấy comment mới từ Meta/TikTok/YouTube API — 
@@ -625,29 +686,35 @@ Trả JSON: {{"label": "URGENT_COMPLAINT|QUESTION|PURCHASE_INTENT|POSITIVE|NEGAT
 "priority": "P1|P2|P3|P4", "confidence": 0.0-1.0, "suggested_action": "..."}}
 Chỉ JSON.
 """
-        classification = llm_call_json(classify_prompt, tier="cheap", max_tokens=300)
+        classification = _safe_classification(
+            _try_llm_json(classify_prompt, tier="cheap", max_tokens=300)
+        )
+        label = classification["label"]
 
-        if classification["label"] == "URGENT_COMPLAINT":
+        if label == "URGENT_COMPLAINT":
             urgent_count += 1
 
         reply_result = None
-        if classification["label"] not in ["SPAM", "IRRELEVANT"]:
+        if label not in ["SPAM", "IRRELEVANT"]:
             reply_prompt = f"""
 Mày là Trùm Sân Bay, trả lời comment thật, NGẮN GỌN (1-2 câu), không văn PR:
 Comment: "{c['text']}"
-Label: {classification['label']}
+Label: {label}
 Trả JSON: {{"reply_text": "...", "needs_human_review": true/false}}
 Chỉ JSON.
 """
-            reply_result = llm_call_json(reply_prompt, tier="creative", max_tokens=300)
-            if classification["label"] == "URGENT_COMPLAINT":
+            reply_result = _try_llm_json(reply_prompt, tier="creative", max_tokens=300)
+            if not isinstance(reply_result, dict):
+                reply_result = {"reply_text": "", "needs_human_review": True}
+            if label in ("URGENT_COMPLAINT", UNCLASSIFIED_LABEL):
                 reply_result["needs_human_review"] = True
 
         airtable_create("comment_queue", {
             "comment_id": c["id"], "platform": c["platform"], "comment_text": c["text"],
-            "label": classification["label"], "priority": classification["priority"],
-            "draft_reply": reply_result["reply_text"] if reply_result else "",
-            "needs_human_review": reply_result.get("needs_human_review", True) if reply_result else False,
+            "label": label, "priority": classification["priority"],
+            "draft_reply": reply_result.get("reply_text", "") if reply_result else "",
+            "needs_human_review": (reply_result.get("needs_human_review", True)
+                                   if reply_result else label == UNCLASSIFIED_LABEL),
             "status": "PENDING"
         })
 
@@ -755,7 +822,7 @@ def _fetch_tiktok_comments(since_minutes=120):
             data = json.loads(urllib.request.urlopen(req, timeout=60).read())
             for c in data:
                 comments.append({
-                    "id": c.get("cid", str(hash(c.get("text", "")))),
+                    "id": c.get("cid") or _stable_id("tiktok", tiktok_id, c.get("text", "")),
                     "platform": "tiktok", "text": c.get("text", ""),
                     "author": c.get("uniqueId", "unknown"),
                     "post_id": tiktok_id, "post_context": ""
