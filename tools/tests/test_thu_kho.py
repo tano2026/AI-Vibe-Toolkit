@@ -173,6 +173,40 @@ class TraKho(unittest.TestCase):
         self.assertIn("social-media", [c["capability"] for c in tk.phan_tich_truy_van("đăng bài facebook fanpage")["capabilities"]])
 
 
+class TruyVanZalo(unittest.TestCase):
+    """Truy van Zalo phai dua guide/playbook Zalo that (ten co 'zalo') len top 3, khong bi
+    sentiment-classifier / chatwoot (chi trung capability customer-support) day xuong."""
+    GUIDE = "agents/company/skills/zalo-channel-connection-guide"
+    PLAYBOOK = "skills/zalo-oa-du-lich-luu-tru-playbook"
+
+    def _top3(self, q):
+        return [r["id"] for r in tk.search(q, top=3)]
+
+    def test_zalo_co_dau_va_khong_dau_len_top3(self):
+        for q in ("bot Zalo chăm sóc khách", "bot zalo cham soc khach", "tích hợp zalo OA",
+                  "tich hop zalo oa", "zalo oa"):
+            top = self._top3(q)
+            self.assertIn(self.GUIDE, top, (q, top))
+            self.assertIn(self.PLAYBOOK, top, (q, top))
+
+    def test_ten_rieng_nen_tang_o_ten_thang_confidence_cao_hon(self):
+        # muc co 'zalo' o ten (confidence vua) phai dung truoc muc chi trung capability chung (confidence cao)
+        d = _kho_gia({
+            "repos/chung": ({"ten": "generic helpdesk", "capability": "customer-support", "confidence": "cao",
+                             "curation_status": "da-doc-entry-goc"}, "# helpdesk"),
+            "repos/zalo-bot": ({"ten": "Zalo connector", "capability": "customer-support", "confidence": "vua",
+                                "curation_status": "da-doc-entry-goc"}, "# zalo"),
+        })
+        tk._CACHE.clear()
+        res = tk.search("bot zalo chăm sóc khách", repo_root=d, top=2)
+        self.assertEqual([r["id"] for r in res][0], "repos/zalo-bot")
+
+    def test_truy_van_khac_khong_bi_hong(self):
+        self.assertEqual(self._top3("đăng bài lên Facebook Page")[:2], ["mcps/meta-social-api", "mcps/buffer-mcp"])
+        self.assertEqual(self._top3("trả lời bình luận khách")[0], "agents/trum-san-bay/skills/reply-agent-prompt")
+        self.assertEqual(self._top3("làm affiliate du lịch")[0], "agents/trum-san-bay/skills/affiliate-injector")
+
+
 class KeHoachCai(unittest.TestCase):
     ENTRY = (
         "# X\n\n## Setup từng bước\n\n```bash\npip install foo-sdk\nnpx -y @acme/bar-mcp\n"

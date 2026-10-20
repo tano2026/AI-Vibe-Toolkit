@@ -8667,6 +8667,28 @@
    "evidence": "Không cần tự code kết nối Zalo — OpenClaw đã có sẵn 3 plugin kênh chính thức, chỉ cần cài đúng loại theo đúng mục đích.",
    "evidence_skip": ""
   },
+  "skills/zalo-oa-du-lich-luu-tru-playbook": {
+   "capability": [
+    "customer-support",
+    "social-media"
+   ],
+   "use_when": "Dùng khi cần lập hoặc rà soát kế hoạch vận hành Zalo OA (bài viết, broadcast, chatbot, tin nhắn mẫu ZBS) cho thương hiệu du lịch, lưu trú hoặc sân bay trước mùa cao điểm",
+   "skip_if": "Bỏ qua nếu cần hướng dẫn kỹ thuật cấu hình Zalo OA Manager hoặc chatbot builder",
+   "adoption": "cai-ngay-duoc",
+   "vessel_fit": [
+    "claude-code",
+    "hermes",
+    "openclaw"
+   ],
+   "needs": [
+    "none"
+   ],
+   "dup_group": "",
+   "confidence": "cao",
+   "curation_status": "da-doc-entry-goc",
+   "evidence": "Framework 4 phần để vận hành Zalo OA cho brand du lịch/lưu trú/sân bay khi thị trường biến động",
+   "evidence_skip": "Đây là khung chiến lược, không phải hướng dẫn kỹ thuật cấu hình Zalo OA Manager/chatbot builder"
+  },
   "agents/research-analytics-pro/skills/statistical-analysis": {
    "capability": [
     "data-dashboard",

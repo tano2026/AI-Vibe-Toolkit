@@ -594,7 +594,10 @@ def _search_core(idx, query, *, vessel, excl, mode, adoption_not, capability, to
         rc = _caps(r)
         # do khop capability: so capability cua truy van ma muc nay co o vi tri CHINH (dau danh sach)
         chinh = sum(1 for c in qcaps if rc and rc[0] == c)
-        return (bad, tier, -chinh, CONF_RANK.get(r.get("confidence", ""), 3),
+        # ten rieng (zalo, facebook...) cua truy van nam ngay o ten/id muc = muc DANH RIENG cho nen tang do,
+        # nen xep truoc muc chi trung capability chung (vd customer-support) dù confidence cao hon
+        rieng = sum(1 for t, f in sc[n]["matched"] if t in PLATFORMS and f in ("ten", "id"))
+        return (bad, tier, -min(rieng, 1), -chinh, CONF_RANK.get(r.get("confidence", ""), 3),
                 STATUS_RANK.get(r.get("curation_status"), 3), -round(total), burden, -total)
 
     qcaps = set(c["capability"] for c in pq["capabilities"]) | ({capability} if capability else set())
