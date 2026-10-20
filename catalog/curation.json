@@ -2333,13 +2333,21 @@
     "openclaw"
    ],
    "needs": [
-    "api-key"
+    "none"
    ],
    "dup_group": "social-post-api",
    "confidence": "vua",
    "curation_status": "da-doc-dau-entry",
    "evidence": "Nhận 1 content core → adapt thành 5 version đúng format từng platform → package sẵn để Publisher Agent đăng.",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "api-key"
+    ],
+    "ly_do": "Skill chỉ là quy tắc adapt + định dạng gói đầu ra (status PENDING_REVIEW), việc đăng thuộc Publisher Agent; entry không có bước nào cần khoá/đăng nhập.",
+    "trich": "Nhận 1 content core → adapt thành 5 version đúng format từng platform → package sẵn để Publisher Agent đăng.",
+    "ngay": "2026-10-20"
+   }
   },
   "agents/shorts-affiliate-system/skills/storyboard-generator": {
    "capability": [
@@ -3314,13 +3322,21 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "api-key"
    ],
    "dup_group": "browser-automation-framework",
    "confidence": "cao",
    "curation_status": "da-doc-dau-entry",
    "evidence": "Desktop app (Mac/Win/Linux) dùng model UI-TARS để điều khiển giao diện đồ họa.",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "none"
+    ],
+    "ly_do": "Đường cài ghi trong entry dùng khoá model; phương án khác là model local (cần GPU) nên là lựa chọn, không phải mặc định.",
+    "trich": "ANTHROPIC_API_KEY=your_key agent-tars | config model (local Ollama hoặc API key)",
+    "ngay": "2026-10-20"
+   }
   },
   "repos/videofy-minimal": {
    "capability": [
@@ -4094,13 +4110,21 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "gpu"
    ],
    "dup_group": "local-llm-deployment",
    "confidence": "cao",
    "curation_status": "da-doc-dau-entry",
    "evidence": "Chạy model lý luận (reasoning) DeepSeek-R1 ngay trên máy cá nhân",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "none"
+    ],
+    "ly_do": "Bảng chọn model của entry có cột GPU tối thiểu cho cả bản nhỏ nhất nên dùng; bản mạnh cần GPU cao cấp.",
+    "trich": "| `deepseek-r1:7b`/`8b` | ~5.5GB VRAM, 8GB RAM | RTX 4060, RTX 3060 | Khá — mức tối thiểu nên dùng thật |",
+    "ngay": "2026-10-20"
+   }
   },
   "repos/ds2api": {
    "capability": [
@@ -4354,13 +4378,21 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "api-key"
    ],
    "dup_group": "agent-framework-core",
    "confidence": "cao",
    "curation_status": "da-doc-dau-entry",
    "evidence": "AI agent tự vận hành trên máy mày, kết nối WhatsApp/Telegram/Slack, tự browse web, tự chạy code, không cần cloud.",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "none"
+    ],
+    "ly_do": "Entry ghi thẳng ở mục Lưu ý là cần khoá LLM.",
+    "trich": "Cần API key của LLM (Claude/OpenAI/v.v.)",
+    "ngay": "2026-10-20"
+   }
   },
   "repos/openwork-modelstudioai": {
    "capability": [
@@ -4397,13 +4429,21 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "api-key"
    ],
    "dup_group": "coding-agent",
    "confidence": "vua",
    "curation_status": "da-doc-dau-entry",
    "evidence": "pi-coding-agent — coding agent tối giản, tự mở rộng bằng chính nó",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "none"
+    ],
+    "ly_do": "Cần một credential LLM: API key hoặc đăng nhập subscription (enum không có nhãn đăng nhập nên dùng api-key).",
+    "trich": "Set API key hoặc đăng nhập bằng subscription có sẵn",
+    "ngay": "2026-10-20"
+   }
   },
   "repos/prompt-motion": {
    "capability": [
@@ -6761,13 +6801,21 @@
     "openclaw"
    ],
    "needs": [
-    "none"
+    "api-key"
    ],
    "dup_group": "rag-memory",
    "confidence": "cao",
    "curation_status": "da-doc-dau-entry",
    "evidence": "Cài vào AI agent — nó nhớ preferences, lịch sử, quyết định của mày. Không cần training.",
-   "evidence_skip": ""
+   "evidence_skip": "",
+   "needs_sua": {
+    "tu": [
+     "none"
+    ],
+    "ly_do": "Cloud dùng MEM0_API_KEY, self-host cần OpenAI key.",
+    "trich": "Self-host free unlimited nhưng cần OpenAI key.",
+    "ngay": "2026-10-20"
+   }
   },
   "repos/motrix-next": {
    "capability": [
