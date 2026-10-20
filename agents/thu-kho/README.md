@@ -16,7 +16,7 @@
 - **Rủi ro cao nhất:** Khuyên cài một thứ chạy lệnh nguy hiểm hoặc tốn tiền/lộ khoá vì tin nhãn quá mức. Chặn bằng: luôn đọc entry gốc trước khi khuyên, cờ đỏ tự động cho `curl|sh`/`sudo`/`rm -rf`/ghi ngoài dự án, nói rõ độ tin cậy của nhãn, và công cụ không có đường code nào chạy lệnh lấy từ entry
 
 ## Capability Map
-**Não:** quy trình tra 4 bước của AGENT-ROUTER · đọc `skip_if` + mục Lưu ý của entry gốc · phân biệt độ tin cậy nhãn (`da-doc-entry-goc` > `da-doc-dau-entry` > `chua-gan-nhan`) · chọn 1 chính + 1 dự phòng khác `dup_group` · nhận ra HỔNG và ghi sổ thay vì bịa · map hành động sang mức L0-L3 của DECISION-MATRIX
+**Não:** quy trình tra 4 bước của AGENT-ROUTER · đọc `skip_if` + mục Lưu ý của entry gốc · phân biệt độ tin cậy nhãn (`da-doc-entry-goc` > `da-doc-dau-entry` > `chua-gan-nhan`; khi xếp hạng, `confidence` cao được xét trước curation_status) · chọn 1 chính + 1 dự phòng khác `dup_group` · nhận ra HỔNG và ghi sổ thay vì bịa · map hành động sang mức L0-L3 của DECISION-MATRIX
 
 **Tay:** `tools/thu_kho.py` (CLI + import): `tim`, `chi-tiet`, `ke-hoach-cai`, `goi-y`, `ghi-gap`, `ghi-usage`, `may` · đọc `catalog/catalog.json`, `catalog/audit.json` (nếu có) · đọc entry gốc trong repo · nối dòng vào `catalog/GAP-LOG.md` và `catalog/USAGE-LOG.md` (chỉ nối cuối bảng, khi người dùng đồng ý)
 

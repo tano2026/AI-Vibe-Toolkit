@@ -101,6 +101,49 @@ class TraKho(unittest.TestCase):
         res = tk.search("cào web", repo_root=d, top=2)
         self.assertEqual([r["id"] for r in res], ["repos/b", "repos/a"])
 
+    def _caps_cua(self, q):
+        return [c["capability"] for c in tk.phan_tich_truy_van(q)["capabilities"]]
+
+    def test_nhan_ra_nhu_cau_tra_loi_binh_luan_cskh_zalo_affiliate(self):
+        for q in ("trả lời bình luận", "tra loi binh luan", "CSKH", "chăm sóc khách", "cham soc khach"):
+            self.assertIn("customer-support", self._caps_cua(q), q)
+        for q in ("Zalo", "zalo"):
+            self.assertIn("customer-support", self._caps_cua(q), q)
+            self.assertIn("social-media", self._caps_cua(q), q)
+        for q in ("affiliate", "làm affiliate", "tiếp thị liên kết", "tiep thi lien ket"):
+            self.assertIn("ads", self._caps_cua(q), q)
+        # truy van that ra ket qua, co dau va khong dau giong nhau
+        for a, b in (("trả lời bình luận", "tra loi binh luan"), ("chăm sóc khách", "cham soc khach"),
+                     ("tiếp thị liên kết", "tiep thi lien ket")):
+            ra = [r["id"] for r in tk.search(a, top=5)]
+            self.assertTrue(ra, a)
+            self.assertEqual(ra, [r["id"] for r in tk.search(b, top=5)], a)
+        self.assertIn("agents/trum-san-bay/skills/affiliate-injector",
+                      [r["id"] for r in tk.search("affiliate", top=3)])
+
+    def test_xep_hang_confidence_cao_truoc_khi_khop_capability_ngang(self):
+        d = _kho_gia({
+            "repos/a": ({"curation_status": "da-doc-entry-goc", "confidence": "vua", "ten": "alpha scraper"}, "# a"),
+            "repos/b": ({"curation_status": "da-doc-dau-entry", "confidence": "cao", "ten": "beta scraper"}, "# b"),
+        })
+        res = tk.search("cào web", repo_root=d, top=2)
+        self.assertEqual([r["id"] for r in res], ["repos/b", "repos/a"])
+
+    def test_xep_hang_khop_capability_chinh_truoc_confidence(self):
+        d = _kho_gia({
+            "repos/a": ({"capability": "seo,scraping", "confidence": "cao", "ten": "alpha scraper"}, "# a"),
+            "repos/b": ({"capability": "scraping", "confidence": "vua", "ten": "beta scraper"}, "# b"),
+        })
+        res = tk.search("cào web", repo_root=d, top=2)
+        self.assertEqual(res[0]["id"], "repos/b")
+
+    def test_dang_bai_facebook_page_meta_social_api_truoc_buffer_mcp(self):
+        for q in ("đăng bài lên Facebook Page", "dang bai len Facebook Page"):
+            ids = [r["id"] for r in tk.search(q, top=10)]
+            self.assertIn("mcps/meta-social-api", ids, q)
+            self.assertIn("mcps/buffer-mcp", ids, q)
+            self.assertLess(ids.index("mcps/meta-social-api"), ids.index("mcps/buffer-mcp"), q)
+
     def test_audit_json_neu_co_thi_dung_neu_khong_thi_bo_qua(self):
         d = _kho_gia({
             "repos/a": ({"ten": "alpha scraper"}, "# a"),

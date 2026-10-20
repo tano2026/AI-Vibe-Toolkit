@@ -1,15 +1,14 @@
-version: "3.8"
 services:
   postiz:
     image: ghcr.io/gitroomhq/postiz-app:latest
     container_name: postiz
     restart: always
     environment:
-      MAIN_URL: "https://${POSTIZ_DOMAIN}"
-      FRONTEND_URL: "https://${POSTIZ_DOMAIN}"
-      NEXT_PUBLIC_BACKEND_URL: "https://${POSTIZ_DOMAIN}/api"
-      JWT_SECRET: "${JWT_SECRET}"
-      DATABASE_URL: "postgresql://postiz:${DB_PASSWORD}@postiz-postgres:5432/postiz"
+      MAIN_URL: "https://${POSTIZ_DOMAIN:?set POSTIZ_DOMAIN}"
+      FRONTEND_URL: "https://${POSTIZ_DOMAIN:?set POSTIZ_DOMAIN}"
+      NEXT_PUBLIC_BACKEND_URL: "https://${POSTIZ_DOMAIN:?set POSTIZ_DOMAIN}/api"
+      JWT_SECRET: "${JWT_SECRET:?set JWT_SECRET}"
+      DATABASE_URL: "postgresql://postiz:${DB_PASSWORD:?set DB_PASSWORD}@postiz-postgres:5432/postiz"
       REDIS_URL: "redis://postiz-redis:6379"
       IS_GENERAL: "true"
       STORAGE_PROVIDER: "local"
@@ -35,7 +34,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: "postiz"
-      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:?set DB_PASSWORD}"
       POSTGRES_DB: "postiz"
     volumes:
       - postiz-postgres-data:/var/lib/postgresql/data

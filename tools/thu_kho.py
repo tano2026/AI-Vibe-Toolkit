@@ -61,7 +61,7 @@ CAPABILITY_SYNONYMS = {
         "serp", "sitemap", "on-page", "onpage", "organic"],
     "ads": [
         "quảng cáo", "ads", "facebook ads", "google ads", "chạy ads", "ppc", "meta ads",
-        "tối ưu chiến dịch", "roas", "advertising", "tiktok ads", "remarketing"],
+        "tối ưu chiến dịch", "roas", "advertising", "tiktok ads", "remarketing", "affiliate", "tiếp thị liên kết", "link affiliate"],
     "social-media": [
         "mạng xã hội", "social media", "social", "facebook", "fanpage", "đăng bài", "đăng bài facebook",
         "instagram", "tiktok", "youtube", "lên lịch đăng", "lịch đăng", "schedule post", "linkedin",
@@ -76,7 +76,9 @@ CAPABILITY_SYNONYMS = {
     "customer-support": [
         "chăm sóc khách hàng", "cskh", "hỗ trợ khách", "chatbot", "chat bot", "trả lời khách",
         "helpdesk", "faq", "live chat", "tổng đài", "bot trả lời", "customer support", "support",
-        "trợ lý ảo", "hỏi đáp", "tin nhắn tự động"],
+        "trợ lý ảo", "hỏi đáp", "tin nhắn tự động", "chăm sóc khách", "trả lời bình luận",
+        "trả lời comment", "reply comment", "rep comment", "rep bình luận", "phản hồi bình luận",
+        "trả lời inbox", "zalo oa", "zalo"],
     "video-generation": [
         "làm video", "tạo video", "video ngắn", "video ai", "text to video", "sinh video",
         "clip", "video quảng cáo", "ai video", "video generation", "video", "short video",
@@ -352,7 +354,7 @@ EXPAND = {
     "cào dữ liệu": ["scrape", "crawl"], "giọng đọc": ["tts", "voice", "speech"],
     "đăng bài": ["post", "publish", "schedule"], "lên lịch": ["schedule", "scheduler"],
     "lịch đăng": ["schedule", "scheduler"], "video ngắn": ["shorts", "short", "reels"],
-    "khách hàng": ["customer", "client"], "đối thủ": ["competitor"], "báo cáo": ["report", "reporting"],
+    "khách hàng": ["customer", "client"], "trả lời bình luận": ["reply", "comment"], "affiliate": ["affiliate"], "đối thủ": ["competitor"], "báo cáo": ["report", "reporting"],
     "tiếng việt": ["vietnamese", "vietnam"], "chăm sóc khách hàng": ["support", "customer"],
     "quảng cáo": ["ads", "advertising"], "thiết kế": ["design"], "trình duyệt": ["browser"],
     "tạo ảnh": ["image", "generate"], "làm video": ["video", "generate"], "viết bài": ["write", "writing"],
@@ -589,9 +591,13 @@ def _search_core(idx, query, *, vessel, excl, mode, adoption_not, capability, to
         tier, n, r, total, _, _ = x
         bad = 1 if _audit_usable(r) is False else 0
         burden = sum(1 for v in _csv(r.get("needs")) if v in _GANH_NANG)
-        return (bad, tier, STATUS_RANK.get(r.get("curation_status"), 3),
-                CONF_RANK.get(r.get("confidence", ""), 3), -round(total), burden, -total)
+        rc = _caps(r)
+        # do khop capability: so capability cua truy van ma muc nay co o vi tri CHINH (dau danh sach)
+        chinh = sum(1 for c in qcaps if rc and rc[0] == c)
+        return (bad, tier, -chinh, CONF_RANK.get(r.get("confidence", ""), 3),
+                STATUS_RANK.get(r.get("curation_status"), 3), -round(total), burden, -total)
 
+    qcaps = set(c["capability"] for c in pq["capabilities"]) | ({capability} if capability else set())
     res.sort(key=key)
     return [_brief_item(r, total, ly, gc, tier) for tier, n, r, total, ly, gc in res[:max(1, int(top))]]
 
@@ -599,9 +605,10 @@ def _search_core(idx, query, *, vessel, excl, mode, adoption_not, capability, to
 def search(query, *, vessel=None, exclude_needs=(), include_unlabeled=False,
            adoption_not=("chi-tham-khao",), capability=None, top=5, repo_root=None):
     """Tim muc trong kho. Xep hang theo AGENT-ROUTER:
-    bac khop -> curation_status (goc truoc dau-entry) -> confidence -> diem khop -> it dieu kien ganh nang.
+    bac khop -> do khop capability chinh -> confidence (cao truoc) -> curation_status (goc truoc dau-entry)
+    -> diem khop -> it dieu kien ganh nang.
     'bac khop' chi tach cac muc khop yeu hon han muc tot nhat (bang tong diem capability + tu khoa), de
-    thu tu curation_status/confidence chi quyet dinh giua cac muc khop NGANG NHAU. Muc vessel_fit rong
+    thu tu confidence/curation_status chi quyet dinh giua cac muc khop NGANG NHAU. Muc vessel_fit rong
     van hien (kem ghi chu 'chua ro'). Muc chua gan nhan chi hien khi include_unlabeled=True."""
     idx = _index(repo_root)
     return _search_core(idx, query, vessel=vessel, excl=exclude_needs,
