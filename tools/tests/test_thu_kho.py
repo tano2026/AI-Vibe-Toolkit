@@ -387,3 +387,15 @@ class TrangWeb(unittest.TestCase):
         ids = {i["id"] for i in data["items"]}
         for v in data["kit"]["viec"]:
             self.assertIn(v["chinh"]["id"], ids)
+    def test_tim_khong_chat_tren_trang(self):
+        """Ô tìm trang web: bỏ từ phụ, bot Zalo chăm sóc khách ra kết quả, khớp mục đầu."""
+        import json, re
+        tpl = (Path(__file__).resolve().parent.parent / "kho-web" / "template.html").read_text(encoding="utf-8")
+        self.assertIn("STOPWORDS", tpl)
+        self.assertIn("'bot':1", tpl)
+        self.assertIn("minRequiredTerms", tpl)
+
+        # Kiểm tra câu 'bot Zalo chăm sóc khách' trên thu_kho.py
+        tk_res = tk.search("bot Zalo chăm sóc khách", top=1)
+        self.assertTrue(tk_res)
+        self.assertEqual(tk_res[0]["id"], "skills/zalo-oa-du-lich-luu-tru-playbook")
