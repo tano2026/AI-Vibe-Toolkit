@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<title>Kho Tano Agency</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Bố cục: thanh tìm cố định, lối vào theo việc cần làm, bộ lọc bên trái, kết quả dạng sổ tra cứu; mỗi dòng mang một thước đo độ tin cậy 3 chấm. */
+:root{
+  --bg:#f2f5f3; --surface:#ffffff; --surface-2:#f7faf8; --fg:#14201b; --muted:#53625b; --line:#d8e0db; --line-strong:#b9c6bf;
+  --accent:#0b6e5c; --accent-ink:#ffffff; --accent-soft:#dcefe8;
+  --ok:#17794a; --ok-soft:#dff2e7; --warn:#935300; --warn-soft:#fbeed6; --bad:#a82a22; --bad-soft:#fbe4e1; --none:#5f6c66; --none-soft:#e7ece9;
+  --sans:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1512; --surface:#171f1b; --surface-2:#1c2621; --fg:#e4ece7; --muted:#9aa9a2; --line:#27332d; --line-strong:#3a4a42;
+  --accent:#4fcaa8; --accent-ink:#0a1813; --accent-soft:#15302a;
+  --ok:#5fd596; --ok-soft:#163020; --warn:#f0b35a; --warn-soft:#352a12; --bad:#ff8a80; --bad-soft:#3a1c19; --none:#9aa9a2; --none-soft:#232d28; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1512; --surface:#171f1b; --surface-2:#1c2621; --fg:#e4ece7; --muted:#9aa9a2; --line:#27332d; --line-strong:#3a4a42;
+  --accent:#4fcaa8; --accent-ink:#0a1813; --accent-soft:#15302a;
+  --ok:#5fd596; --ok-soft:#163020; --warn:#f0b35a; --warn-soft:#352a12; --bad:#ff8a80; --bad-soft:#3a1c19; --none:#9aa9a2; --none-soft:#232d28; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 96px}
+.wrap{max-width:1180px;margin:0 auto}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* đầu trang */
+.top{display:flex;gap:12px 20px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+h1{font-size:clamp(1.55rem,4vw,2.1rem);line-height:1.1;margin:0;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.stats{margin:6px 0 0;color:var(--muted);font-size:.9rem;max-width:70ch}
+.stats b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.topbtns{display:flex;gap:8px;align-items:center}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.tab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 14px;color:var(--muted);font-weight:500;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+.btn{background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;padding:6px 11px;font-size:.88rem;line-height:1.3}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.ghost{border-color:transparent;background:none;color:var(--muted);padding:4px 8px}
+.btn.ghost:hover{color:var(--fg)}
+
+/* thanh tìm */
+.searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:8px 10px;border-bottom:1px solid var(--line)}
+.srow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.srow+.srow{margin-top:8px}
+.q{flex:1 1 280px;min-width:0;position:relative}
+.q input{width:100%;padding:10px 12px 10px 36px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--surface);min-width:0}
+.q svg{position:absolute;left:11px;top:50%;translate:0 -50%;width:16px;height:16px;color:var(--muted)}
+select{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);padding:9px 10px;min-width:0;max-width:100%}
+.count{margin-left:auto;color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
+.filterbtn{display:none}
+.quick{display:flex;gap:6px;overflow-x:auto;padding-block:2px;scrollbar-width:thin}
+.quick .lbl{flex:none;color:var(--muted);font-size:.8rem;align-self:center;padding-right:2px}
+.pill{flex:none;border:1px solid var(--line-strong);background:var(--surface);border-radius:99px;padding:3px 11px;font-size:.84rem;white-space:nowrap}
+.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.pill small{color:inherit;opacity:.7;margin-left:3px;font-variant-numeric:tabular-nums}
+.active{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{display:inline-flex;gap:6px;align-items:center;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:2px 4px 2px 9px;font-size:.82rem}
+.tag button{border:0;background:none;color:inherit;padding:0 5px;font-size:1rem;line-height:1}
+
+/* khung chính */
+.main{display:grid;grid-template-columns:268px minmax(0,1fr);gap:20px;margin-top:14px;align-items:start}
+.filters{position:sticky;top:calc(var(--bar-h,120px) + env(safe-area-inset-top,0px) + 8px);max-height:calc(100vh - var(--bar-h,120px) - 24px);overflow:auto;padding-right:6px;scrollbar-width:thin}
+.fg{border:0;border-bottom:1px solid var(--line);padding:0 0 12px;margin:0 0 12px;min-width:0}
+.fg>summary,.fg>legend{font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:0;cursor:pointer;margin-bottom:6px}
+.fg .hint{font-size:.78rem;color:var(--muted);margin:0 0 6px}
+.opts{display:flex;flex-direction:column;gap:1px;max-height:300px;overflow:auto}
+.opt{display:flex;gap:8px;align-items:baseline;padding:3px 4px;border-radius:5px;cursor:pointer;font-size:.9rem}
+.opt:hover{background:var(--surface-2)}
+.opt input{margin:0;accent-color:var(--accent);flex:none;translate:0 2px}
+.opt .n{margin-left:auto;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.opt.zero{opacity:.45}
+.sw{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;padding:3px 4px;cursor:pointer}
+.sw input{margin:3px 0 0;accent-color:var(--accent);flex:none}
+.sw small{display:block;color:var(--muted);font-size:.78rem}
+
+/* chú giải tin cậy */
+.legend{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;font-size:.88rem}
+.legend summary{cursor:pointer;font-weight:600}
+.legend .lg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;margin-top:10px}
+.legend p{margin:2px 0 0;color:var(--muted)}
+.legend .warnline{grid-column:1/-1;background:var(--warn-soft);border-radius:6px;padding:8px 10px;color:var(--fg)}
+
+/* dòng kết quả */
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.item[open]{border-color:var(--line-strong)}
+.item summary{list-style:none;cursor:pointer;padding:12px 14px 12px 12px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 10px}
+.item summary::-webkit-details-marker{display:none}
+.star{grid-row:1/3;align-self:start;border:0;background:none;color:var(--line-strong);font-size:1.15rem;line-height:1;padding:3px 4px;border-radius:5px}
+.star[aria-pressed="true"]{color:var(--warn)}
+.star:hover{color:var(--warn)}
+.name{font-weight:600;overflow-wrap:anywhere;grid-column:2}
+.trust{grid-column:3;grid-row:1;display:flex;gap:3px;align-items:center;justify-self:end;align-self:start;padding-top:6px}
+.trust i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--accent);display:block}
+.trust i.on{background:var(--accent)}
+.trust.t0 i{border-color:var(--line-strong)}
+.uw{grid-column:2/4;color:var(--fg);font-size:.92rem;overflow-wrap:anywhere}
+.uw.fb{color:var(--muted)}
+.chips{grid-column:2/4;display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+.chip{font-size:.74rem;padding:1px 8px;border-radius:99px;background:var(--none-soft);color:var(--none);white-space:nowrap}
+.chip.kind{background:var(--accent-soft);color:var(--accent)}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.cap{background:none;border:1px solid var(--line-strong);color:var(--fg)}
+.skip{grid-column:2/4;color:var(--warn);font-size:.84rem;margin-top:5px;overflow-wrap:anywhere}
+.detail{padding:12px 14px 14px;border-top:1px dashed var(--line);display:grid;gap:10px;min-width:0}
+.quote{margin:0;padding:6px 12px;border-left:3px solid var(--line-strong);color:var(--muted);font-size:.9rem;overflow-wrap:anywhere}
+.quote cite{display:block;font-style:normal;font-size:.76rem;margin-top:2px;color:var(--muted)}
+.path{font-family:var(--mono);font-size:.8rem;overflow-wrap:anywhere;background:var(--bg);padding:6px 8px;border-radius:6px;border:1px solid var(--line)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:6px 18px;font-size:.84rem;color:var(--muted)}
+.kv b{display:block;color:var(--fg);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.kv span{color:var(--fg);overflow-wrap:anywhere}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.more{display:flex;justify-content:center;margin-top:14px}
+.empty{background:var(--surface);border:1px dashed var(--line-strong);border-radius:var(--r);padding:26px 18px;text-align:center;color:var(--muted)}
+.empty h3{margin:0 0 6px;color:var(--fg);font-size:1.05rem}
+.empty .acts{justify-content:center;margin-top:12px}
+.foot{margin-top:26px;color:var(--muted);font-size:.8rem;max-width:75ch}
+code{font-family:var(--mono);font-size:.88em}
+
+/* thanh danh sách chọn */
+.pick{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line-strong);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+
+/* bộ đồ nghề */
+.kit-intro{background:var(--warn-soft);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:.9rem;max-width:80ch}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:12px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:10px;min-width:0;align-content:start}
+.job h3{margin:0;font-size:1.02rem;line-height:1.3}
+.job .cap{font-size:.76rem;color:var(--muted)}
+.pk{border-top:1px solid var(--line);padding-top:8px;display:grid;gap:5px;font-size:.88rem;min-width:0}
+.pk .role{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:600}
+.pk.alt .role{color:var(--muted)}
+.pk .pn{font-weight:600;overflow-wrap:anywhere}
+.pk dl{margin:0;display:grid;gap:4px}
+.pk dt{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.pk dd{margin:0;overflow-wrap:anywhere}
+.pk dd.warn{color:var(--warn)}
+.sect{margin:26px 0 10px;font-size:1.1rem}
+.gaps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px}
+.gap{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:var(--r);padding:12px 14px;font-size:.88rem;display:grid;gap:6px;min-width:0}
+.gap b{font-size:.95rem}
+.rej{display:grid;gap:6px;font-size:.88rem}
+.rej div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px;overflow-wrap:anywhere}
+
+@media (max-width:860px){
+  .srow.quick{flex-wrap:nowrap}
+  .main{grid-template-columns:minmax(0,1fr)}
+  .filterbtn{display:inline-block}
+  .filters{display:none;position:static;max-height:none;overflow:visible;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+  .filters.open{display:block}
+  .count{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:no-preference){.item{transition:border-color .15s}.item:hover{border-color:var(--accent)}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Kho Tano Agency</h1>
+      <p class="stats" id="stats"></p>
+    </div>
+    <div class="topbtns"><button class="btn" id="theme" type="button" aria-label="Đổi giao diện sáng tối">Giao diện: tự động</button></div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-search" aria-selected="true" aria-controls="view-search" type="button">Tra cứu</button>
+    <button class="tab" role="tab" id="tab-kit" aria-selected="false" aria-controls="view-kit" type="button">Bộ đồ nghề khởi đầu</button>
+  </div>
+
+  <section id="view-search" role="tabpanel" aria-labelledby="tab-search">
+    <details class="legend" id="legend">
+      <summary>Cách đọc độ tin cậy của nhãn</summary>
+      <div class="lg">
+        <div><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i></span><p><b>Đã đọc entry gốc.</b> Người gắn nhãn mở nguyên file; có trích nguyên văn làm căn cứ.</p></div>
+        <div><span class="trust"><i class="on"></i><i class="on"></i><i></i></span><p><b>Mới đọc phần đầu.</b> Nhãn có căn cứ nhưng điều kiện loại trừ, license, khoá API có thể còn thiếu. Luôn mở entry gốc trước khi dùng.</p></div>
+        <div><span class="trust t0"><i></i><i></i><i></i></span><p><b>Chưa gắn nhãn.</b> Skill nhập hàng loạt, chỉ có mô tả ngắn. Dùng để mượn ý.</p></div>
+        <div class="warnline">Nhãn do model và agent gắn, không phải kết luận. Điểm x/10 là điểm sau khi đọc, không phải sau khi dùng. Chưa mục nào có bằng chứng dùng trong dự án thật. Chọn xong hãy chạy thử 30 phút rồi ghi vào <code>USAGE-LOG</code>.</div>
+      </div>
+    </details>
+
+    <div class="searchbar" id="searchbar">
+      <div class="srow">
+        <div class="q">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4" stroke-linecap="round"/></svg>
+          <input type="search" id="q" placeholder="Tìm việc cần làm, tên tool, công nghệ… (phím /)" aria-label="Tìm trong kho" autocomplete="off">
+        </div>
+        <select id="sort" aria-label="Sắp xếp">
+          <option value="rel">Sắp: phù hợp và đáng tin trước</option>
+          <option value="score">Sắp: điểm đọc cao</option>
+          <option value="new">Sắp: mới cập nhật</option>
+          <option value="az">Sắp: A đến Z</option>
+        </select>
+        <button class="btn filterbtn" id="filterbtn" type="button" aria-expanded="false" aria-controls="filters">Bộ lọc</button>
+        <span class="count" id="count" aria-live="polite"></span>
+      </div>
+      <div class="srow quick" id="quick" aria-label="Tra nhanh theo việc cần làm"></div>
+      <div class="srow active" id="active" hidden></div>
+    </div>
+
+    <div class="main">
+      <aside class="filters" id="filters" aria-label="Bộ lọc"></aside>
+      <div>
+        <ul class="list" id="list"></ul>
+        <div class="more"><button class="btn" id="more" type="button" hidden>Hiện thêm</button></div>
+        <p class="foot" id="foot"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-kit" role="tabpanel" aria-labelledby="tab-kit" hidden></section>
+</div>
+
+<div class="pick" id="pick" hidden>
+  <span id="pickn"></span>
+  <button class="btn primary" id="pickcopy" type="button">Sao chép danh sách</button>
+  <button class="btn ghost" id="pickclear" type="button">Bỏ chọn hết</button>
+</div>
+
+@@DATA@@
+<script>
+(function(){
+  var DB = JSON.parse(document.getElementById('data').textContent);
+  var items = DB.items, KIT = DB.kit, PAGE = 40, shown = PAGE;
+  var $ = function(id){return document.getElementById(id)};
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+  var CAP = {'web-research':['Nghiên cứu web','research search tim kiem'],'scraping':['Cào dữ liệu web','scrape crawl crawler'],'content-writing':['Viết nội dung','copywriting caption bai viet blog'],
+   'seo':['SEO','search engine keyword tu khoa'],'ads':['Quảng cáo','ads ppc facebook google meta'],'social-media':['Mạng xã hội','dang bai lich dang facebook tiktok instagram youtube social'],
+   'email-outreach':['Email outreach','cold email gui mail newsletter'],'crm-sales':['CRM và bán hàng','crm sales khach hang pipeline'],'customer-support':['Chăm sóc khách','support chatbot cskh ticket'],
+   'video-generation':['Tạo video AI','video ai sinh video text to video'],'video-render':['Dựng và render video','render remotion ffmpeg dung phim edit'],'image-generation':['Tạo ảnh AI','anh image prompt midjourney'],
+   'voice-tts':['Giọng đọc','tts voice giong noi nhac lồng tiếng'],'design-ui':['Thiết kế giao diện','design ui ux figma thiet ke'],'front-end':['Front-end','frontend web react css'],'backend':['Backend','server api'],
+   'database':['Cơ sở dữ liệu','database sql db'],'devops':['Vận hành, DevOps','deploy docker vps ci'],'agent-framework':['Khung agent','agent framework multi agent'],
+   'agent-orchestration-memory':['Điều phối và bộ nhớ agent','orchestration memory dieu phoi'],'prompt-skill-library':['Thư viện prompt, skill','prompt skill thu vien'],
+   'browser-automation':['Tự động hoá trình duyệt','browser playwright tu dong'],'document-office':['Tài liệu văn phòng','docx pptx xlsx pdf word excel van phong'],'data-dashboard':['Dữ liệu và báo cáo','dashboard bao cao chart analytics'],
+   'finance-accounting':['Kế toán, tài chính','ke toan hoa don thue'],'ticketing-aviation':['Vé và hàng không','ve may bay hang khong gds'],'security-compliance':['Bảo mật, tuân thủ','security bao mat compliance'],
+   'local-llm':['LLM chạy local','local llm ollama gpu'],'productivity':['Năng suất','productivity automation n8n zapier notion'],'reference':['Tài liệu tham khảo','tham khao awesome list']};
+  var ADOPT = {'cai-ngay-duoc':['Cài ngay','ok'],'can-ha-tang':['Cần hạ tầng','warn'],'chi-tham-khao':['Chỉ tham khảo',''],'unknown':['Chưa rõ adoption','']};
+  var NEED = {'api-key':'Khoá API','tra-phi':'Trả phí','vps':'VPS','gpu':'GPU','docker':'Docker','claude-code-only':'Chỉ Claude Code','browser':'Trình duyệt','none':'Không cần gì','unknown':'Chưa rõ'};
+  var NEEDX = ['api-key','tra-phi','vps','gpu','docker','claude-code-only','browser'];
+  var VESSEL = {'hermes':'Hermes','openclaw':'OpenClaw','deepseek-harness':'DeepSeek Harness','antigravity':'Antigravity','claude-code':'Claude Code'};
+  var STATUS = {'da-doc-entry-goc':['Đã đọc entry gốc',3],'da-doc-dau-entry':['Mới đọc phần đầu',2],'chua-gan-nhan':['Chưa gắn nhãn',0]};
+  var KIND = {mcp:'MCP',repo:'Repo',stack:'Stack','skill-kho':'Skill kho','skill-import':'Skill nhập','skill-agent':'Skill Pro Agent'};
+  var CONF = {cao:0,vua:1,thap:2};
+  function norm(s){return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0111/g,'d').replace(/\u0110/g,'D').toLowerCase();}
+  function capName(c){return CAP[c]?CAP[c][0]:c}
+  function hay(s){return ' '+norm(s).replace(/[^a-z0-9]+/g,' ')+' '}
+
+  var byId = {}, groups = {};
+  items.forEach(function(r){
+    byId[r.id]=r;
+    r._lab = r.curation_status!=='chua-gan-nhan';
+    r._cap = r.capability||[];
+    r._h = hay([r.ten,r.use_when,r.tom_tat,r.id,r.dup_group,r.domain,r.skip_if==='unknown'?'':r.skip_if,
+      r._cap.map(function(c){return capName(c)+' '+(CAP[c]?CAP[c][1]:'')+' '+c}).join(' ')].join(' '));
+    r._n = hay(r.ten+' '+r.id); r._u = hay(r.use_when||'');
+    if(r.dup_group){(groups[r.dup_group]=groups[r.dup_group]||[]).push(r)}
+  });
+  var nLab = items.filter(function(r){return r._lab}).length;
+  var nGoc = items.filter(function(r){return r.curation_status==='da-doc-entry-goc'}).length;
+  var nDau = items.filter(function(r){return r.curation_status==='da-doc-dau-entry'}).length;
+  $('stats').innerHTML='';
+  [['b',items.length],' mục trong kho. ',['b',nLab],' mục đã gắn nhãn tra cứu: ',['b',nGoc],' đã đọc entry gốc, ',['b',nDau],' mới đọc phần đầu. ',['b',0],' mục có bằng chứng dùng thật. Dữ liệu ngày '+DB.generated+'.'].forEach(function(p){
+    $('stats').appendChild(Array.isArray(p)?el('b',null,String(p[1])):document.createTextNode(p));
+  });
+
+  /* ---- trạng thái lọc ---- */
+  var F = {q:'', cap:{}, adopt:{}, vessel:{}, status:{}, kind:{}, notneed:{}, hideRef:false, unlabeled:false, group:''};
+  var FACETS = [
+    {key:'cap', label:'Việc cần làm', get:function(r){return r._cap}, name:capName, scroll:true},
+    {key:'adopt', label:'Mức sẵn sàng', get:function(r){return r._lab?[r.adoption]:[]}, name:function(k){return ADOPT[k]?ADOPT[k][0]:k}},
+    {key:'vessel', label:'Agent dùng được', get:function(r){return r._lab?(r.vessel_fit&&r.vessel_fit.length?r.vessel_fit:['__none']):[]}, name:function(k){return k==='__none'?'Chưa rõ agent nào':(VESSEL[k]||k)}},
+    {key:'status', label:'Độ tin cậy', get:function(r){return [r.curation_status]}, name:function(k){return STATUS[k]?STATUS[k][0]:k}},
+    {key:'kind', label:'Loại', get:function(r){return [r.loai]}, name:function(k){return KIND[k]||k}}
+  ];
+  function on(map){return Object.keys(map).filter(function(k){return map[k]})}
+  var terms = [];
+  function pass(r, skip){
+    if(!F.unlabeled && !r._lab && skip!=='unlabeled') return false;
+    if(F.hideRef && r.adoption==='chi-tham-khao' && skip!=='hideRef') return false;
+    if(F.group && r.dup_group!==F.group) return false;
+    for(var i=0;i<terms.length;i++) if(r._h.indexOf(' '+terms[i])<0) return false;
+    for(var j=0;j<FACETS.length;j++){
+      var f=FACETS[j]; if(skip===f.key) continue;
+      var sel=on(F[f.key]); if(!sel.length) continue;
+      var vals=f.get(r), ok=false;
+      for(var v=0;v<vals.length;v++) if(sel.indexOf(vals[v])>=0){ok=true;break}
+      if(!ok) return false;
+    }
+    var nn=on(F.notneed);
+    if(nn.length && r._lab){for(var n=0;n<nn.length;n++) if((r.needs||[]).indexOf(nn[n])>=0) return false}
+    return true;
+  }
+  function rel(r){var s=0;terms.forEach(function(t){if(r._n.indexOf(' '+t)>=0)s+=3; if(r._u.indexOf(' '+t)>=0)s+=1});return s}
+  function sortFn(mode){
+    return function(a,b){
+      if(mode==='az') return a.ten.localeCompare(b.ten,'vi');
+      if(mode==='new') return (b.cap_nhat||'').localeCompare(a.cap_nhat||'');
+      var sd=(b.diem===''?-1:b.diem)-(a.diem===''?-1:a.diem);
+      if(mode==='score') return sd||(STATUS[b.curation_status][1]-STATUS[a.curation_status][1]);
+      var r=rel(b)-rel(a); if(r) return r;
+      var t=STATUS[b.curation_status][1]-STATUS[a.curation_status][1]; if(t) return t;
+      var c=(CONF[a.confidence]==null?3:CONF[a.confidence])-(CONF[b.confidence]==null?3:CONF[b.confidence]); if(c) return c;
+      return sd;
+    };
+  }
+
+  /* ---- bộ chọn (shortlist), lưu trong trình duyệt nếu được ---- */
+  var picks = {};
+  try{ JSON.parse(localStorage.getItem('kho-picks')||'[]').forEach(function(id){if(byId[id])picks[id]=1}) }catch(e){}
+  function savePicks(){try{localStorage.setItem('kho-picks',JSON.stringify(Object.keys(picks)))}catch(e){}}
+  function renderPick(){
+    var n=Object.keys(picks).length; $('pick').hidden=!n; $('pickn').textContent='Đã chọn '+n+' mục';
+  }
+  function copyText(text, btn, label){
+    var done=function(){var o=label||btn.textContent;btn.textContent='Đã sao chép';setTimeout(function(){btn.textContent=o},1500)};
+    function fb(){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done()}catch(e){btn.textContent='Bôi đen và nhấn Ctrl+C'}document.body.removeChild(ta)}
+    try{navigator.clipboard.writeText(text).then(done,fb)}catch(e){fb()}
+  }
+  $('pickcopy').addEventListener('click',function(){
+    var lines=Object.keys(picks).map(function(id){var r=byId[id];
+      return '- `'+r.id+'` | '+(r._lab?(ADOPT[r.adoption][0]+'; cần: '+(r.needs||[]).map(function(n){return NEED[n]||n}).join(', ')+' | '):'')+(r.use_when||r.tom_tat||'');});
+    copyText('Danh sách đã chọn từ Kho Tano Agency (chưa mục nào được chạy thử, đọc entry gốc trước khi dùng):\n'+lines.join('\n'),this,'Sao chép danh sách');
+  });
+  $('pickclear').addEventListener('click',function(){picks={};savePicks();renderPick();render()});
+
+  /* ---- vẽ bộ lọc ---- */
+  var facetCounts = {};
+  function computeCounts(){
+    FACETS.forEach(function(f){
+      var m={}; items.forEach(function(r){ if(!pass(r,f.key)) return; f.get(r).forEach(function(v){m[v]=(m[v]||0)+1}) });
+      facetCounts[f.key]=m;
+    });
+    var m2={}; NEEDX.forEach(function(k){m2[k]=0});
+    items.forEach(function(r){ if(!pass(r,'notneed')||!r._lab) return; (r.needs||[]).forEach(function(n){if(m2[n]!=null)m2[n]++}) });
+    facetCounts.notneed=m2;
+  }
+  function optRow(key,val,label,count,checked){
+    var l=el('label','opt'+(count===0&&!checked?' zero':''));
+    var i=el('input'); i.type='checkbox'; i.checked=!!checked; i.dataset.k=key; i.dataset.v=val;
+    l.appendChild(i); l.appendChild(el('span',null,label)); l.appendChild(el('span','n',String(count)));
+    return l;
+  }
+  function renderFilters(){
+    var box=$('filters'); box.textContent='';
+    var g=el('fieldset','fg'); g.appendChild(el('legend',null,'Phạm vi'));
+    [['unlabeled','Gồm '+(items.length-nLab)+' skill chưa gắn nhãn','Chỉ có mô tả ngắn, không lọc được theo việc cần làm.'],['hideRef','Ẩn mục chỉ để tham khảo','Mục đọc lấy ý, không cài.']].forEach(function(s){
+      var l=el('label','sw'),i=el('input');i.type='checkbox';i.checked=F[s[0]];i.dataset.sw=s[0];
+      var d=el('span'); d.appendChild(document.createTextNode(s[1])); d.appendChild(el('small',null,s[2]));
+      l.appendChild(i);l.appendChild(d);g.appendChild(l);
+    });
+    box.appendChild(g);
+    FACETS.forEach(function(f){
+      var fs=el('fieldset','fg'); fs.appendChild(el('legend',null,f.label));
+      var counts=facetCounts[f.key]||{}, keys=Object.keys(counts);
+      on(F[f.key]).forEach(function(k){if(keys.indexOf(k)<0)keys.push(k)});
+      keys.sort(function(a,b){return (counts[b]||0)-(counts[a]||0)});
+      if(f.key==='vessel') fs.appendChild(el('p','hint','Mục chưa rõ agent nào vẫn hiện nếu bạn không chọn.'));
+      var o=el('div','opts'); keys.forEach(function(k){o.appendChild(optRow(f.key,k,f.name(k),counts[k]||0,F[f.key][k]))});
+      fs.appendChild(o); box.appendChild(fs);
+    });
+    var fn=el('fieldset','fg'); fn.appendChild(el('legend',null,'Loại trừ mục cần…'));
+    fn.appendChild(el('p','hint','Tick để ẩn mục đòi hỏi thứ đó.'));
+    var o2=el('div','opts'); NEEDX.forEach(function(k){o2.appendChild(optRow('notneed',k,NEED[k],facetCounts.notneed[k]||0,F.notneed[k]))});
+    fn.appendChild(o2); box.appendChild(fn);
+    var rs=el('button','btn','Xoá mọi bộ lọc'); rs.type='button'; rs.id='reset'; box.appendChild(rs);
+  }
+  $('filters').addEventListener('change',function(e){
+    var t=e.target;
+    if(t.dataset.sw){F[t.dataset.sw]=t.checked}
+    else if(t.dataset.k){F[t.dataset.k][t.dataset.v]=t.checked}
+    reset();
+  });
+  $('filters').addEventListener('click',function(e){ if(e.target.id==='reset'){clearAll()} });
+  function clearAll(){F={q:'',cap:{},adopt:{},vessel:{},status:{},kind:{},notneed:{},hideRef:false,unlabeled:false,group:''};$('q').value='';reset()}
+
+  /* ---- hàng tra nhanh + thẻ đang lọc ---- */
+  function renderQuick(){
+    var q=$('quick'), sl=q.scrollLeft; q.textContent=''; q.appendChild(el('span','lbl','Tra nhanh theo việc:'));
+    var counts={}; items.forEach(function(r){ if(!pass(r,'cap')) return; r._cap.forEach(function(c){counts[c]=(counts[c]||0)+1}) });
+    var keys=Object.keys(CAP).filter(function(k){return counts[k]||F.cap[k]}).sort(function(a,b){return (counts[b]||0)-(counts[a]||0)});
+    keys.forEach(function(k){
+      var b=el('button','pill',capName(k)); b.type='button'; b.setAttribute('aria-pressed',F.cap[k]?'true':'false'); b.dataset.cap=k;
+      b.appendChild(el('small',null,String(counts[k]||0))); q.appendChild(b);
+    });
+    q.scrollLeft=sl;
+  }
+  $('quick').addEventListener('click',function(e){var b=e.target.closest('[data-cap]'); if(!b) return; F.cap[b.dataset.cap]=!F.cap[b.dataset.cap]; reset()});
+  function renderActive(){
+    var a=$('active'); a.textContent=''; var n=0;
+    function tag(text,fn){n++; var t=el('span','tag',text); var x=el('button',null,'×'); x.type='button'; x.setAttribute('aria-label','Bỏ lọc '+text); x.addEventListener('click',fn); t.appendChild(x); a.appendChild(t)}
+    FACETS.forEach(function(f){on(F[f.key]).forEach(function(k){tag(f.label+': '+f.name(k),function(){F[f.key][k]=false;reset()})})});
+    on(F.notneed).forEach(function(k){tag('Ẩn mục cần '+NEED[k],function(){F.notneed[k]=false;reset()})});
+    if(F.group) tag('Nhóm: '+F.group,function(){F.group='';reset()});
+    if(F.hideRef) tag('Ẩn mục chỉ tham khảo',function(){F.hideRef=false;reset()});
+    if(F.unlabeled) tag('Gồm mục chưa gắn nhãn',function(){F.unlabeled=false;reset()});
+    a.hidden=!n;
+  }
+
+  /* ---- vẽ kết quả ---- */
+  function trustEl(r){
+    var lv=STATUS[r.curation_status][1], t=el('span','trust'+(lv===0?' t0':''));
+    t.title=STATUS[r.curation_status][0]; t.setAttribute('role','img'); t.setAttribute('aria-label','Độ tin cậy: '+STATUS[r.curation_status][0]);
+    for(var i=0;i<3;i++){var d=el('i',(lv===3||(lv===2&&i<2))?'on':''); t.appendChild(d)}
+    return t;
+  }
+  function row(r){
+    var li=el('li'), det=el('details','item'), sm=el('summary');
+    var st=el('button','star','★'); st.type='button'; st.setAttribute('aria-pressed',picks[r.id]?'true':'false'); st.setAttribute('aria-label','Chọn '+r.ten); st.title='Thêm vào danh sách chọn';
+    st.addEventListener('click',function(e){e.preventDefault();e.stopPropagation(); if(picks[r.id])delete picks[r.id]; else picks[r.id]=1; savePicks(); st.setAttribute('aria-pressed',picks[r.id]?'true':'false'); renderPick()});
+    sm.appendChild(st);
+    sm.appendChild(el('span','name',r.ten));
+    sm.appendChild(trustEl(r));
+    sm.appendChild(el('span','uw'+(r._lab?'':' fb'), r._lab?r.use_when:(r.tom_tat||'(chưa có tóm tắt)')));
+    var ch=el('span','chips');
+    ch.appendChild(el('span','chip kind',KIND[r.loai]||r.loai));
+    if(r._lab){
+      var a=ADOPT[r.adoption]||ADOPT.unknown; ch.appendChild(el('span','chip '+a[1],a[0]));
+      r._cap.forEach(function(c){ch.appendChild(el('span','chip cap',capName(c)))});
+      (r.needs||[]).forEach(function(n){ if(n!=='none'&&n!=='unknown') ch.appendChild(el('span','chip warn',NEED[n]||n)) });
+      if((r.needs||[]).length===1&&r.needs[0]==='none') ch.appendChild(el('span','chip ok','Không cần gì thêm'));
+    } else if(r.domain){ r.domain.split(',').slice(0,3).forEach(function(d){ch.appendChild(el('span','chip',d))}) }
+    if(r.rui_ro) r.rui_ro.split(',').forEach(function(x){ch.appendChild(el('span','chip bad','⚠ '+x))});
+    sm.appendChild(ch);
+    if(r._lab && r.skip_if && r.skip_if!=='unknown') sm.appendChild(el('span','skip',r.skip_if));
+    det.appendChild(sm);
+    var dt=el('div','detail');
+    if(r._lab && r.evidence){
+      var q=el('blockquote','quote',r.evidence);
+      q.appendChild(el('cite',null,'Trích nguyên văn từ entry gốc, căn cứ cho nhãn "'+capName(r._cap[0])+'"'));
+      dt.appendChild(q);
+    }
+    if(!r._lab && r.tom_tat) dt.appendChild(el('div','quote',r.tom_tat));
+    var kv=el('div','kv');
+    var meta=[['Độ chắc của nhãn',r._lab?({cao:'Cao',vua:'Vừa',thap:'Thấp'}[r.confidence]||'—'):'Chưa gắn nhãn'],
+      ['Agent dùng được',r._lab?((r.vessel_fit&&r.vessel_fit.length)?r.vessel_fit.map(function(v){return VESSEL[v]||v}).join(', '):'Chưa rõ'):'—'],
+      ['Xác minh trong entry',r.xac_minh||'—'],['Điểm đọc',r.diem===''||r.diem==null?'—':r.diem+'/10'],
+      ['License',r.license||'—'],['Cập nhật',r.cap_nhat||'—'],['Nguồn',r.nguon||'—']];
+    meta.forEach(function(m){var d=el('div');d.appendChild(el('b',null,m[0]));d.appendChild(el('span',null,m[1]));kv.appendChild(d)});
+    dt.appendChild(kv);
+    dt.appendChild(el('div','path',r.duong_dan));
+    var acts=el('div','acts');
+    var cp=el('button','btn','Sao chép đường dẫn'); cp.type='button'; cp.addEventListener('click',function(e){e.preventDefault();copyText(r.duong_dan,cp,'Sao chép đường dẫn')}); acts.appendChild(cp);
+    if(r.dup_group && groups[r.dup_group].length>1){
+      var gb=el('button','btn','Xem '+(groups[r.dup_group].length-1)+' mục cùng nhóm "'+r.dup_group+'"'); gb.type='button';
+      gb.addEventListener('click',function(e){e.preventDefault();F.group=r.dup_group;reset();window.scrollTo({top:0})}); acts.appendChild(gb);
+    }
+    var gh=el('a','btn','Mở entry gốc trên GitHub'); gh.href='https://github.com/tano2026/AI-Vibe-Toolkit/blob/main/'+r.duong_dan.split('/').map(encodeURIComponent).join('/'); gh.target='_blank'; gh.rel='noopener'; gh.style.textDecoration='none'; gh.style.color='inherit'; acts.insertBefore(gh,acts.firstChild);
+    dt.appendChild(acts);
+    det.appendChild(dt); li.appendChild(det); return li;
+  }
+  function gapLine(){
+    var d=new Date().toISOString().slice(0,10), q=$('q').value.trim();
+    var caps=on(F.cap).map(capName).join(', ');
+    return '| '+d+' | '+(q||caps||'(điền khả năng cần)')+' | (điền dự án) | tra kho: '+[q&&('từ khoá "'+q+'"'),caps&&('việc: '+caps)].filter(Boolean).join('; ')+' | (vì sao chưa đủ) | mở |';
+  }
+  var cur = [];
+  function render(){
+    terms = hay($('q').value).trim().split(/\s+/).filter(Boolean);
+    computeCounts(); renderFilters(); renderQuick(); renderActive();
+    cur = items.filter(function(r){return pass(r)}).sort(sortFn($('sort').value));
+    var ul=$('list'); ul.textContent='';
+    $('count').textContent=cur.length+' mục';
+    $('filterbtn').textContent='Bộ lọc'+(on(F.cap).length+on(F.adopt).length+on(F.vessel).length+on(F.status).length+on(F.kind).length+on(F.notneed).length+(F.hideRef?1:0)+(F.unlabeled?1:0)?' •':'');
+    if(!cur.length){
+      var e=el('li','empty'); e.appendChild(el('h3',null,'Không có mục nào khớp'));
+      e.appendChild(el('div',null,'Thử bớt bộ lọc hoặc đổi từ khoá. Nếu đây là thứ kho còn thiếu, ghi một dòng vào GAP-LOG trước khi đi tìm thêm.'));
+      var ac=el('div','acts');
+      var g=el('button','btn primary','Sao chép dòng GAP-LOG'); g.type='button'; g.addEventListener('click',function(){copyText(gapLine(),g,'Sao chép dòng GAP-LOG')});
+      var c=el('button','btn','Xoá mọi bộ lọc'); c.type='button'; c.addEventListener('click',clearAll);
+      ac.appendChild(g); ac.appendChild(c); e.appendChild(ac); ul.appendChild(e); $('more').hidden=true; return;
+    }
+    cur.slice(0,shown).forEach(function(r){ul.appendChild(row(r))});
+    $('more').hidden=cur.length<=shown;
+    $('more').textContent='Hiện thêm ('+(cur.length-shown)+' mục nữa)';
+  }
+  function reset(){shown=PAGE;render();syncBar()}
+  $('q').addEventListener('input',reset);
+  $('sort').addEventListener('change',reset);
+  $('more').addEventListener('click',function(){shown+=PAGE;render()});
+  $('filterbtn').addEventListener('click',function(){var o=$('filters').classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();showTab('search');$('q').focus()}
+  });
+  function syncBar(){ var h=$('searchbar').offsetHeight; document.documentElement.style.setProperty('--bar-h',h+'px') }
+  window.addEventListener('resize',syncBar);
+
+  $('foot').textContent='Danh mục sinh từ kho bằng tools/build_catalog.py. Lĩnh vực và mức ưu tiên cũ gán bằng từ khoá nên không dùng ở đây; việc cần làm lấy từ nhãn capability đã gắn. Cách tra theo quy trình: catalog/AGENT-ROUTER.md.';
+
+  /* ---- bộ đồ nghề ---- */
+  function pkEl(role,p,cls){
+    var r=byId[p.id], b=el('div','pk '+cls);
+    b.appendChild(el('div','role',role));
+    b.appendChild(el('div','pn',r?r.ten:p.id));
+    b.appendChild(el('div','path',p.id));
+    var dl=el('dl');
+    [['Vì sao chọn',p.vi_sao,''],['Cần gì',p.can,''],['Bỏ qua nếu',p.bo_qua,'warn'],['Còn nghi ngờ',p.nghi_ngo,'warn']].forEach(function(x){
+      if(!x[1]) return; var g=el('div'); g.appendChild(el('dt',null,x[0])); g.appendChild(el('dd',x[2],x[1])); dl.appendChild(g);
+    });
+    b.appendChild(dl);
+    if(p.trich){var q=el('blockquote','quote',p.trich); q.appendChild(el('cite',null,'Trích nguyên văn từ entry'+(p.trich_nhan?': '+p.trich_nhan:''))); b.appendChild(q)}
+    var a=el('div','acts'), o=el('button','btn','Mở trong tra cứu'); o.type='button';
+    o.addEventListener('click',function(){clearAll();$('q').value=r?r.ten:p.id;showTab('search');reset();window.scrollTo({top:0})}); a.appendChild(o); b.appendChild(a);
+    return b;
+  }
+  function renderKit(){
+    var v=$('view-kit'); v.textContent='';
+    v.appendChild(el('div','kit-intro','Bản nháp chờ duyệt, soạn ngày '+KIT.ngay+'. Mỗi việc có một mục chính và một dự phòng, đã được người soạn mở entry gốc để đọc cài đặt, lưu ý và license. Chưa mục nào được chạy thử hay dùng thật: trước khi cam kết cho khách, chạy 30 phút trên việc thật và ghi vào USAGE-LOG.'));
+    var grid=el('div','jobs');
+    KIT.viec.forEach(function(j){
+      var c=el('article','job'); c.appendChild(el('h3',null,j.ten)); c.appendChild(el('div','cap','Nhãn việc: '+capName(j.capability)));
+      c.appendChild(pkEl('Chính',j.chinh,'')); if(j.du_phong) c.appendChild(pkEl('Dự phòng',j.du_phong,'alt'));
+      grid.appendChild(c);
+    });
+    v.appendChild(grid);
+    v.appendChild(el('h2','sect','Chỗ hổng của kho ('+KIT.hong.length+')'));
+    var gp=el('div','gaps');
+    KIT.hong.forEach(function(h){var g=el('div','gap'); g.appendChild(el('b',null,h.kha_nang)); g.appendChild(el('div',null,'Đã tra: '+h.da_tra)); g.appendChild(el('div',null,h.vi_sao)); g.appendChild(el('div','cap','Trạng thái: '+h.trang_thai)); gp.appendChild(g)});
+    v.appendChild(gp);
+    v.appendChild(el('h2','sect','Đã đọc và loại ('+KIT.da_loai.length+')'));
+    var rj=el('div','rej');
+    KIT.da_loai.forEach(function(x){var d=el('div'); d.appendChild(el('b',null,(byId[x.id]?byId[x.id].ten:x.id)+': ')); d.appendChild(document.createTextNode(x.ly_do)); rj.appendChild(d)});
+    v.appendChild(rj);
+  }
+
+  /* ---- tab, giao diện ---- */
+  function showTab(name){
+    var s=name==='search';
+    $('view-search').hidden=!s; $('view-kit').hidden=s;
+    $('tab-search').setAttribute('aria-selected',s?'true':'false'); $('tab-kit').setAttribute('aria-selected',s?'false':'true');
+    try{history.replaceState(null,'',s?'#tra-cuu':'#bo-do-nghe')}catch(e){}
+    if(s) syncBar();
+  }
+  $('tab-search').addEventListener('click',function(){showTab('search')});
+  $('tab-kit').addEventListener('click',function(){showTab('kit')});
+  var modes=['auto','light','dark'], mi=0;
+  try{var sv=localStorage.getItem('kho-theme'); if(sv&&modes.indexOf(sv)>=0)mi=modes.indexOf(sv)}catch(e){}
+  function applyTheme(){
+    var m=modes[mi], root=document.documentElement;
+    if(m==='auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',m);
+    $('theme').textContent='Giao diện: '+({auto:'tự động',light:'sáng',dark:'tối'}[m]);
+    try{localStorage.setItem('kho-theme',m)}catch(e){}
+  }
+  $('theme').addEventListener('click',function(){mi=(mi+1)%3;applyTheme()});
+  applyTheme();
+
+  renderKit(); renderPick(); render();
+  showTab(location.hash==='#bo-do-nghe'?'kit':'search');
+  requestAnimationFrame(syncBar);
+})();
+</script>
+
+</body></html>
+</body></html>

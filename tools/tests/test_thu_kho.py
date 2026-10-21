@@ -367,3 +367,20 @@ class GoiY(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TrangWeb(unittest.TestCase):
+    def test_dung_trang_tu_catalog(self):
+        import importlib.util, json, re
+        p = Path(__file__).resolve().parent.parent / "build_kho_web.py"
+        spec = importlib.util.spec_from_file_location("build_kho_web", p)
+        mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+        html, n = mod.build()
+        m = re.search(r'<script type="application/json" id="data">(.*?)</script>', html, re.S)
+        data = json.loads(m.group(1).replace("<\\/", "</"))
+        self.assertEqual(len(data["items"]), n)
+        self.assertGreater(n, 900)
+        self.assertNotIn("@@DATA@@", html)
+        ids = {i["id"] for i in data["items"]}
+        for v in data["kit"]["viec"]:
+            self.assertIn(v["chinh"]["id"], ids)
