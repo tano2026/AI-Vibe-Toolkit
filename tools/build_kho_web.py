@@ -10,6 +10,7 @@ import argparse, json, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+LIST_FIELDS = ("capability", "vessel_fit", "needs")
 FIELDS = ["id", "loai", "ten", "domain", "xac_minh", "diem", "license", "rui_ro", "nguon", "cap_nhat",
           "duong_dan", "capability", "vessel_fit", "needs", "use_when", "skip_if", "adoption",
           "dup_group", "confidence", "evidence", "curation_status", "tom_tat"]
@@ -22,6 +23,10 @@ def build(root=ROOT):
     for r in cat:
         o = {k: r.get(k, "") for k in FIELDS}
         o["tom_tat"] = (o["tom_tat"] or "")[:200]
+        # catalog.json lưu các trường nhiều giá trị dạng "a,b"; trang cần danh sách
+        for k in LIST_FIELDS:
+            v = o[k]
+            o[k] = v if isinstance(v, list) else [x.strip() for x in str(v or "").split(",") if x.strip()]
         items.append(o)
     kit = json.loads((root / "tools" / "kho-web" / "kit.json").read_text(encoding="utf-8"))
     # ngày dữ liệu = ngày commit catalog gần nhất nếu đọc được, không thì ngày build

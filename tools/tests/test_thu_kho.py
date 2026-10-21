@@ -381,6 +381,9 @@ class TrangWeb(unittest.TestCase):
         self.assertEqual(len(data["items"]), n)
         self.assertGreater(n, 900)
         self.assertNotIn("@@DATA@@", html)
+        for it in data["items"]:  # trang gọi .map() trên các trường này; chuỗi làm trang trống
+            for k in ("capability", "vessel_fit", "needs"):
+                self.assertIsInstance(it[k], list, (it["id"], k))
         ids = {i["id"] for i in data["items"]}
         for v in data["kit"]["viec"]:
             self.assertIn(v["chinh"]["id"], ids)
