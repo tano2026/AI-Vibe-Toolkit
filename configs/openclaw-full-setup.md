@@ -75,7 +75,8 @@ openclaw config get skills.dir
 
 # Clone kho vào đó
 cd ~/.openclaw/skills/
-git clone https://github.com/tano2026/AI-Vibe-Toolkit ./ai-vibe-toolkit
+# Repo là PRIVATE: dùng địa chỉ SSH + deploy key chỉ đọc của máy này (deploy/PRIVATE-REPO.md)
+git clone git@github.com:tano2026/AI-Vibe-Toolkit.git ./ai-vibe-toolkit
 # → Tất cả skills trong kho được load
 
 # Sync khi có update

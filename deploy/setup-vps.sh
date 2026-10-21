@@ -68,7 +68,10 @@ if [ -d "$TOOLKIT_DIR" ]; then
   warn "Đã có $TOOLKIT_DIR — pulling latest..."
   cd "$TOOLKIT_DIR" && git pull
 else
-  git clone https://github.com/tano2026/AI-Vibe-Toolkit "$TOOLKIT_DIR"
+  # Repo là PRIVATE: cần deploy key chỉ đọc đã gắn vào máy này (xem deploy/PRIVATE-REPO.md).
+  # Ghi đè địa chỉ bằng TOOLKIT_REPO nếu dùng cách khác (vd. SSH alias trong ~/.ssh/config).
+  TOOLKIT_REPO="${TOOLKIT_REPO:-git@github.com:tano2026/AI-Vibe-Toolkit.git}"
+  git clone "$TOOLKIT_REPO" "$TOOLKIT_DIR" ||     err "Không clone được $TOOLKIT_REPO. Repo đang private: gắn deploy key chỉ đọc cho máy này rồi chạy lại (deploy/PRIVATE-REPO.md)."
 fi
 log "Kho cloned tại $TOOLKIT_DIR"
 
