@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 274 cái
+## Repos — 275 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -153,6 +153,7 @@
 | CrewAI — GitHub Repo | Framework Python đa-agent viết từ đầu, không dựa trên LangChain — 54k+ star, cho phép ghép nhiều AI agent có vai trò riêng (Researcher, Writer, Reviewer...) làm việc chung như 1 đội (Crew), hoặc dựng luồng sự kiện có kiể… | `/repos/crewai.md` | Có |  |
 | crustc — GitHub Repo | Dự án dịch toàn bộ trình biên dịch `rustc` (viết bằng Rust) sang ngôn ngữ C. Dự án hệ thống/compiler thuần túy, không liên quan AI — 160 sao, nằm trong list trending do độ độc lạ (dịch cả 1 compiler lớn sang ngôn ngữ khá… | `/repos/crustc.md` | Có |  |
 | CubeSandbox — GitHub Repo | CubeSandbox (TencentCloud) là sandbox siêu nhẹ, siêu nhanh (khởi động <60ms, chỉ tốn <5MB RAM/instance) để agent chạy code do AI sinh ra một cách an toàn — mỗi agent có kernel riêng, không share kernel như Docker nên khô… | `/repos/cubesandbox.md` | Có |  |
+| Decision 3.0 (vllm-sr / AMD) — GitHub Repo | Bộ 6 model đa phương thức (kích thước 0,6B đến 27B) trả lời câu hỏi về **văn bản, ảnh và video** bằng **xác suất cho từng đáp án**, không sinh văn bản. Dùng để phân loại, chấm mức độ, tìm vật thể, đánh dấu một mục tiêu trong video. Có API miễn phí và trọng số trên Hugging Face (`d3-nano` ghi Apache-2.0). Hợp để làm bộ… | `/repos/decision-3-vllm-sr.md` | Có |  |
 | Deep Agents — GitHub Repo | Thư viện Python (kèm bản JS) của LangChain — đóng gói sẵn "bộ giáp" cho agent: lập kế hoạch, đọc/ghi file, gọi shell, đẻ sub-agent, tự tóm gọn context khi hội thoại dài — thay vì tự viết tay từng phần như khi dùng LangGr… | `/repos/deep-agents.md` | Có |  |
 | deep-research — Research Ladder L0→L5 Cho Claude Code | 6 composable research skills tạo thành research ladder — mỗi tier build on   top của tier trước, thêm capability. Chọn đúng depth cho đúng task — không   waste token cho task đơn giản, không thiếu depth cho task phức tạp | `/repos/deep-research-skills.md` | Không |  |
 | DeepSeek Harness — GitHub Repo | Đối thủ mã nguồn mở của Claude Code, do chính DeepSeek AI làm — ra mắt developer preview 13/8/2026, cùng ngày với DeepSeek-V4-Pro GA. Triết lý "mọi thứ đều là plugin" — model, tool, session, sandbox, cả UI đều thay được.… | `/repos/deepseek-harness.md` | Có |  |

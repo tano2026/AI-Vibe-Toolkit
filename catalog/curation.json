@@ -8098,8 +8098,8 @@
     "voice-tts",
     "local-llm"
    ],
-   "use_when": "Dùng khi cần ứng dụng máy tính đa năng chạy ngoại tuyến độc lập để nhân bản thiết kế giọng nói và lồng tiếng",
-   "skip_if": "unknown",
+   "use_when": "Dùng khi cần thử clone giọng, thiết kế giọng và lồng tiếng chạy trên máy mình, kèm API cục bộ và MCP cho agent.",
+   "skip_if": "Bỏ qua nếu làm giọng cho khách hoặc kênh kiếm tiền: trọng số mặc định chỉ phi thương mại (CC-BY-NC).",
    "adoption": "cai-ngay-duoc",
    "vessel_fit": [
     "claude-code",
@@ -8111,8 +8111,8 @@
    ],
    "dup_group": "tts-voiceover",
    "confidence": "cao",
-   "curation_status": "da-doc-dau-entry",
-   "evidence": "Ứng dụng desktop mã nguồn mở thay thế ElevenLabs chạy hoàn toàn offline: clone giọng, thiết kế giọng nói, lồng tiếng",
+   "curation_status": "da-doc-entry-goc",
+   "evidence": "AGPL-3.0 covers the application",
    "evidence_skip": ""
   },
   "repos/openmontage": {
@@ -19398,6 +19398,28 @@
    "evidence": "Dùng khi cần tìm công cụ/skill/MCP/stack cho một việc cụ thể (cào web, đăng bài, giọng đọc, CRM...).",
    "evidence_skip": "Cần kế hoạch cài, chạy lệnh → `goi-y-cai-dat`",
    "curation_status": "da-doc-entry-goc"
+  },
+  "repos/decision-3-vllm-sr": {
+   "capability": [
+    "agent-orchestration-memory",
+    "local-llm"
+   ],
+   "use_when": "Dùng khi cần phân loại hoặc chấm mức độ văn bản, ảnh, video và nhận xác suất từng đáp án để đặt ngưỡng.",
+   "skip_if": "Bỏ qua nếu cần mô tả hay tóm tắt ảnh/video bằng văn bản, hoặc ảnh có dữ liệu nhạy cảm của khách.",
+   "adoption": "cai-ngay-duoc",
+   "vessel_fit": [
+    "hermes",
+    "openclaw",
+    "antigravity"
+   ],
+   "needs": [
+    "api-key"
+   ],
+   "dup_group": "",
+   "confidence": "cao",
+   "curation_status": "da-doc-entry-goc",
+   "evidence": "Ảnh và video gửi qua API dưới dạng base64",
+   "evidence_skip": ""
   }
  }
 }

@@ -10,6 +10,9 @@ description: >
 
 # AI-auto-generate-video — GitHub Repo
 
+> ⚠️ Cảnh báo giấy phép (22/10/2026): TTS `OmniVoice` ở đây là engine của VoiceStudio; trọng số `k2-fsa/OmniVoice` ghi CC-BY-NC (phi thương mại). Video cho khách hoặc kênh kiếm tiền cần engine khác có giấy phép thương mại rõ (xem `repos/omnivoice-studio.md`).
+
+
 ## TL;DR
 Pipeline tu dong: bai viet tieng Viet (URL hoac .txt) → video 9:16 hoan chinh trong vai phut. Dung Claude Code slash command `/create-template-video`, ket hop OmniVoice (TTS local, khong can API key) + HyperFrames (render template) + FFmpeg (mux). Output: video.mp4 + voice.mp3 + script.txt — san sang up CapCut/TikTok/Shorts/Reels.
 

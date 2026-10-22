@@ -94,7 +94,7 @@
 | Bazi-Ziwei Skill | skill-import | 8.0 | đọc nguồn |  | `skills/bazi-ziwei-skill/SKILL.md` |
 | Copywriting Prose Creator | skill-import | 8.0 | đọc nguồn |  | `skills/copywriting-prose-creator/SKILL.md` |
 
-## media-video-audio (154 mục, 83 nổi bật)
+## media-video-audio (155 mục, 82 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -119,7 +119,6 @@
 | Graphify | repo | 8.0 | đọc nguồn | tốn tiền | `repos/graphify.md` |
 | Huashu Design (alchaincyf) | repo | 8.0 | đọc nguồn |  | `repos/huashu-design.md` |
 | Kokoro-82M | repo | 8.0 | đọc nguồn | tốn tiền | `repos/kokoro-82m.md` |
-| OmniVoice Studio | repo | 8.0 | đọc nguồn | tốn tiền | `repos/omnivoice-studio.md` |
 | OpenReel Video | repo | 8.0 | đọc nguồn | tốn tiền | `repos/openreel-video.md` |
 | OpenShorts | repo | 8.0 | đọc nguồn | tốn tiền | `repos/openshorts.md` |
 | Product Film Skill | repo | 8.0 | đọc nguồn |  | `repos/product-film-skill.md` |
@@ -138,6 +137,7 @@
 | HyperFrames (HeyGen) — HTML → Video MP4 | skill-import | 8.0 | đọc nguồn |  | `skills/hyperframes-skill/SKILL.md` |
 | Personal Voice | skill-import | 8.0 | đọc nguồn |  | `skills/personal-voice/SKILL.md` |
 | Resona — TTS & Lồng Tiếng Video AI Tiếng Việt | skill-import | 8.0 | đọc nguồn | tốn tiền | `skills/resona/SKILL.md` |
+| Stickman Video Director | skill-kho | 8.0 | đọc nguồn | tốn tiền | `skills/stickman-video-director.md` |
 
 ## dev-code (153 mục, 27 nổi bật)
 
@@ -271,7 +271,7 @@
 | Trending 02/08/2026 — 4 repo khác (tổng hợp ngắn) | repo | 7.0 | đọc nguồn |  | `repos/trending-020826-batch.md` |
 | Skill Seekers — Auto-convert doc/repo/PDF thành SK | skill-kho | 7.0 | đọc nguồn |  | `skills/skill-seekers.md` |
 
-## design-ui (101 mục, 41 nổi bật)
+## design-ui (101 mục, 40 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
@@ -291,7 +291,6 @@
 | hermes-jev-skills | repo | 8.0 | đọc nguồn |  | `repos/hermes-jev-skills.md` |
 | Huashu Design (alchaincyf) | repo | 8.0 | đọc nguồn |  | `repos/huashu-design.md` |
 | Impeccable | repo | 8.0 | chưa chạy |  | `repos/impeccable.md` |
-| OmniVoice Studio | repo | 8.0 | đọc nguồn | tốn tiền | `repos/omnivoice-studio.md` |
 | System Design Primer | repo | 8.0 | đọc nguồn |  | `repos/system-design-primer.md` |
 | SaaS Stack 2026 — GitHub Repo / Infographic Series | stack | 8.0 | đọc nguồn |  | `stacks/saas-stack-2026.md` |
 | Bazi-Ziwei Skill | skill-import | 8.0 | đọc nguồn |  | `skills/bazi-ziwei-skill/SKILL.md` |
@@ -315,8 +314,9 @@
 | DeepSeek Harness — Bộ tài liệu học & tra cứu | stack | 7.0 | đọc nguồn | dữ liệu/ToS | `stacks/deepseek-harness-bo-tai-lieu.md` |
 | claude-motion-design | repo |  | một phần | license,dữ liệu/ToS | `repos/claude-motion-design.md` |
 | product-launch-motion | repo |  | một phần | license,dữ liệu/ToS | `repos/product-launch-motion.md` |
+| Stack: Motion Design Studio với Claude Code (15 re | stack |  | một phần | license,tốn tiền | `stacks/motion-design-studio-claude-code.md` |
 
-## dev-infra (86 mục, 42 nổi bật)
+## dev-infra (87 mục, 42 nổi bật)
 
 | Tên | Loại | Điểm | Xác minh | Rủi ro | File |
 |---|---|---|---|---|---|
