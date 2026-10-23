@@ -1,0 +1,115 @@
+{
+  "slug": "ceo-reviewer",
+  "vessel": "claude-code",
+  "nguon": "thu_kho",
+  "kha_nang": [
+    {
+      "capability": "web-research",
+      "chinh": {
+        "id": "skills/web-research-mcp-skill",
+        "ten": "web-research MCP — 99% Ít Token Hơn Raw HTML",
+        "ly_do": "Dùng khi cần research web tiết kiệm token: CLI/MCP wr gộp search, fetch, tóm tắt (~500 token thay vì ~50.000 token HTML thô).",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "Bỏ qua nếu cần crawl sâu cả site phức tạp (file khuyên dùng Firecrawl)",
+        "evidence": "Research topic → wr research (token hiệu quả hơn nhiều)",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "skills/web-research-mcp-skill/SKILL.md",
+        "capability": "web-research,scraping"
+      },
+      "du_phong": {
+        "id": "repos/web-research-mcp",
+        "ten": "web-research — Token-Efficient Research MCP (99% Ít Token Hơn)",
+        "ly_do": "Dùng khi cần MCP server hỗ trợ tìm kiếm và tóm tắt thông tin web tiết kiệm lượng token ngữ cảnh",
+        "dieu_kien_can": "api-key",
+        "bo_qua_neu": "unknown",
+        "evidence": "Stack: TinyFish (search) + Groq Llama 3.1 8B (summarize) = cheap + fast + clean.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "vua",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "repos/web-research-mcp.md",
+        "capability": "web-research"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/web-research-mcp-skill: cần khoá API -> L3",
+        "repos/web-research-mcp: mới đọc phần đầu entry",
+        "repos/web-research-mcp: cần khoá API -> L3"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "productivity",
+      "chinh": {
+        "id": "skills/automation-audit-ops",
+        "ten": "Automation Audit Ops",
+        "ly_do": "Dùng khi cần kiểm kê automation (cron, hook, MCP, connector): cái nào live, hỏng, trùng, thiếu; rồi chọn keep/merge/cut/fix.",
+        "dieu_kien_can": "claude-code-only",
+        "bo_qua_neu": "Bỏ qua nếu muốn sửa ngay mà không audit trước (skill bắt đầu ở chế độ chỉ đọc)",
+        "evidence": "Use this when the user asks what automations are live, which jobs are broken, where overlap exists",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "skills/automation-audit-ops/SKILL.md",
+        "capability": "productivity,devops"
+      },
+      "du_phong": {
+        "id": "stacks/second-brain-obsidian-claude",
+        "ten": "Second Brain — Obsidian + Claude + Git — Combo Tools theo Use Case",
+        "ly_do": "Dùng khi cần mô hình lưu trữ và tổ chức kiến thức cá nhân lâu dài bằng định dạng Markdown kết hợp trợ lý thông minh",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "unknown",
+        "evidence": "Vault Obsidian đóng vai trò \"bộ nhớ nháp\" trước khi vào kho chính thức.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-dau-entry",
+        "duong_dan": "stacks/second-brain-obsidian-claude.md",
+        "capability": "productivity,agent-orchestration-memory"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/automation-audit-ops: chỉ chạy trong Claude Code",
+        "stacks/second-brain-obsidian-claude: mới đọc phần đầu entry"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    },
+    {
+      "capability": "reference",
+      "chinh": {
+        "id": "skills/documentation-lookup",
+        "ten": "Documentation Lookup (Context7)",
+        "ly_do": "Dùng khi cần tra tài liệu và ví dụ code thư viện/framework bản mới qua Context7 MCP thay vì dữ liệu huấn luyện",
+        "dieu_kien_can": "unknown",
+        "bo_qua_neu": "Bỏ qua nếu agent chưa cấu hình Context7 MCP",
+        "evidence": "Use up-to-date library and framework docs via Context7 MCP instead of training data.",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "skills/documentation-lookup/SKILL.md",
+        "capability": "reference"
+      },
+      "du_phong": {
+        "id": "agents/research-analytics-pro/skills/local-gap-finder",
+        "ten": "Local Gap Finder — Market Gap cho Local Business",
+        "ly_do": "Dùng khi cần tìm khoảng trống thị trường và cơ hội kinh doanh tại địa phương dựa trên dữ liệu đối thủ và khách hàng",
+        "dieu_kien_can": "none",
+        "bo_qua_neu": "Bỏ qua nếu nghiên cứu phạm vi vĩ mô đa ngành hoặc lĩnh vực không cạnh tranh theo địa lý",
+        "evidence": "Dùng khi Nobitano hỏi \"đối thủ quanh đây đang làm gì\", \"còn chỗ trống nào chưa ai fill\", \"mình định giá đúng chưa\"",
+        "adoption": "cai-ngay-duoc",
+        "confidence": "cao",
+        "curation_status": "da-doc-entry-goc",
+        "duong_dan": "agents/research-analytics-pro/skills/local-gap-finder/SKILL.md",
+        "capability": "web-research,reference"
+      },
+      "hong": false,
+      "canh_bao": [
+        "skills/documentation-lookup: chỉ chạy trong Claude Code"
+      ],
+      "nguon": "thu_kho.recommend",
+      "gap_line": ""
+    }
+  ]
+}

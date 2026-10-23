@@ -1,0 +1,28 @@
+{
+  "cong_cu": "agent_factory",
+  "phien_ban": "0.1",
+  "kind": "agent",
+  "slug": "ceo-reviewer",
+  "ngay": "2026-10-23",
+  "vessel": "claude-code",
+  "tu_chu": "L0",
+  "thu_kho": true,
+  "kha_nang": [
+    "web-research",
+    "productivity",
+    "reference"
+  ],
+  "ids": [
+    "skills/web-research-mcp-skill",
+    "repos/web-research-mcp",
+    "skills/automation-audit-ops",
+    "stacks/second-brain-obsidian-claude",
+    "skills/documentation-lookup",
+    "agents/research-analytics-pro/skills/local-gap-finder"
+  ],
+  "hong": [],
+  "env_vars": [
+    "LLM_API_KEY",
+    "WEB_RESEARCH_MCP_SKILL_API_KEY"
+  ]
+}

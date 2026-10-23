@@ -1,0 +1,40 @@
+{
+  "_ghi_chu": "Theo schema TENANT-CONFIG cua agents/MASTER-TEMPLATE-MANIFEST.md, cong khoi agent. compliance_overrides LUON null: nguong compliance chi admin he thong sua, khong expose cho tenant.",
+  "tenant_id": "d44dae9e-89cc-50df-8bb3-a111647ff965",
+  "client_name": "CHƯA CÓ — hỏi CEO",
+  "industry": "CHƯA CÓ — hỏi CEO",
+  "brand_voice": {
+    "tone": "CHƯA CÓ — hỏi CEO",
+    "language": "vi",
+    "reply_language_policy": "CHƯA CÓ — hỏi CEO (mặc định tạm: nháp bằng ngôn ngữ người hỏi kèm bản dịch tiếng Việt, luôn là nháp)",
+    "banned_topics": []
+  },
+  "icp": {
+    "segment": "CHƯA CÓ — hỏi CEO",
+    "deal_size_range": "CHƯA CÓ — hỏi CEO"
+  },
+  "roles_enabled": {"research": true, "marketing": false, "sales": false, "content": false, "dev": false, "designer": false, "media": false},
+  "brand_playbook_ref": "CHƯA CÓ — hỏi CEO",
+  "compliance_overrides": null,
+  "agent": {
+    "slug": "ceo-reviewer",
+    "autonomy": "L0",
+    "vessel": "claude-code",
+    "owner": "CHƯA CÓ — hỏi CEO",
+    "channels": [],
+    "approval_channel": "CHƯA CÓ — hỏi CEO",
+    "handoff": {
+      "holding_reply": "Cảm ơn bạn đã liên hệ. Mình đã chuyển nội dung này cho người phụ trách xem xét. Hiện mình chưa thể xác nhận giá, thời gian hay khoản hoàn tiền nào; người phụ trách sẽ phản hồi bạn.",
+      "sensitive_data_reply": "Cảm ơn bạn. Vì an toàn, bạn vui lòng không gửi số thẻ, mã CVV, mật khẩu hay mã OTP qua tin nhắn hoặc bình luận. Hãy thanh toán qua kênh thanh toán chính thức của chúng tôi.",
+      "templates_approved_by_ceo": false,
+      "approver_sla_hours": "CHƯA CÓ — hỏi CEO",
+      "official_payment_channel": "CHƯA CÓ — hỏi CEO",
+      "fallback_alert_channel": "Telegram trực tiếp tới TELEGRAM_CHAT_ID_CEO"
+    },
+    "status": "active",
+    "launch_mode": {"mode": "draft_only", "weeks": 2, "changed_by": null, "changed_on": null},
+    "kill_switch": {"command": "/stop", "flag": "status=paused", "implemented": false},
+    "env_vars": ["LLM_API_KEY", "WEB_RESEARCH_MCP_SKILL_API_KEY"],
+    "capabilities": ["web-research", "productivity", "reference"]
+  }
+}

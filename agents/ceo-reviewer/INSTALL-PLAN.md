@@ -1,0 +1,242 @@
+# INSTALL-PLAN — kế hoạch cài KHÔ (không thực thi)
+
+> Kế hoạch này chỉ để người duyệt đọc. Agent Factory KHÔNG cài gì, KHÔNG chạy lệnh nào. Người duyệt đọc từng mục, đồng ý rồi tự cài.
+> Mỗi mục phải qua spike 30 phút trên việc thật trước khi cam kết (ghi `catalog/USAGE-LOG.md`).
+
+## Hồ sơ máy của người dựng hồ sơ
+
+Đây là máy đã chạy công cụ, KHÔNG phải máy đích của khách. Chạy lại `thu_kho.machine_profile()` trên máy đích trước khi duyệt cài. Chỉ liệt kê những gì cần để đọc kế hoạch; đường dẫn, tên người dùng và biến môi trường của máy dựng được lược bỏ.
+
+- **he_dieu_hanh**: Linux 6.18.44-fc-v153
+- **kien_truc**: x86_64
+- **python**: 3.13.16
+- **cong_cu_co_san**:
+  - git
+  - node
+  - npm
+  - python
+  - pip
+  - docker
+  - ffmpeg
+- **cong_cu_thieu**: []
+
+## `kho:skills/web-research-mcp-skill`
+
+- **id**: skills/web-research-mcp-skill
+- **ten**: web-research MCP — 99% Ít Token Hơn Raw HTML
+- **loai_muc**: skill-import
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/web-research-mcp-skill/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/web-research-mcp-skill -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-darwin-arm64 -o ~/.local/bin/wr
+    - **kieu**: shell
+    - **nguon_muc**: Setup
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 2
+  -
+    - **loai**: chep-file
+    - **lenh**: curl -L https://github.com/mrvarmazyar/web-research/releases/latest/download/wr-mcp-darwin-arm64 -o ~/.local/bin/wr-mcp
+    - **kieu**: shell
+    - **nguon_muc**: Setup
+    - **co_do**: []
+    - **canh_bao_vang**:
+      - tải nội dung từ mạng
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 3
+  -
+    - **loai**: lenh-khac
+    - **lenh**: chmod +x ~/.local/bin/wr ~/.local/bin/wr-mcp
+    - **kieu**: shell
+    - **nguon_muc**: Setup
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 4
+  -
+    - **loai**: dat-bien-moi-truong
+    - **lenh**: export TINYFISH_API_KEY="<GIA_TRI_KHOA>"  # agent.tinyfish.ai
+    - **kieu**: shell
+    - **nguon_muc**: Setup
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 5
+  -
+    - **loai**: dat-bien-moi-truong
+    - **lenh**: export GROQ_API_KEY="<GIA_TRI_KHOA>"      # console.groq.com (free)
+    - **kieu**: shell
+    - **nguon_muc**: Setup
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **so**: 6
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**:
+  -
+    - **ten**: TINYFISH_API_KEY
+    - **da_dat**: False
+  -
+    - **ten**: GROQ_API_KEY
+    - **da_dat**: False
+- **co_rui_ro**:
+  -
+    - **loai**: khoa-api
+    - **noi_dung**: Cần khoá/token API - tạo, đặt, đổi khoá là việc L3 (CEO).
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L3
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+    - chạm khoá/credential (đặt/đổi khoá, cấp quyền) -> L3: hỏi CEO TRƯỚC khi làm
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: (trống)
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - bỏ biến môi trường 'GROQ_API_KEY' (xoá khỏi .env/profile)
+  - bỏ biến môi trường 'TINYFISH_API_KEY' (xoá khỏi .env/profile)
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu cần crawl sâu cả site phức tạp (file khuyên dùng Firecrawl)
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:skills/automation-audit-ops`
+
+- **id**: skills/automation-audit-ops
+- **ten**: Automation Audit Ops
+- **loai_muc**: skill-import
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/automation-audit-ops/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/automation-audit-ops -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**:
+    - claude-code-only
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+  -
+    - **loai**: pham-vi
+    - **noi_dung**: Chỉ chạy trong Claude Code.
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L1
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: (trống)
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu muốn sửa ngay mà không audit trước (skill bắt đầu ở chế độ chỉ đọc)
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
+## `kho:skills/documentation-lookup`
+
+- **id**: skills/documentation-lookup
+- **ten**: Documentation Lookup (Context7)
+- **loai_muc**: skill-import
+- **chua_chay_that**: True
+- **thong_bao**: CHƯA CHẠY THẬT - đây chỉ là kế hoạch đọc từ entry. Không có lệnh nào được thực thi. Cần người duyệt trước khi cài.
+- **nguon**: skills/documentation-lookup/SKILL.md
+- **doc_entry_goc**: True
+- **buoc**:
+  -
+    - **loai**: chep-file
+    - **lenh**: (sao chép) skills/documentation-lookup -> thư mục skills của vessel (xem agents/*-GUIDE.md của vessel)
+    - **kieu**: mo-ta
+    - **nguon_muc**: suy ra từ loại muc
+    - **co_do**: []
+    - **canh_bao_vang**: []
+    - **can_nguoi_doc_ky**: False
+    - **chua_chay**: True
+    - **mo_ta**: Skill là file Markdown: chép thư mục skill vào nơi vessel đọc skill. Chưa kiểm cách vessel nạp.
+    - **so**: 1
+- **dieu_kien_tien_quyet**:
+  - **can**: []
+  - **thieu**: []
+  - **co**: {}
+  - **can_khac**: []
+- **bien_moi_truong**: []
+- **co_rui_ro**:
+  -
+    - **loai**: license
+    - **noi_dung**: License chưa ghi trong kho - kiểm trước khi dùng cho khách.
+- **co_do**: []
+- **muc_duyet**:
+  - **muc**: L1
+  - **ly_do**:
+    - cài tool nội bộ/dự án: L1 (ghi log)
+  - **ghi_chu**: Không chắc mức nào thì coi là mức cao hơn. Mọi hành động đăng bài/gửi tin/chi tiền sau khi cài vẫn đi qua lằn ranh đỏ.
+- **kiem_tra**:
+  - **tieu_chi**: PASS nếu lệnh kiểm chạy xong không lỗi VÀ đầu ra khớp ví dụ trong entry; FAIL nếu lỗi, thiếu công cụ, hoặc kết quả khác ví dụ (ghi lý do, bỏ mục đó).
+  - **vi_du_trong_entry**: ### Example: Next.js middleware 1. Call **resolve-library-id** with `libraryName: "Next.js"`, `query: "How do I set up Next.js middleware?"`. 2. From results, pick the best match (e.g. `/vercel/next.js`) by name and benchmark score. 3. Call **query-docs** with `libraryId: "/vercel/next.js"`, `query: "How do I set up Next.js middleware?"`. 4. Use the returned snippets and text to answer; include a minimal `middleware.ts` example from the docs if relevant. ### Example: Prisma query 1. Call **resol
+  - **lenh_goi_y**: []
+- **go_cai_dat**:
+  - xoá/khôi phục file đã chép (người tự làm, sao lưu trước)
+- **canh_bao**:
+  - Entry không có mục Setup/Cài đặt chứa khối lệnh; lệnh lấy từ mục Ví dụ - cần người đọc kỹ.
+  - Nhãn trong kho do model/agent gắn, không phải kết luận; chưa mục nào có bằng chứng dùng thật trong dự án của Tano Agency (xem catalog/USAGE-LOG.md).
+  - Bỏ qua nếu: Bỏ qua nếu agent chưa cấu hình Context7 MCP
+- **lan_ranh_do**:
+  - AI không tự chi tiền
+  - AI không tự publish public content
+  - AI không tự cam kết với khách
+
