@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 275 cái
+## Repos — 276 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -208,6 +208,7 @@
 | HyperFrames (HeyGen) — Viết HTML, AI Render Thành Video | 200k downloads/tháng. Viết HTML → Claude render thành video MP4. Không cần   biết edit video. Built for AI agents. Free, Apache 2.0. | `/repos/hyperframes.md` | Không |  |
 | hyperframes-community-skills / session-story — GitHub Repo | Skill của cộng đồng HyperFrames (HeyGen), tác giả Jake Moran, commit mới nhất 24/09/2026: agent **đọc lịch sử chat cục bộ của chính nó với bạn** (Claude Code / Codex), chọn một phiên "điển hình" rồi dựng phim hoạt hình 40–70 giây — lời bạn bay vào như máy bay giấy, lời sửa là cái búa cartoon, lời khen là con bướm, agen… | `/repos/hyperframes-session-story.md` | Có |  |
 | hyperframes-student-kit — GitHub Repo | Bộ dựng video cho Claude Code/Codex của Nate Herk (`nateherkai`): đưa **video quay sẵn** vào, nó cắt khoảng lặng, đề xuất các đoạn nói vấp để mày duyệt, lên kế hoạch kể chuyện và chèn motion graphics bằng HyperFrames + GSAP. README ghi 15 skill, **406 thẻ motion graphics bản nháp** (draft) trong 2 style. 527 sao, thuộc… | `/repos/hyperframes-student-kit.md` | Có |  |
+| iFixAi — GitHub Repo | iFixAi là công cụ audit độc lập cho AI agent (Apache-2.0, ~33.7K sao, bản 4.3.0 ra 22/10/2026). Nó đặt agent vào môi trường giả lập, gửi các yêu cầu cố tình đẩy agent ra khỏi vai trò, rồi một judge model khác hãng chấm A-F. Mặc định chạy 10 inspection, bật `--full-run` thì chạy đủ 61. | `/repos/ifixai.md` | Có |  |
 | Impeccable — GitHub Repo | Bộ "ngôn ngữ thiết kế" cho AI viết giao diện: 1 skill + **24 lệnh** (`/impeccable critique`, `polish`, `typeset`...) + **bộ quét 60 lỗi thiết kế kiểu "AI làm"** chạy bằng `npx impeccable detect`, **không cần AI, không cần API key**. Apache-2.0, ~77,8K sao (07/10/2026), tác giả Paul Bakaus. Đã chạy thử bộ quét thật (v4.… | `/repos/impeccable.md` | Có |  |
 | InfiniteTalk — GitHub Repo | Model của MeiGen-AI tạo video "người nói chuyện" độ dài không giới hạn từ 1 ảnh + 1 file audio — không chỉ khớp môi mà còn khớp cả đầu, dáng người, biểu cảm theo giọng nói. Apache 2.0, dùng thoải mái kể cả thương mại. | `/repos/infinitetalk.md` | Có |  |
 | iptv-org/iptv — GitHub Repo | Kho 127k sao tổng hợp hàng chục nghìn kênh IPTV công khai từ khắp thế giới — dạng file M3U, cộng đồng cùng cập nhật, mở hoàn toàn. | `/repos/iptv-org-iptv.md` | Không |  |
