@@ -250,9 +250,13 @@ code{font-family:var(--mono);font-size:.88em}
   var NEED = {'api-key':'Khoá API','tra-phi':'Trả phí','vps':'VPS','gpu':'GPU','docker':'Docker','claude-code-only':'Chỉ Claude Code','browser':'Trình duyệt','none':'Không cần gì','unknown':'Chưa rõ'};
   var NEEDX = ['api-key','tra-phi','vps','gpu','docker','claude-code-only','browser'];
   var VESSEL = {'hermes':'Hermes','openclaw':'OpenClaw','deepseek-harness':'DeepSeek Harness','antigravity':'Antigravity','claude-code':'Claude Code'};
-  var STATUS = {'da-doc-entry-goc':['Đã đọc entry gốc',3],'da-doc-dau-entry':['Mới đọc phần đầu',2],'chua-gan-nhan':['Chưa gắn nhãn',0]};
+    var STATUS = {'da-doc-entry-goc':['Đã đọc entry gốc',3],'da-doc-dau-entry':['Mới đọc phần đầu',2],'chua-gan-nhan':['Chưa gắn nhãn',0]};
   var KIND = {mcp:'MCP',repo:'Repo',stack:'Stack','skill-kho':'Skill kho','skill-import':'Skill nhập','skill-agent':'Skill Pro Agent'};
   var CONF = {cao:0,vua:1,thap:2};
+  var STOPWORDS = {'bot':1,'can':1,'muon':1,'lam':1,'cho':1,'giup':1,'va':1,'co':1,'thu':1,
+    'cua':1,'toi':1,'mot':1,'cac':1,'nhung':1,'de':1,'voi':1,'la':1,'nao':1,
+    'duoc':1,'the':1,'nhu':1,'trong':1,'tren':1,'ra':1,'vao':1,'hay':1,'hoac':1,'o':1,'tai':1};
+  var PLATFORMS = {'facebook':1,'fanpage':1,'instagram':1,'tiktok':1,'youtube':1,'zalo':1,'threads':1};
   function norm(s){return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0111/g,'d').replace(/\u0110/g,'D').toLowerCase();}
   function capName(c){return CAP[c]?CAP[c][0]:c}
   function hay(s){return ' '+norm(s).replace(/[^a-z0-9]+/g,' ')+' '}
@@ -262,8 +266,8 @@ code{font-family:var(--mono);font-size:.88em}
     byId[r.id]=r;
     r._lab = r.curation_status!=='chua-gan-nhan';
     r._cap = r.capability||[];
-    r._h = hay([r.ten,r.use_when,r.tom_tat,r.id,r.dup_group,r.domain,r.skip_if==='unknown'?'':r.skip_if,
-      r._cap.map(function(c){return capName(c)+' '+(CAP[c]?CAP[c][1]:'')+' '+c}).join(' ')].join(' '));
+    r._capNames = hay(r._cap.map(function(c){return capName(c)+' '+(CAP[c]?CAP[c][1]:'')+' '+c}).join(' '));
+    r._h = hay([r.ten,r.use_when,r.tom_tat,r.id,r.dup_group,r.domain,r.skip_if==='unknown'?'':r.skip_if, r._capNames].join(' '));
     r._n = hay(r.ten+' '+r.id); r._u = hay(r.use_when||'');
     if(r.dup_group){(groups[r.dup_group]=groups[r.dup_group]||[]).push(r)}
   });
@@ -285,12 +289,20 @@ code{font-family:var(--mono);font-size:.88em}
     {key:'kind', label:'Loại', get:function(r){return [r.loai]}, name:function(k){return KIND[k]||k}}
   ];
   function on(map){return Object.keys(map).filter(function(k){return map[k]})}
-  var terms = [];
+  var terms = [], minRequiredTerms = 0;
+  function matchCount(r){
+    if(!terms.length) return 0;
+    var cnt = 0;
+    for(var i=0;i<terms.length;i++){ if(r._h.indexOf(' '+terms[i])>=0) cnt++; }
+    return cnt;
+  }
   function pass(r, skip){
     if(!F.unlabeled && !r._lab && skip!=='unlabeled') return false;
     if(F.hideRef && r.adoption==='chi-tham-khao' && skip!=='hideRef') return false;
     if(F.group && r.dup_group!==F.group) return false;
-    for(var i=0;i<terms.length;i++) if(r._h.indexOf(' '+terms[i])<0) return false;
+    if(terms.length && skip!=='terms'){
+      if((r._mc||0) < minRequiredTerms) return false;
+    }
     for(var j=0;j<FACETS.length;j++){
       var f=FACETS[j]; if(skip===f.key) continue;
       var sel=on(F[f.key]); if(!sel.length) continue;
@@ -302,7 +314,19 @@ code{font-family:var(--mono);font-size:.88em}
     if(nn.length && r._lab){for(var n=0;n<nn.length;n++) if((r.needs||[]).indexOf(nn[n])>=0) return false}
     return true;
   }
-  function rel(r){var s=0;terms.forEach(function(t){if(r._n.indexOf(' '+t)>=0)s+=3; if(r._u.indexOf(' '+t)>=0)s+=1});return s}
+  function rel(r){
+    var s = (r._mc || 0) * 30;
+    terms.forEach(function(t){
+      if(PLATFORMS[t] && r._n.indexOf(' '+t)>=0) s += 40;
+      if(r._n.indexOf(' '+t)>=0) s += 25;
+      if(r._cap.length && hay(capName(r._cap[0])+' '+(CAP[r._cap[0]]?CAP[r._cap[0]][1]:'')).indexOf(' '+t)>=0) s += 20;
+      if(r._u.indexOf(' '+t)>=0) s += 5;
+    });
+    s += (STATUS[r.curation_status]?STATUS[r.curation_status][1]:0) * 5;
+    s += (CONF[r.confidence]!=null?3-CONF[r.confidence]:0) * 3;
+    s += (parseFloat(r.diem)||0) * 2;
+    return s;
+  }
   function sortFn(mode){
     return function(a,b){
       if(mode==='az') return a.ten.localeCompare(b.ten,'vi');
@@ -467,8 +491,22 @@ code{font-family:var(--mono);font-size:.88em}
     return '| '+d+' | '+(q||caps||'(điền khả năng cần)')+' | (điền dự án) | tra kho: '+[q&&('từ khoá "'+q+'"'),caps&&('việc: '+caps)].filter(Boolean).join('; ')+' | (vì sao chưa đủ) | mở |';
   }
   var cur = [];
+  function parseTerms(q){
+    var raw = hay(q).trim().split(/\s+/).filter(Boolean);
+    var meaningful = raw.filter(function(t){ return !STOPWORDS[t] && t.length > 1; });
+    return meaningful.length ? meaningful : raw;
+  }
   function render(){
-    terms = hay($('q').value).trim().split(/\s+/).filter(Boolean);
+    terms = parseTerms($('q').value);
+    items.forEach(function(r){ r._mc = matchCount(r); });
+    if(terms.length){
+      var maxM = 0;
+      items.forEach(function(r){ if(pass(r, 'terms') && r._mc > maxM) maxM = r._mc; });
+      minRequiredTerms = (maxM >= 4) ? maxM - 1 : maxM;
+      if(minRequiredTerms < 1) minRequiredTerms = 1;
+    } else {
+      minRequiredTerms = 0;
+    }
     computeCounts(); renderFilters(); renderQuick(); renderActive();
     cur = items.filter(function(r){return pass(r)}).sort(sortFn($('sort').value));
     var ul=$('list'); ul.textContent='';
