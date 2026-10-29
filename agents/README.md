@@ -25,6 +25,7 @@ Mỗi Pro Agent = agents/company/EXPERT-CORE.md (luật, section riêng) + skill
 
 - **Thủ Kho** (`agents/thu-kho/`, CLI `tools/thu_kho.py`): tra kho theo việc cần làm, in thẻ chi tiết và **kế hoạch cài khô** (không tự cài), ghi GAP-LOG và USAGE-LOG. Luôn đi qua đây trước khi chọn công cụ.
 - **Nhà máy agent** (`agents/agent-factory/`, CLI `tools/agent_factory.py`): dựng và bàn giao một agent riêng lẻ hoặc cả OPC theo công thức 7 bước; `kiem` kiểm cấu trúc và lằn ranh đỏ, `ban-giao` ra gói có checksum. Xem `agents/agent-factory/FACTORY.md`.
+- **Tool Forge** (`agents/tool-forge-team/`): team 3 vessel dựng công cụ làm việc và sản phẩm từ nhu cầu thô. Claude là đầu não (spec + cổng QA), DeepSeek Harness viết logic trong sandbox, Antigravity dựng giao diện và deploy sau OK. Có instruction paste-ready cho Gemini Spark. Hồ sơ thiết kế, chưa chạy thật. Xem `agents/tool-forge-team/README.md`.
 - **Kiểm toán kho** (`tools/audit_kho.py`, kết quả `catalog/AUDIT.md`): kiểm tĩnh và tài nguyên ngoài cho cả 916 mục. Kết quả KHÔNG chứng minh công cụ chạy đúng.
 
 ## Luồng phân công (qua EA Quality Gate — mới, xem task-intake-quality-gate)

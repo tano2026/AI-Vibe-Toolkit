@@ -94,6 +94,7 @@ TẦNG 1 — 8 PRO AGENT (chuẩn hoá đồng đều, có Adapter, tin cậy nh
   agents/designer-pro/               (5 file)
   agents/thu-kho/                    (Thủ Kho: tra kho, gợi ý cài và dùng; CLI tools/thu_kho.py)
   agents/agent-factory/              (Nhà máy agent: công thức 7 bước, khuôn agent và OPC; CLI tools/agent_factory.py)
+  agents/tool-forge-team/            (Tool Forge: team Claude + DeepSeek Harness + Antigravity dựng công cụ; 13 file, chưa chạy thật)
   -> Mỗi cái tự đủ: README (spec+capability map) + ARCHITECTURE + system-prompt
      + skills/ riêng + HERMES-ADAPTER.md
 
