@@ -355,3 +355,16 @@ tiêu đo lường được. Áp dụng cho mọi task sửa code trong hệ sin
 
 ## 🔎 Tra kho trước khi chọn công cụ
 Đọc `catalog/AGENT-ROUTER.md` rồi lọc `catalog/catalog.json` theo `capability` (không đọc trang artifact). Nhãn là nháp, luôn mở entry gốc trước khi dùng.
+
+---
+
+## 📮 Hộp thư giao việc Boss ↔ Worker (31/10/2026)
+**CHỈ BẬT khi Tano báo repo hộp thư `tano-mailbox` đã tạo.** Spec: `agents/TASK-MAILBOX.md`. Bức tranh tổng và lý do chọn IDE: `stacks/claude-boss-hop-thu-agent.md`.
+
+Antigravity là agent tương tác, không chạy ngầm. Task `to: antigravity` chỉ được xử lý khi Tano mở phiên và bảo đọc hộp thư.
+- Mỗi lần: `git pull` hộp thư, làm các file `inbox/` có `to: antigravity` mà `outbox/` chưa có file `.antigravity.md`.
+- Ghi `outbox/T-xxx.antigravity.md` theo template trong spec: `state: doing` trước khi làm, rồi bằng chứng thật và tự kiểm từng tiêu chí.
+- KHÔNG làm task `risk: high`, dừng ở `state: blocked` chờ Tano. Việc đụng VPS thật coi như tối thiểu `risk: medium`.
+- Vào VPS bằng `ssh` trong terminal. Không phụ thuộc Remote-SSH extension của IDE: Antigravity 2.0 / Agent Manager chưa có Remote-SSH và bản IDE đã có báo cáo sập trên VPS không AVX2 (nguồn trong file stack nói trên).
+- Chỉ đọc kho AI-Vibe-Toolkit bằng token chỉ-đọc. Không ghi kho.
+- Không sửa `inbox/` và `reviews/`.

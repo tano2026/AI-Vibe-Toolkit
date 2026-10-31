@@ -14,6 +14,8 @@
 
 Hermes + OpenClaw + DeepSeek Harness gộp chung gọi là "Team Thục Hán" khi chạy trong project OPC — biệt danh nội bộ, giao tiếp qua file tasks/*.md, tách runtime với Claude Code.
 
+**Hộp thư Boss ↔ Worker (31/10/2026, thiết kế, chưa chạy thật):** kênh giao việc có chấm điểm giữa Boss (Claude Code) và các worker, dùng 1 repo git riêng `inbox/outbox/reviews`. Spec: TASK-MAILBOX.md. Bức tranh tổng + IDE khuyên dùng: stacks/claude-boss-hop-thu-agent.md. Chỉ bật khi Tano báo repo hộp thư đã tạo.
+
 ## 8 Pro Agent (Talent — năng lực, khác Vessel)
 
 research-analytics-pro/ . content-pro/ . sales-ceo/ . digital-marketing-agent/ . infra-ops-agent/ . media-pro/ . designer-pro/ . customer-satisfaction-pro/
