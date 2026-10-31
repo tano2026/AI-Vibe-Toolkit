@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 276 cái
+## Repos — 277 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -350,6 +350,7 @@
 | YASGU — YouTube Automatised Shorts Generator & Uploader | 80 stars — Auto tạo YouTube Shorts từ text/script: TTS voiceover → ghép background video → add subtitles → upload lên YouTube. Pipeline tự động từ A-Z, không cần edit tay. | `/repos/yasgu.md` | Có |  |
 | yt-dlp — Download & Extract Info Mọi Platform | 174k stars — downloader video/audio mạnh nhất hiện tại. Hỗ trợ 1000+ website: YouTube, TikTok, Instagram, Facebook, Twitter/X, Twitch... Hermes dùng để extract metadata, download video để xử lý tiếp, research competitor … | `/repos/yt-dlp.md` | Có |  |
 | YuE2 Studio — GitHub Repo | App desktop tạo nhạc AI đầy đủ (lời + hát + nhạc đệm) chạy local trên GPU của mày, dựa trên model mở YuE2 (M-A-P) — chất lượng cạnh tranh trực tiếp với Suno v5/v6 theo benchmark công bố. Có bản Windows tích hợp sẵn MCP server cho Claude gọi trực tiếp. | `/repos/yue2-studio.md` | Không |  |
+| zalo-agent — GitHub Repo | Con AI agent tự host (chạy trên máy/VPS của mình) sống ngay trong nick Zalo cá nhân. Quét QR như đăng nhập Zalo Web, cắm API key AI (OpenAI-compatible hoặc Anthropic), bật công tắc là nick Zalo tự trả lời khách. Gồm 15 tool, nối thêm MCP server ngoài, dashboard web, lập lịch, bộ nhớ lâu dài. TypeScript + SQLite, MIT. T… | `/repos/zalo-agent.md` | Không |  |
 | ziwei-doushu (Renhuai123) — GitHub Repo | Web app Next.js đầy đủ + dataset 518,400 lá số mẫu cho Tử Vi Đẩu Số, build trên chính iztro — clone về là có ngay 1 sản phẩm tử vi hoàn chỉnh thay vì code từ đầu. 2,490⭐, MIT (code) + tự do thương mại (data, chỉ cần ghi … | `/repos/ziwei-doushu.md` | Không |  |
 
 ## Skills — 27 cái
