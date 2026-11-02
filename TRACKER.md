@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 277 cái
+## Repos — 278 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -82,6 +82,7 @@
 | agency-agents-app — GitHub Repo | `agency-agents` (repo goc, da co san trong kho) la 1 kho 232 agent persona chuyen biet chia thanh 16 phong ban. Van de: moi coding tool (Claude Code, Cursor, Codex, Gemini CLI...) muon persona duoi 1 dinh dang khac nhau,… | `/repos/agency-agents-app.md` | Có |  |
 | Agent Toolkit for AWS — GitHub Repo | Bộ MCP servers + skills + plugins chính thức của AWS — giúp AI agent build, deploy, và manage ứng dụng trên AWS. Official từ Amazon, không phải third-party. 1.1K stars nhưng đây là tool enterprise-grade. | `/repos/agent-toolkit-for-aws.md` | Không |  |
 | agent-browser (Vercel Labs) — GitHub Repo | CLI browser automation cho AI agent — Claude Code tự mở trình duyệt thật, click, test app vừa code, tự verify chứ không chỉ nói "xong" rồi thôi. 39.1K stars, Apache-2.0, nhẹ hơn Playwright MCP nhiều lần (tránh lỗi tốn to… | `/repos/agent-browser.md` | Không |  |
+| agent-desktop (vercel-labs) — GitHub Repo | CLI Rust, giấy phép Apache-2.0, cho AI agent điều khiển app desktop thật (macOS, Windows, Linux) bằng cách đọc cây accessibility của hệ điều hành thay vì chụp màn hình. Agent nhận JSON kèm mã tham chiếu cho từng nút, rồi click, gõ, cuộn theo mã đó. Đây là "computer use" cho app không có API. Nó KHÔNG phải công cụ điều… | `/repos/agent-desktop.md` | Có |  |
 | Agent-Reach — Cho AI Đọc Twitter/LinkedIn Không Cần API Key (29k⭐) | Cho phép AI agents đọc content từ internet mà không cần API keys. Giải   quyết bài toán authentication và rate limiting cho web scraping. | `/repos/agent-reach.md` | Không |  |
 | agent-research-skills — 31 Skills Cho Academic Research Pipeline | 31 skills cover toàn bộ academic research paper lifecycle — từ literature   search đến slide generation. Extracted từ 17 GitHub repos nghiên cứu   LLM-agent-driven research automation. Dùng cho: Researcher, PhD student,  | `/repos/agent-research-skills-academic.md` | Không |  |
 | agent-skills — 24 Engineering Skills Của Senior Engineer Thành AI Agent | Bộ 24 skills mã hóa workflow, quality gates, và best practices mà senior   engineers dùng khi build software — packaged để AI agents follow nhất quán   qua mọi phase development. Vấn đề: AI coding agent thường skip steps | `/repos/agent-skills.md` | Không |  |
