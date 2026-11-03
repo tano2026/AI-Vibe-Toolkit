@@ -71,7 +71,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 278 cái
+## Repos — 279 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -222,6 +222,7 @@
 | last30days — AI Tìm Signal Từ Người Thật, Không Phải Google Biên Tập | 34k stars, 1 GitHub Trending. Slash command cho Claude Code: → AI search   Reddit, X, YouTube, HackerNews, Polymarket cùng lúc → tổng hợp signal thật   từ người dùng thật. | `/repos/last30days.md` | Không |  |
 | learn-harness-engineering — GitHub Repo | Khoa hoc project-based day tu 0 den 1 ve Harness Engineering cho AI coding agent — 12 bai giang, 6 project, 14 ngon ngu (co tieng Viet). 9.3K stars. Tong hop tu tai lieu chinh thuc cua OpenAI va Anthropic. Skill `harness… | `/repos/learn-harness-engineering.md` | Không |  |
 | LibreChat — tự host ChatGPT-clone, gộp mọi LLM + MCP vào 1 chỗ | Giao diện chat AI tự host, giống ChatGPT nhưng không khoá vào 1 hãng — cắm được OpenAI, Anthropic, Gemini, DeepSeek, AWS Bedrock, Azure, Mistral, OpenRouter... cùng lúc, có Agents, hỗ trợ MCP, Artifacts, Code Interpreter… | `/repos/librechat.md` | Có |  |
+| Lightpanda (lightpanda-io/browser) — GitHub Repo | Trình duyệt headless viết từ đầu bằng Zig, dành cho AI agent và cào dữ liệu. Có chạy JavaScript (V8) nhưng KHÔNG vẽ giao diện, nên nhẹ và nhanh hơn Chrome headless theo số liệu của chính hãng (khoảng 16 lần ít RAM, 9 lần nhanh, chưa ai độc lập kiểm). Nói chuyện qua CDP nên Puppeteer và Playwright nối vào được. Có sẵn l… | `/repos/lightpanda.md` | Có |  |
 | LightRAG — GitHub Repo | Framework RAG kết hợp knowledge graph + vector embedding, nhẹ và nhanh hơn Microsoft GraphRAG. 38k+ sao, được HKU nghiên cứu, đã publish tại EMNLP2025 — một trong những repo RAG được cite/dùng nhiều nhất hiện nay. | `/repos/lightrag.md` | Có |  |
 | llama_index — GitHub Repo | Biến kho tài liệu riêng thành agent trả lời được thật — xương sống cho RAG (Retrieval-Augmented Generation) đúng nghĩa. 51,9k sao, 8,1k fork. | `/repos/llama_index.md` | Không |  |
 | LMCache — Tăng Tốc LLM Gấp Nhiều Lần, Tiết Kiệm Chi Phí | 8.6k stars. Cache thông minh cho LLM — context dài không cần recompute, tốc   độ tăng vọt, tiền API giảm mạnh. | `/repos/lmcache.md` | Có |  |
