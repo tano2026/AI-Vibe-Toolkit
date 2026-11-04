@@ -29,6 +29,8 @@ Strix chay tu dong tren moi pull request — block code co lo hong truoc khi mer
 
 ## Setup tung buoc
 
+> ⚠️ **Cập nhật 04/11/2026 (đã kiểm một phần):** lệnh `--ci-mode` ở dưới KHÔNG còn tồn tại. Tao cài `strix-agent` 1.7.0 vào venv cách ly và đọc `strix --help`: chế độ CI hiện là `-n` (không tương tác) kèm `-m quick` (hoặc `standard`, `deep`) và tuỳ chọn `--fail-on <mức>` (thoát mã 2 khi có lỗ hổng từ mức đó trở lên). Ví dụ: `strix -n --target . -m quick --fail-on high`. `pip install strix-agent` vẫn cài được. README gốc hiện khuyên cài bằng `curl -sSL https://strix.ai/install | bash` (tao không kiểm được vì mạng bị chặn). Cần Docker đang chạy và khoá LLM. Lệnh `docker run strix/strix` ở dưới tao chưa kiểm. Số sao hiện khoảng 72 nghìn theo README, không còn là 27.8K. Dùng trong Claude Code: `npx skills add usestrix/strix` (README nói thêm 9 skill, tao chưa chạy). Tao chưa chạy quét lần nào. Chỉ quét hệ thống mày sở hữu hoặc có văn bản cho phép. Bản gộp cài đặt: `stacks/claude-code-4-plugin-nen-cai.md`.
+
 ```bash
 # Cai qua pip
 pip install strix-agent
@@ -49,7 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install strix-agent
-      - run: strix --target . --ci-mode
+      - run: strix -n --target . -m quick --fail-on high   # đã sửa 04/11/2026: --ci-mode không còn
 ```
 
 ## Vi du thuc te

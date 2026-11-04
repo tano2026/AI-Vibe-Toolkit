@@ -53,6 +53,31 @@ Mày hỏi Claude *"làm thế nào dùng Next.js 15 server actions?"* — Claud
 
 ---
 
+## 🖥️ Cài cho Claude Code (cập nhật 04/11/2026)
+
+Phần "Setup trong 3 bước" ở trên chỉ dành cho Claude Desktop. Với Claude Code (theo README gốc `upstash/context7`, đã đối chiếu một phần):
+
+```bash
+# Cách README khuyên: đăng nhập OAuth, tạo khoá API, cài skill (cần Node 22.13+)
+npx ctx7 setup --claude
+
+# Hoặc nối MCP từ xa (URL và header lấy từ README, cú pháp lệnh đã kiểm bằng `claude mcp add --help`)
+claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "Authorization: Bearer YOUR_API_KEY"
+
+# Hoặc chạy cục bộ qua npx
+claude mcp add context7 -- npx -y @upstash/context7-mcp
+```
+
+- Đã kiểm: gói `@upstash/context7-mcp` (4.5.0, MIT) và `ctx7` (0.9.0, MIT) có trên npm, `ctx7 --help` liệt kê lệnh `login`, `setup`, `library`, `docs`, `search`.
+- Chưa chạy: `ctx7 setup` (cần đăng nhập), các lệnh `claude mcp add` với Context7 thật.
+- Khoá API khuyến nghị, không bắt buộc. Khoá miễn phí có giới hạn tần suất cao hơn bản không khoá, README không ghi con số.
+- Công cụ MCP: `resolve-library-id` và `query-docs`. Gọi bằng "use context7" hoặc chỉ thẳng thư viện kiểu `/org/project`. Muốn tự kích hoạt thì thêm một quy tắc vào `CLAUDE.md`.
+- Repo chỉ chứa mã MCP server (khoảng 64 nghìn sao, MIT). Phần backend, bộ phân tích và bộ cào docs là mã đóng.
+- Docs trong Context7 do cộng đồng đóng góp, hãng nói không đảm bảo chính xác hay an toàn. Gặp nội dung đáng ngờ thì báo bằng nút Report.
+- Gỡ: `npx ctx7 remove`.
+
+---
+
 ## 💡 Dùng thế nào
 
 Chỉ cần thêm **"use context7"** vào cuối prompt:

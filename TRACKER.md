@@ -11,7 +11,7 @@
 
 ---
 
-## MCPs — 55 cái
+## MCPs — 56 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -61,6 +61,7 @@
 | Sequential Thinking — Bắt AI Suy Nghĩ Trước Khi Làm | Bắt AI chia nhỏ bài toán, suy nghĩ có cấu trúc trước khi làm | `/mcps/sequential-thinking.md` | Có |  |
 | Slack — MCP Server | MCP chính thức cho Slack — Claude đọc lịch sử kênh, tìm tin nhắn, và đăng update thẳng vào Slack workspace mà không cần rời conversation. | `/mcps/slack.md` | Không |  |
 | stable-diffusion-mcp — Image AI Local, $0 Mãi Mãi (GPU Cần Thiết) | GitHub: https://github.com/Ichigo3766/image-gen-mcp Stars: 39⭐ License: MIT | `/mcps/stable-diffusion-mcp.md` | Có |  |
+| Supabase MCP — Cho Claude Code đọc và sửa database Supabase (chính chủ, hosted) | MCP server chính chủ của Supabase, chạy hosted tại `https://mcp.supabase.com/mcp`. Cho Claude Code liệt kê bảng, chạy SQL, đọc log, xem cảnh báo bảo mật, sinh kiểu TypeScript, tìm docs, deploy Edge Function. Đăng nhập bằng OAuth qua trình duyệt, không cần token cá nhân. Repo `supabase/mcp` giấy phép Apache-2.0, khoảng… | `/mcps/supabase-mcp.md` | Có |  |
 | Taibu MCP (太卜) — MCP Server | MCP server tổng hợp 15 công cụ luận giải: Bát Tự, Tử Vi, Lục Hào, Mai Hoa, Kỳ Môn, Đại Lục Nhâm, Tarot, lịch vạn niên... gắn vào Claude là dùng được ngay, không cần build gì. 241⭐. | `/mcps/taibu-mcp.md` | Có |  |
 | Tavily — MCP Server | Search API build riêng cho AI agent chứ không phải cho người — query vào, ra thẳng JSON sạch (summary, content, citation) sẵn sàng nhét vào prompt, không phải tự bóc HTML như search thường. Free 1,000 credit/tháng. | `/mcps/tavily-mcp.md` | Có |  |
 | TikHub — MCP Server | Một API key duy nhất để lấy data real-time từ 16+ mạng xã hội (TikTok, Douyin, Instagram, YouTube, Twitter/X, Xiaohongshu, Threads, Reddit...) — 1000+ endpoints REST + 990+ MCP tools cho AI agent. Trả tiền theo request, … | `/mcps/tikhub.md` | Có |  |
@@ -71,7 +72,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 279 cái
+## Repos — 280 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -303,6 +304,7 @@
 | Shortcast — GitHub Repo | App macOS native: thả 1 video dài vào → AI tự cắt ra 3–6 đoạn dễ viral, tự caption, tự reframe dọc 9:16, tự schedule — **chạy 100% trên máy, không lên cloud**. 334⭐, ra mắt tháng 5/2026, Apache 2.0. | `/repos/shortcast.md` | Không |  |
 | Shortlist Thực Dùng Được — awesome-llm-apps (175K sao) | Đã clone toàn bộ repo, lọc qua 13 category / 100+ app. Đây KHÔNG phải liệt kê hết — chỉ giữ lại app khớp trực tiếp domain thật của Tano Agency (ABTRIP, Wonder Mart, Tano Cafe, GMSP, vận hành nội bộ). Mỗi app đều là DEMO/… | `/repos/awesome-llm-apps-shortlist.md` | Không |  |
 | skillops (Xerus-ai/skillops) — GitHub Repo | skops la 1 CLI de quan ly skill file (SKILL.md) cho AI coding agent o quy mo lon — dung nhu DevOps quan ly ha tang vay. No lint, danh gia, dong bo, va theo doi (observability) toan bo skill trong 1 to chuc, giai quyet du… | `/repos/skillops.md` | Có |  |
+| SkillUI (amaancoderx/npxskillui) — GitHub Repo | CLI Node, giấy phép MIT, đọc một website, thư mục code hoặc repo git rồi sinh ra gói "design system" (`DESIGN.md`, `SKILL.md`, `CLAUDE.md`, file `.skill`) để Claude Code đọc và dựng giao diện đúng màu, font, khoảng cách. Chạy hoàn toàn cục bộ, không cần AI hay API key. Tao đã cài và chạy thử trên một project mẫu nhỏ: c… | `/repos/skillui.md` | Có |  |
 | Skyvern — GitHub Repo | Tự động hoá trình duyệt bằng Vision LLM + computer vision thay vì XPath/DOM parsing truyền thống — nghĩa là script không vỡ mỗi khi website đổi layout. SDK tương thích Playwright, kèm no-code workflow builder cho người k… | `/repos/skyvern.md` | Có |  |
 | Social Media Caption Generator (rediumvex/theromanknox) — GitHub Repo | 1 prompt vào → caption tối ưu riêng cho từng nền tảng (Instagram Reels, Carousel, TikTok, Threads, Facebook, YouTube Shorts) ra cùng lúc — mỗi caption kèm breakdown công thức/loại hook/loại CTA đã dùng. MIT, public thật,… | `/repos/social-media-caption-generator.md` | Không |  |
 | SRT Whiteboard Animation — GitHub Repo | Chuyển file phụ đề SRT thành video hoạt hình vẽ tay phong cách bảng trắng (nền giấy vàng kem ấm, nét bút chảy dần) — mỗi cảnh vẽ theo đúng thứ tự phụ đề. Bản gốc `geeklee/srt-whiteboard-animation` 2,6k sao, 421 fork — có nhiều fork mô tả y hệt (zjx516500, HuyAK47, 899ms, chixig...), dùng đúng bản gốc này. | `/repos/srt-whiteboard-animation.md` | Không |  |
@@ -387,7 +389,7 @@
 | Vox Director — Agent Skill / Claude Code Skill | Gõ 1 chủ đề (1 câu) → agent tự viết script, dựng poster collage giấy cắt dán kiểu Vox, cho poster đó chuyển động, lồng tiếng, thêm nhạc, ghép caption + watermark bằng ffmpeg → ra 1 file MP4 hoàn chỉnh. Cả pipeline chạy n… | `/skills/vox-director.md` | Có |  |
 | Voxstyle Prompt Engine — Dựng Video Documentary Paper-Collage Bằng 1 Prompt | Dán 1 đoạn system prompt vào Claude/ChatGPT/Gemini, agent tự dẫn dắt qua 10 bước (chọn niche → 10 ý tưởng → chọn độ dài → viết script → voiceover → chia beat → prompt ảnh hàng loạt → video prompt → thumbnail), ra sản phẩ… | `/skills/voxstyle-prompt-engine.md` | Có |  |
 
-## Stacks — 19 cái
+## Stacks — 20 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -396,6 +398,7 @@
 | 20 Skill Nền — Combo Skill theo Loại Dự Án (nâng cấp từ bundle 10) | Nâng cấp từ `10-skill-bat-buoc-du-an-moi.md` — thêm 10 skill mới, và quan trọng hơn: **gắn tag loại dự án cho từng skill**, để 1 dự án mới không phải nạp cả 20 mà chỉ tự lấy đúng nhóm cần. Không còn "bundle cứng nạp hết"… | `/stacks/20-skill-nen-theo-loai-du-an.md` | Không |  |
 | AI Content Stack — Workflow Viết Content Hoàn Chỉnh Cho Người Việt | Use case: Tạo content marketing chuyên nghiệp với AI — từ ý tưởng đến đăng   bài Target: Founder, marketer, creator không có team content | `/stacks/ai-content-stack-viet.md` | Không |  |
 | Antigravity 2.0 + Mirage Tesseract + Remotion — Combo Dựng Video Trên Máy Cá Nhân | Dùng khi cần dựng video chất lượng cao, cần tinh chỉnh tay (color grade, mix âm thanh, motion graphics phức tạp) mà không muốn mở Premiere/CapCut thủ công — Antigravity 2.0 điều phối, một agent session lo phần code-driven (Remotion), một agent session khác lo phần hậu kỳ tinh chỉnh (Tesseract). Chạy trên máy cá nhân, k… | `/stacks/antigravity-mirage-remotion-combo.md` | Không |  |
+| Bộ 4 thứ nên cài cho Claude Code: Context7 + Supabase MCP + Strix + SkillUI | Bài chia sẻ gốc ghi "5 plugin phải cài cho Claude Code" nhưng chỉ nêu được 4 tên: Context7, Supabase, Strix, SkillUI. Tao chưa biết cái thứ 5. Gọi chung là "plugin" nhưng 4 thứ này là 4 loại khác nhau (MCP, CLI, skill) nên cách cài khác nhau. Tao đã kiểm cú pháp cài và chạy thử một phần (ghi rõ từng cái bên dưới). Trướ… | `/stacks/claude-code-4-plugin-nen-cai.md` | Có |  |
 | Chuỗi 9 bước viết Prompt — Combo Skill theo Use Case | Ý tưởng lộn xộn trong đầu → prompt hoàn chỉnh sẵn dùng (rõ mục tiêu, đủ context, đúng giọng văn) — 9 skill nối tiếp nhau, mỗi skill xử lý đúng 1 việc. Nguồn cảm hứng: infographic "9 Claude Skills that write your prompts … | `/stacks/chuoi-9-buoc-viet-prompt.md` | Không |  |
 | Cinematic Techniques cho AI Video — 3 nguồn, chọn cái nào | Có 3 skill cùng chủ đề "ngôn ngữ điện ảnh cho prompt AI". **Khuyến nghị: không cài cả 3.** Dùng phần kiến thức (text thuần) qua `agents/designer-pro/skills/cinematic-shot-prompt-core/SKILL.md`, và chỉ cài `higgsfield-camera` nếu thật sự dùng Higgsfield. Cái cần tool/dịch vụ ngoài (fal, muapi) để sau. Nguồn: trang tổng… | `/stacks/cinematic-techniques-ai-video.md` | Không |  |
 | Claude Boss + Team Thục Hán + Antigravity — 1 đầu mối, hộp thư giao việc, chấm điểm trước khi trình | Tano chỉ nói chuyện với 1 con Boss (Claude Code chạy local, mở trong Antigravity IDE). Boss viết spec kèm tiêu chí nghiệm thu, thả vào hộp thư (1 repo git riêng), Hermes / Antigravity / OpenClaw (DSH vào sau) nhận làm, Boss tự kiểm lại rồi mới trình. Ý gốc lấy từ một bài chia sẻ cách dùng "1 Boss + đội thực thi" của ng… | `/stacks/claude-boss-hop-thu-agent.md` | Có |  |
