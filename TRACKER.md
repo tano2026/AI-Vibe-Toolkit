@@ -72,7 +72,7 @@
 | YouTube MCP (mcp-youtube) — MCP Server | MCP cho Claude tự đọc transcript YouTube và tóm tắt video chỉ bằng cách dán link — không cần YouTube API key, chỉ cần yt-dlp cài local. | `/mcps/mcp-youtube.md` | Có |  |
 | Zapier — MCP Server | MCP chính thức của Zapier — mở cửa vào 9,000+ app và 40,000+ action có sẵn trong hệ sinh thái Zapier, qua đúng 1 kết nối MCP. Không cần build riêng từng connector cho từng dịch vụ. | `/mcps/zapier.md` | Không |  |
 
-## Repos — 280 cái
+## Repos — 281 cái
 
 | Tên | Tóm tắt (dùng để làm gì) | File | Agent Integration | Quay video |
 |-----|---------------------------|------|--------------------|------------|
@@ -222,6 +222,7 @@
 | Langfuse — GitHub Repo | Nền tảng quan sát/trace LLM mã nguồn mở (MIT), tự host miễn phí hoàn toàn — có tích hợp CHÍNH THỨC riêng cho TypeSafe Jev (trace từng quyết định Choice/Score/Noul), không phải tool quan sát chung chung phải tự nối. | `/repos/langfuse.md` | Có |  |
 | last30days — AI Tìm Signal Từ Người Thật, Không Phải Google Biên Tập | 34k stars, 1 GitHub Trending. Slash command cho Claude Code: → AI search   Reddit, X, YouTube, HackerNews, Polymarket cùng lúc → tổng hợp signal thật   từ người dùng thật. | `/repos/last30days.md` | Không |  |
 | learn-harness-engineering — GitHub Repo | Khoa hoc project-based day tu 0 den 1 ve Harness Engineering cho AI coding agent — 12 bai giang, 6 project, 14 ngon ngu (co tieng Viet). 9.3K stars. Tong hop tu tai lieu chinh thuc cua OpenAI va Anthropic. Skill `harness… | `/repos/learn-harness-engineering.md` | Không |  |
+| Lemo-Opuscar (lemomo-ai/lemo-opuscar) — Bộ phong cách phim làm bằng code cho Claude Code | Thư viện 66 "phong cách phim" (màu nước, tranh khắc gỗ, ukiyo-e, bản tin vệ tinh, pixel RPG...) cho coding agent. Mỗi phong cách là một file prompt `STYLE.md` kèm một phim demo vẽ hoàn toàn bằng code (canvas/WebGL render từng khung, nhạc và giọng đọc cũng sinh bằng code), không dùng model video, không dùng stock footag… | `/repos/lemo-opuscar.md` | Có |  |
 | LibreChat — tự host ChatGPT-clone, gộp mọi LLM + MCP vào 1 chỗ | Giao diện chat AI tự host, giống ChatGPT nhưng không khoá vào 1 hãng — cắm được OpenAI, Anthropic, Gemini, DeepSeek, AWS Bedrock, Azure, Mistral, OpenRouter... cùng lúc, có Agents, hỗ trợ MCP, Artifacts, Code Interpreter… | `/repos/librechat.md` | Có |  |
 | Lightpanda (lightpanda-io/browser) — GitHub Repo | Trình duyệt headless viết từ đầu bằng Zig, dành cho AI agent và cào dữ liệu. Có chạy JavaScript (V8) nhưng KHÔNG vẽ giao diện, nên nhẹ và nhanh hơn Chrome headless theo số liệu của chính hãng (khoảng 16 lần ít RAM, 9 lần nhanh, chưa ai độc lập kiểm). Nói chuyện qua CDP nên Puppeteer và Playwright nối vào được. Có sẵn l… | `/repos/lightpanda.md` | Có |  |
 | LightRAG — GitHub Repo | Framework RAG kết hợp knowledge graph + vector embedding, nhẹ và nhanh hơn Microsoft GraphRAG. 38k+ sao, được HKU nghiên cứu, đã publish tại EMNLP2025 — một trong những repo RAG được cite/dùng nhiều nhất hiện nay. | `/repos/lightrag.md` | Có |  |
